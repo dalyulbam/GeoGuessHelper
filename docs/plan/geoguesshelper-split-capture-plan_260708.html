@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessHelper — 구글 로드뷰 2분할 뷰어 · 장면 캡처 · 지리/문화/경제 분석 설계 (260708)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+.tagrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.t{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent-deep)}
+.t.a2{background:#fdf1d6;color:#8a5a00}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre .c{color:#7f978f}
+pre .k{color:#7fd6b6}
+pre .s{color:#e5c07b}
+.sev{font-size:11px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap}
+.sev.h{color:var(--danger);background:var(--danger-soft)} .sev.m{color:var(--warn);background:var(--warn-soft)} .sev.l{color:var(--muted);background:#eef1f0}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--ink-2);margin-top:8px}
+.flow .box{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
+.flow .box b{color:var(--accent-deep)}
+.flow .arr{color:var(--accent);font-weight:800}
+.split{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:360px;box-shadow:var(--shadow);margin-top:4px}
+.split .pane{padding:26px 14px;text-align:center;font-weight:700;font-size:13px}
+.split .rv{background:linear-gradient(135deg,#0e1a17,#1c3a33);color:#cdeee2}
+.split .mp{background:linear-gradient(135deg,#dff0ea,#eef7f4);color:var(--accent-deep);border-top:2px solid var(--accent)}
+.foot{padding:34px 0 60px;color:var(--muted);font-size:13px}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{position:relative;padding:10px 0 10px 40px;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:9px;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent-deep);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:22px;position:relative;margin:7px 0;font-size:14px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.next li::before{content:"→";color:var(--accent)}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.phase{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px dashed var(--line)}
+.phase:last-child{border-bottom:none}
+.phase .pn{flex:0 0 auto;width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));color:#fff;font-weight:800;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;line-height:1.2}
+.phase .pn b{font-size:18px}
+.phase .pc{flex:1}
+.phase .pc h4{font-size:15.5px;font-weight:750;margin-bottom:4px}
+.phase .pc p{font-size:13.5px;color:var(--ink-2)}
+.ac{font-size:12.5px;color:var(--ok);font-weight:600;margin-top:6px;display:block}
+.kv{font-size:13px;color:var(--ink-2)}
+.kv b{color:var(--ink)}
+.small{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span> GeoGuessHelper · 설계</div>
+  <nav class="topnav">
+    <a href="#why">개요</a><a href="#flow">사용자 흐름</a><a href="#link">링크 파싱</a>
+    <a href="#split">2분할 뷰어</a><a href="#capture">장면 캡처</a><a href="#analyze">분석</a>
+    <a href="#stack">아키텍처</a><a href="#roadmap">로드맵</a><a href="#risk">리스크·ToS</a><a href="#ref">참고</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">지오게서 헬퍼 · Google Street View · 2026-07-08</div>
+  <h1>구글 로드뷰 <span style="color:var(--accent-deep)">2분할 뷰어</span> · 장면 캡처 · 지리/문화/경제 분석</h1>
+  <p>지오게서 라운드 후 받은 <b>구글맵 링크</b>를 <b>Ycollector처럼 붙여넣고</b> "추출"을 누르면 — 해당 좌표의 <b>구글 스트리트뷰(로드뷰)</b>가
+  화면 위쪽에, <b>지도</b>가 아래쪽에 <b>2분할</b>로 뜬다. 로드뷰 안에서 이동하며 <b>기념물·도시·사람</b> 장면을 캡처하고,
+  캡처를 Claude 비전으로 분석해 그 위치의 <b>지리·문화·경제적 특징</b>을 리포트로 뽑는다. 캡처 엔진은
+  이미 검증된 <code>render_roadview.py</code>의 "헤드리스 브라우저로 지도 SDK를 렌더 후 스크린샷" 기법을
+  <b>카카오 로드뷰 → 구글 스트리트뷰</b>로 재타깃한 것이다(카카오는 한국만, 지오게서는 전세계 Google).</p>
+  <div class="meta">
+    <span class="chip ac">Python + uv + FastAPI 로컬 웹서버 (YCollector 패턴)</span>
+    <span class="chip ac">Playwright 캡처 (render_roadview.py 재사용)</span>
+    <span class="chip ok">Google API 표면 · 어드버서리 검증 완료</span>
+    <span class="chip wn">Maps Platform ToS: 이미지 캐싱 금지 (pano_id만 저장)</span>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<!-- ───────────────────────── 개요 ───────────────────────── -->
+<section class="section" id="why">
+  <div class="eyebrow">Overview</div>
+  <h2 class="sec">무엇을, 왜 만드는가</h2>
+  <p class="sec-desc">저장소 README의 목표 — "지오게서 구글 지도 주변을 탐색하고 해당 위치의 지리적·문화적·경제적 특징을 분석한다" —
+  를 실제 도구로 옮긴다. 핵심은 세 가지 이미 검증된 자산을 조립하는 것이다.</p>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🔗</span> YCollector의 URL 붙여넣기</h3>
+      <p>URL을 붙여넣고 버튼 하나로 파이프라인을 태우는 UX(<code>UrlPasteBar.tsx</code>)와, 가장 가벼운
+      <b>로컬 웹서버</b>(<code>server.py</code> → <code>127.0.0.1:8765</code>) 실행 형태를 그대로 차용한다.</p>
+      <div class="tagrow"><span class="t">붙여넣기→추출</span><span class="t">SSE 진행률</span><span class="t">장면 앨범</span></div></div>
+    <div class="card"><h3><span class="ic">📸</span> mdsearch의 로드뷰 스크린샷</h3>
+      <p><code>render_roadview.py</code>: Playwright 헤드리스가 로컬서버로 서빙한 HTML 안에서 지도 SDK 파노라마를
+      렌더하고 <code>page.screenshot()</code>으로 780×480 PNG를 잘라낸다. <b>데이터 소스만 카카오→구글로 교체.</b></p>
+      <div class="tagrow"><span class="t">LocalServer</span><span class="t">getNearestPano</span><span class="t">settle wait</span></div></div>
+    <div class="card"><h3><span class="ic">🧭</span> 지오게서 "메타" + Claude 비전</h3>
+      <p>주행방향·차선색·볼라드·전신주·번호판·표지판 글자 등 국가 식별 단서를 비전 모델에 태워 국가/지역/도시와
+      문화·경제적 성격을 <b>구조화 JSON</b>으로 뽑는다.</p>
+      <div class="tagrow"><span class="t">cue taxonomy</span><span class="t">tool_use JSON</span><span class="t a2">privacy guard</span></div></div>
+  </div>
+  <div class="callout warn"><b>포지셔닝 — "복기(study)" 도구.</b> 실시간 지오게서 라운드 중에 쓰면 부정행위이며 계정 정지 사유다.
+  이 도구는 <b>라운드가 끝난 뒤</b> 위치를 살펴보고 배우는 용도로 명시한다. 또한 Google이 얼굴·번호판을 이미 블러 처리하므로,
+  분석은 장면·지리에 한정하고 <b>개인을 식별하지 않는다</b>.</div>
+</section>
+
+<!-- ───────────────────────── 사용자 흐름 ───────────────────────── -->
+<section class="section" id="flow">
+  <div class="eyebrow">User flow</div>
+  <h2 class="sec">한 화면, 여섯 동작</h2>
+  <p class="sec-desc">붙여넣기 → 추출 → 2분할 뷰어에서 이동 → 캡처 → 분석 → 리포트. 각 단계는 로컬 웹서버의 엔드포인트 하나에 대응한다.</p>
+  <div class="flow">
+    <div class="box">① 구글맵 링크 <b>붙여넣기</b></div><span class="arr">→</span>
+    <div class="box">② <b>추출</b> <span class="small">POST /api/extract</span></div><span class="arr">→</span>
+    <div class="box">③ <b>2분할 뷰어</b> <span class="small">로드뷰▲/지도▼</span></div><span class="arr">→</span>
+    <div class="box">④ 이동·회전 후 <b>캡처</b> <span class="small">POST /api/capture</span></div><span class="arr">→</span>
+    <div class="box">⑤ <b>분석</b> <span class="small">POST /api/analyze</span></div><span class="arr">→</span>
+    <div class="box">⑥ <b>리포트/앨범</b> <span class="small">docs/report</span></div>
+  </div>
+  <div class="grid g2" style="margin-top:22px;align-items:start">
+    <div class="card">
+      <h3><span class="ic">🖥️</span> 화면 레이아웃 — 위 로드뷰 / 아래 지도</h3>
+      <p>사용자 요청대로 화면을 상하 2분할한다. 위(50%)는 <code>StreetViewPanorama</code>, 아래(50%)는
+      <code>google.maps.Map</code>(<code>mapTypeId:"hybrid"</code>로 지형·위성이 함께 보여 "구글맵의 어느 지형인지" 즉시 판별).
+      <code>map.setStreetView(pano)</code> 한 줄로 둘을 <b>연결</b>하면, 로드뷰에서 이동할 때 아래 지도의 마커/중심이 따라온다.</p>
+      <div class="split">
+        <div class="pane rv">▲ 로드뷰 · StreetViewPanorama (50%)</div>
+        <div class="pane mp">▼ 지도 · google.maps.Map (hybrid, 50%)</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="ic">⌨️</span> 상호작용</h3>
+      <ul class="clean">
+        <li>로드뷰 화살표/드래그로 <b>인접 파노라마 이동</b> — 기념물·거리·사람이 있는 방향으로 걸어감</li>
+        <li>이동/시점 변경 시 <code>position_changed</code>·<code>pov_changed</code> 이벤트로 아래 지도가 동기화</li>
+        <li>"캡처" 버튼 → 현재 <code>{pano, heading, pitch, zoom, lat, lng}</code>를 백엔드로 전송</li>
+        <li>여러 방향(0/90/180/270°)·상하 틸트로 <b>다중 캡처</b>하면 차선·볼라드·전신주가 서로 다른 방향에서 잡혀 분석 정확도↑</li>
+        <li>캡처는 하단 <b>앨범 스트립</b>에 쌓이고, 선택해 "분석"으로 전송</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 링크 파싱 ───────────────────────── -->
+<section class="section" id="link">
+  <div class="eyebrow">Link ingestion · linkresolver.py</div>
+  <h2 class="sec">붙여넣은 구글맵 링크에서 카메라 포즈 뽑기</h2>
+  <p class="sec-desc">지오게서는 결과 화면에서 복사용 링크를 직접 주지 않는다 — 인게임 단축키 <code>3</code>이 정답 지점의 스트리트뷰
+  <code>/@</code> URL을 새 탭으로 연다. 사용자는 그 URL(또는 공유 단축링크)을 붙여넣는다. 세 가지 형태를 하나의 파서로 받는다.</p>
+
+  <table>
+    <thead><tr><th>형태</th><th>예시</th><th>추출</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 데스크톱 /@ URL</b><br><span class="small">비공식·리버스 엔지니어링</span></td>
+        <td><code>.../maps/@51.5083,-0.1114,3a,75y,260.89h,78.32t/data=…!1s&lt;PANOID&gt;!2e0…</code></td>
+        <td>lat,lng · fov(<code>75y</code>) · heading(<code>260.89h</code>) · tilt(<code>78.32t</code>) · panoId(<code>!1s</code>)</td></tr>
+      <tr><td><b>② 공식 api=1 URL</b><br><span class="small">문서화됨 — 권장 canonical</span></td>
+        <td><code>.../maps/@?api=1&amp;map_action=pano&amp;viewpoint=LAT,LNG&amp;pano=…&amp;heading=&amp;pitch=&amp;fov=</code></td>
+        <td><code>parse_qs</code>로 viewpoint/pano/heading/pitch/fov 직접 파싱</td></tr>
+      <tr><td><b>③ 단축링크</b><br><span class="small">서버측에서 먼저 리다이렉트 해제</span></td>
+        <td><code>maps.app.goo.gl/XXXX</code> · <code>goo.gl/maps/XXXX</code></td>
+        <td>브라우저 UA로 GET → 최종 <code>/@</code> URL을 다시 ①로 파싱</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub">/@ 세그먼트 해부 (핵심: tilt → pitch 변환)</h3>
+  <pre><span class="c"># https://www.google.com/maps/@51.5083663,-0.1114931,3a,75y,260.89h,78.32t/data=!3m5!1s&lt;PANOID&gt;!2e0!7i16384!8i8192</span>
+  lat = 51.5083663   lng = -0.1114931
+  3a   <span class="c"># 카메라 고도 마커(~3m, 차량 높이). 포즈에는 불필요 — 무시</span>
+  75y  <span class="c"># 수직 FOV/줌(도). 기본 75, ~90=광각 … ~15=망원. 낮을수록 확대</span>
+  260.89h <span class="c"># heading(방위각) 0..360, 북=0 시계방향 → StreetView POV heading</span>
+  78.32t  <span class="c"># tilt. 90=수평. 실제 pitch = tilt - 90 = -11.68. pitch가 0이면 이 토큰은 사라짐(선택)</span>
+  !1s&lt;PANOID&gt;!2e0  <span class="c"># 파노라마 ID (뒤에 반드시 !2e0). !2e0 = Google 이미지</span></pre>
+
+  <div class="callout"><b>검증 노트(어드버서리).</b> <code>/@…/data=</code> 형식은 <b>Google이 공식 문서화하지 않은</b> 리버스 엔지니어링이며 예고 없이 바뀔 수 있다.
+  따라서 파서는 <b>관대하게</b> 짠다 — <code>t</code>(tilt) 그룹은 <b>선택</b>, 정수/소수 혼용 허용, <code>3a</code> 외 고도값 허용. 진짜로 안정적인 것이
+  필요하면 <b>공식 api=1 형태</b>와 <b>Metadata API</b>를 우선한다. <code>pitch = tilt − 90</code> 변환은 확인됨(tilt 90→0, 0→−90, 180→+90).</div>
+
+  <h3 class="sub">파노라마 ID 세 계열 — 형태로 분류</h3>
+  <table>
+    <thead><tr><th>계열</th><th>형태</th><th>분류 규칙</th></tr></thead>
+    <tbody>
+      <tr><td>공식 Google</td><td>22자 base64url, 끝이 <code>g/w/A/Q</code> (예 <code>jJXYsBpPPqWuvSR5RUaIEQ</code>)</td><td><code>^[A-Za-z0-9_-]{21}[gwAQ]$</code></td></tr>
+      <tr><td>레거시 3rd-party</td><td>44자, <code>AF1Qip…</code> 시작 (사용자 포토스피어)</td><td><code>^AF1Qip[A-Za-z0-9_-]{38}$</code></td></tr>
+      <tr><td>모던 3rd-party</td><td>내부 id는 <code>CIHM…</code>, 인코딩 래퍼는 <code>CAoS…</code>(protobuf, type 10=비공식)</td><td>"공식도 AF1Qip도 아님"으로 분류 — <b>CAoS-only 정규식은 모던 raw id를 놓친다</b></td></tr>
+    </tbody>
+  </table>
+  <p class="small" style="margin-top:8px">세 계열 모두 <code>StreetViewPanorama.setPano()</code>·Static API <code>pano=</code>에 그대로 넣을 수 있어 대개 protobuf 디코딩은 불필요.
+  단, 렌더 실패 시 lat/lng + <code>StreetViewService.getPanorama</code>로 폴백한다.</p>
+
+  <h3 class="sub">파서 (linkresolver.py)</h3>
+  <pre><span class="k">import</span> re, httpx
+
+_AT = re.compile(
+    r<span class="s">"@(?P&lt;lat&gt;-?\d+\.\d+),(?P&lt;lng&gt;-?\d+\.\d+)"</span>
+    r<span class="s">"(?:,(?P&lt;fov&gt;\d+(?:\.\d+)?)y)?"</span>       <span class="c"># 75y</span>
+    r<span class="s">"(?:,(?P&lt;heading&gt;-?\d+(?:\.\d+)?)h)?"</span>   <span class="c"># 260.89h</span>
+    r<span class="s">"(?:,(?P&lt;tilt&gt;-?\d+(?:\.\d+)?)t)?"</span>)      <span class="c"># 78.32t (선택 — pitch 0이면 없음)</span>
+_PANO = re.compile(r<span class="s">"!1s(?P&lt;pano&gt;[^!?]+)"</span>)
+
+<span class="k">async def</span> resolve_short(url):
+    <span class="k">if</span> <span class="k">not</span> re.search(r<span class="s">"(maps\.app\.goo\.gl|goo\.gl/maps)"</span>, url): <span class="k">return</span> url
+    ua = {<span class="s">"User-Agent"</span>: <span class="s">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) … Chrome/124"</span>}
+    <span class="k">async with</span> httpx.AsyncClient(follow_redirects=<span class="k">True</span>, headers=ua, timeout=10) <span class="k">as</span> c:
+        r = <span class="k">await</span> c.get(url); r.raise_for_status()
+        <span class="k">return</span> str(r.url)   <span class="c"># 확장된 /@ URL (goo.gl 구링크는 404 가능 — graceful 처리)</span>
+
+<span class="k">def</span> parse_pose(url):
+    out = {<span class="s">"lat"</span>:<span class="k">None</span>,<span class="s">"lng"</span>:<span class="k">None</span>,<span class="s">"pano"</span>:<span class="k">None</span>,<span class="s">"heading"</span>:<span class="k">None</span>,<span class="s">"pitch"</span>:<span class="k">0.0</span>,<span class="s">"fov"</span>:<span class="k">75.0</span>}
+    <span class="c"># api=1 폼 우선 파싱 → 없으면 /@ 폼</span>
+    m = _AT.search(url)
+    <span class="k">if</span> m:
+        out[<span class="s">"lat"</span>],out[<span class="s">"lng"</span>] = float(m[<span class="s">"lat"</span>]),float(m[<span class="s">"lng"</span>])
+        <span class="k">if</span> m[<span class="s">"fov"</span>]:     out[<span class="s">"fov"</span>]=float(m[<span class="s">"fov"</span>])
+        <span class="k">if</span> m[<span class="s">"heading"</span>]: out[<span class="s">"heading"</span>]=float(m[<span class="s">"heading"</span>])
+        <span class="k">if</span> m[<span class="s">"tilt"</span>]:    out[<span class="s">"pitch"</span>]=float(m[<span class="s">"tilt"</span>])-<span class="k">90.0</span>   <span class="c"># ← 핵심 변환</span>
+    p = _PANO.search(url)
+    <span class="k">if</span> p: out[<span class="s">"pano"</span>]=httpx.URL(url).params <span class="k">or</span> unquote(p[<span class="s">"pano"</span>])
+    <span class="k">if</span> out[<span class="s">"lat"</span>] <span class="k">is None</span> <span class="k">and</span> out[<span class="s">"pano"</span>] <span class="k">is None</span>: <span class="k">raise</span> ValueError(<span class="s">"좌표/파노 없음"</span>)
+    <span class="k">return</span> out   <span class="c"># panoId None이면 호출부가 StreetViewService.getPanorama로 폴백</span></pre>
+
+  <div class="callout warn"><b>단축링크 해제는 반드시 서버측.</b> 브라우저는 CORS/opaque 리다이렉트로 <code>maps.app.goo.gl</code>을 못 푼다 —
+  카카오 SDK가 "등록 도메인에서만" 도는 것과 같은 결의 제약이다. 또 EU/UA 미설정 시 <code>consent.google.com</code> 동의 페이지가 뜰 수 있어,
+  최종 URL이 동의 페이지면 HTML의 <code>og:url</code>/<code>rel=canonical</code>/<code>APP_INITIALIZATION_STATE</code>에서 목적지를 복구한다.</div>
+</section>
+
+<!-- ───────────────────────── 2분할 뷰어 ───────────────────────── -->
+<section class="section" id="split">
+  <div class="eyebrow">Split viewer · Maps JavaScript API</div>
+  <h2 class="sec">동기화된 로드뷰 ▲ / 지도 ▼</h2>
+  <p class="sec-desc">카카오 Roadview의 전세계 대응물은 Maps JS API의 <code>google.maps.StreetViewPanorama</code> +
+  <code>google.maps.StreetViewService</code>다. 위 div에 파노라마, 아래 div에 지도를 만들고 <code>map.setStreetView(panorama)</code>로 묶는다.</p>
+
+  <div class="grid g2" style="align-items:start">
+    <div class="card"><h3><span class="ic">🧩</span> 핵심 API 표면 (검증됨)</h3>
+      <table style="margin-top:2px">
+        <tbody>
+          <tr><td><code>StreetViewPanorama(el, opts)</code></td><td><code>position · pov{heading,pitch} · zoom · pano · visible · linksControl · motionTracking</code></td></tr>
+          <tr><td>메서드</td><td><code>setPano/getPano · setPosition/getPosition · setPov/getPov · getPhotographerPov · getLinks · getZoom</code></td></tr>
+          <tr><td>이벤트</td><td><code>position_changed · pov_changed · pano_changed · links_changed · status_changed</code></td></tr>
+          <tr><td>연결</td><td><code>map.setStreetView(pano)</code> / <code>map.getStreetView()</code></td></tr>
+          <tr><td>최근접 파노</td><td><code>StreetViewService.getPanorama(req)</code> → <code>Promise&lt;StreetViewResponse&gt;</code> (<code>data.location.pano</code>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card"><h3><span class="ic">🛠️</span> 검증에서 잡힌 정정 3건</h3>
+      <ul class="warn-li">
+        <li><code>StreetViewPreference</code>는 <code>{BEST, NEAREST}</code>뿐 — <b><code>RADIUS</code>는 없다.</b> radius는 별도 숫자 필드(기본 <b>50m</b>)</li>
+        <li>요청의 <code>source</code>는 <b>deprecated</b> → 복수형 <code>sources:[StreetViewSource.OUTDOOR]</code>로 (<code>preference</code>가 대체하는 게 아님)</li>
+        <li><code>StreetViewSource</code>는 <code>DEFAULT | GOOGLE | OUTDOOR</code> 3값. 상태값은 <code>OK / ZERO_RESULTS / UNKNOWN_ERROR</code></li>
+      </ul>
+      <p class="small" style="margin-top:8px">지도 회전(<code>map.setHeading</code>)으로 시선을 미니맵에 반영하려면 <code>mapId</code>가 붙은 <b>벡터 지도</b>여야 함(래스터 지도에선 무동작).
+      마커는 <code>Marker</code>(2024-02 deprecated) 대신 <code>AdvancedMarkerElement</code> 권장(<code>mapId</code> 필요).</p>
+    </div>
+  </div>
+
+  <h3 class="sub">webui/index.html — 2분할 스켈레톤</h3>
+  <pre><span class="c">&lt;!-- #top=로드뷰(50%), #bot=지도(50%). 키는 서버가 GOOGLE_MAPS_JS_API_KEY로 주입 --&gt;</span>
+<span class="k">async function</span> initSplit(cfg){
+  <span class="k">const</span> {Map} = <span class="k">await</span> google.maps.importLibrary(<span class="s">"maps"</span>);
+  <span class="k">const</span> {StreetViewPanorama, StreetViewService, StreetViewPreference, StreetViewSource}
+        = <span class="k">await</span> google.maps.importLibrary(<span class="s">"streetView"</span>);
+  <span class="k">const</span> pos = {lat: cfg.lat, lng: cfg.lng};
+
+  <span class="k">const</span> map  = <span class="k">new</span> Map(top_el(<span class="s">"bot"</span>), {center:pos, zoom:14, mapTypeId:<span class="s">"hybrid"</span>}); <span class="c">// 지형 식별</span>
+  <span class="k">const</span> pano = <span class="k">new</span> StreetViewPanorama(top_el(<span class="s">"top"</span>), {
+      position:pos, pov:{heading:cfg.heading ?? 0, pitch:cfg.pitch ?? 0},
+      zoom:1, motionTracking:<span class="k">false</span>, linksControl:<span class="k">true</span>});
+  map.setStreetView(pano);                       <span class="c">// ← 두 패널 연결(페그맨/이동/오버레이 공유)</span>
+
+  <span class="c">// 카카오 getNearestPanoId(pos,80)의 대응물</span>
+  <span class="k">const</span> svc = <span class="k">new</span> StreetViewService();
+  <span class="k">const</span> req = cfg.pano ? {pano:cfg.pano}
+      : {location:pos, radius:50, preference:StreetViewPreference.NEAREST,
+         sources:[StreetViewSource.OUTDOOR]};   <span class="c">// sources 복수형(정정)</span>
+  <span class="k">try</span> { <span class="k">const</span> {data} = <span class="k">await</span> svc.getPanorama(req); pano.setPano(data.location.pano); }
+  <span class="k">catch</span> { console.warn(<span class="s">"ZERO_RESULTS — 커버리지 없음(바다/오지)"</span>); }
+
+  <span class="k">const</span> sync = () =&gt; {                            <span class="c">// 이동하면 지도/state 동기화</span>
+    <span class="k">const</span> p = pano.getPosition(); <span class="k">if</span>(!p) <span class="k">return</span>;
+    map.setCenter(p);
+    window.__state = {lat:p.lat(), lng:p.lng(), pano:pano.getPano(),
+                      ...pano.getPov(), zoom:pano.getZoom()};  <span class="c">// 캡처 버튼이 읽음</span>
+  };
+  pano.addListener(<span class="s">"position_changed"</span>, sync);
+  pano.addListener(<span class="s">"pov_changed"</span>, sync); sync();
+}</pre>
+  <div class="callout"><b>로더.</b> 현재 권장은 인라인 부트스트랩 로더(<code>{key, v:"weekly"}</code>) + <code>await importLibrary("streetView"|"maps"|"marker")</code>.
+  API는 두 번 로드하면 무시되니 한 번만. 키에 <b>Maps JavaScript API</b> 활성화 필요.</div>
+</section>
+
+<!-- ───────────────────────── 장면 캡처 ───────────────────────── -->
+<section class="section" id="capture">
+  <div class="eyebrow">Capture · capture.py</div>
+  <h2 class="sec">"보고 있는 그 장면"을 스크린샷</h2>
+
+  <div class="callout danger"><b>왜 브라우저 캔버스 캡처가 불가능한가.</b> 구글 지도/스트리트뷰는 <b>WebGL</b>로 렌더되고 타일이
+  <b>교차출처(CORS 헤더 없음)</b>라 캔버스의 origin-clean 플래그가 꺼진다("tainted canvas"). 그 뒤 <code>toDataURL()</code>·<code>toBlob()</code>·<code>getImageData()</code>는
+  <code>SecurityError</code>를 던지고, <code>html2canvas</code>는 DOM만 재그리므로 지도 영역이 빈다. → <b>캡처는 전량 서버측 재렌더</b>로 처리한다.</div>
+
+  <div class="grid g3" style="align-items:start">
+    <div class="card"><h3><span class="ic">🅰️</span> Playwright 헤드리스 <span class="t" style="margin-left:auto">기본·고충실</span></h3>
+      <p>프론트가 보낸 <code>{pano,heading,pitch,zoom}</code>으로 로컬 HTML을 렌더 → <code>page.screenshot()</code>.
+      <b><code>render_roadview.py</code>의 LocalServer + wait + clip 루프를 그대로</b> 쓰고 SDK만 구글로 교체.
+      로드뷰+지도를 한 페이지에 쌓으면 <b>2분할 합성이 스크린샷 한 방</b>에 나온다.</p>
+      <div class="tagrow"><span class="t">인터랙티브 충실</span><span class="t">합성 무료</span></div></div>
+    <div class="card"><h3><span class="ic">🅱️</span> Street View Static API <span class="t a2" style="margin-left:auto">배치·저렴</span></h3>
+      <p>브라우저 없이 <code>GET …/streetview?size=640x640&amp;pano=&amp;heading=&amp;pitch=&amp;fov=&amp;key=</code> → 깨끗한 이미지.
+      경로 배치 캡처에 이상적. <b>무료 metadata 엔드포인트로 커버리지 선확인</b> 후 호출.
+      지도는 Maps Static API로 받아 Pillow로 상하 합성.</p>
+      <div class="tagrow"><span class="t a2">max 640×640</span><span class="t a2">fov≤120</span></div></div>
+    <div class="card"><h3><span class="ic">🅲</span> getDisplayMedia <span class="sev l" style="margin-left:auto">보조</span></h3>
+      <p>브라우저 화면 캡처 — 진짜 픽셀을 잡지만 매 세션 권한 프롬프트, 탭/브라우저 크롬까지 포함. 자동/배치엔 부적합.
+      "지금 화면 그대로 한 장"의 최후 수단으로만.</p></div>
+  </div>
+
+  <h3 class="sub">A안 캡처 (render_roadview.py 재사용, Kakao→Google)</h3>
+  <pre><span class="c"># LocalServer / wait_for_function / clip 스크린샷 루프는 render_roadview.py에서 그대로.</span>
+<span class="c"># HTML 템플릿과 'no pano' 판정만 구글로 재타깃한다.</span>
+GOOGLE_SV_HTML = <span class="s">"""&lt;div id="sv"&gt;&lt;/div&gt;&lt;script&gt;
+ window.__ready=false; window.__noPano=false;
+ function init(){
+   var svc=new google.maps.StreetViewService();
+   svc.getPanorama({location:{lat:{lat},lng:{lng}}, radius:50,
+                    preference:google.maps.StreetViewPreference.NEAREST},
+     function(data,status){
+       if(status!=="OK"){ window.__noPano=true; window.__ready=true; return; }
+       var p=new google.maps.StreetViewPanorama(document.getElementById("sv"),{
+         pano:{pano_js}||data.location.pano,
+         pov:{heading:{heading},pitch:{pitch}}, zoom:{zoom},
+         disableDefaultUI:true, motionTracking:false});
+       p.addListener("pano_changed",function(){ setTimeout(()=&gt;window.__ready=true,1800); }); // 타일 settle
+     });
+ }
+ &lt;/script&gt;&lt;script async src="…/js?key={key}&callback=init"&gt;&lt;/script&gt;"""</span>
+
+<span class="k">async def</span> capture(loc, out_png, w=780, h=480):
+    html = GOOGLE_SV_HTML.format(key=os.environ[<span class="s">"GOOGLE_MAPS_JS_API_KEY"</span>], **loc)  <span class="c"># referrer-restricted 키</span>
+    server = LocalServer(out_png.parent); server.start()   <span class="c"># 8080/8000/80 — 콘솔 등록 포트</span>
+    <span class="c"># … Playwright: goto → wait_for_function("window.__ready===true") → </span>
+    <span class="c">#     if __noPano: return "no_pano"  else: page.screenshot(clip=…)  — render_roadview.py와 동일</span></pre>
+
+  <h3 class="sub">두 개의 API 키 (핵심 운영 포인트)</h3>
+  <table>
+    <thead><tr><th>키</th><th>제한 방식</th><th>쓰는 곳 / 활성 API</th></tr></thead>
+    <tbody>
+      <tr><td><code>GOOGLE_MAPS_JS_API_KEY</code></td><td><b>HTTP 리퍼러</b> 제한 → <code>http://localhost:8080/*</code>, <code>:8000/*</code>, <code>:80/*</code>(+배포 오리진)</td><td>webui 뷰어 + Playwright 브라우저. <b>Maps JavaScript API</b></td></tr>
+      <tr><td><code>GOOGLE_MAPS_STATIC_KEY</code></td><td><b>IP</b> 제한(또는 무제한) — 리퍼러 제한 키는 서버 GET에서 안 먹음</td><td>서버측 <code>streetview.py</code>. <b>Street View Static + Metadata</b></td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn"><b>리퍼러 뉘앙스(검증 정정).</b> 리퍼러 제한은 <b>선택</b>이라 SDK가 "등록 안 하면 안 도는" 건 아니다 —
+  로컬 서버가 필요한 진짜 이유는 SDK가 <b>실제 http(s) 오리진</b>을 요구하기 때문(<code>file://</code>은 리퍼러가 없어 깨짐). 다만 우리는 제한을 <b>켜서 쓰므로</b>
+  localhost 포트를 반드시 등록한다. 미등록 시 <code>RefererNotAllowedMapError</code>.</div>
+</section>
+
+<!-- ───────────────────────── 분석 ───────────────────────── -->
+<section class="section" id="analyze">
+  <div class="eyebrow">Analysis · analyze.py</div>
+  <h2 class="sec">지오게서 "메타" → Claude 비전 → 구조화 리포트</h2>
+  <p class="sec-desc">캡처 PNG를 <code>claude-opus-4-8</code>에 base64 이미지 블록으로 태우고, <b>단서를 먼저 나열한 뒤</b> 국가/지역·문화·경제를
+  구조화 JSON으로 뽑는다. Claude에는 네이티브 JSON 모드가 없으므로 <b><code>tool_use</code>의 <code>input_schema</code></b>로 강제한다.</p>
+
+  <div class="grid g2" style="align-items:start">
+    <div class="card"><h3><span class="ic">🌍</span> 굵은 필터 (먼저 후보 압축)</h3>
+      <table style="margin-top:2px"><tbody>
+        <tr><td>주행방향</td><td>좌측통행=영·일·호주·인도·동남아·남부아프리카… / 그 외 우측. <span class="small">(카리브 일부는 우측 — "many")</span></td></tr>
+        <tr><td>차선색</td><td>노란 중앙선=북미·중남미·<b>일·한</b>·일부 동남아 / 흰 중앙선=유럽·아프리카·호주·아시아 다수</td></tr>
+        <tr><td>문자/언어</td><td>키릴·아랍·태국·한글·가나+한자·데바나가리… 라틴 내 diacritic(ł/ř/ğ/ã/ø)</td></tr>
+        <tr><td>해/그림자</td><td>북반구=정오 태양 남쪽(그림자 북) / 남반구 반대. <b>열대(±23.5°)에선 계절 따라 반전 → 가중치↓</b></td></tr>
+      </tbody></table>
+    </div>
+    <div class="card"><h3><span class="ic">🔬</span> 미세 메타 (국가 지문)</h3>
+      <ul class="clean">
+        <li><b>볼라드</b> — 형태×몸통색×반사판 색/모양 조합이 국가별 준-유일 (Plonkit/GeoHints 카탈로그)</li>
+        <li><b>전신주</b> — 목재(북미·북유럽)·리브드 콘크리트(중남미·아시아)·격자</li>
+        <li><b>번호판</b> — 형태·색만 읽음. EU 청색띠 / <b>영국=후면 노랑·전면 흰</b>, <b>네덜란드=전·후면 모두 노랑</b>(정정)</li>
+        <li><b>구글차 메타</b> — 스노클(호주/케냐)·랠리카·안테나·블러·카메라 세대(Gen1~4)</li>
+        <li><b>표지판</b> — 서체(Transport/DIN/Highway Gothic)·뒷면 색·쉐브론·가드레일·루트 실드</li>
+        <li><b>기념물/스카이라인</b> — 에펠·빅벤·콜로세움 등은 도시 단위로 직행</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub">분석 출력 스키마 (tool_use input_schema 대상)</h3>
+  <pre>{
+  <span class="s">"best_guess"</span>: { <span class="s">"country"</span>:<span class="s">"Brazil"</span>, <span class="s">"country_iso"</span>:<span class="s">"BR"</span>, <span class="s">"confidence"</span>:0.72,
+                  <span class="s">"region_or_state"</span>:<span class="s">"São Paulo (interior)"</span>, <span class="s">"city"</span>:null,
+                  <span class="s">"coordinate_estimate"</span>:{<span class="s">"lat"</span>:-22.9,<span class="s">"lng"</span>:-47.1,<span class="s">"radius_km"</span>:150} },
+  <span class="s">"alternatives"</span>: [ {<span class="s">"country"</span>:<span class="s">"Argentina"</span>,<span class="s">"confidence"</span>:0.15}, … ],  <span class="c">// 합 ≤ 1.0</span>
+  <span class="s">"coarse_filters"</span>: { <span class="s">"driving_side"</span>:<span class="s">"right"</span>, <span class="s">"hemisphere"</span>:<span class="s">"southern"</span>, <span class="s">"biome"</span>:<span class="s">"tropical savanna"</span> },
+  <span class="s">"cues"</span>: [ {<span class="s">"category"</span>:<span class="s">"utility_pole"</span>, <span class="s">"observation"</span>:<span class="s">"리브드 사각 콘크리트 + 적재 변압기"</span>,
+             <span class="s">"weight"</span>:<span class="s">"high"</span>, <span class="s">"supports"</span>:[<span class="s">"BR"</span>]}, … ],           <span class="c">// 모든 confidence는 cue로 정당화</span>
+  <span class="s">"languages_detected"</span>: [ {<span class="s">"language"</span>:<span class="s">"Portuguese"</span>,<span class="s">"evidence"</span>:<span class="s">"'Farmácia' 간판"</span>,<span class="s">"confidence"</span>:0.9} ],
+  <span class="s">"landmarks"</span>: [ {<span class="s">"name"</span>:null,<span class="s">"type"</span>:<span class="s">"monument|building|natural|route_marker"</span>,<span class="s">"confidence"</span>:0.0} ],
+  <span class="s">"cultural_economic_read"</span>: <span class="s">"노후 차량·혼재 상점·전선 난립 → 중소득 중남미 내륙 도시"</span>,
+  <span class="s">"privacy"</span>: { <span class="s">"individuals_identified"</span>:false, <span class="s">"note"</span>:<span class="s">"얼굴·번호판 블러 — 개인 식별 안 함"</span> }
+}</pre>
+  <div class="callout ok"><b>2단계 추론 + 검증 콜.</b> ① 굵은 필터로 후보 압축 → ② 미세 메타 정밀. 최상위 후보 국가의 Plonkit/GeoHints
+  cue 시트를 <b>2차 Claude 콜에 주입</b>해 "이 장면이 브라질의 볼라드/전신주 시그니처와 맞나?"를 교차검증. 모델 과신 방지 위해
+  단일 이미지 confidence 상한을 두고 "지역+반경"을 선호. 프롬프트와 <b>후처리 필터</b> 양쪽에 개인 식별 금지 가드.</div>
+</section>
+
+<!-- ───────────────────────── 아키텍처 ───────────────────────── -->
+<section class="section" id="stack">
+  <div class="eyebrow">Architecture · stack</div>
+  <h2 class="sec">YCollector를 그대로 미러링한 스택</h2>
+  <p class="sec-desc">Python + uv + <b>경량 로컬 웹서버(FastAPI)</b>가 단일 페이지 webui를 서빙 — YCollector가 "가장 가벼움"으로 미는 형태.
+  Tauri/React 프런트는 후순위(<code>UrlPasteBar.tsx</code> 템플릿 재사용). 로컬 서버 우선은 취향이 아니라 <b>필수</b> — 구글 SDK는 실제 http 오리진을 요구한다.</p>
+
+  <div class="grid g2" style="align-items:start">
+    <div class="card"><h3><span class="ic">📦</span> 모듈 (src/geoguesshelper/)</h3>
+      <table style="margin-top:2px"><tbody>
+        <tr><td><code>config.py</code></td><td>.env(python-dotenv) + settings.ini 타입드 dataclass (YCollector 미러)</td></tr>
+        <tr><td><code>linkresolver.py</code></td><td>단축링크 해제 + <code>parse_pose</code> → {lat,lng,pano,heading,pitch,fov}</td></tr>
+        <tr><td><code>server.py</code></td><td>FastAPI: <code>/</code>→webui, <code>/api/extract·capture·analyze</code>, SSE, <code>/captures/*</code></td></tr>
+        <tr><td><code>streetview.py</code></td><td>Static API + 무료 metadata 커버리지 확인</td></tr>
+        <tr><td><code>capture.py</code></td><td>render_roadview.py LocalServer+Playwright (A안) + Static 폴백(B안)</td></tr>
+        <tr><td><code>analyze.py</code></td><td>Claude 비전, tool_use 구조화 출력, USD 예산 캡</td></tr>
+        <tr><td><code>report.py</code></td><td>docs/report 장면 앨범 HTML (org 스타일, _JobRow+SSE 재사용)</td></tr>
+        <tr><td><code>cli.py · __main__.py</code></td><td>CLI 진입점</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card"><h3><span class="ic">🌐</span> 엔드포인트 & 두 서버</h3>
+      <ul class="clean">
+        <li><b>앱 서버</b> FastAPI+Uvicorn <code>:8765</code> — webui·/api·SSE</li>
+        <li><b>캡처용 서버</b> stdlib <code>ThreadingHTTPServer</code> <code>:8080/8000/80</code> — Playwright가 스크린샷할 임시 구글-SV HTML만 서빙(리퍼러 등록 포트여야 함)</li>
+      </ul>
+      <p class="small" style="margin-top:6px">두 서버를 분리하는 이유: 8765는 리퍼러 허용목록에 없을 수 있고, 캡처 페이지는 반드시 등록된 8080/8000/80에서 떠야 한다.</p>
+      <h3 style="margin-top:16px"><span class="ic">🔐</span> .env (gitignore)</h3>
+      <pre style="margin-top:6px">GOOGLE_MAPS_JS_API_KEY=…   <span class="c"># 리퍼러 제한(브라우저)</span>
+GOOGLE_MAPS_STATIC_KEY=…    <span class="c"># IP 제한(서버 Static/Metadata)</span>
+ANTHROPIC_API_KEY=…         <span class="c"># 비전 분석</span></pre>
+    </div>
+  </div>
+
+  <h3 class="sub">디렉토리 레이아웃 — D:/26y/GeoGuessHelper</h3>
+  <pre>pyproject.toml · .env · .python-version · README.md
+src/geoguesshelper/
+  __init__.py · __main__.py · config.py · cli.py
+  server.py · linkresolver.py · streetview.py · capture.py · analyze.py · report.py
+  webui/  index.html · app.js · styles.css        <span class="c"># 2분할 뷰어 SPA</span>
+frontend/   (선택) Tauri + React + shadcn — UrlPasteBar 패리티 (후순위)
+captures/   scene 스틸 (앨범 소스, 로컬·임시)
+docs/plan/  ← 이 문서            docs/report/  생성 분석 HTML
+tests/</pre>
+  <div class="callout"><b>의존성 extras (YCollector 패턴).</b> core: <code>anthropic · python-dotenv · httpx</code> · <code>--extra web</code>: <code>fastapi · uvicorn</code> ·
+  <code>--extra capture</code>: <code>playwright</code>(<code>uv run playwright install chromium</code>) · <code>pillow</code>(B안 합성). Windows에서 8080/8000이 비어 있고 등록됐는지 확인
+  (80은 권한 필요, ephemeral 포트는 리퍼러 목록에 없음).</div>
+</section>
+
+<!-- ───────────────────────── 로드맵 ───────────────────────── -->
+<section class="section" id="roadmap">
+  <div class="eyebrow">Roadmap</div>
+  <h2 class="sec">4단계 · 각 단계 인수 기준</h2>
+  <div class="phase">
+    <div class="pn"><b>0</b>MVP</div>
+    <div class="pc"><h4>붙여넣기 → 추출 → 2분할 뷰어</h4>
+      <p>URL 페이스트 바 + "추출" 버튼, <code>linkresolver</code>, webui의 로드뷰▲/지도▼ 스플릿(<code>map.setStreetView</code>).</p>
+      <span class="ac">✓ 링크 붙여넣고 추출 → 파싱된 lat/lng/heading에서 로드뷰·지도가 뜨고, 로드뷰 이동 시 지도 마커가 따라온다</span></div>
+  </div>
+  <div class="phase">
+    <div class="pn"><b>1</b>Capture</div>
+    <div class="pc"><h4>이동 후 캡처 → 앨범</h4>
+      <p>"캡처" → <code>/api/capture</code> → Static API(기본) / Playwright(폴백) → <code>captures/</code> + 앨범 스트립. <code>no_pano</code> 상태 처리.</p>
+      <span class="ac">✓ 캡처 클릭 시 스틸이 앨범에 뜬다 · Static·Playwright 경로 둘 다 동작 · 커버리지 없는 지점 graceful</span></div>
+  </div>
+  <div class="phase">
+    <div class="pn"><b>2</b>Analysis</div>
+    <div class="pc"><h4>선택 캡처 → 지리/문화/경제 분석</h4>
+      <p>캡처 다중 선택 → <code>/api/analyze</code> → <code>claude-opus-4-8</code> tool_use 구조화 출력 → cue 표·confidence 바·문화/경제 요약. USD 예산 캡.</p>
+      <span class="ac">✓ 실제 이미지 기반 구조화 리포트 · 비용 표시 · 예산 캡 이내 · 개인 식별 없음</span></div>
+  </div>
+  <div class="phase">
+    <div class="pn"><b>3</b>Polish</div>
+    <div class="pc"><h4>리포트 앨범 · 설정 · 프런트</h4>
+      <p>org docs/report 스타일 앨범 HTML, 설정 시트, 무료 metadata 커버리지 선확인, (선택) Tauri/React 프런트(UrlPasteBar 패리티), 다방향 다중 캡처 자동화.</p>
+      <span class="ac">✓ 공유 가능한 앨범 리포트 · 커버리지 선확인으로 헛돈 절약 · 데스크톱 앱 옵션</span></div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 리스크 ───────────────────────── -->
+<section class="section" id="risk">
+  <div class="eyebrow">Risks · Google Maps Platform ToS</div>
+  <h2 class="sec">법적·기술 제약 (검증에서 가장 무거운 축)</h2>
+  <table>
+    <thead><tr><th>항목</th><th>내용</th><th>대응</th><th>등급</th></tr></thead>
+    <tbody>
+      <tr><td>이미지 캐싱 금지</td><td>스트리트뷰 <b>이미지</b>의 사전추출·인덱싱·저장·캐싱은 금지. 저장 허용 예외는 <code>pano_id</code>·<code>place_id</code>뿐("limited caching" 아님)</td><td>캡처는 <b>로컬·임시·비재배포</b> 아티팩트로만. 서버엔 pano_id·POV·좌표·분석텍스트만 영속화</td><td><span class="sev h">높음</span></td></tr>
+      <tr><td>pano_id 불안정</td><td>ToS상 저장은 허용이나 문서상 "ID는 시간이 지나면 바뀜 — 영속화 말 것", 옛 ID는 404 가능</td><td><b>lat/lng를 durable anchor</b>로 저장, pano_id는 갱신 가능한 최적화로 취급</td><td><span class="sev m">중간</span></td></tr>
+      <tr><td>대량 다운로드/경쟁 데이터셋</td><td>타일 대량 수집·트레이싱으로 파생 데이터셋 구축 금지, <b>구글 콘텐츠를 비-구글 지도 옆/위에 표시 금지</b></td><td>인덱싱 목적 수집 금지, 로드뷰 패널을 비-구글 베이스맵과 나란히 두지 않음</td><td><span class="sev m">중간</span></td></tr>
+      <tr><td>귀속(attribution)</td><td>이미지에 박힌 "Google" 로고·워터마크를 크롭·제거 금지</td><td>캡처 clip에 로고 유지</td><td><span class="sev m">중간</span></td></tr>
+      <tr><td>지오게서 페어플레이</td><td>라이브 라운드 중 사용은 부정행위 → 계정 정지</td><td><b>복기용 도구로 명시</b>, 인게임 세션/내부 JSON 재사용 안 함(ToS 민감)</td><td><span class="sev h">높음</span></td></tr>
+      <tr><td>프라이버시</td><td>얼굴·번호판은 Google이 블러</td><td>개인 재식별 시도 금지 — 프롬프트 + 후처리 필터 이중 가드</td><td><span class="sev h">높음</span></td></tr>
+      <tr><td>키 제한 불일치</td><td>리퍼러 제한 JS키는 서버 GET에서 무효, 미등록 포트는 <code>RefererNotAllowedMapError</code></td><td><b>2키 모델</b>(브라우저 리퍼러 / 서버 IP), 8080·8000·80 등록</td><td><span class="sev m">중간</span></td></tr>
+      <tr><td>커버리지 공백</td><td>바다·오지·미지원국은 <code>ZERO_RESULTS</code></td><td>무료 metadata로 선확인, <code>no_pano</code> 분기 처리(render_roadview.py 동일)</td><td><span class="sev l">낮음</span></td></tr>
+      <tr><td>비용/쿼터</td><td>2025-03-01 개편으로 $200 단일 크레딧 폐지 → SKU별 무료 한도. Dynamic Street View는 Pro SKU, Static은 30k QPM·서명 권장</td><td>metadata 선확인·pano 캐시·<code>budget_usd</code> 캡. 무료 한도 수치는 라이브 요금표 재확인</td><td><span class="sev m">중간</span></td></tr>
+      <tr><td>Playwright 타일 타이밍</td><td>settle 대기 없으면 반쯤 로드된 파노 스크린샷</td><td><code>wait_for_function(__ready)</code> + ~1800ms(render_roadview.py 값)</td><td><span class="sev l">낮음</span></td></tr>
+    </tbody>
+  </table>
+  <div class="callout danger"><b>한 줄 요약.</b> "스트리트뷰 <b>이미지</b>는 캐시/저장/대량다운로드 불가 — <code>pano_id</code>만 저장 가능(그나마 불안정).
+  캡처는 로컬·임시·비재배포, durable key는 lat/lng." 이것이 이 프로젝트의 가장 법적으로 하중이 큰 제약이다.</div>
+</section>
+
+<!-- ───────────────────────── 참고 ───────────────────────── -->
+<section class="section" id="ref">
+  <div class="eyebrow">References</div>
+  <h2 class="sec">참고 자산 & 출처</h2>
+  <div class="grid g2" style="align-items:start">
+    <div class="card"><h3><span class="ic">🗂️</span> 내부 (재사용 대상)</h3>
+      <ul class="clean">
+        <li><b>카카오 로드뷰 스크린샷 정본</b> — <code>mdsearch-integration/mdsearch-web-meai/scripts/topn_pipeline/render_roadview.py</code> (LocalServer + Playwright + getNearestPanoId + clip screenshot). 정적지도판 <code>render_kakao_map.py</code></li>
+        <li><b>URL 붙여넣기·로컬 웹서버</b> — <code>YCollector/src/ycollector/server.py</code>(FastAPI, <code>/api/*</code>, SSE, <code>/api/album</code>), <code>frontend/src/components/UrlPasteBar.tsx</code></li>
+        <li><b>설정/시크릿</b> — <code>YCollector/src/ycollector/config.py</code>(settings.ini + dataclass), <code>.env</code>(python-dotenv)</li>
+        <li><b>리포트/앨범·요약 예산</b> — <code>YCollector/src/ycollector/transcribe/{report,summarize}.py</code></li>
+      </ul>
+    </div>
+    <div class="card"><h3><span class="ic">🔗</span> 외부 (검증 출처)</h3>
+      <ul class="next">
+        <li>Maps JS API — StreetView / StreetViewService 레퍼런스 (developers.google.com/maps/documentation/javascript)</li>
+        <li>Street View Static API · Metadata · usage-and-billing · policies</li>
+        <li>Maps URLs API (api=1 pano 폼) · Maps Platform Service Specific Terms</li>
+        <li>URL 해부: trekview.org, astro-geo-gis.com · pano-id 계열: reanna.neocities.org</li>
+        <li>지오게서 메타 카탈로그: plonkit.net · geohints.com</li>
+        <li>Claude 비전 + tool_use 구조화 출력 (platform.claude.com/docs)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout"><b>검증 방식.</b> 이 설계의 모든 Google API 메서드명·URL 파라미터·ToS 조항은 5개 리서치 에이전트가 조사하고
+  각 주제를 별도 어드버서리 검증 에이전트가 공식 문서 대조로 교차확인했다(총 10 에이전트). 검증에서 나온 정정 —
+  <code>StreetViewPreference.RADIUS</code> 부재 / <code>source→sources</code> / 이미지 캐싱 금지 / 캔버스 taint / 리퍼러 제한 뉘앙스 / 네덜란드 번호판 —
+  은 본문에 이미 반영했다.</div>
+</section>
+
+<div class="foot wrap">
+  GeoGuessHelper 설계 · 2026-07-08 · <code>docs/plan/geoguesshelper-split-capture-plan_260708.html</code><br>
+  캡처 스파인 = render_roadview.py(Kakao→Google 재타깃) · UX 스파인 = YCollector(로컬 웹서버 + URL 페이스트) · 분석 = Claude 비전.
+  <b>복기 도구</b>로 사용하며 Maps Platform ToS(이미지 캐싱 금지·pano_id만 저장)와 프라이버시 가드를 준수한다.
+</div>
+</main>
+</body>
+</html>

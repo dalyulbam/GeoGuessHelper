@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessHelper — 로드뷰 2분할 뷰어</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link rel="stylesheet" href="/webui/styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="brand"><span class="dot"></span> GeoGuessHelper</div>
+  <div class="paste">
+    <input id="url" type="text" spellcheck="false" autocomplete="off"
+      placeholder="구글맵 / 스트리트뷰 링크 붙여넣기  (예: https://maps.app.goo.gl/…  ·  Enter = 추출)">
+    <button id="btn-paste" class="icon" title="클립보드에서 붙여넣기">📋</button>
+    <button id="btn-extract" class="primary">추출</button>
+  </div>
+  <details id="lang-menu" class="lang-menu">
+    <summary title="분석/보고서 출력 언어 (여러 개 선택 가능)">🌐 보고서 언어: <b id="lang-summary">한국어</b> <span class="caret">▾</span></summary>
+    <div class="lang-pop">
+      <div class="lang-pop-h">출력 언어 <span class="muted">(체크한 언어마다 보고서 1부 · 맨 위가 화면 표시 언어)</span></div>
+      <div id="lang-options" class="lang-options"></div>
+    </div>
+  </details>
+  <label id="research-toggle" class="research-toggle" title="식별한 도시를 웹 검색으로 조사해 경제·문화·관광·인물·인접 도시 비교·장단점·주민 특징을 보고서에 추가합니다 (더 느리고 비용↑).">
+    <input type="checkbox" id="research-on" checked> 🔎 웹 리서치 심화
+  </label>
+  <div id="keychips" class="keychips"></div>
+</header>
+
+<div id="tabbar" class="tabbar" hidden></div>
+
+<main class="layout">
+  <section class="viewer">
+    <div id="pano" class="pane pane-rv"></div>
+    <div id="map" class="pane pane-map"></div>
+
+    <div id="intro" class="intro">
+      <div class="intro-card">
+        <div class="intro-ic">🧭</div>
+        <h1>구글 로드뷰 <b>2분할 뷰어</b></h1>
+        <p>지오게서 라운드 후 받은 <b>구글맵 링크</b>를 위에 붙여넣고 <b>추출</b>을 누르세요.
+        위쪽에 <b>로드뷰(스트리트뷰)</b>, 아래쪽에 <b>지도</b>가 뜨고, 로드뷰 안에서 이동하며
+        기념물·도시·사람 장면을 <b>캡처</b>하고 <b>분석</b>할 수 있습니다.</p>
+        <div id="intro-hint" class="intro-hint"></div>
+      </div>
+    </div>
+
+    <div id="fallback" class="fallback" hidden></div>
+  </section>
+
+  <aside class="side">
+    <div class="card" id="pose-card" hidden>
+      <h3>추출된 포즈</h3>
+      <div id="pose-body" class="pose-body"></div>
+      <div class="side-actions">
+        <button id="btn-capture" class="primary wide">📸 현재 장면 캡처</button>
+        <label class="cap-mode">캡처 방식
+          <select id="capture-mode" title="자동: 정적 실패 시 브라우저 렌더로 폴백">
+            <option value="auto">자동 (권장)</option>
+            <option value="static">정적 (Static API)</option>
+            <option value="playwright">브라우저 렌더 (JS 키)</option>
+          </select>
+        </label>
+        <button id="btn-quick-report" class="accent wide" title="지금 화면을 캡처 → 분석 → 보고서까지 한 번에">⚡ 바로 보고서 추출</button>
+        <a id="open-gmaps" class="btn-link" target="_blank" rel="noopener">Google 지도에서 열기 ↗</a>
+      </div>
+    </div>
+
+    <div class="card" id="album-card" hidden>
+      <h3>장면 앨범 <span id="album-count" class="muted"></span></h3>
+      <div id="album" class="album"></div>
+      <button id="btn-analyze" class="accent wide" disabled>🔍 선택한 장면 분석</button>
+      <button id="btn-album-report" class="primary wide" disabled title="선택한 장면을 분석하고 보고서까지 생성">📄 선택 장면 보고서 생성</button>
+    </div>
+
+    <div class="card" id="analysis-card" hidden>
+      <h3>분석 결과 <span id="analysis-lang" class="badge"></span></h3>
+      <div id="analysis" class="analysis"></div>
+      <button id="btn-report" class="primary wide" hidden>📄 보고서 생성 (선택 언어)</button>
+    </div>
+
+    <div class="card" id="reports-card" hidden>
+      <h3>생성된 보고서 <span id="reports-count" class="muted"></span></h3>
+      <div id="reports-list" class="reports-list"></div>
+    </div>
+
+    <div class="side-note">
+      복기(study) 도구 · 라이브 라운드 사용은 부정행위 · Google Maps Platform ToS 준수(이미지 캐싱 금지, pano_id만 저장) · 개인 식별 안 함
+    </div>
+  </aside>
+</main>
+
+<div id="status" class="status" hidden></div>
+
+<script src="/webui/app.js"></script>
+</body>
+</html>

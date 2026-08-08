@@ -1,0 +1,34 @@
+[project]
+name = "geoguesshelper"
+version = "0.1.0"
+description = "지오게서 구글 로드뷰 2분할 뷰어 · 장면 캡처 · 지리/문화/경제 분석"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "httpx>=0.27",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+# 서버측 스트리트뷰/지도 정적 캡처 합성 (Pillow) + 헤드리스 캡처(Playwright)
+capture = ["pillow>=10.0", "playwright>=1.44"]
+# Claude 비전 분석
+analyze = ["anthropic>=0.40"]
+# 전부
+all = ["pillow>=10.0", "playwright>=1.44", "anthropic>=0.40"]
+
+[project.scripts]
+geoguesshelper = "geoguesshelper.cli:main"
+geoguesshelper-server = "geoguesshelper.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/geoguesshelper"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/geoguesshelper/webui" = "geoguesshelper/webui"
