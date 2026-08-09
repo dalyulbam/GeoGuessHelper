@@ -42,7 +42,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from . import capture as capture_mod
@@ -50,6 +50,7 @@ from . import i18n, jobs, knowledge, linkresolver, translate
 from . import report as report_mod
 from . import research as research_mod
 from .analyze import analyze_captures
+from . import __version__
 from .config import Settings, load_settings
 
 WEBUI_DIR = Path(__file__).parent / "webui"
@@ -438,11 +439,14 @@ def build_app(settings: Settings) -> FastAPI:
 
             llm.close_client()
 
-    app = FastAPI(title="GeoGuessHelper", version="0.2.0", lifespan=lifespan)
+    app = FastAPI(title="GeoGuessHelper", version=__version__, lifespan=lifespan)
 
     @app.get("/")
     async def index():
-        return FileResponse(WEBUI_DIR / "index.html")
+        # 정적 파일 캐시 무효화 파라미터를 앱 버전으로 치환해서 내려보낸다.
+        # 손으로 관리하면 반드시 잊어버리고, 그 결과는 "새 서버 + 캐시된 옛 프론트"다.
+        html = (WEBUI_DIR / "index.html").read_text(encoding="utf-8")
+        return HTMLResponse(html.replace("__ASSET_V__", __version__))
 
     @app.get("/api/config")
     async def api_config():

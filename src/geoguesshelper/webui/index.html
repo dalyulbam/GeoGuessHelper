@@ -6,9 +6,10 @@
 <title>GeoGuessHelper — 로드뷰 2분할 뷰어</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
-<!-- ?v= 는 캐시 무효화용. 프론트를 고칠 때마다 올린다 — 브라우저가 옛 app.js 를 계속
-     쓰면 사라진 API 경로로 POST 해서 404 "Not Found" 만 보게 된다. -->
-<link rel="stylesheet" href="/webui/styles.css?v=0.5.0">
+<!-- __ASSET_V__ 는 서버가 서빙할 때 앱 버전으로 치환한다(server.py index()).
+     손으로 올리던 시절, 올리는 것을 잊어 브라우저가 옛 app.js 를 계속 쓰다가
+     사라진 API 경로로 POST 해 404 "Not Found" 만 보게 된 회귀가 있었다. -->
+<link rel="stylesheet" href="/webui/styles.css?v=__ASSET_V__">
 </head>
 <body>
 
@@ -117,6 +118,6 @@
 
 <div id="status" class="status" hidden></div>
 
-<script src="/webui/app.js?v=0.5.0"></script>
+<script src="/webui/app.js?v=__ASSET_V__"></script>
 </body>
 </html>
