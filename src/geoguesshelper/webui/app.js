@@ -540,6 +540,7 @@ function armWhenLoaded(myToken, wantPano, tabId) {
     if (wantPano && pano.getPano() !== wantPano) return false; // 아직 그 파노가 아니다
     syncArmed = true;
     syncTabId = tabId;
+    reportViewerState(pano, tabById(tabId));   // 로드 직후 실제 상태를 즉시 보여준다
     return true;
   };
   if (tryArm()) return;
@@ -548,6 +549,41 @@ function armWhenLoaded(myToken, wantPano, tabId) {
   });
   // 안전망: pano_changed 가 오지 않는 경우에도 "실제로 그 파노인지"는 반드시 확인한다.
   setTimeout(() => { if (myToken === loadToken && !syncArmed) tryArm(); }, 3000);
+}
+
+/** 뷰어가 **실제로** 무엇을 보여주고 있는지 포즈 카드에 드러낸다.
+ *
+ *  이게 없으면 "포즈 카드엔 pano A 라고 쓰여 있는데 화면은 pano B(그리고 검정)" 같은
+ *  상황을 사용자가 알 방법이 없다. 실제로 그런 신고가 있었다 — 카드는 official 파노를
+ *  가리키는데 뷰어 저작권은 제3자였다. 파노 ID 형식으로는 제3자 여부를 알 수 없고
+ *  (22자 official 형식인데 제3자인 경우가 있다), **저작권 문자열만이** 판별자다.
+ */
+function reportViewerState(p, tab) {
+  const el = $("#viewer-state");
+  if (!el || !p) return;
+  let loc = null;
+  try { loc = p.getLocation(); } catch (e) {}
+  const shown = p.getPano ? p.getPano() : "";
+  const want = (tab && tab.extracted && tab.extracted.pano) || "";
+  const cp = (loc && loc.copyright) || (p.getPhotographerPov ? "" : "");
+  const desc = (loc && (loc.description || loc.shortDescription)) || "";
+  const official = !cp || cp.indexOf("Google") !== -1;
+  const mismatch = want && shown && want !== shown;
+
+  const bits = [];
+  if (shown) bits.push(`<span class="vs-k">표시 중</span><code>${esc(short(shown))}</code>`);
+  if (cp) bits.push(`<span class="vs-cp${official ? "" : " third"}">${esc(cp)}</span>`);
+  if (desc) bits.push(`<span class="vs-d">${esc(desc)}</span>`);
+  if (mismatch) {
+    bits.push(`<span class="vs-warn">⚠ 링크의 파노(<code>${esc(short(want))}</code>)와 다릅니다 —`
+      + ` 캡처는 <b>지금 보이는 장면</b>을 찍습니다</span>`);
+  }
+  if (!official) {
+    bits.push(`<span class="vs-note">사용자 기여 파노입니다. 화면이 검게 보이면 구글의 이미지 CDN이`
+      + ` 일시적으로 요청을 제한(429)한 것이니 잠시 후 다시 시도하세요 — 캡처는 별도 경로로 동작합니다.</span>`);
+  }
+  el.innerHTML = bits.join("");
+  el.hidden = bits.length === 0;
 }
 
 function syncFromPano() {
@@ -562,6 +598,7 @@ function syncFromPano() {
   const nextPano = pano.getPano();
   const t0 = tabById(syncTabId);
   const prev = (t0 && t0.current) || {};
+  reportViewerState(pano, t0);
   const next = {
     lat: pos.lat(), lng: pos.lng(), pano: nextPano,
     heading: pov.heading, pitch: pov.pitch,

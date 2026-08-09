@@ -315,12 +315,16 @@ async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict
         return await capture_static(pose, settings)
 
     # auto —
-    # 사용자 기여 파노이고 링크가 직접 이미지 URL(!6s)을 줬다면 그 길을 **먼저** 쓴다.
-    # Static API 는 이런 파노를 서비스하지 않고, 브라우저 렌더는 lh3 CDN 의 429 에 걸려
-    # 검은 화면이 될 수 있다. 이 URL 은 그대로 받아진다(실측).
-    from .linkresolver import is_usergenerated
-
-    if pose.get("photo_url") and is_usergenerated(pose.get("pano")):
+    # 링크가 직접 이미지 URL(!6s)을 줬다면 그 길을 **먼저** 쓴다.
+    #
+    # 예전엔 여기에 `is_usergenerated(pano)` 조건을 걸었는데 그게 틀렸다.
+    # 파노 ID 형식으로는 제3자 여부를 판정할 수 없다 — 실측 반례:
+    #   ApCZpYJ184e4gUYfXHl65g  22자·official 형식인데 실제 저작권은 © 2026 Google
+    #   (반대로 업체/전문 기여자 파노도 같은 22자 형식을 받는다)
+    # 저작권 문자열만이 신뢰할 수 있는 판별자이고, 그건 브라우저를 띄워야 알 수 있다.
+    # 그러니 조건을 없앤다: !6s 가 있다는 것 자체가 "구글이 이 장면의 이미지 URL을
+    # 링크에 넣어 줬다"는 뜻이고, 그 길은 lh3 429 를 타지 않는다.
+    if pose.get("photo_url"):
         ph = await capture_photo_url(pose, settings)
         if ph.get("status") == "OK":
             return ph
