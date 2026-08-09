@@ -613,20 +613,25 @@ async function doCapture() {
     const via = r.mode === "playwright"
       ? (r.fallback_from ? "브라우저 렌더 — Static 미가용 자동 폴백" : "브라우저 렌더")
       : (r.composited ? "로드뷰+지도 합성" : "로드뷰만 — Pillow 미설치");
-    if (r.switched_to_official) {
-      // 제3자 파노는 이미지를 받을 수 없어 근처 공식 파노로 갈아탔다 — 위치가 조금 다르다.
-      setStatus(`캡처 완료 — 이 지점은 제3자 파노(${r.third_party})라 표시가 불가해 `
-        + `근처 구글 공식 파노로 대체했습니다 (${via})`, "ok", 9000);
+    if (r.substituted) {
+      // 요청한 지점이 아닌 곳을 찍었다 — 반드시 알린다. 조용히 다른 거리를 분석하는 것이
+      // 이 도구에서 가장 나쁜 실패다.
+      setStatus(`⚠ 요청한 지점의 타일을 받지 못해(${r.substituted_reason || "검은 화면"}) `
+        + `근처 구글 공식 지점으로 대체 촬영했습니다 — 분석 대상이 원래 위치와 다릅니다.`,
+        "err", 12000);
     } else {
-      setStatus("캡처 완료 (" + via + ")", "ok");
+      setStatus("캡처 완료 (" + via + ")"
+        + (r.third_party ? ` · 사용자 기여 파노 ${r.third_party}` : ""), "ok");
     }
     const fp = $("#fb-preview");
     if (fp && originId === activeId) fp.innerHTML = `<img class="big-img" src="${esc(r.url)}" alt="capture">`;
-  } else if (r.status === "THIRD_PARTY_ONLY" || r.status === "BLACK_RENDER") {
+  } else if (r.status === "TILES_RATE_LIMITED") {
     // 검은 이미지를 앨범에 넣지 않는다 — 넣으면 그대로 분석 비용으로 나간다.
-    setStatus(`이 지점은 사용자 기여(제3자) 파노라마${r.third_party ? " · " + r.third_party : ""}라 `
-      + "이미지를 받을 수 없습니다. 로드뷰에서 조금 이동해 구글 공식 촬영 지점을 찾아보세요.",
+    setStatus("사용자 기여 파노라마의 타일 서버가 IP 단위로 제한(HTTP 429)을 걸었습니다. "
+      + "잠시 뒤 다시 시도하면 정상적으로 나옵니다 — 이 지점이 촬영 불가한 것은 아닙니다.",
       "err", 12000);
+  } else if (r.status === "BLACK_RENDER") {
+    setStatus("로드뷰가 검게 렌더됐습니다. 잠시 후 다시 시도하거나 조금 이동해 보세요.", "err", 9000);
   } else {
     setStatus("캡처 실패: " + (r.message || r.status), "err", 7000);
   }

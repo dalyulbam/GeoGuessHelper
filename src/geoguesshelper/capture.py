@@ -57,17 +57,6 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
             msg = err or f"메타데이터 상태={status}."
         return {"status": status or "NO_PANO", "message": msg, "pano_id": meta.get("pano_id")}
 
-    # 제3자(사용자 기여) 파노는 Static API 로도 이미지를 받을 수 없다. metadata 의 copyright
-    # 로 미리 걸러 헛된 요청과 검은 캡처를 막는다 — 구글 공식은 "© <연도> Google" 형태다.
-    cp = str(meta.get("copyright") or "")
-    if cp and "Google" not in cp:
-        return {
-            "status": "THIRD_PARTY_ONLY",
-            "message": f"제3자 파노라마({cp.strip()}) — 이미지를 받을 수 없습니다.",
-            "third_party": cp.strip(),
-            "pano_id": meta.get("pano_id"),
-        }
-
     # metadata 가 준 실제 파노 좌표/ID 로 스냅
     loc = meta.get("location") or {}
     snapped = dict(pose)
@@ -140,11 +129,8 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
 # ZERO_RESULTS/NOT_FOUND(진짜 커버리지 없음)는 브라우저로도 안 되므로 폴백 안 함.
 _FALLBACKABLE = {"REQUEST_DENIED", "NO_KEY", "META_ERROR", "FETCH_ERROR", "OVER_QUERY_LIMIT"}
 
-# 브라우저 렌더가 검은 화면/제3자 파노를 보고했을 때 — 이건 static 으로도 해결되지 않는다.
-_UNRENDERABLE = {"THIRD_PARTY_ONLY", "BLACK_RENDER"}
 
-
-async def render_playwright(pose: dict, settings: Settings) -> dict:
+async def render_playwright(pose: dict, settings: Settings, *, official_only: bool = False) -> dict:
     """Approach A: 브라우저용 JS 키만으로 헤드리스 Chromium 렌더 → 스크린샷."""
     import asyncio
 
@@ -164,7 +150,25 @@ async def render_playwright(pose: dict, settings: Settings) -> dict:
             "message": "playwright 미설치 — `uv sync --extra all` 후 `playwright install chromium` 하세요.",
         }
     # 동기 Playwright 를 스레드로 오프로드(이벤트 루프 중첩/Windows Proactor 회피).
-    return await asyncio.to_thread(render_google.render_sync, pose, settings, key)
+    res = await asyncio.to_thread(
+        lambda: render_google.render_sync(pose, settings, key, official_only=official_only)
+    )
+    # 타일이 레이트리밋(429)으로 검게 나왔다면, 좌표가 있는 한 근처 **공식** 파노로 한 번
+    # 재시도한다. 공식 파노는 키 기반 엔드포인트라 이 제한을 받지 않는다.
+    # 요청한 지점과 다른 곳이므로 결과에 반드시 표시한다.
+    if (not official_only
+            and res.get("status") in ("TILES_RATE_LIMITED", "BLACK_RENDER")
+            and pose.get("lat") is not None and pose.get("lng") is not None):
+        alt = await asyncio.to_thread(
+            lambda: render_google.render_sync(pose, settings, key, official_only=True)
+        )
+        if alt.get("status") == "OK":
+            alt["substituted"] = True
+            alt["substituted_reason"] = res.get("status")
+            alt["requested_pano_id"] = pose.get("pano")
+            alt["third_party"] = res.get("third_party")
+            return alt
+    return res
 
 
 async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict:
@@ -184,14 +188,6 @@ async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict
     res = await capture_static(pose, settings)
     if res.get("status") == "OK":
         return res
-    if res.get("status") == "THIRD_PARTY_ONLY":
-        # 브라우저 렌더는 근처 **공식** 파노로 갈아탈 수 있다 — 그 길이 남아 있다.
-        pw = await render_playwright(pose, settings)
-        if pw.get("status") == "OK":
-            pw["fallback_from"] = "THIRD_PARTY_ONLY"
-            return pw
-        pw.setdefault("third_party", res.get("third_party"))
-        return pw
     if res.get("status") in _FALLBACKABLE:
         pw = await render_playwright(pose, settings)
         if pw.get("status") == "OK":

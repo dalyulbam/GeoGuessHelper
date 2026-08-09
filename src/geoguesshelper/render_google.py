@@ -41,7 +41,7 @@ window.gm_authFailure=function(){ __fail('JS 키 인증 실패 (InvalidKey/Refer
 
 var USE_PANO=__USE_PANO__, PANO="__PANO__", HAS_LOC=__HAS_LOC__;
 var LAT=__LAT__, LNG=__LNG__, HEADING=__HEADING__, PITCH=__PITCH__, ZOOM=__ZOOM__;
-var RADIUS=__RADIUS__, SETTLE=__SETTLE__;
+var RADIUS=__RADIUS__, SETTLE=__SETTLE__, OFFICIAL_ONLY=__OFFICIAL_ONLY__;
 
 function __init(){
   try{
@@ -71,42 +71,49 @@ function __init(){
       setTimeout(function(){ mapDone=true; ready(); }, 7000);   // 지도 타일 지연 대비 폴백
       setTimeout(function(){ panoSettled=true; ready(); }, SETTLE); // 로드뷰 타일 정착 대기
     }
-    // 제3자(사용자 기여) 파노는 status=OK 로 응답하지만 **타일을 한 장도 받아오지 못해**
-    // 완전히 검은 화면이 된다(실측: 밝기 1.1, 타일 요청 0건). 저작권 문자열이 유일하게
-    // 신뢰할 수 있는 판별자다 — 구글 공식은 "© <연도> Google" 형태다.
+    // 제3자(사용자 기여) 파노도 **정상적으로 렌더된다**. 다만 타일이 구글 공식 파노와 다른
+    // 곳에서 온다: 공식은 streetviewpixels-pa.googleapis.com(키 기반, HTTP 200), 제3자는
+    // lh3.googleusercontent.com(키 없는 CDN). 그 CDN 은 IP 단위 레이트리밋이 있어서
+    // 짧은 시간에 많이 호출하면 **HTTP 429** 를 주고 화면이 검게 남는다(실측 확인).
+    //
+    // 그래서 여기서는 제3자라고 미리 갈아타지 않는다 — 요청받은 파노를 그대로 렌더하고,
+    // 실제로 검게 나온 경우에만 파이썬 쪽에서 판정한다. 요청한 장소가 아닌 곳을 조용히
+    // 분석하는 것이 검은 화면보다 훨씬 나쁘기 때문이다(지오게서 복기 도구다).
     function isOfficial(data){
       var c = (data && data.copyright) || '';
       return c.indexOf('Google') !== -1;
     }
+    // 나중에 파이썬이 '무엇을 실제로 렌더했는지' 확인할 수 있게 기록해 둔다.
+    function noteInfo(data){
+      try{
+        window.__renderedPano = data.location.pano;
+        window.__copyright = data.copyright || '';
+        window.__official = isOfficial(data);
+        window.__renderedLat = data.location.latLng.lat();
+        window.__renderedLng = data.location.latLng.lng();
+        window.__desc = data.location.description || data.location.shortDescription || '';
+      }catch(e){}
+    }
     function tryReq(req, allowFallback){
       window.__stage="getPanorama";
       svc.getPanorama(req, function(data,status){
-        if(status==='OK'){
-          if(!isOfficial(data)){
-            window.__thirdParty = (data && data.copyright) || 'unknown';
-            // 좌표가 있으면 근처의 **공식** 파노로 갈아탄다. 검은 화면을 캡처하느니
-            // 조금 떨어진 실제 이미지가 낫다(보고서에 그 사실을 표시한다).
-            if(HAS_LOC && allowFallback !== 'official'){
-              window.__stage="officialFallback";
-              var r = locReq();
-              r.radius = Math.max(RADIUS, 300);
-              r.sources = [google.maps.StreetViewSource.GOOGLE];
-              svc.getPanorama(r, function(d2,s2){
-                if(s2==='OK' && isOfficial(d2)){ window.__switched = d2.location.pano; render(d2); }
-                else { __fail('제3자 파노라마만 존재해 이미지를 표시할 수 없습니다 ('+window.__thirdParty+')'); }
-              });
-              return;
-            }
-            __fail('제3자 파노라마라 이미지를 표시할 수 없습니다 ('+window.__thirdParty+')');
-            return;
-          }
-          render(data);
-        }
+        if(status==='OK'){ noteInfo(data); render(data); }
         else if(allowFallback && HAS_LOC){ tryReq(locReq(), false); } // 스테일 pano → 좌표 재시도
         else { __fail('스트리트뷰 커버리지 없음 (status='+status+')'); }
       });
     }
-    tryReq(USE_PANO ? {pano:PANO} : locReq(), USE_PANO);
+    // OFFICIAL_ONLY 는 재시도용 — 첫 렌더가 검게 나왔을 때만 파이썬이 켠다.
+    if(OFFICIAL_ONLY && HAS_LOC){
+      var r0 = locReq();
+      r0.radius = Math.max(RADIUS, 400);
+      r0.sources = [google.maps.StreetViewSource.GOOGLE];
+      svc.getPanorama(r0, function(d0,s0){
+        if(s0==='OK' && isOfficial(d0)){ noteInfo(d0); render(d0); }
+        else { __fail('근처에 구글 공식 스트리트뷰가 없습니다 (status='+s0+')'); }
+      });
+    } else {
+      tryReq(USE_PANO ? {pano:PANO} : locReq(), USE_PANO);
+    }
   }catch(e){ __fail('렌더 오류: '+(e&&e.message||e)); }
 }
 </script>
@@ -332,7 +339,7 @@ def _zoom_from_pose(pose: dict, settings: Settings) -> float:
     return max(0.0, min(5.0, round(math.log2(180.0 / fov), 3)))
 
 
-def _build_html(pose: dict, settings: Settings, key: str) -> str:
+def _build_html(pose: dict, settings: Settings, key: str, *, official_only: bool = False) -> str:
     # pano/key 는 JS 문자열 리터럴/URL 로 들어가므로 안전 문자만 남긴다(</script> 브레이크아웃 방지).
     # 유효한 구글 pano id 는 base64url 계열([A-Za-z0-9_-]) → 무해한 값이 아니면 좌표 경로로 폴백됨.
     pano = re.sub(r"[^A-Za-z0-9_-]", "", pose.get("pano") or "")
@@ -356,6 +363,7 @@ def _build_html(pose: dict, settings: Settings, key: str) -> str:
         "__ZOOM__": repr(_zoom_from_pose(pose, settings)),
         "__RADIUS__": str(int(pose.get("radius") or settings.capture_radius_m)),
         "__SETTLE__": "2600",
+        "__OFFICIAL_ONLY__": "true" if official_only else "false",
     }
     html = _HTML
     for k, v in repl.items():
@@ -363,7 +371,7 @@ def _build_html(pose: dict, settings: Settings, key: str) -> str:
     return html
 
 
-def render_sync(pose: dict, settings: Settings, key: str) -> dict:
+def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool = False) -> dict:
     """동기 Playwright 렌더(워커 스레드에서 호출). 반환 capture_static 과 동형의 dict."""
     try:
         from playwright.sync_api import sync_playwright
@@ -380,7 +388,7 @@ def render_sync(pose: dict, settings: Settings, key: str) -> dict:
 
     # HTML 은 captures_dir 아래 임시파일로 두고 localhost 로 서빙(파일 URL 아님 → 리퍼러 유지).
     tmp = settings.captures_dir / f".rv_{uuid.uuid4().hex[:8]}.html"
-    tmp.write_text(_build_html(pose, settings, key), encoding="utf-8")
+    tmp.write_text(_build_html(pose, settings, key, official_only=official_only), encoding="utf-8")
 
     # server.start() 는 반드시 try 안에 있어야 한다. 예전에는 try 바깥이라, start() 가
     # 던지면 finally 의 tmp 정리가 실행되지 않아 API 키가 든 .rv_*.html 이 계속 쌓였고,
@@ -401,6 +409,21 @@ def render_sync(pose: dict, settings: Settings, key: str) -> dict:
                 logs: list[str] = []
                 page.on("console", lambda m: logs.append(f"{m.type}:{m.text}"))
                 page.on("pageerror", lambda e: logs.append(f"pageerror:{e}"))
+                # 타일 응답 계측 — 제3자 파노는 lh3.googleusercontent.com(키 없는 CDN)에서
+                # 오고 IP 단위 레이트리밋에 걸리면 HTTP 429 로 검은 화면이 된다.
+                # 공식 파노는 streetviewpixels-pa.googleapis.com(키 기반).
+                tiles = {"ok": 0, "err": 0, "codes": {}}
+
+                def _on_resp(r):
+                    host = r.url.split("/")[2] if "//" in r.url else ""
+                    if "lh3.googleusercontent" in host or "streetviewpixels" in host or "ggpht" in host:
+                        tiles["codes"][r.status] = tiles["codes"].get(r.status, 0) + 1
+                        if r.status >= 400:
+                            tiles["err"] += 1
+                        else:
+                            tiles["ok"] += 1
+
+                page.on("response", _on_resp)
                 page.goto(f"{server.url}/{tmp.name}", wait_until="load", timeout=25000)
                 try:
                     page.wait_for_function("window.__ready===true", timeout=28000)
@@ -416,13 +439,15 @@ def render_sync(pose: dict, settings: Settings, key: str) -> dict:
                     }
                 no_pano = page.evaluate("window.__noPano===true")
                 err = page.evaluate("window.__err || ''")
-                third_party = page.evaluate("window.__thirdParty || ''")
-                switched = page.evaluate("window.__switched || ''")
+                info = page.evaluate(
+                    "({pano:window.__renderedPano||'',copyright:window.__copyright||'',"
+                    "official:!!window.__official,lat:window.__renderedLat,lng:window.__renderedLng,"
+                    "desc:window.__desc||''})"
+                )
                 if no_pano:
                     return {
-                        "status": "THIRD_PARTY_ONLY" if third_party else "NO_PANO",
+                        "status": "NO_PANO",
                         "message": err or "이 위치에는 스트리트뷰 커버리지가 없습니다.",
-                        "third_party": third_party or None,
                     }
                 shot: dict = {
                     "path": str(out),
@@ -443,27 +468,47 @@ def render_sync(pose: dict, settings: Settings, key: str) -> dict:
     if not out.exists() or out.stat().st_size < 2000:
         return {"status": "RENDER_ERROR", "message": "스크린샷이 비었습니다(렌더 실패)."}
 
-    # 최후 방어선 — 위 판별을 빠져나온 검은 화면을 실제 픽셀로 잡는다.
-    # (판별 로직이 놓쳐도 검은 이미지를 분석에 보내 비용을 태우는 일은 없어야 한다)
+    # 검은 화면 판정은 **픽셀로** 한다. 제3자냐 아니냐로 미리 재단하지 않는다 —
+    # 제3자 파노도 평소엔 정상 렌더되고, 검게 나오는 원인은 lh3 CDN 의 429 다.
     dark = _top_is_black(out, settings)
-    if dark is not None and dark < 6.0:
+    if dark is not None and dark < 8.0:
         out.unlink(missing_ok=True)
+        throttled = tiles["codes"].get(429, 0)
         return {
-            "status": "BLACK_RENDER",
-            "message": (f"로드뷰가 검게 렌더됐습니다(밝기 {dark:.1f})."
-                        + (f" 제3자 파노({third_party})라 이미지를 받을 수 없습니다." if third_party else "")),
-            "third_party": third_party or None,
+            "status": "TILES_RATE_LIMITED" if throttled else "BLACK_RENDER",
+            "message": (
+                f"로드뷰 타일을 받지 못했습니다(밝기 {dark:.1f}, HTTP 429 ×{throttled})."
+                " 사용자 기여 파노라마는 키 없는 CDN 에서 오며 IP 단위로 제한됩니다 —"
+                " 잠시 후 다시 시도하거나 근처 구글 공식 지점으로 이동하세요."
+                if throttled else
+                f"로드뷰가 검게 렌더됐습니다(밝기 {dark:.1f}, 타일 ok={tiles['ok']} err={tiles['err']})."
+            ),
+            "third_party": None if info.get("official") else (info.get("copyright") or None),
+            "tiles": tiles,
+            "rendered_pano_id": info.get("pano") or None,
         }
+
+    # 요청한 파노와 **실제 렌더된 파노가 다르면** 반드시 알린다. 조용히 다른 거리를
+    # 분석하는 것이 이 도구에서 가장 나쁜 실패다.
+    requested = pose.get("pano") or ""
+    rendered = info.get("pano") or ""
+    substituted = bool(requested and rendered and requested != rendered)
 
     return {
         "status": "OK",
         "file": fname,
         "url": f"/captures/{fname}",
-        "third_party": third_party or None,
-        "switched_to_official": switched or None,
-        "pano_id": switched or pose.get("pano"),
-        "lat": pose.get("lat"),
-        "lng": pose.get("lng"),
+        "third_party": None if info.get("official") else (info.get("copyright") or None),
+        "copyright": info.get("copyright") or None,
+        "official": bool(info.get("official")),
+        "substituted": substituted or None,
+        "requested_pano_id": requested or None,
+        "tiles": tiles,
+        # 좌표·pano 는 **실제로 렌더된 것**을 돌려준다. 예전에는 요청값을 그대로 돌려줘
+        # 분석기가 다른 장소를 보면서 요청한 좌표라고 믿을 수 있었다.
+        "pano_id": rendered or pose.get("pano"),
+        "lat": info.get("lat") if info.get("lat") is not None else pose.get("lat"),
+        "lng": info.get("lng") if info.get("lng") is not None else pose.get("lng"),
         "heading": pose.get("heading"),
         "pitch": pose.get("pitch"),
         "composited": True,
