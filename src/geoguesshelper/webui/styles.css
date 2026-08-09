@@ -184,3 +184,72 @@ h3 .badge{font-family:inherit;font-size:10.5px;font-weight:700;padding:1px 7px;b
 .status[hidden]{display:none}
 .status.err{background:var(--danger)}
 .status.ok{background:var(--ok)}
+
+/* ── 작업 큐 ── */
+.card-note{font-size:11.5px;color:var(--muted);line-height:1.55;margin:-4px 0 10px}
+.queue-list{display:flex;flex-direction:column;gap:8px}
+.qrow{border:1px solid var(--line);border-left:3px solid var(--line);border-radius:10px;padding:9px 11px;background:#fff}
+.qrow.run{border-left-color:var(--accent);background:linear-gradient(90deg,var(--accent-soft),#fff 60%)}
+.qrow.wait{border-left-color:var(--muted)}
+.qrow.ok{border-left-color:var(--ok)}
+.qrow.err{border-left-color:var(--danger);background:var(--danger-soft)}
+.qrow.cancel{border-left-color:var(--muted);opacity:.68}
+.qhead{display:flex;align-items:center;gap:7px;font-size:12.5px}
+.qstatus{font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:999px;background:#f1f5f4;color:var(--ink-2);flex:0 0 auto}
+.qrow.run .qstatus{background:var(--accent);color:#fff}
+.qrow.ok .qstatus{background:var(--ok-soft);color:var(--ok)}
+.qrow.err .qstatus{background:#f6d5d2;color:var(--danger)}
+.qlabel{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.qtab{font-size:10.5px;color:var(--muted);background:#f4f6f5;border-radius:999px;padding:1px 7px;flex:0 0 auto}
+.qcancel{flex:0 0 auto;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);color:var(--muted)}
+.qcancel:hover{border-color:var(--danger);color:var(--danger);background:var(--danger-soft)}
+.qmeta{font-size:11px;color:var(--muted);margin-top:3px}
+.qbar{height:4px;border-radius:99px;background:#dbeee8;margin-top:7px;overflow:hidden}
+.qbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));transition:width .4s}
+.qlinks{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
+.qlink{font-size:11.5px;font-weight:700;color:var(--accent-deep);text-decoration:none;
+  background:var(--accent-soft);border:1px solid #c4e8df;border-radius:8px;padding:3px 9px}
+.qlink:hover{background:#fff}
+.queue-orphans{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line)}
+.qorph-h{font-size:11px;font-weight:800;color:var(--muted);margin-bottom:6px}
+.tab.done-flash{animation:gg-flash 2.4s ease-out}
+@keyframes gg-flash{0%,100%{box-shadow:none}18%{box-shadow:0 0 0 3px var(--accent-soft)}}
+
+/* ── 지식 저장소 ── */
+.lang-base-hint{font-size:11px;color:var(--accent-deep);background:var(--accent-soft);
+  border-radius:8px;padding:6px 9px;margin-top:8px;font-weight:600}
+.synth-row{display:flex;gap:7px;margin-top:11px}
+.synth-row input{flex:1;height:34px;border:1px solid var(--line);border-radius:9px;padding:0 11px;
+  font-family:var(--mono);font-size:12px;background:#fff;outline:none}
+.synth-row input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.synth-row button{height:34px;padding:0 14px;font-size:12.5px}
+.synth-row button:disabled{background:#e7ecea;color:var(--muted);cursor:not-allowed}
+
+/* ── 판별 사슬 (분석 카드) ── */
+ol.narrow{list-style:none;counter-reset:n;padding:0;margin:8px 0 4px;position:relative}
+ol.narrow::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--accent),#dbeee8)}
+.nstep{counter-increment:n;position:relative;padding:0 0 10px 34px;margin-bottom:9px}
+.nstep::before{counter-increment:none;content:counter(n);position:absolute;left:4px;top:0;width:18px;height:18px;
+  border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:10px;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px var(--card)}
+.nstep.weak::before{background:var(--muted)}
+.nhead{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:4px}
+.nlvl{font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;
+  border-radius:999px;background:var(--accent-soft);color:var(--accent-deep);white-space:nowrap}
+.nlvl.l-cultural_sphere{background:#f3ecfb;color:#5b3d8a}
+.nlvl.l-country{background:#eef1f0;color:var(--muted)}
+.nq{font-size:12.5px;font-weight:750;color:var(--ink);flex:1;min-width:140px}
+.nconf{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--accent-deep)}
+.nrow{display:flex;gap:7px;font-size:11.5px;line-height:1.55;padding:1px 0}
+.nk{flex:0 0 52px;color:var(--muted);font-weight:700;font-size:10px;padding-top:2px;text-align:right}
+.nv{flex:1;color:var(--ink-2)}
+.nv.em{color:var(--ink);background:var(--accent-soft);border-radius:7px;padding:5px 8px;
+  border-left:3px solid var(--accent)}
+.nrow.in .nv b{color:var(--accent-deep)}
+.nrow.nocut .nv{color:var(--warn);font-style:italic}
+.ncand{display:inline-block;font-size:10.5px;background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:1px 6px;margin:2px 3px 0 0;color:var(--ink-2)}
+.nout{display:inline-block;font-size:10.5px;background:var(--danger-soft);border:1px solid #f3c6c1;
+  border-radius:6px;padding:1px 6px;margin:2px 3px 0 0;color:#8a2a22;text-decoration:line-through}

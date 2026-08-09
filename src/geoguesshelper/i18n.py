@@ -26,6 +26,27 @@ _NATIVE = {code: native for code, native, _ in LANGUAGES}
 _CLAUDE = {code: eng for code, _, eng in LANGUAGES}
 DEFAULT_LANG = "ko"
 
+# ── 기준(base) 언어 ──────────────────────────────────────────────
+# 분석·리서치는 **한 번만** 이 언어로 수행하고, 나머지 선택 언어는 번역으로 만든다.
+# 우선순위: 영어 → 유럽어(프랑스어·스페인어·독일어) → 일본어 → 한국어 → 중국어.
+# 영어를 최우선으로 두는 이유는 web_search 로 닿는 1차 자료가 가장 많고, 고유명사·
+# 역사 용어가 원문 표기에 가장 가깝게 유지되기 때문이다(번역 손실이 한 방향으로만 발생).
+BASE_LANG_PRIORITY: list[str] = ["en", "fr", "es", "de", "ja", "ko", "zh"]
+
+
+def pick_base_lang(langs) -> str:
+    """선택된 언어들 중 조사(analysis/research)를 수행할 기준 언어 1개를 고른다.
+
+    선택 목록에 우선순위 언어가 하나도 없으면 목록의 첫 번째를 쓴다.
+    """
+    codes = [normalize(x) for x in (langs or []) if x]
+    if not codes:
+        return "en" if "en" in _NATIVE else DEFAULT_LANG
+    for pref in BASE_LANG_PRIORITY:
+        if pref in codes:
+            return pref
+    return codes[0]
+
 
 def is_supported(lang: str) -> bool:
     return lang in _NATIVE
@@ -74,6 +95,37 @@ _STRINGS: dict[str, dict[str, str]] = {
         "scenes_h": "Captured scenes",
         "scenes_meta": "{n} shots · street view▲ / map▼",
         "no_embed": "No embedded captures.",
+        "scenes_dropped": "{n} further capture(s) were selected but exceeded the analysis limit, so they are not shown here and were not used as evidence.",
+        "k_h": "Referenced knowledge",
+        "k_sub": "knowledge base",
+        "k_note": "These facts were already established by earlier reports and were reused instead of researched again. Each id links to the stored atom.",
+        "syn_word": "Synthesis",
+        "syn_thesis": "What connects these places",
+        "syn_conn": "Cross-place connections",
+        "syn_open": "Open questions",
+        "syn_basis": "Built from stored knowledge only — no new web research was performed.",
+        "syn_places": "Places drawn on",
+        "syn_atoms": "Atoms used",
+        "maps_h": "Where this is",
+        "maps_sub": "same point at four scales",
+        "maps_open": "Open in Google Maps",
+        "map_admin": "Region",
+        "map_metro": "Metro area",
+        "map_urban": "Urban fabric",
+        "map_block": "Block",
+        "narrow_h": "How it was narrowed down",
+        "narrow_sub": "each step must eliminate a live candidate",
+        "narrow_note": "Naming the country is the easy part. What follows is the chain that cuts from there down to the actual place — and what each observation ruled out.",
+        "narrow_q": "Question",
+        "narrow_obs": "Observed",
+        "narrow_disc": "Why it cuts",
+        "narrow_out": "Ruled out",
+        "narrow_in": "Survives",
+        "narrow_cand": "Candidates",
+        "narrow_nocut": "Could not be split from the image at this level.",
+        "script_h": "Reading",
+        "script_sub": "drafted fast, checked for fidelity",
+        "script_by": "Drafted / checked by",
         "conf_label": "Best-guess confidence {conf}%",
         "coord_prefix": "Est. coordinates ~",
         "driving_tpl": "Drives {side}",
@@ -106,6 +158,37 @@ _STRINGS: dict[str, dict[str, str]] = {
         "scenes_h": "캡처 장면",
         "scenes_meta": "{n}장 · 로드뷰▲ / 지도▼",
         "no_embed": "임베드된 캡처가 없습니다.",
+        "scenes_dropped": "선택된 캡처 {n}장은 분석 상한을 넘어 분석에 쓰이지 않았으므로 여기에도 싣지 않았습니다.",
+        "k_h": "참조한 지식",
+        "k_sub": "지식 저장소",
+        "k_note": "아래 사실은 이전 보고서에서 이미 확립된 것이라 다시 조사하지 않고 재사용했습니다. 각 id 는 저장된 원자로 연결됩니다.",
+        "syn_word": "종합 보고서",
+        "syn_thesis": "이 장소들을 잇는 것",
+        "syn_conn": "장소 간 연결",
+        "syn_open": "남은 질문",
+        "syn_basis": "저장된 지식만으로 재구성했습니다 — 새 웹 검색은 하지 않았습니다.",
+        "syn_places": "재료가 된 장소",
+        "syn_atoms": "사용한 원자",
+        "maps_h": "여기가 어디인가",
+        "maps_sub": "같은 지점을 네 축척으로",
+        "maps_open": "구글 지도에서 열기",
+        "map_admin": "광역 행정구역",
+        "map_metro": "도시권",
+        "map_urban": "시가",
+        "map_block": "블록",
+        "narrow_h": "어떻게 좁혔는가",
+        "narrow_sub": "각 단계는 살아있는 후보를 반드시 하나 이상 배제한다",
+        "narrow_note": "국가를 맞히는 것은 쉬운 부분입니다. 아래는 거기서부터 실제 장소까지 잘라 들어간 사슬이며, 각 관찰이 무엇을 배제했는지를 보여줍니다.",
+        "narrow_q": "가르는 질문",
+        "narrow_obs": "관찰",
+        "narrow_disc": "왜 갈리는가",
+        "narrow_out": "배제",
+        "narrow_in": "남음",
+        "narrow_cand": "후보",
+        "narrow_nocut": "이 단계는 이미지만으로 가를 수 없었습니다.",
+        "script_h": "읽기",
+        "script_sub": "빠르게 초안, 사실 정합성 검증",
+        "script_by": "초안 / 검증",
         "conf_label": "best-guess 신뢰도 {conf}%",
         "coord_prefix": "추정 좌표 ~",
         "driving_tpl": "주행 {side}",
@@ -357,6 +440,30 @@ _ENUMS: dict[str, dict[str, dict[str, str]]] = {
         "es": {"northern": "norte", "southern": "sur", "unknown": "desconocido"},
         "fr": {"northern": "nord", "southern": "sud", "unknown": "inconnu"},
         "de": {"northern": "Nördliche", "southern": "Südliche", "unknown": "unbekannte"},
+    },
+    # 판별 사슬의 레벨 — 코드/CSS 는 영어 enum 을 쓰고 표시만 언어별로 바꾼다.
+    "level": {
+        "en": {"continent": "Continent", "country": "Country", "macro_region": "Macro-region",
+               "cultural_sphere": "Cultural sphere", "admin_region": "Admin region",
+               "metro_area": "Metro area", "district": "District"},
+        "ko": {"continent": "대륙", "country": "국가", "macro_region": "광역권",
+               "cultural_sphere": "문화·민족권", "admin_region": "행정구역",
+               "metro_area": "도시권", "district": "지구"},
+        "ja": {"continent": "大陸", "country": "国", "macro_region": "広域圏",
+               "cultural_sphere": "文化・民族圏", "admin_region": "行政区域",
+               "metro_area": "都市圏", "district": "地区"},
+        "zh": {"continent": "大洲", "country": "国家", "macro_region": "大区",
+               "cultural_sphere": "文化·民族圈", "admin_region": "行政区",
+               "metro_area": "都市圈", "district": "地段"},
+        "es": {"continent": "Continente", "country": "País", "macro_region": "Macrorregión",
+               "cultural_sphere": "Ámbito cultural", "admin_region": "Región administrativa",
+               "metro_area": "Área metropolitana", "district": "Distrito"},
+        "fr": {"continent": "Continent", "country": "Pays", "macro_region": "Macro-région",
+               "cultural_sphere": "Aire culturelle", "admin_region": "Région administrative",
+               "metro_area": "Aire urbaine", "district": "Quartier"},
+        "de": {"continent": "Kontinent", "country": "Land", "macro_region": "Großregion",
+               "cultural_sphere": "Kulturraum", "admin_region": "Verwaltungsregion",
+               "metro_area": "Metropolregion", "district": "Bezirk"},
     },
     "weight": {
         "en": {"high": "high", "medium": "medium", "low": "low"},

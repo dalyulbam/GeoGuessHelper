@@ -1,0 +1,3641 @@
+{
+ "atoms": {
+  "atm_7c89b761a51c": {
+   "id": "atm_7c89b761a51c",
+   "layer": "history",
+   "scope": "city",
+   "title": "Barnaul: Demidov silver-mining origins and industrial capital",
+   "tags": [
+    "18th-century",
+    "altai-krai",
+    "barnaul",
+    "demidov",
+    "founding",
+    "siberia",
+    "silver-mining"
+   ],
+   "entities": [
+    "altai-krai",
+    "barnaul",
+    "demidov-dynasty"
+   ],
+   "period_start": 1730,
+   "period_end": null,
+   "lat": 53.3792627,
+   "lng": 83.6801978,
+   "radius_km": 15.0,
+   "cell": "vc7x8jq",
+   "lang": "en",
+   "sources": [
+    "https://russiatrek.org/altai-krai",
+    "https://invest.barnaul.org/en/",
+    "https://www.diy.org/article/altai_krai",
+    "https://simple.wikipedia.org/wiki/Barnaul",
+    "https://www.britannica.com/place/Barnaul",
+    "https://russiatrek.org/barnaul-city",
+    "https://all-andorra.com/barnaul/",
+    "https://en.wikipedia.org/wiki/Barnaul_(disambiguation)",
+    "https://grokipedia.com/page/Altai_Krai",
+    "https://www.kupi.com/en/explore/russian-federation/barnaul/history"
+   ],
+   "refs": [],
+   "reports": [
+    "report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786289140.6297326,
+   "updated": 1786289140.6301887
+  },
+  "atm_fe41075e4a29": {
+   "id": "atm_fe41075e4a29",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Barnaul industrial and transport economy",
+   "tags": [
+    "ammunition",
+    "barnaul",
+    "industry",
+    "mechanical-engineering",
+    "ob-river",
+    "transport-hub",
+    "wwii-evacuation"
+   ],
+   "entities": [
+    "altai-krai",
+    "barnaul"
+   ],
+   "period_start": 1941,
+   "period_end": null,
+   "lat": 53.3792627,
+   "lng": 83.6801978,
+   "radius_km": 15.0,
+   "cell": "vc7x8jq",
+   "lang": "en",
+   "sources": [
+    "https://russiatrek.org/altai-krai",
+    "https://invest.barnaul.org/en/",
+    "https://www.diy.org/article/altai_krai",
+    "https://simple.wikipedia.org/wiki/Barnaul",
+    "https://www.britannica.com/place/Barnaul",
+    "https://russiatrek.org/barnaul-city",
+    "https://all-andorra.com/barnaul/",
+    "https://en.wikipedia.org/wiki/Barnaul_(disambiguation)",
+    "https://grokipedia.com/page/Altai_Krai",
+    "https://www.kupi.com/en/explore/russian-federation/barnaul/history"
+   ],
+   "refs": [],
+   "reports": [
+    "report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786289140.63535,
+   "updated": 1786289140.6356719
+  },
+  "atm_5449e17b7e07": {
+   "id": "atm_5449e17b7e07",
+   "layer": "nature",
+   "scope": "region",
+   "title": "West Siberian humid continental steppe-forest climate",
+   "tags": [
+    "altai",
+    "birch",
+    "climate",
+    "continental-climate",
+    "poplar",
+    "siberia",
+    "steppe-forest"
+   ],
+   "entities": [
+    "altai-krai",
+    "west-siberia"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 53.3792627,
+   "lng": 83.6801978,
+   "radius_km": 300.0,
+   "cell": "vc7x8jq",
+   "lang": "en",
+   "sources": [
+    "https://russiatrek.org/altai-krai",
+    "https://invest.barnaul.org/en/",
+    "https://www.diy.org/article/altai_krai",
+    "https://simple.wikipedia.org/wiki/Barnaul",
+    "https://www.britannica.com/place/Barnaul",
+    "https://russiatrek.org/barnaul-city",
+    "https://all-andorra.com/barnaul/",
+    "https://en.wikipedia.org/wiki/Barnaul_(disambiguation)",
+    "https://grokipedia.com/page/Altai_Krai",
+    "https://www.kupi.com/en/explore/russian-federation/barnaul/history"
+   ],
+   "refs": [],
+   "reports": [
+    "report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786289140.639715,
+   "updated": 1786289140.639955
+  },
+  "atm_3ecf707f944b": {
+   "id": "atm_3ecf707f944b",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Altai Krai as Russia's largest agricultural region",
+   "tags": [
+    "agriculture",
+    "altai-krai",
+    "barnaul",
+    "dairy",
+    "food-processing",
+    "grain",
+    "honey"
+   ],
+   "entities": [
+    "altai-krai",
+    "barnaul",
+    "biysk",
+    "rubtsovsk"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 53.3792627,
+   "lng": 83.6801978,
+   "radius_km": 200.0,
+   "cell": "vc7x8jq",
+   "lang": "en",
+   "sources": [
+    "https://russiatrek.org/altai-krai",
+    "https://invest.barnaul.org/en/",
+    "https://www.diy.org/article/altai_krai",
+    "https://simple.wikipedia.org/wiki/Barnaul",
+    "https://www.britannica.com/place/Barnaul",
+    "https://russiatrek.org/barnaul-city",
+    "https://all-andorra.com/barnaul/",
+    "https://en.wikipedia.org/wiki/Barnaul_(disambiguation)",
+    "https://grokipedia.com/page/Altai_Krai",
+    "https://www.kupi.com/en/explore/russian-federation/barnaul/history"
+   ],
+   "refs": [],
+   "reports": [
+    "report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786289140.6440978,
+   "updated": 1786289140.6444004
+  },
+  "atm_bffa90fceb9e": {
+   "id": "atm_bffa90fceb9e",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Altai as gateway to Altai Mountains and notable natives",
+   "tags": [
+    "altai-mountains",
+    "chuysky-trakt",
+    "gateway-city",
+    "german-titov",
+    "kalashnikov",
+    "tourism"
+   ],
+   "entities": [
+    "altai-krai",
+    "altai-mountains",
+    "barnaul",
+    "biysk",
+    "german-titov",
+    "mikhail-kalashnikov"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 53.3792627,
+   "lng": 83.6801978,
+   "radius_km": 200.0,
+   "cell": "vc7x8jq",
+   "lang": "en",
+   "sources": [
+    "https://russiatrek.org/altai-krai",
+    "https://invest.barnaul.org/en/",
+    "https://www.diy.org/article/altai_krai",
+    "https://simple.wikipedia.org/wiki/Barnaul",
+    "https://www.britannica.com/place/Barnaul",
+    "https://russiatrek.org/barnaul-city",
+    "https://all-andorra.com/barnaul/",
+    "https://en.wikipedia.org/wiki/Barnaul_(disambiguation)",
+    "https://grokipedia.com/page/Altai_Krai",
+    "https://www.kupi.com/en/explore/russian-federation/barnaul/history"
+   ],
+   "refs": [],
+   "reports": [
+    "report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786289140.648444,
+   "updated": 1786289140.6487432
+  },
+  "atm_764d16790153": {
+   "id": "atm_764d16790153",
+   "layer": "architecture",
+   "scope": "country",
+   "title": "Soviet urban form: panelka housing and trolleybus prospekts",
+   "tags": [
+    "khrushchyovka",
+    "panelka",
+    "post-soviet",
+    "prospekt",
+    "soviet-architecture",
+    "trolleybus",
+    "urban-planning"
+   ],
+   "entities": [
+    "russia",
+    "soviet-union"
+   ],
+   "period_start": 1955,
+   "period_end": null,
+   "lat": 53.3792627,
+   "lng": 83.6801978,
+   "radius_km": 1200,
+   "cell": "vc7x8jq",
+   "lang": "en",
+   "sources": [
+    "https://russiatrek.org/altai-krai",
+    "https://invest.barnaul.org/en/",
+    "https://www.diy.org/article/altai_krai",
+    "https://simple.wikipedia.org/wiki/Barnaul",
+    "https://www.britannica.com/place/Barnaul",
+    "https://russiatrek.org/barnaul-city",
+    "https://all-andorra.com/barnaul/",
+    "https://en.wikipedia.org/wiki/Barnaul_(disambiguation)",
+    "https://grokipedia.com/page/Altai_Krai",
+    "https://www.kupi.com/en/explore/russian-federation/barnaul/history"
+   ],
+   "refs": [],
+   "reports": [
+    "report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786289140.65279,
+   "updated": 1786289140.6531348
+  },
+  "atm_8dcf3ffe7cd6": {
+   "id": "atm_8dcf3ffe7cd6",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Right-hand-drive Japanese imports common in Siberia",
+   "tags": [
+    "cars",
+    "japanese-imports",
+    "right-hand-drive",
+    "russian-far-east",
+    "siberia"
+   ],
+   "entities": [
+    "russia",
+    "siberia"
+   ],
+   "period_start": 1990,
+   "period_end": null,
+   "lat": 53.3792627,
+   "lng": 83.6801978,
+   "radius_km": 200,
+   "cell": "vc7x8jq",
+   "lang": "en",
+   "sources": [
+    "https://russiatrek.org/altai-krai",
+    "https://invest.barnaul.org/en/",
+    "https://www.diy.org/article/altai_krai",
+    "https://simple.wikipedia.org/wiki/Barnaul",
+    "https://www.britannica.com/place/Barnaul",
+    "https://russiatrek.org/barnaul-city",
+    "https://all-andorra.com/barnaul/",
+    "https://en.wikipedia.org/wiki/Barnaul_(disambiguation)",
+    "https://grokipedia.com/page/Altai_Krai",
+    "https://www.kupi.com/en/explore/russian-federation/barnaul/history"
+   ],
+   "refs": [],
+   "reports": [
+    "report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786289140.6588511,
+   "updated": 1786289140.659278
+  },
+  "atm_094699abd32a": {
+   "id": "atm_094699abd32a",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Tonami/Takaoka plain, western Toyama",
+   "tags": [
+    "hokuriku",
+    "honshu",
+    "rice-farming",
+    "sea-of-japan",
+    "tonami-plain",
+    "toyama"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "radius_km": 30.0,
+   "cell": "xn92tyx",
+   "lang": "en",
+   "sources": [
+    "https://www.britannica.com/place/Takaoka",
+    "https://www.japan-experience.com/all-about-japan/toyama/attractions-excursions/takaoka",
+    "https://www.seo-mill.com/en/company/takaoka.php",
+    "https://en.bunkasouzou-takaoka.jp/about-us/",
+    "https://www.japan-guide.com/e/e7525.html",
+    "https://www.jetro.go.jp/en/invest/region/data/toyama.html",
+    "https://en.wikipedia.org/wiki/Takaoka,_Toyama",
+    "https://grokipedia.com/page/Takaoka,_Toyama",
+    "https://www.dnb.com/business-directory/company-information.commercial_and_service_industry_machinery_manufacturing.jp.toyama.html",
+    "https://www.dnb.com/business-directory/company-information.other_amusement_and_recreation_industries.jp.toyama.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786291329.0213516,
+   "updated": 1786291329.0216436
+  },
+  "atm_4f92a18e4ed7": {
+   "id": "atm_4f92a18e4ed7",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Hokuriku Sea-of-Japan heavy-snow climate",
+   "tags": [
+    "climate",
+    "gosetsu",
+    "hokuriku",
+    "sea-of-japan",
+    "snow-country",
+    "winter-monsoon"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "radius_km": 150.0,
+   "cell": "xn92tyx",
+   "lang": "en",
+   "sources": [
+    "https://www.britannica.com/place/Takaoka",
+    "https://www.japan-experience.com/all-about-japan/toyama/attractions-excursions/takaoka",
+    "https://www.seo-mill.com/en/company/takaoka.php",
+    "https://en.bunkasouzou-takaoka.jp/about-us/",
+    "https://www.japan-guide.com/e/e7525.html",
+    "https://www.jetro.go.jp/en/invest/region/data/toyama.html",
+    "https://en.wikipedia.org/wiki/Takaoka,_Toyama",
+    "https://grokipedia.com/page/Takaoka,_Toyama",
+    "https://www.dnb.com/business-directory/company-information.commercial_and_service_industry_machinery_manufacturing.jp.toyama.html",
+    "https://www.dnb.com/business-directory/company-information.other_amusement_and_recreation_industries.jp.toyama.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786291329.026166,
+   "updated": 1786291329.0264096
+  },
+  "atm_1bb47ee4e339": {
+   "id": "atm_1bb47ee4e339",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Hokuriku snow-country vernacular housing",
+   "tags": [
+    "hokuriku",
+    "japan",
+    "roofing",
+    "snow-country",
+    "vernacular-architecture"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "radius_km": 150.0,
+   "cell": "xn92tyx",
+   "lang": "en",
+   "sources": [
+    "https://www.britannica.com/place/Takaoka",
+    "https://www.japan-experience.com/all-about-japan/toyama/attractions-excursions/takaoka",
+    "https://www.seo-mill.com/en/company/takaoka.php",
+    "https://en.bunkasouzou-takaoka.jp/about-us/",
+    "https://www.japan-guide.com/e/e7525.html",
+    "https://www.jetro.go.jp/en/invest/region/data/toyama.html",
+    "https://en.wikipedia.org/wiki/Takaoka,_Toyama",
+    "https://grokipedia.com/page/Takaoka,_Toyama",
+    "https://www.dnb.com/business-directory/company-information.commercial_and_service_industry_machinery_manufacturing.jp.toyama.html",
+    "https://www.dnb.com/business-directory/company-information.other_amusement_and_recreation_industries.jp.toyama.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786291329.0491805,
+   "updated": 1786291329.0494459
+  },
+  "atm_52fa8fc7482a": {
+   "id": "atm_52fa8fc7482a",
+   "layer": "history",
+   "scope": "polity",
+   "title": "Kaga Maeda clan and Edo-period castle towns",
+   "tags": [
+    "castle-town",
+    "daimyo",
+    "edo-period",
+    "kaga-domain",
+    "maeda-clan",
+    "takaoka"
+   ],
+   "entities": [],
+   "period_start": 1600,
+   "period_end": 1868,
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "radius_km": 100.0,
+   "cell": "xn92tyx",
+   "lang": "en",
+   "sources": [
+    "https://www.britannica.com/place/Takaoka",
+    "https://www.japan-experience.com/all-about-japan/toyama/attractions-excursions/takaoka",
+    "https://www.seo-mill.com/en/company/takaoka.php",
+    "https://en.bunkasouzou-takaoka.jp/about-us/",
+    "https://www.japan-guide.com/e/e7525.html",
+    "https://www.jetro.go.jp/en/invest/region/data/toyama.html",
+    "https://en.wikipedia.org/wiki/Takaoka,_Toyama",
+    "https://grokipedia.com/page/Takaoka,_Toyama",
+    "https://www.dnb.com/business-directory/company-information.commercial_and_service_industry_machinery_manufacturing.jp.toyama.html",
+    "https://www.dnb.com/business-directory/company-information.other_amusement_and_recreation_industries.jp.toyama.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786291329.0537019,
+   "updated": 1786291329.0539858
+  },
+  "atm_cc6189746731": {
+   "id": "atm_cc6189746731",
+   "layer": "culture",
+   "scope": "city",
+   "title": "Takaoka copperware and lacquerware crafts",
+   "tags": [
+    "kanaya-machi",
+    "lacquerware",
+    "metal-casting",
+    "takaoka-copperware",
+    "takaoka-doki",
+    "traditional-craft"
+   ],
+   "entities": [],
+   "period_start": 1609,
+   "period_end": null,
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "radius_km": 10.0,
+   "cell": "xn92tyx",
+   "lang": "en",
+   "sources": [
+    "https://www.britannica.com/place/Takaoka",
+    "https://www.japan-experience.com/all-about-japan/toyama/attractions-excursions/takaoka",
+    "https://www.seo-mill.com/en/company/takaoka.php",
+    "https://en.bunkasouzou-takaoka.jp/about-us/",
+    "https://www.japan-guide.com/e/e7525.html",
+    "https://www.jetro.go.jp/en/invest/region/data/toyama.html",
+    "https://en.wikipedia.org/wiki/Takaoka,_Toyama",
+    "https://grokipedia.com/page/Takaoka,_Toyama",
+    "https://www.dnb.com/business-directory/company-information.commercial_and_service_industry_machinery_manufacturing.jp.toyama.html",
+    "https://www.dnb.com/business-directory/company-information.other_amusement_and_recreation_industries.jp.toyama.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786291329.0590744,
+   "updated": 1786291329.0593555
+  },
+  "atm_48e28cb5f3ff": {
+   "id": "atm_48e28cb5f3ff",
+   "layer": "culture",
+   "scope": "city",
+   "title": "Takaoka heritage sites and Doraemon connection",
+   "tags": [
+    "doraemon",
+    "fujiko-f-fujio",
+    "great-buddha",
+    "mikuruma-yama-festival",
+    "takaoka",
+    "zuiryu-ji"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "radius_km": 10.0,
+   "cell": "xn92tyx",
+   "lang": "en",
+   "sources": [
+    "https://www.britannica.com/place/Takaoka",
+    "https://www.japan-experience.com/all-about-japan/toyama/attractions-excursions/takaoka",
+    "https://www.seo-mill.com/en/company/takaoka.php",
+    "https://en.bunkasouzou-takaoka.jp/about-us/",
+    "https://www.japan-guide.com/e/e7525.html",
+    "https://www.jetro.go.jp/en/invest/region/data/toyama.html",
+    "https://en.wikipedia.org/wiki/Takaoka,_Toyama",
+    "https://grokipedia.com/page/Takaoka,_Toyama",
+    "https://www.dnb.com/business-directory/company-information.commercial_and_service_industry_machinery_manufacturing.jp.toyama.html",
+    "https://www.dnb.com/business-directory/company-information.other_amusement_and_recreation_industries.jp.toyama.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786291329.0636187,
+   "updated": 1786291329.0638134
+  },
+  "atm_5685afe3cc0c": {
+   "id": "atm_5685afe3cc0c",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Toyama Bay seafood and Hokuriku regional diet",
+   "tags": [
+    "firefly-squid",
+    "regional-cuisine",
+    "seafood",
+    "toyama-bay",
+    "white-shrimp",
+    "yellowtail"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "radius_km": 60.0,
+   "cell": "xn92tyx",
+   "lang": "en",
+   "sources": [
+    "https://www.britannica.com/place/Takaoka",
+    "https://www.japan-experience.com/all-about-japan/toyama/attractions-excursions/takaoka",
+    "https://www.seo-mill.com/en/company/takaoka.php",
+    "https://en.bunkasouzou-takaoka.jp/about-us/",
+    "https://www.japan-guide.com/e/e7525.html",
+    "https://www.jetro.go.jp/en/invest/region/data/toyama.html",
+    "https://en.wikipedia.org/wiki/Takaoka,_Toyama",
+    "https://grokipedia.com/page/Takaoka,_Toyama",
+    "https://www.dnb.com/business-directory/company-information.commercial_and_service_industry_machinery_manufacturing.jp.toyama.html",
+    "https://www.dnb.com/business-directory/company-information.other_amusement_and_recreation_industries.jp.toyama.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786291329.069739,
+   "updated": 1786291329.0700603
+  },
+  "atm_9b6eeb87cb63": {
+   "id": "atm_9b6eeb87cb63",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Aging and shrinking regional Japanese cities",
+   "tags": [
+    "aging-society",
+    "depopulation",
+    "manufacturing",
+    "regional-japan",
+    "rural-decline"
+   ],
+   "entities": [],
+   "period_start": 1990,
+   "period_end": null,
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "radius_km": 200,
+   "cell": "xn92tyx",
+   "lang": "en",
+   "sources": [
+    "https://www.britannica.com/place/Takaoka",
+    "https://www.japan-experience.com/all-about-japan/toyama/attractions-excursions/takaoka",
+    "https://www.seo-mill.com/en/company/takaoka.php",
+    "https://en.bunkasouzou-takaoka.jp/about-us/",
+    "https://www.japan-guide.com/e/e7525.html",
+    "https://www.jetro.go.jp/en/invest/region/data/toyama.html",
+    "https://en.wikipedia.org/wiki/Takaoka,_Toyama",
+    "https://grokipedia.com/page/Takaoka,_Toyama",
+    "https://www.dnb.com/business-directory/company-information.commercial_and_service_industry_machinery_manufacturing.jp.toyama.html",
+    "https://www.dnb.com/business-directory/company-information.other_amusement_and_recreation_industries.jp.toyama.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786291329.0759306,
+   "updated": 1786291329.0761974
+  },
+  "atm_44016e9885d2": {
+   "id": "atm_44016e9885d2",
+   "layer": "history",
+   "scope": "city",
+   "title": "Aurangabad (Chhatrapati Sambhajinagar), Maharashtra",
+   "tags": [
+    "aurangabad",
+    "chhatrapati-sambhajinagar",
+    "deccan",
+    "india",
+    "maharashtra",
+    "mughal-heritage"
+   ],
+   "entities": [
+    "aurangabad",
+    "chhatrapati-sambhajinagar",
+    "maharashtra"
+   ],
+   "period_start": 1610,
+   "period_end": null,
+   "lat": 19.8953229,
+   "lng": 75.3355104,
+   "radius_km": 15.0,
+   "cell": "tet94mc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_in_bibi-ka-maqbara_19.8953_75.3355_260810_013326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786293223.7049332,
+   "updated": 1786293223.705238
+  },
+  "atm_1eddc1d27617": {
+   "id": "atm_1eddc1d27617",
+   "layer": "architecture",
+   "scope": "city",
+   "title": "Bibi Ka Maqbara mausoleum",
+   "tags": [
+    "aurangabad",
+    "bibi-ka-maqbara",
+    "mausoleum",
+    "mughal-architecture",
+    "taj-of-deccan"
+   ],
+   "entities": [
+    "aurangabad",
+    "bibi-ka-maqbara",
+    "mughal-empire"
+   ],
+   "period_start": 1660,
+   "period_end": 1700,
+   "lat": 19.8953229,
+   "lng": 75.3355104,
+   "radius_km": 5.0,
+   "cell": "tet94mc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_in_bibi-ka-maqbara_19.8953_75.3355_260810_013326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786293223.7094407,
+   "updated": 1786293223.7097518
+  },
+  "atm_3a98a4b0d928": {
+   "id": "atm_3a98a4b0d928",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Deccan plateau semi-arid deciduous biome",
+   "tags": [
+    "banyan",
+    "deccan-plateau",
+    "deciduous-forest",
+    "india",
+    "monsoon",
+    "semi-arid"
+   ],
+   "entities": [
+    "deccan-plateau",
+    "india"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 19.8953229,
+   "lng": 75.3355104,
+   "radius_km": 300.0,
+   "cell": "tet94mc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_in_bibi-ka-maqbara_19.8953_75.3355_260810_013326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786293223.7140326,
+   "updated": 1786293223.7142854
+  },
+  "atm_f1e627fbac6a": {
+   "id": "atm_f1e627fbac6a",
+   "layer": "language",
+   "scope": "region",
+   "title": "Marathi in Devanagari script in Maharashtra",
+   "tags": [
+    "devanagari",
+    "hindi",
+    "india",
+    "maharashtra",
+    "marathi",
+    "multilingual-signage"
+   ],
+   "entities": [
+    "devanagari-script",
+    "maharashtra",
+    "marathi-language"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 19.8953229,
+   "lng": 75.3355104,
+   "radius_km": 400.0,
+   "cell": "tet94mc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_in_bibi-ka-maqbara_19.8953_75.3355_260810_013326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786293223.7447946,
+   "updated": 1786293223.745051
+  },
+  "atm_91c12861d2aa": {
+   "id": "atm_91c12861d2aa",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Indian left-hand traffic and two-wheeler streetscape",
+   "tags": [
+    "auto-rickshaw",
+    "india",
+    "left-hand-traffic",
+    "rooftop-water-tanks",
+    "streetscape",
+    "two-wheelers"
+   ],
+   "entities": [
+    "india"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 19.8953229,
+   "lng": 75.3355104,
+   "radius_km": 1200,
+   "cell": "tet94mc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_in_bibi-ka-maqbara_19.8953_75.3355_260810_013326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786293223.7490377,
+   "updated": 1786293223.7493002
+  },
+  "atm_87059bc2df36": {
+   "id": "atm_87059bc2df36",
+   "layer": "geography",
+   "scope": "city",
+   "title": "Córdoba, Argentina — capital and second city",
+   "tags": [
+    "argentina",
+    "city",
+    "cordoba",
+    "gran-cordoba",
+    "sierras-chicas",
+    "suquia-river"
+   ],
+   "entities": [
+    "cordoba-argentina",
+    "cordoba-province"
+   ],
+   "period_start": 1573,
+   "period_end": null,
+   "lat": -31.4102477,
+   "lng": -64.2349063,
+   "radius_km": 40.0,
+   "cell": "6d6m63c",
+   "lang": "en",
+   "sources": [
+    "https://fund.ar/en/publicacion/overview-of-economic-complexity-of-the-municipality-of-cordoba/",
+    "https://atencionalinversor.gob.ar/en/",
+    "https://kids.kiddle.co/C%C3%B3rdoba,_Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2022-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://www.britannica.com/place/Cordoba-Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2025-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://en.wikivoyage.org/wiki/C%C3%B3rdoba_(city,_Argentina)",
+    "http://www.qianqiqianzhen.com/qianqiqianzhen/gwxz/lamei/article/20210323132313740350705.html",
+    "https://www.nbcnews.com/news/amp/wbna18028981",
+    "https://www.dnb.com/business-directory/company-information.gambling_industries.ar.cordoba.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_cordoba_-31.4102_-64.2349_260810_014939_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294197.4037097,
+   "updated": 1786294197.403913
+  },
+  "atm_b4521f74ff37": {
+   "id": "atm_b4521f74ff37",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Córdoba economy: automotive, services and tech",
+   "tags": [
+    "agro-industry",
+    "argentina-economy",
+    "automotive-industry",
+    "cordoba",
+    "manufacturing",
+    "software"
+   ],
+   "entities": [
+    "cordoba-argentina"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -31.4102477,
+   "lng": -64.2349063,
+   "radius_km": 40.0,
+   "cell": "6d6m63c",
+   "lang": "en",
+   "sources": [
+    "https://fund.ar/en/publicacion/overview-of-economic-complexity-of-the-municipality-of-cordoba/",
+    "https://atencionalinversor.gob.ar/en/",
+    "https://kids.kiddle.co/C%C3%B3rdoba,_Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2022-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://www.britannica.com/place/Cordoba-Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2025-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://en.wikivoyage.org/wiki/C%C3%B3rdoba_(city,_Argentina)",
+    "http://www.qianqiqianzhen.com/qianqiqianzhen/gwxz/lamei/article/20210323132313740350705.html",
+    "https://www.nbcnews.com/news/amp/wbna18028981",
+    "https://www.dnb.com/business-directory/company-information.gambling_industries.ar.cordoba.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_cordoba_-31.4102_-64.2349_260810_014939_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294197.4069157,
+   "updated": 1786294197.4070947
+  },
+  "atm_a60f6d19f902": {
+   "id": "atm_a60f6d19f902",
+   "layer": "culture",
+   "scope": "city",
+   "title": "Cuarteto music and cordobés identity",
+   "tags": [
+    "accent",
+    "argentine-music",
+    "cordoba",
+    "cuarteto",
+    "youth-culture"
+   ],
+   "entities": [
+    "cordoba-argentina",
+    "cuarteto"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -31.4102477,
+   "lng": -64.2349063,
+   "radius_km": 40.0,
+   "cell": "6d6m63c",
+   "lang": "en",
+   "sources": [
+    "https://fund.ar/en/publicacion/overview-of-economic-complexity-of-the-municipality-of-cordoba/",
+    "https://atencionalinversor.gob.ar/en/",
+    "https://kids.kiddle.co/C%C3%B3rdoba,_Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2022-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://www.britannica.com/place/Cordoba-Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2025-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://en.wikivoyage.org/wiki/C%C3%B3rdoba_(city,_Argentina)",
+    "http://www.qianqiqianzhen.com/qianqiqianzhen/gwxz/lamei/article/20210323132313740350705.html",
+    "https://www.nbcnews.com/news/amp/wbna18028981",
+    "https://www.dnb.com/business-directory/company-information.gambling_industries.ar.cordoba.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_cordoba_-31.4102_-64.2349_260810_014939_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294197.4098175,
+   "updated": 1786294197.4099557
+  },
+  "atm_e85177c2fa30": {
+   "id": "atm_e85177c2fa30",
+   "layer": "architecture",
+   "scope": "city",
+   "title": "Manzana Jesuítica (Jesuit Block), Córdoba",
+   "tags": [
+    "colonial-architecture",
+    "cordoba",
+    "jesuit-block",
+    "jesuit-estancias",
+    "manzana-jesuitica",
+    "unesco-world-heritage"
+   ],
+   "entities": [
+    "cordoba-argentina",
+    "manzana-jesuitica"
+   ],
+   "period_start": 1600,
+   "period_end": null,
+   "lat": -31.4102477,
+   "lng": -64.2349063,
+   "radius_km": 30.0,
+   "cell": "6d6m63c",
+   "lang": "en",
+   "sources": [
+    "https://fund.ar/en/publicacion/overview-of-economic-complexity-of-the-municipality-of-cordoba/",
+    "https://atencionalinversor.gob.ar/en/",
+    "https://kids.kiddle.co/C%C3%B3rdoba,_Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2022-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://www.britannica.com/place/Cordoba-Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2025-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://en.wikivoyage.org/wiki/C%C3%B3rdoba_(city,_Argentina)",
+    "http://www.qianqiqianzhen.com/qianqiqianzhen/gwxz/lamei/article/20210323132313740350705.html",
+    "https://www.nbcnews.com/news/amp/wbna18028981",
+    "https://www.dnb.com/business-directory/company-information.gambling_industries.ar.cordoba.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_cordoba_-31.4102_-64.2349_260810_014939_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294197.4120831,
+   "updated": 1786294197.4121902
+  },
+  "atm_edd60e50c814": {
+   "id": "atm_edd60e50c814",
+   "layer": "history",
+   "scope": "polity",
+   "title": "Universidad Nacional de Córdoba and 1918 University Reform",
+   "tags": [
+    "1918-university-reform",
+    "higher-education",
+    "latin-america",
+    "student-movement",
+    "universidad-nacional-de-cordoba"
+   ],
+   "entities": [
+    "cordoba-argentina",
+    "universidad-nacional-de-cordoba",
+    "university-reform-1918"
+   ],
+   "period_start": 1613,
+   "period_end": null,
+   "lat": -31.4102477,
+   "lng": -64.2349063,
+   "radius_km": 2000,
+   "cell": "6d6m63c",
+   "lang": "en",
+   "sources": [
+    "https://fund.ar/en/publicacion/overview-of-economic-complexity-of-the-municipality-of-cordoba/",
+    "https://atencionalinversor.gob.ar/en/",
+    "https://kids.kiddle.co/C%C3%B3rdoba,_Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2022-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://www.britannica.com/place/Cordoba-Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2025-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://en.wikivoyage.org/wiki/C%C3%B3rdoba_(city,_Argentina)",
+    "http://www.qianqiqianzhen.com/qianqiqianzhen/gwxz/lamei/article/20210323132313740350705.html",
+    "https://www.nbcnews.com/news/amp/wbna18028981",
+    "https://www.dnb.com/business-directory/company-information.gambling_industries.ar.cordoba.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_cordoba_-31.4102_-64.2349_260810_014939_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294197.4329302,
+   "updated": 1786294197.4330661
+  },
+  "atm_35ff70ea7db7": {
+   "id": "atm_35ff70ea7db7",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Argentine telephone area code 351 (Córdoba)",
+   "tags": [
+    "area-code-351",
+    "argentina",
+    "cordoba",
+    "driving-right",
+    "flag-colours",
+    "telephone"
+   ],
+   "entities": [
+    "argentina",
+    "cordoba-argentina"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -31.4102477,
+   "lng": -64.2349063,
+   "radius_km": 30.0,
+   "cell": "6d6m63c",
+   "lang": "en",
+   "sources": [
+    "https://fund.ar/en/publicacion/overview-of-economic-complexity-of-the-municipality-of-cordoba/",
+    "https://atencionalinversor.gob.ar/en/",
+    "https://kids.kiddle.co/C%C3%B3rdoba,_Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2022-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://www.britannica.com/place/Cordoba-Argentina",
+    "https://www.mobiliseyourcity.net/sites/default/files/2025-05/C%C3%B3rdoba,%20Argentina.pdf",
+    "https://en.wikivoyage.org/wiki/C%C3%B3rdoba_(city,_Argentina)",
+    "http://www.qianqiqianzhen.com/qianqiqianzhen/gwxz/lamei/article/20210323132313740350705.html",
+    "https://www.nbcnews.com/news/amp/wbna18028981",
+    "https://www.dnb.com/business-directory/company-information.gambling_industries.ar.cordoba.html?page=3"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_cordoba_-31.4102_-64.2349_260810_014939_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294197.4358597,
+   "updated": 1786294197.4359722
+  },
+  "atm_dbf795f532fa": {
+   "id": "atm_dbf795f532fa",
+   "layer": "culture",
+   "scope": "city",
+   "title": "University of Oxford and 'dreaming spires'",
+   "tags": [
+    "ashmolean",
+    "bodleian",
+    "collegiate-university",
+    "dreaming-spires",
+    "higher-education",
+    "oxford",
+    "university-of-oxford"
+   ],
+   "entities": [
+    "bodleian-library",
+    "christ-church-college",
+    "oxford",
+    "university-of-oxford"
+   ],
+   "period_start": 1096,
+   "period_end": null,
+   "lat": 51.7430428,
+   "lng": -1.2584125,
+   "radius_km": 5.0,
+   "cell": "gcpn77e",
+   "lang": "en",
+   "sources": [
+    "https://www.oxford.gov.uk/oxfords-economy/major-employers",
+    "https://www.oxford.gov.uk/statistics-oxford/economic-statistics",
+    "https://www.varbes.com/economy/oxford-economy",
+    "https://www.oxford.gov.uk/info/20238/oxfords_economy/946/major_employers",
+    "https://www.oxford.gov.uk/oxfords-economy/oxfords-business-sectors",
+    "https://www.oxford.gov.uk/oxfords-economy",
+    "https://www.oxford.gov.uk/downloads/file/2114/preferred-options-bgp-5---employment-and-economy",
+    "https://www.oxford.gov.uk/info/20124/economy/454/economic_statistics",
+    "https://www.oxford.gov.uk/downloads/file/2067/flood_update_-_autumn_2013",
+    "https://www.famousbirthdays.com/city/oxford-england.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294430.5833063,
+   "updated": 1786294430.5836046
+  },
+  "atm_9517519bc35a": {
+   "id": "atm_9517519bc35a",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Oxford knowledge economy: education, health, Mini plant, OUP",
+   "tags": [
+    "biotech",
+    "bmw",
+    "knowledge-economy",
+    "mini-plant",
+    "oxford",
+    "oxford-university-press",
+    "tourism"
+   ],
+   "entities": [
+    "mini-plant-cowley",
+    "oxford",
+    "oxford-university-press"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 51.7430428,
+   "lng": -1.2584125,
+   "radius_km": 8.0,
+   "cell": "gcpn77e",
+   "lang": "en",
+   "sources": [
+    "https://www.oxford.gov.uk/oxfords-economy/major-employers",
+    "https://www.oxford.gov.uk/statistics-oxford/economic-statistics",
+    "https://www.varbes.com/economy/oxford-economy",
+    "https://www.oxford.gov.uk/info/20238/oxfords_economy/946/major_employers",
+    "https://www.oxford.gov.uk/oxfords-economy/oxfords-business-sectors",
+    "https://www.oxford.gov.uk/oxfords-economy",
+    "https://www.oxford.gov.uk/downloads/file/2114/preferred-options-bgp-5---employment-and-economy",
+    "https://www.oxford.gov.uk/info/20124/economy/454/economic_statistics",
+    "https://www.oxford.gov.uk/downloads/file/2067/flood_update_-_autumn_2013",
+    "https://www.famousbirthdays.com/city/oxford-england.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294430.5890381,
+   "updated": 1786294430.5893362
+  },
+  "atm_92b70bd29630": {
+   "id": "atm_92b70bd29630",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Cotswold-limestone collegiate Gothic architecture",
+   "tags": [
+    "collegiate-gothic",
+    "cotswold-limestone",
+    "fan-vaulting",
+    "norman-architecture",
+    "oolitic-limestone",
+    "oxford"
+   ],
+   "entities": [
+    "christ-church-cathedral",
+    "collegiate-gothic",
+    "cotswold-limestone"
+   ],
+   "period_start": 1100,
+   "period_end": null,
+   "lat": 51.7430428,
+   "lng": -1.2584125,
+   "radius_km": 60.0,
+   "cell": "gcpn77e",
+   "lang": "en",
+   "sources": [
+    "https://www.oxford.gov.uk/oxfords-economy/major-employers",
+    "https://www.oxford.gov.uk/statistics-oxford/economic-statistics",
+    "https://www.varbes.com/economy/oxford-economy",
+    "https://www.oxford.gov.uk/info/20238/oxfords_economy/946/major_employers",
+    "https://www.oxford.gov.uk/oxfords-economy/oxfords-business-sectors",
+    "https://www.oxford.gov.uk/oxfords-economy",
+    "https://www.oxford.gov.uk/downloads/file/2114/preferred-options-bgp-5---employment-and-economy",
+    "https://www.oxford.gov.uk/info/20124/economy/454/economic_statistics",
+    "https://www.oxford.gov.uk/downloads/file/2067/flood_update_-_autumn_2013",
+    "https://www.famousbirthdays.com/city/oxford-england.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294430.5947654,
+   "updated": 1786294430.5949836
+  },
+  "atm_a730bfa14785": {
+   "id": "atm_a730bfa14785",
+   "layer": "architecture",
+   "scope": "country",
+   "title": "Victorian terraced housing typology in England",
+   "tags": [
+    "bay-windows",
+    "brick-terrace",
+    "english-housing",
+    "slate-roofs",
+    "victorian-terrace"
+   ],
+   "entities": [
+    "victorian-terraced-housing"
+   ],
+   "period_start": 1837,
+   "period_end": 1901,
+   "lat": 51.7430428,
+   "lng": -1.2584125,
+   "radius_km": 1200,
+   "cell": "gcpn77e",
+   "lang": "en",
+   "sources": [
+    "https://www.oxford.gov.uk/oxfords-economy/major-employers",
+    "https://www.oxford.gov.uk/statistics-oxford/economic-statistics",
+    "https://www.varbes.com/economy/oxford-economy",
+    "https://www.oxford.gov.uk/info/20238/oxfords_economy/946/major_employers",
+    "https://www.oxford.gov.uk/oxfords-economy/oxfords-business-sectors",
+    "https://www.oxford.gov.uk/oxfords-economy",
+    "https://www.oxford.gov.uk/downloads/file/2114/preferred-options-bgp-5---employment-and-economy",
+    "https://www.oxford.gov.uk/info/20124/economy/454/economic_statistics",
+    "https://www.oxford.gov.uk/downloads/file/2067/flood_update_-_autumn_2013",
+    "https://www.famousbirthdays.com/city/oxford-england.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294430.6181993,
+   "updated": 1786294430.6184595
+  },
+  "atm_8037259cd69e": {
+   "id": "atm_8037259cd69e",
+   "layer": "geography",
+   "scope": "city",
+   "title": "Oxford's rivers Thames and Cherwell",
+   "tags": [
+    "folly-bridge",
+    "isis",
+    "oxford",
+    "punting",
+    "river-cherwell",
+    "river-thames"
+   ],
+   "entities": [
+    "oxford",
+    "river-cherwell",
+    "river-thames"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 51.7430428,
+   "lng": -1.2584125,
+   "radius_km": 5.0,
+   "cell": "gcpn77e",
+   "lang": "en",
+   "sources": [
+    "https://www.oxford.gov.uk/oxfords-economy/major-employers",
+    "https://www.oxford.gov.uk/statistics-oxford/economic-statistics",
+    "https://www.varbes.com/economy/oxford-economy",
+    "https://www.oxford.gov.uk/info/20238/oxfords_economy/946/major_employers",
+    "https://www.oxford.gov.uk/oxfords-economy/oxfords-business-sectors",
+    "https://www.oxford.gov.uk/oxfords-economy",
+    "https://www.oxford.gov.uk/downloads/file/2114/preferred-options-bgp-5---employment-and-economy",
+    "https://www.oxford.gov.uk/info/20124/economy/454/economic_statistics",
+    "https://www.oxford.gov.uk/downloads/file/2067/flood_update_-_autumn_2013",
+    "https://www.famousbirthdays.com/city/oxford-england.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294430.622734,
+   "updated": 1786294430.6229632
+  },
+  "atm_ae4c5a7357ff": {
+   "id": "atm_ae4c5a7357ff",
+   "layer": "culture",
+   "scope": "polity",
+   "title": "Oxbridge rivalry and the ancient English universities",
+   "tags": [
+    "ancient-universities",
+    "boat-race",
+    "cambridge",
+    "inklings",
+    "literary-heritage",
+    "oxbridge",
+    "oxford"
+   ],
+   "entities": [
+    "cambridge",
+    "oxbridge",
+    "oxford"
+   ],
+   "period_start": 1096,
+   "period_end": null,
+   "lat": 51.7430428,
+   "lng": -1.2584125,
+   "radius_km": 2000,
+   "cell": "gcpn77e",
+   "lang": "en",
+   "sources": [
+    "https://www.oxford.gov.uk/oxfords-economy/major-employers",
+    "https://www.oxford.gov.uk/statistics-oxford/economic-statistics",
+    "https://www.varbes.com/economy/oxford-economy",
+    "https://www.oxford.gov.uk/info/20238/oxfords_economy/946/major_employers",
+    "https://www.oxford.gov.uk/oxfords-economy/oxfords-business-sectors",
+    "https://www.oxford.gov.uk/oxfords-economy",
+    "https://www.oxford.gov.uk/downloads/file/2114/preferred-options-bgp-5---employment-and-economy",
+    "https://www.oxford.gov.uk/info/20124/economy/454/economic_statistics",
+    "https://www.oxford.gov.uk/downloads/file/2067/flood_update_-_autumn_2013",
+    "https://www.famousbirthdays.com/city/oxford-england.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294430.6267984,
+   "updated": 1786294430.627008
+  },
+  "atm_8af183b8f49b": {
+   "id": "atm_8af183b8f49b",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Standard UK road and vehicle conventions",
+   "tags": [
+    "20mph",
+    "double-yellow-lines",
+    "left-hand-driving",
+    "road-markings",
+    "united-kingdom",
+    "yellow-plates"
+   ],
+   "entities": [
+    "united-kingdom"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 51.7430428,
+   "lng": -1.2584125,
+   "radius_km": 1200,
+   "cell": "gcpn77e",
+   "lang": "en",
+   "sources": [
+    "https://www.oxford.gov.uk/oxfords-economy/major-employers",
+    "https://www.oxford.gov.uk/statistics-oxford/economic-statistics",
+    "https://www.varbes.com/economy/oxford-economy",
+    "https://www.oxford.gov.uk/info/20238/oxfords_economy/946/major_employers",
+    "https://www.oxford.gov.uk/oxfords-economy/oxfords-business-sectors",
+    "https://www.oxford.gov.uk/oxfords-economy",
+    "https://www.oxford.gov.uk/downloads/file/2114/preferred-options-bgp-5---employment-and-economy",
+    "https://www.oxford.gov.uk/info/20124/economy/454/economic_statistics",
+    "https://www.oxford.gov.uk/downloads/file/2067/flood_update_-_autumn_2013",
+    "https://www.famousbirthdays.com/city/oxford-england.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294430.631094,
+   "updated": 1786294430.6313303
+  },
+  "atm_6f410dc5745b": {
+   "id": "atm_6f410dc5745b",
+   "layer": "history",
+   "scope": "country",
+   "title": "Albanian independence declared at Vlorë in 1912",
+   "tags": [
+    "1912",
+    "albanian-independence",
+    "ismail-qemali",
+    "national-identity",
+    "ottoman-empire",
+    "vlore"
+   ],
+   "entities": [
+    "albania",
+    "ismail-qemali",
+    "ottoman-empire",
+    "vlore"
+   ],
+   "period_start": 1912,
+   "period_end": 1912,
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "radius_km": 5.0,
+   "cell": "srjy70q",
+   "lang": "en",
+   "sources": [
+    "https://ports.marinelink.com/ports/port/vlore",
+    "https://www.cruisemapper.com/ports/vlore-port-9309",
+    "https://seadex.safecube.ai/en/port/ALVOA",
+    "https://www.nomads-travel-guide.com/city/vlore/",
+    "https://discoveringalbania.com/vlore/",
+    "https://travel.nears.me/countries/albania/vlore-travel-guide/",
+    "https://openscholar.uga.edu/record/6577/files/Hicks.pdf",
+    "https://www.ranker.com/list/famous-people-from-albania/reference?page=4",
+    "https://pantheon.world/profile/country/albania",
+    "https://en.wikipedia.org/wiki/List_of_people_from_Vlor%C3%AB"
+   ],
+   "refs": [],
+   "reports": [
+    "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294651.3841522,
+   "updated": 1786294651.3843596
+  },
+  "atm_fbc1ae263ecd": {
+   "id": "atm_fbc1ae263ecd",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Vlorë: port city where Adriatic meets Ionian",
+   "tags": [
+    "adriatic-sea",
+    "albanian-riviera",
+    "coast",
+    "ionian-sea",
+    "port-city",
+    "vlore"
+   ],
+   "entities": [
+    "adriatic-sea",
+    "ionian-sea",
+    "vlore",
+    "vlore-county"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "radius_km": 30.0,
+   "cell": "srjy70q",
+   "lang": "en",
+   "sources": [
+    "https://ports.marinelink.com/ports/port/vlore",
+    "https://www.cruisemapper.com/ports/vlore-port-9309",
+    "https://seadex.safecube.ai/en/port/ALVOA",
+    "https://www.nomads-travel-guide.com/city/vlore/",
+    "https://discoveringalbania.com/vlore/",
+    "https://travel.nears.me/countries/albania/vlore-travel-guide/",
+    "https://openscholar.uga.edu/record/6577/files/Hicks.pdf",
+    "https://www.ranker.com/list/famous-people-from-albania/reference?page=4",
+    "https://pantheon.world/profile/country/albania",
+    "https://en.wikipedia.org/wiki/List_of_people_from_Vlor%C3%AB"
+   ],
+   "refs": [],
+   "reports": [
+    "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294651.4065256,
+   "updated": 1786294651.4067202
+  },
+  "atm_4518bd105a25": {
+   "id": "atm_4518bd105a25",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Albanian religious pluralism: Muslim, Bektashi, Orthodox",
+   "tags": [
+    "albania",
+    "bektashi",
+    "islam",
+    "orthodox-christianity",
+    "ottoman-legacy",
+    "religion"
+   ],
+   "entities": [
+    "albania",
+    "bektashi-order",
+    "eastern-orthodox-church"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "radius_km": 1200,
+   "cell": "srjy70q",
+   "lang": "en",
+   "sources": [
+    "https://ports.marinelink.com/ports/port/vlore",
+    "https://www.cruisemapper.com/ports/vlore-port-9309",
+    "https://seadex.safecube.ai/en/port/ALVOA",
+    "https://www.nomads-travel-guide.com/city/vlore/",
+    "https://discoveringalbania.com/vlore/",
+    "https://travel.nears.me/countries/albania/vlore-travel-guide/",
+    "https://openscholar.uga.edu/record/6577/files/Hicks.pdf",
+    "https://www.ranker.com/list/famous-people-from-albania/reference?page=4",
+    "https://pantheon.world/profile/country/albania",
+    "https://en.wikipedia.org/wiki/List_of_people_from_Vlor%C3%AB"
+   ],
+   "refs": [],
+   "reports": [
+    "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294651.4095855,
+   "updated": 1786294651.4097738
+  },
+  "atm_4f6b8bc9af59": {
+   "id": "atm_4f6b8bc9af59",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Trans Adriatic Pipeline energy corridor in Albania",
+   "tags": [
+    "energy",
+    "infrastructure",
+    "natural-gas",
+    "southern-gas-corridor",
+    "trans-adriatic-pipeline",
+    "vlore"
+   ],
+   "entities": [
+    "albania",
+    "trans-adriatic-pipeline",
+    "vlore"
+   ],
+   "period_start": 2020,
+   "period_end": null,
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "radius_km": 40.0,
+   "cell": "srjy70q",
+   "lang": "en",
+   "sources": [
+    "https://ports.marinelink.com/ports/port/vlore",
+    "https://www.cruisemapper.com/ports/vlore-port-9309",
+    "https://seadex.safecube.ai/en/port/ALVOA",
+    "https://www.nomads-travel-guide.com/city/vlore/",
+    "https://discoveringalbania.com/vlore/",
+    "https://travel.nears.me/countries/albania/vlore-travel-guide/",
+    "https://openscholar.uga.edu/record/6577/files/Hicks.pdf",
+    "https://www.ranker.com/list/famous-people-from-albania/reference?page=4",
+    "https://pantheon.world/profile/country/albania",
+    "https://en.wikipedia.org/wiki/List_of_people_from_Vlor%C3%AB"
+   ],
+   "refs": [],
+   "reports": [
+    "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294651.4135592,
+   "updated": 1786294651.4137232
+  },
+  "atm_67097f4cbca4": {
+   "id": "atm_67097f4cbca4",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Albanian coastal tourism boom and seasonal economy",
+   "tags": [
+    "albania",
+    "albanian-riviera",
+    "coastal-development",
+    "real-estate",
+    "seasonal-economy",
+    "tourism"
+   ],
+   "entities": [
+    "albania",
+    "albanian-riviera"
+   ],
+   "period_start": 2010,
+   "period_end": null,
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "radius_km": 1200,
+   "cell": "srjy70q",
+   "lang": "en",
+   "sources": [
+    "https://ports.marinelink.com/ports/port/vlore",
+    "https://www.cruisemapper.com/ports/vlore-port-9309",
+    "https://seadex.safecube.ai/en/port/ALVOA",
+    "https://www.nomads-travel-guide.com/city/vlore/",
+    "https://discoveringalbania.com/vlore/",
+    "https://travel.nears.me/countries/albania/vlore-travel-guide/",
+    "https://openscholar.uga.edu/record/6577/files/Hicks.pdf",
+    "https://www.ranker.com/list/famous-people-from-albania/reference?page=4",
+    "https://pantheon.world/profile/country/albania",
+    "https://en.wikipedia.org/wiki/List_of_people_from_Vlor%C3%AB"
+   ],
+   "refs": [],
+   "reports": [
+    "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294651.4168162,
+   "updated": 1786294651.4170668
+  },
+  "atm_4cfc350ac012": {
+   "id": "atm_4cfc350ac012",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Karaburun-Sazan marine park and Narta Lagoon",
+   "tags": [
+    "flamingos",
+    "karaburun-sazan",
+    "llogara-pass",
+    "marine-park",
+    "narta-lagoon",
+    "salt-pans",
+    "vlore"
+   ],
+   "entities": [
+    "karaburun-sazan-marine-park",
+    "llogara-national-park",
+    "narta-lagoon",
+    "vlore"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "radius_km": 40.0,
+   "cell": "srjy70q",
+   "lang": "en",
+   "sources": [
+    "https://ports.marinelink.com/ports/port/vlore",
+    "https://www.cruisemapper.com/ports/vlore-port-9309",
+    "https://seadex.safecube.ai/en/port/ALVOA",
+    "https://www.nomads-travel-guide.com/city/vlore/",
+    "https://discoveringalbania.com/vlore/",
+    "https://travel.nears.me/countries/albania/vlore-travel-guide/",
+    "https://openscholar.uga.edu/record/6577/files/Hicks.pdf",
+    "https://www.ranker.com/list/famous-people-from-albania/reference?page=4",
+    "https://pantheon.world/profile/country/albania",
+    "https://en.wikipedia.org/wiki/List_of_people_from_Vlor%C3%AB"
+   ],
+   "refs": [],
+   "reports": [
+    "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294651.419816,
+   "updated": 1786294651.4199903
+  },
+  "atm_ea096b05bb43": {
+   "id": "atm_ea096b05bb43",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Albanian youth emigration and aging population",
+   "tags": [
+    "aging-population",
+    "albania",
+    "demographics",
+    "emigration",
+    "labor",
+    "youth-migration"
+   ],
+   "entities": [
+    "albania"
+   ],
+   "period_start": 1991,
+   "period_end": null,
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "radius_km": 1200,
+   "cell": "srjy70q",
+   "lang": "en",
+   "sources": [
+    "https://ports.marinelink.com/ports/port/vlore",
+    "https://www.cruisemapper.com/ports/vlore-port-9309",
+    "https://seadex.safecube.ai/en/port/ALVOA",
+    "https://www.nomads-travel-guide.com/city/vlore/",
+    "https://discoveringalbania.com/vlore/",
+    "https://travel.nears.me/countries/albania/vlore-travel-guide/",
+    "https://openscholar.uga.edu/record/6577/files/Hicks.pdf",
+    "https://www.ranker.com/list/famous-people-from-albania/reference?page=4",
+    "https://pantheon.world/profile/country/albania",
+    "https://en.wikipedia.org/wiki/List_of_people_from_Vlor%C3%AB"
+   ],
+   "refs": [],
+   "reports": [
+    "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294651.4231474,
+   "updated": 1786294651.4233003
+  },
+  "atm_af2a2617b586": {
+   "id": "atm_af2a2617b586",
+   "layer": "architecture",
+   "scope": "country",
+   "title": "Albanian unfinished concrete-block housing",
+   "tags": [
+    "albania",
+    "concrete",
+    "rebar",
+    "suburban",
+    "unfinished-construction",
+    "vernacular-architecture"
+   ],
+   "entities": [
+    "albania"
+   ],
+   "period_start": 1991,
+   "period_end": null,
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "radius_km": 1200,
+   "cell": "srjy70q",
+   "lang": "en",
+   "sources": [
+    "https://ports.marinelink.com/ports/port/vlore",
+    "https://www.cruisemapper.com/ports/vlore-port-9309",
+    "https://seadex.safecube.ai/en/port/ALVOA",
+    "https://www.nomads-travel-guide.com/city/vlore/",
+    "https://discoveringalbania.com/vlore/",
+    "https://travel.nears.me/countries/albania/vlore-travel-guide/",
+    "https://openscholar.uga.edu/record/6577/files/Hicks.pdf",
+    "https://www.ranker.com/list/famous-people-from-albania/reference?page=4",
+    "https://pantheon.world/profile/country/albania",
+    "https://en.wikipedia.org/wiki/List_of_people_from_Vlor%C3%AB"
+   ],
+   "refs": [],
+   "reports": [
+    "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294651.4264467,
+   "updated": 1786294651.4266217
+  },
+  "atm_c464359a13cf": {
+   "id": "atm_c464359a13cf",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Reykjavík Capital Region municipal structure",
+   "tags": [
+    "capital-region",
+    "gardabaer",
+    "hafnarfjordur",
+    "iceland",
+    "kopavogur",
+    "metropolitan-area",
+    "reykjavik"
+   ],
+   "entities": [
+    "gardabaer",
+    "hafnarfjordur",
+    "kopavogur",
+    "reykjavik",
+    "reykjavik-capital-region"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 64.0944624,
+   "lng": -21.9039609,
+   "radius_km": 25.0,
+   "cell": "ge2kts4",
+   "lang": "en",
+   "sources": [
+    "https://www.hiticeland.com/post/gardabaer-town",
+    "https://www.hellomondo.com/iceland/gardabaer/",
+    "https://greaticeland.com/Page.aspx?ID=36",
+    "https://www.wikidata.org/wiki/Q186142",
+    "https://en.wikipedia.org/wiki/Gar%C3%B0ab%C3%A6r",
+    "https://www.geodruid.com/intl/en/places/IS:iceland/gar%C3%B0ab%C3%A6r:87381",
+    "https://grokipedia.com/page/Gar%C3%B0ab%C3%A6r",
+    "https://population.city/iceland/gardabaer/",
+    "https://www.iceland.org/population",
+    "https://en.wikipedia.org/wiki/Demographics_of_Iceland"
+   ],
+   "refs": [],
+   "reports": [
+    "report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294863.1635315,
+   "updated": 1786294863.1638477
+  },
+  "atm_e6f75e7898c3": {
+   "id": "atm_e6f75e7898c3",
+   "layer": "language",
+   "scope": "country",
+   "title": "Icelandic language and orthography",
+   "tags": [
+    "icelandic",
+    "language",
+    "latin-script",
+    "north-germanic",
+    "orthography",
+    "toponyms"
+   ],
+   "entities": [
+    "iceland",
+    "icelandic-language"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 64.0944624,
+   "lng": -21.9039609,
+   "radius_km": 1200,
+   "cell": "ge2kts4",
+   "lang": "en",
+   "sources": [
+    "https://www.hiticeland.com/post/gardabaer-town",
+    "https://www.hellomondo.com/iceland/gardabaer/",
+    "https://greaticeland.com/Page.aspx?ID=36",
+    "https://www.wikidata.org/wiki/Q186142",
+    "https://en.wikipedia.org/wiki/Gar%C3%B0ab%C3%A6r",
+    "https://www.geodruid.com/intl/en/places/IS:iceland/gar%C3%B0ab%C3%A6r:87381",
+    "https://grokipedia.com/page/Gar%C3%B0ab%C3%A6r",
+    "https://population.city/iceland/gardabaer/",
+    "https://www.iceland.org/population",
+    "https://en.wikipedia.org/wiki/Demographics_of_Iceland"
+   ],
+   "refs": [],
+   "reports": [
+    "report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294863.1694758,
+   "updated": 1786294863.169678
+  },
+  "atm_ee8caa0687d3": {
+   "id": "atm_ee8caa0687d3",
+   "layer": "nature",
+   "scope": "country",
+   "title": "Icelandic subarctic treeless landscape and lava fields",
+   "tags": [
+    "hraun",
+    "iceland",
+    "lava-field",
+    "oceanic-climate",
+    "subarctic",
+    "treeless",
+    "volcanic"
+   ],
+   "entities": [
+    "iceland",
+    "icelandic-nature"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 64.0944624,
+   "lng": -21.9039609,
+   "radius_km": 1200,
+   "cell": "ge2kts4",
+   "lang": "en",
+   "sources": [
+    "https://www.hiticeland.com/post/gardabaer-town",
+    "https://www.hellomondo.com/iceland/gardabaer/",
+    "https://greaticeland.com/Page.aspx?ID=36",
+    "https://www.wikidata.org/wiki/Q186142",
+    "https://en.wikipedia.org/wiki/Gar%C3%B0ab%C3%A6r",
+    "https://www.geodruid.com/intl/en/places/IS:iceland/gar%C3%B0ab%C3%A6r:87381",
+    "https://grokipedia.com/page/Gar%C3%B0ab%C3%A6r",
+    "https://population.city/iceland/gardabaer/",
+    "https://www.iceland.org/population",
+    "https://en.wikipedia.org/wiki/Demographics_of_Iceland"
+   ],
+   "refs": [],
+   "reports": [
+    "report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294863.1924107,
+   "updated": 1786294863.1925905
+  },
+  "atm_964ed629535c": {
+   "id": "atm_964ed629535c",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Bessastaðir, residence of the President of Iceland",
+   "tags": [
+    "alftanes",
+    "bessastadir",
+    "gardabaer",
+    "government",
+    "iceland",
+    "president",
+    "residence"
+   ],
+   "entities": [
+    "bessastadir",
+    "gardabaer",
+    "iceland",
+    "president-of-iceland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 64.0944624,
+   "lng": -21.9039609,
+   "radius_km": 5.0,
+   "cell": "ge2kts4",
+   "lang": "en",
+   "sources": [
+    "https://www.hiticeland.com/post/gardabaer-town",
+    "https://www.hellomondo.com/iceland/gardabaer/",
+    "https://greaticeland.com/Page.aspx?ID=36",
+    "https://www.wikidata.org/wiki/Q186142",
+    "https://en.wikipedia.org/wiki/Gar%C3%B0ab%C3%A6r",
+    "https://www.geodruid.com/intl/en/places/IS:iceland/gar%C3%B0ab%C3%A6r:87381",
+    "https://grokipedia.com/page/Gar%C3%B0ab%C3%A6r",
+    "https://population.city/iceland/gardabaer/",
+    "https://www.iceland.org/population",
+    "https://en.wikipedia.org/wiki/Demographics_of_Iceland"
+   ],
+   "refs": [],
+   "reports": [
+    "report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294863.197052,
+   "updated": 1786294863.197263
+  },
+  "atm_714f55d47cd5": {
+   "id": "atm_714f55d47cd5",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Garðabær affluent low-tax commuter suburb",
+   "tags": [
+    "affluent",
+    "alftanes",
+    "commuter-town",
+    "gardabaer",
+    "iceland",
+    "low-tax",
+    "suburb",
+    "urridaholt"
+   ],
+   "entities": [
+    "alftanes",
+    "gardabaer",
+    "iceland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 64.0944624,
+   "lng": -21.9039609,
+   "radius_km": 5.0,
+   "cell": "ge2kts4",
+   "lang": "en",
+   "sources": [
+    "https://www.hiticeland.com/post/gardabaer-town",
+    "https://www.hellomondo.com/iceland/gardabaer/",
+    "https://greaticeland.com/Page.aspx?ID=36",
+    "https://www.wikidata.org/wiki/Q186142",
+    "https://en.wikipedia.org/wiki/Gar%C3%B0ab%C3%A6r",
+    "https://www.geodruid.com/intl/en/places/IS:iceland/gar%C3%B0ab%C3%A6r:87381",
+    "https://grokipedia.com/page/Gar%C3%B0ab%C3%A6r",
+    "https://population.city/iceland/gardabaer/",
+    "https://www.iceland.org/population",
+    "https://en.wikipedia.org/wiki/Demographics_of_Iceland"
+   ],
+   "refs": [],
+   "reports": [
+    "report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786294863.201136,
+   "updated": 1786294863.201359
+  },
+  "atm_91b6f26a63b1": {
+   "id": "atm_91b6f26a63b1",
+   "layer": "geography",
+   "scope": "city",
+   "title": "Budapest: Danube-straddling primate city of Hungary",
+   "tags": [
+    "buda-pest",
+    "budapest",
+    "capital",
+    "danube",
+    "hungary",
+    "primate-city"
+   ],
+   "entities": [
+    "budapest",
+    "danube",
+    "hungary"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 47.5271214,
+   "lng": 19.048154,
+   "radius_km": 20.0,
+   "cell": "u2mw3kn",
+   "lang": "en",
+   "sources": [
+    "https://worldpopulationreview.com/cities/hungary/budapest",
+    "https://datacommons.org/place/nuts/HU110",
+    "https://populationstat.com/hungary/budapest",
+    "https://en.wikipedia.org/wiki/Demographics_of_Budapest",
+    "https://bbj.hu/economy/statistics/figures/hungarys-population-decline-accelerates-as-birthrate-drops-in-2024/",
+    "https://www.worldometers.info/world-population/hungary-population/",
+    "https://en.wikipedia.org/wiki/Demographics_of_Hungary",
+    "https://en.wikipedia.org/wiki/Budapest_metropolitan_area",
+    "https://grokipedia.com/page/Demographics_of_Budapest",
+    "https://www.worldatlas.com/articles/what-are-the-biggest-industries-in-hungary.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hu_budapest_47.5271_19.0482_260810_020428_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786295091.0845227,
+   "updated": 1786295091.0847564
+  },
+  "atm_9d45a7bad7f9": {
+   "id": "atm_9d45a7bad7f9",
+   "layer": "language",
+   "scope": "country",
+   "title": "Hungarian language and toponymic suffixes",
+   "tags": [
+    "finno-ugric",
+    "hungarian",
+    "language",
+    "latin-script",
+    "toponyms",
+    "uralic"
+   ],
+   "entities": [
+    "hungarian-language",
+    "hungary"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 47.5271214,
+   "lng": 19.048154,
+   "radius_km": 1200,
+   "cell": "u2mw3kn",
+   "lang": "en",
+   "sources": [
+    "https://worldpopulationreview.com/cities/hungary/budapest",
+    "https://datacommons.org/place/nuts/HU110",
+    "https://populationstat.com/hungary/budapest",
+    "https://en.wikipedia.org/wiki/Demographics_of_Budapest",
+    "https://bbj.hu/economy/statistics/figures/hungarys-population-decline-accelerates-as-birthrate-drops-in-2024/",
+    "https://www.worldometers.info/world-population/hungary-population/",
+    "https://en.wikipedia.org/wiki/Demographics_of_Hungary",
+    "https://en.wikipedia.org/wiki/Budapest_metropolitan_area",
+    "https://grokipedia.com/page/Demographics_of_Budapest",
+    "https://www.worldatlas.com/articles/what-are-the-biggest-industries-in-hungary.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hu_budapest_47.5271_19.0482_260810_020428_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786295091.0889978,
+   "updated": 1786295091.0891926
+  },
+  "atm_9d7ccc769c8d": {
+   "id": "atm_9d7ccc769c8d",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Central European thermal bath culture",
+   "tags": [
+    "budapest",
+    "ottoman-legacy",
+    "roman-legacy",
+    "spa-culture",
+    "thermal-baths",
+    "wellness-tourism"
+   ],
+   "entities": [
+    "budapest",
+    "szechenyi-baths",
+    "thermal-baths"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 47.5271214,
+   "lng": 19.048154,
+   "radius_km": 50.0,
+   "cell": "u2mw3kn",
+   "lang": "en",
+   "sources": [
+    "https://worldpopulationreview.com/cities/hungary/budapest",
+    "https://datacommons.org/place/nuts/HU110",
+    "https://populationstat.com/hungary/budapest",
+    "https://en.wikipedia.org/wiki/Demographics_of_Budapest",
+    "https://bbj.hu/economy/statistics/figures/hungarys-population-decline-accelerates-as-birthrate-drops-in-2024/",
+    "https://www.worldometers.info/world-population/hungary-population/",
+    "https://en.wikipedia.org/wiki/Demographics_of_Hungary",
+    "https://en.wikipedia.org/wiki/Budapest_metropolitan_area",
+    "https://grokipedia.com/page/Demographics_of_Budapest",
+    "https://www.worldatlas.com/articles/what-are-the-biggest-industries-in-hungary.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hu_budapest_47.5271_19.0482_260810_020428_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786295091.1120162,
+   "updated": 1786295091.1122286
+  },
+  "atm_c65d1dbc1ab1": {
+   "id": "atm_c65d1dbc1ab1",
+   "layer": "architecture",
+   "scope": "city",
+   "title": "Habsburg-era grandeur and UNESCO Danube cityscape of Budapest",
+   "tags": [
+    "19th-century-architecture",
+    "andrassy-avenue",
+    "austro-hungarian",
+    "budapest",
+    "habsburg",
+    "unesco"
+   ],
+   "entities": [
+    "austro-hungarian-empire",
+    "budapest",
+    "vajdahunyad-castle"
+   ],
+   "period_start": 1867,
+   "period_end": 1914,
+   "lat": 47.5271214,
+   "lng": 19.048154,
+   "radius_km": 10.0,
+   "cell": "u2mw3kn",
+   "lang": "en",
+   "sources": [
+    "https://worldpopulationreview.com/cities/hungary/budapest",
+    "https://datacommons.org/place/nuts/HU110",
+    "https://populationstat.com/hungary/budapest",
+    "https://en.wikipedia.org/wiki/Demographics_of_Budapest",
+    "https://bbj.hu/economy/statistics/figures/hungarys-population-decline-accelerates-as-birthrate-drops-in-2024/",
+    "https://www.worldometers.info/world-population/hungary-population/",
+    "https://en.wikipedia.org/wiki/Demographics_of_Hungary",
+    "https://en.wikipedia.org/wiki/Budapest_metropolitan_area",
+    "https://grokipedia.com/page/Demographics_of_Budapest",
+    "https://www.worldatlas.com/articles/what-are-the-biggest-industries-in-hungary.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hu_budapest_47.5271_19.0482_260810_020428_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786295091.1165373,
+   "updated": 1786295091.116729
+  },
+  "atm_05dc60e6542c": {
+   "id": "atm_05dc60e6542c",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Budapest diversified service and pharma economy",
+   "tags": [
+    "budapest",
+    "economy",
+    "finance",
+    "pharmaceuticals",
+    "shared-services",
+    "tech-hub"
+   ],
+   "entities": [
+    "budapest",
+    "gedeon-richter"
+   ],
+   "period_start": 2000,
+   "period_end": null,
+   "lat": 47.5271214,
+   "lng": 19.048154,
+   "radius_km": 20.0,
+   "cell": "u2mw3kn",
+   "lang": "en",
+   "sources": [
+    "https://worldpopulationreview.com/cities/hungary/budapest",
+    "https://datacommons.org/place/nuts/HU110",
+    "https://populationstat.com/hungary/budapest",
+    "https://en.wikipedia.org/wiki/Demographics_of_Budapest",
+    "https://bbj.hu/economy/statistics/figures/hungarys-population-decline-accelerates-as-birthrate-drops-in-2024/",
+    "https://www.worldometers.info/world-population/hungary-population/",
+    "https://en.wikipedia.org/wiki/Demographics_of_Hungary",
+    "https://en.wikipedia.org/wiki/Budapest_metropolitan_area",
+    "https://grokipedia.com/page/Demographics_of_Budapest",
+    "https://www.worldatlas.com/articles/what-are-the-biggest-industries-in-hungary.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hu_budapest_47.5271_19.0482_260810_020428_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786295091.122382,
+   "updated": 1786295091.1225772
+  },
+  "atm_3340739b4d02": {
+   "id": "atm_3340739b4d02",
+   "layer": "culture",
+   "scope": "city",
+   "title": "Budapest ruin bars and Jewish Quarter nightlife",
+   "tags": [
+    "budapest",
+    "jewish-quarter",
+    "nightlife",
+    "over-tourism",
+    "ruin-bars",
+    "sziget-festival"
+   ],
+   "entities": [
+    "budapest",
+    "ruin-bars",
+    "sziget-festival"
+   ],
+   "period_start": 2002,
+   "period_end": null,
+   "lat": 47.5271214,
+   "lng": 19.048154,
+   "radius_km": 5.0,
+   "cell": "u2mw3kn",
+   "lang": "en",
+   "sources": [
+    "https://worldpopulationreview.com/cities/hungary/budapest",
+    "https://datacommons.org/place/nuts/HU110",
+    "https://populationstat.com/hungary/budapest",
+    "https://en.wikipedia.org/wiki/Demographics_of_Budapest",
+    "https://bbj.hu/economy/statistics/figures/hungarys-population-decline-accelerates-as-birthrate-drops-in-2024/",
+    "https://www.worldometers.info/world-population/hungary-population/",
+    "https://en.wikipedia.org/wiki/Demographics_of_Hungary",
+    "https://en.wikipedia.org/wiki/Budapest_metropolitan_area",
+    "https://grokipedia.com/page/Demographics_of_Budapest",
+    "https://www.worldatlas.com/articles/what-are-the-biggest-industries-in-hungary.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hu_budapest_47.5271_19.0482_260810_020428_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786295091.1275482,
+   "updated": 1786295091.1277266
+  }
+ },
+ "cells": {
+  "vc7x8": [
+   "atm_7c89b761a51c",
+   "atm_fe41075e4a29"
+  ],
+  "vc7": [
+   "atm_5449e17b7e07",
+   "atm_3ecf707f944b",
+   "atm_bffa90fceb9e",
+   "atm_8dcf3ffe7cd6"
+  ],
+  "vc": [
+   "atm_764d16790153"
+  ],
+  "xn9": [
+   "atm_094699abd32a",
+   "atm_4f92a18e4ed7",
+   "atm_1bb47ee4e339",
+   "atm_5685afe3cc0c",
+   "atm_9b6eeb87cb63"
+  ],
+  "xn": [
+   "atm_52fa8fc7482a"
+  ],
+  "xn92t": [
+   "atm_cc6189746731",
+   "atm_48e28cb5f3ff"
+  ],
+  "tet94": [
+   "atm_44016e9885d2",
+   "atm_1eddc1d27617"
+  ],
+  "tet": [
+   "atm_3a98a4b0d928",
+   "atm_f1e627fbac6a"
+  ],
+  "te": [
+   "atm_91c12861d2aa"
+  ],
+  "6d6m6": [
+   "atm_87059bc2df36",
+   "atm_b4521f74ff37",
+   "atm_a60f6d19f902",
+   "atm_e85177c2fa30"
+  ],
+  "6d": [
+   "atm_edd60e50c814"
+  ],
+  "6d6": [
+   "atm_35ff70ea7db7"
+  ],
+  "gcpn7": [
+   "atm_dbf795f532fa",
+   "atm_9517519bc35a",
+   "atm_8037259cd69e"
+  ],
+  "gcp": [
+   "atm_92b70bd29630"
+  ],
+  "gc": [
+   "atm_a730bfa14785",
+   "atm_ae4c5a7357ff",
+   "atm_8af183b8f49b"
+  ],
+  "sr": [
+   "atm_6f410dc5745b",
+   "atm_4518bd105a25",
+   "atm_4f6b8bc9af59",
+   "atm_67097f4cbca4",
+   "atm_ea096b05bb43",
+   "atm_af2a2617b586"
+  ],
+  "srj": [
+   "atm_fbc1ae263ecd",
+   "atm_4cfc350ac012"
+  ],
+  "ge2": [
+   "atm_c464359a13cf"
+  ],
+  "ge": [
+   "atm_e6f75e7898c3",
+   "atm_ee8caa0687d3",
+   "atm_964ed629535c"
+  ],
+  "ge2kt": [
+   "atm_714f55d47cd5"
+  ],
+  "u2mw3": [
+   "atm_91b6f26a63b1",
+   "atm_c65d1dbc1ab1",
+   "atm_05dc60e6542c",
+   "atm_3340739b4d02"
+  ],
+  "u2": [
+   "atm_9d45a7bad7f9"
+  ],
+  "u2m": [
+   "atm_9d7ccc769c8d"
+  ]
+ },
+ "entities": {
+  "altai-krai": [
+   "atm_7c89b761a51c",
+   "atm_fe41075e4a29",
+   "atm_5449e17b7e07",
+   "atm_3ecf707f944b",
+   "atm_bffa90fceb9e"
+  ],
+  "barnaul": [
+   "atm_7c89b761a51c",
+   "atm_fe41075e4a29",
+   "atm_3ecf707f944b",
+   "atm_bffa90fceb9e"
+  ],
+  "demidov-dynasty": [
+   "atm_7c89b761a51c"
+  ],
+  "west-siberia": [
+   "atm_5449e17b7e07"
+  ],
+  "biysk": [
+   "atm_3ecf707f944b",
+   "atm_bffa90fceb9e"
+  ],
+  "rubtsovsk": [
+   "atm_3ecf707f944b"
+  ],
+  "altai-mountains": [
+   "atm_bffa90fceb9e"
+  ],
+  "german-titov": [
+   "atm_bffa90fceb9e"
+  ],
+  "mikhail-kalashnikov": [
+   "atm_bffa90fceb9e"
+  ],
+  "russia": [
+   "atm_764d16790153",
+   "atm_8dcf3ffe7cd6"
+  ],
+  "soviet-union": [
+   "atm_764d16790153"
+  ],
+  "siberia": [
+   "atm_8dcf3ffe7cd6"
+  ],
+  "aurangabad": [
+   "atm_44016e9885d2",
+   "atm_1eddc1d27617"
+  ],
+  "chhatrapati-sambhajinagar": [
+   "atm_44016e9885d2"
+  ],
+  "maharashtra": [
+   "atm_44016e9885d2",
+   "atm_f1e627fbac6a"
+  ],
+  "bibi-ka-maqbara": [
+   "atm_1eddc1d27617"
+  ],
+  "mughal-empire": [
+   "atm_1eddc1d27617"
+  ],
+  "deccan-plateau": [
+   "atm_3a98a4b0d928"
+  ],
+  "india": [
+   "atm_3a98a4b0d928",
+   "atm_91c12861d2aa"
+  ],
+  "devanagari-script": [
+   "atm_f1e627fbac6a"
+  ],
+  "marathi-language": [
+   "atm_f1e627fbac6a"
+  ],
+  "cordoba-argentina": [
+   "atm_87059bc2df36",
+   "atm_b4521f74ff37",
+   "atm_a60f6d19f902",
+   "atm_e85177c2fa30",
+   "atm_edd60e50c814",
+   "atm_35ff70ea7db7"
+  ],
+  "cordoba-province": [
+   "atm_87059bc2df36"
+  ],
+  "cuarteto": [
+   "atm_a60f6d19f902"
+  ],
+  "manzana-jesuitica": [
+   "atm_e85177c2fa30"
+  ],
+  "universidad-nacional-de-cordoba": [
+   "atm_edd60e50c814"
+  ],
+  "university-reform-1918": [
+   "atm_edd60e50c814"
+  ],
+  "argentina": [
+   "atm_35ff70ea7db7"
+  ],
+  "bodleian-library": [
+   "atm_dbf795f532fa"
+  ],
+  "christ-church-college": [
+   "atm_dbf795f532fa"
+  ],
+  "oxford": [
+   "atm_dbf795f532fa",
+   "atm_9517519bc35a",
+   "atm_8037259cd69e",
+   "atm_ae4c5a7357ff"
+  ],
+  "university-of-oxford": [
+   "atm_dbf795f532fa"
+  ],
+  "mini-plant-cowley": [
+   "atm_9517519bc35a"
+  ],
+  "oxford-university-press": [
+   "atm_9517519bc35a"
+  ],
+  "christ-church-cathedral": [
+   "atm_92b70bd29630"
+  ],
+  "collegiate-gothic": [
+   "atm_92b70bd29630"
+  ],
+  "cotswold-limestone": [
+   "atm_92b70bd29630"
+  ],
+  "victorian-terraced-housing": [
+   "atm_a730bfa14785"
+  ],
+  "river-cherwell": [
+   "atm_8037259cd69e"
+  ],
+  "river-thames": [
+   "atm_8037259cd69e"
+  ],
+  "cambridge": [
+   "atm_ae4c5a7357ff"
+  ],
+  "oxbridge": [
+   "atm_ae4c5a7357ff"
+  ],
+  "united-kingdom": [
+   "atm_8af183b8f49b"
+  ],
+  "albania": [
+   "atm_6f410dc5745b",
+   "atm_4518bd105a25",
+   "atm_4f6b8bc9af59",
+   "atm_67097f4cbca4",
+   "atm_ea096b05bb43",
+   "atm_af2a2617b586"
+  ],
+  "ismail-qemali": [
+   "atm_6f410dc5745b"
+  ],
+  "ottoman-empire": [
+   "atm_6f410dc5745b"
+  ],
+  "vlore": [
+   "atm_6f410dc5745b",
+   "atm_fbc1ae263ecd",
+   "atm_4f6b8bc9af59",
+   "atm_4cfc350ac012"
+  ],
+  "adriatic-sea": [
+   "atm_fbc1ae263ecd"
+  ],
+  "ionian-sea": [
+   "atm_fbc1ae263ecd"
+  ],
+  "vlore-county": [
+   "atm_fbc1ae263ecd"
+  ],
+  "bektashi-order": [
+   "atm_4518bd105a25"
+  ],
+  "eastern-orthodox-church": [
+   "atm_4518bd105a25"
+  ],
+  "trans-adriatic-pipeline": [
+   "atm_4f6b8bc9af59"
+  ],
+  "albanian-riviera": [
+   "atm_67097f4cbca4"
+  ],
+  "karaburun-sazan-marine-park": [
+   "atm_4cfc350ac012"
+  ],
+  "llogara-national-park": [
+   "atm_4cfc350ac012"
+  ],
+  "narta-lagoon": [
+   "atm_4cfc350ac012"
+  ],
+  "gardabaer": [
+   "atm_c464359a13cf",
+   "atm_964ed629535c",
+   "atm_714f55d47cd5"
+  ],
+  "hafnarfjordur": [
+   "atm_c464359a13cf"
+  ],
+  "kopavogur": [
+   "atm_c464359a13cf"
+  ],
+  "reykjavik": [
+   "atm_c464359a13cf"
+  ],
+  "reykjavik-capital-region": [
+   "atm_c464359a13cf"
+  ],
+  "iceland": [
+   "atm_e6f75e7898c3",
+   "atm_ee8caa0687d3",
+   "atm_964ed629535c",
+   "atm_714f55d47cd5"
+  ],
+  "icelandic-language": [
+   "atm_e6f75e7898c3"
+  ],
+  "icelandic-nature": [
+   "atm_ee8caa0687d3"
+  ],
+  "bessastadir": [
+   "atm_964ed629535c"
+  ],
+  "president-of-iceland": [
+   "atm_964ed629535c"
+  ],
+  "alftanes": [
+   "atm_714f55d47cd5"
+  ],
+  "budapest": [
+   "atm_91b6f26a63b1",
+   "atm_9d7ccc769c8d",
+   "atm_c65d1dbc1ab1",
+   "atm_05dc60e6542c",
+   "atm_3340739b4d02"
+  ],
+  "danube": [
+   "atm_91b6f26a63b1"
+  ],
+  "hungary": [
+   "atm_91b6f26a63b1",
+   "atm_9d45a7bad7f9"
+  ],
+  "hungarian-language": [
+   "atm_9d45a7bad7f9"
+  ],
+  "szechenyi-baths": [
+   "atm_9d7ccc769c8d"
+  ],
+  "thermal-baths": [
+   "atm_9d7ccc769c8d"
+  ],
+  "austro-hungarian-empire": [
+   "atm_c65d1dbc1ab1"
+  ],
+  "vajdahunyad-castle": [
+   "atm_c65d1dbc1ab1"
+  ],
+  "gedeon-richter": [
+   "atm_05dc60e6542c"
+  ],
+  "ruin-bars": [
+   "atm_3340739b4d02"
+  ],
+  "sziget-festival": [
+   "atm_3340739b4d02"
+  ]
+ },
+ "tags": {
+  "18th-century": [
+   "atm_7c89b761a51c"
+  ],
+  "altai-krai": [
+   "atm_7c89b761a51c",
+   "atm_3ecf707f944b"
+  ],
+  "barnaul": [
+   "atm_7c89b761a51c",
+   "atm_fe41075e4a29",
+   "atm_3ecf707f944b"
+  ],
+  "demidov": [
+   "atm_7c89b761a51c"
+  ],
+  "founding": [
+   "atm_7c89b761a51c"
+  ],
+  "siberia": [
+   "atm_7c89b761a51c",
+   "atm_5449e17b7e07",
+   "atm_8dcf3ffe7cd6"
+  ],
+  "silver-mining": [
+   "atm_7c89b761a51c"
+  ],
+  "ammunition": [
+   "atm_fe41075e4a29"
+  ],
+  "industry": [
+   "atm_fe41075e4a29"
+  ],
+  "mechanical-engineering": [
+   "atm_fe41075e4a29"
+  ],
+  "ob-river": [
+   "atm_fe41075e4a29"
+  ],
+  "transport-hub": [
+   "atm_fe41075e4a29"
+  ],
+  "wwii-evacuation": [
+   "atm_fe41075e4a29"
+  ],
+  "altai": [
+   "atm_5449e17b7e07"
+  ],
+  "birch": [
+   "atm_5449e17b7e07"
+  ],
+  "climate": [
+   "atm_5449e17b7e07",
+   "atm_4f92a18e4ed7"
+  ],
+  "continental-climate": [
+   "atm_5449e17b7e07"
+  ],
+  "poplar": [
+   "atm_5449e17b7e07"
+  ],
+  "steppe-forest": [
+   "atm_5449e17b7e07"
+  ],
+  "agriculture": [
+   "atm_3ecf707f944b"
+  ],
+  "dairy": [
+   "atm_3ecf707f944b"
+  ],
+  "food-processing": [
+   "atm_3ecf707f944b"
+  ],
+  "grain": [
+   "atm_3ecf707f944b"
+  ],
+  "honey": [
+   "atm_3ecf707f944b"
+  ],
+  "altai-mountains": [
+   "atm_bffa90fceb9e"
+  ],
+  "chuysky-trakt": [
+   "atm_bffa90fceb9e"
+  ],
+  "gateway-city": [
+   "atm_bffa90fceb9e"
+  ],
+  "german-titov": [
+   "atm_bffa90fceb9e"
+  ],
+  "kalashnikov": [
+   "atm_bffa90fceb9e"
+  ],
+  "tourism": [
+   "atm_bffa90fceb9e",
+   "atm_9517519bc35a",
+   "atm_67097f4cbca4"
+  ],
+  "khrushchyovka": [
+   "atm_764d16790153"
+  ],
+  "panelka": [
+   "atm_764d16790153"
+  ],
+  "post-soviet": [
+   "atm_764d16790153"
+  ],
+  "prospekt": [
+   "atm_764d16790153"
+  ],
+  "soviet-architecture": [
+   "atm_764d16790153"
+  ],
+  "trolleybus": [
+   "atm_764d16790153"
+  ],
+  "urban-planning": [
+   "atm_764d16790153"
+  ],
+  "cars": [
+   "atm_8dcf3ffe7cd6"
+  ],
+  "japanese-imports": [
+   "atm_8dcf3ffe7cd6"
+  ],
+  "right-hand-drive": [
+   "atm_8dcf3ffe7cd6"
+  ],
+  "russian-far-east": [
+   "atm_8dcf3ffe7cd6"
+  ],
+  "hokuriku": [
+   "atm_094699abd32a",
+   "atm_4f92a18e4ed7",
+   "atm_1bb47ee4e339"
+  ],
+  "honshu": [
+   "atm_094699abd32a"
+  ],
+  "rice-farming": [
+   "atm_094699abd32a"
+  ],
+  "sea-of-japan": [
+   "atm_094699abd32a",
+   "atm_4f92a18e4ed7"
+  ],
+  "tonami-plain": [
+   "atm_094699abd32a"
+  ],
+  "toyama": [
+   "atm_094699abd32a"
+  ],
+  "gosetsu": [
+   "atm_4f92a18e4ed7"
+  ],
+  "snow-country": [
+   "atm_4f92a18e4ed7",
+   "atm_1bb47ee4e339"
+  ],
+  "winter-monsoon": [
+   "atm_4f92a18e4ed7"
+  ],
+  "japan": [
+   "atm_1bb47ee4e339"
+  ],
+  "roofing": [
+   "atm_1bb47ee4e339"
+  ],
+  "vernacular-architecture": [
+   "atm_1bb47ee4e339",
+   "atm_af2a2617b586"
+  ],
+  "castle-town": [
+   "atm_52fa8fc7482a"
+  ],
+  "daimyo": [
+   "atm_52fa8fc7482a"
+  ],
+  "edo-period": [
+   "atm_52fa8fc7482a"
+  ],
+  "kaga-domain": [
+   "atm_52fa8fc7482a"
+  ],
+  "maeda-clan": [
+   "atm_52fa8fc7482a"
+  ],
+  "takaoka": [
+   "atm_52fa8fc7482a",
+   "atm_48e28cb5f3ff"
+  ],
+  "kanaya-machi": [
+   "atm_cc6189746731"
+  ],
+  "lacquerware": [
+   "atm_cc6189746731"
+  ],
+  "metal-casting": [
+   "atm_cc6189746731"
+  ],
+  "takaoka-copperware": [
+   "atm_cc6189746731"
+  ],
+  "takaoka-doki": [
+   "atm_cc6189746731"
+  ],
+  "traditional-craft": [
+   "atm_cc6189746731"
+  ],
+  "doraemon": [
+   "atm_48e28cb5f3ff"
+  ],
+  "fujiko-f-fujio": [
+   "atm_48e28cb5f3ff"
+  ],
+  "great-buddha": [
+   "atm_48e28cb5f3ff"
+  ],
+  "mikuruma-yama-festival": [
+   "atm_48e28cb5f3ff"
+  ],
+  "zuiryu-ji": [
+   "atm_48e28cb5f3ff"
+  ],
+  "firefly-squid": [
+   "atm_5685afe3cc0c"
+  ],
+  "regional-cuisine": [
+   "atm_5685afe3cc0c"
+  ],
+  "seafood": [
+   "atm_5685afe3cc0c"
+  ],
+  "toyama-bay": [
+   "atm_5685afe3cc0c"
+  ],
+  "white-shrimp": [
+   "atm_5685afe3cc0c"
+  ],
+  "yellowtail": [
+   "atm_5685afe3cc0c"
+  ],
+  "aging-society": [
+   "atm_9b6eeb87cb63"
+  ],
+  "depopulation": [
+   "atm_9b6eeb87cb63"
+  ],
+  "manufacturing": [
+   "atm_9b6eeb87cb63",
+   "atm_b4521f74ff37"
+  ],
+  "regional-japan": [
+   "atm_9b6eeb87cb63"
+  ],
+  "rural-decline": [
+   "atm_9b6eeb87cb63"
+  ],
+  "aurangabad": [
+   "atm_44016e9885d2",
+   "atm_1eddc1d27617"
+  ],
+  "chhatrapati-sambhajinagar": [
+   "atm_44016e9885d2"
+  ],
+  "deccan": [
+   "atm_44016e9885d2"
+  ],
+  "india": [
+   "atm_44016e9885d2",
+   "atm_3a98a4b0d928",
+   "atm_f1e627fbac6a",
+   "atm_91c12861d2aa"
+  ],
+  "maharashtra": [
+   "atm_44016e9885d2",
+   "atm_f1e627fbac6a"
+  ],
+  "mughal-heritage": [
+   "atm_44016e9885d2"
+  ],
+  "bibi-ka-maqbara": [
+   "atm_1eddc1d27617"
+  ],
+  "mausoleum": [
+   "atm_1eddc1d27617"
+  ],
+  "mughal-architecture": [
+   "atm_1eddc1d27617"
+  ],
+  "taj-of-deccan": [
+   "atm_1eddc1d27617"
+  ],
+  "banyan": [
+   "atm_3a98a4b0d928"
+  ],
+  "deccan-plateau": [
+   "atm_3a98a4b0d928"
+  ],
+  "deciduous-forest": [
+   "atm_3a98a4b0d928"
+  ],
+  "monsoon": [
+   "atm_3a98a4b0d928"
+  ],
+  "semi-arid": [
+   "atm_3a98a4b0d928"
+  ],
+  "devanagari": [
+   "atm_f1e627fbac6a"
+  ],
+  "hindi": [
+   "atm_f1e627fbac6a"
+  ],
+  "marathi": [
+   "atm_f1e627fbac6a"
+  ],
+  "multilingual-signage": [
+   "atm_f1e627fbac6a"
+  ],
+  "auto-rickshaw": [
+   "atm_91c12861d2aa"
+  ],
+  "left-hand-traffic": [
+   "atm_91c12861d2aa"
+  ],
+  "rooftop-water-tanks": [
+   "atm_91c12861d2aa"
+  ],
+  "streetscape": [
+   "atm_91c12861d2aa"
+  ],
+  "two-wheelers": [
+   "atm_91c12861d2aa"
+  ],
+  "argentina": [
+   "atm_87059bc2df36",
+   "atm_35ff70ea7db7"
+  ],
+  "city": [
+   "atm_87059bc2df36"
+  ],
+  "cordoba": [
+   "atm_87059bc2df36",
+   "atm_b4521f74ff37",
+   "atm_a60f6d19f902",
+   "atm_e85177c2fa30",
+   "atm_35ff70ea7db7"
+  ],
+  "gran-cordoba": [
+   "atm_87059bc2df36"
+  ],
+  "sierras-chicas": [
+   "atm_87059bc2df36"
+  ],
+  "suquia-river": [
+   "atm_87059bc2df36"
+  ],
+  "agro-industry": [
+   "atm_b4521f74ff37"
+  ],
+  "argentina-economy": [
+   "atm_b4521f74ff37"
+  ],
+  "automotive-industry": [
+   "atm_b4521f74ff37"
+  ],
+  "software": [
+   "atm_b4521f74ff37"
+  ],
+  "accent": [
+   "atm_a60f6d19f902"
+  ],
+  "argentine-music": [
+   "atm_a60f6d19f902"
+  ],
+  "cuarteto": [
+   "atm_a60f6d19f902"
+  ],
+  "youth-culture": [
+   "atm_a60f6d19f902"
+  ],
+  "colonial-architecture": [
+   "atm_e85177c2fa30"
+  ],
+  "jesuit-block": [
+   "atm_e85177c2fa30"
+  ],
+  "jesuit-estancias": [
+   "atm_e85177c2fa30"
+  ],
+  "manzana-jesuitica": [
+   "atm_e85177c2fa30"
+  ],
+  "unesco-world-heritage": [
+   "atm_e85177c2fa30"
+  ],
+  "1918-university-reform": [
+   "atm_edd60e50c814"
+  ],
+  "higher-education": [
+   "atm_edd60e50c814",
+   "atm_dbf795f532fa"
+  ],
+  "latin-america": [
+   "atm_edd60e50c814"
+  ],
+  "student-movement": [
+   "atm_edd60e50c814"
+  ],
+  "universidad-nacional-de-cordoba": [
+   "atm_edd60e50c814"
+  ],
+  "area-code-351": [
+   "atm_35ff70ea7db7"
+  ],
+  "driving-right": [
+   "atm_35ff70ea7db7"
+  ],
+  "flag-colours": [
+   "atm_35ff70ea7db7"
+  ],
+  "telephone": [
+   "atm_35ff70ea7db7"
+  ],
+  "ashmolean": [
+   "atm_dbf795f532fa"
+  ],
+  "bodleian": [
+   "atm_dbf795f532fa"
+  ],
+  "collegiate-university": [
+   "atm_dbf795f532fa"
+  ],
+  "dreaming-spires": [
+   "atm_dbf795f532fa"
+  ],
+  "oxford": [
+   "atm_dbf795f532fa",
+   "atm_9517519bc35a",
+   "atm_92b70bd29630",
+   "atm_8037259cd69e",
+   "atm_ae4c5a7357ff"
+  ],
+  "university-of-oxford": [
+   "atm_dbf795f532fa"
+  ],
+  "biotech": [
+   "atm_9517519bc35a"
+  ],
+  "bmw": [
+   "atm_9517519bc35a"
+  ],
+  "knowledge-economy": [
+   "atm_9517519bc35a"
+  ],
+  "mini-plant": [
+   "atm_9517519bc35a"
+  ],
+  "oxford-university-press": [
+   "atm_9517519bc35a"
+  ],
+  "collegiate-gothic": [
+   "atm_92b70bd29630"
+  ],
+  "cotswold-limestone": [
+   "atm_92b70bd29630"
+  ],
+  "fan-vaulting": [
+   "atm_92b70bd29630"
+  ],
+  "norman-architecture": [
+   "atm_92b70bd29630"
+  ],
+  "oolitic-limestone": [
+   "atm_92b70bd29630"
+  ],
+  "bay-windows": [
+   "atm_a730bfa14785"
+  ],
+  "brick-terrace": [
+   "atm_a730bfa14785"
+  ],
+  "english-housing": [
+   "atm_a730bfa14785"
+  ],
+  "slate-roofs": [
+   "atm_a730bfa14785"
+  ],
+  "victorian-terrace": [
+   "atm_a730bfa14785"
+  ],
+  "folly-bridge": [
+   "atm_8037259cd69e"
+  ],
+  "isis": [
+   "atm_8037259cd69e"
+  ],
+  "punting": [
+   "atm_8037259cd69e"
+  ],
+  "river-cherwell": [
+   "atm_8037259cd69e"
+  ],
+  "river-thames": [
+   "atm_8037259cd69e"
+  ],
+  "ancient-universities": [
+   "atm_ae4c5a7357ff"
+  ],
+  "boat-race": [
+   "atm_ae4c5a7357ff"
+  ],
+  "cambridge": [
+   "atm_ae4c5a7357ff"
+  ],
+  "inklings": [
+   "atm_ae4c5a7357ff"
+  ],
+  "literary-heritage": [
+   "atm_ae4c5a7357ff"
+  ],
+  "oxbridge": [
+   "atm_ae4c5a7357ff"
+  ],
+  "20mph": [
+   "atm_8af183b8f49b"
+  ],
+  "double-yellow-lines": [
+   "atm_8af183b8f49b"
+  ],
+  "left-hand-driving": [
+   "atm_8af183b8f49b"
+  ],
+  "road-markings": [
+   "atm_8af183b8f49b"
+  ],
+  "united-kingdom": [
+   "atm_8af183b8f49b"
+  ],
+  "yellow-plates": [
+   "atm_8af183b8f49b"
+  ],
+  "1912": [
+   "atm_6f410dc5745b"
+  ],
+  "albanian-independence": [
+   "atm_6f410dc5745b"
+  ],
+  "ismail-qemali": [
+   "atm_6f410dc5745b"
+  ],
+  "national-identity": [
+   "atm_6f410dc5745b"
+  ],
+  "ottoman-empire": [
+   "atm_6f410dc5745b"
+  ],
+  "vlore": [
+   "atm_6f410dc5745b",
+   "atm_fbc1ae263ecd",
+   "atm_4f6b8bc9af59",
+   "atm_4cfc350ac012"
+  ],
+  "adriatic-sea": [
+   "atm_fbc1ae263ecd"
+  ],
+  "albanian-riviera": [
+   "atm_fbc1ae263ecd",
+   "atm_67097f4cbca4"
+  ],
+  "coast": [
+   "atm_fbc1ae263ecd"
+  ],
+  "ionian-sea": [
+   "atm_fbc1ae263ecd"
+  ],
+  "port-city": [
+   "atm_fbc1ae263ecd"
+  ],
+  "albania": [
+   "atm_4518bd105a25",
+   "atm_67097f4cbca4",
+   "atm_ea096b05bb43",
+   "atm_af2a2617b586"
+  ],
+  "bektashi": [
+   "atm_4518bd105a25"
+  ],
+  "islam": [
+   "atm_4518bd105a25"
+  ],
+  "orthodox-christianity": [
+   "atm_4518bd105a25"
+  ],
+  "ottoman-legacy": [
+   "atm_4518bd105a25",
+   "atm_9d7ccc769c8d"
+  ],
+  "religion": [
+   "atm_4518bd105a25"
+  ],
+  "energy": [
+   "atm_4f6b8bc9af59"
+  ],
+  "infrastructure": [
+   "atm_4f6b8bc9af59"
+  ],
+  "natural-gas": [
+   "atm_4f6b8bc9af59"
+  ],
+  "southern-gas-corridor": [
+   "atm_4f6b8bc9af59"
+  ],
+  "trans-adriatic-pipeline": [
+   "atm_4f6b8bc9af59"
+  ],
+  "coastal-development": [
+   "atm_67097f4cbca4"
+  ],
+  "real-estate": [
+   "atm_67097f4cbca4"
+  ],
+  "seasonal-economy": [
+   "atm_67097f4cbca4"
+  ],
+  "flamingos": [
+   "atm_4cfc350ac012"
+  ],
+  "karaburun-sazan": [
+   "atm_4cfc350ac012"
+  ],
+  "llogara-pass": [
+   "atm_4cfc350ac012"
+  ],
+  "marine-park": [
+   "atm_4cfc350ac012"
+  ],
+  "narta-lagoon": [
+   "atm_4cfc350ac012"
+  ],
+  "salt-pans": [
+   "atm_4cfc350ac012"
+  ],
+  "aging-population": [
+   "atm_ea096b05bb43"
+  ],
+  "demographics": [
+   "atm_ea096b05bb43"
+  ],
+  "emigration": [
+   "atm_ea096b05bb43"
+  ],
+  "labor": [
+   "atm_ea096b05bb43"
+  ],
+  "youth-migration": [
+   "atm_ea096b05bb43"
+  ],
+  "concrete": [
+   "atm_af2a2617b586"
+  ],
+  "rebar": [
+   "atm_af2a2617b586"
+  ],
+  "suburban": [
+   "atm_af2a2617b586"
+  ],
+  "unfinished-construction": [
+   "atm_af2a2617b586"
+  ],
+  "capital-region": [
+   "atm_c464359a13cf"
+  ],
+  "gardabaer": [
+   "atm_c464359a13cf",
+   "atm_964ed629535c",
+   "atm_714f55d47cd5"
+  ],
+  "hafnarfjordur": [
+   "atm_c464359a13cf"
+  ],
+  "iceland": [
+   "atm_c464359a13cf",
+   "atm_ee8caa0687d3",
+   "atm_964ed629535c",
+   "atm_714f55d47cd5"
+  ],
+  "kopavogur": [
+   "atm_c464359a13cf"
+  ],
+  "metropolitan-area": [
+   "atm_c464359a13cf"
+  ],
+  "reykjavik": [
+   "atm_c464359a13cf"
+  ],
+  "icelandic": [
+   "atm_e6f75e7898c3"
+  ],
+  "language": [
+   "atm_e6f75e7898c3",
+   "atm_9d45a7bad7f9"
+  ],
+  "latin-script": [
+   "atm_e6f75e7898c3",
+   "atm_9d45a7bad7f9"
+  ],
+  "north-germanic": [
+   "atm_e6f75e7898c3"
+  ],
+  "orthography": [
+   "atm_e6f75e7898c3"
+  ],
+  "toponyms": [
+   "atm_e6f75e7898c3",
+   "atm_9d45a7bad7f9"
+  ],
+  "hraun": [
+   "atm_ee8caa0687d3"
+  ],
+  "lava-field": [
+   "atm_ee8caa0687d3"
+  ],
+  "oceanic-climate": [
+   "atm_ee8caa0687d3"
+  ],
+  "subarctic": [
+   "atm_ee8caa0687d3"
+  ],
+  "treeless": [
+   "atm_ee8caa0687d3"
+  ],
+  "volcanic": [
+   "atm_ee8caa0687d3"
+  ],
+  "alftanes": [
+   "atm_964ed629535c",
+   "atm_714f55d47cd5"
+  ],
+  "bessastadir": [
+   "atm_964ed629535c"
+  ],
+  "government": [
+   "atm_964ed629535c"
+  ],
+  "president": [
+   "atm_964ed629535c"
+  ],
+  "residence": [
+   "atm_964ed629535c"
+  ],
+  "affluent": [
+   "atm_714f55d47cd5"
+  ],
+  "commuter-town": [
+   "atm_714f55d47cd5"
+  ],
+  "low-tax": [
+   "atm_714f55d47cd5"
+  ],
+  "suburb": [
+   "atm_714f55d47cd5"
+  ],
+  "urridaholt": [
+   "atm_714f55d47cd5"
+  ],
+  "buda-pest": [
+   "atm_91b6f26a63b1"
+  ],
+  "budapest": [
+   "atm_91b6f26a63b1",
+   "atm_9d7ccc769c8d",
+   "atm_c65d1dbc1ab1",
+   "atm_05dc60e6542c",
+   "atm_3340739b4d02"
+  ],
+  "capital": [
+   "atm_91b6f26a63b1"
+  ],
+  "danube": [
+   "atm_91b6f26a63b1"
+  ],
+  "hungary": [
+   "atm_91b6f26a63b1"
+  ],
+  "primate-city": [
+   "atm_91b6f26a63b1"
+  ],
+  "finno-ugric": [
+   "atm_9d45a7bad7f9"
+  ],
+  "hungarian": [
+   "atm_9d45a7bad7f9"
+  ],
+  "uralic": [
+   "atm_9d45a7bad7f9"
+  ],
+  "roman-legacy": [
+   "atm_9d7ccc769c8d"
+  ],
+  "spa-culture": [
+   "atm_9d7ccc769c8d"
+  ],
+  "thermal-baths": [
+   "atm_9d7ccc769c8d"
+  ],
+  "wellness-tourism": [
+   "atm_9d7ccc769c8d"
+  ],
+  "19th-century-architecture": [
+   "atm_c65d1dbc1ab1"
+  ],
+  "andrassy-avenue": [
+   "atm_c65d1dbc1ab1"
+  ],
+  "austro-hungarian": [
+   "atm_c65d1dbc1ab1"
+  ],
+  "habsburg": [
+   "atm_c65d1dbc1ab1"
+  ],
+  "unesco": [
+   "atm_c65d1dbc1ab1"
+  ],
+  "economy": [
+   "atm_05dc60e6542c"
+  ],
+  "finance": [
+   "atm_05dc60e6542c"
+  ],
+  "pharmaceuticals": [
+   "atm_05dc60e6542c"
+  ],
+  "shared-services": [
+   "atm_05dc60e6542c"
+  ],
+  "tech-hub": [
+   "atm_05dc60e6542c"
+  ],
+  "jewish-quarter": [
+   "atm_3340739b4d02"
+  ],
+  "nightlife": [
+   "atm_3340739b4d02"
+  ],
+  "over-tourism": [
+   "atm_3340739b4d02"
+  ],
+  "ruin-bars": [
+   "atm_3340739b4d02"
+  ],
+  "sziget-festival": [
+   "atm_3340739b4d02"
+  ]
+ },
+ "reports": {
+  "report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html": {
+   "place": "Barnaul, Altai Krai, Russia",
+   "lat": 53.3792627,
+   "lng": 83.6801978,
+   "cell": "vc7x8",
+   "atoms": [
+    "atm_7c89b761a51c",
+    "atm_fe41075e4a29",
+    "atm_5449e17b7e07",
+    "atm_3ecf707f944b",
+    "atm_bffa90fceb9e",
+    "atm_764d16790153",
+    "atm_8dcf3ffe7cd6"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_jpn_oyabe_36.6874_137.0212_260810_010136_ko-en-fr.html": {
+   "place": "Takaoka / Oyabe area, Toyama Prefecture, Japan",
+   "lat": 36.6874326,
+   "lng": 137.021241,
+   "cell": "xn92t",
+   "atoms": [
+    "atm_094699abd32a",
+    "atm_4f92a18e4ed7",
+    "atm_1bb47ee4e339",
+    "atm_52fa8fc7482a",
+    "atm_cc6189746731",
+    "atm_48e28cb5f3ff",
+    "atm_5685afe3cc0c",
+    "atm_9b6eeb87cb63"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_in_bibi-ka-maqbara_19.8953_75.3355_260810_013326_ko-en-fr.html": {
+   "place": "Aurangabad (Chhatrapati Sambhajinagar), Maharashtra, India",
+   "lat": 19.8953229,
+   "lng": 75.3355104,
+   "cell": "tet94",
+   "atoms": [
+    "atm_44016e9885d2",
+    "atm_1eddc1d27617",
+    "atm_3a98a4b0d928",
+    "atm_f1e627fbac6a",
+    "atm_91c12861d2aa"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_ar_cordoba_-31.4102_-64.2349_260810_014939_ko-en-fr.html": {
+   "place": "Cordoba, Cordoba Province, Argentina",
+   "lat": -31.4102477,
+   "lng": -64.2349063,
+   "cell": "6d6m6",
+   "atoms": [
+    "atm_87059bc2df36",
+    "atm_b4521f74ff37",
+    "atm_a60f6d19f902",
+    "atm_e85177c2fa30",
+    "atm_edd60e50c814",
+    "atm_35ff70ea7db7"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html": {
+   "place": "Oxford, Oxfordshire, England, United Kingdom",
+   "lat": 51.7430428,
+   "lng": -1.2584125,
+   "cell": "gcpn7",
+   "atoms": [
+    "atm_dbf795f532fa",
+    "atm_9517519bc35a",
+    "atm_92b70bd29630",
+    "atm_a730bfa14785",
+    "atm_8037259cd69e",
+    "atm_ae4c5a7357ff",
+    "atm_8af183b8f49b"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_al_vlore_40.4753_19.4765_260810_015707_ko-en-fr.html": {
+   "place": "Vlore, Vlore County, Albania",
+   "lat": 40.4752774,
+   "lng": 19.4764723,
+   "cell": "srjy7",
+   "atoms": [
+    "atm_6f410dc5745b",
+    "atm_fbc1ae263ecd",
+    "atm_4518bd105a25",
+    "atm_4f6b8bc9af59",
+    "atm_67097f4cbca4",
+    "atm_4cfc350ac012",
+    "atm_ea096b05bb43",
+    "atm_af2a2617b586"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html": {
+   "place": "Garðabær, Capital Region (Garðabær / Kópavogur), Iceland",
+   "lat": 64.0944624,
+   "lng": -21.9039609,
+   "cell": "ge2kt",
+   "atoms": [
+    "atm_c464359a13cf",
+    "atm_e6f75e7898c3",
+    "atm_ee8caa0687d3",
+    "atm_964ed629535c",
+    "atm_714f55d47cd5"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_hu_budapest_47.5271_19.0482_260810_020428_ko-en-fr.html": {
+   "place": "Budapest, Budapest, Hungary",
+   "lat": 47.5271214,
+   "lng": 19.048154,
+   "cell": "u2mw3",
+   "atoms": [
+    "atm_91b6f26a63b1",
+    "atm_9d45a7bad7f9",
+    "atm_9d7ccc769c8d",
+    "atm_c65d1dbc1ab1",
+    "atm_05dc60e6542c",
+    "atm_3340739b4d02"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  }
+ }
+}

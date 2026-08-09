@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>구현 기록 · 문제 해결 방법론 — 다섯 개의 버그가 가르쳐 준 것 (260810)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.75;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:2px;font-size:12.5px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 9px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:54px 0 32px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.24;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:80ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:44px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:25px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:24px;max-width:76ch}
+h3.sub{font-size:17px;font-weight:750;letter-spacing:-.02em;margin:30px 0 10px}
+h4.ss{font-size:14.5px;font-weight:750;margin:20px 0 6px;color:var(--accent-deep)}
+p+p{margin-top:10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:15.5px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.65;margin-top:10px}
+pre .c{color:#7f978f} pre .k{color:#7fd6b6} pre .s{color:#e5c07b} pre .r{color:#ff9a8f} pre .g{color:#8fe0a8} pre .y{color:#ffd479}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.foot{padding:36px 0 64px;color:var(--muted);font-size:13px}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{position:relative;padding:13px 0 13px 44px;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--ink-2)}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:12px;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent-deep);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:23px;position:relative;margin:8px 0;font-size:14.5px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.next li::before{content:"→";color:var(--accent)}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+/* 원칙 카드 */
+.prin{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-left:4px solid var(--accent);border-radius:12px;padding:17px 19px;margin-top:12px;box-shadow:var(--shadow)}
+.prin .pn{flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;
+  font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.prin .pb h4{font-size:15.5px;font-weight:800;margin-bottom:4px;letter-spacing:-.02em}
+.prin .pb p{font-size:14px;color:var(--ink-2)}
+.prin.bad{border-left-color:var(--danger)} .prin.bad .pn{background:var(--danger)}
+/* 사례 타임라인 */
+.case{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow);
+  overflow:hidden;margin-top:18px}
+.case>.ch{padding:14px 18px;background:linear-gradient(135deg,var(--accent-soft),#fff);
+  border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.case>.ch .cn{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep)}
+.case>.ch h3{font-size:17px;font-weight:800;letter-spacing:-.02em;flex:1;min-width:200px}
+.case>.cb{padding:18px}
+.mv{display:grid;grid-template-columns:80px 1fr;gap:0 14px;font-size:14px}
+.mv .mk{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted);padding-top:4px;text-align:right}
+.mv .mb{padding:2px 0 12px;color:var(--ink-2);border-left:2px solid var(--line);padding-left:14px;margin-left:-8px}
+.mv .mk.q{color:var(--accent-deep)} .mv .mb.q{border-left-color:var(--accent)}
+.mv .mk.x{color:var(--danger)} .mv .mb.x{border-left-color:var(--danger);background:#fffaf9}
+.mv .mb:last-child{padding-bottom:0}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;
+  background:var(--accent-soft);color:var(--accent-deep);margin-left:6px}
+.tag.bad{background:var(--danger-soft);color:var(--danger)}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span> GeoGuessHelper · 구현 기록</div>
+  <nav class="topnav">
+    <a href="#principles">방법론</a><a href="#c1">SSL</a><a href="#c2">404</a>
+    <a href="#c3">파일명</a><a href="#c4">1181초</a><a href="#c5">검은 파노</a>
+    <a href="#tools">계측 도구</a><a href="#arch">구현 구조</a><a href="#lessons">정리</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">구현 기록 · 문제 해결 방법론 · 2026-08-10</div>
+  <h1>다섯 개의 버그가 가르쳐 준 것</h1>
+  <p>이 문서는 무엇을 만들었는지보다 <b>어떻게 알아냈는지</b>를 남긴다. 다섯 건의 실제 사례를
+  시도 → 관찰 → 오판 → 정정의 순서로 그대로 적었다. 그중 두 건은 <b>내가 틀렸고 나중에
+  반박당한 것</b>이며, 방법론적으로 가장 값진 부분은 그 두 건이다. 맞힌 과정보다 틀린 과정이
+  더 많은 것을 가르쳐 준다.</p>
+  <div class="meta">
+    <span class="chip ac">사례 5건 · 전부 실측 기반</span>
+    <span class="chip dn">그중 내 오진 2건</span>
+    <span class="chip ok">감사 45건 → 확인 32 / 반증 13</span>
+    <span class="chip wn">에이전트 160개 · 토큰 890만</span>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<!-- ═══════════════════ 방법론 ═══════════════════ -->
+<section class="section" id="principles">
+  <div class="eyebrow">Methodology</div>
+  <h2 class="sec">먼저 원칙 — 사례에서 뽑아낸 것</h2>
+  <p class="sec-desc">아래 아홉 개는 이번 세션에서 <b>실제로 결과를 갈랐던</b> 판단들이다.
+  추상적으로 좋은 말이 아니라, 지키지 않았을 때 내가 틀렸던 지점들이다.</p>
+
+  <div class="prin"><div class="pn">1</div><div class="pb">
+    <h4>"내 변경 탓인가"를 가장 먼저 끊어라</h4>
+    <p>새 코드를 넣은 직후 무언가 깨지면 본능적으로 내 변경을 의심한다. 그 의심은 값이 싸지만
+    검증은 더 싸다. <b>변경 이전 커밋을 그대로 실행</b>해 보면 1분 만에 범위가 반으로 준다.
+    <code>git worktree add $TEMP/orig HEAD</code> 는 작업 트리를 건드리지 않고 이걸 해 준다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">2</div><div class="pb">
+    <h4>추론 대신 이분 탐색으로 경계를 좁혀라</h4>
+    <p><code>create_default_context()</code> 가 죽는다는 사실만으로는 아무것도 못 고친다.
+    그 함수가 하는 일을 <b>단계별로 따로 호출</b>하면 죽는 지점이 한 줄로 특정된다.
+    "왜 죽을까"를 생각하는 시간보다 "어디서 죽나"를 재는 시간이 짧다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">3</div><div class="pb">
+    <h4>종료 코드는 자가 종료와 타살을 구분해 준다</h4>
+    <p><code>exit 1</code> 이면 프로세스가 <code>ExitProcess</code> 를 스스로 불렀다는 뜻이고,
+    <code>0xC0000005</code> 면 액세스 위반, <code>0xC000013A</code> 면 외부 종료 요청이다.
+    이 하나로 "누가 죽였나"라는 질문 자체가 사라진다.</p>
+  </div></div>
+
+  <div class="prin bad"><div class="pn">4</div><div class="pb">
+    <h4>부재를 증명하려면 계측을 먼저 의심하라 <span class="tag bad">내가 틀린 지점</span></h4>
+    <p>"타일 요청이 <b>0건</b>"은 요청이 없다는 뜻이 아니라 <b>내 필터가 못 봤다</b>는 뜻일 수
+    있다. 무언가가 "없다"는 관측은 언제나 계측기의 성능 한계와 구분되지 않는다. 부재를
+    주장하기 전에 <b>같은 계측기로 존재를 잡아 보여라</b>(대조군). 그게 안 되면 그 계측은
+    부재의 증거가 못 된다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">5</div><div class="pb">
+    <h4>대조군 없는 측정은 측정이 아니다</h4>
+    <p>제3자 파노가 검다는 관측은 <b>공식 파노가 밝다</b>는 짝이 있어야 의미를 갖는다.
+    쿠키 동의 화면에 막혔을 때 세 케이스가 <b>전부 밝기 248.3</b> 으로 같았던 것이 그 테스트가
+    무효임을 즉시 알려 줬다. 대조군은 결론을 위해서가 아니라 <b>측정의 유효성 검사</b>를 위해 있다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">6</div><div class="pb">
+    <h4>코드를 읽어 추론하지 말고 돌려서 재현하라</h4>
+    <p>파일명 충돌은 <code>_report_filename()</code> 을 읽고 "충돌할 수 있겠다"고 말할 수도
+    있었다. 대신 <b>실제로 스레드 5개를 동시에 돌렸다</b>. 추론은 반박 가능하지만 재현은 그렇지
+    않고, 재현 스크립트는 그대로 회귀 테스트가 된다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">7</div><div class="pb">
+    <h4>화면에 뜬 문자열을 코드베이스에서 검색하라</h4>
+    <p>"보고서 실패: Not Found" 에서 <b>접두사가 새 코드에 존재하지 않는다</b>는 사실 하나로
+    "지금 돌고 있는 건 옛 JS"가 즉시 확정됐다. 그래서 사용자에게 보이는 문자열은
+    <b>코드베이스에서 유일해야</b> 한다 — 그 자체가 버전 식별자다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">8</div><div class="pb">
+    <h4>프로세스의 바깥 상태를 관찰하라</h4>
+    <p>1181초 작업이 무엇을 하는지는 코드를 봐서는 알 수 없다. <b>열린 TCP 연결의 생성 시각</b>이
+    작업 시작 시각과 일치한다는 것, <b>CPU 46초/22분</b> 이라는 것 — 이 둘이 "스핀이 아니라
+    단일 요청 대기"를 증명했다. 재연결이 없으니 SDK 재시도도 아니다.</p>
+  </div></div>
+
+  <div class="prin bad"><div class="pn">9</div><div class="pb">
+    <h4>검증자가 나를 반박하면, 반박을 검증하라 — 어느 쪽도 그냥 믿지 말고
+    <span class="tag bad">내가 틀린 지점</span></h4>
+    <p>워크플로가 내 결론을 정면으로 반박했을 때, 받아들이지도 무시하지도 않고
+    <b>직접 재측정</b>했다. 1차 재측정은 내 원래 결과를 재현했고(내가 맞는 듯했다),
+    그러나 그 계측에도 같은 종류의 결함이 있었다. <b>필터를 완전히 제거</b>한 3차 측정에서야
+    진실이 나왔다. 반박을 검증하는 과정에서 내 계측의 결함이 드러난 것이다.</p>
+  </div></div>
+</section>
+
+<!-- ═══════════════════ 사례 1 ═══════════════════ -->
+<section class="section" id="c1">
+  <div class="eyebrow">Case 1</div>
+  <h2 class="sec">서버가 배너 한 줄도 못 찍고 죽는다</h2>
+  <p class="sec-desc">적용 원칙: ① 내 변경 끊기 · ② 이분 탐색 · ③ 종료 코드</p>
+
+  <div class="case">
+    <div class="ch"><span class="cn">증상</span><h3><code>OPENSSL_Uplink(...): no OPENSSL_Applink</code></h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">관찰</div><div class="mb">stdout 비어 있음. stderr 한 줄. 프로세스 즉시 종료.
+          그런데 <b>같은 날 21:03 에 캡처가 정상 생성된 이력</b>이 있다.</div>
+
+        <div class="mk q">질문</div><div class="mb q">방금 내가 넣은 변경 때문인가?</div>
+
+        <div class="mk">시도 1</div><div class="mb">
+          <b>변경 이전 커밋을 격리 실행.</b> 작업 트리를 건드리지 않으려고 worktree 를 썼다.
+<pre>git worktree add $TEMP/geo_orig HEAD
+<span class="c"># → ORIGINAL(HEAD) stderr:</span>
+<span class="r">OPENSSL_Uplink(00007FFCDAFEAC60,08): no OPENSSL_Applink</span></pre>
+          원본도 죽는다 → <b>내 변경과 무관.</b> 여기서 탐색 범위가 절반으로 줄었다.</div>
+
+        <div class="mk q">질문</div><div class="mb q">외부가 죽이는가, 스스로 죽는가?</div>
+
+        <div class="mk">시도 2</div><div class="mb">
+          <b>종료 코드 확인.</b> <code>exit 1</code> — <code>ExitProcess(1)</code> 자가 종료다.
+          액세스 위반(<code>0xC0000005</code>)도 외부 종료(<code>0xC000013A</code>)도 아니다.
+          "누가 죽였나"라는 질문 자체가 여기서 소멸했다.</div>
+
+        <div class="mk q">질문</div><div class="mb q">그 함수의 <i>어느 부분</i>이 죽는가?</div>
+
+        <div class="mk">시도 3</div><div class="mb">
+          <b>구성 단계를 하나씩 따로 호출.</b> 추론하지 않고 잘랐다.
+<pre>SSLContext(PROTOCOL_TLS_CLIENT)   <span class="g">통과</span>
+enum_certificates('ROOT')          <span class="g">통과</span>
+set_default_verify_paths()         <span class="g">통과</span>
+load_default_certs()               <span class="g">통과</span>
+create_default_context()           <span class="r">사망</span></pre>
+          CA 번들 로드까지 전부 통과 → <code>create_default_context()</code> 가
+          <b>추가로 하는 일</b>이 범인이다. CPython 소스에서 그건 딱 한 줄이었다.
+<pre><span class="c"># Lib/ssl.py:725</span>
+keylogfile = os.environ.get(<span class="s">'SSLKEYLOGFILE'</span>)</pre></div>
+
+        <div class="mk">발견</div><div class="mb">
+<pre>프로세스 환경 : <span class="r">\\.\aswMonFltProxy\3e7f7b040b43e88d</span>  <span class="c">← Avast 필터 드라이버</span>
+사용자 환경   : (없음)
+시스템 환경   : (없음)   <span class="c">← 레지스트리가 아니라 런타임 주입</span></pre>
+          Avast 가 HTTPS 검사를 위해 세션 키 로그 경로를 주입 → CPython 이 그 경로를
+          <code>fopen()</code> → OpenSSL <code>BIO_new_fp()</code> → 정적 링크 빌드에
+          <code>OPENSSL_Applink</code> 부재 → <code>ExitProcess(1)</code>.</div>
+
+        <div class="mk x">오판</div><div class="mb x">
+          중간에 <b>PATH 에서 <code>C:\WINDOWS\system32\libcrypto.dll</code> 을 발견</b>하고
+          "DLL 충돌"이라고 단정했다. <b>틀렸다.</b> 프로세스 모듈을 <code>EnumProcessModules</code>
+          로 열거하니 <b>OpenSSL DLL 이 하나도 로드되지 않았다</b>(정적 링크 빌드). 가릴 대상 자체가
+          없었다. — <i>PATH 에 있다는 것과 로드됐다는 것은 다르다. 후자를 재야 한다.</i></div>
+
+        <div class="mk">검증</div><div class="mb">
+          변수를 지우자 즉시 통과: <code>create_default_context() 통과! exit=0</code>.
+          단일 변수 제거로 증상이 사라짐 → 인과 확정.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout ok"><b>수정.</b> <code>tls.neutralize_keylog()</code> — 프로세스 환경에서만
+  제거한다. 시스템 설정은 건드리지 않는다. 지우는 것이 안전한 이유는 그 값이 기능 설정이 아니라
+  <b>"TLS 세션 키를 이 디바이스로 흘려라"</b>는 지시이고, 남겨두면 <code>ANTHROPIC_API_KEY</code> 가
+  오가는 연결의 세션 키까지 나가기 때문이다. 상세: <a href="../error/ssl-openssl-applink-exit_260810.html">docs/error/ssl-openssl-applink-exit_260810.html</a></div>
+</section>
+
+<!-- ═══════════════════ 사례 2 ═══════════════════ -->
+<section class="section" id="c2">
+  <div class="eyebrow">Case 2</div>
+  <h2 class="sec">"보고서 실패: Not Found" — 문자열이 범인을 지목하다</h2>
+  <p class="sec-desc">적용 원칙: ⑦ 문자열 추적 · 그리고 <b>내가 만든 회귀</b>를 인정하기</p>
+
+  <div class="case">
+    <div class="ch"><span class="cn">증상</span><h3>캡처 6장 후 보고서 버튼 → 즉시 실패</h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">유혹</div><div class="mb">
+          "6"이 <code>max_analyze_images = 6</code> 과 같다. 여기서 시작하면 몇 시간을 버린다.</div>
+
+        <div class="mk q">질문</div><div class="mb q">이 문자열은 <i>어느 코드</i>가 만드나?</div>
+
+        <div class="mk">시도 1</div><div class="mb">
+          <code>"보고서 실패: "</code> 를 코드베이스에서 검색 → <b>새 프론트엔드에 없다.</b>
+          새 코드는 <code>"작업 등록 실패: "</code> 를 쓴다. 옛 <code>app.js</code> 에만 있다.
+          <br>→ <b>브라우저가 캐시된 예전 JS 를 실행 중</b>이라는 것이 이 시점에 확정.
+          <br>그리고 <code>"Not Found"</code> 는 FastAPI 의 기본 404 본문 <code>{"detail":"Not Found"}</code>
+          의 값이다. 앱이 만든 메시지가 아니다.</div>
+
+        <div class="mk">시도 2</div><div class="mb">
+          라우트 목록을 찍었다. 요청 본문이 아니라 <b>라우팅</b>을 의심해야 하는 상황이니까.
+<pre>/api/report                <span class="r">없음  ← 404 원인</span>
+/api/scene-report          <span class="r">없음  ← 404 원인</span>
+/api/jobs/report           <span class="g">있음</span></pre></div>
+
+        <div class="mk x">내 잘못</div><div class="mb x">
+          큐를 도입하며 구 경로를 없앴는데, <b>새 <code>server.py</code> docstring 에는
+          "호환 래퍼로 남긴다"고 써놓고 구현하지 않았다.</b> 문서가 코드보다 앞서 나간
+          그 격차가 그대로 버그가 됐다. 게다가 정적 파일에 캐시 무효화 장치가 없어
+          "새 서버 + 옛 프론트" 조합이 만들어질 수 있었다.</div>
+
+        <div class="mk">수정</div><div class="mb">
+          ① 구 경로를 <b>같은 큐를 지나되 완료까지 기다리는</b> 래퍼로 복원(순차 보장 유지).
+          ② <code>app.js?v=0.2.0</code> 캐시 무효화 도입.
+<pre>POST /api/report → HTTP <span class="g">200</span>  status:FAIL
+  message: <span class="s">"분석할 캡처 이미지가 없습니다."</span>   <span class="c">← 앱이 만든 진짜 메시지</span>
+  jobId  : job_f10ee8e4db8d                <span class="c">← 큐를 지났다는 증거</span></pre></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout warn"><b>교훈.</b> 404 는 "서버가 그 경로를 모른다"는 뜻이다. 요청 본문·데이터
+  문제로 착각하면(이번엔 "캡처 6장") 엉뚱한 곳을 판다. <b>라우트 목록을 먼저 찍는 것</b>이 가장 빠르다.
+  그리고 공개 API 경로는 지우지 말고 남겨라 — 클라이언트(브라우저 캐시 포함)를 서버와 동시에
+  갱신할 수 없기 때문이다.</div>
+</section>
+
+<!-- ═══════════════════ 사례 3 ═══════════════════ -->
+<section class="section" id="c3">
+  <div class="eyebrow">Case 3</div>
+  <h2 class="sec">보고서가 사라진다 — 추론 대신 재현</h2>
+  <p class="sec-desc">적용 원칙: ⑥ 재현 · 재현 스크립트를 그대로 회귀 테스트로</p>
+
+  <div class="case">
+    <div class="ch"><span class="cn">가설</span><h3>파일명이 같으면 조용히 덮어써진다</h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">코드</div><div class="mb">
+          <code>report_{iso}_{장소}_{위도}_{경도}_{yymmdd}_{hhmmss}_{언어}.html</code><br>
+          좌표는 <b>소수점 4자리(≈11m)</b>, 시각은 <b>초 단위</b>. 그리고
+          <code>out.write_text()</code> 는 존재 확인이 없다.</div>
+
+        <div class="mk q">질문</div><div class="mb q">"충돌할 수 있다"가 아니라 <b>정말 충돌하는가?</b></div>
+
+        <div class="mk">시도 1</div><div class="mb">
+          같은 초·1.3m 차이 좌표로 파일명 두 개를 실제로 만들었다.
+<pre>runA : report_kr_seoul_37.5665_126.978_260809_214429_ko.html
+runB : report_kr_seoul_37.5665_126.978_260809_214429_ko.html
+SAME FILENAME? <span class="r">True</span></pre></div>
+
+        <div class="mk">시도 2</div><div class="mb">
+          <b>스레드 5개로 동시 쓰기</b> — 수정 후 회귀 테스트가 될 형태로 짰다.
+<pre><span class="c">수정 후</span>
+  동시 5건 → 디스크 파일: <span class="g">5</span>
+    ..._ko.html    <span class="c">run 0</span>
+    ..._ko-2.html  <span class="c">run 1</span>
+    ..._ko-3.html  ..._ko-4.html  ..._ko-5.html
+  모두 보존됨: <span class="g">True</span>   <span class="c">(예전엔 1개만 남았다)</span>
+  임시파일 잔여: <span class="g">none</span></pre></div>
+
+        <div class="mk">부수 발견</div><div class="mb">
+          재현하다 <b>두 번째 결함</b>이 드러났다. <code>country_iso</code> 가 비고 국가명이
+          비ASCII 면 슬러그가 통째로 날아가 <code>location</code> 이 된다 — 파일명이 대상을
+          전혀 식별하지 못하고, 충돌 조건이 "같은 장소"에서 <b>"같은 초"</b> 로 넓어진다.
+<pre>iso 없음 + 대한민국 : <span class="g">c4f12e8</span>
+iso 없음 + 日本     : <span class="g">c44da6b</span>
+서로 다른가         : <span class="g">True</span>   <span class="c">(예전엔 둘 다 location)</span></pre></div>
+
+        <div class="mk">수정</div><div class="mb">
+          <code>O_CREAT|O_EXCL</code> 로 이름을 <b>원자적으로 선점</b>하고,
+          임시 파일에 다 쓴 뒤 <code>os.replace</code> 로 교체(교체는 원자적).
+          이로써 덮어쓰기와 <b>"쓰는 중 GET 하면 잘린 HTML 이 200 으로 나가는"</b> 문제가 함께 해결됐다.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout"><b>왜 재현이 추론보다 나은가.</b> 추론은 "그럴 수 있다"에서 멈추고 반박 가능하다.
+  재현은 <b>확정</b>이고, 부수 결함을 덤으로 발견하며(위의 슬러그 문제), 무엇보다
+  <b>수정을 증명하는 도구가 그대로 남는다</b>. 위 스크립트는 지금도 회귀 테스트다.</div>
+</section>
+
+<!-- ═══════════════════ 사례 4 ═══════════════════ -->
+<section class="section" id="c4">
+  <div class="eyebrow">Case 4</div>
+  <h2 class="sec">1181초짜리 보고서 — 바깥에서 관찰하기</h2>
+  <p class="sec-desc">적용 원칙: ⑧ 프로세스 외부 상태 · 그리고 <b>내가 만든 구멍</b></p>
+
+  <div class="case">
+    <div class="ch"><span class="cn">증상</span><h3>보고서가 20분 넘게 끝나지 않는다</h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">시도 1</div><div class="mb">
+          <b>먼저 로그를 봤다.</b> 큐가 모든 단계 전환을 jsonl 로 남기게 만들어 둔 덕에
+          코드를 읽지 않고 병목이 나왔다.
+<pre>+   0.0초  analyze     장면 분석 중… (8장 · English)
++  30.7초  analyzed    식별: Takaoka / Oyabe area
++   0.0초  research    웹 리서치 중… (English)
++ <span class="r">418.7초</span>  researched  리서치 완료 — 검색 3회      <span class="c">← 병목</span>
++  70.6초  translate   Français 번역 중…
++  54.1초  render      보고서 작성 중…</pre>
+          <i>관찰 가능성은 사후에 만들 수 없다. 미리 심어 둔 것만 쓸 수 있다.</i></div>
+
+        <div class="mk q">질문</div><div class="mb q">멈춘 작업은 <i>무엇을</i> 기다리는가?</div>
+
+        <div class="mk">시도 2</div><div class="mb">
+          <b>프로세스 바깥을 관찰.</b> 코드로는 알 수 없는 것들이다.
+<pre>TCP  Established  2607:6bc0::10:443  생성 <span class="y">01:05:09</span>
+작업 시작                              <span class="y">01:05:09</span>   <span class="c">← 정확히 일치</span>
+CPU  46초 / 22분                                  <span class="c">← 스핀 아님, 대기</span>
+재연결 없음                                        <span class="c">← SDK 재시도 아님</span></pre>
+          <b>단일 스트리밍 요청이 22분째 안 끝나는 중.</b></div>
+
+        <div class="mk">시도 3</div><div class="mb">
+          <b>서버 프로세스 시작 시각 vs 파일 수정 시각을 비교.</b>
+<pre>서버 시작 : 00:18:58
+llm.py    : 01:02:22   <span class="c">← 서버가 모르는 코드</span>
+config.py : 01:07:38</pre>
+          Python 은 핫리로드하지 않는다 → <b>지금 도는 서버는 내 최근 변경 이전 코드.</b>
+          모델 교체가 원인이라는 가설이 여기서 죽었다.</div>
+
+        <div class="mk x">내 잘못</div><div class="mb x">
+          내가 스트리밍으로 전환하며 만든 구멍이었다.
+          <code>httpx.Timeout(600)</code> 은 <b>청크 간격</b>이지 총 소요가 아니다.
+          서버측 <code>web_search</code> 가 도는 동안 keepalive 가 계속 오므로
+          <b>그 타임아웃은 영영 걸리지 않는다.</b> 취소도 단계 경계에서만 확인해서
+          호출 안에 들어가면 못 멈췄다. concurrency=1 이라 뒤의 3건이 통째로 막혔다.</div>
+
+        <div class="mk">수정</div><div class="mb">
+          스트림 <b>이벤트를 직접 돌며</b> 벽시계 경과와 취소를 확인한다.
+<pre>벽시계 상한: <span class="g">1.02초</span> 만에 중단  (deadline 1.0s)
+취소       : <span class="g">0.81초</span> 만에 중단  (0.8s 에 플래그)</pre>
+          그리고 419초 단일 호출을 <b>주제별 4샤드 병렬</b>로 쪼갰다(아래 구현 구조 참고).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 사례 5 ═══════════════════ -->
+<section class="section" id="c5">
+  <div class="eyebrow">Case 5 · 가장 중요한 사례</div>
+  <h2 class="sec">검은 로드뷰 — 내가 두 번 틀린 이야기</h2>
+  <p class="sec-desc">적용 원칙: ④ 부재 증명 · ⑤ 대조군 · ⑨ 반박의 검증.
+  <b>이 사례가 이 문서에서 가장 값지다.</b></p>
+
+  <div class="case">
+    <div class="ch"><span class="cn">1라운드</span><h3>측정 — 그리고 성급한 결론</h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">시도 1</div><div class="mb">
+          사용자 스크린샷에서 <b>저작권 문자열 "© Geogrupa Pula"</b> 를 발견. 구글 공식이 아니다.
+          → 제3자(사용자 기여) 파노라는 가설.</div>
+
+        <div class="mk">시도 2</div><div class="mb">
+          <b>대조군을 세워 측정</b>했다(원칙 ⑤ 는 지켰다).
+<pre>© 2026 Google        밝기 <span class="g">117.1</span>   타일 <span class="g">16건</span>
+© Dragan CVIJETIC    밝기 <span class="r">  1.2</span>   타일 <span class="r"> 0건</span>
+© Henry Gonzalez     밝기 <span class="r">  1.1</span>   타일 <span class="r"> 0건</span></pre>
+          깨끗한 대조. 여기서 나는 <b>"제3자는 타일을 아예 요청하지 않는다"</b> 고 결론지었다.</div>
+
+        <div class="mk x">오판 ①</div><div class="mb x">
+          <b>"0건"을 사실로 받아들였다.</b> 계측기를 의심하지 않았다.
+          내 리스너는 이렇게 필터링하고 있었다:
+<pre><span class="k">if</span> <span class="s">"streetviewpixels"</span> <span class="k">in</span> u <span class="k">or</span> <span class="s">"cbk"</span> <span class="k">in</span> u <span class="k">or</span> <span class="s">"panoid"</span> <span class="k">in</span> u.lower():</pre>
+          제3자 타일의 실제 URL 은 <code>lh3.googleusercontent.com/gpms-cs-s/...</code> —
+          <b>세 패턴 중 어느 것도 매칭되지 않는다.</b> 공식 파노가 16건으로 잡힌 것이
+          "계측기가 정상"이라는 <i>거짓 확신</i>을 줬다. 계측기는 <b>한쪽 종류만</b> 볼 수 있었던 것이다.</div>
+
+        <div class="mk x">오판 ②</div><div class="mb x">
+          그 위에서 사용자에게 <b>"라이선스된 API 로는 불가능하고 ToS 위반 스크래핑만 동작한다"</b>
+          고 보고했다. 실제로 <code>google.com/maps</code> 헤드리스 렌더가 동작하는 것을 확인했고
+          (밝기 72.8·125.8, lh3 타일 확인), 그것이 유일한 길이라고 말했다.
+          <b>사용자에게 불필요한 ToS 판단을 요구한 셈이다.</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout warn"><b>중간에 잡아낸 무효 측정.</b> <code>google.com/maps</code> 테스트 1차는
+  세 케이스가 <b>전부 밝기 248.3</b> 으로 동일했다. 결론이 아니라 <b>쿠키 동의 화면</b>을 찍은 것이다.
+  대조군이 없었다면 "전부 렌더된다"고 잘못 읽었을 것이다 — <i>대조군은 결론이 아니라 측정의 유효성을 지킨다</i>.</div>
+
+  <div class="case" style="border-color:#f3c6c1">
+    <div class="ch" style="background:linear-gradient(135deg,var(--danger-soft),#fff)">
+      <span class="cn" style="color:var(--danger)">2라운드</span><h3>반박 — 그리고 반박의 검증</h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk x">반박</div><div class="mb x">
+          백그라운드 워크플로(에이전트 21개)가 정면으로 반박했다:
+          <b>"제3자 파노는 정상 렌더된다(10/10). '0건'은 계측 결함이다."</b>
+          같은 파노를 <b>밝기 101.9 / 67.3</b> 으로 측정했다고 보고했다.</div>
+
+        <div class="mk q">질문</div><div class="mb q">
+          누구를 믿는가? — <b>어느 쪽도 믿지 않는다.</b> 직접 잰다.</div>
+
+        <div class="mk">재측정 1</div><div class="mb">
+          내 원래 결과가 <b>그대로 재현</b>됐다. 밝기 1.2 / 1.1, 이미지 응답 0건.
+          이 시점에 "에이전트가 틀렸다"고 결론지을 수 있었다. <b>그러나</b> 내 새 계측도
+          <code>content-type</code> 에 <code>image</code> 가 든 응답만 세고 있었다.
+          <b>429 오류 응답은 이미지가 아니다.</b> 같은 종류의 결함이 반복된 것이다.</div>
+
+        <div class="mk">재측정 2</div><div class="mb">
+          <b>필터를 전부 제거</b>하고 호스트별·상태코드별로 모든 응답을 셌다.
+<pre>© Dragan   lh3.googleusercontent.com  HTTP <span class="r">429</span> ×1   → 검정
+© Henry    lh3.googleusercontent.com  HTTP <span class="r">429</span> ×8   → 검정
+© Google   streetviewpixels-pa        HTTP <span class="g">200</span> ×16  → 정상</pre>
+          <b>요청은 있었다.</b> 두 겹의 필터(호스트 패턴 + content-type)에 모두 걸러졌을 뿐이다.</div>
+
+        <div class="mk">진실</div><div class="mb">
+          제3자 파노도 Maps JS API 로 <b>정상 렌더된다</b>. 다만 타일이
+          <b>키 없는 CDN(lh3)</b> 에서 오고, 그 CDN 은 <b>IP 단위 제한</b>이 있다.
+          내가 밤새 파노 테스트를 몰아 돌린 탓에 429 가 걸려 검게 나왔던 것이다.
+          워크플로 에이전트는 제한이 풀린 시점에 측정해 101.9 를 봤다.
+          <b>두 측정 모두 맞았고, 원인 해석만 내가 틀렸다.</b></div>
+
+        <div class="mk x">파생 피해</div><div class="mb x">
+          잘못된 진단 위에 만든 수정도 잘못이었다. 나는 <b>"제3자면 무조건 근처 공식 파노로 전환"</b>
+          을 넣었는데, 이건 <b>요청한 지점이 아닌 곳을 조용히 분석</b>하게 만든다.
+          지오게서 복기 도구에서 최악의 실패다. 게다가 반환 좌표가 요청값 그대로여서
+          분석기가 다른 거리를 보면서 요청 좌표라고 믿을 수 있었다.</div>
+
+        <div class="mk">최종 수정</div><div class="mb">
+          <b>미리 재단하지 않는다.</b> 요청받은 파노를 그대로 렌더하고, <b>픽셀로</b> 검은지 판정하며,
+          429 가 있으면 <code>TILES_RATE_LIMITED</code> 로 구분한다. 그때만 공식 파노로 1회 재시도하고,
+          대체가 일어나면 <b>실제 렌더된 pano·좌표·저작권</b>을 반환하며 <code>substituted=True</code> 로 명시한다.
+<pre>제3자(429) → 대체 <span class="y">True</span>, 렌더 pano Xta4ugN_QRTIo3XDFLujgw, © 2026 Google
+공식       → 대체 <span class="g">없음</span>, 요청 pano 그대로, 타일 18/18 HTTP 200</pre></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout danger"><b>이 사례의 핵심.</b> 나는 계측 결함으로 두 번 틀렸고,
+  두 번째는 <b>반박을 검증하는 과정에서</b> 같은 실수를 반복했다.
+  "요청이 0건"이라는 관측은 <b>요청이 없다</b>와 <b>내가 못 봤다</b>를 구분하지 못한다.
+  부재를 주장하려면 <b>필터를 걷어내고</b> 다시 재야 한다. 공식 파노가 정상으로 잡힌다는 사실은
+  계측기 전체가 정상이라는 증거가 <b>아니었다</b> — 한 종류만 볼 수 있는 계측기였을 뿐이다.</div>
+</section>
+
+<!-- ═══════════════════ 계측 도구 ═══════════════════ -->
+<section class="section" id="tools">
+  <div class="eyebrow">Toolbox</div>
+  <h2 class="sec">이번에 실제로 쓴 계측 기법</h2>
+  <p class="sec-desc">추상적인 목록이 아니라, 위 다섯 사례에서 결론을 만들어 낸 도구들이다.</p>
+
+  <table>
+    <thead><tr><th style="width:23%">기법</th><th style="width:34%">무엇을 답하나</th><th>이번 세션의 쓰임</th></tr></thead>
+    <tbody>
+      <tr><td><b>git worktree 격리 실행</b></td><td>내 변경 탓인가?</td>
+        <td>원본 HEAD 도 동일하게 죽음 → SSL 문제를 기존 환경 문제로 확정 (사례 1)</td></tr>
+      <tr><td><b>종료 코드 판독</b></td><td>자가 종료인가 타살인가?</td>
+        <td><code>exit 1</code> → <code>ExitProcess</code> 자가 종료 확정 (사례 1)</td></tr>
+      <tr><td><b>단계 분해 호출</b></td><td>어느 줄에서 죽나?</td>
+        <td><code>create_default_context()</code> 를 4단계로 쪼개 <code>ssl.py:725</code> 특정 (사례 1)</td></tr>
+      <tr><td><b><code>EnumProcessModules</code></b></td><td>실제로 로드된 DLL 은?</td>
+        <td>OpenSSL DLL 0개 → "DLL 충돌" 가설 폐기 (사례 1)</td></tr>
+      <tr><td><b>문자열 역추적</b></td><td>지금 도는 코드가 어느 버전인가?</td>
+        <td>"보고서 실패: " 가 새 코드에 없음 → 캐시된 옛 JS 확정 (사례 2)</td></tr>
+      <tr><td><b>라우트 덤프</b></td><td>서버가 그 경로를 아는가?</td>
+        <td>404 를 데이터 문제로 오해하지 않게 함 (사례 2)</td></tr>
+      <tr><td><b>동시 실행 재현</b></td><td>경합이 정말 나는가?</td>
+        <td>스레드 5개 동시 쓰기 → 파일 충돌 확정 + 회귀 테스트화 (사례 3)</td></tr>
+      <tr><td><b>구조화 진행 로그</b></td><td>시간이 어디로 가나?</td>
+        <td>jsonl 단계 전환 → 리서치 418.7초 병목 즉시 특정 (사례 4)</td></tr>
+      <tr><td><b>TCP 연결 + CPU 관찰</b></td><td>대기인가 스핀인가? 재시도인가?</td>
+        <td>연결 생성 시각 = 작업 시작 시각, CPU 46초/22분 → 단일 요청 대기 (사례 4)</td></tr>
+      <tr><td><b>프로세스 시작 vs 파일 mtime</b></td><td>서버가 어느 코드를 물고 있나?</td>
+        <td>핫리로드 없음 → 모델 교체 가설 폐기 (사례 4)</td></tr>
+      <tr><td><b>픽셀 밝기 측정</b></td><td>렌더가 실제로 됐나?</td>
+        <td>상단(로드뷰) 영역 평균 휘도 → 검정 판정 (사례 5, 그리고 최종 방어선)</td></tr>
+      <tr><td style="background:#fffaf9"><b>무필터 응답 계측</b></td><td>정말 요청이 없나?</td>
+        <td style="background:#fffaf9"><b>이번 세션 최대 교훈.</b> 호스트별·상태코드별 전수 계측으로 429 발견 (사례 5)</td></tr>
+      <tr><td><b>대조군 병치</b></td><td>이 측정이 유효한가?</td>
+        <td>세 값이 전부 248.3 → 쿠키 동의 화면임을 즉시 인지 (사례 5)</td></tr>
+      <tr><td><b>다중 에이전트 적대적 검증</b></td><td>내 결론이 버티나?</td>
+        <td>감사 45건 → 32 확인 / 13 반증. 내 가설도 반증당함</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub">적대적 검증을 설계하는 법</h3>
+  <p>단순히 "검토해 줘"는 확증 편향을 증폭한다. 이번에 쓴 구성은 이렇다:</p>
+  <ul class="clean next">
+    <li><b>차원을 나눈다</b> — 프론트 경합 / 백엔드 동시성 / 파일 정체성 / E2E 타임라인.
+      한 에이전트가 전부 보면 각 영역이 얕아진다.</li>
+    <li><b>발견마다 별도 검증자를 붙인다</b> — 그리고 <b>렌즈를 달리한다</b>:
+      정확성(코드가 정말 그런가) · 기존 가드(이미 막혀 있지 않은가) · 재현성(타이밍상 가능한가).</li>
+    <li><b>기본값을 "반증"으로 둔다</b> — <code>refuted=true</code> 를 기본으로 하고,
+      직접 재현했을 때만 뒤집게 한다. 그러지 않으면 검증자가 원 주장에 동조한다.</li>
+    <li><b>다수결로 살린다</b> — 3개 렌즈 중 2개가 살려야 통과. 이번엔 45건 중 13건이 걸러졌고,
+      그중에는 <b>내가 강하게 믿던 것</b>도 있었다.</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════ 구현 구조 ═══════════════════ -->
+<section class="section" id="arch">
+  <div class="eyebrow">Implementation</div>
+  <h2 class="sec">무엇을 만들었나</h2>
+  <p class="sec-desc">신규 5개 모듈 2,140줄. 각각이 위 사례에서 드러난 구조적 문제에 대응한다.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3><span class="ic">🧵</span> jobs.py — 작업 큐 <span class="small">374줄</span></h3>
+      <p><b>문제:</b> 동시성 제어가 프론트의 탭별 불리언뿐 → 새로고침·두 번째 창이면 통째로 우회.
+      탭 N개면 Chromium N개가 떠 기본 풀(20슬롯)을 채우고 21번째부터 영원히 대기.</p>
+      <p><b>해법:</b> 진실을 서버로. 순차 워커 + 멱등성(clientKey) + 취소 + 백프레셔 + SSE + jsonl 로그.
+      새로고침해도 <code>/api/jobs</code> 로 되찾는다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🗺️</span> knowledge.py — 지식 축적 <span class="small">909줄</span></h3>
+      <p><b>문제:</b> 같은 문명권을 매번 처음부터 재조사.</p>
+      <p><b>해법:</b> 내용 해시 주소 원자 + 지오해시·scope 회상. polity 원자는 대륙 규모에서,
+      point 원자는 150m 셀에서만 걸린다. 랭스에서 만든 샤를마뉴 원자가 파리 보고서에서
+      재사용된다(실측 확인). 보고서는 본문 복제 대신 <code>[[atm_id]]</code> 로 참조.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🔀</span> llm.py — 모델 라우팅 <span class="small">298줄</span></h3>
+      <p>호출부는 모델명을 모른다. <code>role</code> 만 말한다.</p>
+      <p><code>vision</code>=opus-5(이미지 추론) · <code>fact</code>=sonnet-5(검색·번역, 최다 사용) ·
+      <code>reason</code>=fable-5(심층 연관) · <code>draft</code>=haiku(초안) · <code>verify</code>=opus-5(검증).
+      Opus 5 는 thinking 기본 ON 이라 명시 지정, Fable 5 는 <code>disabled</code> 가 400 이라 차단.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🌐</span> translate.py — 번역 계층 <span class="small">245줄</span></h3>
+      <p><b>문제:</b> 언어마다 분석·검색을 전부 재실행(3개 언어 = 검색 15회). 언어별 결과가
+      서로 다른 도시를 주장하기도 했다.</p>
+      <p><b>해법:</b> 기준 언어 1회 조사 + 문자열만 번역. harvest/splice 로 문자열만 추출해
+      보내므로 <code>country_iso</code>·<code>weight</code>·<code>confidence</code> 는
+      <b>전송조차 되지 않아</b> 번역이 훼손할 수 없다.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">스크립트 우선 생성 <span class="small">script.py · 314줄</span></h3>
+  <p>비싼 모델 하나가 전부 쓰는 대신 두 단계로 나눴다. haiku 가 '무엇을 어떤 순서로 말할지'
+  편집만 하고, opus 는 <b>두 가지만</b> 본다 — 재료에 없는 주장이 섞였는가, 판별 논리가 살아있는가.
+  스타일·길이·순서는 보지 않는다(검증량 최소화). 지적된 문장만 국소 교체하고 재작성 호출은 없다.
+  스크립트는 <code>docs/report/*.script.json</code> 에 남아 <b>모델 재호출 없이</b> HTML 재생성이 가능하다.</p>
+
+  <h3 class="sub">300초 예산 — 병렬화</h3>
+  <p>419초 단일 리서치를 주제별 4샤드로 쪼개 동시 실행하고 병합한다. 번역도 언어별 동시 실행.
+  <b>큐 자체는 concurrency=1 을 유지</b> — 병렬성은 한 작업 <i>안에서만</i> 쓴다. 그래야 여러 탭의
+  순서 보장이 깨지지 않는다.</p>
+<pre>최악 임계경로  analyze 90 + research(병렬) 100 + merge 40 + translate(병렬) 60 = <span class="g">290s</span>
+예산 300s 이내 <span class="g">True</span>          <span class="c">예산 초과 시 선택적 단계(지식 적재) 생략 — 보고서는 반드시 나온다</span>
+동시 실행 최대치 <span class="g">4개</span>          <span class="c">(모킹 계측 · 1이면 순차)</span></pre>
+
+  <h3 class="sub">판별 사슬 — cues 를 구조로 바꾸다</h3>
+  <p>사용자 지적이 정확했다. 오야베 보고서의 cue 11개 중 <b>7개가 <code>[Japan]</code></b> —
+  한자만 봐도 아는 사실의 반복이었고, "왜 호쿠리쿠인가"는 어디에도 없었다.</p>
+  <p>이제 각 단계가 <b>살아있는 후보를 반드시 배제</b>한다. 국가 확정은 1회만 허용하고 나머지는
+  국가 아래를 가른다. <code>discriminator</code> 는 <b>반사실적</b>이어야 한다 — 배제된 쪽에서
+  무엇이 보였어야 하는지. 가를 수 없으면 지어내지 말고 비우고 신뢰도를 낮춘다.</p>
+<pre>[국가]        어느 국가인가?                    99%  배제: 대만·한국
+[광역권]      혼슈 동해측인가 태평양측인가?     88%  배제: 간토·간사이·도호쿠
+[문화·민족권]  야마토인가 아이누 권역인가?        93%  배제: 홋카이도·류큐
+[행정구역]    호쿠리쿠 3현 중 어디인가?          95%  배제: 이시카와·후쿠이
+[도시권]      도야마현 서부 어느 시인가?         90%  배제: 다카오카·난토
+[지구]        시가지 내 정확한 구역은?           55%  배제: <span class="y">(없음)</span> ← 정직하게 표시</pre>
+</section>
+
+<!-- ═══════════════════ 정리 ═══════════════════ -->
+<section class="section" id="lessons">
+  <div class="eyebrow">Takeaways</div>
+  <h2 class="sec">정리 — 다시 한다면</h2>
+
+  <ul class="clean">
+    <li><b>관찰 가능성은 사후에 만들 수 없다.</b> 1181초 병목을 즉시 특정할 수 있었던 것은
+      큐가 단계 전환을 미리 남기고 있었기 때문이다. 로그는 버그가 나기 전에 심어야 한다.</li>
+    <li><b>수정보다 재현이 먼저다.</b> 재현 스크립트는 수정을 증명하고, 그대로 회귀 테스트가 되며,
+      부수 결함을 덤으로 찾아 준다.</li>
+    <li><b>내 변경을 먼저 배제하는 데 1분을 써라.</b> 그 1분이 탐색 범위를 절반으로 줄인다.</li>
+    <li><b>사용자에게 보이는 문자열을 유일하게 유지하라.</b> 그것이 "지금 도는 게 어느 버전인가"에
+      대한 가장 빠른 답이다.</li>
+    <li><b>공개 API 경로는 지우지 말고 위임시켜라.</b> 클라이언트를 서버와 동시에 갱신할 수 없다.</li>
+    <li><b>docstring 에 쓴 약속은 구현과 같은 커밋에.</b> 문서가 코드보다 앞서 나가면 그 격차가 버그다.</li>
+  </ul>
+
+  <ul class="clean warn-li" style="margin-top:18px">
+    <li><b>"없다"는 관측을 가장 강하게 의심하라.</b> 이번 세션의 두 오진 모두 여기서 나왔다.
+      부재는 계측 한계와 원리적으로 구분되지 않는다.</li>
+    <li><b>대조군이 통과했다고 계측기가 정상인 것은 아니다.</b> 공식 파노 16건이 잡혔다는 사실은
+      "한 종류는 볼 수 있다"만 증명한다. 다른 종류를 볼 수 있는지는 <b>별도로</b> 증명해야 한다.</li>
+    <li><b>불확실한 진단 위에 수정을 쌓지 마라.</b> "제3자면 공식으로 전환"은 진단이 틀리자
+      <b>요청하지 않은 장소를 조용히 분석하는</b> 더 나쁜 버그가 됐다.</li>
+    <li><b>모르면 모른다고 말하라.</b> "불가능하다"고 단정해 사용자에게 불필요한 ToS 판단을
+      요구했다. "아직 확인하지 못했다"가 정확한 표현이었다.</li>
+  </ul>
+
+  <div class="callout ok" style="margin-top:22px"><b>한 문장으로.</b>
+  이번 세션에서 나를 가장 많이 구한 것은 영리한 가설이 아니라
+  <b>가설을 죽이는 값싼 실험</b>이었다 — worktree 실행 1분, 종료 코드 확인 10초,
+  단계 분해 호출 2분. 반대로 나를 두 번 틀리게 한 것은
+  <b>계측기를 검사하지 않고 계측 결과를 믿은 것</b>이었다.</div>
+</section>
+
+<div class="foot wrap">
+  GeoGuessHelper 구현 기록 · 2026-08-10 · <code>docs/implement/methodology_260810.html</code><br>
+  관련: <a href="../error/ssl-openssl-applink-exit_260810.html">SSL 자가 종료 분석</a> ·
+  <a href="../error/report-404-not-found_260810.html">404 회귀 분석</a> ·
+  커밋 <code>b8f36d1</code>(구현) / <code>86900f0</code>(제3자 파노 진단 정정)<br>
+  신규 모듈: <code>jobs.py</code> 374 · <code>knowledge.py</code> 909 · <code>llm.py</code> 298 ·
+  <code>translate.py</code> 245 · <code>script.py</code> 314 — 총 2,140줄
+</div>
+</main>
+</body>
+</html>

@@ -10,10 +10,18 @@ from __future__ import annotations
 
 import io
 import uuid
-from pathlib import Path
 
 from . import streetview
 from .config import Settings
+
+
+def _ext_of(data: bytes) -> str:
+    """매직 바이트로 실제 형식 판정 — 확장자와 내용이 어긋나지 않게."""
+    if data[:2] == b"\xff\xd8":
+        return "jpg"
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return "png"
+    return "jpg"
 
 
 async def capture_static(pose: dict, settings: Settings) -> dict:
@@ -71,7 +79,11 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
         return {"status": "FETCH_ERROR", "message": f"이미지 다운로드 실패: {exc}"}
 
     # 3) 합성 (Pillow) — 없으면 로드뷰 단독 저장
-    fname = f"capture_{uuid.uuid4().hex[:12]}.png"
+    #    저장 형식은 settings.capture_format. JPEG 가 기본인 이유: 해상도(=토큰 수)는 그대로
+    #    두면서 바이트만 ~6배 줄어든다. 이 이미지는 분석 업로드에도, 보고서 base64 임베드에도
+    #    쓰이므로 절감이 두 번 먹는다.
+    jpeg = settings.capture_format == "jpeg"
+    fname = f"capture_{uuid.uuid4().hex[:12]}.{'jpg' if jpeg else 'png'}"
     out = settings.captures_dir / fname
     try:
         from PIL import Image  # type: ignore
@@ -83,10 +95,17 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
         canvas = Image.new("RGB", (sv.width, sv.height + mp.height), "white")
         canvas.paste(sv, (0, 0))
         canvas.paste(mp, (0, sv.height))  # 하단 = 지도, 구글 로고 유지
-        canvas.save(out, "PNG")
+        if jpeg:
+            canvas.save(out, "JPEG", quality=settings.capture_quality, optimize=True)
+        else:
+            canvas.save(out, "PNG")
         composited = True
     except ModuleNotFoundError:
-        out.write_bytes(sv_bytes)  # Pillow 없으면 로드뷰만
+        # Pillow 없으면 로드뷰 원본만 — 확장자는 실제 바이트에 맞춘다(잘못된 확장자로
+        # 저장하면 나중에 media_type 이 어긋나 분석이 거부된다).
+        fname = f"capture_{uuid.uuid4().hex[:12]}.{_ext_of(sv_bytes)}"
+        out = settings.captures_dir / fname
+        out.write_bytes(sv_bytes)
         composited = False
     except Exception as exc:  # noqa: BLE001
         return {"status": "COMPOSE_ERROR", "message": f"이미지 합성 실패: {exc}"}
@@ -111,7 +130,7 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
 _FALLBACKABLE = {"REQUEST_DENIED", "NO_KEY", "META_ERROR", "FETCH_ERROR", "OVER_QUERY_LIMIT"}
 
 
-async def render_playwright(pose: dict, settings: Settings) -> dict:
+async def render_playwright(pose: dict, settings: Settings, *, official_only: bool = False) -> dict:
     """Approach A: 브라우저용 JS 키만으로 헤드리스 Chromium 렌더 → 스크린샷."""
     import asyncio
 
@@ -131,7 +150,25 @@ async def render_playwright(pose: dict, settings: Settings) -> dict:
             "message": "playwright 미설치 — `uv sync --extra all` 후 `playwright install chromium` 하세요.",
         }
     # 동기 Playwright 를 스레드로 오프로드(이벤트 루프 중첩/Windows Proactor 회피).
-    return await asyncio.to_thread(render_google.render_sync, pose, settings, key)
+    res = await asyncio.to_thread(
+        lambda: render_google.render_sync(pose, settings, key, official_only=official_only)
+    )
+    # 타일이 레이트리밋(429)으로 검게 나왔다면, 좌표가 있는 한 근처 **공식** 파노로 한 번
+    # 재시도한다. 공식 파노는 키 기반 엔드포인트라 이 제한을 받지 않는다.
+    # 요청한 지점과 다른 곳이므로 결과에 반드시 표시한다.
+    if (not official_only
+            and res.get("status") in ("TILES_RATE_LIMITED", "BLACK_RENDER")
+            and pose.get("lat") is not None and pose.get("lng") is not None):
+        alt = await asyncio.to_thread(
+            lambda: render_google.render_sync(pose, settings, key, official_only=True)
+        )
+        if alt.get("status") == "OK":
+            alt["substituted"] = True
+            alt["substituted_reason"] = res.get("status")
+            alt["requested_pano_id"] = pose.get("pano")
+            alt["third_party"] = res.get("third_party")
+            return alt
+    return res
 
 
 async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict:
