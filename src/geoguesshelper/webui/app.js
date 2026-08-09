@@ -222,7 +222,10 @@ function newTab(pose) {
   const t = {
     id, key, extracted: pose,
     current: { lat: pose.lat, lng: pose.lng, pano: pose.pano,
-      heading: pose.heading, pitch: pose.pitch, fov: pose.fov },
+      heading: pose.heading, pitch: pose.pitch, fov: pose.fov,
+      // 링크에 들어 있던 직접 이미지 URL(!6s). 사용자 기여 파노는 이 길로만
+      // 안정적으로 받아진다(JS API 는 lh3 CDN 429 로 검게 나올 수 있다).
+      photo_url: pose.photo_url || null },
     album: [], reports: [], analysis: null, analysisFiles: [],
   };
   tabs.push(t);
@@ -556,10 +559,16 @@ function syncFromPano() {
   const pov = pano.getPov();
   if (map) { map.setCenter(pos); }
   if (marker) marker.setPosition(pos);
+  const nextPano = pano.getPano();
+  const t0 = tabById(syncTabId);
+  const prev = (t0 && t0.current) || {};
   const next = {
-    lat: pos.lat(), lng: pos.lng(), pano: pano.getPano(),
+    lat: pos.lat(), lng: pos.lng(), pano: nextPano,
     heading: pov.heading, pitch: pov.pitch,
     fov: currentPose ? currentPose.fov : 90, zoom: pano.getZoom(),
+    // 같은 파노 안에서 시점만 돌린 것이면 이미지 URL 이 그대로 유효하다
+    // (시점은 URL 파라미터로 다시 겨눈다). 파노가 바뀌면 버린다.
+    photo_url: (prev.pano && prev.pano === nextPano) ? (prev.photo_url || null) : null,
   };
   const t = tabById(syncTabId);       // ← activeTab() 이 아니다. 무장 시점에 고정된 탭.
   if (t) t.current = next;

@@ -8,7 +8,9 @@
 """
 from __future__ import annotations
 
+import asyncio
 import io
+import re
 import uuid
 
 from . import streetview
@@ -22,6 +24,134 @@ def _ext_of(data: bytes) -> str:
     if data[:8] == b"\x89PNG\r\n\x1a\n":
         return "png"
     return "jpg"
+
+
+# lh3 이미지 URL 의 시점/크기 접미사:  =w<너비>-h<높이>-k-no-pi<pitch>-ya<heading>-ro<roll>-fo<fov>
+_PHOTO_SUFFIX_RE = re.compile(r"=w\d+-h\d+.*$")
+
+
+def photo_url_for(photo_url: str, pose: dict, *, w: int, h: int) -> str:
+    """공유 링크의 이미지 URL을 **현재 시점**으로 다시 겨눈다.
+
+    사용자가 로드뷰에서 방향을 돌렸으면 그 heading/pitch/fov 로 받아야 한다.
+    실측 확인: ya(heading)를 180도 돌리면 실제로 반대편이 나오고, w/h·fo 도 반영된다.
+    """
+    base = _PHOTO_SUFFIX_RE.sub("", photo_url)
+
+    def num(v, d):
+        try:
+            return round(float(v), 4)
+        except (TypeError, ValueError):
+            return d
+
+    ya = num(pose.get("heading"), 0.0) % 360.0
+    pi = num(pose.get("pitch"), 0.0)
+    fo = max(20.0, min(120.0, num(pose.get("fov"), 90.0)))
+    return f"{base}=w{int(w)}-h{int(h)}-k-no-pi{pi}-ya{ya}-ro0-fo{fo}"
+
+
+async def capture_photo_url(pose: dict, settings: Settings) -> dict:
+    """공유 링크에 들어 있던 이미지 URL로 사용자 기여 파노를 직접 받아 캡처한다.
+
+    왜 이 경로가 필요한가 — 사용자 기여 파노는 Maps JS API 가 타일을 키 없는 lh3 CDN 에서
+    받는데, 그 CDN 이 IP 단위 제한(HTTP 429)을 걸면 화면이 통째로 검게 남는다.
+    반면 구글이 **공유 링크 안에 직접 넣어 준** 이 URL 은 그대로 받아진다(실측 116KB JPEG).
+    하단 지도는 기존 경로(Static → 실패 시 브라우저 렌더)를 그대로 쓴다.
+    """
+    photo = pose.get("photo_url")
+    if not photo:
+        return {"status": "NO_PHOTO_URL", "message": "링크에 직접 이미지 URL(!6s)이 없습니다."}
+
+    url = photo_url_for(photo, pose, w=settings.viewport_w * 2, h=settings.viewport_h * 2)
+    try:
+        sv_bytes = await asyncio.to_thread(streetview.fetch_bytes_sync, url, timeout=25.0)
+    except Exception as exc:  # noqa: BLE001
+        return {"status": "PHOTO_FETCH_ERROR", "message": f"이미지 URL 다운로드 실패: {exc}"}
+    if not sv_bytes or len(sv_bytes) < 2000:
+        return {"status": "PHOTO_FETCH_ERROR", "message": "이미지가 비어 있습니다."}
+
+    map_bytes = await _map_panel(pose, settings)
+    return _compose(sv_bytes, map_bytes, pose, settings, mode="photo_url",
+                    extra={"photo_url": url, "third_party": True})
+
+
+async def _map_panel(pose: dict, settings: Settings) -> bytes:
+    """하단 지도 패널. Static API 우선, 리퍼러 제한으로 막히면 브라우저 렌더로 폴백."""
+    key = settings.effective_static_key
+    if key and pose.get("lat") is not None:
+        try:
+            u = streetview.staticmap_url(pose, key, w=settings.viewport_w, h=settings.map_h)
+            b = await asyncio.to_thread(streetview.fetch_bytes_sync, u, timeout=20.0)
+            if b and len(b) > 1000:
+                return b
+        except Exception:  # noqa: BLE001
+            pass
+    js_key = settings.js_api_key or key
+    if js_key and pose.get("lat") is not None:
+        from . import render_google
+
+        try:
+            saved = settings.report_map_levels
+            settings.report_map_levels = [{"zoom": 15, "maptype": "hybrid", "label": "map"}]
+            try:
+                blobs = await asyncio.to_thread(
+                    render_google.render_locator_maps, pose["lat"], pose["lng"], settings, js_key
+                )
+            finally:
+                settings.report_map_levels = saved
+            if blobs and blobs[0]:
+                return blobs[0]
+        except Exception:  # noqa: BLE001
+            pass
+    return b""
+
+
+def _compose(sv_bytes: bytes, map_bytes: bytes, pose: dict, settings: Settings,
+             *, mode: str, extra: dict | None = None) -> dict:
+    """로드뷰▲ / 지도▼ 합성 후 저장. capture_static 과 같은 형태의 dict 를 반환."""
+    jpeg = settings.capture_format == "jpeg"
+    fname = f"capture_{uuid.uuid4().hex[:12]}.{'jpg' if jpeg else 'png'}"
+    out = settings.captures_dir / fname
+    composited = False
+    try:
+        from PIL import Image  # type: ignore
+
+        sv = Image.open(io.BytesIO(sv_bytes)).convert("RGB")
+        if map_bytes:
+            mp = Image.open(io.BytesIO(map_bytes)).convert("RGB")
+            if mp.width != sv.width:
+                mp = mp.resize((sv.width, round(mp.height * sv.width / mp.width)))
+            canvas = Image.new("RGB", (sv.width, sv.height + mp.height), "white")
+            canvas.paste(sv, (0, 0))
+            canvas.paste(mp, (0, sv.height))
+            composited = True
+        else:
+            canvas = sv
+        if jpeg:
+            canvas.save(out, "JPEG", quality=settings.capture_quality, optimize=True)
+        else:
+            canvas.save(out, "PNG")
+    except ModuleNotFoundError:
+        fname = f"capture_{uuid.uuid4().hex[:12]}.{_ext_of(sv_bytes)}"
+        out = settings.captures_dir / fname
+        out.write_bytes(sv_bytes)
+    except Exception as exc:  # noqa: BLE001
+        return {"status": "COMPOSE_ERROR", "message": f"이미지 합성 실패: {exc}"}
+
+    res = {
+        "status": "OK",
+        "file": fname,
+        "url": f"/captures/{fname}",
+        "pano_id": pose.get("pano"),
+        "lat": pose.get("lat"),
+        "lng": pose.get("lng"),
+        "heading": pose.get("heading"),
+        "pitch": pose.get("pitch"),
+        "composited": composited,
+        "mode": mode,
+    }
+    res.update(extra or {})
+    return res
 
 
 async def capture_static(pose: dict, settings: Settings) -> dict:
@@ -184,7 +314,18 @@ async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict
     if mode == "static":
         return await capture_static(pose, settings)
 
-    # auto
+    # auto —
+    # 사용자 기여 파노이고 링크가 직접 이미지 URL(!6s)을 줬다면 그 길을 **먼저** 쓴다.
+    # Static API 는 이런 파노를 서비스하지 않고, 브라우저 렌더는 lh3 CDN 의 429 에 걸려
+    # 검은 화면이 될 수 있다. 이 URL 은 그대로 받아진다(실측).
+    from .linkresolver import is_usergenerated
+
+    if pose.get("photo_url") and is_usergenerated(pose.get("pano")):
+        ph = await capture_photo_url(pose, settings)
+        if ph.get("status") == "OK":
+            return ph
+        # 실패하면 아래 일반 경로로 계속 — 이 길이 막혀도 캡처를 포기하지 않는다.
+
     res = await capture_static(pose, settings)
     if res.get("status") == "OK":
         return res

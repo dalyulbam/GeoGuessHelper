@@ -1,6 +1,6 @@
 [project]
 name = "geoguesshelper"
-version = "0.2.0"
+version = "0.2.1"
 description = "지오게서 구글 로드뷰 2분할 뷰어 · 장면 캡처 · 지리/문화/경제 분석"
 readme = "README.md"
 requires-python = ">=3.11"

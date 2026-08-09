@@ -29,6 +29,11 @@ _AT_RE = re.compile(
     r"(?:,(?P<tilt>-?[\d.]+)t)?"
 )
 _PANO_RE = re.compile(r"!1s(?P<pano>[^!?/]+)")
+# data=…!6s<이미지 URL> — 구글이 공유 링크에 **직접 이미지 URL을 넣어 준다**.
+# 사용자 기여(제3자) 파노는 Maps JS API 가 타일을 lh3 CDN 에서 받는데 그 CDN 이
+# IP 단위 제한(HTTP 429)을 걸어 검은 화면이 되곤 한다. 그런데 이 URL 은 그냥 받아진다.
+# 끝의 `=w900-h600-k-no-pi<pitch>-ya<heading>-ro<roll>-fo<fov>` 로 시점·크기도 지정된다.
+_PHOTO_RE = re.compile(r"!6s(?P<url>https?[^!]+)")
 _Q_RE = re.compile(r"[?&](?:q|query)=(?P<lat>-?\d+\.\d+),(?P<lng>-?\d+\.\d+)")
 _PLACE_RE = re.compile(r"/@(?P<lat>-?\d+\.\d+),(?P<lng>-?\d+\.\d+)")
 _SHORT_RE = re.compile(r"(maps\.app\.goo\.gl|goo\.gl/maps|g\.co/kgs)", re.I)
@@ -43,15 +48,25 @@ def is_short_link(url: str) -> bool:
 
 
 def classify_pano(pano: str | None) -> str:
+    """파노 id → 종류. **접두사 검사를 먼저** 한다.
+
+    예전엔 22자 패턴(`[A-Za-z0-9_-]{21}[gwAQ]`)을 먼저 봤는데, 사용자 기여 파노
+    `CIHM0ogKEICAgIDaqcr9Gw` 도 정확히 22자에 끝이 'w' 라 그 패턴에 걸려
+    **official 로 오분류**됐다. 접두사가 더 강한 신호이므로 순서를 뒤집었다.
+    """
     if not pano:
         return "none"
-    if re.fullmatch(r"[A-Za-z0-9_-]{21}[gwAQ]", pano):
-        return "official"
     if pano.startswith("AF1Qip"):
         return "legacy-usergenerated"
     if pano.startswith(("CAoS", "CIHM")):
         return "modern-usergenerated"
+    if re.fullmatch(r"[A-Za-z0-9_-]{21}[gwAQ]", pano):
+        return "official"
     return "unknown"
+
+
+def is_usergenerated(pano: str | None) -> bool:
+    return classify_pano(pano).endswith("usergenerated")
 
 
 async def resolve_short_link(url: str, *, timeout: float = 12.0) -> str:
@@ -70,6 +85,7 @@ def parse_pose(url: str) -> dict:
     pose: dict = {
         "lat": None, "lng": None, "pano": None,
         "heading": None, "pitch": 0.0, "fov": None,
+        "photo_url": None,   # !6s — 사용자 기여 파노의 직접 이미지 URL(있으면)
     }
 
     # ② api=1 쿼리 폼
@@ -111,6 +127,13 @@ def parse_pose(url: str) -> dict:
         pm = _PANO_RE.search(url)
         if pm:
             pose["pano"] = unquote(pm["pano"])
+
+    # data=…!6s<이미지 URL> — 사용자 기여 파노를 직접 받을 수 있는 유일한 실마리다.
+    pm = _PHOTO_RE.search(url)
+    if pm:
+        cand = unquote(pm["url"])
+        if re.match(r"^https?://[A-Za-z0-9.\-]*googleusercontent\.com/", cand):
+            pose["photo_url"] = cand
 
     if pose["fov"] is None:
         pose["fov"] = 90.0
