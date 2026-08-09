@@ -10,10 +10,18 @@ from __future__ import annotations
 
 import io
 import uuid
-from pathlib import Path
 
 from . import streetview
 from .config import Settings
+
+
+def _ext_of(data: bytes) -> str:
+    """매직 바이트로 실제 형식 판정 — 확장자와 내용이 어긋나지 않게."""
+    if data[:2] == b"\xff\xd8":
+        return "jpg"
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return "png"
+    return "jpg"
 
 
 async def capture_static(pose: dict, settings: Settings) -> dict:
@@ -49,6 +57,17 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
             msg = err or f"메타데이터 상태={status}."
         return {"status": status or "NO_PANO", "message": msg, "pano_id": meta.get("pano_id")}
 
+    # 제3자(사용자 기여) 파노는 Static API 로도 이미지를 받을 수 없다. metadata 의 copyright
+    # 로 미리 걸러 헛된 요청과 검은 캡처를 막는다 — 구글 공식은 "© <연도> Google" 형태다.
+    cp = str(meta.get("copyright") or "")
+    if cp and "Google" not in cp:
+        return {
+            "status": "THIRD_PARTY_ONLY",
+            "message": f"제3자 파노라마({cp.strip()}) — 이미지를 받을 수 없습니다.",
+            "third_party": cp.strip(),
+            "pano_id": meta.get("pano_id"),
+        }
+
     # metadata 가 준 실제 파노 좌표/ID 로 스냅
     loc = meta.get("location") or {}
     snapped = dict(pose)
@@ -71,7 +90,11 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
         return {"status": "FETCH_ERROR", "message": f"이미지 다운로드 실패: {exc}"}
 
     # 3) 합성 (Pillow) — 없으면 로드뷰 단독 저장
-    fname = f"capture_{uuid.uuid4().hex[:12]}.png"
+    #    저장 형식은 settings.capture_format. JPEG 가 기본인 이유: 해상도(=토큰 수)는 그대로
+    #    두면서 바이트만 ~6배 줄어든다. 이 이미지는 분석 업로드에도, 보고서 base64 임베드에도
+    #    쓰이므로 절감이 두 번 먹는다.
+    jpeg = settings.capture_format == "jpeg"
+    fname = f"capture_{uuid.uuid4().hex[:12]}.{'jpg' if jpeg else 'png'}"
     out = settings.captures_dir / fname
     try:
         from PIL import Image  # type: ignore
@@ -83,10 +106,17 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
         canvas = Image.new("RGB", (sv.width, sv.height + mp.height), "white")
         canvas.paste(sv, (0, 0))
         canvas.paste(mp, (0, sv.height))  # 하단 = 지도, 구글 로고 유지
-        canvas.save(out, "PNG")
+        if jpeg:
+            canvas.save(out, "JPEG", quality=settings.capture_quality, optimize=True)
+        else:
+            canvas.save(out, "PNG")
         composited = True
     except ModuleNotFoundError:
-        out.write_bytes(sv_bytes)  # Pillow 없으면 로드뷰만
+        # Pillow 없으면 로드뷰 원본만 — 확장자는 실제 바이트에 맞춘다(잘못된 확장자로
+        # 저장하면 나중에 media_type 이 어긋나 분석이 거부된다).
+        fname = f"capture_{uuid.uuid4().hex[:12]}.{_ext_of(sv_bytes)}"
+        out = settings.captures_dir / fname
+        out.write_bytes(sv_bytes)
         composited = False
     except Exception as exc:  # noqa: BLE001
         return {"status": "COMPOSE_ERROR", "message": f"이미지 합성 실패: {exc}"}
@@ -109,6 +139,9 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
 # static 실패 사유가 "키/프로젝트 설정" 문제일 때만 브라우저 렌더로 폴백한다.
 # ZERO_RESULTS/NOT_FOUND(진짜 커버리지 없음)는 브라우저로도 안 되므로 폴백 안 함.
 _FALLBACKABLE = {"REQUEST_DENIED", "NO_KEY", "META_ERROR", "FETCH_ERROR", "OVER_QUERY_LIMIT"}
+
+# 브라우저 렌더가 검은 화면/제3자 파노를 보고했을 때 — 이건 static 으로도 해결되지 않는다.
+_UNRENDERABLE = {"THIRD_PARTY_ONLY", "BLACK_RENDER"}
 
 
 async def render_playwright(pose: dict, settings: Settings) -> dict:
@@ -151,6 +184,14 @@ async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict
     res = await capture_static(pose, settings)
     if res.get("status") == "OK":
         return res
+    if res.get("status") == "THIRD_PARTY_ONLY":
+        # 브라우저 렌더는 근처 **공식** 파노로 갈아탈 수 있다 — 그 길이 남아 있다.
+        pw = await render_playwright(pose, settings)
+        if pw.get("status") == "OK":
+            pw["fallback_from"] = "THIRD_PARTY_ONLY"
+            return pw
+        pw.setdefault("third_party", res.get("third_party"))
+        return pw
     if res.get("status") in _FALLBACKABLE:
         pw = await render_playwright(pose, settings)
         if pw.get("status") == "OK":

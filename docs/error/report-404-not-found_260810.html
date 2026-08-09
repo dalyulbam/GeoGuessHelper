@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보고서 실패: Not Found — 호환 라우트 누락 회귀 · 브라우저 캐시 (260810)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--warn),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--warn);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre .c{color:#7f978f} pre .k{color:#7fd6b6} pre .s{color:#e5c07b} pre .r{color:#ff9a8f} pre .g{color:#8fe0a8}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.foot{padding:34px 0 60px;color:var(--muted);font-size:13px}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{position:relative;padding:12px 0 12px 44px;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:11px;width:28px;height:28px;border-radius:50%;background:var(--warn-soft);color:var(--warn);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:22px;position:relative;margin:7px 0;font-size:14px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.next li::before{content:"→";color:var(--accent)}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+.verdict{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-left:5px solid var(--warn);
+  border-radius:12px;padding:16px 18px;margin-top:14px;box-shadow:var(--shadow)}
+.verdict .vt{flex:0 0 auto;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+.verdict .vb{font-size:14.5px;color:var(--ink)}
+.flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--ink-2);margin-top:10px}
+.flow .box{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
+.flow .box b{color:var(--accent-deep)}
+.flow .box.bad{border-color:#f3c6c1;background:#fffaf9;color:var(--danger)}
+.flow .arr{color:var(--accent);font-weight:800}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span> GeoGuessHelper · 오류 기록</div>
+  <nav class="topnav">
+    <a href="#symptom">증상</a><a href="#trace">추적</a><a href="#cause">원인</a>
+    <a href="#notsix">6장과 무관</a><a href="#fix1">수정 1 · 라우트</a><a href="#fix2">수정 2 · 캐시</a>
+    <a href="#verify">검증</a><a href="#lesson">재발 방지</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">오류 분석 · 회귀 · 2026-08-10</div>
+  <h1>보고서 생성 시 <span style="color:var(--warn)">“보고서 실패: Not Found”</span></h1>
+  <p>캡처 6장을 모은 뒤 보고서 버튼을 누르면 이 메시지만 뜨고 아무 일도 일어나지 않는다.
+  원인은 <b>내가 만든 회귀</b>다 — 작업 큐를 도입하면서 구 API 경로를 제거했는데,
+  브라우저가 캐시된 예전 <code>app.js</code> 로 그 사라진 경로에 POST 하고 있었다.
+  캡처 장수와는 아무 관련이 없다.</p>
+  <div class="meta">
+    <span class="chip wn">증상: 보고서 실패: Not Found (HTTP 404)</span>
+    <span class="chip dn">원인: 구 라우트 제거 + 브라우저 캐시</span>
+    <span class="chip ac">수정: 호환 라우트 복원 + ?v= 캐시 무효화</span>
+    <span class="chip ok">해결됨 — HTTP 200</span>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<!-- ───────────────────────── 증상 ───────────────────────── -->
+<section class="section" id="symptom">
+  <div class="eyebrow">Symptom</div>
+  <h2 class="sec">증상</h2>
+  <p class="sec-desc">보고서 버튼을 누르면 즉시(작업이 시작되지도 않고) 실패 토스트가 뜬다.</p>
+
+  <div class="flow">
+    <span class="box">캡처 6장</span><span class="arr">→</span>
+    <span class="box"><b>보고서 생성</b> 클릭</span><span class="arr">→</span>
+    <span class="box bad">보고서 실패: Not Found</span>
+  </div>
+
+  <div class="callout warn"><b>단서 1 — 메시지 문구.</b> 새 프론트엔드에는 <code>"보고서 실패: "</code> 라는 문자열이
+  존재하지 않는다. 새 코드는 <code>"작업 등록 실패: "</code> 또는 <code>"작업 실패: "</code> 를 쓴다.
+  즉 <b>브라우저가 실행하고 있는 JS 는 예전 버전</b>이다.</div>
+
+  <div class="callout warn"><b>단서 2 — “Not Found”.</b> 이건 FastAPI 가 등록되지 않은 경로에 대해 돌려주는
+  기본 404 본문 <code>{"detail":"Not Found"}</code> 의 <code>detail</code> 값이다. 앱이 만든 메시지가 아니다.</div>
+</section>
+
+<!-- ───────────────────────── 추적 ───────────────────────── -->
+<section class="section" id="trace">
+  <div class="eyebrow">Trace</div>
+  <h2 class="sec">문자열을 따라가면 코드가 나온다</h2>
+
+  <p style="font-size:14px;color:var(--ink-2)">예전 <code>app.js</code> 의 <code>handleReportResult()</code> 는
+  응답 본문에서 <code>message</code> 가 없으면 <code>detail</code> 을 그대로 출력한다.</p>
+
+<pre><span class="c">// 예전 webui/app.js — handleReportResult()</span>
+<span class="k">const</span> msg = (r &amp;&amp; (r.message || <span class="r">r.detail</span>)) ||
+            (r &amp;&amp; r.errors &amp;&amp; r.errors[0] &amp;&amp; r.errors[0].message) ||
+            (r &amp;&amp; r.status) || <span class="s">"실패"</span>;
+setStatus(<span class="s">"보고서 실패: "</span> + msg, <span class="s">"err"</span>, 7000);
+<span class="c">//            ↑ 이 접두사 + FastAPI 의 detail:"Not Found" = "보고서 실패: Not Found"</span></pre>
+
+  <p style="font-size:14px;color:var(--ink-2);margin-top:14px">그리고 예전 <code>app.js</code> 는 이 경로로 POST 한다.
+  새 서버에는 그 경로가 없었다.</p>
+
+<pre><span class="c">$ 라우트 확인 (수정 전)</span>
+  /api/report                <span class="r">없음  &lt;-- 404 원인</span>
+  /api/scene-report          <span class="r">없음  &lt;-- 404 원인</span>
+  /api/jobs/report           <span class="g">있음</span>
+  /api/jobs/scene-report     <span class="g">있음</span></pre>
+</section>
+
+<!-- ───────────────────────── 원인 ───────────────────────── -->
+<section class="section" id="cause">
+  <div class="eyebrow">Root cause</div>
+  <h2 class="sec">원인 — 두 실수가 겹쳤다</h2>
+
+  <ol class="steps">
+    <li><b>구 라우트를 제거했다.</b> 작업 큐를 도입하면서 <code>/api/report</code>, <code>/api/scene-report</code> 를
+      <code>/api/jobs/*</code> 로 교체했다. <b>새 <code>server.py</code> 의 docstring 에는 “호환 래퍼로 남긴다”고 써놓고
+      실제로는 구현하지 않았다.</b> 문서와 코드가 어긋난 채로 넘어갔다.</li>
+    <li><b>정적 파일에 캐시 무효화 장치가 없었다.</b> <code>index.html</code> 이
+      <code>/webui/app.js</code> 를 버전 파라미터 없이 참조해, 브라우저가 예전 사본을 계속 쓸 수 있었다.
+      서버만 새 코드로 바뀌고 <b>프론트는 옛 코드</b>인 상태가 만들어진다.</li>
+  </ol>
+
+  <div class="verdict">
+    <div class="vt">한 줄 요약</div>
+    <div class="vb">새 서버 + 캐시된 옛 프론트 = 존재하지 않는 경로로 POST → FastAPI 기본 404 → 옛 코드가 <code>detail</code> 을 그대로 출력.</div>
+  </div>
+
+  <h3 class="sub">왜 조합에 따라 메시지가 달라지는가</h3>
+  <table>
+    <thead><tr><th style="width:20%">서버</th><th style="width:20%">브라우저 JS</th><th style="width:26%">POST 대상</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td>새(큐)</td><td><b>옛(캐시)</b></td><td><code>/api/report</code></td><td class="small" style="color:var(--danger)"><b>보고서 실패: Not Found</b> ← 실제 발생</td></tr>
+      <tr><td>옛</td><td>새</td><td><code>/api/jobs/report</code></td><td class="small">작업 등록 실패: Not Found</td></tr>
+      <tr><td>새</td><td>새</td><td><code>/api/jobs/report</code></td><td class="small" style="color:var(--ok)">정상</td></tr>
+      <tr><td>새(수정 후)</td><td>옛(캐시)</td><td><code>/api/report</code></td><td class="small" style="color:var(--ok)">정상 — 호환 래퍼가 큐로 전달</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ───────────────────────── 6장과 무관 ───────────────────────── -->
+<section class="section" id="notsix">
+  <div class="eyebrow">Red herring</div>
+  <h2 class="sec">“캡처 6장”은 원인이 아니다</h2>
+  <p class="sec-desc">숫자 6이 설정값 <code>max_analyze_images = 6</code> 과 같아 관련을 의심하기 쉽다.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3><span class="ic">🔢</span> 6은 우연이다</h3>
+      <p>404 는 <b>요청이 서버 라우팅에서 거부된 것</b>이다. 본문(<code>files</code> 배열)은 읽히지도 않는다.
+      캡처 0장이든 20장이든 같은 404 가 난다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">📎</span> 상한은 별개 동작</h3>
+      <p><code>max_analyze_images</code> 초과분은 오류가 아니라 <b>분석에서 제외</b>될 뿐이다.
+      이번 수정에서 그 초과분이 보고서 갤러리에도 실리지 않도록 함께 고쳤다
+      (“보지 않은 사진이 근거로 제시되는” 문제).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 수정 1 ───────────────────────── -->
+<section class="section" id="fix1">
+  <div class="eyebrow">Fix 1</div>
+  <h2 class="sec">수정 1 — 구 라우트 복원 (큐 경유)</h2>
+  <p class="sec-desc">경로만 되살리는 게 아니라, <b>같은 작업 큐를 지나되 완료까지 기다렸다가</b>
+  예전과 같은 모양의 JSON 을 돌려준다. 순차 처리 보장은 그대로 유지된다.</p>
+
+<pre><span class="c"># src/geoguesshelper/server.py</span>
+<span class="k">async def</span> _run_sync(kind: str, payload: dict, label: str):
+    job = <span class="k">await</span> _submit(kind, payload, label)      <span class="c"># 큐에 등록</span>
+    done = <span class="k">await</span> _QUEUE.wait(job.id)               <span class="c"># 완료까지 대기</span>
+    <span class="k">if</span> done.status == jobs.DONE:
+        <span class="k">return</span> JSONResponse(done.result <span class="k">or</span> {})
+    <span class="c"># 실패/취소도 예전처럼 200 + status 필드로 (옛 프론트가 그렇게 읽는다)</span>
+    body = dict(done.result <span class="k">or</span> {})
+    body.setdefault(<span class="s">"status"</span>, <span class="s">"FAIL"</span> <span class="k">if</span> done.status == jobs.FAILED <span class="k">else</span> <span class="s">"CANCELED"</span>)
+    body[<span class="s">"message"</span>] = done.error <span class="k">or</span> body.get(<span class="s">"message"</span>) <span class="k">or</span> <span class="s">"작업 실패"</span>
+    body[<span class="s">"jobId"</span>] = done.id
+    <span class="k">return</span> JSONResponse(body)
+
+<span class="k">@app.post</span>(<span class="s">"/api/report"</span>)          <span class="c"># 복원</span>
+<span class="k">@app.post</span>(<span class="s">"/api/scene-report"</span>)    <span class="c"># 복원</span></pre>
+
+  <p style="font-size:14px;color:var(--ink-2);margin-top:14px">대기를 위해 <code>jobs.py</code> 에
+  <code>JobQueue.wait()</code> 를 추가했다. <code>Job</code> 마다 <code>asyncio.Event</code> 를 두고
+  종료 시점에 set 한다 — 폴링이 아니다.</p>
+
+  <div class="callout ok"><b>부수 효과.</b> CLI·스크립트·다른 도구가 구 API 를 쓰고 있어도 이제 동작하며,
+  그것들도 자동으로 큐의 순차 처리 보호를 받는다.</div>
+</section>
+
+<!-- ───────────────────────── 수정 2 ───────────────────────── -->
+<section class="section" id="fix2">
+  <div class="eyebrow">Fix 2</div>
+  <h2 class="sec">수정 2 — 정적 파일 캐시 무효화</h2>
+  <p class="sec-desc">근본은 이쪽이다. 호환 라우트가 없었어도 프론트가 최신이면 문제가 없었다.</p>
+
+<pre><span class="c">&lt;!-- src/geoguesshelper/webui/index.html --&gt;</span>
+<span class="c">&lt;!-- ?v= 는 캐시 무효화용. 프론트를 고칠 때마다 올린다 --&gt;</span>
+&lt;link rel=<span class="s">"stylesheet"</span> href=<span class="s">"/webui/styles.css<span class="g">?v=0.2.0</span>"</span>&gt;
+&lt;script src=<span class="s">"/webui/app.js<span class="g">?v=0.2.0</span>"</span>&gt;&lt;/script&gt;</pre>
+
+  <div class="callout warn"><b>사용자 조치 1회 필요.</b> <code>?v=</code> 가 붙기 <i>이전</i>의
+  <code>index.html</code> 자체가 캐시돼 있을 수 있다. 브라우저에서 <b>Ctrl+Shift+R</b>(강제 새로고침) 한 번이 필요하다.
+  그 이후로는 <code>?v=</code> 값만 올리면 자동으로 갱신된다.</div>
+</section>
+
+<!-- ───────────────────────── 검증 ───────────────────────── -->
+<section class="section" id="verify">
+  <div class="eyebrow">Verification</div>
+  <h2 class="sec">검증</h2>
+
+<pre><span class="c">$ 옛 경로 POST /api/report  (404 였던 것)</span>
+  status : FAIL
+  message: 분석할 캡처 이미지가 없습니다.      <span class="c"># ← 앱이 만든 진짜 메시지</span>
+  jobId  : job_f10ee8e4db8d
+ HTTP <span class="g">200</span>
+
+<span class="c">$ 옛 경로 POST /api/scene-report</span>
+  HTTP <span class="g">200</span>
+
+<span class="c">$ 큐를 실제로 지나갔는가</span>
+  큐 통계: {'queued': 0, 'running': 0, 'failed': 2, 'concurrency': 1, 'maxPending': 64}
+   job_e25c1ff6f3c2 FAILED   바로 보고서
+   job_f10ee8e4db8d FAILED   보고서
+
+<span class="c">$ 캐시 무효화된 정적 파일</span>
+  /webui/app.js?v=0.2.0        HTTP <span class="g">200</span>  45624 bytes
+  /webui/styles.css?v=0.2.0    HTTP <span class="g">200</span>  16575 bytes</pre>
+
+  <div class="callout ok"><b>“FAILED” 는 정상이다.</b> 존재하지 않는 캡처 파일로 테스트했기 때문이다.
+  중요한 건 <b>404 가 아니라 200 으로 응답하고, 앱이 만든 구체적 메시지가 돌아오며, 작업이 큐에 기록됐다</b>는 점이다.</div>
+
+  <h3 class="sub">전체 라우트 (수정 후)</h3>
+<pre>/api/analyze          /api/jobs                    /api/knowledge
+/api/capture          /api/jobs/report             /api/knowledge/atoms
+/api/config           /api/jobs/scene-report       /api/knowledge/synthesize
+/api/extract          /api/jobs/{job_id}           <span class="g">/api/report          ← 복원</span>
+                      /api/jobs/{job_id}/cancel    <span class="g">/api/scene-report    ← 복원</span>
+                      /api/jobs/{job_id}/stream</pre>
+</section>
+
+<!-- ───────────────────────── 재발 방지 ───────────────────────── -->
+<section class="section" id="lesson">
+  <div class="eyebrow">Prevention</div>
+  <h2 class="sec">재발 방지</h2>
+
+  <ul class="clean next">
+    <li><b>프론트를 수정하면 <code>?v=</code> 를 올린다.</b> 현재 <code>0.2.0</code>.
+      이걸 빠뜨리면 정확히 같은 부류의 버그가 다시 난다.</li>
+    <li><b>공개 API 경로는 지우지 말고 남긴다.</b> 클라이언트(브라우저 캐시 포함)를 서버와 동시에 갱신할 수 없다.
+      경로를 옮길 때는 옛 경로를 새 구현으로 위임시키는 편이 항상 싸다.</li>
+    <li><b>docstring 에 쓴 약속은 구현과 함께 커밋한다.</b> 이번 회귀의 직접 원인은
+      “호환 래퍼로 남긴다”고 적고 구현하지 않은 것이다. 문서가 코드보다 앞서 나가면 그 격차가 버그가 된다.</li>
+    <li><b>404 는 “서버가 그 경로를 모른다”는 뜻으로 읽는다.</b> 요청 본문·데이터 문제로 착각하면
+      (이번엔 “캡처 6장”) 엉뚱한 곳을 파게 된다. 라우트 목록을 먼저 찍어보는 것이 가장 빠르다.</li>
+  </ul>
+
+  <div class="callout"><b>진단이 빨랐던 이유.</b> 화면에 뜬 문자열 <code>"보고서 실패: "</code> 가
+  새 코드에는 없고 옛 코드에만 있었다. 사용자에게 보이는 메시지를 코드베이스에서 유일하게 유지하면
+  “지금 돌고 있는 게 어느 버전인가”를 즉시 알 수 있다.</div>
+</section>
+
+<div class="foot wrap">
+  GeoGuessHelper 오류 기록 · 2026-08-10 · <code>docs/error/report-404-not-found_260810.html</code><br>
+  관련 코드: <code>src/geoguesshelper/server.py</code> (_run_sync · /api/report · /api/scene-report) ·
+  <code>src/geoguesshelper/jobs.py</code> (JobQueue.wait) · <code>src/geoguesshelper/webui/index.html</code> (?v=)<br>
+  같은 날 함께 기록된 다른 오류: <a href="ssl-openssl-applink-exit_260810.html">ssl.create_default_context() 프로세스 자가 종료</a>
+</div>
+</main>
+</body>
+</html>

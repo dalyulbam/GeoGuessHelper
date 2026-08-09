@@ -6,7 +6,9 @@
 <title>GeoGuessHelper — 로드뷰 2분할 뷰어</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
-<link rel="stylesheet" href="/webui/styles.css">
+<!-- ?v= 는 캐시 무효화용. 프론트를 고칠 때마다 올린다 — 브라우저가 옛 app.js 를 계속
+     쓰면 사라진 API 경로로 POST 해서 404 "Not Found" 만 보게 된다. -->
+<link rel="stylesheet" href="/webui/styles.css?v=0.4.0">
 </head>
 <body>
 
@@ -21,8 +23,9 @@
   <details id="lang-menu" class="lang-menu">
     <summary title="분석/보고서 출력 언어 (여러 개 선택 가능)">🌐 보고서 언어: <b id="lang-summary">한국어</b> <span class="caret">▾</span></summary>
     <div class="lang-pop">
-      <div class="lang-pop-h">출력 언어 <span class="muted">(체크한 언어마다 보고서 1부 · 맨 위가 화면 표시 언어)</span></div>
+      <div class="lang-pop-h">출력 언어 <span class="muted">(맨 위가 화면 표시 언어)</span></div>
       <div id="lang-options" class="lang-options"></div>
+      <div id="lang-base-hint" class="lang-base-hint"></div>
     </div>
   </details>
   <label id="research-toggle" class="research-toggle" title="식별한 도시를 웹 검색으로 조사해 경제·문화·관광·인물·인접 도시 비교·장단점·주민 특징을 보고서에 추가합니다 (더 느리고 비용↑).">
@@ -88,6 +91,24 @@
       <div id="reports-list" class="reports-list"></div>
     </div>
 
+    <div class="card" id="queue-card" hidden>
+      <h3>작업 큐 <span id="queue-count" class="muted"></span></h3>
+      <div class="card-note">보고서는 서버에서 <b>한 번에 하나씩</b> 순차 처리됩니다. 여러 탭에서 눌러도 안전하게 쌓입니다.</div>
+      <div id="queue-list" class="queue-list"></div>
+      <div id="queue-orphans" class="queue-orphans" hidden></div>
+    </div>
+
+    <div class="card" id="knowledge-card" hidden>
+      <h3>지식 저장소</h3>
+      <div class="card-note">보고서를 만들 때마다 사실이 원자로 쌓이고, 다음 조사에서는 재검색 대신 참조합니다.</div>
+      <div id="k-stats" class="keychips"></div>
+      <div class="synth-row">
+        <input id="synth-input" type="text" spellcheck="false" autocomplete="off"
+          placeholder="엔티티/태그로 종합 (예: carolingian-empire, romanesque)">
+        <button id="btn-synth" class="primary" disabled title="저장된 원자만으로 종합 보고서 — 새 웹 검색 없음">📚 종합</button>
+      </div>
+    </div>
+
     <div class="side-note">
       복기(study) 도구 · 라이브 라운드 사용은 부정행위 · Google Maps Platform ToS 준수(이미지 캐싱 금지, pano_id만 저장) · 개인 식별 안 함
     </div>
@@ -96,6 +117,6 @@
 
 <div id="status" class="status" hidden></div>
 
-<script src="/webui/app.js"></script>
+<script src="/webui/app.js?v=0.4.0"></script>
 </body>
 </html>

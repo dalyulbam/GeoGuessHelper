@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ssl.create_default_context() 프로세스 자가 종료 — OPENSSL_Applink · SSLKEYLOGFILE (260810)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--danger),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--danger);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre .c{color:#7f978f} pre .k{color:#7fd6b6} pre .s{color:#e5c07b} pre .r{color:#ff9a8f} pre .g{color:#8fe0a8}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.foot{padding:34px 0 60px;color:var(--muted);font-size:13px}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{position:relative;padding:12px 0 12px 44px;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:11px;width:28px;height:28px;border-radius:50%;background:var(--danger-soft);color:var(--danger);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:22px;position:relative;margin:7px 0;font-size:14px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+.verdict{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-left:5px solid var(--danger);
+  border-radius:12px;padding:16px 18px;margin-top:14px;box-shadow:var(--shadow)}
+.verdict .vt{flex:0 0 auto;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--danger)}
+.verdict .vb{font-size:14.5px;color:var(--ink)}
+.probe{list-style:none;padding:0;margin-top:8px}
+.probe li{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;margin:5px 0;font-size:13.5px;font-family:var(--mono)}
+.probe li .r{flex:0 0 auto;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px}
+.probe li.pass .r{background:var(--ok-soft);color:var(--ok)}
+.probe li.fail .r{background:var(--danger-soft);color:var(--danger)}
+.probe li.fail{border-color:#f3c6c1;background:#fffaf9}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span> GeoGuessHelper · 오류 기록</div>
+  <nav class="topnav">
+    <a href="#symptom">증상</a><a href="#wrong">오진 정정</a><a href="#probe">계측</a>
+    <a href="#cause">근본 원인</a><a href="#why">왜 이 조합만</a><a href="#fix">수정</a>
+    <a href="#verify">검증</a><a href="#root">근본 해결</a><a href="#sec">보안 함의</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">오류 분석 · 서버 기동 불가 · 2026-08-10</div>
+  <h1><code style="font-size:.72em">ssl.create_default_context()</code> 가 <span style="color:var(--danger)">프로세스를 스스로 종료</span>시킨다</h1>
+  <p>서버가 배너 한 줄도 못 찍고 죽었다. stderr 에는 <code>OPENSSL_Uplink(...): no OPENSSL_Applink</code> 한 줄만 남았다.
+  결론부터 — <b>외부에서 죽이는 것이 아니라 프로세스가 스스로 <code>ExitProcess(1)</code> 을 호출</b>한다.
+  다만 그 방아쇠는 외부(백신)가 환경변수로 심는다. 이 문서는 오진 과정까지 포함해 어떻게 특정했는지를 남긴다.</p>
+  <div class="meta">
+    <span class="chip dn">증상: 서버 기동 즉시 종료 · 종료 코드 1</span>
+    <span class="chip wn">트리거: SSLKEYLOGFILE (Avast 주입)</span>
+    <span class="chip ac">수정: tls.neutralize_keylog()</span>
+    <span class="chip ok">해결됨 — 우회 플래그 없이 기동</span>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<!-- ───────────────────────── 증상 ───────────────────────── -->
+<section class="section" id="symptom">
+  <div class="eyebrow">Symptom</div>
+  <h2 class="sec">증상</h2>
+  <p class="sec-desc">서버를 띄우면 stdout 에 아무것도 안 나오고 즉시 프로세스가 사라진다.</p>
+
+<pre><span class="c"># python -m geoguesshelper.server</span>
+<span class="c">--- stdout ---</span>
+<span class="c">(비어 있음 — 배너조차 안 찍힘)</span>
+<span class="c">--- stderr ---</span>
+<span class="r">OPENSSL_Uplink(00007FFCDAFEAC60,08): no OPENSSL_Applink</span>
+<span class="c">--- alive? ---</span>
+exited</pre>
+
+  <div class="callout danger"><b>혼동 포인트.</b> 이 프로젝트는 오늘(8/9~10) 정상적으로 캡처를 만든 이력이 있다
+  (<code>captures/*.png</code> 타임스탬프 21:03). 그래서 처음에는 "방금 한 코드 변경 때문"으로 의심하기 쉽다.
+  실제로는 <b>변경 이전 커밋(HEAD)도 똑같이 죽는다</b> — 아래 오진 정정 참고.</div>
+</section>
+
+<!-- ───────────────────────── 오진 정정 ───────────────────────── -->
+<section class="section" id="wrong">
+  <div class="eyebrow">Correction</div>
+  <h2 class="sec">먼저: 내가 처음 내린 진단은 틀렸다</h2>
+  <p class="sec-desc">기록으로 남기는 이유 — 같은 함정에 다시 빠지지 않기 위해서다.</p>
+
+  <div class="grid g2">
+    <div class="card" style="border-left:4px solid var(--danger)">
+      <h3><span class="ic">✗</span> 최초 가설 (틀림)</h3>
+      <p><code>C:\WINDOWS\system32\libcrypto.dll</code> 이 Python 번들 OpenSSL 을 가려서
+      (DLL 검색 순서상 system32 가 앞) applink 없는 DLL 이 로드된다.</p>
+      <p style="margin-top:8px"><b>근거로 삼은 것:</b> PATH 스캔에서 그 DLL 이 실제로 발견됨.</p>
+      <p style="margin-top:8px"><b>왜 틀렸나:</b> 프로세스에 로드된 모듈을 <code>EnumProcessModules</code> 로
+      직접 열거해 보니 <b>OpenSSL 계열 DLL 이 단 하나도 로드되지 않는다</b>. 가릴 대상 자체가 없었다.</p>
+    </div>
+    <div class="card" style="border-left:4px solid var(--ok)">
+      <h3><span class="ic">✓</span> 실제 원인</h3>
+      <p>백신(Avast)이 프로세스 환경에 <code>SSLKEYLOGFILE</code> 을 주입하고,
+      <code>create_default_context()</code> 가 그 값을 읽어 OpenSSL 에 <code>FILE*</code> 를 넘기려다
+      applink 부재로 자가 종료한다.</p>
+      <p style="margin-top:8px"><b>결정적 증거:</b> 그 환경변수만 지우면 즉시 통과(exit 0).</p>
+    </div>
+  </div>
+
+  <h3 class="sub">"내 변경 탓인가"를 먼저 끊어낸 방법</h3>
+  <p style="font-size:14px;color:var(--ink-2)">추측 대신 <b>변경 이전 코드를 그대로 실행</b>했다. git worktree 로 HEAD 를 별도 디렉터리에 꺼내
+  같은 인터프리터로 띄웠고, 동일하게 죽었다. 이 시점에서 "기존 환경 문제"로 범위가 확정됐다.</p>
+<pre><span class="c"># 변경 이전 커밋을 격리 실행</span>
+git worktree add $TEMP\geo_orig HEAD
+<span class="c"># → ORIGINAL(HEAD) stderr:</span>
+<span class="r">OPENSSL_Uplink(00007FFCDAFEAC60,08): no OPENSSL_Applink</span>
+<span class="c">→ 원본도 즉시 종료. 코드 변경과 무관.</span></pre>
+</section>
+
+<!-- ───────────────────────── 계측 ───────────────────────── -->
+<section class="section" id="probe">
+  <div class="eyebrow">Instrumentation</div>
+  <h2 class="sec">계측: 정확히 어느 호출에서 죽는가</h2>
+  <p class="sec-desc"><code>create_default_context()</code> 를 구성하는 단계를 하나씩 따로 호출해 경계를 좁혔다.</p>
+
+  <ul class="probe">
+    <li class="pass"><span class="r">통과</span> ssl.SSLContext(PROTOCOL_TLS_CLIENT)</li>
+    <li class="pass"><span class="r">통과</span> ssl.enum_certificates('ROOT')&nbsp;&nbsp;<span class="small">CryptoAPI</span></li>
+    <li class="pass"><span class="r">통과</span> ctx.set_default_verify_paths()&nbsp;&nbsp;<span class="small">파일 경로 기반</span></li>
+    <li class="pass"><span class="r">통과</span> ctx.load_default_certs()</li>
+    <li class="fail"><span class="r">사망</span> ssl.create_default_context()</li>
+  </ul>
+
+  <div class="callout"><b>이 결과가 결정적이다.</b> CA 번들 로드(<code>load_default_certs</code>)까지 전부 멀쩡히 통과한다.
+  그렇다면 <code>create_default_context()</code> 가 그 위에 <i>추가로</i> 하는 일이 범인이다.
+  CPython 소스를 보면 그건 딱 한 가지다.</div>
+
+<pre><span class="c"># Lib/ssl.py — create_default_context() 끝부분</span>
+    <span class="k">if</span> context.verify_mode != CERT_NONE:
+        context.load_default_certs(purpose)      <span class="c"># ← 여기까지는 통과했다</span>
+    <span class="c"># OpenSSL 1.1.1 keylog file</span>
+    <span class="k">if</span> hasattr(context, <span class="s">'keylog_filename'</span>):
+        keylogfile = os.environ.get(<span class="s">'SSLKEYLOGFILE'</span>)      <span class="r">&lt;-- 범인</span>
+        <span class="k">if</span> keylogfile <span class="k">and not</span> sys.flags.ignore_environment:
+            context.keylog_filename = keylogfile</pre>
+
+  <h3 class="sub">환경변수 확인</h3>
+<pre><span class="c">프로세스 : </span><span class="r">'\\.\aswMonFltProxy\3e7f7b040b43e88d'</span>   <span class="c">← asw = Avast 필터 드라이버</span>
+<span class="c">사용자   : ''</span>
+<span class="c">시스템   : ''</span>   <span class="c">← 영구 설정이 아니라 런타임 주입이다</span></pre>
+
+  <div class="callout warn"><b>주목.</b> 사용자/시스템 환경변수에는 없고 <b>프로세스 환경에만</b> 있다.
+  즉 레지스트리에 박힌 설정이 아니라, Avast 가 감시 대상 프로세스를 띄울 때 동적으로 주입한다.
+  그래서 <code>setx</code> 로 지우거나 시스템 환경변수 화면을 뒤져도 찾을 수 없다.</div>
+</section>
+
+<!-- ───────────────────────── 근본 원인 ───────────────────────── -->
+<section class="section" id="cause">
+  <div class="eyebrow">Root cause</div>
+  <h2 class="sec">근본 원인 — 5단계 연쇄</h2>
+
+  <ol class="steps">
+    <li><b>Avast 가 환경변수를 주입한다.</b> HTTPS 트래픽을 복호화해 검사하려면 TLS 세션 키가 필요하다.
+      <code>SSLKEYLOGFILE</code> 은 "세션 키를 이 경로에 적어라"는 표준 규약이고, Avast 는 그 경로로
+      자기 필터 드라이버 디바이스(<code>\\.\aswMonFltProxy\...</code>)를 지정한다.</li>
+    <li><b>Python 이 그 값을 그대로 따른다.</b> <code>ssl.py:725</code> 가 변수를 읽어
+      <code>context.keylog_filename</code> 에 세팅한다.</li>
+    <li><b>CPython 이 <code>FILE*</code> 를 OpenSSL 에 넘긴다.</b> <code>_ssl.c</code> 의 setter 가 그 경로를
+      C 런타임 <code>fopen()</code> 으로 열고, 그 <code>FILE*</code> 를 <code>BIO_new_fp()</code> 에 전달한다.</li>
+    <li><b>OpenSSL 이 applink 을 찾는다.</b> Windows 에서 OpenSSL 이 <i>애플리케이션의</i> CRT <code>FILE*</code> 를
+      다루려면, 애플리케이션이 <code>applink.c</code> 를 컴파일해 넣어 <code>OPENSSL_Applink</code> 심볼을 노출해야 한다.
+      <code>python.exe</code> 에는 그게 없다.</li>
+    <li><b>OpenSSL 이 프로세스를 끝낸다.</b> <code>OPENSSL_Uplink()</code> 가 applink 부재를 감지하고
+      메시지를 출력한 뒤 <code>ExitProcess(1)</code> 을 호출한다. 예외가 아니라 <b>즉시 종료</b>라
+      <code>try/except</code> 로 잡을 수 없다.</li>
+  </ol>
+
+  <h3 class="sub">"외부 종료"가 아니라는 증거 — 종료 코드</h3>
+  <table>
+    <thead><tr><th style="width:26%">종료 코드</th><th>의미</th><th style="width:14%">실측</th></tr></thead>
+    <tbody>
+      <tr><td><code>1</code></td><td>OpenSSL uplink 이 <code>ExitProcess(1)</code> 호출 — <b>자가 종료</b></td><td><b style="color:var(--danger)">← 이것</b></td></tr>
+      <tr><td><code>0xC0000005</code> <span class="small">(-1073741819)</span></td><td>액세스 위반 — 메모리 크래시</td><td>아님</td></tr>
+      <tr><td><code>0xC000013A</code> <span class="small">(-1073741510)</span></td><td>외부 Ctrl-C / 종료 요청</td><td>아님</td></tr>
+      <tr><td><code>0xC0000409</code></td><td>스택 버퍼 오버런 (보안 검사 실패)</td><td>아님</td></tr>
+    </tbody>
+  </table>
+
+  <div class="verdict">
+    <div class="vt">결론</div>
+    <div class="vb">외부 프로세스가 <code>TerminateProcess</code> 로 죽이는 것이 <b>아니다</b>.
+    프로세스가 <b>스스로</b> 종료한다. 다만 그 방아쇠는 외부(Avast)가 심는다.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── 왜 이 조합만 ───────────────────────── -->
+<section class="section" id="why">
+  <div class="eyebrow">Why here</div>
+  <h2 class="sec">왜 하필 이 조합에서만 터지는가</h2>
+  <p class="sec-desc">같은 Avast 를 쓰는 다른 프로그램은 멀쩡한데 이 Python 만 죽는 이유.</p>
+
+  <div class="grid g3">
+    <div class="card">
+      <h3><span class="ic">📦</span> 정적 링크 Python</h3>
+      <p>이 인터프리터는 uv 의 <code>python-build-standalone</code> 빌드다. OpenSSL 을
+      <b>정적 링크</b>하므로 <code>libcrypto-*.dll</code> 이 로드되지 않는다
+      (모듈 열거 결과 <b>0개</b>). 정적 OpenSSL 에도 uplink 스텁 테이블은 남아 있는데,
+      <code>python.exe</code> 는 <code>applink.c</code> 를 넣지 않았다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🩺</span> 백신의 키로그 주입</h3>
+      <p>Avast 웹 실드가 HTTPS 검사를 위해 <code>SSLKEYLOGFILE</code> 을 주입한다.
+      이 변수를 <b>읽는</b> 프로그램만 영향을 받는다. Python <code>ssl</code> 모듈은 읽는다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🔗</span> 둘이 만나야 터진다</h3>
+      <p>동적 링크 Python(공식 배포판)은 applink 을 제공하는 DLL 을 쓰므로 안 죽는다.
+      Avast 가 없으면 변수가 없어 안 죽는다. <b>정적 링크 Python + 백신 키로그 주입</b>이
+      겹쳐야 재현된다.</p>
+    </div>
+  </div>
+
+  <div class="callout"><b>파급 범위.</b> 이 문제는 GeoGuessHelper 만의 것이 아니다. 이 PC 에서
+  <code>ssl.create_default_context()</code> 를 호출하는 <b>모든 uv/standalone Python 프로그램</b>이 같은 방식으로 죽는다
+  (requests, httpx, pip, aiohttp …). 앞으로 다른 프로젝트에서 같은 증상을 보면 이 문서를 먼저 확인할 것.</div>
+</section>
+
+<!-- ───────────────────────── 수정 ───────────────────────── -->
+<section class="section" id="fix">
+  <div class="eyebrow">Fix</div>
+  <h2 class="sec">수정 — <code>tls.neutralize_keylog()</code></h2>
+  <p class="sec-desc">ssl 을 건드리기 전에 프로세스 환경에서 그 변수를 제거한다. 시스템 설정은 손대지 않는다.</p>
+
+<pre><span class="c"># src/geoguesshelper/tls.py</span>
+<span class="k">def</span> neutralize_keylog() -&gt; str | <span class="k">None</span>:
+    <span class="s">"""SSLKEYLOGFILE 을 제거한다. 반환값은 제거한 값(없었으면 None)."""</span>
+    <span class="k">global</span> _keylog_removed
+    v = os.environ.pop(<span class="s">"SSLKEYLOGFILE"</span>, <span class="k">None</span>)
+    <span class="k">if</span> v:
+        _keylog_removed = v
+    <span class="k">return</span> v
+
+<span class="k">def</span> system_ssl_context() -&gt; ssl.SSLContext:
+    neutralize_keylog()      <span class="c"># create_default_context 보다 반드시 먼저</span>
+    <span class="k">return</span> ssl.create_default_context()</pre>
+
+  <p style="font-size:14px;color:var(--ink-2);margin-top:14px"><code>main()</code> 에서도 가장 먼저 호출해
+  <code>decide_tls()</code> 이전에 확실히 제거되도록 했고, 제거했으면 시작 배너에 그 사실을 표시한다.</p>
+
+<pre><span class="c"># src/geoguesshelper/server.py — main()</span>
+_safe_stdout()
+neutralize_keylog()          <span class="c"># ssl 을 건드리기 전에 먼저</span>
+tls_mode = decide_tls()
+...
+<span class="c"># 배너</span>
+   SSLKEYLOGFILE: 제거함 (\\.\aswMonFltProxy\...) - 백신 TLS 감청 지시</pre>
+
+  <h3 class="sub">지우는 것이 안전한 이유</h3>
+  <ul class="clean">
+    <li>이 값은 기능 설정이 아니라 <b>"TLS 세션 키를 이 디바이스로 흘려라"</b>는 지시다. 앱 동작에 필요 없다.</li>
+    <li>남겨두면 <code>ANTHROPIC_API_KEY</code> 가 오가는 연결의 세션 키까지 백신 드라이버로 나간다.</li>
+    <li><code>os.environ.pop</code> 은 <b>이 프로세스와 그 자식(Chromium 등)</b>에만 적용된다.
+      레지스트리·시스템 환경변수·Avast 설정은 그대로다. 되돌리려면 서버를 끄면 된다.</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────── 검증 ───────────────────────── -->
+<section class="section" id="verify">
+  <div class="eyebrow">Verification</div>
+  <h2 class="sec">검증</h2>
+
+<pre><span class="c">$ SSLKEYLOGFILE 제거 후 단독 확인</span>
+ SSLKEYLOGFILE= None
+ <span class="g">create_default_context() 통과!</span>   exit=<span class="g">0</span>
+
+<span class="c">$ 우회 플래그 없이 서버 기동 (GEOHELPER_INSECURE_TLS 비어 있음)</span>
+  == GeoGuessHelper ===============================
+   브라우저 : http://localhost:8897/
+   JS 지도 키   : 설정됨
+   Static 캡처  : 설정됨
+   Claude 분석  : 설정됨
+   TLS 검증     : 끔 (사내 프록시 감지 - verify=False)
+   작업 큐      : 동시 1건 (대기 최대 64)
+   캡처 형식    : JPEG q85
+   지식 저장소  : 원자 0개
+  =================================================
+<span class="g">=&gt; 우회 없이 기동 성공</span></pre>
+
+  <div class="callout ok"><b>수정 전에는</b> <code>GEOHELPER_INSECURE_TLS=1</code> 을 줘야만 기동했다.
+  그 플래그는 <code>decide_tls()</code> 가 <code>system_ssl_context()</code> 를 아예 호출하지 않도록 우회시켜
+  <i>우연히</i> 죽음을 피한 것이지, 원인을 고친 게 아니었다. 이제는 플래그 없이 뜬다.</div>
+
+  <div class="callout warn"><b>배너의 "TLS 검증: 끔" 은 별개 사안이다.</b> 이건 크래시가 아니라 정상 판정 결과다 —
+  Avast 가 TLS 를 가로채면서 자기 CA 로 인증서를 재발급하는데, 그 CA 가 Python 신뢰 저장소에 없어
+  프로브가 실제로 실패한다. <code>tls.py</code> 가 원래 이 환경을 위해 설계된 폴백이다.
+  아래 "근본 해결"을 적용하면 <b>검증: 켬</b> 으로 바뀐다.</div>
+</section>
+
+<!-- ───────────────────────── 근본 해결 ───────────────────────── -->
+<section class="section" id="root">
+  <div class="eyebrow">Permanent fix</div>
+  <h2 class="sec">근본 해결 옵션</h2>
+  <p class="sec-desc">앱 내 조치는 증상을 막는다. 아래는 원인 자체를 없애는 방법이며, 하면 TLS 검증도 함께 살아난다.</p>
+
+  <table>
+    <thead><tr><th style="width:22%">방법</th><th>내용</th><th style="width:22%">효과</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Avast HTTPS 스캐닝 끄기</b><br><span class="small">권장</span></td>
+        <td>Avast → 설정 → 보호 → 핵심 보호 → 웹 실드 → <b>HTTPS 스캐닝 사용</b> 해제</td>
+        <td>변수 주입이 사라짐<br>+ TLS 검증 <b>켬</b> 으로 복구</td>
+      </tr>
+      <tr>
+        <td><b>예외 추가</b></td>
+        <td>Avast 예외 목록에 <code>.venv\Scripts\python.exe</code> 또는 프로젝트 경로 등록</td>
+        <td>이 프로그램만 주입 제외</td>
+      </tr>
+      <tr>
+        <td><b>Avast CA 신뢰</b></td>
+        <td>Avast 루트 인증서를 Python 이 쓰는 신뢰 저장소에 추가</td>
+        <td>스캐닝 유지 + 검증 <b>켬</b><br><span class="small">단, 키로그 문제는 앱 조치로 커버</span></td>
+      </tr>
+      <tr>
+        <td><b>동적 링크 Python</b></td>
+        <td>python.org 공식 배포판 사용 (applink 제공 DLL)</td>
+        <td>키로그 크래시 회피<br><span class="small">uv 워크플로를 바꿔야 함</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ───────────────────────── 보안 함의 ───────────────────────── -->
+<section class="section" id="sec">
+  <div class="eyebrow">Security</div>
+  <h2 class="sec">보안 함의 — 크래시보다 이쪽이 중요할 수 있다</h2>
+
+  <div class="callout danger"><b>이 PC 의 모든 프로세스에서 TLS 세션 키가 백신으로 흘러간다.</b>
+  <code>SSLKEYLOGFILE</code> 을 존중하는 프로그램(Python, curl, Firefox, Chrome 계열 일부)은
+  자신이 맺는 <b>모든 HTTPS 연결</b>의 세션 키를 그 경로에 쓴다. 세션 키가 있으면 캡처된 트래픽을
+  <b>사후에 완전히 복호화</b>할 수 있다. 백신의 의도된 동작이지만, 무엇이 감청 가능한지는 알고 쓰는 편이 낫다.
+  </div>
+
+  <ul class="clean" style="margin-top:14px">
+    <li><b>이 앱은 이제 제외된다.</b> 프로세스 시작 시 변수를 제거하므로 Anthropic·Google 로 가는
+      연결의 세션 키는 흘러가지 않는다.</li>
+    <li><b>다른 프로그램은 여전히 흘린다.</b> 앱 단위 조치라 시스템 전체를 덮지 않는다.
+      전체를 막으려면 위 "근본 해결"의 HTTPS 스캐닝 해제가 필요하다.</li>
+  </ul>
+
+  <ul class="clean warn-li" style="margin-top:14px">
+    <li><b>확인해 볼 것:</b> 이 값이 Avast 가 심은 것이 맞는지 재확인 권장.
+      <code>asw</code> 접두는 Avast Software 의 관례지만, 백신을 사칭하는 소프트웨어도 존재한다.
+      Avast 를 종료한 상태에서 새 셸을 열어 <code>$env:SSLKEYLOGFILE</code> 이 사라지는지 보면 확실하다.</li>
+  </ul>
+</section>
+
+<div class="foot wrap">
+  GeoGuessHelper 오류 기록 · 2026-08-10 · <code>docs/error/ssl-openssl-applink-exit_260810.html</code><br>
+  관련 코드: <code>src/geoguesshelper/tls.py</code> (neutralize_keylog) · <code>src/geoguesshelper/server.py</code> (main 배너)<br>
+  같은 날 함께 기록된 다른 오류: <a href="report-404-not-found_260810.html">보고서 실패: Not Found — 호환 라우트 누락 회귀</a>
+</div>
+</main>
+</body>
+</html>
