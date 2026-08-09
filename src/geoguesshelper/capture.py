@@ -286,6 +286,23 @@ async def render_playwright(pose: dict, settings: Settings, *, official_only: bo
     # 타일이 레이트리밋(429)으로 검게 나왔다면, 좌표가 있는 한 근처 **공식** 파노로 한 번
     # 재시도한다. 공식 파노는 키 기반 엔드포인트라 이 제한을 받지 않는다.
     # 요청한 지점과 다른 곳이므로 결과에 반드시 표시한다.
+    # 브라우저가 토큰을 잡아 왔다면 그것으로 직접 이미지를 받는다.
+    # 이게 제3자 파노의 **정공법**이다 — 요청한 바로 그 장면을 그대로 얻는다.
+    if res.get("status") == "USE_PHOTO_URL" and res.get("photo_base"):
+        p2 = dict(pose)
+        p2["photo_url"] = res["photo_base"]
+        ph = await capture_photo_url(p2, settings)
+        if ph.get("status") == "OK":
+            ph["recovered_from"] = "tiles_rate_limited"
+            ph["copyright"] = res.get("copyright")
+            ph["pano_id"] = res.get("rendered_pano_id") or pose.get("pano")
+            if res.get("lat") is not None:
+                ph["lat"], ph["lng"] = res["lat"], res["lng"]
+            return ph
+        res = {"status": "TILES_RATE_LIMITED",
+               "message": ph.get("message") or "타일 제한 후 직접 이미지도 실패했습니다.",
+               "tiles": res.get("tiles")}
+
     if (not official_only
             and res.get("status") in ("TILES_RATE_LIMITED", "BLACK_RENDER")
             and pose.get("lat") is not None and pose.get("lng") is not None):

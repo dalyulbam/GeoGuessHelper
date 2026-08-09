@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제3자 로드뷰 검은 화면 — 타일 429 · photo 형식 200 (260810)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--warn),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--warn);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre .c{color:#7f978f} pre .k{color:#7fd6b6} pre .s{color:#e5c07b} pre .r{color:#ff9a8f} pre .g{color:#8fe0a8}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.foot{padding:34px 0 60px;color:var(--muted);font-size:13px}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{position:relative;padding:12px 0 12px 44px;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:11px;width:28px;height:28px;border-radius:50%;background:var(--warn-soft);color:var(--warn);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:22px;position:relative;margin:7px 0;font-size:14px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.next li::before{content:"→";color:var(--accent)}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+.verdict{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-left:5px solid var(--warn);
+  border-radius:12px;padding:16px 18px;margin-top:14px;box-shadow:var(--shadow)}
+.verdict .vt{flex:0 0 auto;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+.verdict .vb{font-size:14.5px;color:var(--ink)}
+.flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--ink-2);margin-top:10px}
+.flow .box{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
+.flow .box b{color:var(--accent-deep)}
+.flow .box.bad{border-color:#f3c6c1;background:#fffaf9;color:var(--danger)}
+.flow .arr{color:var(--accent);font-weight:800}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>GeoGuessHelper · 오류 기록</div>
+  <nav class="topnav">
+    <a href="#sym">증상</a><a href="#wrong">틀린 가설</a><a href="#key">결정적 관측</a>
+    <a href="#detect">감지</a><a href="#token">토큰</a><a href="#fix">수정</a><a href="#verify">실측</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">260810 · v0.2.3</div>
+  <h1>제3자 로드뷰 검은 화면 — 타일은 429, 같은 토큰의 photo 형식은 200</h1>
+  <p class="lede">사용자 기여(제3자) 파노가 뷰어에서 완전히 검게 나오는 문제. 원인은 이미지 CDN 의
+  IP 단위 레이트리밋이었고, <b>해결의 열쇠는 막힌 요청 그 자체</b>였다 &mdash; 429 를 받은 요청에도
+  이미지 토큰은 URL 에 그대로 남아 있고, 같은 토큰의 다른 형식은 제한을 받지 않는다.</p>
+</header>
+
+<section id="sym"><h2>1. 증상</h2>
+<p>구글 지도 링크로 연 로드뷰 중 일부가 <b>완전한 검정</b>으로 표시된다. 오류 메시지도, 로딩
+표시도 없다. 포즈 카드에는 좌표와 파노 ID 가 정상적으로 찍히고, 하단 지도도 정상이다.</p>
+<div class="callout"><b>사용자 보고</b> &mdash; &ldquo;Geogrupa Pula 에서 아무리 봐도 이미지가 안 나오는데
+너는 나오는가?&rdquo; 같은 링크가 사람마다 다르게 보인다는 점이 첫 번째 단서였다. 콘텐츠 문제라면
+누구에게나 똑같이 안 보여야 한다. <b>보는 쪽(IP)에 따라 갈린다면 그건 제한이다.</b></div>
+</section>
+
+<section id="wrong"><h2>2. 틀렸던 가설들</h2>
+<table>
+<thead><tr><th>가설</th><th>근거로 삼은 것</th><th>어떻게 깨졌나</th></tr></thead>
+<tbody>
+<tr><td>이미지 형식·비율·해상도·확장자 문제</td><td>검은 화면이라는 증상만 보고 추정</td>
+    <td>같은 파노가 어떤 실행에서는 정상 렌더(밝기 118.9). 콘텐츠가 원인이면 항상 실패해야 한다.</td></tr>
+<tr><td>타일 요청 자체가 아예 없다</td><td>계측에서 타일 요청 0건으로 측정</td>
+    <td><b>내 계측이 틀렸다.</b> <code>content-type: image</code> 인 응답만 세고 있었다.
+        429 응답은 <code>text/plain</code> 이라 필터에 걸려 통째로 사라졌다.</td></tr>
+<tr><td>파노 ID 형식으로 제3자를 판별할 수 있다</td><td><code>CAoS</code>/<code>AF1Qip</code> 접두, 22자 official 패턴</td>
+    <td>반례: <code>ApCZpYJ184e4gUYfXHl65g</code> 는 22자 official 형식인데 저작권은 &copy; 2026 Google,
+        <code>CIHM0ogKEICAgIDaqcr9Gw</code> 는 22자 패턴에 걸려 official 로 오분류됐다.
+        <b>저작권 문자열만이 판별자다.</b></td></tr>
+<tr><td>검으면 근처 공식 파노로 갈아탄다</td><td>화면이라도 나오게 하려는 임시방편</td>
+    <td>이게 더 나쁘다. <b>요청한 곳이 아닌 다른 장소를 조용히 분석</b>하게 된다.
+        지오게서 복기 도구에서 이건 오답을 정답처럼 만드는 일이다.</td></tr>
+</tbody></table>
+<div class="callout warn"><b>교훈</b> &mdash; &ldquo;요청이 0건&rdquo;이라는 관측은 <i>사실</i>이 아니라
+<i>내 필터를 통과한 것이 0건</i>이라는 뜻이었다. 계측이 음성일 때는 계측 자체를 먼저 의심하고,
+<b>필터를 전부 벗긴 채</b> 다시 재야 한다. 그렇게 하자 <code>lh3.googleusercontent.com HTTP 429</code>
+가 바로 드러났다.</div>
+</section>
+
+<section id="key"><h2>3. 결정적 관측</h2>
+<p>파노 타일의 출처는 두 갈래다.</p>
+<table>
+<thead><tr><th>구분</th><th>호스트</th><th>키</th><th>제한</th></tr></thead>
+<tbody>
+<tr><td>구글 공식 파노</td><td><code>streetviewpixels-pa.googleapis.com</code></td><td>API 키 기반</td><td>없음(HTTP 200)</td></tr>
+<tr><td>사용자 기여 파노</td><td><code>lh3.googleusercontent.com/gpms-cs-s/&lt;토큰&gt;</code></td><td>없음</td><td><b>IP 단위 &rarr; HTTP 429</b></td></tr>
+</tbody></table>
+<p>그리고 여기서 결정적인 사실이 나왔다. 같은 토큰이라도 <b>URL 접미사에 따라 제한이 다르다</b>:</p>
+<pre><code>&lt;토큰&gt;=x0-y0-z2-...                                 &larr; 타일 형식   HTTP <b>429</b>
+&lt;토큰&gt;=w1280-h800-k-no-pi0-ya0-ro0-fo90             &larr; photo 형식  HTTP <b>200</b></code></pre>
+<p class="mt">타일이 막힌 <b>바로 그 순간</b> photo 형식은 1280&times;800 JPEG 218,670바이트, 밝기 118.9 로
+정상 수신됐다. 즉 이미지는 받을 수 있는데 뷰어가 쓰는 경로만 막혀 있었던 것이다.</p>
+<div class="callout ok"><b>열쇠</b> &mdash; 429 로 <b>거절당한 요청에도 URL 은 남는다.</b>
+거절은 응답의 성질이지 요청의 소멸이 아니다. 그러므로 막힌 요청에서 토큰을 줍고,
+제한받지 않는 형식으로 다시 요청하면 된다. 우회가 아니라 <b>같은 자원의 다른 표현</b>을 쓰는 것이다.</div>
+</section>
+
+<section id="detect"><h2>4. &ldquo;타일이 안 왔다&rdquo;를 브라우저에서 어떻게 아는가</h2>
+<p>첫 시도는 <code>PerformanceObserver</code> 로 <code>gpms-cs-s</code> 요청을 관찰하는 것이었다. 실패했다.</p>
+<pre><code>타일 응답 1건 [429]   &larr; Playwright(CDP)에서는 보인다
+perfCount : 0         &larr; 페이지 안에서는 <b>한 건도 안 보인다</b></code></pre>
+<p>Maps JS API 가 파노 타일을 <b>워커에서</b> 받기 때문이다. 워커의 resource 엔트리는 그 워커의
+타임라인에 쌓이고 문서 타임라인에는 오지 않는다. 요청을 볼 수 없다면 <b>결과</b>를 봐야 한다.</p>
+<div class="callout"><b>캔버스 오염(taint)을 신호로 쓴다</b><br>
+· 타일이 한 장이라도 그려졌다 &rarr; 교차출처 이미지가 들어갔다 &rarr; <code>getImageData</code> 가 <code>SecurityError</code><br>
+· 타일이 한 장도 못 왔다 &rarr; 오염될 일이 없다 &rarr; 픽셀을 읽을 수 있고, 그 값은 검다<br>
+즉 <b>&ldquo;읽히는데 검다&rdquo; = &ldquo;타일이 안 왔다&rdquo;</b>. 타이밍 추정이 아니라 화면 그 자체를 근거로 삼는다.</div>
+<pre><code>function tilesMissing() {
+  const cv = document.querySelector("#pano canvas");
+  if (!cv || !cv.width) return false;
+  try {
+    const s = 24, c = document.createElement("canvas");
+    c.width = s; c.height = s;
+    const g = c.getContext("2d");
+    g.drawImage(cv, 0, 0, s, s);
+    const d = g.getImageData(0, 0, s, s).data;   // 오염됐으면 여기서 던진다
+    let sum = 0;
+    for (let i = 0; i &lt; d.length; i += 4) sum += (d[i] + d[i+1] + d[i+2]) / 3;
+    return sum / (d.length / 4) &lt; 8;             // 사실상 완전한 검정
+  } catch (e) {
+    return false;                                 // 오염됨 = 타일이 왔다 = 정상
+  }
+}</code></pre>
+<p class="mt">실측으로 확인한 값: 캔버스 3개 모두 <code>read=ok mean=0.0</code> &mdash; 읽히고, 검다.</p>
+</section>
+
+<section id="token"><h2>5. 토큰은 서버만 알아낼 수 있다</h2>
+<p>감지는 페이지에서 되지만 <b>토큰은 페이지에서 얻을 수 없다</b>. 같은 이유다 &mdash; 요청이 워커에 있다.
+반면 Playwright 는 CDP 로 브라우저 전체의 요청을 보므로 워커 요청도 그대로 보인다.
+그래서 <code>GET /api/pano-photo?pano=...</code> 를 만들었다: 헤드리스로 그 파노를 한 번 열고,
+나가는 <code>gpms-cs-s</code> 요청 URL 에서 토큰만 줍는다. <b>429 를 받아도 무방하다</b> &mdash; 필요한 건 URL 이지 응답이 아니다.</p>
+<pre><code>def _on_req(r):
+    if "gpms-cs-s" in r.url and not found:
+        m = _GPMS_RE.search(r.url)
+        if m: found.append(m.group(1))
+page.on("request", _on_req)</code></pre>
+<p class="mt">브라우저 기동이 비싸므로 <b>파노당 한 번만</b> 조회하고 캐시한다. 실측 콜드 9.4초, 캐시 히트 0.13초.</p>
+</section>
+
+<section id="fix"><h2>6. 수정</h2>
+<table>
+<thead><tr><th>파일</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td><code>render_google.py</code></td><td><code>photo_token_for()</code> 추가. 렌더 중 <code>request</code> 훅으로 토큰 수집.
+    타일이 검게 끝났는데 토큰이 있으면 <code>status="USE_PHOTO_URL"</code> 로 반환.</td></tr>
+<tr><td><code>capture.py</code></td><td><code>USE_PHOTO_URL</code> 을 받아 photo 경로로 전환.
+    <b>요청한 바로 그 장면</b>을 그대로 얻으므로 공식 파노 대체 같은 위험이 없다.</td></tr>
+<tr><td><code>server.py</code></td><td><code>GET /api/pano-photo</code> 신설 + 파노별 토큰 캐시.</td></tr>
+<tr><td><code>app.js</code></td><td><code>tilesMissing()</code> 감지 &rarr; 서버 토큰 조회 &rarr; <code>#pano-fallback</code> 이미지 덮기.
+    시점을 돌리면 그 시점으로 다시 받는다.</td></tr>
+<tr><td><code>app.js</code></td><td><b>저작권 버그 수정.</b> <code>getLocation()</code> 이 주는 <code>StreetViewLocation</code> 에는
+    <code>copyright</code> 가 <b>없다</b>. <code>StreetViewService.getPanorama()</code> 의
+    <code>StreetViewPanoramaData</code> 에 있다. 이 때문에 제3자 파노인데도 저작권 칩이 한 번도 뜨지 않았다.</td></tr>
+</tbody></table>
+<div class="callout warn"><b>파노 ID 로 상태를 못 박는다</b> &mdash; <code>pano_changed</code> 는 한 파노를 여는 동안에도
+여러 번 튄다. 처음엔 이벤트마다 상태를 비웠는데, 서버 토큰 조회(약 10초)가 돌아오는 사이에
+그 결과가 지워져 우회가 조용히 실패했다. 지금은 <b>ID 가 실제로 바뀐 경우에만</b> 버린다.</div>
+</section>
+
+<section id="verify"><h2>7. 실측</h2>
+<p>재현 자체가 한 번 더 함정이었다. <code>page.route</code> 로 타일을 429 로 바꾸자
+<b>타일 요청이 통째로 사라졌다</b>(정상 조건 15건 &rarr; 개입 시 0건). 워커 요청은 page 라우트로 잡히지 않아
+요청이 죽어버린 것이다. <code>context.route</code> 로 바꾸자 &ldquo;429 를 받는&rdquo; 상태가 정확히 재현됐다.</p>
+<table>
+<thead><tr><th>조건</th><th>타일</th><th>photo</th><th>우회</th><th>결과</th></tr></thead>
+<tbody>
+<tr><td>정상</td><td>15건 · 200</td><td>0건</td><td>off</td><td>파노 정상 · 우회 안 켜짐(의도대로)</td></tr>
+<tr><td>타일 429 재현</td><td>1건 · <b>429</b></td><td>1건 · <b>200</b></td><td><b>ON</b></td><td>1056&times;450 렌더 &mdash; <b>예전엔 완전한 검정</b></td></tr>
+<tr><td>캡처 경로</td><td colspan="2">mode=playwright</td><td>&mdash;</td><td>status=OK · 밝기 103.9</td></tr>
+<tr><td>토큰 엔드포인트</td><td colspan="2">콜드 9.4초 / 캐시 0.13초</td><td>&mdash;</td><td>base 반환 확인</td></tr>
+</tbody></table>
+<div class="callout ok"><b>확인 방법</b> &mdash; 중간 지표가 아니라 <b>앱을 실제로 띄워 화면을 찍어</b> 눈으로 봤다.
+사용자가 겪는 것과 같은 흐름(링크 붙여넣기 &rarr; 추출 &rarr; 로드뷰)을 그대로 태우고 스크린샷을 남겼다.
+&ldquo;타일 200 이 왔다&rdquo; 같은 지표는 화면이 보인다는 뜻이 아니다.</div>
+</section>
+
+<footer><p>GeoGuessHelper v0.2.3 · 260810</p></footer>
+</div>
+
+</body>
+</html>

@@ -481,6 +481,38 @@ def build_app(settings: Settings) -> FastAPI:
                 result = {"status": "CAPTURE_ERROR", "message": f"{type(exc).__name__}: {exc}"}
         return JSONResponse(result)
 
+    _photo_tokens: dict[str, str | None] = {}
+    _photo_lock = asyncio.Lock()
+
+    @app.get("/api/pano-photo")
+    async def api_pano_photo(pano: str):
+        """제3자 파노의 lh3 이미지 토큰을 돌려준다 — 뷰어의 검은 화면 우회용.
+
+        프런트가 직접 알아낼 수 없는 값이다: Maps JS API 는 파노 타일을 워커에서 받아서
+        페이지의 PerformanceObserver 에 한 건도 잡히지 않는다(실측 perfCount=0).
+        헤드리스 브라우저는 CDP 로 워커 요청까지 보므로 여기서만 얻을 수 있다.
+        파노당 한 번만 알아내고 캐시한다(브라우저 기동이 비싸다).
+        """
+        pano = (pano or "").strip()
+        if not pano:
+            raise HTTPException(status_code=422, detail="pano 가 필요합니다.")
+        key = settings.js_api_key or settings.effective_static_key
+        if not key:
+            return JSONResponse({"base": None, "reason": "no_key"})
+        from . import render_google
+
+        async with _photo_lock:
+            if pano not in _photo_tokens:
+                try:
+                    _photo_tokens[pano] = await asyncio.to_thread(
+                        render_google.photo_token_for, pano, settings, key
+                    )
+                except Exception as exc:  # noqa: BLE001
+                    print(f"[pano-photo] 토큰 조회 실패 {pano[:16]}: {type(exc).__name__} {exc}", flush=True)
+                    _photo_tokens[pano] = None
+        base = _photo_tokens.get(pano)
+        return JSONResponse({"base": base, "reason": None if base else "not_found"})
+
     @app.post("/api/analyze")
     async def api_analyze(payload: dict):
         payload = payload or {}

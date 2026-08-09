@@ -495,6 +495,10 @@ function initSplit(pose, tabId) {
     marker = new google.maps.Marker({ position: center, map });
     pano.addListener("position_changed", syncFromPano);
     pano.addListener("pov_changed", syncFromPano);
+    // 파노가 바뀌면 우회 이미지를 즉시 버린다(이전 장소를 덮어 보이면 안 된다).
+    pano.addListener("pano_changed", watchTiles);
+    // 시점을 돌리면 우회 이미지도 그 시점으로 다시 받는다. 막힌 적 없으면 아무 일도 안 한다.
+    pano.addListener("pov_changed", () => { if (gpmsBlocked) scheduleFallback(); });
     svc = new google.maps.StreetViewService();
   } else if (p) {
     map.setCenter(p);
@@ -502,6 +506,7 @@ function initSplit(pose, tabId) {
     pano.setPov({ heading: pose.heading || 0, pitch: pose.pitch || 0 });
   }
 
+  clearFallback();
   if (pose.pano) {
     armWhenLoaded(myToken, pose.pano, tabId);
     pano.setPano(pose.pano);
@@ -565,7 +570,12 @@ function reportViewerState(p, tab) {
   try { loc = p.getLocation(); } catch (e) {}
   const shown = p.getPano ? p.getPano() : "";
   const want = (tab && tab.extracted && tab.extracted.pano) || "";
-  const cp = (loc && loc.copyright) || (p.getPhotographerPov ? "" : "");
+  // 저작권은 StreetViewLocation 에 **없다**. getLocation() 이 주는 것은 위치 정보뿐이고,
+  // copyright 는 StreetViewService.getPanorama() 가 주는 StreetViewPanoramaData 에 있다.
+  // 예전엔 loc.copyright 를 읽어서 항상 빈 값이었고, 그래서 제3자 파노인데도
+  // 저작권 칩과 안내가 한 번도 뜨지 않았다(사용자 스크린샷으로 확인).
+  const cp = panoCopyright[shown] || "";
+  if (shown && !(shown in panoCopyright)) fetchCopyright(shown, tab);
   const desc = (loc && (loc.description || loc.shortDescription)) || "";
   const official = !cp || cp.indexOf("Google") !== -1;
   const mismatch = want && shown && want !== shown;
@@ -579,11 +589,142 @@ function reportViewerState(p, tab) {
       + ` 캡처는 <b>지금 보이는 장면</b>을 찍습니다</span>`);
   }
   if (!official) {
-    bits.push(`<span class="vs-note">사용자 기여 파노입니다. 화면이 검게 보이면 구글의 이미지 CDN이`
-      + ` 일시적으로 요청을 제한(429)한 것이니 잠시 후 다시 시도하세요 — 캡처는 별도 경로로 동작합니다.</span>`);
+    bits.push(`<span class="vs-note">사용자 기여 파노(${esc(cp)})입니다 — 타일이 제한되면`
+      + ` 직접 이미지 경로로 자동 전환합니다.</span>`);
   }
   el.innerHTML = bits.join("");
   el.hidden = bits.length === 0;
+}
+
+/* ── 제3자 파노 타일 제한(429) 우회 ───────────────────────────────────────────
+ * 사용자 기여 파노의 타일은 키 없는 lh3.googleusercontent.com/gpms-cs-s/<토큰> 에서
+ * 오는데, 그 CDN 은 IP 단위 제한을 걸어 429 를 주고 화면이 통째로 검게 남는다.
+ *
+ * 핵심 관찰: **429 로 막힌 요청에도 토큰은 URL 에 그대로 있다.** 그리고 같은 토큰의
+ * photo 형식(`=w..-h..-k-no-pi<pitch>-ya<heading>-ro0-fo<fov>`)은 타일과 달리 그
+ * 제한에 걸리지 않는다(실측: 타일 429 인 그 순간에 photo 는 HTTP 200, 1280x800, 밝기 118.9).
+ * 그래서 토큰만 주우면 원하는 시점 그대로 되살릴 수 있다.
+ *
+ * 브라우저에서는 Maps JS API 내부의 img 요청을 가로챌 수 없지만, PerformanceObserver 가
+ * 그 요청들을 resource 엔트리로 흘려 주므로 거기서 토큰을 줍는다.
+ */
+const panoCopyright = Object.create(null);   // pano id → 저작권 문자열 (없으면 "")
+let gpmsToken = null;                        // 마지막으로 관측한 gpms 토큰
+let gpmsBlocked = false;                     // 그 토큰의 타일이 실제로 막혔는가
+let fallbackTimer = null;
+let tileWatch = null;
+let watchedPano = null;
+
+/** 저작권은 getPanorama() 로만 얻을 수 있다. 파노당 한 번만 묻고 캐시한다. */
+function fetchCopyright(panoId, tab) {
+  panoCopyright[panoId] = "";                 // 재진입 방지 — 응답 오면 덮어쓴다
+  if (!svc) return;
+  svc.getPanorama({ pano: panoId })
+    .then(({ data }) => {
+      panoCopyright[panoId] = (data && data.copyright) || "";
+      if (pano && pano.getPano && pano.getPano() === panoId) reportViewerState(pano, tab);
+    })
+    .catch(() => {});
+}
+
+/** 타일이 실제로 안 왔는지 판정한다.
+ *
+ *  페이지 안에서는 요청을 볼 수 없다 — Maps JS API 가 파노 타일을 **워커에서** 받기 때문에
+ *  PerformanceObserver 에 한 건도 잡히지 않는다(실측: 429 가 났는데도 perfCount=0).
+ *
+ *  그래서 요청이 아니라 **결과**를 본다. 캔버스 오염(taint)이 신호가 된다:
+ *    · 타일이 하나라도 그려졌다 → 교차출처 이미지가 들어갔다 → getImageData 가 SecurityError
+ *    · 타일이 한 장도 못 왔다   → 오염될 일이 없다 → 픽셀을 읽을 수 있고, 그 값은 검다
+ *  즉 "읽히는데 검다" 가 곧 "타일이 안 왔다" 다. 타이밍 추정이 아니라 화면 그 자체다.
+ */
+function tilesMissing() {
+  const cv = document.querySelector("#pano canvas");
+  if (!cv || !cv.width) return false;
+  try {
+    const s = 24;
+    const c = document.createElement("canvas");
+    c.width = s; c.height = s;
+    const g = c.getContext("2d");
+    g.drawImage(cv, 0, 0, s, s);
+    const d = g.getImageData(0, 0, s, s).data;   // 오염됐으면 여기서 던진다
+    let sum = 0;
+    for (let i = 0; i < d.length; i += 4) sum += (d[i] + d[i + 1] + d[i + 2]) / 3;
+    return sum / (d.length / 4) < 8;             // 사실상 완전한 검정
+  } catch (e) {
+    return false;                                 // 오염됨 = 타일이 왔다 = 정상
+  }
+}
+
+/** 파노가 올라온 뒤 몇 번 확인한다 — 타일은 조금씩 늦게 도착한다.
+ *
+ *  pano_changed 는 한 파노를 여는 동안에도 여러 번 튈 수 있다. 그래서 "무엇을 보고 있는지"
+ *  를 파노 ID 로 못 박고, **ID 가 실제로 바뀐 경우에만** 상태를 버린다. 예전엔 이벤트마다
+ *  clearFallback() 을 불러서, 서버 토큰 조회(≈10초)가 돌아오는 사이에 그 결과가 지워졌다.
+ */
+function watchTiles() {
+  const id = pano && pano.getPano ? pano.getPano() : "";
+  if (!id) return;
+  if (id === watchedPano) return;          // 같은 파노를 두 번 감시하지 않는다
+  watchedPano = id;
+  gpmsToken = null; gpmsBlocked = false;
+  hideFallback();
+  let n = 0;
+  clearInterval(tileWatch);
+  tileWatch = setInterval(() => {
+    if (watchedPano !== id) { clearInterval(tileWatch); return; }   // 다른 파노로 이동
+    if (++n > 8) { clearInterval(tileWatch); return; }
+    if (!tilesMissing()) return;
+    clearInterval(tileWatch);
+    gpmsBlocked = true;
+    // 토큰은 서버만 알아낼 수 있다 — Maps JS 는 타일을 워커에서 받아 페이지에서 안 보인다.
+    api(`/api/pano-photo?pano=${encodeURIComponent(id)}`)
+      .then((r) => {
+        if (!r || !r.base || watchedPano !== id) return;
+        gpmsToken = r.base;
+        paintFallback();
+      })
+      .catch(() => {});
+  }, 1000);
+}
+
+function scheduleFallback() {
+  clearTimeout(fallbackTimer);
+  fallbackTimer = setTimeout(paintFallback, 200);
+}
+
+
+/** 잡아 둔 토큰으로 현재 시점의 이미지를 받아 파노 위에 덮는다. */
+function paintFallback() {
+  const host = $("#pano");
+  if (!host || !pano || !gpmsToken || !gpmsBlocked) return;
+  let img = $("#pano-fallback");
+  if (!img) {
+    img = document.createElement("img");
+    img.id = "pano-fallback";
+    host.appendChild(img);
+  }
+  const pov = pano.getPov ? pano.getPov() : { heading: 0, pitch: 0 };
+  const w = Math.min(1600, Math.max(640, host.clientWidth || 900));
+  const h = Math.min(1200, Math.max(400, host.clientHeight || 600));
+  const fov = Math.max(20, Math.min(120, 180 / Math.pow(2, pano.getZoom ? pano.getZoom() : 1)));
+  const ya = ((pov.heading || 0) % 360 + 360) % 360;
+  const url = `${gpmsToken}=w${w}-h${h}-k-no-pi${(pov.pitch || 0).toFixed(2)}`
+    + `-ya${ya.toFixed(2)}-ro0-fo${fov.toFixed(1)}`;
+  img.onload = () => { img.classList.add("on"); };
+  img.onerror = () => { img.classList.remove("on"); };
+  img.src = url;
+}
+
+/** 파노 이동 시 우회 이미지를 걷는다 — 다른 장소를 덮어 보이면 절대 안 된다. */
+function clearFallback() {
+  watchedPano = null; gpmsToken = null; gpmsBlocked = false;
+  clearTimeout(fallbackTimer); clearInterval(tileWatch);
+  hideFallback();
+}
+
+function hideFallback() {
+  const img = $("#pano-fallback");
+  if (img) { img.classList.remove("on"); img.removeAttribute("src"); }
 }
 
 function syncFromPano() {

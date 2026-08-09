@@ -17,6 +17,9 @@ from threading import Thread
 
 from .config import Settings
 
+# lh3 의 사용자 기여 이미지 토큰. 타일 URL 이든 photo URL 이든 이 접두는 같다.
+_GPMS_RE = re.compile(r"(https://lh3\.googleusercontent\.com/gpms-cs-s/[A-Za-z0-9_\-]+)")
+
 # 상단=로드뷰, 하단=지도(hybrid) — 분석기가 기대하는 2분할 레이아웃 그대로.
 _HTML = """<!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8">
@@ -186,6 +189,76 @@ function __init(){
 <script async src="https://maps.googleapis.com/maps/api/js?key=__KEY__&v=weekly&callback=__init"></script>
 </body></html>
 """
+
+
+_PHOTO_TOKEN_HTML = """<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#111}#p{width:640px;height:400px}</style></head><body>
+<div id="p"></div><script>
+window.__done=false;
+window.gm_authFailure=function(){ window.__done=true; };
+function __init(){
+  try{
+    var pano=new google.maps.StreetViewPanorama(document.getElementById('p'),
+      {pano:"__PANO__", disableDefaultUI:true, motionTracking:false, zoom:1});
+    pano.setPov({heading:0, pitch:0});
+  }catch(e){}
+  setTimeout(function(){ window.__done=true; }, __WAIT__);
+}
+</script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=__KEY__&v=weekly&callback=__init"></script>
+</body></html>
+"""
+
+
+def photo_token_for(pano: str, settings: Settings, key: str) -> str | None:
+    """제3자 파노의 lh3 이미지 토큰(`…/gpms-cs-s/<토큰>`)을 알아낸다.
+
+    왜 서버가 필요한가 — Maps JS API 는 파노 타일을 **워커에서** 받는다. 그래서 페이지
+    안의 PerformanceObserver 에는 그 요청이 한 건도 잡히지 않는다(실측: perfCount=0).
+    반면 Playwright 는 CDP 로 브라우저 전체의 요청을 보므로 워커 요청도 그대로 보인다.
+
+    타일이 429 로 막혀도 **요청 URL 자체는 나가므로** 토큰은 확보된다. 그리고 같은
+    토큰의 photo 형식(`=w..-h..-k-no-pi..-ya..`)은 그 제한에 걸리지 않는다 —
+    실측: 타일 429 인 바로 그 순간 photo 는 HTTP 200, 1280x800, 밝기 118.9.
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ModuleNotFoundError:
+        return None
+    safe_pano = re.sub(r"[^A-Za-z0-9_.\-]", "", pano or "")
+    if not safe_pano:
+        return None
+    html = (_PHOTO_TOKEN_HTML
+            .replace("__PANO__", safe_pano)
+            .replace("__WAIT__", "5000")
+            .replace("__KEY__", re.sub(r"[^A-Za-z0-9_.\-]", "", key or "")))
+    tmp = settings.captures_dir / f".pt_{uuid.uuid4().hex[:8]}.html"
+    tmp.write_text(html, encoding="utf-8")
+    server = _LocalServer(settings.captures_dir, tmp.name)
+    found: list[str] = []
+    try:
+        server.start()
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
+            page = browser.new_context(viewport={"width": 660, "height": 420},
+                                       ignore_https_errors=True).new_page()
+
+            def _on_req(r):
+                if "gpms-cs-s" in r.url and not found:
+                    m = _GPMS_RE.search(r.url)
+                    if m:
+                        found.append(m.group(1))
+
+            page.on("request", _on_req)
+            page.goto(f"{server.url}/{tmp.name}", wait_until="load", timeout=25000)
+            page.wait_for_function("window.__done===true", timeout=30000)
+            browser.close()
+    except Exception:  # noqa: BLE001
+        return found[0] if found else None
+    finally:
+        server.stop()
+        tmp.unlink(missing_ok=True)
+    return found[0] if found else None
 
 
 def render_locator_maps(lat: float, lng: float, settings: Settings, key: str) -> list[bytes]:
@@ -413,6 +486,18 @@ def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool
                 # 오고 IP 단위 레이트리밋에 걸리면 HTTP 429 로 검은 화면이 된다.
                 # 공식 파노는 streetviewpixels-pa.googleapis.com(키 기반).
                 tiles = {"ok": 0, "err": 0, "codes": {}}
+                # 제3자 파노의 gpms 토큰을 **요청 URL에서** 걷어 둔다.
+                # 응답이 429여도 요청은 나가므로 토큰은 확보된다 — 그 토큰의
+                # photo 형식(=w..-h..-k-no-pi..-ya..)은 타일과 달리 제한을 받지 않는다.
+                gpms: list[str] = []
+
+                def _on_req(r):
+                    if "gpms-cs-s" in r.url and not gpms:
+                        m = _GPMS_RE.search(r.url)
+                        if m:
+                            gpms.append(m.group(1))
+
+                page.on("request", _on_req)
 
                 def _on_resp(r):
                     host = r.url.split("/")[2] if "//" in r.url else ""
@@ -474,6 +559,18 @@ def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool
     if dark is not None and dark < 8.0:
         out.unlink(missing_ok=True)
         throttled = tiles["codes"].get(429, 0)
+        # 타일이 막혔어도 토큰을 잡았다면 photo 형식으로 되살릴 수 있다.
+        # (실측: 타일 429 인 순간에도 같은 토큰의 =w..-h..-pi..-ya.. 는 HTTP 200)
+        if gpms:
+            return {
+                "status": "USE_PHOTO_URL",
+                "photo_base": gpms[0],
+                "message": "타일이 제한돼 직접 이미지 경로로 전환합니다.",
+                "tiles": tiles,
+                "rendered_pano_id": info.get("pano") or None,
+                "copyright": info.get("copyright") or None,
+                "lat": info.get("lat"), "lng": info.get("lng"),
+            }
         return {
             "status": "TILES_RATE_LIMITED" if throttled else "BLACK_RENDER",
             "message": (
