@@ -486,8 +486,13 @@ function initSplit(pose, tabId) {
       center, zoom: p ? 14 : 2, mapTypeId: "hybrid", streetViewControl: true,
       fullscreenControl: false,
     });
+    // 파노 ID 를 이미 아는데도 생성자에 position 을 넘기면 **암묵적인 위치 조회가 하나 더**
+    // 돌고, 곧이어 부르는 setPano() 와 경쟁한다. 늦게 도착한 쪽이 이기면 화면이 어긋난다
+    // (사용자 신고: 첫 추출은 검은데 로드뷰맨을 옮겼다 되돌리면 뜬다 — 그 수동 동작이
+    //  경쟁 없는 단일 로드를 강제한 것이다). 그래서 ID 가 있으면 position 을 주지 않는다.
     pano = new google.maps.StreetViewPanorama($("#pano"), {
-      position: center, pov: { heading: pose.heading || 0, pitch: pose.pitch || 0 },
+      ...(pose.pano ? {} : { position: center }),
+      pov: { heading: pose.heading || 0, pitch: pose.pitch || 0 },
       zoom: 1, motionTracking: false, linksControl: true, addressControl: true,
       fullscreenControl: false,
     });
@@ -509,7 +514,13 @@ function initSplit(pose, tabId) {
   clearFallback();
   if (pose.pano) {
     armWhenLoaded(myToken, pose.pano, tabId);
-    pano.setPano(pose.pano);
+    // **먼저 해석되는 파노인지 확인하고 나서** 넘긴다.
+    // CIHM…/일부 사진구체는 Maps JS API 가 아예 모른다(실측: ID·좌표 조회 모두 ZERO_RESULTS).
+    // 그런 ID 를 setPano() 에 넣으면 조용히 아무 일도 일어나지 않고, 뷰어는 **직전 탭의 장면을
+    // 그대로 들고 있는다** — 사용자에게는 "먹통" 또는 "엉뚱한 파노"로 보인다.
+    svc.getPanorama({ pano: pose.pano })
+      .then(() => { if (myToken === loadToken) pano.setPano(pose.pano); })
+      .catch(() => { if (myToken === loadToken) panoUnavailable(pose, myToken, tabId); });
   } else if (p) {
     const req = {
       location: p, radius: (CONFIG.defaults && CONFIG.defaults.radius) || 50,
@@ -566,6 +577,17 @@ function armWhenLoaded(myToken, wantPano, tabId) {
 function reportViewerState(p, tab) {
   const el = $("#viewer-state");
   if (!el || !p) return;
+  // 링크의 원본 이미지를 띄운 상태면 **그 사실을 말한다**. 밑에 깔린 파노는 다른 장면이므로
+  // 그걸 "표시 중"으로 보여 주면 정확히 반대되는 정보를 주게 된다(사용자 혼동의 원인이었다).
+  if (photoPinned && pinnedPose) {
+    el.innerHTML =
+      `<span class="vs-k">표시 중</span><code>${esc(short(pinnedPose.pano || ""))}</code>`
+      + `<span class="vs-cp third">사진구체 · 링크 원본 이미지</span>`
+      + `<span class="vs-note">이 파노는 지도 SDK 가 제공하지 않아 링크에 담긴 원본 이미지를 그대로 띄웁니다.`
+      + ` 좌표·시점은 링크 값을 씁니다 — 캡처도 같은 이미지를 사용합니다.</span>`;
+    el.hidden = false;
+    return;
+  }
   let loc = null;
   try { loc = p.getLocation(); } catch (e) {}
   const shown = p.getPano ? p.getPano() : "";
@@ -614,6 +636,8 @@ let gpmsBlocked = false;                     // 그 토큰의 타일이 실제�
 let fallbackTimer = null;
 let tileWatch = null;
 let watchedPano = null;
+let photoPinned = false;
+let pinnedPose = null;   // 링크가 준 원본 이미지를 띄운 상태 — 타일 감시가 걷어내면 안 된다
 
 /** 저작권은 getPanorama() 로만 얻을 수 있다. 파노당 한 번만 묻고 캐시한다. */
 function fetchCopyright(panoId, tab) {
@@ -664,10 +688,34 @@ function tilesMissing() {
 function watchTiles() {
   const id = pano && pano.getPano ? pano.getPano() : "";
   if (!id) return;
+  if (photoPinned) return;                 // 링크 원본 이미지를 띄운 상태 — 건드리지 않는다
   if (id === watchedPano) return;          // 같은 파노를 두 번 감시하지 않는다
   watchedPano = id;
   gpmsToken = null; gpmsBlocked = false;
   hideFallback();
+
+  // **공식 파노는 감시하지 않는다.** WebGL 은 preserveDrawingBuffer 가 기본 false 라,
+  // 실제 GPU 브라우저에서 캔버스를 뒤늦게 읽으면 화면과 무관하게 늘 검게 나온다
+  // (실측: 헤드리스는 mean 117, 같은 화면이 헤디드에선 mean 0 — 합성 스크린샷은 126.4).
+  // 그래서 '읽히는데 검다' 판정은 CORS 가 열려 있는 공식 타일에서 항상 참이 돼 버린다.
+  // 제3자 타일은 CORS 가 없어 캔버스를 오염시키므로 그 경우엔 판정이 성립한다.
+  if (!(id in panoCopyright)) fetchCopyright(id, tabById(syncTabId));
+  const cp = panoCopyright[id];
+  if (cp === undefined) { setTimeout(() => { if (watchedPano === id) recheck(id); }, 900); return; }
+  if (!cp || cp.indexOf("Google") !== -1) return;   // 공식 — 감시 불필요
+
+  startTileWatch(id);
+}
+
+/** 저작권 응답이 늦게 오는 경우를 위한 재확인. */
+function recheck(id) {
+  if (photoPinned || watchedPano !== id) return;
+  const cp = panoCopyright[id];
+  if (!cp || cp.indexOf("Google") !== -1) return;
+  startTileWatch(id);
+}
+
+function startTileWatch(id) {
   let n = 0;
   clearInterval(tileWatch);
   tileWatch = setInterval(() => {
@@ -692,6 +740,49 @@ function scheduleFallback() {
   fallbackTimer = setTimeout(paintFallback, 200);
 }
 
+/** Maps JS API 가 이 파노를 모를 때. 조용히 실패하지 않고 **가진 것으로 최선**을 한다.
+ *
+ *  ① 링크에 `!6s` 직접 이미지가 있으면 그것을 그대로 띄운다. 사진구체(CIHM…)는 JS API 가
+ *     서비스하지 않지만 그 이미지는 받아진다 — 구글 지도 본체가 쓰는 바로 그 주소다.
+ *  ② 없으면 좌표로 최근접을 찾되, **다른 장소로 대체됐음을 반드시 알린다**.
+ *  ③ 둘 다 안 되면 명확히 말한다. 직전 탭 화면을 그대로 두고 침묵하는 것이 최악이다.
+ */
+function panoUnavailable(pose, myToken, tabId) {
+  const note = (msg, kind) => setStatus(msg, kind || "err", 8000);
+  if (pose.photo_url) {
+    photoPinned = true; pinnedPose = pose;
+    gpmsToken = String(pose.photo_url).replace(/=w\d+-h\d+.*$/, "");
+    gpmsBlocked = true;
+    watchedPano = pose.pano;
+    paintFallback();
+    reportViewerState(pano, tabById(tabId));
+    note("이 파노는 지도 SDK 가 제공하지 않는 사진구체입니다 — 링크의 원본 이미지로 표시합니다", "ok");
+    return;
+  }
+  if (pose.lat == null || pose.lng == null) {
+    note("이 파노는 지도 SDK 로 열 수 없고, 좌표도 없어 대체할 수 없습니다");
+    return;
+  }
+  svc.getPanorama({
+    location: { lat: Number(pose.lat), lng: Number(pose.lng) },
+    radius: (CONFIG.defaults && CONFIG.defaults.radius) || 50,
+    preference: google.maps.StreetViewPreference.NEAREST,
+    sources: [google.maps.StreetViewSource.OUTDOOR],
+  })
+    .then(({ data }) => {
+      if (myToken !== loadToken) return;
+      // 링크가 가리킨 파노가 아니다 — 동기화는 켜지 않는다(캡처가 엉뚱한 곳을 찍지 않도록).
+      syncArmed = false; syncTabId = null;
+      pano.setPano(data.location.pano);
+      note("링크의 파노를 열 수 없어 **근처 다른 파노**로 대체했습니다 — 같은 장소가 아닐 수 있습니다");
+    })
+    .catch(() => {
+      if (myToken !== loadToken) return;
+      syncArmed = false; syncTabId = null;
+      note("이 위치엔 지도 SDK 가 제공하는 스트리트뷰가 없습니다");
+    });
+}
+
 
 /** 잡아 둔 토큰으로 현재 시점의 이미지를 받아 파노 위에 덮는다. */
 function paintFallback() {
@@ -703,10 +794,16 @@ function paintFallback() {
     img.id = "pano-fallback";
     host.appendChild(img);
   }
-  const pov = pano.getPov ? pano.getPov() : { heading: 0, pitch: 0 };
+  // pin 된 상태에서는 밑의 파노가 **다른 장면**을 들고 있으므로 그 시점을 쓰면 안 된다.
+  // 링크가 알려 준 시점이 진짜다.
+  const pov = (photoPinned && pinnedPose)
+    ? { heading: pinnedPose.heading || 0, pitch: pinnedPose.pitch || 0 }
+    : (pano.getPov ? pano.getPov() : { heading: 0, pitch: 0 });
   const w = Math.min(1600, Math.max(640, host.clientWidth || 900));
   const h = Math.min(1200, Math.max(400, host.clientHeight || 600));
-  const fov = Math.max(20, Math.min(120, 180 / Math.pow(2, pano.getZoom ? pano.getZoom() : 1)));
+  const fov = (photoPinned && pinnedPose && pinnedPose.fov)
+    ? Math.max(20, Math.min(120, Number(pinnedPose.fov)))
+    : Math.max(20, Math.min(120, 180 / Math.pow(2, pano.getZoom ? pano.getZoom() : 1)));
   const ya = ((pov.heading || 0) % 360 + 360) % 360;
   const url = `${gpmsToken}=w${w}-h${h}-k-no-pi${(pov.pitch || 0).toFixed(2)}`
     + `-ya${ya.toFixed(2)}-ro0-fo${fov.toFixed(1)}`;
@@ -717,7 +814,7 @@ function paintFallback() {
 
 /** 파노 이동 시 우회 이미지를 걷는다 — 다른 장소를 덮어 보이면 절대 안 된다. */
 function clearFallback() {
-  watchedPano = null; gpmsToken = null; gpmsBlocked = false;
+  watchedPano = null; gpmsToken = null; gpmsBlocked = false; photoPinned = false; pinnedPose = null;
   clearTimeout(fallbackTimer); clearInterval(tileWatch);
   hideFallback();
 }

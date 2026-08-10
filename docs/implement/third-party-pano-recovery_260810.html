@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관측할 수 없는 것을 관측하기 — 제3자 파노 복구 구현 기록 (260810)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.75;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:2px;font-size:12.5px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 9px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:54px 0 32px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.24;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:80ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:44px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:25px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:24px;max-width:76ch}
+h3.sub{font-size:17px;font-weight:750;letter-spacing:-.02em;margin:30px 0 10px}
+h4.ss{font-size:14.5px;font-weight:750;margin:20px 0 6px;color:var(--accent-deep)}
+p+p{margin-top:10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:15.5px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.65;margin-top:10px}
+pre .c{color:#7f978f} pre .k{color:#7fd6b6} pre .s{color:#e5c07b} pre .r{color:#ff9a8f} pre .g{color:#8fe0a8} pre .y{color:#ffd479}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.foot{padding:36px 0 64px;color:var(--muted);font-size:13px}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{position:relative;padding:13px 0 13px 44px;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--ink-2)}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:12px;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent-deep);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:23px;position:relative;margin:8px 0;font-size:14.5px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.next li::before{content:"→";color:var(--accent)}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+/* 원칙 카드 */
+.prin{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-left:4px solid var(--accent);border-radius:12px;padding:17px 19px;margin-top:12px;box-shadow:var(--shadow)}
+.prin .pn{flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;
+  font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.prin .pb h4{font-size:15.5px;font-weight:800;margin-bottom:4px;letter-spacing:-.02em}
+.prin .pb p{font-size:14px;color:var(--ink-2)}
+.prin.bad{border-left-color:var(--danger)} .prin.bad .pn{background:var(--danger)}
+/* 사례 타임라인 */
+.case{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow);
+  overflow:hidden;margin-top:18px}
+.case>.ch{padding:14px 18px;background:linear-gradient(135deg,var(--accent-soft),#fff);
+  border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.case>.ch .cn{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep)}
+.case>.ch h3{font-size:17px;font-weight:800;letter-spacing:-.02em;flex:1;min-width:200px}
+.case>.cb{padding:18px}
+.mv{display:grid;grid-template-columns:80px 1fr;gap:0 14px;font-size:14px}
+.mv .mk{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted);padding-top:4px;text-align:right}
+.mv .mb{padding:2px 0 12px;color:var(--ink-2);border-left:2px solid var(--line);padding-left:14px;margin-left:-8px}
+.mv .mk.q{color:var(--accent-deep)} .mv .mb.q{border-left-color:var(--accent)}
+.mv .mk.x{color:var(--danger)} .mv .mb.x{border-left-color:var(--danger);background:#fffaf9}
+.mv .mb:last-child{padding-bottom:0}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;
+  background:var(--accent-soft);color:var(--accent-deep);margin-left:6px}
+.tag.bad{background:var(--danger-soft);color:var(--danger)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>GeoGuessHelper · 구현 기록</div>
+  <nav class="topnav">
+    <a href="#s0">범위</a><a href="#s1">출발점</a><a href="#s2">막다른 길</a>
+    <a href="#s3">전환점</a><a href="#s4">열쇠</a><a href="#s6">관측</a>
+    <a href="#s7">삼켜진 실패</a><a href="#s9">재현 장치</a><a href="#s105">후속 신고</a><a href="#s11">실측</a><a href="#s12">방법론</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">구현 기록 · 제3자 파노 복구 · 2026-08-10 · v0.2.4</div>
+  <h1>관측할 수 없는 것을 관측하기</h1>
+  <p>검은 로드뷰를 <b>실제로 되살린</b> 과정의 기록이다. 앞 문서가 <i>진단</i>에서 끝났다면
+  이 문서는 <i>해결</i>에서 시작한다. 막다른 길 하나, 전환점 하나, 열쇠 하나, 그리고
+  <b>조용히 삼켜진 실패 다섯 개</b>, 그리고 <b>같은 증상의 다른 원인</b>이 나온다. 결론보다 <b>왜 그 시도를 했는지</b>에 지면을 더 썼다.</p>
+  <div class="meta">
+    <span class="chip ac">전부 실측 · 숫자는 실행 결과 그대로</span>
+    <span class="chip">부정 결과도 기록</span>
+    <span class="chip">계측 오류 3회 · 전부 같은 종류</span>
+  </div>
+</div></header>
+
+<div class="wrap">
+
+<!-- ═══════════════ 0 ═══════════════ -->
+<section class="section" id="s0">
+  <div class="eyebrow">Scope</div>
+  <h2 class="sec">이 문서의 위치</h2>
+  <p class="sec-desc">앞 문서와 겹치지 않게 경계를 먼저 긋는다.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3><span class="ic">📄</span> methodology_260810.html <span class="small">앞 문서</span></h3>
+      <p><b>진단.</b> 저작권 문자열로 제3자 파노를 식별한 것, 타일 요청이 &ldquo;0건&rdquo;이라는
+      잘못된 측정, 워크플로의 반박, 필터를 벗기고 재측정해 <code>HTTP 429</code> 를 찾아낸 것까지.</p>
+      <p class="small">그 문서는 <b>원인을 알아낸 지점</b>에서 끝난다. 해결책은 두 개의 반쪽뿐이었다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🔧</span> 이 문서 <span class="small">해결</span></h3>
+      <p><b>구현.</b> 원인을 알고도 남아 있던 문제 &mdash; <b>뷰어에서 임의의 제3자 파노를 어떻게 보이게 하는가</b>.
+      막다른 길, 전환점, 열쇠, 그리고 그것을 붙이는 과정에서 나온 버그들.</p>
+      <p class="small">앞 문서의 사례가 &ldquo;내가 어떻게 틀렸나&rdquo;라면, 이 문서는 &ldquo;틀린 뒤 어떻게 나아갔나&rdquo;다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 1 ═══════════════ -->
+<section class="section" id="s1">
+  <div class="eyebrow">Step 1</div>
+  <h2 class="sec">출발점 — 진단은 해결이 아니다</h2>
+  <p class="sec-desc">원인을 알아낸 시점의 재고를 정직하게 세어 본다.</p>
+  <p>알아낸 것은 분명했다. 파노 타일의 출처가 두 갈래이고, 제3자 파노 쪽만 제한을 받는다.</p>
+  <table>
+  <thead><tr><th>구분</th><th>호스트</th><th>키</th><th>제한</th></tr></thead>
+  <tbody>
+    <tr><td>구글 공식 파노</td><td><code>streetviewpixels-pa.googleapis.com</code></td><td>API 키 기반</td><td>없음 (HTTP 200)</td></tr>
+    <tr><td>사용자 기여 파노</td><td><code>lh3.googleusercontent.com/gpms-cs-s/&lt;토큰&gt;</code></td><td><b>없음</b></td><td><b>IP 단위 &rarr; HTTP 429</b></td></tr>
+  </tbody></table>
+  <p>그런데 손에 있는 해결책은 둘 다 반쪽이었다.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3><span class="ic">🧩</span> <code>!6s</code> 이미지 URL</h3>
+      <p>구글이 <b>공유 링크 안에 직접 이미지 URL 을 넣어 준다</b>. 이건 받아진다.
+      <span class="tag">동작함</span></p>
+      <p><b>한계:</b> 링크에 <code>!6s</code> 가 있을 때만이다. 사용자가 뷰어 안에서
+      화살표로 이동해 다른 제3자 파노에 도착하면 그런 URL 이 없다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🚫</span> 공식 파노로 대체</h3>
+      <p>검게 나오면 근처 공식 파노로 갈아탄다. <span class="tag bad">기각</span></p>
+      <p><b>왜 기각했나:</b> 화면은 나오지만 <b>요청한 곳이 아닌 다른 장소를 조용히 분석</b>하게 된다.
+      지오게서 복기 도구에서 이건 오답을 정답처럼 만드는 일이다.
+      검은 화면은 불편이지만, 이건 <b>거짓말</b>이다.</p>
+    </div>
+  </div>
+  <div class="callout"><b>남은 문제를 한 문장으로.</b> 공유 링크가 알려 주지 않은 파노의
+  <b>이미지 주소를 어디서 얻는가.</b> 이후 모든 시도는 이 한 문장을 공략한 것이다.</div>
+</section>
+
+<!-- ═══════════════ 2 ═══════════════ -->
+<section class="section" id="s2">
+  <div class="eyebrow">Step 2</div>
+  <h2 class="sec">막다른 길 — <code>getTileUrl</code></h2>
+  <p class="sec-desc">부정 결과도 결과다. 기록하지 않으면 다음에 또 시도한다.</p>
+
+  <div class="case">
+    <div class="ch"><span class="cn">가설</span><h3>타일 URL 을 API 가 직접 알려 줄지도 모른다</h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">착상</div><div class="mb">
+          <code>StreetViewPanoramaData.tiles</code> 안에 <code>getTileUrl(x, y, zoom)</code> 이 있다면,
+          아무 파노에 대해서나 <code>gpms-cs-s</code> 기저 URL 을 만들어 낼 수 있다.
+          그러면 <code>!6s</code> 트릭이 <b>모든 파노로 일반화</b>된다.</div>
+        <div class="mk q">왜 이걸 먼저 했나</div><div class="mb q">
+          성공하면 <b>순수 클라이언트 해법</b>이 되기 때문이다. 서버 왕복도, 헤드리스 브라우저도 필요 없다.
+          가장 싼 해법부터 확인하는 것이 순서다.</div>
+        <div class="mk">측정</div><div class="mb">
+          추측하지 않고 <b>객체의 키를 그대로 나열</b>했다. 문서를 읽고 &ldquo;있을 것이다&rdquo;라고
+          가정하면 또 한 겹의 추측이 쌓인다.</div>
+      </div>
+<pre>제3자 Dragan (랭스)  [CAoSF0NJSE0wb2dLRUlDQWdJRG]
+    저작권    : © Dragan CVIJETIC
+    tiles     : ['centerHeading', 'originHeading', 'originPitch', 'tileSize', 'worldSize']
+    tileUrl   : None
+    토큰 발견 : None
+제3자 크로아티아  [CIHM0ogKEICAgIDaqcr9Gw]
+    실패: ZERO_RESULTS            ← 파노 ID 로 직접 조회가 안 된다 (좌표로만 해석됨)
+공식 (랭스)  [WbUM_L_-Q2kmR0Tc_GJJVg]
+    tileUrl   : None</pre>
+      <div class="mv">
+        <div class="mk">결과</div><div class="mb"><b>없다.</b> <code>getTileUrl</code> 자체가 존재하지 않고,
+          응답 어디에도 토큰 문자열이 없다. 덤으로 알아낸 것: 일부 제3자 파노는
+          <b>ID 로 직접 조회조차 안 된다</b>(<code>ZERO_RESULTS</code>).</div>
+        <div class="mk">이 실패가 규정한 것</div><div class="mb">
+          &ldquo;클라이언트가 토큰을 <b>합성</b>할 수는 없다&rdquo;가 확정됐다. 그러면 남는 길은 하나다 &mdash;
+          <b>합성하지 말고 관측하라.</b> 탐색 범위가 &lsquo;계산&rsquo;에서 &lsquo;관측&rsquo;으로 옮겨갔다.</div>
+      </div>
+    </div>
+  </div>
+  <div class="callout"><b>부정 결과를 남기는 이유.</b> &ldquo;해 봤는데 안 됐다&rdquo;는 다음 사람의 시간을 아낀다.
+  더 중요한 건 <b>실패가 다음 가설의 형태를 정해 준다</b>는 점이다. 합성이 막혔으니 관측으로 간다 &mdash;
+  이 전환이 없었으면 4절의 열쇠에 도달하지 못했다.</div>
+</section>
+
+<!-- ═══════════════ 3 ═══════════════ -->
+<section class="section" id="s3">
+  <div class="eyebrow">Step 3</div>
+  <h2 class="sec">전환점 — &ldquo;직접 눈으로 확인하면 안 되는가&rdquo;</h2>
+  <p class="sec-desc">사용자의 한 문장이 검증 층위를 바꿨다.</p>
+  <p>그때까지 나는 <b>부품</b>을 시험하고 있었다. 파노 하나를 따로 렌더하고, URL 하나를 따로 받아 보고,
+  객체 하나를 따로 들여다봤다. 사용자는 <b>물건 자체</b>를 보라고 했다.</p>
+  <div class="callout"><b>왜 이게 중요한가.</b> 부품 시험은 &ldquo;타일 200 이 왔다&rdquo; 같은 <b>대리 지표</b>를 준다.
+  그런데 사용자가 겪는 것은 지표가 아니라 <b>화면</b>이다. 200 이 와도 화면이 검을 수 있고,
+  429 가 나도 화면이 멀쩡할 수 있다(뒤에 둘 다 실제로 나온다).
+  <b>검증은 사용자가 겪는 층에서 해야 한다.</b></div>
+  <p>그래서 첫 행동을 바꿨다. 이론을 더 세우는 대신, <b>앱의 캡처 경로를 지금 그대로 돌렸다</b>.</p>
+<pre>제3자 Dragan CVIJETIC (랭스)
+    status : TILES_RATE_LIMITED
+    타일   : {'ok': 0, 'err': 1, 'codes': {429: 1}}
+제3자 Henry Gonzalez (에펠)
+    status : TILES_RATE_LIMITED
+    타일   : {'ok': 0, 'err': 1, 'codes': {429: 1}}</pre>
+  <p>제한이 <b>지금 이 순간 걸려 있다</b>는 것이 확인됐다. 그런데 몇 분 전,
+  같은 IP 에서 같은 호스트로 <code>photo_url</code> 경로는 <b>정상 JPEG</b> 를 받아냈었다.
+  이 두 사실이 충돌한다. 충돌은 언제나 좋은 신호다 &mdash; <b>내 모델이 너무 거칠다는 뜻</b>이다.</p>
+</section>
+
+<!-- ═══════════════ 4 ═══════════════ -->
+<section class="section" id="s4">
+  <div class="eyebrow">Step 4 · 핵심</div>
+  <h2 class="sec">열쇠 — 거절은 요청을 지우지 않는다</h2>
+  <p class="sec-desc">두 개의 관찰이 부딪혀 하나의 가설이 됐다.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3><span class="ic">①</span> 제한은 호스트 단위가 아니다</h3>
+      <p>같은 <code>lh3</code> 호스트인데 타일은 429, photo 는 200.
+      그렇다면 제한의 단위는 호스트가 아니라 <b>표현(형식)</b>이다.
+      엔드포인트를 하나의 덩어리로 보면 안 된다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">②</span> 429 는 응답의 성질이다</h3>
+      <p>거절당했다는 것은 <b>요청이 이미 나갔다</b>는 뜻이다. 그리고 그 요청 URL 에는
+      토큰이 <b>온전히</b> 들어 있다. 실패한 시도가 남긴 잔해에도 정보가 있다.</p>
+    </div>
+  </div>
+
+  <div class="callout ok"><b>가설.</b> 막힌 요청에서 <b>토큰을 줍고</b>,
+  제한받지 않는 형식으로 <b>다시 요청</b>한다. 이건 우회가 아니라
+  <b>같은 자원의 다른 표현</b>을 쓰는 것이다.</div>
+
+  <h3>실험을 어떻게 설계했나</h3>
+  <ol class="steps">
+    <li><b>반드시 429 가 나는 상태에서 잡는다.</b> 정상일 때 잡으면
+      &ldquo;타일이 되니까 photo 도 된다&rdquo;는 동어반복이 된다. 실패 조건에서만 의미가 있다.</li>
+    <li><b>응답이 아니라 요청 단계에서 URL 을 수집한다.</b> 응답 훅은 성공한 것만 주는 함정이 있다
+      (앞 문서에서 이미 한 번 당했다). 요청은 성패와 무관하게 관측된다.</li>
+    <li><b>받은 바이트를 눈으로 본다.</b> 밝기 숫자는 &ldquo;검지 않다&rdquo;는 뜻일 뿐
+      &ldquo;맞는 장면&rdquo;이라는 뜻이 아니다.</li>
+  </ol>
+<pre># 요청 단계에서 URL 을 본다 — 응답이 429여도 URL 은 남는다
+pg.on("request",  lambda r: seen.append(r.url) if "gpms-cs-s" in r.url else None)
+pg.on("response", lambda r: codes.__setitem__(r.status, codes.get(r.status, 0) + 1)
+                            if "gpms-cs-s" in r.url else None)</pre>
+
+  <h3>결과</h3>
+<pre>제3자 Dragan (랭스)
+    gpms 요청 1건 · 응답코드 {429: 1}
+    토큰 base : https://lh3.googleusercontent.com/gpms-cs-s/AFP8RcNvXii1Ftgdhrh5ORxWmNpz3cu-25…
+    photo 형식: 218,670B  1280x800  밝기 118.9  ← 복구!
+제3자 Henry (에펠)
+    gpms 요청 1건 · 응답코드 {429: 1}
+    photo 형식: 145,370B  1280x800  밝기 122.7  ← 복구!</pre>
+  <p>그리고 <b>이미지를 열어 봤다</b> &mdash; 랭스 대성당과 팔레 뒤 토(Palais du Tau)가
+  선명하게 나왔다. 검은 화면이던 바로 그 파노다. 이 확인 없이 밝기 118.9 만 보고 넘어갔다면,
+  &ldquo;검지 않은 다른 장면&rdquo;을 성공으로 착각할 여지가 남는다.</p>
+
+  <h3>URL 문법</h3>
+<pre>&lt;토큰&gt;=x0-y0-z2-...                                  ← 타일 형식   HTTP <b>429</b>
+&lt;토큰&gt;=w&lt;너비&gt;-h&lt;높이&gt;-k-no-pi&lt;pitch&gt;-ya&lt;heading&gt;-ro&lt;roll&gt;-fo&lt;fov&gt;   ← photo 형식  HTTP <b>200</b></pre>
+  <p class="small">접미사가 시점까지 지정한다. <code>ya</code> 를 180도 돌리면 실제로 반대편이 나온다 &mdash;
+  이것도 추측이 아니라 돌려 보고 확인했다. 덕분에 &lsquo;정지 이미지&rsquo;가 아니라
+  <b>현재 시점을 따라가는 이미지</b>로 쓸 수 있게 됐다.</p>
+</section>
+
+<!-- ═══════════════ 5 ═══════════════ -->
+<section class="section" id="s5">
+  <div class="eyebrow">Step 5</div>
+  <h2 class="sec">서버 캡처 경로에 붙이기</h2>
+  <p class="sec-desc">가장 쉬운 쪽부터 &mdash; 이미 헤드리스 브라우저를 쓰고 있는 경로.</p>
+  <p>캡처는 원래 Playwright 로 렌더한다. 렌더 중에 토큰을 주워 두고, <b>결과가 검게 끝났을 때만</b>
+  photo 경로로 전환하면 된다. 정상일 때는 아무것도 바꾸지 않는다.</p>
+<pre># render_google.py — 렌더 중 토큰 수집
+gpms: list[str] = []
+def _on_req(r):
+    if "gpms-cs-s" in r.url and not gpms:
+        m = _GPMS_RE.search(r.url)
+        if m: gpms.append(m.group(1))
+page.on("request", _on_req)
+
+# ... 렌더 후, 상단이 사실상 검다면
+if gpms:
+    return {"status": "USE_PHOTO_URL", "photo_base": gpms[0], ...}</pre>
+<pre># capture.py — 그 상태를 받아 전환
+if res.get("status") == "USE_PHOTO_URL" and res.get("photo_base"):
+    p2 = dict(pose); p2["photo_url"] = res["photo_base"]
+    ph = await capture_photo_url(p2, settings)
+    if ph.get("status") == "OK":
+        ph["recovered_from"] = "tiles_rate_limited"
+        return ph</pre>
+  <div class="callout ok"><b>왜 이게 공식 파노 대체보다 나은가.</b> 대체는 <i>다른 장소</i>를 준다.
+  이 경로는 <b>요청한 바로 그 파노의, 요청한 바로 그 시점</b>을 준다. 같은 자원이므로
+  의미가 하나도 바뀌지 않는다. 그래서 <code>substituted</code> 같은 경고 표시가 필요 없다.</div>
+</section>
+
+<!-- ═══════════════ 6 ═══════════════ -->
+<section class="section" id="s6">
+  <div class="eyebrow">Step 6 · 가장 어려웠던 부분</div>
+  <h2 class="sec">라이브 뷰어 — 관측할 수 없는 것을 관측하기</h2>
+  <p class="sec-desc">서버는 CDP 로 다 본다. 그런데 사용자의 브라우저는 그럴 수 없다.</p>
+
+  <h3>6.1 첫 시도: <code>PerformanceObserver</code> &mdash; 실패</h3>
+  <p>계획은 단순했다. 페이지 안에서 <code>gpms-cs-s</code> 리소스 엔트리를 관찰하면
+  <b>실패 여부와 토큰을 한 번에</b> 얻는다. 서버 왕복이 필요 없다.</p>
+<pre>타일 응답 1건 [429]   ← Playwright(CDP) 에서는 보인다
+perfCount : 0         ← 페이지 안에서는 <b>한 건도 안 보인다</b>
+statuses  : []</pre>
+  <div class="callout warn"><b>원인.</b> Maps JS API 는 파노 타일을 <b>워커에서</b> 받는다.
+  워커의 resource 엔트리는 그 워커의 타임라인에 쌓이고 문서 타임라인에는 오지 않는다.
+  <b>이건 내 코드의 버그가 아니라 관측 지점의 한계다.</b></div>
+  <p>이 실패가 문제를 <b>둘로 쪼개 줬다</b>. 예전에는 한 방에 풀려던 것이 사실은 두 개였다.</p>
+  <div class="grid g2">
+    <div class="card"><h3><span class="ic">A</span> 실패를 아는 것</h3>
+      <p>타일이 안 왔다는 것을 페이지가 스스로 알아야 한다.</p></div>
+    <div class="card"><h3><span class="ic">B</span> 토큰을 아는 것</h3>
+      <p>그 파노의 <code>gpms-cs-s</code> 주소를 얻어야 한다.</p></div>
+  </div>
+  <p class="small">둘을 분리하고 나니 각각 다른 해법이 보였다. 하나로 묶여 있는 동안에는
+  &ldquo;페이지에서 요청을 볼 수 없다&rdquo;가 <b>양쪽 모두의 사형선고</b>처럼 보였다.</p>
+
+  <h3>6.2 A 의 해법: 캔버스 오염을 <b>센서</b>로 쓴다</h3>
+  <p>요청을 볼 수 없으면 <b>결과</b>를 봐야 한다. 그런데 화면은 WebGL 캔버스이고,
+  교차출처 타일 때문에 오염(tainted)되어 읽을 수 없다 &mdash; 라고 알고 있었다.
+  실제로 캡처 모듈 주석에 그렇게 적혀 있다:</p>
+<pre># 브라우저 캔버스는 WebGL + 교차출처 타일로 tainted 되어 toDataURL 이 SecurityError 를 던진다.</pre>
+  <div class="callout ok"><b>반전.</b> 타일이 <b>한 장도 안 왔다면 오염될 일도 없다</b>.
+  그러면 <b>읽을 수 있다는 사실 자체가 신호</b>가 된다. 장애물을 센서로 뒤집어 쓴 것이다.
+  <br><br>
+  · 읽힌다 + 검다 &nbsp;&rarr;&nbsp; 타일이 안 왔다<br>
+  · <code>SecurityError</code> 를 던진다 &nbsp;&rarr;&nbsp; 타일이 왔다 = 정상</div>
+<pre>function tilesMissing() {
+  const cv = document.querySelector("#pano canvas");
+  if (!cv || !cv.width) return false;
+  try {
+    const s = 24, c = document.createElement("canvas");
+    c.width = s; c.height = s;
+    const g = c.getContext("2d");
+    g.drawImage(cv, 0, 0, s, s);
+    const d = g.getImageData(0, 0, s, s).data;   // 오염됐으면 여기서 던진다
+    let sum = 0;
+    for (let i = 0; i &lt; d.length; i += 4) sum += (d[i] + d[i+1] + d[i+2]) / 3;
+    return sum / (d.length / 4) &lt; 8;             // 사실상 완전한 검정
+  } catch (e) {
+    return false;                                 // 오염됨 = 타일이 왔다 = 정상
+  }
+}</pre>
+  <p><b>왜 타이밍 규칙보다 나은가.</b> &ldquo;3초 기다렸는데 안 오면 실패&rdquo; 같은 규칙은
+  느린 회선에서 오탐한다. 캔버스는 추정이 아니라 <b>화면 그 자체</b>다. 사용자가 보고 있는 것과
+  판정 근거가 정확히 같다.</p>
+  <p>실측으로 확인:</p>
+<pre>hostFound=True canvasCount=3
+    1056x450 cls='mapsImagerySceneScen'  read=ok mean=0.0
+    300x150  cls='mapsImagerySceneScen'  read=ok mean=0.0
+    300x150  cls='mapsImagerySceneScen'  read=ok mean=0.0
+console error: Failed to load resource: the server responded with a status of 429</pre>
+  <p class="small">읽히고(<code>read=ok</code>), 검다(<code>mean=0.0</code>). 판정 조건이 그대로 성립한다.</p>
+
+  <h3>6.3 B 의 해법: 토큰은 서버만 안다</h3>
+  <p>같은 이유로 토큰도 페이지에서는 못 얻는다. 그런데 <b>Playwright 는 CDP 로 브라우저 전체의
+  요청을 보므로 워커 요청도 그대로 보인다</b>. 그래서 서버에 조회 창구를 냈다.</p>
+<pre>GET /api/pano-photo?pano=&lt;파노 ID&gt;   →   {"base": "https://lh3.../gpms-cs-s/AFP8Rc…"}</pre>
+  <div class="callout"><b>4절의 관찰이 여기서 다시 쓰인다.</b> 이 조회는 <b>429 를 받아도 무방하다</b> &mdash;
+  필요한 건 URL 이지 응답이 아니다. 그래서 &ldquo;제한이 걸린 상태&rdquo;에서도 항상 성공한다.
+  하나의 통찰이 서버·클라이언트 양쪽에서 각각 한 번씩 값을 했다.</div>
+  <p>브라우저 기동이 비싸므로 <b>파노당 한 번만</b> 조회하고 캐시한다.
+  실측 <b>콜드 9.4초 / 캐시 히트 0.13초</b>.</p>
+</section>
+
+<!-- ═══════════════ 7 ═══════════════ -->
+<section class="section" id="s7">
+  <div class="eyebrow">Step 7</div>
+  <h2 class="sec">조용히 삼켜진 실패들 &mdash; 시간이 버그를 신고한다</h2>
+  <p class="sec-desc">엔드포인트를 붙이자마자 <code>null</code> 이 돌아왔다. 그런데 <b>너무 빨랐다</b>.</p>
+
+  <div class="case">
+    <div class="ch"><span class="cn">증상</span><h3><code>{"base":null,"reason":"not_found"}</code> &mdash; 0.15초</h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">관찰</div><div class="mb">
+          <code>real 0m0.155s</code>. 그런데 이 엔드포인트는 <b>Chromium 을 띄우고 Maps JS 를 로드한 뒤
+          5초를 기다린다</b>. 아무리 빨라도 몇 초는 걸려야 한다.</div>
+        <div class="mk q">질문</div><div class="mb q">
+          &ldquo;못 찾았다&rdquo;가 아니라 <b>&ldquo;시도조차 안 했다&rdquo;</b>가 아닌가?</div>
+        <div class="mk">원인</div><div class="mb">
+          <code>except Exception</code> 이 예외를 먹고 <code>None</code> 을 캐시하고 있었다. 예외는 두 개였다:
+          <br>· <code>render_google</code> 가 <code>server.py</code> 에 <b>import 되어 있지 않았다</b> &rarr; <code>NameError</code>
+          <br>· <code>settings.render_settle_ms</code> 라는 설정이 <b>존재하지 않았다</b> &rarr; <code>AttributeError</code>
+        </div>
+        <div class="mk">수정</div><div class="mb">
+          지연 import 로 바꾸고, 존재하지 않던 설정은 상수로 대체했다.
+          그리고 <b>삼키는 자리에 로그를 넣었다</b>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout warn"><b>일반화 두 가지.</b><br>
+  ① <code>except Exception</code> 으로 폴백을 만들 때는 <b>반드시 흔적을 남긴다</b>.
+  조용한 폴백은 버그를 기능처럼 보이게 한다 &mdash; 이 엔드포인트는 &ldquo;토큰을 못 찾는 파노&rdquo;처럼
+  <b>정상적으로 실패</b>하고 있었다.<br>
+  ② <b>불가능한 소요 시간은 그 자체로 버그 신고다.</b> 결과값이 그럴듯해도, 걸린 시간이
+  물리적으로 말이 안 되면 그 경로는 실행되지 않은 것이다. 앞 문서의 1181초 사례가
+  &ldquo;너무 느림&rdquo;이었다면 이번엔 <b>&ldquo;너무 빠름&rdquo;</b>이었다.</div>
+
+  <h3>그리고 검증 자체의 거짓 음성 두 건</h3>
+  <table>
+  <thead><tr><th>무엇을 봤나</th><th>어떻게 오독했나</th><th>실제</th></tr></thead>
+  <tbody>
+    <tr><td><code>/api/pano-photo</code> &rarr; 404</td>
+        <td>&ldquo;라우트가 등록되지 않았다&rdquo;</td>
+        <td>옛 서버가 살아 있어 <code>_find_free_port</code> 가 새 서버를 <b>8802</b> 로 밀었다.
+            curl 은 옛 서버(8801)를 때리고 있었다.</td></tr>
+    <tr><td><code>curl /app.js | grep -c tilesMissing</code> &rarr; <b>0</b></td>
+        <td>&ldquo;낡은 JS 가 서빙된다&rdquo;</td>
+        <td>실제 경로는 <code>/webui/app.js</code>. 그 경로로 재확인하니 <b>2</b>.
+            새 코드는 처음부터 정상 서빙되고 있었다.</td></tr>
+  </tbody></table>
+  <div class="callout"><b>같은 실수가 이 프로젝트에서 세 번째다.</b>
+  ① 앞 문서 &mdash; 호스트 패턴 필터가 <code>lh3</code> 를 걸러냄
+  ② 6.1 &mdash; 워커라서 <code>PerformanceObserver</code> 에 안 잡힘
+  ③ 여기 &mdash; 포트와 경로가 어긋남<br><br>
+  전부 <b>&ldquo;0건/없음&rdquo;을 사실로 받아들인 것</b>이다. 그래서 규칙으로 굳혔다:
+  <b>부정 결과를 보면 결론 내리기 전에 계측 경로부터 확인한다.</b>
+  긍정 결과는 스스로를 증명하지만, 부정 결과는 그렇지 않다.</div>
+</section>
+
+<!-- ═══════════════ 8 ═══════════════ -->
+<section class="section" id="s8">
+  <div class="eyebrow">Step 8</div>
+  <h2 class="sec">경합 &mdash; <code>pano_changed</code> 는 한 번이 아니다</h2>
+  <p class="sec-desc">부품은 전부 정상인데 조립하면 실패하는 상태.</p>
+
+  <div class="case">
+    <div class="ch"><span class="cn">증상</span><h3>자동 흐름만 실패한다</h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">진단 방법</div><div class="mb">
+          추측 대신 <b>반쪽씩 갈랐다</b>. 페이지 안에서 조각을 하나씩 직접 호출해 봤다.</div>
+      </div>
+<pre>전역 노출      : ['function', 'function', 'boolean']
+tilesMissing() : True      ← 감지 로직 정상
+gpmsBlocked    : True      ← <b>리스너가 자동으로 이미 설정했다</b>
+수동 호출 후   : {'fallback': 'ON', 'natW': 1056}   ← 표시 로직 정상</pre>
+      <div class="mv">
+        <div class="mk">추론</div><div class="mb">
+          감지도 되고, 리스너도 붙어 있고, 표시도 된다. 조각이 전부 정상이면
+          남는 것은 <b>순서</b>뿐이다.</div>
+        <div class="mk">원인</div><div class="mb">
+          <code>pano_changed</code> 는 <b>한 파노를 여는 동안에도 여러 번 튄다</b>.
+          매 이벤트마다 <code>clearFallback()</code> 이 상태를 비웠고,
+          서버 토큰 조회(약 10초)가 돌아오는 사이에 <b>그 결과가 지워졌다</b>.
+          비동기 응답이 도착했을 때 그것을 받을 자리가 이미 없어진 것이다.</div>
+        <div class="mk">수정</div><div class="mb">
+          상태를 <b>파노 ID 에 못 박는다</b>. 이벤트가 몇 번 오든,
+          <b>ID 가 실제로 바뀐 경우에만</b> 버린다.</div>
+      </div>
+<pre>function watchTiles() {
+  const id = pano && pano.getPano ? pano.getPano() : "";
+  if (!id) return;
+  if (id === watchedPano) return;          // 같은 파노를 두 번 감시하지 않는다
+  watchedPano = id;
+  ...
+  api(`/api/pano-photo?pano=${encodeURIComponent(id)}`)
+    .then((r) => {
+      if (!r || !r.base || watchedPano !== id) return;   // 그새 이동했으면 버린다
+      gpmsToken = r.base;
+      paintFallback();
+    });
+}</pre>
+    </div>
+  </div>
+  <div class="callout ok"><b>일반 규칙.</b> 비동기 조회 결과를 되돌려 쓸 때는
+  <b>요청 시점의 정체성을 함께 들고 다녀야 한다</b>. &ldquo;아직 유효한가&rdquo;를
+  <i>플래그</i>로 판단하면 이벤트 순서에 지고, <i>정체성</i>으로 판단하면 이긴다.
+  덤으로 이 구조는 안전성도 준다 &mdash; 사용자가 다른 파노로 이동한 뒤 늦게 도착한 이미지가
+  <b>엉뚱한 장소를 덮어 그리는 일</b>이 원천적으로 불가능해진다.</div>
+</section>
+
+<!-- ═══════════════ 9 ═══════════════ -->
+<section class="section" id="s9">
+  <div class="eyebrow">Step 9</div>
+  <h2 class="sec">재현 장치도 테스트 대상이다</h2>
+  <p class="sec-desc">고쳤는지 확인하려면 429 를 마음대로 만들 수 있어야 한다.</p>
+  <p>실제 429 는 언제 걸릴지 모른다. 그래서 <b>타일만 429 로 바꾸고 photo 는 통과</b>시키는
+  재현 장치를 만들었다. 관찰된 현실을 그대로 흉내 내는 것이 목표다.</p>
+<pre>def route(r):
+    u = r.request.url
+    if "gpms-cs-s" in u and "-k-no-pi" not in u:   # 타일만
+        r.fulfill(status=429, content_type="text/plain", body="rate limited")
+    else:
+        r.continue_()</pre>
+  <div class="case">
+    <div class="ch"><span class="cn">그런데</span><h3>타일 요청이 <b>통째로 사라졌다</b></h3></div>
+    <div class="cb">
+      <div class="mv">
+        <div class="mk">관찰</div><div class="mb">
+          개입하자 타일 요청이 <b>0건</b>. 심지어 하단 지도까지 안 떴다.
+          대조군(개입 없음)에서는 <b>15건 · 전부 200</b>.</div>
+        <div class="mk q">질문</div><div class="mb q">
+          내가 만든 상태가 정말 &ldquo;429 를 받는 상태&rdquo;인가?</div>
+        <div class="mk">원인</div><div class="mb">
+          <b>워커 요청은 <code>page.route</code> 로 잡히지 않는다.</b> 라우트를 걸자
+          그 요청들이 처리되지 못하고 죽었다. 즉 나는 재현하려던 상태가 아니라
+          <b>전혀 다른 상태(요청이 소멸함)</b>를 만들어 놓고 있었다.
+          6.1 에서 만난 워커 문제가 <b>모습을 바꿔 다시 나타난 것</b>이다.</div>
+        <div class="mk">수정</div><div class="mb">
+          <code>context.route</code> 로 바꿨다. 컨텍스트 라우트는 워커 요청까지 잡는다.</div>
+      </div>
+<pre>타일 1건 [429]  ·  photo 1건 [200]
+fallback : ON
+natW     : 1056     natH : 450</pre>
+    </div>
+  </div>
+  <div class="callout ok"><b>이걸 어떻게 잡았나.</b> <b>대조군을 먼저 재 뒀기 때문</b>이다.
+  &ldquo;개입 없이 15건 200&rdquo;이라는 기준선이 있었기에 &ldquo;개입 시 0건&rdquo;이
+  <i>제한의 증거</i>가 아니라 <i>내 장치의 결함</i>임을 알 수 있었다.
+  기준선이 없었다면 &ldquo;역시 제3자는 요청 자체가 없다&rdquo;는 <b>앞 문서의 오판을 그대로 반복</b>했을 것이다.</div>
+</section>
+
+<!-- ═══════════════ 10 ═══════════════ -->
+<section class="section" id="s10">
+  <div class="eyebrow">Step 10</div>
+  <h2 class="sec">측정이 대상을 오염시킨다</h2>
+  <p class="sec-desc">검증을 반복하다 <b>검증 환경 자체가 망가졌다</b>.</p>
+  <p>헤드리스를 계속 띄우다 보니 Maps JS API 가 아예 로드되지 않는 구간에 들어갔다.
+  로드뷰뿐 아니라 <b>하단 지도까지 빈 화면</b>이었다. 잔여 Chromium 프로세스로 <code>MemoryError</code> 도 났다.</p>
+  <div class="callout warn"><b>이 구간의 측정은 전부 무효다.</b> 여기서 나온 실패를
+  내 코드 탓으로 돌렸다면 <b>존재하지 않는 버그를 몇 시간 쫓았을 것</b>이다.</div>
+  <p><b>판별법:</b> 정상 조건 대조군을 다시 돌린다. 개입이 없는데도 실패하면 환경 문제다.
+  실제로 그렇게 확인했다 &mdash; 라우트 개입을 빼고 돌리자 <code>gpms 요청 15건 · 응답 {200: 15}</code>
+  로 멀쩡했다. 그러면 범인은 내 코드가 아니라 <b>재현 장치와 측정 부하</b>다.</p>
+  <p><b>처치:</b> 잔여 프로세스 정리 &rarr; 쿨다운 &rarr; 한 번에 한 실행.
+  그리고 판정은 <b>한 번의 깨끗한 실행</b>으로 한다. 흔들리는 환경에서 여러 번 돌려 평균 내는 것은
+  노이즈를 신호로 만드는 일이다.</p>
+</section>
+
+<!-- ═══════════════ 10.5 ═══════════════ -->
+<section class="section" id="s105">
+  <div class="eyebrow">Step 11 · 후속 신고</div>
+  <h2 class="sec">같은 &ldquo;검은 화면&rdquo;, 다른 원인 두 개</h2>
+  <p class="sec-desc">고친 뒤에 같은 증상이 또 왔다. <b>증상이 같다고 원인이 같지 않다.</b></p>
+
+  <p>사용자가 크로아티아 링크 두 개를 보내며 &ldquo;추출하면 검은 화면&rdquo;, &ldquo;확실히 먹통&rdquo;이라고 했다.
+  429 문제는 이미 고쳤으니 같은 원인일 리 없다 &mdash; 그래서 <b>처음부터 다시 쟀다</b>.</p>
+
+  <h3>가설을 셋 세우고 셋 다 반증했다</h3>
+  <table>
+  <thead><tr><th>가설</th><th>측정</th><th>결과</th></tr></thead>
+  <tbody>
+    <tr><td>파노 ID 가 스테일이다</td><td>ID 조회 vs 좌표 조회 비교</td>
+        <td>둘 다 <code>OK</code>, <b>같은 파노</b> &mdash; 반증</td></tr>
+    <tr><td>생성자의 암묵적 조회가 다른 파노를 고른다</td><td>제약 없는 조회 vs OUTDOOR 조회</td>
+        <td><b>같은 파노</b> &mdash; 반증</td></tr>
+    <tr><td>컨테이너가 숨겨진 채 생성된다</td><td>DOM/CSS 확인</td>
+        <td><code>#pano</code> 는 숨겨지지 않는다 &mdash; 반증</td></tr>
+  </tbody></table>
+
+  <div class="callout warn"><b>그리고 내 측정이 또 한 번 나를 속였다.</b>
+  헤디드(실제 GPU) 브라우저에서 캔버스를 읽으니 15초 내내 <code>mean=0</code> 이었다.
+  &ldquo;재현됐다&rdquo;고 생각했다. 아니었다 &mdash; WebGL 은 <code>preserveDrawingBuffer</code> 가
+  기본 <code>false</code> 라, 합성이 끝난 뒤 캔버스를 읽으면 <b>화면과 무관하게 검게 나온다</b>.
+  헤드리스(SwiftShader)에서는 버퍼가 남아 있어 제대로 읽혔던 것뿐이다.</div>
+
+  <p>그래서 <b>측정을 바꿨다</b>. 캔버스를 읽지 않고 <b>합성 결과(스크린샷)</b>의 픽셀을 쟀다.
+  사용자가 보는 것이 바로 그것이기 때문이다.</p>
+<pre>헤드리스 캔버스 읽기      mean 117.2   ← 맞다
+헤디드   캔버스 읽기      mean   0.0   ← <b>측정 인공물</b>
+헤디드   스크린샷 판정    mean 126.4   ← 진짜. 타일 15건 200. <b>정상 렌더</b></pre>
+
+  <div class="callout ok"><b>이 오측정이 오히려 회귀를 잡아 줬다.</b>
+  <code>tilesMissing()</code> 은 캔버스를 읽는다 &mdash; 즉 <b>실제 GPU 브라우저에서는 공식 파노를
+  전부 &ldquo;검다&rdquo;고 오판</b>한다. 제3자 파노는 CORS 가 없어 캔버스를 오염시키므로 판정이 성립하지만,
+  공식 파노는 CORS 가 열려 있어 읽히고 &mdash; 그리고 늘 검게 읽힌다.
+  결과는 파노마다 10초짜리 헤드리스 조회가 헛돌아가는 것이었다.
+  <b>고쳤다: 저작권으로 제3자인 경우에만 감시한다.</b> 실측 <code>/api/pano-photo 호출 0회</code>.</div>
+
+  <h3 class="mt">진짜 원인 &mdash; 스크린샷이 말해 줬다</h3>
+  <p>사용자가 보낸 앱 화면에 답이 있었다. <b>우리가 만든 경고 배너가 정확히 잡아내고 있었다</b>:</p>
+<pre>pano      KKMPlm4X…FG2A   official        ← 링크가 가리킨 파노
+표시 중   CAoSFkNJ…Wnc.   © Gerd Rammelsberger   ← 화면에 있는 것
+⚠ 링크의 파노(KKMPlm4X…FG2A)와 다릅니다</pre>
+  <p>뷰어가 <b>엉뚱한 제3자 사진구체</b>를 들고 있었고, 그게 429 로 검었던 것이다.
+  두 번째 링크를 재 보니 원인이 드러났다.</p>
+<pre>CIHM0ogKEICAgIDqvbDfZw
+    ID 조회   : <b>ZERO_RESULTS</b>
+    좌표 조회 : <b>ZERO_RESULTS</b></pre>
+  <div class="callout"><b>Maps JS API 는 이 파노를 아예 모른다.</b> 사진구체(Photo Sphere)는
+  google.com/maps 본체만 서비스한다 &mdash; 사용자가 보낸 두 번째 스크린샷이 그 증거다(구글에서는 잘 보인다).
+  그런 ID 를 <code>setPano()</code> 에 넣으면 <b>조용히 아무 일도 일어나지 않고</b>,
+  뷰어는 직전 탭의 장면을 그대로 들고 있는다. 사용자에겐 &ldquo;먹통&rdquo; 또는 &ldquo;엉뚱한 파노&rdquo;로 보인다.</div>
+
+  <h3 class="mt">해결 &mdash; 답은 이미 링크 안에 있었다</h3>
+  <p>그 링크에는 <code>!6s</code> 로 <b>lh3 원본 이미지 주소가 들어 있었다</b>.
+  캡처 경로는 이미 그걸 쓰고 있었는데 <b>라이브 뷰어만 무시</b>하고 있었다.
+  4절에서 만든 <code>#pano-fallback</code> 장치를 그대로 재사용하면 된다.</p>
+<pre>if (pose.pano) {
+  armWhenLoaded(myToken, pose.pano, tabId);
+  // <b>해석되는 파노인지 먼저 확인</b>하고 나서 넘긴다
+  svc.getPanorama({ pano: pose.pano })
+    .then(() =&gt; { if (myToken === loadToken) pano.setPano(pose.pano); })
+    .catch(() =&gt; { if (myToken === loadToken) panoUnavailable(pose, myToken, tabId); });
+}</pre>
+  <p><code>panoUnavailable()</code> 은 세 단계로 물러선다 &mdash; ① 링크의 원본 이미지,
+  ② 좌표 최근접(<b>대체됐음을 반드시 알린다</b>), ③ 그것도 없으면 명확히 말한다.
+  <b>침묵하지 않는 것</b>이 설계 원칙이다.</p>
+
+  <table>
+  <thead><tr><th>링크</th><th>이전</th><th>지금</th></tr></thead>
+  <tbody>
+    <tr><td>① 공식 <code>KKMPlm4X…</code></td><td>정상(원래 문제없었음)</td>
+        <td>화면밝기 <b>125.5</b> · <code>/api/pano-photo</code> 호출 <b>0회</b></td></tr>
+    <tr><td>② 사진구체 <code>CIHM0ogK…</code></td><td><b>검은 화면 · 먹통</b></td>
+        <td>화면밝기 <b>84.6</b> · 원본 이미지 1056px 표시 · 상태줄에 사유 명시</td></tr>
+  </tbody></table>
+
+  <div class="callout ok"><b>여기서 얻은 원칙.</b> <b>증상이 같아도 원인은 다를 수 있다.</b>
+  &ldquo;검은 로드뷰&rdquo;는 하나의 버그가 아니라 <b>세 개</b>였다 &mdash;
+  ⓐ 타일 429, ⓑ SDK 가 모르는 사진구체, ⓒ 엉뚱한 파노를 들고 있는 상태.
+  이미 고친 원인으로 새 신고를 설명하려 들면 <b>가장 빠르게 틀리는 길</b>이다.
+  그리고 새 원인을 찾아낸 것은 추론이 아니라 <b>우리가 심어 둔 경고 배너</b>였다 &mdash;
+  진단 장치를 제품에 남겨 두면 다음 버그를 사용자가 대신 찾아 준다.</div>
+</section>
+
+<!-- ═══════════════ 11 ═══════════════ -->
+<section class="section" id="s11">
+  <div class="eyebrow">Verification</div>
+  <h2 class="sec">최종 실측</h2>
+  <p class="sec-desc">전부 앱을 실제로 띄워 <b>사용자와 같은 흐름</b>으로 잰 값이다.</p>
+  <table>
+  <thead><tr><th>조건</th><th>타일</th><th>photo</th><th>우회</th><th>결과</th></tr></thead>
+  <tbody>
+    <tr><td>정상</td><td>15건 · 200</td><td>0건</td><td>off</td>
+        <td>파노 정상 · <b>우회가 켜지지 않음</b>(의도대로)</td></tr>
+    <tr><td>타일 429 재현</td><td>1건 · <b>429</b></td><td>1건 · <b>200</b></td><td><b>ON</b></td>
+        <td>1056&times;450 렌더 &mdash; <b>예전엔 완전한 검정</b></td></tr>
+    <tr><td>캡처 경로 회귀</td><td colspan="2">mode=playwright</td><td>&mdash;</td>
+        <td>status=OK · 밝기 <b>103.9</b></td></tr>
+    <tr><td>토큰 엔드포인트</td><td colspan="2">콜드 <b>9.4초</b> / 캐시 <b>0.13초</b></td><td>&mdash;</td>
+        <td>base 반환 확인</td></tr>
+    <tr><td>저작권 표시</td><td colspan="2">getPanorama().copyright</td><td>&mdash;</td>
+        <td>&copy; Dragan CVIJETIC 칩 표시 &mdash; <b>이전엔 항상 빈 값</b></td></tr>
+  </tbody></table>
+
+  <div class="callout ok"><b>왜 &ldquo;우회 off&rdquo; 행이 중요한가.</b> 고친 것만 확인하면 절반이다.
+  <b>고치지 말아야 할 것을 안 건드렸는지</b>도 확인해야 한다. 정상 파노에서 우회가 켜졌다면
+  모든 파노를 정지 이미지로 바꿔 버렸을 것이다. 이 행이 그걸 막는다.</div>
+
+  <h3>덤으로 잡은 버그 &mdash; 저작권이 한 번도 안 뜨던 이유</h3>
+  <p>사용자 스크린샷에 저작권 칩이 없다는 것이 단서였다. 원인은 <b>속성이 있는 자리를 잘못 안 것</b>이다.</p>
+<pre>pano.getLocation()                    → StreetViewLocation      · copyright <b>없음</b>
+svc.getPanorama({pano}) 의 data       → StreetViewPanoramaData  · copyright <b>있음</b></pre>
+  <p class="small">이 때문에 판정값이 늘 빈 문자열이었고, 제3자 파노인데도 안내가 한 번도 뜨지 않았다.
+  &ldquo;조건문이 안 걸린다&rdquo;가 아니라 <b>&ldquo;입력이 늘 비어 있었다&rdquo;</b>가 답이었다 &mdash;
+  분기 로직을 아무리 봐도 못 찾았을 종류의 버그다.</p>
+</section>
+
+<!-- ═══════════════ 12 ═══════════════ -->
+<section class="section" id="s12">
+  <div class="eyebrow">Method</div>
+  <h2 class="sec">방법론 &mdash; 이번에 실제로 쓴 것</h2>
+  <p class="sec-desc">원칙을 먼저 세운 게 아니라, 틀리면서 얻은 것을 뒤에 정리했다.</p>
+
+  <div class="prin"><div class="pn">1</div><div class="pb">
+    <h4>부정 결과는 스스로를 증명하지 않는다</h4>
+    <p>&ldquo;0건&rdquo;은 세상에 대한 사실이 아니라 <b>내 계측기를 통과한 것이 0건</b>이라는 뜻이다.
+    이번 작업에서만 세 번 당했다 &mdash; 호스트 필터, 워커 타임라인, 포트/경로.
+    <b>부정 결과를 보면 결론 전에 계측 경로부터 확인한다.</b></p>
+  </div></div>
+
+  <div class="prin"><div class="pn">2</div><div class="pb">
+    <h4>거절은 요청을 지우지 않는다</h4>
+    <p>429 는 <b>응답</b>의 성질이다. 요청은 이미 나갔고 그 URL 에 필요한 것이 전부 들어 있었다.
+    실패한 시도가 남긴 잔해를 뒤지는 것 &mdash; 이번 문제의 열쇠가 거기 있었다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">3</div><div class="pb">
+    <h4>같은 자원이라도 표현마다 정책이 다르다</h4>
+    <p>같은 호스트, 같은 토큰인데 타일은 429, photo 는 200.
+    엔드포인트를 하나의 덩어리로 모델링하면 이 틈이 안 보인다.
+    <b>&ldquo;막혔다&rdquo;고 할 때는 무엇이 막혔는지 한 단계 더 쪼개 본다.</b></p>
+  </div></div>
+
+  <div class="prin"><div class="pn">4</div><div class="pb">
+    <h4>원인을 관측할 수 없으면 결과를 관측한다</h4>
+    <p>워커 요청은 페이지에서 안 보인다. 그러면 요청 말고 <b>화면</b>을 본다.
+    관측 지점이 막혔을 때 필요한 것은 더 나은 도구가 아니라 <b>다른 각도</b>일 때가 많다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">5</div><div class="pb">
+    <h4>제약을 센서로 뒤집어 쓴다</h4>
+    <p>캔버스 오염은 원래 장애물이다. 그런데 <b>오염됐다는 사실 자체가 &ldquo;교차출처 이미지가 들어왔다&rdquo;는 증거</b>다.
+    막고 있던 것이 그대로 판별자가 됐다. 제약을 만나면 &ldquo;무엇을 못 하게 하는가&rdquo; 다음에
+    <b>&ldquo;그 존재가 무엇을 알려 주는가&rdquo;</b>를 묻는다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">6</div><div class="pb">
+    <h4>의미를 바꾸는 조용한 폴백은 눈에 보이는 실패보다 나쁘다</h4>
+    <p>공식 파노 대체는 화면을 채우지만 <b>다른 장소를 분석</b>한다.
+    검은 화면은 사용자가 알아채지만, 바꿔치기된 장면은 알아채지 못한다.
+    <b>폴백은 의미를 보존할 때만 폴백이다.</b> 아니면 그건 조용한 오답 생성기다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">7</div><div class="pb">
+    <h4>불가능한 소요 시간은 버그 신고다</h4>
+    <p>브라우저를 띄우는 엔드포인트가 <b>0.15초</b>에 답했다. 값이 그럴듯해도
+    시간이 물리적으로 말이 안 되면 <b>그 경로는 실행되지 않은 것</b>이다.
+    반대 방향(1181초)도 같은 신호다. <b>결과값과 함께 소요 시간을 본다.</b></p>
+  </div></div>
+
+  <div class="prin"><div class="pn">8</div><div class="pb">
+    <h4>비동기 결과에는 정체성을 함께 들고 다닌다</h4>
+    <p>10초짜리 조회가 돌아왔을 때 &ldquo;아직 유효한가&rdquo;를 플래그로 판단하면 이벤트 순서에 진다.
+    <b>요청 시점의 ID 와 현재 ID 를 비교</b>하면 이긴다. 정확성과 안전성을 동시에 준다 &mdash;
+    늦게 온 이미지가 엉뚱한 장소를 덮는 일이 구조적으로 불가능해진다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">9</div><div class="pb">
+    <h4>재현 장치도 코드다 &mdash; 대조군으로 검증한다</h4>
+    <p><code>page.route</code> 는 &ldquo;429 를 받는 상태&rdquo;가 아니라 &ldquo;요청이 소멸한 상태&rdquo;를 만들었다.
+    <b>기준선(개입 없이 15건 200)을 먼저 재 뒀기 때문에</b> 알아챌 수 있었다.
+    재현이 목표 상태를 진짜로 만들었는지 <b>매번 확인</b>한다.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">10</div><div class="pb">
+    <h4>측정은 대상을 오염시킨다</h4>
+    <p>반복 검증이 API 제한과 메모리 고갈을 불렀고, 그 구간의 결과는 전부 무효였다.
+    <b>정상 대조군을 다시 돌려</b> 환경 문제와 코드 문제를 가른다.
+    흔들리는 환경에서 여러 번 돌려 평균 내지 않는다 &mdash; 판정은 <b>한 번의 깨끗한 실행</b>으로.</p>
+  </div></div>
+
+  <div class="prin"><div class="pn">11</div><div class="pb">
+    <h4>사용자가 겪는 층에서 눈으로 확인한다</h4>
+    <p>&ldquo;타일 200 이 왔다&rdquo;는 화면이 보인다는 뜻이 아니다. 실제로 앱을 띄워
+    링크 붙여넣기 &rarr; 추출 &rarr; 로드뷰까지 태우고 <b>스크린샷을 남겼다</b>.
+    이 전환은 사용자의 한 문장(&ldquo;직접 눈으로 확인하면 안 되는가&rdquo;)에서 왔다.
+    <b>대리 지표에 오래 머무르면 부품만 고치고 물건은 못 고친다.</b></p>
+  </div></div>
+
+  <div class="prin"><div class="pn">12</div><div class="pb">
+    <h4>부정 결과도 기록한다</h4>
+    <p><code>getTileUrl</code> 은 존재하지 않았다. 그 기록이 다음 사람의 시간을 아끼고,
+    무엇보다 <b>실패가 다음 가설의 형태를 정해 줬다</b> &mdash;
+    합성이 막혔으니 관측으로. 막다른 길도 지도의 일부다.</p>
+  </div></div>
+</section>
+
+<!-- ═══════════════ 13 ═══════════════ -->
+<section class="section" id="s13">
+  <div class="eyebrow">Limits</div>
+  <h2 class="sec">남은 한계 &mdash; 정직하게</h2>
+  <table>
+  <thead><tr><th>한계</th><th>현재 상태</th><th>영향</th></tr></thead>
+  <tbody>
+    <tr><td>토큰 조회 콜드 9.4초</td><td>파노당 1회 · 세션 캐시</td>
+        <td>제3자 파노를 처음 열 때만. 이후 0.13초.</td></tr>
+    <tr><td>토큰 수명</td><td>만료 정책을 <b>측정하지 않았다</b></td>
+        <td>장시간 세션에서 만료되면 이미지가 안 뜰 수 있다. 재조회 로직은 아직 없다.</td></tr>
+    <tr><td>우회 이미지는 정지 화면</td><td>시점 변경 시 재요청(디바운스 200ms)</td>
+        <td>드래그 중 부드러움이 타일 렌더보다 떨어진다. 아래 파노가 입력을 받으므로 조작은 정상.</td></tr>
+    <tr><td>제한 자체는 우리 IP 사정</td><td>회피가 아니라 <b>다른 표현 사용</b></td>
+        <td>근본 해결은 아니다. 다만 429 상태에서도 화면이 나온다.</td></tr>
+    <tr><td>300초 예산 실측</td><td>미검증</td>
+        <td>실제 API 호출이 필요해 이번 작업 범위 밖.</td></tr>
+  </tbody></table>
+  <div class="callout"><b>권고.</b> 서버용 <code>GOOGLE_MAPS_STATIC_KEY</code>(IP 제한)를 따로 두면
+  지도 쪽 403 과 브라우저 렌더 폴백이 사라진다. 이번 문제와는 별개지만 같은 계열의 마찰이다.</div>
+</section>
+
+<footer class="foot"><div class="wrap">
+  <p>GeoGuessHelper v0.2.4 · 2026-08-10 · 관련 문서:
+  <a href="./methodology_260810.html">methodology_260810.html</a>(진단) ·
+  <a href="../error/third-party-pano-black_260810.html">third-party-pano-black_260810.html</a>(오류 기록)</p>
+</div></footer>
+
+</div>
+
+</body>
+</html>

@@ -2244,6 +2244,273 @@
    "uses": 1,
    "created": 1786295091.1275482,
    "updated": 1786295091.1277266
+  },
+  "atm_14bd04044110": {
+   "id": "atm_14bd04044110",
+   "layer": "architecture",
+   "scope": "polity",
+   "title": "Krk Bridge, world-class concrete arch (1980)",
+   "tags": [
+    "adriatic",
+    "concrete-arch-bridge",
+    "engineering",
+    "krk-bridge",
+    "kvarner",
+    "yugoslavia"
+   ],
+   "entities": [
+    "croatia",
+    "krk-bridge",
+    "kvarner"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 45.2502735,
+   "lng": 14.5747107,
+   "radius_km": 2000,
+   "cell": "u2437ts",
+   "lang": "en",
+   "sources": [
+    "https://lng.hr/en/about-terminal/",
+    "https://kitalent.com/articles/rijeka-refinery-talent-paradox",
+    "https://cinea.ec.europa.eu/news-events/news/first-croatian-lng-terminal-officially-inaugurated-krk-island-2021-01-29_en",
+    "https://www.croatiaweek.com/croatia-energy-hub-lng-janaf-omisalj/",
+    "https://www.facebook.com/MVEP.hr/posts/exploring-key-pillars-of-croatias-development-the-diplomaticeconomic-club-is-vis/1250560783775750/",
+    "https://www.eldmarc.com/port-of-omisalj/",
+    "https://en.wikipedia.org/wiki/LNG_Hrvatska",
+    "https://www.gem.wiki/Krk_FSRU",
+    "https://www.linkedin.com/posts/lng-croatia_lngcroatia-5years-krk-activity-7401226741517578240-UJj1",
+    "https://www.aurea-krk.com/krk-flights"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hr_krk-bridge_45.2503_14.5747_260810_093507_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786322129.6030283,
+   "updated": 1786322129.6033683
+  },
+  "atm_ea4cec02c2f6": {
+   "id": "atm_ea4cec02c2f6",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Frankopan dynasty of Krk",
+   "tags": [
+    "croatia",
+    "feudal-dynasty",
+    "frankopan",
+    "krk",
+    "kvarner",
+    "medieval-heritage"
+   ],
+   "entities": [
+    "croatia",
+    "frankopan",
+    "krk-island"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 45.2502735,
+   "lng": 14.5747107,
+   "radius_km": 200,
+   "cell": "u2437ts",
+   "lang": "en",
+   "sources": [
+    "https://lng.hr/en/about-terminal/",
+    "https://kitalent.com/articles/rijeka-refinery-talent-paradox",
+    "https://cinea.ec.europa.eu/news-events/news/first-croatian-lng-terminal-officially-inaugurated-krk-island-2021-01-29_en",
+    "https://www.croatiaweek.com/croatia-energy-hub-lng-janaf-omisalj/",
+    "https://www.facebook.com/MVEP.hr/posts/exploring-key-pillars-of-croatias-development-the-diplomaticeconomic-club-is-vis/1250560783775750/",
+    "https://www.eldmarc.com/port-of-omisalj/",
+    "https://en.wikipedia.org/wiki/LNG_Hrvatska",
+    "https://www.gem.wiki/Krk_FSRU",
+    "https://www.linkedin.com/posts/lng-croatia_lngcroatia-5years-krk-activity-7401226741517578240-UJj1",
+    "https://www.aurea-krk.com/krk-flights"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hr_krk-bridge_45.2503_14.5747_260810_093507_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786322129.6088476,
+   "updated": 1786322129.6090622
+  },
+  "atm_050d1beb807a": {
+   "id": "atm_050d1beb807a",
+   "layer": "language",
+   "scope": "region",
+   "title": "Čakavian dialect and Glagolitic literacy on Kvarner islands",
+   "tags": [
+    "cakavian",
+    "croatian-dialects",
+    "glagolitic",
+    "krk-island",
+    "kvarner",
+    "language-history"
+   ],
+   "entities": [
+    "croatia",
+    "krk-island",
+    "kvarner"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 45.2502735,
+   "lng": 14.5747107,
+   "radius_km": 200,
+   "cell": "u2437ts",
+   "lang": "en",
+   "sources": [
+    "https://lng.hr/en/about-terminal/",
+    "https://kitalent.com/articles/rijeka-refinery-talent-paradox",
+    "https://cinea.ec.europa.eu/news-events/news/first-croatian-lng-terminal-officially-inaugurated-krk-island-2021-01-29_en",
+    "https://www.croatiaweek.com/croatia-energy-hub-lng-janaf-omisalj/",
+    "https://www.facebook.com/MVEP.hr/posts/exploring-key-pillars-of-croatias-development-the-diplomaticeconomic-club-is-vis/1250560783775750/",
+    "https://www.eldmarc.com/port-of-omisalj/",
+    "https://en.wikipedia.org/wiki/LNG_Hrvatska",
+    "https://www.gem.wiki/Krk_FSRU",
+    "https://www.linkedin.com/posts/lng-croatia_lngcroatia-5years-krk-activity-7401226741517578240-UJj1",
+    "https://www.aurea-krk.com/krk-flights"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hr_krk-bridge_45.2503_14.5747_260810_093507_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786322129.613951,
+   "updated": 1786322129.6142657
+  },
+  "atm_abbf940e60d2": {
+   "id": "atm_abbf940e60d2",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Kvarner/Rijeka Bay bora-driven microclimate asymmetry",
+   "tags": [
+    "adriatic",
+    "bora-wind",
+    "karst",
+    "kvarner",
+    "maquis",
+    "microclimate"
+   ],
+   "entities": [
+    "krk-island",
+    "kvarner"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 45.2502735,
+   "lng": 14.5747107,
+   "radius_km": 200,
+   "cell": "u2437ts",
+   "lang": "en",
+   "sources": [
+    "https://lng.hr/en/about-terminal/",
+    "https://kitalent.com/articles/rijeka-refinery-talent-paradox",
+    "https://cinea.ec.europa.eu/news-events/news/first-croatian-lng-terminal-officially-inaugurated-krk-island-2021-01-29_en",
+    "https://www.croatiaweek.com/croatia-energy-hub-lng-janaf-omisalj/",
+    "https://www.facebook.com/MVEP.hr/posts/exploring-key-pillars-of-croatias-development-the-diplomaticeconomic-club-is-vis/1250560783775750/",
+    "https://www.eldmarc.com/port-of-omisalj/",
+    "https://en.wikipedia.org/wiki/LNG_Hrvatska",
+    "https://www.gem.wiki/Krk_FSRU",
+    "https://www.linkedin.com/posts/lng-croatia_lngcroatia-5years-krk-activity-7401226741517578240-UJj1",
+    "https://www.aurea-krk.com/krk-flights"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hr_krk-bridge_45.2503_14.5747_260810_093507_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786322129.6197734,
+   "updated": 1786322129.6200438
+  },
+  "atm_fb908e0b6c54": {
+   "id": "atm_fb908e0b6c54",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Croatia's LNG import terminal at Omišalj",
+   "tags": [
+    "croatia",
+    "energy-hub",
+    "energy-infrastructure",
+    "janaf",
+    "lng-terminal",
+    "omisalj"
+   ],
+   "entities": [
+    "croatia",
+    "janaf",
+    "omisalj"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 45.2502735,
+   "lng": 14.5747107,
+   "radius_km": 1200,
+   "cell": "u2437ts",
+   "lang": "en",
+   "sources": [
+    "https://lng.hr/en/about-terminal/",
+    "https://kitalent.com/articles/rijeka-refinery-talent-paradox",
+    "https://cinea.ec.europa.eu/news-events/news/first-croatian-lng-terminal-officially-inaugurated-krk-island-2021-01-29_en",
+    "https://www.croatiaweek.com/croatia-energy-hub-lng-janaf-omisalj/",
+    "https://www.facebook.com/MVEP.hr/posts/exploring-key-pillars-of-croatias-development-the-diplomaticeconomic-club-is-vis/1250560783775750/",
+    "https://www.eldmarc.com/port-of-omisalj/",
+    "https://en.wikipedia.org/wiki/LNG_Hrvatska",
+    "https://www.gem.wiki/Krk_FSRU",
+    "https://www.linkedin.com/posts/lng-croatia_lngcroatia-5years-krk-activity-7401226741517578240-UJj1",
+    "https://www.aurea-krk.com/krk-flights"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hr_krk-bridge_45.2503_14.5747_260810_093507_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786322129.625558,
+   "updated": 1786322129.6258125
+  },
+  "atm_2abba0324777": {
+   "id": "atm_2abba0324777",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Croatian road signage and administrative naming conventions",
+   "tags": [
+    "company-suffixes",
+    "croatia",
+    "diacritics",
+    "latin-script",
+    "road-signage",
+    "toponyms"
+   ],
+   "entities": [
+    "croatia"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 45.2502735,
+   "lng": 14.5747107,
+   "radius_km": 1200,
+   "cell": "u2437ts",
+   "lang": "en",
+   "sources": [
+    "https://lng.hr/en/about-terminal/",
+    "https://kitalent.com/articles/rijeka-refinery-talent-paradox",
+    "https://cinea.ec.europa.eu/news-events/news/first-croatian-lng-terminal-officially-inaugurated-krk-island-2021-01-29_en",
+    "https://www.croatiaweek.com/croatia-energy-hub-lng-janaf-omisalj/",
+    "https://www.facebook.com/MVEP.hr/posts/exploring-key-pillars-of-croatias-development-the-diplomaticeconomic-club-is-vis/1250560783775750/",
+    "https://www.eldmarc.com/port-of-omisalj/",
+    "https://en.wikipedia.org/wiki/LNG_Hrvatska",
+    "https://www.gem.wiki/Krk_FSRU",
+    "https://www.linkedin.com/posts/lng-croatia_lngcroatia-5years-krk-activity-7401226741517578240-UJj1",
+    "https://www.aurea-krk.com/krk-flights"
+   ],
+   "refs": [],
+   "reports": [
+    "report_hr_krk-bridge_45.2503_14.5747_260810_093507_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1786322129.630582,
+   "updated": 1786322129.6307912
   }
  },
  "cells": {
@@ -2340,10 +2607,18 @@
    "atm_3340739b4d02"
   ],
   "u2": [
-   "atm_9d45a7bad7f9"
+   "atm_9d45a7bad7f9",
+   "atm_14bd04044110",
+   "atm_fb908e0b6c54",
+   "atm_2abba0324777"
   ],
   "u2m": [
    "atm_9d7ccc769c8d"
+  ],
+  "u24": [
+   "atm_ea4cec02c2f6",
+   "atm_050d1beb807a",
+   "atm_abbf940e60d2"
   ]
  },
  "entities": {
@@ -2621,6 +2896,35 @@
   ],
   "sziget-festival": [
    "atm_3340739b4d02"
+  ],
+  "croatia": [
+   "atm_14bd04044110",
+   "atm_ea4cec02c2f6",
+   "atm_050d1beb807a",
+   "atm_fb908e0b6c54",
+   "atm_2abba0324777"
+  ],
+  "krk-bridge": [
+   "atm_14bd04044110"
+  ],
+  "kvarner": [
+   "atm_14bd04044110",
+   "atm_050d1beb807a",
+   "atm_abbf940e60d2"
+  ],
+  "frankopan": [
+   "atm_ea4cec02c2f6"
+  ],
+  "krk-island": [
+   "atm_ea4cec02c2f6",
+   "atm_050d1beb807a",
+   "atm_abbf940e60d2"
+  ],
+  "janaf": [
+   "atm_fb908e0b6c54"
+  ],
+  "omisalj": [
+   "atm_fb908e0b6c54"
   ]
  },
  "tags": {
@@ -3330,7 +3634,8 @@
   ],
   "latin-script": [
    "atm_e6f75e7898c3",
-   "atm_9d45a7bad7f9"
+   "atm_9d45a7bad7f9",
+   "atm_2abba0324777"
   ],
   "north-germanic": [
    "atm_e6f75e7898c3"
@@ -3340,7 +3645,8 @@
   ],
   "toponyms": [
    "atm_e6f75e7898c3",
-   "atm_9d45a7bad7f9"
+   "atm_9d45a7bad7f9",
+   "atm_2abba0324777"
   ],
   "hraun": [
    "atm_ee8caa0687d3"
@@ -3478,6 +3784,96 @@
   ],
   "sziget-festival": [
    "atm_3340739b4d02"
+  ],
+  "adriatic": [
+   "atm_14bd04044110",
+   "atm_abbf940e60d2"
+  ],
+  "concrete-arch-bridge": [
+   "atm_14bd04044110"
+  ],
+  "engineering": [
+   "atm_14bd04044110"
+  ],
+  "krk-bridge": [
+   "atm_14bd04044110"
+  ],
+  "kvarner": [
+   "atm_14bd04044110",
+   "atm_ea4cec02c2f6",
+   "atm_050d1beb807a",
+   "atm_abbf940e60d2"
+  ],
+  "yugoslavia": [
+   "atm_14bd04044110"
+  ],
+  "croatia": [
+   "atm_ea4cec02c2f6",
+   "atm_fb908e0b6c54",
+   "atm_2abba0324777"
+  ],
+  "feudal-dynasty": [
+   "atm_ea4cec02c2f6"
+  ],
+  "frankopan": [
+   "atm_ea4cec02c2f6"
+  ],
+  "krk": [
+   "atm_ea4cec02c2f6"
+  ],
+  "medieval-heritage": [
+   "atm_ea4cec02c2f6"
+  ],
+  "cakavian": [
+   "atm_050d1beb807a"
+  ],
+  "croatian-dialects": [
+   "atm_050d1beb807a"
+  ],
+  "glagolitic": [
+   "atm_050d1beb807a"
+  ],
+  "krk-island": [
+   "atm_050d1beb807a"
+  ],
+  "language-history": [
+   "atm_050d1beb807a"
+  ],
+  "bora-wind": [
+   "atm_abbf940e60d2"
+  ],
+  "karst": [
+   "atm_abbf940e60d2"
+  ],
+  "maquis": [
+   "atm_abbf940e60d2"
+  ],
+  "microclimate": [
+   "atm_abbf940e60d2"
+  ],
+  "energy-hub": [
+   "atm_fb908e0b6c54"
+  ],
+  "energy-infrastructure": [
+   "atm_fb908e0b6c54"
+  ],
+  "janaf": [
+   "atm_fb908e0b6c54"
+  ],
+  "lng-terminal": [
+   "atm_fb908e0b6c54"
+  ],
+  "omisalj": [
+   "atm_fb908e0b6c54"
+  ],
+  "company-suffixes": [
+   "atm_2abba0324777"
+  ],
+  "diacritics": [
+   "atm_2abba0324777"
+  ],
+  "road-signage": [
+   "atm_2abba0324777"
   ]
  },
  "reports": {
@@ -3630,6 +4026,25 @@
     "atm_c65d1dbc1ab1",
     "atm_05dc60e6542c",
     "atm_3340739b4d02"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_hr_krk-bridge_45.2503_14.5747_260810_093507_ko-en-fr.html": {
+   "place": "Krk Bridge / Omišalj, Krk Island, Primorje-Gorski Kotar County (Kvarner), Croatia",
+   "lat": 45.2502735,
+   "lng": 14.5747107,
+   "cell": "u2437",
+   "atoms": [
+    "atm_14bd04044110",
+    "atm_ea4cec02c2f6",
+    "atm_050d1beb807a",
+    "atm_abbf940e60d2",
+    "atm_fb908e0b6c54",
+    "atm_2abba0324777"
    ],
    "langs": [
     "ko",
