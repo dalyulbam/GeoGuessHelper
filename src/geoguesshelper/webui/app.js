@@ -501,7 +501,7 @@ function initSplit(pose, tabId) {
     pano.addListener("position_changed", syncFromPano);
     pano.addListener("pov_changed", syncFromPano);
     // 파노가 바뀌면 우회 이미지를 즉시 버린다(이전 장소를 덮어 보이면 안 된다).
-    pano.addListener("pano_changed", watchTiles);
+    pano.addListener("pano_changed", onPanoChanged);
     // 시점을 돌리면 우회 이미지도 그 시점으로 다시 받는다. 막힌 적 없으면 아무 일도 안 한다.
     pano.addListener("pov_changed", () => { if (gpmsBlocked) scheduleFallback(); });
     svc = new google.maps.StreetViewService();
@@ -637,7 +637,10 @@ let fallbackTimer = null;
 let tileWatch = null;
 let watchedPano = null;
 let photoPinned = false;
-let pinnedPose = null;   // 링크가 준 원본 이미지를 띄운 상태 — 타일 감시가 걷어내면 안 된다
+let pinnedPose = null;
+let pinnedUnder = null;    // pin 시점의 '밑바닥' 파노 id — 이게 바뀌면 사용자가 이동한 것이다
+let pinnedTabId = null;
+let lastPaintKey = "";   // 링크가 준 원본 이미지를 띄운 상태 — 타일 감시가 걷어내면 안 된다
 
 /** 저작권은 getPanorama() 로만 얻을 수 있다. 파노당 한 번만 묻고 캐시한다. */
 function fetchCopyright(panoId, tab) {
@@ -685,6 +688,26 @@ function tilesMissing() {
  *  를 파노 ID 로 못 박고, **ID 가 실제로 바뀐 경우에만** 상태를 버린다. 예전엔 이벤트마다
  *  clearFallback() 을 불러서, 서버 토큰 조회(≈10초)가 돌아오는 사이에 그 결과가 지워졌다.
  */
+/** 파노가 바뀔 때의 **유일한** 판단 지점.
+ *
+ *  예전에는 pin 상태에서 그냥 조기 반환했다. 그 결과 오버레이가 영원히 남아,
+ *  사용자가 로드뷰맨을 옮겨도 화면이 그대로였다(실측: 스크린샷 3장이 픽셀 단위로 동일).
+ *  오버레이는 플래그가 아니라 **지금 보고 있는 파노의 함수**여야 한다 —
+ *  밑바닥 파노가 pin 시점과 달라지면 그것은 곧 '사용자가 다른 곳으로 갔다'는 뜻이다.
+ */
+function onPanoChanged() {
+  const id = pano && pano.getPano ? pano.getPano() : "";
+  if (!photoPinned) { watchTiles(); return; }
+  if (!id || id === pinnedUnder) return;            // 아직 같은 자리다
+  const tid = pinnedTabId;
+  clearFallback();                                   // 오버레이를 걷는다
+  syncArmed = true; syncTabId = tid;                 // 이제 진짜 파노를 따라간다
+  reportViewerState(pano, tabById(tid));
+  syncFromPano();
+  setStatus("원본 이미지 표시를 끄고 이동한 파노를 보여줍니다", "ok", 4000);
+  watchTiles();
+}
+
 function watchTiles() {
   const id = pano && pano.getPano ? pano.getPano() : "";
   if (!id) return;
@@ -750,10 +773,18 @@ function scheduleFallback() {
 function panoUnavailable(pose, myToken, tabId) {
   const note = (msg, kind) => setStatus(msg, kind || "err", 8000);
   if (pose.photo_url) {
-    photoPinned = true; pinnedPose = pose;
+    photoPinned = true; pinnedPose = pose; pinnedTabId = tabId;
     gpmsToken = String(pose.photo_url).replace(/=w\d+-h\d+.*$/, "");
     gpmsBlocked = true;
     watchedPano = pose.pano;
+    // 밑 파노의 시점을 링크 값에 맞춰 둔다. 이렇게 해야 ① 시작 각도가 맞고,
+    // ② 이후 드래그/줌이 그대로 사진구체 시점 변화로 이어진다(고정 이미지가 되지 않는다).
+    pano.setPov({ heading: Number(pose.heading) || 0, pitch: Number(pose.pitch) || 0 });
+    const fov = Math.max(20, Math.min(120, Number(pose.fov) || 90));
+    pano.setZoom(Math.max(0, Math.min(5, Math.log2(180 / fov))));
+    // 지금 밑에 깔려 있는 파노를 앵커로 잡는다 — 여기서 달라지면 사용자가 이동한 것이다.
+    pinnedUnder = (pano.getPano && pano.getPano()) || null;
+    lastPaintKey = "";
     paintFallback();
     reportViewerState(pano, tabById(tabId));
     note("이 파노는 지도 SDK 가 제공하지 않는 사진구체입니다 — 링크의 원본 이미지로 표시합니다", "ok");
@@ -794,27 +825,38 @@ function paintFallback() {
     img.id = "pano-fallback";
     host.appendChild(img);
   }
-  // pin 된 상태에서는 밑의 파노가 **다른 장면**을 들고 있으므로 그 시점을 쓰면 안 된다.
-  // 링크가 알려 준 시점이 진짜다.
-  const pov = (photoPinned && pinnedPose)
-    ? { heading: pinnedPose.heading || 0, pitch: pinnedPose.pitch || 0 }
-    : (pano.getPov ? pano.getPov() : { heading: 0, pitch: 0 });
+  // **항상 살아 있는 시점을 쓴다.** 예전엔 pin 상태에서 링크의 고정 각도를 썼는데,
+  // 그러면 URL 이 늘 같아 이미지가 그대로 박혀 버렸다(사용자 신고: 아무리 돌려도 안 바뀜).
+  // 사진구체 URL 은 ya/pi/fo 로 시점을 지정할 수 있으므로, 밑 파노를 돌리면 그대로 따라간다.
+  // pin 할 때 밑 파노의 pov 를 링크 값에 맞춰 두므로 시작 각도도 어긋나지 않는다.
+  const pov = pano.getPov ? pano.getPov() : { heading: 0, pitch: 0 };
   const w = Math.min(1600, Math.max(640, host.clientWidth || 900));
   const h = Math.min(1200, Math.max(400, host.clientHeight || 600));
-  const fov = (photoPinned && pinnedPose && pinnedPose.fov)
-    ? Math.max(20, Math.min(120, Number(pinnedPose.fov)))
-    : Math.max(20, Math.min(120, 180 / Math.pow(2, pano.getZoom ? pano.getZoom() : 1)));
-  const ya = ((pov.heading || 0) % 360 + 360) % 360;
-  const url = `${gpmsToken}=w${w}-h${h}-k-no-pi${(pov.pitch || 0).toFixed(2)}`
-    + `-ya${ya.toFixed(2)}-ro0-fo${fov.toFixed(1)}`;
-  img.onload = () => { img.classList.add("on"); };
-  img.onerror = () => { img.classList.remove("on"); };
-  img.src = url;
+  const fov = Math.max(20, Math.min(120, 180 / Math.pow(2, pano.getZoom ? pano.getZoom() : 1)));
+  // 각도를 1도로 반올림한다 — 드래그 중 URL 이 반복되므로 브라우저 캐시가 그대로 듣는다.
+  const ya = Math.round(((pov.heading || 0) % 360 + 360) % 360);
+  const pi = Math.round(pov.pitch || 0);
+  const fo = Math.round(fov);
+  const key = `${ya}|${pi}|${fo}|${w}x${h}|${gpmsToken.slice(-12)}`;
+  if (key === lastPaintKey && img.classList.contains("on")) return;
+  lastPaintKey = key;
+
+  // 미리 받아 두고 **디코드가 끝난 뒤에** 바꾼다. img.src 를 바로 갈면 드래그 중 화면이 깜빡인다.
+  const url = `${gpmsToken}=w${w}-h${h}-k-no-pi${pi}-ya${ya}-ro0-fo${fo}`;
+  const pre = new Image();
+  pre.onload = () => {
+    if (lastPaintKey !== key) return;          // 그새 더 최신 시점이 요청됐다
+    img.src = url;
+    img.classList.add("on");
+  };
+  pre.onerror = () => { if (lastPaintKey === key) lastPaintKey = ""; };
+  pre.src = url;
 }
 
 /** 파노 이동 시 우회 이미지를 걷는다 — 다른 장소를 덮어 보이면 절대 안 된다. */
 function clearFallback() {
   watchedPano = null; gpmsToken = null; gpmsBlocked = false; photoPinned = false; pinnedPose = null;
+  pinnedUnder = null; pinnedTabId = null; lastPaintKey = "";
   clearTimeout(fallbackTimer); clearInterval(tileWatch);
   hideFallback();
 }

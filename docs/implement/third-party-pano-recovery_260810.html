@@ -111,12 +111,12 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
   <nav class="topnav">
     <a href="#s0">범위</a><a href="#s1">출발점</a><a href="#s2">막다른 길</a>
     <a href="#s3">전환점</a><a href="#s4">열쇠</a><a href="#s6">관측</a>
-    <a href="#s7">삼켜진 실패</a><a href="#s9">재현 장치</a><a href="#s105">후속 신고</a><a href="#s11">실측</a><a href="#s12">방법론</a>
+    <a href="#s7">삼켜진 실패</a><a href="#s9">재현 장치</a><a href="#s105">후속 신고</a><a href="#s115">반복된 실수</a><a href="#s11">실측</a><a href="#s12">방법론</a>
   </nav>
 </div></div>
 
 <header class="hero"><div class="wrap">
-  <div class="kicker">구현 기록 · 제3자 파노 복구 · 2026-08-10 · v0.2.4</div>
+  <div class="kicker">구현 기록 · 제3자 파노 복구 · 2026-08-10 · v0.2.5</div>
   <h1>관측할 수 없는 것을 관측하기</h1>
   <p>검은 로드뷰를 <b>실제로 되살린</b> 과정의 기록이다. 앞 문서가 <i>진단</i>에서 끝났다면
   이 문서는 <i>해결</i>에서 시작한다. 막다른 길 하나, 전환점 하나, 열쇠 하나, 그리고
@@ -667,6 +667,78 @@ natW     : 1056     natH : 450</pre>
   진단 장치를 제품에 남겨 두면 다음 버그를 사용자가 대신 찾아 준다.</div>
 </section>
 
+<!-- ═══════════════ 11.5 ═══════════════ -->
+<section class="section" id="s115">
+  <div class="eyebrow">Step 12 · 같은 실수의 세 번째</div>
+  <h2 class="sec">오버레이는 플래그가 아니라 <b>함수</b>여야 한다</h2>
+  <p class="sec-desc">고친 다음 날 또 신고가 왔다. 이번엔 <b>내가 반복하는 패턴</b>이 드러났다.</p>
+
+  <p>사진구체를 띄우는 데는 성공했는데, 사용자가 말했다 &mdash;
+  &ldquo;한 번 이미지가 호출되더니 로드뷰맨을 옮겨도 사진이 바뀌지 않는다.
+  이미지가 회전하지 않아서 고정 이미지로 박혀버리고 있다.&rdquo;
+  스크린샷 세 장의 로드뷰가 <b>픽셀 단위로 동일</b>했다. 지도의 로드뷰맨만 움직이고 있었다.</p>
+
+  <h3>결함 두 개, 원인 하나</h3>
+  <table>
+  <thead><tr><th>증상</th><th>코드</th><th>왜 그렇게 됐나</th></tr></thead>
+  <tbody>
+    <tr><td>절대 해제되지 않는다</td>
+        <td><code>watchTiles()</code> 가 <code>if (photoPinned) return;</code></td>
+        <td><code>pano_changed</code> 에 물려 있던 함수가 pin 상태에서 조기 반환한다 &mdash;
+            즉 <b>파노가 바뀌어도 아무도 오버레이를 걷지 않는다</b>.</td></tr>
+    <tr><td>회전하지 않는다</td>
+        <td><code>paintFallback()</code> 이 <code>pinnedPose.heading</code> 사용</td>
+        <td>링크의 <b>고정 각도</b>를 쓰니 URL 이 늘 같다. 시점을 돌려도 같은 이미지를 다시 받는다.</td></tr>
+  </tbody></table>
+
+  <div class="callout warn"><b>이게 세 번째다.</b> v0.2.3 에서는 <code>clearFallback()</code> 이
+  진행 중인 조회 결과를 지워 우회가 조용히 실패했다. v0.2.4 에서는 정반대로 <b>영원히 지워지지 않는다</b>.
+  둘 다 같은 병이다 &mdash; <b>표시할 조건은 세심하게 짜고, 표시를 멈출 조건은 흩뜨려 놓았다.</b>
+  <code>photoPinned</code> 같은 전역 불리언은 켜는 지점 하나에 끄는 지점 여럿을 만든다.
+  그 여럿 중 하나만 빠져도 화면이 거짓말을 한다.</div>
+
+  <h3 class="mt">고친 방식 &mdash; 상태를 정체성에 묶는다</h3>
+  <p>오버레이를 &ldquo;켜짐/꺼짐&rdquo;이 아니라 <b>&lsquo;지금 보고 있는 파노 + 지금 시점&rsquo;의 함수</b>로 다시 정의했다.
+  판단 지점도 하나로 모았다.</p>
+<pre>function onPanoChanged() {                       // <b>유일한</b> 판단 지점
+  const id = pano.getPano();
+  if (!photoPinned) { watchTiles(); return; }
+  if (!id || id === pinnedUnder) return;         // 아직 같은 자리다
+  clearFallback();                               // 달라졌다 = 사용자가 이동했다
+  syncArmed = true; syncTabId = pinnedTabId;     // 이제 진짜 파노를 따라간다
+  ...
+}</pre>
+  <p>회전은 <b>고정 각도를 버리는 것</b>으로 끝났다. 사진구체 URL 은 <code>ya</code>/<code>pi</code>/<code>fo</code> 로
+  시점을 지정할 수 있으므로, pin 할 때 밑 파노의 pov 를 링크 값에 맞춰 두고
+  이후로는 <b>살아 있는 pov 를 그대로</b> 쓴다. 밑 파노를 돌리면 이미지가 따라 돈다.</p>
+<pre>// 각도를 1도로 반올림 → 드래그 중 URL 이 반복되어 브라우저 캐시가 듣는다
+const ya = Math.round(((pov.heading % 360) + 360) % 360);
+const key = `${ya}|${pi}|${fo}|${w}x${h}`;
+if (key === lastPaintKey && img.classList.contains("on")) return;
+// 미리 받아 <b>디코드가 끝난 뒤</b> 교체 — 바로 갈면 드래그 중 깜빡인다
+const pre = new Image();
+pre.onload = () =&gt; { if (lastPaintKey === key) { img.src = url; img.classList.add("on"); } };</pre>
+
+  <h3 class="mt">검증 &mdash; &ldquo;안 바뀐다&rdquo;를 직접 재는 방법</h3>
+  <p>사용자의 불만은 &ldquo;<b>바뀌지 않는다</b>&rdquo;였다. 그러면 측정해야 할 것은 밝기가 아니라 <b>변화</b>다.
+  화면을 8&times;8 로 줄여 행별 평균을 지문으로 삼고, 조작 전후로 그 지문이 <b>달라지는지</b>를 봤다.</p>
+<pre>① pin      : on=True  1056px
+② 90도 회전: 지문 변화 <b>예 ✔</b>
+③ 다시 90도: 지문 변화 <b>예 ✔</b>
+④ 파노 이동 : 오버레이 해제 <b>예 ✔</b>   화면 변화 <b>예 ✔</b>
+             표시중 I27dWLI4_bJjw | © 2026 Google | Črišnjeva, Šmrika
+
+photo 요청 3건 (각도별로 달라야 한다):
+  …=w1056-h450-k-no-pi13-<b>ya37</b>-ro0-fo75
+  …=w1056-h450-k-no-pi13-<b>ya127</b>-ro0-fo75
+  …=w1056-h450-k-no-pi13-<b>ya217</b>-ro0-fo75</pre>
+  <div class="callout ok"><b>측정 대상을 증상에 맞춘다.</b> &ldquo;검다&rdquo;는 불만에는 밝기를 쟀고,
+  &ldquo;안 바뀐다&rdquo;는 불만에는 <b>지문의 차이</b>를 쟀다. 밝기만 계속 쟀다면
+  이 버그는 &ldquo;밝기 84.6 &mdash; 정상&rdquo;으로 통과했을 것이다.
+  실제로 v0.2.4 의 내 검증이 정확히 그렇게 통과시켰다.
+  <b>지표는 기능이 아니라 신고를 따라가야 한다.</b></div>
+</section>
+
 <!-- ═══════════════ 11 ═══════════════ -->
 <section class="section" id="s11">
   <div class="eyebrow">Verification</div>
@@ -746,6 +818,14 @@ svc.getPanorama({pano}) 의 data       → StreetViewPanoramaData  · copyright 
     <b>폴백은 의미를 보존할 때만 폴백이다.</b> 아니면 그건 조용한 오답 생성기다.</p>
   </div></div>
 
+  <div class="prin"><div class="pn">6.5</div><div class="pb">
+    <h4>무언가를 화면에 덮었다면, <b>걷어내는 조건</b>을 같은 자리에 적어라</h4>
+    <p>같은 병을 세 번 앓았다 &mdash; 너무 일찍 지워지거나(v0.2.3), 영원히 안 지워지거나(v0.2.4).
+    전역 불리언은 <b>켜는 곳 하나에 끄는 곳 여럿</b>을 만들고, 그중 하나만 빠져도 화면이 거짓말을 한다.
+    오버레이를 <b>&lsquo;지금 보고 있는 대상의 함수&rsquo;</b>로 정의하고 판단 지점을 하나로 모으면
+    빠뜨릴 자리 자체가 없어진다.</p>
+  </div></div>
+
   <div class="prin"><div class="pn">7</div><div class="pb">
     <h4>불가능한 소요 시간은 버그 신고다</h4>
     <p>브라우저를 띄우는 엔드포인트가 <b>0.15초</b>에 답했다. 값이 그럴듯해도
@@ -779,7 +859,9 @@ svc.getPanorama({pano}) 의 data       → StreetViewPanoramaData  · copyright 
     <p>&ldquo;타일 200 이 왔다&rdquo;는 화면이 보인다는 뜻이 아니다. 실제로 앱을 띄워
     링크 붙여넣기 &rarr; 추출 &rarr; 로드뷰까지 태우고 <b>스크린샷을 남겼다</b>.
     이 전환은 사용자의 한 문장(&ldquo;직접 눈으로 확인하면 안 되는가&rdquo;)에서 왔다.
-    <b>대리 지표에 오래 머무르면 부품만 고치고 물건은 못 고친다.</b></p>
+    <b>대리 지표에 오래 머무르면 부품만 고치고 물건은 못 고친다.</b>
+    그리고 <b>지표는 신고를 따라가야 한다</b> &mdash; &ldquo;검다&rdquo;에는 밝기를, &ldquo;안 바뀐다&rdquo;에는
+    화면 지문의 <b>차이</b>를 잰다. 밝기만 쟀다면 &ldquo;고정 이미지&rdquo; 버그는 정상으로 통과했을 것이다(실제로 그랬다).</p>
   </div></div>
 
   <div class="prin"><div class="pn">12</div><div class="pb">
@@ -813,7 +895,7 @@ svc.getPanorama({pano}) 의 data       → StreetViewPanoramaData  · copyright 
 </section>
 
 <footer class="foot"><div class="wrap">
-  <p>GeoGuessHelper v0.2.4 · 2026-08-10 · 관련 문서:
+  <p>GeoGuessHelper v0.2.5 · 2026-08-10 · 관련 문서:
   <a href="./methodology_260810.html">methodology_260810.html</a>(진단) ·
   <a href="../error/third-party-pano-black_260810.html">third-party-pano-black_260810.html</a>(오류 기록)</p>
 </div></footer>
