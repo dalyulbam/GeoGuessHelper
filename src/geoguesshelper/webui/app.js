@@ -175,6 +175,7 @@ function loadActive() {
   if (!t) {
     currentPose = null; album = []; reportsMade = [];
     lastAnalysis = null; lastAnalysisFiles = [];
+    clearFallback();   // 탭이 없으면 덮은 것도 없어야 한다 — 인트로 위에 캔버스가 남던 문제
     showIntro();
     return;
   }
@@ -221,11 +222,13 @@ function newTab(pose) {
   const id = ++tabSeq;
   const t = {
     id, key, extracted: pose,
-    current: { lat: pose.lat, lng: pose.lng, pano: pose.pano,
+    // 손으로 고른 키 목록은 새 필드를 조용히 떨군다 — 실제로 ya_offset 이 그렇게 사라져
+    // 사진구체가 18° 돌아간 채 떴다. 링크에서 온 사실은 통째로 들고 다니고, 바뀌는 것만 덮는다.
+    current: Object.assign({}, pose, {
+      lat: pose.lat, lng: pose.lng, pano: pose.pano,
       heading: pose.heading, pitch: pose.pitch, fov: pose.fov,
-      // 링크에 들어 있던 직접 이미지 URL(!6s). 사용자 기여 파노는 이 길로만
-      // 안정적으로 받아진다(JS API 는 lh3 CDN 429 로 검게 나올 수 있다).
-      photo_url: pose.photo_url || null },
+      photo_url: pose.photo_url || null,
+    }),
     album: [], reports: [], analysis: null, analysisFiles: [],
   };
   tabs.push(t);
@@ -503,7 +506,11 @@ function initSplit(pose, tabId) {
     // 파노가 바뀌면 우회 이미지를 즉시 버린다(이전 장소를 덮어 보이면 안 된다).
     pano.addListener("pano_changed", onPanoChanged);
     // 시점을 돌리면 우회 이미지도 그 시점으로 다시 받는다. 막힌 적 없으면 아무 일도 안 한다.
-    pano.addListener("pov_changed", () => { if (gpmsBlocked) scheduleFallback(); });
+    pano.addListener("pov_changed", () => {
+      // pin(사진구체) 중에는 뷰어가 직접 그린다. 여기서 또 그리면 밑 파노의
+      // — 즉 **다른 장면의** — 시점으로 정지 이미지를 받아 낭비하고 헷갈린다.
+      if (gpmsBlocked && !photoPinned) scheduleFallback();
+    });
     svc = new google.maps.StreetViewService();
   } else if (p) {
     map.setCenter(p);
@@ -665,7 +672,9 @@ function fetchCopyright(panoId, tab) {
  *  즉 "읽히는데 검다" 가 곧 "타일이 안 왔다" 다. 타이밍 추정이 아니라 화면 그 자체다.
  */
 function tilesMissing() {
-  const cv = document.querySelector("#pano canvas");
+  // 우리가 만든 사진구체 캔버스는 제외한다 — 그건 교차출처가 아니어서 늘 읽히고,
+  // 그러면 "읽히는데 검다" 판정이 엉뚱하게 성립할 수 있다.
+  const cv = document.querySelector("#pano canvas:not(.sphere-canvas)");
   if (!cv || !cv.width) return false;
   try {
     const s = 24;
@@ -788,10 +797,15 @@ function startSphere(pose, tabId) {
   const make = window.createSphereViewer;
   if (!make) { paintFallback(); return; }          // sphere.js 미로드 → 옛 방식으로 물러선다
 
+  // 텍스처 경도 오프셋. 0.5 는 "heading == lh3 ya" 를 뜻한다(실측 교정값).
+  // 그런데 lh3 의 ya 는 사진구체 자체 좌표계라 진북 heading 과 어긋날 수 있다
+  // (실측: 같은 링크에서 h=36.84 인데 ya=18.8405). 링크에서 뽑은 차이만큼 돌려 준다.
+  const yaOff = Number(pose.ya_offset) || 0;
   sphere = make(host, {
     heading: Number(pose.heading) || 0,
     pitch: Number(pose.pitch) || 0,
     fov: Math.max(20, Math.min(120, Number(pose.fov) || 75)),   // 링크의 `75y` = 수직 FOV
+    lonOffset: 0.5 - yaOff / 360,
     onChange: (pov) => onSphereView(pov, tabId),
   });
   if (!sphere) { paintFallback(); return; }        // WebGL 없음 → 정지 이미지라도 보여준다
@@ -954,14 +968,19 @@ function syncFromPano() {
   const t0 = tabById(syncTabId);
   const prev = (t0 && t0.current) || {};
   reportViewerState(pano, t0);
-  const next = {
+  const same = prev.pano && prev.pano === nextPano;
+  // 여기도 마찬가지 — 이전 포즈를 바탕에 깔고 바뀐 것만 덮는다.
+  const next = Object.assign({}, prev, {
     lat: pos.lat(), lng: pos.lng(), pano: nextPano,
     heading: pov.heading, pitch: pov.pitch,
     fov: currentPose ? currentPose.fov : 90, zoom: pano.getZoom(),
     // 같은 파노 안에서 시점만 돌린 것이면 이미지 URL 이 그대로 유효하다
-    // (시점은 URL 파라미터로 다시 겨눈다). 파노가 바뀌면 버린다.
-    photo_url: (prev.pano && prev.pano === nextPano) ? (prev.photo_url || null) : null,
-  };
+    // (시점은 URL 파라미터로 다시 겨눈다). 파노가 바뀌면 그 파노의 사실은 전부 버린다.
+    photo_url: same ? (prev.photo_url || null) : null,
+    photo_ya: same ? (prev.photo_ya != null ? prev.photo_ya : null) : null,
+    photo_pi: same ? (prev.photo_pi != null ? prev.photo_pi : null) : null,
+    ya_offset: same ? (prev.ya_offset || 0) : 0,
+  });
   const t = tabById(syncTabId);       // ← activeTab() 이 아니다. 무장 시점에 고정된 탭.
   if (t) t.current = next;
   if (syncTabId === activeId) currentPose = next;

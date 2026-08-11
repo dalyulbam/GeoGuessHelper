@@ -45,8 +45,14 @@ def photo_url_for(photo_url: str, pose: dict, *, w: int, h: int) -> str:
         except (TypeError, ValueError):
             return d
 
-    ya = num(pose.get("heading"), 0.0) % 360.0
-    pi = num(pose.get("pitch"), 0.0)
+    # lh3 의 `-ya` 는 **그 사진구체 자체의 좌표계**다. 지도 URL 의 heading(진북)과 다를 수 있어서
+    # (실측: 같은 링크에서 h=36.84 인데 ya=18.8405, 차이 18.0°) 링크에서 뽑아 둔 오프셋을 뺀다.
+    off = num(pose.get("ya_offset"), 0.0)
+    ya = (num(pose.get("heading"), 0.0) - off) % 360.0
+    # lh3 의 `-pi` 는 **양수가 아래**다(실측: pi +60 이 천저 쪽과 일치). pose["pitch"] 는
+    # 반대로 양수가 위다(StreetViewPov 규약). 그래서 부호를 뒤집어 보낸다 —
+    # 예전엔 그대로 보내서 화면과 캡처가 지평선 기준으로 뒤집혀 있었다.
+    pi = -num(pose.get("pitch"), 0.0)
     # pose["fov"] 는 **수직** FOV 다(구글맵 URL 의 `75y` 규약, 뷰어도 이 값을 들고 다닌다).
     # 그런데 lh3 의 `-fo` 는 **수평** FOV 다. 예전엔 수직값을 그대로 넣어서 캡처가 화면보다
     # 좁게 잘렸다. 실측 근거: 그 링크는 `75y` 인데 같은 URL 의 `-fo` 가 100 이었고,

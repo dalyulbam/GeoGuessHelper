@@ -11,13 +11,23 @@
  *   구면좌표로 바꾼 뒤 등장방형 텍스처를 샘플링한다. 구를 만들 필요가 없고,
  *   화면 픽셀당 정확히 한 번만 계산하므로 저사양에서도 가볍다.
  *
- * 각도 규약 (실측으로 확정한 것)
- *   · heading  0..360, 시계방향. 링크의 `-ya` 와 같은 값.
- *   · pitch    -85..85, **위가 양수**. 링크의 `-pi` 와 같은 값.
- *   · fov      이 뷰어는 **수직** FOV 를 들고 다닌다(구글맵 URL 의 `75y` 와 같은 규약).
- *              lh3 의 `-fo` 는 **수평** FOV 다 — 실측: 수직 75°·종횡비 1.5 → 수평 98°,
- *              그 링크의 fo 값이 100 이었다. 그래서 서버로 넘길 때는 반드시 변환한다.
- *              변환은 hFovFor() 가 담당한다.
+ * 각도 규약 — 전부 실측으로 확정했다. 셋 다 lh3 와 **다르다**는 점이 함정이었다.
+ *   · heading  0..360, 시계방향, **진북 기준**(지도 URL 의 `36.84h`).
+ *              lh3 의 `-ya` 는 사진구체 **자체 좌표계**라 진북과 어긋난다
+ *              — 실측: 같은 링크에서 h=36.84 인데 ya=18.8405 (차이 18.0°).
+ *              그 차이를 linkresolver 가 pose.ya_offset 으로 뽑아 주고,
+ *              여기서는 lonOffset = 0.5 - ya_offset/360 으로 텍스처를 돌려 맞춘다.
+ *   · pitch    -85..85, **위가 양수**(StreetViewPov 규약).
+ *              lh3 의 `-pi` 는 **반대로 아래가 양수**다 — 실측: pi +60 이 등장방형의
+ *              천저 띠와 일치했고, 같은 링크에서 지도 tilt 103.37(=+13.37)과
+ *              lh3 pi=-13.3658 이 크기는 같고 부호만 반대였다.
+ *   · fov      **수직** FOV(지도 URL 의 `75y`). lh3 의 `-fo` 는 **수평**이다
+ *              — 실측: 수직 75°·종횡비 1.5 → 수평 98.0°, 링크의 fo 가 100 이었다.
+ *              변환은 capture.photo_url_for 가 w/h 로 한다.
+ *
+ * 교훈 하나: 처음엔 우리 렌더러를 **우리가 만든 URL** 과 대조해 "일치(평균차 1.29)" 로 봤다.
+ * 둘 다 같은 부호 오류를 갖고 있어서 나란히 틀렸을 뿐이었다. 진짜 기준은 구글이 링크에
+ * 직접 넣어 준 `!6s` 썸네일이다 — 대조 대상은 내가 만든 것이 아니어야 한다.
  */
 "use strict";
 
@@ -37,8 +47,9 @@ void main() {
 }`;
 
 /* 픽셀마다: 시선 벡터 → pitch 회전 → yaw 회전 → 경위도 → 등장방형 uv.
- * u_lonOffset 은 "텍스처의 어느 열이 heading 0 인가"를 담는다. 추측하지 않고
- * 서버가 잘라 준 이미지와 대조해 실측으로 정한 값을 넣는다. */
+ * u_lonOffset 은 "텍스처의 어느 열이 heading 0 인가"를 담는다.
+ * 0.5 = "heading 이 lh3 ya 와 같다"(실측 교정값). 여기에 링크에서 뽑은
+ * ya_offset 만큼 더 돌려서 진북 기준으로 맞춘다. */
 const _FRAG = `
 precision highp float;
 varying vec2 v_ndc;
@@ -56,8 +67,12 @@ void main() {
   vec3 dir = normalize(vec3(v_ndc.x * u_tanHalfV * u_aspect,
                             v_ndc.y * u_tanHalfV,
                             1.0));
+  // **+pitch = 위.** 전방 (0,0,1) 이 (0, sin p, cos p) 로 가야 lat = +p 가 된다.
+  // 예전 식은 부호가 반대라 lat = -p 였고, 화면이 지평선 기준으로 뒤집혀 있었다.
+  // pitch 0 에서는 표가 안 나서(기본값이 0) 그대로 나갔다 — 실측으로 잡았다:
+  // 구글이 링크에 넣어 준 !6s 썸네일은 하늘이 보이는데 우리 화면은 땅만 보였다.
   float cp = cos(u_pitch), sp = sin(u_pitch);
-  vec3 d1 = vec3(dir.x, dir.y * cp - dir.z * sp, dir.y * sp + dir.z * cp);
+  vec3 d1 = vec3(dir.x, dir.y * cp + dir.z * sp, -dir.y * sp + dir.z * cp);
   float cy = cos(u_yaw), sy = sin(u_yaw);
   vec3 d2 = vec3(d1.x * cy + d1.z * sy, d1.y, -d1.x * sy + d1.z * cy);
 
@@ -225,7 +240,7 @@ function createSphereViewer(host, opts) {
     pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pts.size >= 2) {
       const s = spread();
-      if (pinch) setFov(view.fov * (pinch / s));
+      if (pinch) { setFov(view.fov * (pinch / s)); moved = true; }   // moved 를 세워야 onUp 이 알린다
       pinch = s;
       return;
     }
@@ -252,6 +267,16 @@ function createSphereViewer(host, opts) {
     emit();
   }
 
+  // 컨텍스트를 잃으면 검은 캔버스가 입력만 삼킨다 — "끌어서 돌리세요" 라고 안내한 채로.
+  // 그러면 조용히 죽지 말고 스스로 물러난다(호출부가 정지 이미지로 폴백한다).
+  function onLost(e) {
+    e.preventDefault();
+    ready = false;
+    canvas.style.pointerEvents = "none";
+    if (opts.onLost) opts.onLost();
+  }
+  canvas.addEventListener("webglcontextlost", onLost, false);
+
   canvas.addEventListener("pointerdown", onDown);
   canvas.addEventListener("pointermove", onMove);
   canvas.addEventListener("pointerup", onUp);
@@ -276,6 +301,9 @@ function createSphereViewer(host, opts) {
   }
   function destroy() {
     destroyed = true;
+    // DOM 에서 먼저 뗀다. 아래 GL 호출이 예외를 던지면 캔버스가 영구히 남기 때문이다.
+    canvas.remove();
+    canvas.removeEventListener("webglcontextlost", onLost);
     if (raf) cancelAnimationFrame(raf);
     if (ro) ro.disconnect();
     canvas.removeEventListener("pointerdown", onDown);
@@ -290,7 +318,6 @@ function createSphereViewer(host, opts) {
     // 브라우저의 동시 컨텍스트 한도(보통 16개)에 걸려 조용히 렌더가 멎는다.
     const lose = gl.getExtension("WEBGL_lose_context");
     if (lose) lose.loseContext();
-    canvas.remove();
   }
 
   resize();

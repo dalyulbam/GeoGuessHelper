@@ -34,6 +34,11 @@ _PANO_RE = re.compile(r"!1s(?P<pano>[^!?/]+)")
 # IP 단위 제한(HTTP 429)을 걸어 검은 화면이 되곤 한다. 그런데 이 URL 은 그냥 받아진다.
 # 끝의 `=w900-h600-k-no-pi<pitch>-ya<heading>-ro<roll>-fo<fov>` 로 시점·크기도 지정된다.
 _PHOTO_RE = re.compile(r"!6s(?P<url>https?[^!]+)")
+# 그 이미지 URL 안의 시점 값. **lh3 자체 좌표계**로 적혀 있어서 지도 URL 의 heading 과 다르다
+# (실측: 같은 링크에서 지도 h=36.84 인데 lh3 ya=18.8405 — 약 18° 차이).
+# pitch 는 크기가 정확히 일치하고 부호만 반대다(지도 tilt 103.37 → 13.37, lh3 pi=-13.3658).
+_PHOTO_YA_RE = re.compile(r"-ya(-?[\d.]+)")
+_PHOTO_PI_RE = re.compile(r"-pi(-?[\d.]+)")
 _Q_RE = re.compile(r"[?&](?:q|query)=(?P<lat>-?\d+\.\d+),(?P<lng>-?\d+\.\d+)")
 _PLACE_RE = re.compile(r"/@(?P<lat>-?\d+\.\d+),(?P<lng>-?\d+\.\d+)")
 _SHORT_RE = re.compile(r"(maps\.app\.goo\.gl|goo\.gl/maps|g\.co/kgs)", re.I)
@@ -86,6 +91,8 @@ def parse_pose(url: str) -> dict:
         "lat": None, "lng": None, "pano": None,
         "heading": None, "pitch": 0.0, "fov": None,
         "photo_url": None,   # !6s — 사용자 기여 파노의 직접 이미지 URL(있으면)
+        "photo_ya": None,    # 그 URL 의 heading (lh3 좌표계)
+        "photo_pi": None,    # 그 URL 의 pitch  (lh3 규약: 양수가 아래)
     }
 
     # ② api=1 쿼리 폼
@@ -134,6 +141,12 @@ def parse_pose(url: str) -> dict:
         cand = unquote(pm["url"])
         if re.match(r"^https?://[A-Za-z0-9.\-]*googleusercontent\.com/", cand):
             pose["photo_url"] = cand
+            ym = _PHOTO_YA_RE.search(cand)
+            pm2 = _PHOTO_PI_RE.search(cand)
+            if ym:
+                pose["photo_ya"] = float(ym.group(1))
+            if pm2:
+                pose["photo_pi"] = float(pm2.group(1))
 
     if pose["fov"] is None:
         pose["fov"] = 90.0
@@ -142,6 +155,13 @@ def parse_pose(url: str) -> dict:
 
     if pose["lat"] is None and pose["pano"] is None:
         raise ParseError("URL에서 좌표(@lat,lng)나 파노라마 ID(!1s…)를 찾지 못했습니다.")
+
+    # lh3 좌표계 ↔ 진북 heading 의 차이. 이 값이 있어야 사진구체를 **사용자가 보던 방향**으로
+    # 띄우고, 캡처도 같은 방향을 찍는다. 없으면 0 으로 두어 예전과 같이 동작한다.
+    if pose.get("photo_ya") is not None and pose.get("heading") is not None:
+        pose["ya_offset"] = round((float(pose["heading"]) - float(pose["photo_ya"])) % 360.0, 4)
+    else:
+        pose["ya_offset"] = 0.0
 
     pose["pano_kind"] = classify_pano(pose["pano"])
     return pose
