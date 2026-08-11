@@ -582,9 +582,9 @@ function reportViewerState(p, tab) {
   if (photoPinned && pinnedPose) {
     el.innerHTML =
       `<span class="vs-k">표시 중</span><code>${esc(short(pinnedPose.pano || ""))}</code>`
-      + `<span class="vs-cp third">사진구체 · 링크 원본 이미지</span>`
-      + `<span class="vs-note">이 파노는 지도 SDK 가 제공하지 않아 링크에 담긴 원본 이미지를 그대로 띄웁니다.`
-      + ` 좌표·시점은 링크 값을 씁니다 — 캡처도 같은 이미지를 사용합니다.</span>`;
+      + `<span class="vs-cp third">사진구체 · 자체 뷰어</span>`
+      + `<span class="vs-note">이 파노는 지도 SDK 가 제공하지 않아 원본 파노라마를 직접 띄웁니다.`
+      + ` <b>끌어서 돌리고 휠로 확대</b>할 수 있으며, 캡처는 지금 보이는 시점을 그대로 찍습니다.</span>`;
     el.hidden = false;
     return;
   }
@@ -763,6 +763,74 @@ function scheduleFallback() {
   fallbackTimer = setTimeout(paintFallback, 200);
 }
 
+/* ── 사진구체: 그림이 아니라 **뷰어** ──────────────────────────────────────────
+ *
+ * 예전에는 서버가 잘라 준 평면 이미지를 <img> 로 덮었다. 그건 pointer-events:none 인
+ * 그림이었고, 그 아래 파노는 비어 있었으므로(ZERO_RESULTS) 사용자가 잡아 끌 수 없었다.
+ * 화면은 떴지만 **기능이 없었다** — 사용자 신고: "시점 돌리기가 안 된다".
+ *
+ * 이제 등장방형 원본을 텍스처로 받아 직접 투영한다(sphere.js). 구글 지도가 하는 것과 같다.
+ * 저해상도를 먼저 띄워 즉시 보이게 하고, 고해상도로 조용히 갈아끼운다.
+ */
+let sphere = null;
+let sphereToken = null;
+
+function sphereUrl(base, w) {
+  return `/api/pano-image?base=${encodeURIComponent(base)}&w=${w}&mode=equi`;
+}
+
+function startSphere(pose, tabId) {
+  stopSphere();
+  const host = $("#pano");
+  if (!host || !gpmsToken) return;
+  hideFallback();
+
+  const make = window.createSphereViewer;
+  if (!make) { paintFallback(); return; }          // sphere.js 미로드 → 옛 방식으로 물러선다
+
+  sphere = make(host, {
+    heading: Number(pose.heading) || 0,
+    pitch: Number(pose.pitch) || 0,
+    fov: Math.max(20, Math.min(120, Number(pose.fov) || 75)),   // 링크의 `75y` = 수직 FOV
+    onChange: (pov) => onSphereView(pov, tabId),
+  });
+  if (!sphere) { paintFallback(); return; }        // WebGL 없음 → 정지 이미지라도 보여준다
+
+  sphereToken = gpmsToken;
+  const base = gpmsToken;
+  // ① 1024 를 먼저 — 즉시 보이게. ② 4096 으로 조용히 교체 — 선명하게.
+  sphere.setTexture(sphereUrl(base, 1024))
+    .then(() => {
+      if (!sphere || sphereToken !== base) return;
+      return sphere.setTexture(sphereUrl(base, 4096));
+    })
+    .catch((e) => {
+      if (!sphere || sphereToken !== base) return;
+      // 4096 이 GPU 한계를 넘는 경우가 있다 — 2048 로 한 번 더 물러선다.
+      return sphere.setTexture(sphereUrl(base, 2048)).catch(() => {
+        setStatus(`파노라마를 띄우지 못했습니다 — ${e.message || e}`, "err", 6000);
+      });
+    });
+  onSphereView(sphere.getPov(), tabId);
+}
+
+function stopSphere() {
+  if (sphere) { try { sphere.destroy(); } catch (e) { /* 무시 */ } }
+  sphere = null; sphereToken = null;
+}
+
+/** 뷰어에서 시점이 바뀌면 **탭 포즈에 그대로 기록**한다.
+ *  캡처는 서버가 pose 의 heading/pitch/fov 로 이미지를 다시 겨눠 받는다. 여기서 기록하지
+ *  않으면 "현재 장면 캡처"가 화면과 다른 장면을 찍는다 — 지오게서 복기 도구에서 그건 오답이다. */
+function onSphereView(pov, tabId) {
+  const t = tabById(tabId);
+  if (!t || !pov) return;
+  t.current = Object.assign({}, t.current || t.extracted, {
+    heading: pov.heading, pitch: pov.pitch, fov: pov.fov,
+  });
+  if (t.id === activeId) { currentPose = t.current; renderPose(t.current); }
+}
+
 /** Maps JS API 가 이 파노를 모를 때. 조용히 실패하지 않고 **가진 것으로 최선**을 한다.
  *
  *  ① 링크에 `!6s` 직접 이미지가 있으면 그것을 그대로 띄운다. 사진구체(CIHM…)는 JS API 가
@@ -777,17 +845,12 @@ function panoUnavailable(pose, myToken, tabId) {
     gpmsToken = String(pose.photo_url).replace(/=w\d+-h\d+.*$/, "");
     gpmsBlocked = true;
     watchedPano = pose.pano;
-    // 밑 파노의 시점을 링크 값에 맞춰 둔다. 이렇게 해야 ① 시작 각도가 맞고,
-    // ② 이후 드래그/줌이 그대로 사진구체 시점 변화로 이어진다(고정 이미지가 되지 않는다).
-    pano.setPov({ heading: Number(pose.heading) || 0, pitch: Number(pose.pitch) || 0 });
-    const fov = Math.max(20, Math.min(120, Number(pose.fov) || 90));
-    pano.setZoom(Math.max(0, Math.min(5, Math.log2(180 / fov))));
     // 지금 밑에 깔려 있는 파노를 앵커로 잡는다 — 여기서 달라지면 사용자가 이동한 것이다.
     pinnedUnder = (pano.getPano && pano.getPano()) || null;
     lastPaintKey = "";
-    paintFallback();
+    startSphere(pose, tabId);
     reportViewerState(pano, tabById(tabId));
-    note("이 파노는 지도 SDK 가 제공하지 않는 사진구체입니다 — 링크의 원본 이미지로 표시합니다", "ok");
+    note("이 파노는 지도 SDK 가 제공하지 않는 사진구체입니다 — 원본 파노라마를 직접 띄웁니다", "ok");
     return;
   }
   if (pose.lat == null || pose.lng == null) {
@@ -868,6 +931,7 @@ function paintFallback() {
 function clearFallback() {
   watchedPano = null; gpmsToken = null; gpmsBlocked = false; photoPinned = false; pinnedPose = null;
   pinnedUnder = null; pinnedTabId = null; lastPaintKey = "";
+  stopSphere();          // 덮은 것은 같은 자리에서 걷는다 — 뷰어도 예외가 아니다
   clearTimeout(fallbackTimer); clearInterval(tileWatch);
   hideFallback();
 }

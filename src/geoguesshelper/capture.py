@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import asyncio
 import io
+import math
 import re
 import uuid
 
@@ -46,7 +47,14 @@ def photo_url_for(photo_url: str, pose: dict, *, w: int, h: int) -> str:
 
     ya = num(pose.get("heading"), 0.0) % 360.0
     pi = num(pose.get("pitch"), 0.0)
-    fo = max(20.0, min(120.0, num(pose.get("fov"), 90.0)))
+    # pose["fov"] 는 **수직** FOV 다(구글맵 URL 의 `75y` 규약, 뷰어도 이 값을 들고 다닌다).
+    # 그런데 lh3 의 `-fo` 는 **수평** FOV 다. 예전엔 수직값을 그대로 넣어서 캡처가 화면보다
+    # 좁게 잘렸다. 실측 근거: 그 링크는 `75y` 인데 같은 URL 의 `-fo` 가 100 이었고,
+    # 수직 75°·종횡비 1.5 를 수평으로 바꾸면 98.0° 로 맞아떨어진다.
+    v = max(20.0, min(120.0, num(pose.get("fov"), 90.0)))
+    aspect = (float(w) / float(h)) if h else 1.5
+    fo = round(math.degrees(2 * math.atan(aspect * math.tan(math.radians(v) / 2))), 2)
+    fo = max(20.0, min(150.0, fo))
     return f"{base}=w{int(w)}-h{int(h)}-k-no-pi{pi}-ya{ya}-ro0-fo{fo}"
 
 

@@ -278,3 +278,11 @@ ol.narrow::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;widt
   pointer-events: none;   /* 드래그·확대는 그대로 아래 파노가 받는다 */
 }
 #pano-fallback.on { opacity: 1; }
+
+/* 사진구체 뷰어 캔버스 — <img> 오버레이와 달리 **입력을 받는다**.
+   이게 핵심이다: 예전 오버레이는 pointer-events:none 인 그림이라 잡아 끌 수 없었다. */
+.sphere-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 3; display: block; cursor: grab; touch-action: none;
+}
+.sphere-canvas.grabbing { cursor: grabbing; }

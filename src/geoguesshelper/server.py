@@ -526,6 +526,21 @@ def build_app(settings: Settings) -> FastAPI:
     _IMG_HOST_RE = re.compile(r"^https://lh3\.googleusercontent\.com/gpms-cs-s/[A-Za-z0-9_\-]+$")
     _img_cache: dict[str, bytes] = {}
     _img_order: list[str] = []
+    _img_bytes = 0
+    # 등장방형 원본은 4096x2048 이 3.6MB 다. 개수로 제한하면 64장 × 3.6MB = 230MB 가 되므로
+    # **바이트 예산**으로 제한한다. 개수 상한은 그 위에 얹는 보조 장치일 뿐이다.
+    _IMG_BUDGET = 96 * 1024 * 1024
+
+    def _cache_put(url: str, data: bytes) -> None:
+        nonlocal _img_bytes
+        if url in _img_cache:
+            return
+        _img_cache[url] = data
+        _img_order.append(url)
+        _img_bytes += len(data)
+        while _img_order and (_img_bytes > _IMG_BUDGET or len(_img_order) > 64):
+            old = _img_order.pop(0)
+            _img_bytes -= len(_img_cache.pop(old, b""))
 
     def _num(v, default: float, lo: float, hi: float) -> float:
         try:
@@ -535,11 +550,41 @@ def build_app(settings: Settings) -> FastAPI:
 
     @app.get("/api/pano-image")
     async def api_pano_image(base: str, w: int = 1056, h: int = 450,
-                             pi: float = 0.0, ya: float = 0.0, fo: float = 90.0):
-        """gpms 토큰 + 시점 → JPEG. base 는 **토큰 URL 만** 허용한다(SSRF 방지)."""
+                             pi: float = 0.0, ya: float = 0.0, fo: float = 90.0,
+                             mode: str = "rect"):
+        """gpms 토큰 → JPEG. base 는 **토큰 URL 만** 허용한다(SSRF 방지).
+
+        mode=rect  직선투영 crop — 시점(pi/ya/fo)을 서버가 잘라 준다. 정지 이미지용.
+        mode=equi  **등장방형 원본** — 구형 텍스처. 이걸 받아 브라우저에서 3D 로 띄우면
+                   구글 지도처럼 마우스로 자유롭게 돌릴 수 있다(실측: 2048x1024=992KB,
+                   4096x2048=3.64MB, 최대 8704x4352). 접미사에 시점 파라미터를 붙이지
+                   않는 것이 핵심 — 붙이는 순간 잘린 평면 이미지가 된다.
+        """
         base = (base or "").strip()
         if not _IMG_HOST_RE.match(base):
             raise HTTPException(status_code=400, detail="허용되지 않은 이미지 주소입니다.")
+
+        if mode == "equi":
+            # 2:1 을 강제한다. 폭만 클램프하고 높이는 파생시켜 비율이 깨지지 않게 한다.
+            ew = int(_num(w, 2048, 256, 8704))
+            url = f"{base}=w{ew}-h{ew // 2}"
+            data = _img_cache.get(url)
+            if data is None:
+                try:
+                    data = await asyncio.to_thread(
+                        lambda: streetview.fetch_bytes_sync(url, timeout=45.0)
+                    )
+                except Exception as exc:  # noqa: BLE001
+                    raise HTTPException(status_code=502,
+                                        detail=f"파노라마를 받지 못했습니다: {type(exc).__name__}") from exc
+                if not data or len(data) < 1000:
+                    raise HTTPException(status_code=502, detail="파노라마가 비어 있습니다.")
+                _cache_put(url, data)
+            from fastapi.responses import Response
+
+            return Response(content=data, media_type="image/jpeg",
+                            headers={"Cache-Control": "public, max-age=86400"})
+
         w = int(_num(w, 1056, 64, 2048))
         h = int(_num(h, 450, 64, 2048))
         url = (f"{base}=w{w}-h{h}-k-no-pi{round(_num(pi, 0, -90, 90))}"
@@ -554,10 +599,7 @@ def build_app(settings: Settings) -> FastAPI:
                                     detail=f"이미지를 받지 못했습니다: {type(exc).__name__}") from exc
             if not data or len(data) < 1000:
                 raise HTTPException(status_code=502, detail="이미지가 비어 있습니다.")
-            _img_cache[url] = data
-            _img_order.append(url)
-            while len(_img_order) > 64:          # 회전하면 각도마다 쌓이므로 상한을 둔다
-                _img_cache.pop(_img_order.pop(0), None)
+            _cache_put(url, data)
 
         from fastapi.responses import Response
 
