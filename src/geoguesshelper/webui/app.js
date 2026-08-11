@@ -841,15 +841,26 @@ function paintFallback() {
   if (key === lastPaintKey && img.classList.contains("on")) return;
   lastPaintKey = key;
 
+  // **서버를 거쳐 받는다.** 이미지 주소 자체는 멀쩡하지만(실측: 서버 217KB, 헤드리스 200),
+  // 실제 사용자 브라우저에서는 검게 남는 경우가 있었다. 광고/추적 차단 확장이나 백신 웹실드가
+  // googleusercontent.com 을 막으면 페이지 코드로는 손쓸 방법이 없기 때문이다.
+  // 같은 출처로 받으면 그 층이 통째로 사라지고, 덤으로 캔버스도 오염되지 않는다.
+  const url = `/api/pano-image?base=${encodeURIComponent(gpmsToken)}`
+    + `&w=${w}&h=${h}&pi=${pi}&ya=${ya}&fo=${fo}`;
+
   // 미리 받아 두고 **디코드가 끝난 뒤에** 바꾼다. img.src 를 바로 갈면 드래그 중 화면이 깜빡인다.
-  const url = `${gpmsToken}=w${w}-h${h}-k-no-pi${pi}-ya${ya}-ro0-fo${fo}`;
   const pre = new Image();
   pre.onload = () => {
     if (lastPaintKey !== key) return;          // 그새 더 최신 시점이 요청됐다
     img.src = url;
     img.classList.add("on");
   };
-  pre.onerror = () => { if (lastPaintKey === key) lastPaintKey = ""; };
+  pre.onerror = () => {
+    if (lastPaintKey !== key) return;
+    lastPaintKey = "";
+    // 조용히 검게 두지 않는다 — 무엇이 실패했는지 말한다.
+    setStatus("원본 이미지를 받지 못했습니다 — 서버 로그를 확인하세요", "err", 6000);
+  };
   pre.src = url;
 }
 

@@ -17,6 +17,8 @@
     POST /api/extract               → {"url"} → 포즈
     POST /api/capture               → {"pose","mode"?} → 캡처 결과
     POST /api/analyze               → {"files","lang"} → 비전 분석
+    GET  /api/pano-photo            → 파노의 lh3 이미지 토큰(제3자 파노 우회용)
+    GET  /api/pano-image            → 그 토큰 + 시점 → JPEG (서버 경유 · 확장/백신 차단 회피)
     POST /api/jobs/scene-report     → 큐 등록: 캡처 → 분석 → 리서치 → 보고서
     POST /api/jobs/report           → 큐 등록: 캡처들 → 보고서
     GET  /api/jobs                  → 큐 상태 + 목록
@@ -34,6 +36,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import re
 import socket
 import threading
 import webbrowser
@@ -46,7 +49,7 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Streamin
 from fastapi.staticfiles import StaticFiles
 
 from . import capture as capture_mod
-from . import i18n, jobs, knowledge, linkresolver, translate
+from . import i18n, jobs, knowledge, linkresolver, streetview, translate
 from . import report as report_mod
 from . import research as research_mod
 from .analyze import analyze_captures
@@ -512,6 +515,55 @@ def build_app(settings: Settings) -> FastAPI:
                     _photo_tokens[pano] = None
         base = _photo_tokens.get(pano)
         return JSONResponse({"base": base, "reason": None if base else "not_found"})
+
+    # 사진구체/제3자 파노 이미지를 **서버가 대신 받아** 넘긴다.
+    #
+    # 왜 프록시가 필요한가 — URL 자체는 멀쩡하다(실측: 서버 217,584B, 헤드리스 브라우저 HTTP 200).
+    # 그런데 사용자의 실제 브라우저에서는 검게 남았다. 원인은 브라우저 쪽 환경이다:
+    # 광고/추적 차단 확장이나 백신 웹실드가 googleusercontent.com 을 막으면 우리 코드가
+    # 손쓸 방법이 없다(이 PC 는 이미 Avast 가 TLS 에 개입한 전력이 있다).
+    # 같은 출처로 바꾸면 그 층이 통째로 사라지고, 덤으로 캔버스도 오염되지 않는다.
+    _IMG_HOST_RE = re.compile(r"^https://lh3\.googleusercontent\.com/gpms-cs-s/[A-Za-z0-9_\-]+$")
+    _img_cache: dict[str, bytes] = {}
+    _img_order: list[str] = []
+
+    def _num(v, default: float, lo: float, hi: float) -> float:
+        try:
+            return max(lo, min(hi, float(v)))
+        except (TypeError, ValueError):
+            return default
+
+    @app.get("/api/pano-image")
+    async def api_pano_image(base: str, w: int = 1056, h: int = 450,
+                             pi: float = 0.0, ya: float = 0.0, fo: float = 90.0):
+        """gpms 토큰 + 시점 → JPEG. base 는 **토큰 URL 만** 허용한다(SSRF 방지)."""
+        base = (base or "").strip()
+        if not _IMG_HOST_RE.match(base):
+            raise HTTPException(status_code=400, detail="허용되지 않은 이미지 주소입니다.")
+        w = int(_num(w, 1056, 64, 2048))
+        h = int(_num(h, 450, 64, 2048))
+        url = (f"{base}=w{w}-h{h}-k-no-pi{round(_num(pi, 0, -90, 90))}"
+               f"-ya{round(_num(ya, 0, 0, 360))}-ro0-fo{round(_num(fo, 90, 20, 120))}")
+
+        data = _img_cache.get(url)
+        if data is None:
+            try:
+                data = await asyncio.to_thread(lambda: streetview.fetch_bytes_sync(url, timeout=25.0))
+            except Exception as exc:  # noqa: BLE001
+                raise HTTPException(status_code=502,
+                                    detail=f"이미지를 받지 못했습니다: {type(exc).__name__}") from exc
+            if not data or len(data) < 1000:
+                raise HTTPException(status_code=502, detail="이미지가 비어 있습니다.")
+            _img_cache[url] = data
+            _img_order.append(url)
+            while len(_img_order) > 64:          # 회전하면 각도마다 쌓이므로 상한을 둔다
+                _img_cache.pop(_img_order.pop(0), None)
+
+        from fastapi.responses import Response
+
+        media = "image/png" if data[:8] == b"\x89PNG\r\n\x1a\n" else "image/jpeg"
+        return Response(content=data, media_type=media,
+                        headers={"Cache-Control": "public, max-age=3600"})
 
     @app.post("/api/analyze")
     async def api_analyze(payload: dict):
