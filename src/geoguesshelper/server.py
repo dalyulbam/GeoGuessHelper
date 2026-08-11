@@ -449,7 +449,11 @@ def build_app(settings: Settings) -> FastAPI:
         # 정적 파일 캐시 무효화 파라미터를 앱 버전으로 치환해서 내려보낸다.
         # 손으로 관리하면 반드시 잊어버리고, 그 결과는 "새 서버 + 캐시된 옛 프론트"다.
         html = (WEBUI_DIR / "index.html").read_text(encoding="utf-8")
-        return HTMLResponse(html.replace("__ASSET_V__", __version__))
+        # 이 문서만은 **절대 캐시하지 않는다.** 정적 파일은 ?v= 로 무효화되지만,
+        # 그 ?v= 를 적어 주는 것이 바로 이 문서다. 이게 캐시되면 낡은 index 가 낡은 js 를
+        # 계속 불러 서버를 새로 켜도 화면이 안 바뀐다(진단이 매우 어려운 계열).
+        return HTMLResponse(html.replace("__ASSET_V__", __version__),
+                            headers={"Cache-Control": "no-store, must-revalidate"})
 
     @app.get("/api/config")
     async def api_config():

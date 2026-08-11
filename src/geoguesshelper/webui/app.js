@@ -414,7 +414,10 @@ async function doExtract() {
   const nBefore = tabs.length;
   newTab(pose);
   loadActive();
-  setStatus(tabs.length > nBefore ? "추출 완료" : "이미 열린 탭으로 이동", "ok");
+  // 같은 링크를 다시 누르면 화면이 그대로라 "추출이 안 된다"로 보인다. 분명히 말해 준다.
+  setStatus(tabs.length > nBefore
+    ? "추출 완료"
+    : "이미 열려 있는 링크입니다 — 그 탭으로 이동했습니다(화면을 다시 불러왔습니다)", "ok", 5000);
   if (CONFIG.hasJsKey && !mapsReady) setStatus("지도 SDK 로딩 중…");
 }
 

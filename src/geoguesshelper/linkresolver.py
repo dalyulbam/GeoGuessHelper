@@ -159,7 +159,9 @@ def parse_pose(url: str) -> dict:
     # lh3 좌표계 ↔ 진북 heading 의 차이. 이 값이 있어야 사진구체를 **사용자가 보던 방향**으로
     # 띄우고, 캡처도 같은 방향을 찍는다. 없으면 0 으로 두어 예전과 같이 동작한다.
     if pose.get("photo_ya") is not None and pose.get("heading") is not None:
-        pose["ya_offset"] = round((float(pose["heading"]) - float(pose["photo_ya"])) % 360.0, 4)
+        # (-180, 180] 로 접는다. 0 근처인데 359.998 로 적히면 사람도 코드도 헷갈린다.
+        _d = (float(pose["heading"]) - float(pose["photo_ya"])) % 360.0
+        pose["ya_offset"] = round(_d - 360.0 if _d > 180.0 else _d, 4)
     else:
         pose["ya_offset"] = 0.0
 
