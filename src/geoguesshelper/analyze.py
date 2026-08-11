@@ -65,7 +65,9 @@ _TOOL = {
                 "required": ["country", "confidence"],
                 "properties": {
                     "country": {"type": "string"},
-                    "country_iso": {"type": "string"},
+                    "country_iso": {"type": "string", "pattern": "^[A-Z]{2}$",
+                                     "description": "ISO 3166-1 **alpha-2** (2 letters), e.g. HR "
+                                                    "for Croatia. Never alpha-3."},
                     "confidence": {"type": "number"},
                     "region_or_state": {"type": ["string", "null"]},
                     "city": {"type": ["string", "null"]},
@@ -85,7 +87,9 @@ _TOOL = {
                     "type": "object",
                     "properties": {
                         "country": {"type": "string"},
-                        "country_iso": {"type": "string"},
+                        "country_iso": {"type": "string", "pattern": "^[A-Z]{2}$",
+                                     "description": "ISO 3166-1 **alpha-2** (2 letters), e.g. HR "
+                                                    "for Croatia. Never alpha-3."},
                         "confidence": {"type": "number"},
                     },
                 },

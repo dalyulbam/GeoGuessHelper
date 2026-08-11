@@ -110,12 +110,48 @@ def _splice(root: Any, path: tuple, value: str) -> None:
 
 
 # ── 공개 API ─────────────────────────────────────────────────────
+# 한 번의 호출에 넣을 상한. 실측으로 정했다 — 보고서 하나가 만들어 내는 번역 대상은
+# 150개 안팎 · 2만 자를 넘고, 그걸 통째로 한 호출에 넣으면 출력 토큰과 벽시계 마감
+# 어느 쪽이든 걸린다. 걸리면 **조용히 원문(영어)이 그대로 남는다**.
+# 나눠서 동시에 돌리면 호출당 지연이 짧아지고, 한 덩이가 실패해도 나머지는 살아남는다.
+_CHUNK_ITEMS = 30
+_CHUNK_CHARS = 6000
+
+
+def _chunk(texts: dict[str, str]) -> list[dict[str, str]]:
+    """개수와 글자 수 **둘 다** 보고 자른다. 긴 문장 몇 개로도 한도를 넘길 수 있다."""
+    out: list[dict[str, str]] = []
+    cur: dict[str, str] = {}
+    n = 0
+    for k, v in texts.items():
+        if cur and (len(cur) >= _CHUNK_ITEMS or n + len(v) > _CHUNK_CHARS):
+            out.append(cur)
+            cur, n = {}, 0
+        cur[k] = v
+        n += len(v)
+    if cur:
+        out.append(cur)
+    return out
+
+
 def translate_texts(
-    texts: dict[str, str], target_lang: str, settings: Settings, *, base_lang: str = "en"
+    texts: dict[str, str], target_lang: str, settings: Settings, *, base_lang: str = "en",
+    stats: dict | None = None,
 ) -> tuple[dict[str, str], float]:
-    """{id: 원문} → ({id: 번역}, 비용). 실패하면 원문을 그대로 돌려준다(보고서는 계속 생성)."""
+    """{id: 원문} → ({id: 번역}, 비용).
+
+    실패해도 원문을 돌려주어 보고서는 계속 만들지만, **그 사실을 stats 로 알린다**.
+    예전에는 조용히 원문을 돌려줘서 한국어 탭이 통째로 영어인 보고서가 나갔는데
+    작업 로그에는 errors:[] 로 찍혔다. 실패는 반드시 밖으로 나가야 한다.
+    """
     if not texts:
         return {}, 0.0
+    if stats is not None:
+        stats.setdefault("requested", 0)
+        stats.setdefault("translated", 0)
+        stats.setdefault("failed_chunks", 0)
+        stats.setdefault("chunks", 0)
+        stats.setdefault("errors", [])
     target = i18n.normalize(target_lang)
     tgt_name = i18n._CLAUDE.get(target, "English")
     src_name = i18n._CLAUDE.get(i18n.normalize(base_lang), "English")
@@ -133,13 +169,14 @@ def translate_texts(
         f"- Match the register of the source: these are encyclopedic report fields, not marketing copy.\n"
         f"- Never add commentary, footnotes, or content that was not in the source."
     )
-    payload = [{"id": k, "text": v} for k, v in texts.items()]
-    user = (
-        "Translate every `text` below. Call translated_strings exactly once with one entry per "
-        "input id.\n\n" + _json_compact(payload)
-    )
+    chunks = _chunk(texts)
 
-    try:
+    def run_one(part: dict[str, str]):
+        payload = [{"id": k, "text": v} for k, v in part.items()]
+        user = (
+            "Translate every `text` below. Call translated_strings exactly once with one entry per "
+            "input id.\n\n" + _json_compact(payload)
+        )
         resp = llm.call(
             settings,
             system=system,
@@ -151,20 +188,41 @@ def translate_texts(
             deadline_s=settings.translate_timeout_s,
             role="fact",            # 번역은 창작이 아니라 변환
         )
-    except llm.LLMUnavailable:
-        return dict(texts), 0.0
-    except Exception:  # noqa: BLE001 — 번역 실패는 치명적이지 않다
-        return dict(texts), 0.0
+        return part, resp
 
-    cost = llm.spend(resp)
-    data = llm.tool_input(resp, "translated_strings") or {}
+    results = llm.gather([(lambda c=c: run_one(c)) for c in chunks], settings)
+
     out = dict(texts)  # 기본값 = 원문(모델이 빠뜨린 항목 보호)
-    for item in data.get("items") or []:
-        if not isinstance(item, dict):
+    cost = 0.0
+    failed = 0
+    errs: list[str] = []
+    for res in results:
+        if isinstance(res, Exception):
+            failed += 1
+            errs.append(f"{type(res).__name__}: {str(res)[:80]}")
             continue
-        i, t = item.get("id"), item.get("text")
-        if isinstance(i, str) and i in out and isinstance(t, str) and t.strip():
-            out[i] = t
+        part, resp = res
+        cost += llm.spend(resp)
+        data = llm.tool_input(resp, "translated_strings") or {}
+        got = 0
+        for item in data.get("items") or []:
+            if not isinstance(item, dict):
+                continue
+            i, t = item.get("id"), item.get("text")
+            if isinstance(i, str) and i in part and isinstance(t, str) and t.strip():
+                out[i] = t
+                got += 1
+        if got == 0:
+            failed += 1
+            errs.append("빈 응답(도구 호출 없음 또는 항목 0개)")
+
+    if stats is not None:
+        stats["requested"] += len(texts)
+        stats["translated"] += sum(1 for k, v in texts.items() if out.get(k) != v)
+        stats["chunks"] += len(chunks)
+        stats["failed_chunks"] += failed
+        if errs:
+            stats["errors"].extend(errs[:4])
     return out, cost
 
 
@@ -212,7 +270,8 @@ def translate_bundle(
         return {"analysis": a, "profile": p, "extras": extras or {},
                 "cost_usd": 0.0, "translated": 0, "total": 0}
 
-    done, cost = translate_texts(texts, target, settings, base_lang=base_lang)
+    st: dict = {}
+    done, cost = translate_texts(texts, target, settings, base_lang=base_lang, stats=st)
 
     changed = 0
     for i, (path, val) in enumerate(a_slots):
@@ -236,6 +295,11 @@ def translate_bundle(
         "cost_usd": round(cost, 4),
         "translated": changed,
         "total": len(texts),
+        # 실패를 밖으로 내보낸다. 호출부는 이 값을 보고 사용자에게 알려야 한다 —
+        # 조용히 영어 보고서를 내보내는 것이 이 시스템의 가장 오래된 실수였다.
+        "failed_chunks": st.get("failed_chunks", 0),
+        "chunks": st.get("chunks", 0),
+        "errors": st.get("errors", []),
     }
 
 

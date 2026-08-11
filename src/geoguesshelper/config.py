@@ -85,7 +85,10 @@ class Settings:
     analyze_timeout_s: float = 90.0
     research_timeout_s: float = 100.0    # 병렬 샤드 **각각**의 상한
     research_merge_timeout_s: float = 40.0
-    translate_timeout_s: float = 60.0
+    # 덩이 하나(최대 30개·6000자) 기준 마감. 실측: 139개를 통째로 넣으면 131초가 걸려
+    # 60초 마감에 걸렸고, 그 실패가 조용히 영어 보고서로 나갔다. 지금은 나눠 보내므로
+    # 덩이당 25초 안팎이면 끝나지만, 느린 회선을 위해 여유를 둔다.
+    translate_timeout_s: float = 90.0
     knowledge_timeout_s: float = 60.0
     draft_timeout_s: float = 45.0
     verify_timeout_s: float = 60.0

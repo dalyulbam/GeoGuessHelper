@@ -98,6 +98,7 @@ _STRINGS: dict[str, dict[str, str]] = {
         "scenes_dropped": "{n} further capture(s) were selected but exceeded the analysis limit, so they are not shown here and were not used as evidence.",
         "k_h": "Referenced knowledge",
         "k_sub": "knowledge base",
+        "tr_failed": "This document could not be translated — the text below is the original {src}. {done}/{total} strings translated.",
         "k_note": "These facts were already established by earlier reports and were reused instead of researched again. Each id links to the stored atom.",
         "syn_word": "Synthesis",
         "syn_thesis": "What connects these places",
@@ -161,6 +162,7 @@ _STRINGS: dict[str, dict[str, str]] = {
         "scenes_dropped": "선택된 캡처 {n}장은 분석 상한을 넘어 분석에 쓰이지 않았으므로 여기에도 싣지 않았습니다.",
         "k_h": "참조한 지식",
         "k_sub": "지식 저장소",
+        "tr_failed": "이 문서는 번역에 실패해 아래 본문이 원문({src}) 그대로입니다. {done}/{total}개만 번역되었습니다.",
         "k_note": "아래 사실은 이전 보고서에서 이미 확립된 것이라 다시 조사하지 않고 재사용했습니다. 각 id 는 저장된 원자로 연결됩니다.",
         "syn_word": "종합 보고서",
         "syn_thesis": "이 장소들을 잇는 것",
@@ -215,6 +217,7 @@ _STRINGS: dict[str, dict[str, str]] = {
         ),
     },
     "ja": {
+        "tr_failed": "この文書は翻訳に失敗し、本文は原文（{src}）のままです。{done}/{total} 件のみ翻訳されました。",
         "report_word": "レポート",
         "unknown": "不明",
         "scenes_h": "キャプチャ場面",
@@ -246,6 +249,7 @@ _STRINGS: dict[str, dict[str, str]] = {
         ),
     },
     "zh": {
+        "tr_failed": "本文档翻译失败，下方正文为原文（{src}）。仅翻译了 {done}/{total} 条。",
         "report_word": "报告",
         "unknown": "未知",
         "scenes_h": "截取场景",
@@ -277,6 +281,7 @@ _STRINGS: dict[str, dict[str, str]] = {
         ),
     },
     "es": {
+        "tr_failed": "Este documento no se pudo traducir — el texto siguiente está en el idioma original ({src}). Se tradujeron {done}/{total} cadenas.",
         "report_word": "Informe",
         "unknown": "Desconocido",
         "scenes_h": "Escenas capturadas",
@@ -309,6 +314,7 @@ _STRINGS: dict[str, dict[str, str]] = {
         ),
     },
     "fr": {
+        "tr_failed": "Ce document n'a pas pu être traduit — le texte ci-dessous est dans la langue d'origine ({src}). {done}/{total} chaînes traduites.",
         "report_word": "Rapport",
         "unknown": "Inconnu",
         "scenes_h": "Scènes capturées",
@@ -341,6 +347,7 @@ _STRINGS: dict[str, dict[str, str]] = {
         ),
     },
     "de": {
+        "tr_failed": "Dieses Dokument konnte nicht übersetzt werden — der Text unten ist im Original ({src}). {done}/{total} Zeichenketten übersetzt.",
         "report_word": "Bericht",
         "unknown": "Unbekannt",
         "scenes_h": "Erfasste Szenen",

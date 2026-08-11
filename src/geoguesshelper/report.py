@@ -27,6 +27,48 @@ def _esc(s) -> str:
     return html.escape("" if s is None else str(s))
 
 
+def _wt(v) -> str:
+    """cues[].weight 를 표시용 문자열로 정규화한다.
+
+    스키마는 "high|medium|low" 문자열을 요구하지만 값을 만드는 것은 모델이라
+    0.7 같은 숫자가 오기도 한다. 예전엔 `(v or "").lower()` 라서 그 순간
+    AttributeError 로 **보고서 생성이 통째로 실패**했다. 한 칸의 표기 문제로
+    문서 전체를 잃는 것은 균형이 맞지 않는다.
+    """
+    if isinstance(v, str):
+        return v.strip().lower()
+    if isinstance(v, (int, float)):
+        return "high" if v >= 0.66 else ("medium" if v >= 0.33 else "low")
+    return ""
+
+
+# ISO 3166-1 alpha-3 → alpha-2. 스키마로 alpha-2 를 요구하지만 값을 만드는 것은 모델이라
+# 섞여 들어온다 — 실제로 같은 크로아티아 보고서가 `report_hr_…` 과 `report_hrv_…` 로 갈려
+# 파일 목록에서 서로 떨어져 정렬됐다. 앞 두 글자를 자르는 방법은 쓸 수 없다
+# (CHN→CH 가 되어 스위스 CHE→CH 와 충돌한다). 그래서 표로 옮긴다.
+_A3 = {
+    "AFG": "AF", "ALB": "AL", "DZA": "DZ", "AND": "AD", "AGO": "AO", "ARG": "AR", "ARM": "AM",
+    "AUS": "AU", "AUT": "AT", "AZE": "AZ", "BHS": "BS", "BHR": "BH", "BGD": "BD", "BLR": "BY",
+    "BEL": "BE", "BEN": "BJ", "BTN": "BT", "BOL": "BO", "BIH": "BA", "BWA": "BW", "BRA": "BR",
+    "BGR": "BG", "BFA": "BF", "KHM": "KH", "CMR": "CM", "CAN": "CA", "CHL": "CL", "CHN": "CN",
+    "COL": "CO", "CRI": "CR", "HRV": "HR", "CUB": "CU", "CYP": "CY", "CZE": "CZ", "DNK": "DK",
+    "DOM": "DO", "ECU": "EC", "EGY": "EG", "SLV": "SV", "EST": "EE", "ETH": "ET", "FIN": "FI",
+    "FRA": "FR", "GEO": "GE", "DEU": "DE", "GHA": "GH", "GRC": "GR", "GTM": "GT", "HND": "HN",
+    "HUN": "HU", "ISL": "IS", "IND": "IN", "IDN": "ID", "IRN": "IR", "IRQ": "IQ", "IRL": "IE",
+    "ISR": "IL", "ITA": "IT", "JAM": "JM", "JPN": "JP", "JOR": "JO", "KAZ": "KZ", "KEN": "KE",
+    "KOR": "KR", "PRK": "KP", "KWT": "KW", "KGZ": "KG", "LAO": "LA", "LVA": "LV", "LBN": "LB",
+    "LBY": "LY", "LTU": "LT", "LUX": "LU", "MYS": "MY", "MLT": "MT", "MEX": "MX", "MDA": "MD",
+    "MNG": "MN", "MNE": "ME", "MAR": "MA", "MOZ": "MZ", "MMR": "MM", "NAM": "NA", "NPL": "NP",
+    "NLD": "NL", "NZL": "NZ", "NIC": "NI", "NGA": "NG", "MKD": "MK", "NOR": "NO", "OMN": "OM",
+    "PAK": "PK", "PAN": "PA", "PRY": "PY", "PER": "PE", "PHL": "PH", "POL": "PL", "PRT": "PT",
+    "QAT": "QA", "ROU": "RO", "RUS": "RU", "SAU": "SA", "SEN": "SN", "SRB": "RS", "SGP": "SG",
+    "SVK": "SK", "SVN": "SI", "ZAF": "ZA", "ESP": "ES", "LKA": "LK", "SWE": "SE", "CHE": "CH",
+    "SYR": "SY", "TWN": "TW", "TZA": "TZ", "THA": "TH", "TUN": "TN", "TUR": "TR", "UGA": "UG",
+    "UKR": "UA", "ARE": "AE", "GBR": "GB", "USA": "US", "URY": "UY", "UZB": "UZ", "VEN": "VE",
+    "VNM": "VN", "YEM": "YE", "ZMB": "ZM", "ZWE": "ZW",
+}
+
+
 def _country_tag(iso: str, country: str) -> str:
     """파일명의 국가 조각.
 
@@ -35,7 +77,9 @@ def _country_tag(iso: str, country: str) -> str:
     식별하지 못했고, 충돌 조건이 '같은 장소'에서 '같은 초'로 넓어졌다.
     슬러그가 무의미해지면 국가명 해시로라도 서로 다른 나라를 구분한다.
     """
-    s = _slug(iso or country)
+    code = (iso or "").strip().upper()
+    code = _A3.get(code, code)          # alpha-3 이면 alpha-2 로 접는다
+    s = _slug(code or country)
     if s and s != "location":
         return s
     if country:
@@ -410,7 +454,7 @@ def _compute_body(result: dict, lang: str, research: dict | None,
             conf_pct = _pct(conf) if isinstance(conf, (int, float)) else None
             cands = [c for c in (st.get("candidates") or []) if c]
             out = [c for c in (st.get("ruled_out") or []) if c]
-            wt = str(st.get("weight") or "").lower()
+            wt = _wt(st.get("weight"))
 
             cand_html = ""
             if cands:
@@ -457,8 +501,8 @@ def _compute_body(result: dict, lang: str, research: dict | None,
             f"<tr><td>{_esc(c.get('category'))}</td>"
             f"<td>{_esc(c.get('observation'))}"
             + (f' <span class="muted">[{_esc(",".join(c.get("supports") or []))}]</span>' if c.get("supports") else "")
-            + f'</td><td class="w-{_esc((c.get("weight") or "").lower())}">'
-            + f"{_esc(i18n.enum_label(lang, 'weight', c.get('weight')))}</td></tr>"
+            + f'</td><td class="w-{_esc(_wt(c.get("weight")))}">'
+            + f"{_esc(i18n.enum_label(lang, 'weight', _wt(c.get('weight'))))}</td></tr>"
             for c in cues
         )
         return (
@@ -593,6 +637,7 @@ def _compute_body(result: dict, lang: str, research: dict | None,
         f'<div class="conf-label">{_esc(S["conf_label"].format(conf=conf))}</div>'
         f'{coord_block()}{chips()}'
         f'</div>'
+        f'{_tr_warning(result, S)}'   # 번역 실패를 **독자에게** 알린다(조용히 영어로 두지 않는다)
         f'{maps_html}'          # hero 바로 아래 — 축척 사다리로 위치를 먼저 잡아준다
         f'{_script_html(script, S)}'   # 사람이 읽는 서술 — 표·사슬보다 먼저
         f'<h2>{_esc(S["scenes_h"])} <span class="muted">{_esc(S["scenes_meta"].format(n=n_imgs))}</span></h2>'
@@ -613,6 +658,9 @@ def _compute_body(result: dict, lang: str, research: dict | None,
 
 
 _BASE_CSS = """
+/* 번역 실패 같은 '독자가 반드시 알아야 하는' 알림. 조용한 폴백을 눈에 보이게 만든다. */
+.pf-note.warn{background:#fbf3dd;border-left:3px solid #9a6b00;color:#6b4a00;font-weight:600}
+
 :root{--accent:hsl(168 74% 37%);--accent-deep:hsl(168 78% 27%);--accent-soft:hsl(168 58% 95%);
 --accent2:hsl(38 92% 50%);--ink:#0e1a17;--ink-2:#2f4a43;--muted:#7c918a;--line:#e3ece9;--bg:#f4f7f6;--card:#fff;
 --ok:#127a4b;--warn:#9a6b00;--shadow:0 1px 2px rgba(14,26,23,.05),0 10px 30px -16px rgba(14,26,23,.2)}
@@ -796,6 +844,26 @@ def _analyzed_files(result: dict | None, files: list[str]) -> tuple[list[str], i
     if not keep:
         keep = list(analyzed)
     return keep, max(0, len(files) - len(keep))
+
+
+def _tr_warning(result: dict, S: dict) -> str:
+    """이 문서가 번역되지 않았다면 **본문 맨 위에** 그렇게 적는다.
+
+    예전에는 번역이 통째로 실패해도 아무 표시가 없어서, 한국어 탭을 연 사람이
+    '왜 영어지?' 하고 도구를 의심하게 됐다. 실패는 숨기는 것보다 적는 것이 낫다.
+    """
+    from . import i18n as _i18n
+
+    st = result.get("translation_stats") if isinstance(result, dict) else None
+    if not isinstance(st, dict):
+        return ""
+    total = st.get("total") or 0
+    done = st.get("translated") or 0
+    if total <= 0 or done >= max(1, int(total * 0.5)):
+        return ""
+    msg = S.get("tr_failed", "").format(
+        src=_i18n.native_name(st.get("base_lang") or "en"), done=done, total=total)
+    return f'<div class="pf-note warn">{_esc(msg)}</div>' if msg else ""
 
 
 def build_report(result: dict, files: list[str], settings: Settings, lang: str = "ko",

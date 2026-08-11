@@ -236,6 +236,10 @@ def _build_reports_sync(
     if batch:
         for res in _llm.gather(batch, settings):
             if isinstance(res, Exception):
+                # 예전엔 여기서 조용히 넘겼다. 그래서 번역이 통째로 실패해도
+                # 작업 로그에는 errors:[] 로 찍히고 한국어 탭이 영어인 보고서가 나갔다.
+                errors.append({"lang": "?", "message": f"병렬 단계 실패: {type(res).__name__}: {res}"})
+                job.emit("translate", f"⚠ 병렬 단계 실패: {type(res).__name__}", 66)
                 continue
             lang, tb = res
             if lang == "__script__":
@@ -251,8 +255,22 @@ def _build_reports_sync(
             need_a = lang != analysis_lang
             need_p = base_profile is not None and lang != research_lang
             total_cost += tb.get("cost_usd") or 0.0
+            # **번역이 실제로 일어났는가**를 확인한다. translate_bundle 은 실패해도 원문을
+            # 담아 돌려주므로, 반환값이 있다는 것만으로는 성공의 증거가 되지 못한다.
+            done_n, total_n = tb.get("translated") or 0, tb.get("total") or 0
+            bad = tb.get("failed_chunks") or 0
+            untranslated = total_n > 0 and done_n == 0
+            if untranslated or bad:
+                why = "; ".join(tb.get("errors") or []) or "원인 미상"
+                msg = (f"{i18n.native_name(lang)} 번역 "
+                       + ("전부 실패" if untranslated else f"일부 실패({bad}/{tb.get('chunks')} 덩이)")
+                       + f" — {done_n}/{total_n}개만 번역됨. {why}")
+                errors.append({"lang": lang, "message": msg})
+                job.emit("translate", "⚠ " + msg, 68)
             res_l = dict(base_result)
             res_l["lang"] = lang
+            res_l["translation_stats"] = {"translated": done_n, "total": total_n,
+                                          "failed_chunks": bad, "base_lang": analysis_lang}
             if need_a and tb.get("analysis"):
                 res_l["analysis"] = tb["analysis"]
             rs_l = None
