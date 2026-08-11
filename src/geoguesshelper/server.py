@@ -288,6 +288,37 @@ def _build_reports_sync(
         return {"status": "FAIL", "reports": [], "errors": errors or [{"lang": base, "message": "생성할 언어가 없습니다."}],
                 "message": "생성할 언어가 없습니다.", "cost_usd": round(total_cost, 4)}
 
+    # ── 4.5) 스크립트를 언어별로 옮긴다 ──────────────────────────
+    # 스크립트는 기준 언어로 한 번만 만든다(사실은 언어와 무관하므로). 예전에는 그래서
+    # **기준 언어 탭에만** 실렸고, 한국어 독자는 보고서에서 가장 긴 산문(9천~1만 4천 자)을
+    # 아예 보지 못했다. 스크립트는 분석보다 훨씬 작아서 번역 한 번이 싸다 — 동시에 돌린다.
+    if script_doc and len(sections) > 1 and not over_budget():
+        others = [s for s in sections if i18n.normalize(s["lang"]) != i18n.normalize(base)]
+        if others:
+            job.emit("translate", f"서술 {len(others)}개 언어로 옮기는 중…", 82)
+
+            def make_sc(sec):
+                def run():
+                    return sec, translate.translate_script(
+                        script_doc, sec["lang"], settings, base_lang=base)
+                return run
+
+            for res in _llm.gather([make_sc(s) for s in others], settings):
+                if isinstance(res, Exception):
+                    errors.append({"lang": "?", "message": f"서술 번역 실패: {type(res).__name__}"})
+                    continue
+                sec, (doc, c, st) = res
+                total_cost += c
+                if doc and st.get("translated"):
+                    sec["script"] = doc
+                else:
+                    errors.append({"lang": sec["lang"],
+                                   "message": f"서술 번역이 적용되지 않았습니다"
+                                              f"({st.get('translated', 0)}/{st.get('requested', 0)})."})
+    for s in sections:
+        if i18n.normalize(s["lang"]) == i18n.normalize(base) and script_doc:
+            s["script"] = script_doc
+
     # ── 5) 리포트 파일 ──────────────────────────────────────────
     job.raise_if_canceled()
     job.emit("render", "보고서 작성 중…", 85)

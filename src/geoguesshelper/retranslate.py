@@ -54,14 +54,29 @@ def _skip_ranges(html: str, lo: int, hi: int) -> list[tuple[int, int]]:
     return [(m.start(), m.end()) for m in _SKIP_RE.finditer(html, lo, hi)]
 
 
+# 코드처럼 생긴 토큰 — 번역하면 안 되는 것들(모델 id, 파일명, 해시 등)
+_CODEISH = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._\-]*$")
+
+
 def _worth(s: str) -> bool:
-    """번역할 가치가 있는 문자열인가 — 라틴 낱말이 둘 이상 있어야 한다."""
+    """번역할 가치가 있는 문자열인가.
+
+    처음엔 '8자 이상 · 라틴 낱말 2개 이상'을 요구했는데 그러면 후보 칩의
+    'Europe' 'Croatia' 'Serbia' 같은 **한 낱말짜리 고유명사가 통째로 빠진다**
+    (실측: 복구 후에도 판별 사슬의 후보 칩만 영어로 남았다).
+    이제는 낱말 하나여도 보낸다. 무엇을 그대로 둘지는 모델이 판단한다 —
+    시스템 프롬프트가 '정착된 대응어가 없으면 원문 유지'를 지시하고 있어서
+    Konzum·Studenac 같은 상표는 실제로 그대로 남았다.
+    다만 모델 id(claude-opus-5)나 파일명처럼 **코드로 보이는 토큰**은 제외한다.
+    """
     t = s.strip()
-    if len(t) < 8:
+    if len(t) < 3:
         return False
     if not re.search(r"[A-Za-z]{3}", t):
         return False
-    return len(re.findall(r"\b[A-Za-z]{2,}\b", t)) >= 2
+    if _CODEISH.match(t) and (re.search(r"\d", t) or "." in t or "_" in t):
+        return False
+    return True
 
 
 def collect(html: str, lang: str) -> list[tuple[int, int, str]]:

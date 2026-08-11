@@ -36,6 +36,8 @@ _TEXT_KEYS = {
     "neighbor_comparison", "residents", "note", "title",
     # 종합 보고서
     "thesis", "heading", "body", "claim",
+    # 보고서 스크립트(사람이 읽는 서술) — 보고서에서 가장 긴 산문이다.
+    "headline", "lede", "confidence_note",
 }
 # 문자열 리스트를 통째로 번역할 키
 _TEXT_LIST_KEYS = {"pros", "cons", "open_questions", "candidates", "ruled_out"}
@@ -46,7 +48,7 @@ _NEVER = {
     "supports", "confidence", "overall_confidence", "coordinate_estimate",
     "level", "confidence_after",
     "lat", "lng", "radius_km", "url", "sources", "id", "layer", "scope", "tags",
-    "entities", "period", "refs", "cells",
+    "entities", "period", "refs", "cells", "key", "_meta",
 }
 
 _TOOL = {
@@ -301,6 +303,34 @@ def translate_bundle(
         "chunks": st.get("chunks", 0),
         "errors": st.get("errors", []),
     }
+
+
+def translate_script(script: dict | None, target_lang: str, settings: Settings,
+                     *, base_lang: str = "en") -> tuple[dict | None, float, dict]:
+    """보고서 스크립트(headline/lede/sections/confidence_note)를 통째로 번역한다.
+
+    예전에는 스크립트를 기준 언어로만 만들고 **그 언어 섹션에만** 실었다.
+    오역을 피하려던 것인데, 결과적으로 한국어 독자는 보고서에서 가장 긴 산문
+    (9천~1만 4천 자)을 아예 보지 못했다. 번역이 제대로 도는 지금은 옮기는 편이 낫다.
+    `key` 와 `_meta` 는 로직 값이라 _NEVER 에 있어 전송되지 않는다.
+    """
+    if not isinstance(script, dict) or not script.get("sections"):
+        return script, 0.0, {}
+    st: dict = {}
+    a = copy.deepcopy(script)
+    slots: list[tuple[tuple, str]] = []
+    _harvest(a, slots)
+    if not slots:
+        return script, 0.0, {}
+    texts = {f"s{i}": v for i, (_, v) in enumerate(slots)}
+    done, cost = translate_texts(texts, target_lang, settings, base_lang=base_lang, stats=st)
+    for i, (path, val) in enumerate(slots):
+        _splice(a, path, done.get(f"s{i}", val))
+    meta = dict(a.get("_meta") or {})
+    meta["lang"] = i18n.normalize(target_lang)
+    meta["translatedFrom"] = i18n.normalize(base_lang)
+    a["_meta"] = meta
+    return a, cost, st
 
 
 def _json_compact(obj) -> str:

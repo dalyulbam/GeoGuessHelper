@@ -423,7 +423,10 @@ def _compute_body(result: dict, lang: str, research: dict | None,
     place_slug = analysis.get("place_slug") or ""
     region = " · ".join([x for x in [g.get("region_or_state"), g.get("city")] if x])
     ce = g.get("coordinate_estimate") or {}
-    title = f"{country}{f' ({iso})' if iso else ''}"
+    # 같은 나라가 보고서마다 (HR)/(HRV) 로 갈려 보였다 — 모델이 alpha-2/alpha-3 을
+    # 섞어 내기 때문이다. 표기는 파일명과 같은 규칙으로 통일한다.
+    iso_disp = _A3.get((iso or "").strip().upper(), (iso or "").strip().upper())
+    title = f"{country}{f' ({iso_disp})' if iso_disp else ''}"
 
     model = result.get("model") or "-"
     cost = result.get("cost_usd")
@@ -538,10 +541,16 @@ def _compute_body(result: dict, lang: str, research: dict | None,
         return f"<h2>{_esc(S['landmarks_h'])}</h2><ul class='clean'>{items}</ul>"
 
     def alts_block():
-        if not alts:
+        # 모델은 본답을 대안 목록에 다시 넣어 준다. 그대로 찍으면 "크로아티아" 아래에
+        # "대안: 크로아티아 3%" 가 붙어 독자를 혼란스럽게 한다(실측 6/6 보고서 전부).
+        # 대안은 **본답이 아닌 것**만 뜻이 있다.
+        me = (country or "").strip().casefold()
+        rest = [a for a in (alts or [])
+                if isinstance(a, dict) and (a.get("country") or "").strip().casefold() != me]
+        if not rest:
             return ""
         items = " · ".join(
-            f"{_esc(a.get('country'))} {_pct(a.get('confidence'))}%" for a in alts
+            f"{_esc(a.get('country'))} {_pct(a.get('confidence'))}%" for a in rest
         )
         return f'<p class="alt"><b>{_esc(S["alts_label"])}</b> {items}</p>'
 
@@ -951,11 +960,16 @@ def build_combined_report(sections: list[dict], files: list[str], settings: Sett
     for s, lg in zip(sections, langs):
         S = i18n.report_strings(lg)
         gallery = _gallery_html(imgs, S, classes=classes)
-        # 스크립트는 기준 언어로만 쓰였다 — 그 언어 섹션에만 싣는다(오역된 서술을 만들지 않는다).
+        # 섹션이 자기 언어의 스크립트를 들고 있으면 그것을 쓴다. 없으면 기준 언어 스크립트를
+        # 그 언어 섹션에만 싣는다(예전 동작). 예전엔 후자뿐이라 한국어 독자는 보고서에서
+        # 가장 긴 서술을 통째로 보지 못했다.
+        sc = s.get("script")
+        if sc is None and (script or {}).get("_meta", {}).get("lang") == lg:
+            sc = script
         body = _compute_body(s["result"], lg, s.get("research"), gallery, len(imgs), stamp,
                              knowledge=knowledge, dropped=dropped,
                              maps_html=_maps_html(maps, S, map_lat, map_lng, classes=mclasses),
-                             script=script if (script or {}).get("_meta", {}).get("lang") == lg else None)
+                             script=sc)
         doc_id = f"doc-{lg}"
         tag = f'<div class="doc-lang-tag">{_esc(i18n.native_name(lg))}</div>'
         docs.append(f'<div class="wrap doc" id="{doc_id}" lang="{_esc(lg)}">{tag}{body["inner"]}</div>')
