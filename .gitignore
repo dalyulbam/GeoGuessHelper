@@ -15,6 +15,8 @@ dist/
 captures/
 docs/report/*.html
 docs/report/*.script.json
+# retranslate 가 남기는 원본 백업 — 로컬 안전장치일 뿐 저장소에 넣지 않는다
+docs/report/*.bak
 !docs/report/.gitkeep
 # 작업 큐 실행 로그 — 실행할 때마다 바뀌는 상태 (gitignore 는 인라인 주석을 지원하지 않는다)
 docs/jobs/

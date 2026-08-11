@@ -69,6 +69,22 @@ _A3 = {
 }
 
 
+# 본문 안의 `[[atm_xxxx]]` 인용을 실제 링크로 바꾼다.
+# 예전엔 스크립트 섹션에만 적용해서, 리서치 프로파일 산문에는 토큰이 **그대로 찍혔다**
+# (실측: 한 보고서에 15개). 독자에게는 의미 없는 기호이고, 링크로 바꾸면 근거로 이어진다.
+_ATOM_CITE = re.compile(r"\[\[(atm_[0-9a-zA-Z]{4,})\]\]")
+
+
+def _linkify_atoms(text) -> str:
+    """이스케이프 후 인용 토큰만 링크로. 입력이 문자열이 아니면 그대로 이스케이프한다."""
+    esc = _esc(text)
+    return _ATOM_CITE.sub(
+        lambda m: f'<a class="katom" href="../knowledge/atoms/{m.group(1)}.md">'
+                  f'<code>{m.group(1)}</code></a>',
+        esc,
+    )
+
+
 def _country_tag(iso: str, country: str) -> str:
     """파일명의 국가 조각.
 
@@ -332,12 +348,7 @@ def _script_html(script: dict | None, S: dict) -> str:
     note = (script.get("confidence_note") or "").strip()
     meta = script.get("_meta") or {}
 
-    def linkify(t: str) -> str:
-        return re.sub(
-            r"\[\[(atm_[0-9a-f]{6,})\]\]",
-            lambda m: f'<a class="katom" href="../knowledge/atoms/{m.group(1)}.md"><code>{m.group(1)}</code></a>',
-            _esc(t),
-        )
+    linkify = _linkify_atoms
 
     secs = "".join(
         f'<section class="sx"><h3>{_esc(s.get("heading") or "")}</h3>'
@@ -573,13 +584,13 @@ def _compute_body(result: dict, lang: str, research: dict | None,
             if not v or not str(v).strip():
                 return ""
             return (f'<div class="pf"><div class="pf-h">{_esc(S[label_key])}</div>'
-                    f'<div class="pf-b">{_esc(v)}</div></div>')
+                    f'<div class="pf-b">{_linkify_atoms(v)}</div></div>')
 
         def list_block(label_key, field):
             items = [x for x in (prof.get(field) or []) if x and str(x).strip()]
             if not items:
                 return ""
-            lis = "".join(f"<li>{_esc(x)}</li>" for x in items)
+            lis = "".join(f"<li>{_linkify_atoms(x)}</li>" for x in items)
             return (f'<div class="pf"><div class="pf-h">{_esc(S[label_key])}</div>'
                     f'<ul class="pf-l">{lis}</ul></div>')
 
@@ -667,6 +678,17 @@ def _compute_body(result: dict, lang: str, research: dict | None,
 
 
 _BASE_CSS = """
+/* 인쇄/PDF. 캡처와 지도는 전부 background-image 라, 브라우저 기본값(배경 안 찍기)이면
+   인쇄물에서 **이미지가 통째로 사라진다**. 보고서의 근거가 사진이므로 그건 치명적이다. */
+@media print{
+  .langbar{display:none}
+  .wrap.doc{display:block !important;page-break-after:always}
+  .wrap.doc:last-of-type{page-break-after:auto}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cap,.mcell,.shot{break-inside:avoid;page-break-inside:avoid}
+  h2,.nstep,.sx{break-inside:avoid;page-break-inside:avoid}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9px;color:#666}
+}
 /* 번역 실패 같은 '독자가 반드시 알아야 하는' 알림. 조용한 폴백을 눈에 보이게 만든다. */
 .pf-note.warn{background:#fbf3dd;border-left:3px solid #9a6b00;color:#6b4a00;font-weight:600}
 
