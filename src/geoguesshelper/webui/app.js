@@ -528,9 +528,24 @@ function initSplit(pose, tabId) {
     // CIHM…/일부 사진구체는 Maps JS API 가 아예 모른다(실측: ID·좌표 조회 모두 ZERO_RESULTS).
     // 그런 ID 를 setPano() 에 넣으면 조용히 아무 일도 일어나지 않고, 뷰어는 **직전 탭의 장면을
     // 그대로 들고 있는다** — 사용자에게는 "먹통" 또는 "엉뚱한 파노"로 보인다.
+    // 사진구체 id(CIHM…/CIAB…)는 SDK 가 **날것 그대로는** 모른다. 그런데 그건
+    // 제공하지 않는다는 뜻이 아니라 인코딩이 다를 뿐이다 — 서버가 감싼 형식을
+    // pano_alt 로 함께 준다(실측: CIHM/CIAB 세 건 모두 감싸면 OK 로 해석된다).
+    // 그래서 원본 → 감싼 형식 → 그래도 안 되면 물러서기, 순서로 시도한다.
     svc.getPanorama({ pano: pose.pano })
       .then(() => { if (myToken === loadToken) pano.setPano(pose.pano); })
-      .catch(() => { if (myToken === loadToken) panoUnavailable(pose, myToken, tabId); });
+      .catch(() => {
+        if (myToken !== loadToken) return;
+        if (!pose.pano_alt) { panoUnavailable(pose, myToken, tabId); return; }
+        svc.getPanorama({ pano: pose.pano_alt })
+          .then(() => {
+            if (myToken !== loadToken) return;
+            syncWantPano = pose.pano_alt;      // 무장 조건도 실제로 뜨는 id 로 맞춘다
+            pano.setPano(pose.pano_alt);
+            setStatus("사진구체를 지도 SDK 형식으로 변환해 표시합니다", "ok", 4000);
+          })
+          .catch(() => { if (myToken === loadToken) panoUnavailable(pose, myToken, tabId); });
+      });
   } else if (p) {
     const req = {
       location: p, radius: (CONFIG.defaults && CONFIG.defaults.radius) || 50,

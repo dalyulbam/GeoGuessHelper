@@ -228,6 +228,14 @@ def photo_token_for(pano: str, settings: Settings, key: str) -> str | None:
     safe_pano = re.sub(r"[^A-Za-z0-9_.\-]", "", pano or "")
     if not safe_pano:
         return None
+    # 날것의 사진구체 id 는 SDK 가 모른다 — 감싼 형식이어야 렌더가 되고,
+    # 렌더가 돼야 타일 요청이 나가고, 그래야 토큰을 주울 수 있다.
+    from .linkresolver import wrap_pano_id
+
+    if not safe_pano.startswith("CAoS"):
+        alt = wrap_pano_id(safe_pano)
+        if alt:
+            safe_pano = alt
     html = (_PHOTO_TOKEN_HTML
             .replace("__PANO__", safe_pano)
             .replace("__WAIT__", "5000")

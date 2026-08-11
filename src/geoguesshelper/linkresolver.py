@@ -10,6 +10,7 @@
 """
 from __future__ import annotations
 
+import base64
 import re
 from urllib.parse import parse_qs, unquote, urlparse
 
@@ -63,11 +64,39 @@ def classify_pano(pano: str | None) -> str:
         return "none"
     if pano.startswith("AF1Qip"):
         return "legacy-usergenerated"
-    if pano.startswith(("CAoS", "CIHM")):
+    if pano.startswith(("CAoS", "CIHM", "CIAB")):
         return "modern-usergenerated"
     if re.fullmatch(r"[A-Za-z0-9_-]{21}[gwAQ]", pano):
         return "official"
     return "unknown"
+
+
+def wrap_pano_id(pano: str | None) -> str | None:
+    """사진구체 id 를 Maps JS 가 아는 형식으로 감싼다.
+
+    공유 링크의 `!1s` 에는 `CIHM0ogK…` / `CIABIhC…` 같은 **날것의** 사진구체 id 가 들어 있는데,
+    StreetViewService 는 그 형식을 모른다(ID·좌표 조회 모두 ZERO_RESULTS).
+    한동안 "지도 SDK 가 제공하지 않는 파노"로 취급했는데, 그게 아니었다 —
+    **인코딩만 다른 같은 파노**다.
+
+    실측으로 밝힌 관계:
+        base64decode("CAoSFkNJSE0wb2dLRUlDQWdJRHF2YkRmWnc.")
+            == bytes [0x08, 0x0A, 0x12, 0x16] + b"CIHM0ogKEICAgIDqvbDfZw"
+        (0x16 == 22 == 원래 id 의 길이)
+    즉 protobuf 봉투 (필드1=10, 필드2=길이지정 문자열) 안에 원래 id 가 들어 있다.
+    그래서 우리가 직접 감싸면 된다 — 검증: CIHM 두 건과 CIAB 한 건 모두 OK 로 해석됐고
+    저작권 문자열(© Gerd Rammelsberger / © Radovan Findra / © xbrchx)까지 나왔다.
+    """
+    if not pano:
+        return None
+    pid = pano.strip()
+    if not pid or len(pid) > 200 or not re.fullmatch(r"[A-Za-z0-9_\-]+", pid):
+        return None
+    if pid.startswith("CAoS"):      # 이미 감싸인 형식
+        return None
+    raw = bytes([0x08, 0x0A, 0x12, len(pid)]) + pid.encode("ascii")
+    return (base64.b64encode(raw).decode("ascii")
+            .replace("+", "-").replace("/", "_").replace("=", "."))
 
 
 def is_usergenerated(pano: str | None) -> bool:
@@ -90,6 +119,7 @@ def parse_pose(url: str) -> dict:
     pose: dict = {
         "lat": None, "lng": None, "pano": None,
         "heading": None, "pitch": 0.0, "fov": None,
+        "pano_alt": None,    # SDK 가 아는 형식으로 감싼 pano id
         "photo_url": None,   # !6s — 사용자 기여 파노의 직접 이미지 URL(있으면)
         "photo_ya": None,    # 그 URL 의 heading (lh3 좌표계)
         "photo_pi": None,    # 그 URL 의 pitch  (lh3 규약: 양수가 아래)
@@ -166,6 +196,9 @@ def parse_pose(url: str) -> dict:
         pose["ya_offset"] = 0.0
 
     pose["pano_kind"] = classify_pano(pose["pano"])
+    # 날것의 사진구체 id 는 SDK 가 모른다. 감싼 형식을 함께 넘겨 두면
+    # 뷰어가 원본 실패 시 이것으로 재시도할 수 있다.
+    pose["pano_alt"] = wrap_pano_id(pose["pano"])
     return pose
 
 
