@@ -669,7 +669,11 @@ let lastPaintKey = "";   // 링크가 준 원본 이미지를 띄운 상태 — 
 
 /** 저작권은 getPanorama() 로만 얻을 수 있다. 파노당 한 번만 묻고 캐시한다. */
 function fetchCopyright(panoId, tab) {
-  panoCopyright[panoId] = "";                 // 재진입 방지 — 응답 오면 덮어쓴다
+  // 재진입 방지. **null 이어야 한다** — 예전엔 ""(빈 문자열)를 넣었는데
+  // 그러면 "아직 조회 중"과 "조회했는데 저작권이 없음"을 구별할 수 없어서,
+  // watchTiles 의 `cp === undefined` 분기가 절대 실행되지 않고 `!cp` 에서 늘 반환됐다.
+  // 그 결과 타일 감시가 **어떤 파노에서도 시작되지 않았다**(v0.3.1 이후 내내).
+  panoCopyright[panoId] = null;
   if (!svc) return;
   svc.getPanorama({ pano: panoId })
     .then(({ data }) => {
@@ -679,35 +683,6 @@ function fetchCopyright(panoId, tab) {
     .catch(() => {});
 }
 
-/** 타일이 실제로 안 왔는지 판정한다.
- *
- *  페이지 안에서는 요청을 볼 수 없다 — Maps JS API 가 파노 타일을 **워커에서** 받기 때문에
- *  PerformanceObserver 에 한 건도 잡히지 않는다(실측: 429 가 났는데도 perfCount=0).
- *
- *  그래서 요청이 아니라 **결과**를 본다. 캔버스 오염(taint)이 신호가 된다:
- *    · 타일이 하나라도 그려졌다 → 교차출처 이미지가 들어갔다 → getImageData 가 SecurityError
- *    · 타일이 한 장도 못 왔다   → 오염될 일이 없다 → 픽셀을 읽을 수 있고, 그 값은 검다
- *  즉 "읽히는데 검다" 가 곧 "타일이 안 왔다" 다. 타이밍 추정이 아니라 화면 그 자체다.
- */
-function tilesMissing() {
-  // 우리가 만든 사진구체 캔버스는 제외한다 — 그건 교차출처가 아니어서 늘 읽히고,
-  // 그러면 "읽히는데 검다" 판정이 엉뚱하게 성립할 수 있다.
-  const cv = document.querySelector("#pano canvas:not(.sphere-canvas)");
-  if (!cv || !cv.width) return false;
-  try {
-    const s = 24;
-    const c = document.createElement("canvas");
-    c.width = s; c.height = s;
-    const g = c.getContext("2d");
-    g.drawImage(cv, 0, 0, s, s);
-    const d = g.getImageData(0, 0, s, s).data;   // 오염됐으면 여기서 던진다
-    let sum = 0;
-    for (let i = 0; i < d.length; i += 4) sum += (d[i] + d[i + 1] + d[i + 2]) / 3;
-    return sum / (d.length / 4) < 8;             // 사실상 완전한 검정
-  } catch (e) {
-    return false;                                 // 오염됨 = 타일이 왔다 = 정상
-  }
-}
 
 /** 파노가 올라온 뒤 몇 번 확인한다 — 타일은 조금씩 늦게 도착한다.
  *
@@ -738,52 +713,59 @@ function onPanoChanged() {
 function watchTiles() {
   const id = pano && pano.getPano ? pano.getPano() : "";
   if (!id) return;
-  if (photoPinned) return;                 // 링크 원본 이미지를 띄운 상태 — 건드리지 않는다
-  if (id === watchedPano) return;          // 같은 파노를 두 번 감시하지 않는다
+  if (photoPinned) return;                 // 링크 원본을 띄운 상태 — 건드리지 않는다
+  if (id === watchedPano) return;          // 같은 파노를 두 번 다루지 않는다
   watchedPano = id;
   gpmsToken = null; gpmsBlocked = false;
   hideFallback();
 
-  // **공식 파노는 감시하지 않는다.** WebGL 은 preserveDrawingBuffer 가 기본 false 라,
-  // 실제 GPU 브라우저에서 캔버스를 뒤늦게 읽으면 화면과 무관하게 늘 검게 나온다
-  // (실측: 헤드리스는 mean 117, 같은 화면이 헤디드에선 mean 0 — 합성 스크린샷은 126.4).
-  // 그래서 '읽히는데 검다' 판정은 CORS 가 열려 있는 공식 타일에서 항상 참이 돼 버린다.
-  // 제3자 타일은 CORS 가 없어 캔버스를 오염시키므로 그 경우엔 판정이 성립한다.
+  // **감지하지 않는다.** 타일이 실제로 왔는지 브라우저 안에서 아는 방법이 없다:
+  //   · 캔버스 읽기 — 실제 GPU 에선 화면과 무관하게 늘 검게 나온다(실측: 화면 116.5 인데 판정 true)
+  //   · PerformanceObserver — 타일은 워커가 받아 문서 타임라인에 0건
+  //   · Playwright 라우팅 재현 — 가로채는 순간 타일 파이프라인이 죽어 조건 자체가 달라진다
+  // 여섯 번 고쳐도 재발한 이유가 이것이다. 그래서 조건 판정을 버리고 **분류**만 한다.
+  //   공식 파노  → 구글 뷰어 그대로 (타일이 키 기반이라 막히지 않는다)
+  //   제3자 파노 → 우리 구형 뷰어 + 서버 프록시 (클라이언트의 CDN 접근 상태와 무관하게 뜬다)
   if (!(id in panoCopyright)) fetchCopyright(id, tabById(syncTabId));
   const cp = panoCopyright[id];
-  if (cp === undefined) { setTimeout(() => { if (watchedPano === id) recheck(id); }, 900); return; }
-  if (!cp || cp.indexOf("Google") !== -1) return;   // 공식 — 감시 불필요
+  if (cp === null || cp === undefined) {   // 아직 조회 중 — 응답을 기다렸다 다시 본다
+    setTimeout(() => { if (watchedPano === id) recheck(id); }, 800);
+    return;
+  }
+  if (!cp || cp.indexOf("Google") !== -1) return;   // 공식 — 구글 뷰어가 일한다
 
-  startTileWatch(id);
+  useOwnViewer(id);
+}
+
+/** 제3자 파노를 우리 뷰어로 띄운다. 토큰은 서버만 알아낼 수 있다(워커 요청이라). */
+function useOwnViewer(id) {
+  api(`/api/pano-photo?pano=${encodeURIComponent(id)}`)
+    .then((r) => {
+      if (!r || !r.base || watchedPano !== id) return;
+      gpmsToken = r.base;
+      gpmsBlocked = true;
+      const t = tabById(syncTabId) || activeTab();
+      const pv = pano.getPov ? pano.getPov() : { heading: 0, pitch: 0 };
+      startSphere({ heading: pv.heading, pitch: pv.pitch,
+                    fov: 180 / Math.pow(2, pano.getZoom ? pano.getZoom() : 1),
+                    ya_offset: 0, pano: id },
+                  t ? t.id : activeId);
+    })
+    .catch(() => {
+      // 토큰조차 못 얻으면 그대로 둔다 — 구글 뷰어가 뜨면 뜨는 대로 보여준다.
+      setStatus("이 사용자 기여 파노의 이미지 주소를 찾지 못했습니다", "err", 5000);
+    });
 }
 
 /** 저작권 응답이 늦게 오는 경우를 위한 재확인. */
 function recheck(id) {
   if (photoPinned || watchedPano !== id) return;
   const cp = panoCopyright[id];
-  if (!cp || cp.indexOf("Google") !== -1) return;
-  startTileWatch(id);
+  if (cp === null || cp === undefined) return;      // 조회가 끝내 안 왔다 — 그대로 둔다
+  if (!cp || cp.indexOf("Google") !== -1) return;   // 공식
+  useOwnViewer(id);
 }
 
-function startTileWatch(id) {
-  let n = 0;
-  clearInterval(tileWatch);
-  tileWatch = setInterval(() => {
-    if (watchedPano !== id) { clearInterval(tileWatch); return; }   // 다른 파노로 이동
-    if (++n > 8) { clearInterval(tileWatch); return; }
-    if (!tilesMissing()) return;
-    clearInterval(tileWatch);
-    gpmsBlocked = true;
-    // 토큰은 서버만 알아낼 수 있다 — Maps JS 는 타일을 워커에서 받아 페이지에서 안 보인다.
-    api(`/api/pano-photo?pano=${encodeURIComponent(id)}`)
-      .then((r) => {
-        if (!r || !r.base || watchedPano !== id) return;
-        gpmsToken = r.base;
-        paintFallback();
-      })
-      .catch(() => {});
-  }, 1000);
-}
 
 function scheduleFallback() {
   clearTimeout(fallbackTimer);
