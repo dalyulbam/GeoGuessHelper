@@ -369,10 +369,14 @@ function edgeHover(e, el, ev) {
   state.nodeEl.get(e.src)?.g.classList.add("lit");
   state.nodeEl.get(e.dst)?.g.classList.add("lit");
   const a = state.actors.get(e.src), b = state.actors.get(e.dst);
+  const arrow = e.dir === "<->" ? "↔" : "→";
+  const per = e.period && e.period[0] != null
+    ? ` · ${e.period[0]}–${e.period[1] ?? ""}` : "";
   tooltip.innerHTML =
-    `<div class="tt-title">${esc(a?.label || e.src)} ↔ ${esc(b?.label || e.dst)}</div>
-     <div class="tt-sub">${LAYER_KO[e.layer] || e.layer} 원자 ${e.strength}건의 동시 서술 —
-     행위자를 클릭해 인용 원문 확인</div>`;
+    `<div class="tt-title">${esc(a?.label || e.src)} ${arrow} ${esc(b?.label || e.dst)}</div>
+     <div class="tt-sub"><b>${esc(e.rel_ko || "관련")}</b>${per} ·
+     ${LAYER_KO[e.layer] || e.layer} 원자 ${e.strength}건이 인용 —
+     행위자를 클릭해 원문 확인</div>`;
   tooltip.hidden = false;
   moveTooltip(ev);
 }
@@ -443,13 +447,18 @@ function renderPanel({ actor: a, relations, atoms }) {
       <div class="bar"><i style="width:${Math.min(100, (v / maxTheme) * 100)}%"></i></div>
       <span class="v">${v.toFixed(1)}</span></div>`).join("");
 
-  const relRows = relations.length ? relations.map(r =>
-    `<div class="rel-row" data-slug="${esc(r.other)}">
+  const relRows = relations.length ? relations.map(r => {
+    // 방향은 지금 보고 있는 행위자 기준으로 읽는다 — 대칭 관계는 ↔
+    const arrow = r.dir === "<->" ? "↔" : (r.src === a.slug ? "→" : "←");
+    const per = r.period && r.period[0] != null
+      ? `<span class="rel-per">${r.period[0]}–${r.period[1] ?? ""}</span>` : "";
+    return `<div class="rel-row" data-slug="${esc(r.other)}">
        <span class="rel-dot" style="background:${LAYER_COLOR[r.layer] || "#3ad0ae"}"></span>
+       <span class="rel-kind">${esc(r.rel_ko || "관련")}${arrow}</span>
        <span class="rel-name">${TYPE_ICON[r.other_type] || ""} ${esc(r.other_label)}</span>
+       ${per}
        <span class="rel-cite">원자 ${r.atoms.length}</span>
-       <span class="rel-str">×${r.strength}</span>
-     </div>`).join("")
+     </div>`; }).join("")
     : `<div class="p-empty">아직 기록된 관계가 없다 — 이 행위자를 다룬 보고서가 늘면 선이 생긴다.</div>`;
 
   const atomItems = atoms.map(at => {
