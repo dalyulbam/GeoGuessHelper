@@ -70,12 +70,35 @@ def actor_detail(slug: str):
                               "other_type": other_a["type"] if other_a else "place"})
     relations.sort(key=lambda r: -r["strength"])
     atoms = [a for a in (atlas.atom_detail(aid) for aid in actor["atoms"]) if a]
-    return {"actor": actor, "relations": relations,
+    eras = atlas.era_index()
+    spheres = atlas.sphere_index()
+
+    def era_of(aid: str) -> dict | None:
+        """원자가 앉은 시대 층 — 사료권마다 눈금이 달라서 층 라벨을 함께 실어 보낸다."""
+        ae = eras.get(aid)
+        if not ae:
+            return None
+        sp = spheres.get(ae["sphere"]) or {}
+        st = next((x for x in (sp.get("strata") or []) if x["key"] == ae["era"]), None)
+        return {"sphere": ae["sphere"], "sphere_label": sp.get("label_ko"),
+                "era": ae["era"], "by": ae.get("by"),
+                "label": (st or {}).get("label_ko") or ("무시기" if ae["era"] == "atemporal" else ae["era"]),
+                "span": [(st or {}).get("start"), (st or {}).get("end")] if st else None}
+
+    sphere = spheres.get(actor.get("sphere") or "")
+    return {"actor": actor, "relations": relations, "sphere": sphere,
             "atoms": [{"id": a["id"], "title": a.get("title"), "layer": a.get("layer"),
                        "scope": a.get("scope"), "body": a.get("body"),
                        "period": [a.get("period_start"), a.get("period_end")],
+                       "era": era_of(a["id"]),
                        "reports": a.get("reports") or [], "sources": a.get("sources") or []}
                       for a in atoms]}
+
+
+@app.get("/api/spheres")
+def spheres():
+    """사료권과 그 시대 층위 — 뷰어의 시대 독이 쓴다."""
+    return {"spheres": _atlas().get("spheres") or []}
 
 
 @app.get("/api/atom/{atom_id}")

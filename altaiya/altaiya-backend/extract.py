@@ -1,11 +1,12 @@
-"""ALTAIYA 추출기 — 패스A(행위자 대장) · 패스B(관계).
+"""ALTAIYA 추출기 — 패스A(행위자 대장) · 패스B(관계) · 패스C(사료권과 시대 층위).
 
-기획서 `docs/plan/knowledge-atlas_260816.html` 의 2패스를 그대로 구현한다.
+기획서 `docs/plan/knowledge-atlas_260816.html` 의 2패스를 구현하고, 시대 축을 패스C 로 더한다.
 원자는 **읽기만** 한다 — 산출물은 사이드카다.
 
     altaiya/data/entities.json           패스A · 행위자 대장 (슬러그 → 타입·표기·앵커)
     altaiya/data/relations.json          패스B · 관계 (유형·방향·시기·인용 원자)
     altaiya/data/relations.audit.jsonl   근거 구절 로그 (검수 전용 · 그래프는 쓰지 않는다)
+    altaiya/data/periods.json            패스C · 사료권과 그 시대 층위 + 원자별 배정
 
 날조를 막는 세 가지(기획서):
   1. 닫힌 세계 — 그 원자가 언급한 엔티티들 사이의 관계만 받는다. 밖의 것은 폐기.
@@ -23,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import re
 import sys
@@ -45,6 +47,7 @@ DATA = HERE.parent / "data"
 ENTITIES_JSON = DATA / "entities.json"
 RELATIONS_JSON = DATA / "relations.json"
 AUDIT_JSONL = DATA / "relations.audit.jsonl"
+PERIODS_JSON = DATA / "periods.json"
 
 REL_TYPES = ("operates", "supplies", "produces", "connects", "ruled",
              "succeeded", "founded", "opposed", "part-of", "related")
@@ -590,6 +593,384 @@ def pass_b(settings, *, redo: bool, batch: int, limit: int | None, dry: bool) ->
 
 
 # ══════════════════════════════════════════════════════════════════
+#  패스 C — 사료권과 시대 층위
+# ══════════════════════════════════════════════════════════════════
+# 시대는 전 세계 공통 눈금이 아니다. 지역마다 무엇이 한 시대를 끝냈는지가 다르고,
+# 그래서 그 지역의 역사책 목차도 다르다. 하나의 슬라이더로 세계를 자르는 대신
+# **사료권마다 제 층위를 갖게** 한다. 사료권은 국경이 아니라 원자 좌표의 군집에서 나온다.
+CLUSTER_KM = 400.0
+
+# 민족주의 서사 린트 — 걸러 버리지 않고 표시해서 사람이 보게 한다(오탐이 있을 수 있다).
+# 부분 문자열 매칭이라 오탐이 난다(실제로 "설국권"이 "국권"에 걸렸다) — 구(句)로 좁힌다.
+NATIONALIST_LINT = ("민족의", "국권 회복", "국권 침탈", "민족 각성", "민족적 각성", "부활기",
+                    "영광의 시대", "민족 수난", "정통성 회복", "민족의 숙원",
+                    "회복영토", "회복 영토", "실지 회복", "고토 회복", "수복 영토",
+                    "recovered territories", "reconquest of", "ancestral homeland",
+                    "잃어버린", "되찾", "고유의 얼", "national awakening", "national revival",
+                    "golden age of the nation", "liberation of the fatherland")
+
+
+def _haversine(a: tuple[float, float], b: tuple[float, float]) -> float:
+    (la1, lo1), (la2, lo2) = a, b
+    p1, p2 = math.radians(la1), math.radians(la2)
+    dp, dl = p2 - p1, math.radians(lo2 - lo1)
+    h = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+    return 2 * 6371.0 * math.asin(min(1.0, math.sqrt(h)))
+
+
+def _clusters(atoms: dict) -> list[dict]:
+    """원자 좌표의 리더 군집 — 중심 거리 기준이라 사슬처럼 대륙을 삼키지 않는다."""
+    items = sorted(atoms.values(), key=lambda a: (-len(a.get("entities") or []), a["id"]))
+    out: list[dict] = []
+    for a in items:
+        if not isinstance(a.get("lat"), (int, float)):
+            continue
+        p = (a["lat"], a["lng"])
+        best, bd = None, 1e9
+        for c in out:
+            d = _haversine(p, c["center"])
+            if d < bd:
+                bd, best = d, c
+        if best is not None and bd <= CLUSTER_KM:
+            best["pts"].append(p)
+            best["atoms"].append(a["id"])
+            n = len(best["pts"])
+            best["center"] = (sum(x for x, _ in best["pts"]) / n,
+                              sum(y for _, y in best["pts"]) / n)
+        else:
+            out.append({"center": p, "pts": [p], "atoms": [a["id"]]})
+    out.sort(key=lambda c: -len(c["atoms"]))
+    return out
+
+
+_C_SYSTEM = """너는 한 지역의 사료(史料)를 읽고 **그 지역 역사서술의 시대 층위**를 세우는 사서다.
+
+세계 공통의 눈금은 없다. 어떤 곳은 통치체 교체로, 어떤 곳은 교역로의 이동이나 관개·광산·
+철도 같은 물질 조건으로 시대가 갈린다. 그 지역 역사책이 실제로 쓰는 구획을 따라라.
+
+민족주의 시점은 배제한다 — 이건 강한 금지다.
+  · 현재의 국경·국민국가를 과거에 투사하지 마라. 층의 이름은 그 시기에 실제로 작동한
+    통치체·교역권·문화권·물질조건에서 가져와라("합스부르크 통치기", "무굴 통치기",
+    "정착·자유국기", "회사령기", "후고전기" 같은 식).
+  · 목적론 금지. 독립·건국을 역사의 종착점으로 두고 그리로 수렴하는 배열을 만들지 마라.
+    "민족의 각성·부활·수난·영광·잃어버린 땅" 같은 어휘를 쓰지 마라.
+  · 현대 국가를 고대·중세 정치체의 계승자로 서술하지 마라. 주민 집단의 연속성을 단정하지 마라.
+  · 하나의 정통 명칭을 강요하지 마라. 경쟁하는 명칭이 있으면 also_called 에 병기해라
+    (그 땅을 다르게 부르는 쪽의 이름도 함께).
+  · **한 국가의 공식 명칭이 곧 중립 명칭은 아니다.** 예컨대 1945년 이후 오데르-나이세 동쪽을
+    "회복영토(Ziemie Odzyskane)"라 부르는 것은 한쪽의 영유 주장이다. 대표 라벨은 그 시기에
+    실제로 일어난 일로 붙이고("주민 교체·재정착기"), 그런 명칭은 also_called 에만 병기해라.
+  · 서구 3분법(고대·중세·근대)을 기본값으로 밀어넣지 마라. 그 지역에 맞지 않으면 쓰지 마라.
+
+층은 4~8개, 시간순으로 겹치지 않게. start/end 는 대략적이면 라운드 숫자로 쓰고,
+마지막 층은 현재까지 열려 있으면 end 를 비워라. 근거 없는 연도를 지어내지 마라.
+basis 에는 그 층을 앞뒤와 가르는 실제 변화(제도·교역·기술·건축·인구)를 한 줄로 적어라.
+frame 은 이 사료권을 무엇으로 나눴는지, caution 은 이 구획이 놓치는 것을 한 줄로."""
+
+_C_TOOL = {
+    "name": "sphere_strata",
+    "description": "한 사료권의 정체와 시대 층위를 세운다.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "key": {"type": "string", "description": "영문 소문자 슬러그 (예: east-adriatic)"},
+            "label_ko": {"type": "string"}, "label_en": {"type": "string"},
+            "frame": {"type": "string", "description": "무엇을 기준으로 시대를 갈랐는지 한 줄"},
+            "caution": {"type": "string", "description": "이 구획이 놓치는 것 한 줄"},
+            "strata": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "key": {"type": "string"},
+                        "label_ko": {"type": "string"}, "label_en": {"type": "string"},
+                        "start": {"type": "integer", "description": "시작 연도(기원전은 음수)"},
+                        "end": {"type": "integer", "description": "끝 연도 · 현재까지면 생략"},
+                        "basis": {"type": "string"},
+                        "also_called": {"type": "array", "items": {"type": "string"}},
+                    },
+                    "required": ["key", "label_ko", "label_en", "start", "basis"],
+                },
+            },
+        },
+        "required": ["key", "label_ko", "label_en", "frame", "caution", "strata"],
+    },
+}
+
+_E_SYSTEM = """너는 지식 원자 하나가 **어느 시대 층에 놓이는지**를 정하는 사서다.
+
+각 원자에 그 사료권의 층위 목록을 함께 준다. 원자 본문이 말하는 시대를 골라라.
+  · 본문이 지금의 조건(현행 경제·인구·행정·관광)을 말하면 마지막(현재까지 열린) 층을 골라라.
+  · 본문이 특정 통치기·건설기의 산물을 말하면 그 층을 골라라(예: 사회주의기 집합주택,
+    무굴기 영묘, 회사령기 철도).
+  · 지형·기후처럼 시대에 매이지 않는 서술이면 era 를 "atemporal" 로 둬라. 억지로 넣지 마라.
+  · 판단 근거는 본문에서 그대로 복사한 구절(quote)로 붙여라. 본문에 없는 말을 지어내면 폐기된다.
+  · 민족주의 서사로 시대를 읽지 마라. "누구의 땅이었나"가 아니라 "무엇이 작동했나"로 고른다."""
+
+_E_TOOL = {
+    "name": "atom_eras",
+    "description": "원자 배치를 시대 층에 배정한다.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "assignments": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "atom": {"type": "string"},
+                        "era": {"type": "string", "description": "층 key 또는 atemporal"},
+                        "quote": {"type": "string"},
+                    },
+                    "required": ["atom", "era", "quote"],
+                },
+            }
+        },
+        "required": ["assignments"],
+    },
+}
+
+
+# 모델이 도구 호출 문법을 **문자열 값 안에** 흘려 넣는 실패 모드가 있다. 실제로 중부유럽
+# 군집에서 caution 값 뒤에 `</caution><parameter name="strata">[...]` 가 통째로 붙어 왔다.
+# 버리면 그 군집이 통째로 사라지므로 값에서 되찾는다.
+_PARAM_RE = re.compile(r'<parameter name="(\w+)">\s*(.*?)\s*(?:</parameter>|\Z)', re.S)
+
+
+def _salvage_tool_input(d: dict) -> dict:
+    out = dict(d)
+    for k, v in list(d.items()):
+        if not isinstance(v, str) or '<parameter name=' not in v:
+            continue
+        out[k] = re.split(r"</\w+>", v, maxsplit=1)[0].strip()
+        for name, raw in _PARAM_RE.findall(v):
+            if out.get(name):
+                continue
+            raw = raw.strip()
+            try:
+                out[name] = json.loads(raw)
+            except ValueError:
+                out[name] = raw
+    return out
+
+
+def _lint_nationalism(text: str) -> list[str]:
+    low = (text or "").lower()
+    return [w for w in NATIONALIST_LINT if w.lower() in low]
+
+
+def _era_of_period(strata: list[dict], start, end) -> str | None:
+    """연도가 있는 원자는 LLM 없이 층위와 겹쳐 본다 — 가장 많이 겹치는 층."""
+    if start is None:
+        return None
+    s, e = start, (end if end is not None else start)
+    best, bo = None, 0
+    for st in strata:
+        a, b = st.get("start"), st.get("end")
+        b = b if b is not None else 3000
+        ov = min(e, b) - max(s, a)
+        if ov >= 0 and (best is None or ov > bo):
+            best, bo = st["key"], ov
+    return best
+
+
+def pass_c(settings, *, redo: bool, batch: int, limit: int | None, dry: bool) -> dict:
+    idx = atlas._load_index()
+    atoms = idx["atoms"]
+    ledger = _load_json(ENTITIES_JSON, {"actors": {}}).get("actors") or {}
+    store = _load_json(PERIODS_JSON, {"meta": {}, "spheres": {}, "atom_era": {}})
+    spheres: dict = {} if redo else (store.get("spheres") or {})
+    atom_era: dict = {} if redo else (store.get("atom_era") or {})
+
+    clusters = _clusters(atoms)
+    if limit:
+        clusters = clusters[:limit]
+    print("\n  == 패스C · 사료권과 시대 층위 =====================")
+    print(f"   원자 {len(atoms)} → 군집 {len(clusters)}개 (중심 {CLUSTER_KM:.0f}km)"
+          f" · 기존 사료권 {len(spheres)}")
+
+    def evidence(c: dict) -> dict:
+        ents: dict[str, int] = {}
+        titles, periods = [], []
+        for aid in c["atoms"]:
+            a = atoms[aid]
+            titles.append(f"[{a.get('layer')}] {a.get('title')}")
+            if a.get("period_start") is not None:
+                periods.append([a["period_start"], a.get("period_end")])
+            for e in a.get("entities") or []:
+                ents[e] = ents.get(e, 0) + 1
+        top = sorted(ents.items(), key=lambda x: -x[1])[:14]
+        return {
+            "center": [round(c["center"][0], 3), round(c["center"][1], 3)],
+            "atom_count": len(c["atoms"]),
+            "actors": [{"slug": s, "label": (ledger.get(s) or {}).get("label_en") or s,
+                        "type": (ledger.get(s) or {}).get("type")} for s, _ in top],
+            "atom_titles": titles[:24],
+            "periods_seen": periods[:12],
+        }
+
+    # ── C1·C2 사료권 정체 + 층위 ────────────────────────────────
+    todo = [c for c in clusters
+            if not any(sp.get("center") == [round(c["center"][0], 3), round(c["center"][1], 3)]
+                       for sp in spheres.values())]
+    cost = 0.0
+    if dry:
+        print(json.dumps(evidence(clusters[0]), ensure_ascii=False, indent=1)[:3000])
+        return store
+    flagged, bad = [], []
+    attempt, pending = 0, list(todo)
+    while pending and attempt < 3:
+        attempt += 1
+        trim = 24 if attempt == 1 else 12       # 재시도는 증거를 줄여 출력이 넘치지 않게 한다
+
+        def task(c, trim=trim):
+            ev = evidence(c)
+            ev["atom_titles"] = ev["atom_titles"][:trim]
+            user = ("이 사료권의 정체와 시대 층위를 세워라. 근거는 아래 원자·행위자다.\n\n"
+                    + json.dumps(ev, ensure_ascii=False)
+                    + "\n\nsphere_strata 를 한 번 호출해라. 층은 4~6개면 충분하다.")
+            return llm.call(settings, system=_C_SYSTEM,
+                            messages=[{"role": "user", "content": user}],
+                            tools=[_C_TOOL], tool_choice={"type": "tool", "name": "sphere_strata"},
+                            max_tokens=8000, deadline_s=300, role="fact")
+
+        results = _run([(lambda c=c: task(c)) for c in pending], settings, f"패스C 층위 {attempt}회")
+        retry = []
+        for c, resp in zip(pending, results):
+            if isinstance(resp, Exception):
+                retry.append(c)
+                continue
+            cost += llm.spend(resp)
+            d = _salvage_tool_input(llm.tool_input(resp, "sphere_strata") or {})
+            raw = d.get("strata")
+            if isinstance(raw, str):            # 살려낸 값이 아직 문자열이면 한 번 더 푼다
+                try:
+                    raw = json.loads(raw)
+                except ValueError:
+                    raw = []
+            strata = [s for s in (raw or []) if isinstance(s, dict)
+                      and s.get("key") and s.get("start") is not None]
+            strata.sort(key=lambda s: s["start"])
+            if not strata or not d.get("key"):
+                retry.append(c)
+                if attempt >= 3:
+                    bad.append({"center": [round(c["center"][0], 2), round(c["center"][1], 2)],
+                                "atoms": len(c["atoms"]), "got": sorted(d.keys()),
+                                "stop": getattr(resp, "stop_reason", None)})
+                continue
+            key = d["key"]
+            if key in spheres and spheres[key].get("center") != [round(c["center"][0], 3),
+                                                                 round(c["center"][1], 3)]:
+                n = 2                       # 다른 군집이 같은 이름을 냈다 — 덮어쓰지 않는다
+                while f"{key}-{n}" in spheres:
+                    n += 1
+                key = f"{key}-{n}"
+            hits = _lint_nationalism(" ".join(
+                [d.get("label_ko", ""), d.get("frame", ""), d.get("caution", "")]
+                + [f"{s.get('label_ko','')} {s.get('basis','')}" for s in strata]))
+            if hits:
+                flagged.append({"sphere": d["key"], "words": hits})
+            spheres[key] = {
+                "key": key, "label_ko": d["label_ko"], "label_en": d["label_en"],
+                "frame": d["frame"], "caution": d["caution"],
+                "center": [round(c["center"][0], 3), round(c["center"][1], 3)],
+                "atoms": c["atoms"], "atom_count": len(c["atoms"]),
+                "strata": strata, "lint": hits,
+                "extracted": _now(), "model": settings.model_fact,
+            }
+        pending = retry
+        if pending:
+            print(f"   재시도 대상 군집 {len(pending)} (증거를 줄여 다시)")
+
+    if todo:
+        print(f"   사료권 {len(spheres)} · 민족주의 린트 {len(flagged)}건 {flagged or ''} · ${cost:.3f}")
+        if bad:
+            print(f"   ! 3회 시도에도 층위를 못 세운 군집 {len(bad)}: {bad}")
+
+    # ── C3 원자 → 층 ────────────────────────────────────────────
+    by_period = by_llm = 0
+    pend: list[tuple[str, dict]] = []      # (sphere_key, atom)
+    for key, sp in spheres.items():
+        for aid in sp["atoms"]:
+            if aid in atom_era or aid not in atoms:
+                continue
+            a = atoms[aid]
+            era = _era_of_period(sp["strata"], a.get("period_start"), a.get("period_end"))
+            if era:
+                atom_era[aid] = {"sphere": key, "era": era, "by": "period",
+                                 "basis": f"원자 시기 {a.get('period_start')}–{a.get('period_end') or ''}"}
+                by_period += 1
+            else:
+                pend.append((key, a))
+
+    if pend:
+        groups = _batches(pend, batch)
+        print(f"   시기 없는 원자 {len(pend)} → 배치 {len(groups)}개 (연도 있는 {by_period}건은 층위와 겹쳐 자동 배정)")
+
+        def payload(key: str, a: dict) -> dict:
+            sp = spheres[key]
+            detail = atlas.atom_detail(a["id"]) or {}
+            return {
+                "id": a["id"], "title": a.get("title"), "layer": a.get("layer"),
+                "sphere": sp["label_en"],
+                "strata": [{"key": s["key"], "label": s["label_en"],
+                            "span": [s["start"], s.get("end")]} for s in sp["strata"]],
+                "body": re.sub(r"\s+", " ", detail.get("body") or "")[:900],
+            }
+
+        def task(group):
+            user = ("각 원자를 그 사료권의 층 하나에 배정해라(또는 atemporal).\n\n"
+                    + json.dumps([payload(k, a) for k, a in group], ensure_ascii=False)
+                    + "\n\natom_eras 를 한 번 호출해라.")
+            return llm.call(settings, system=_E_SYSTEM,
+                            messages=[{"role": "user", "content": user}],
+                            tools=[_E_TOOL], tool_choice={"type": "tool", "name": "atom_eras"},
+                            max_tokens=6000, deadline_s=300, role="fact")
+
+        results = _run([(lambda g=g: task(g)) for g in groups], settings, "패스C 배정")
+        want = {a["id"]: k for k, a in pend}
+        drop = Counter()
+        for resp in results:
+            if isinstance(resp, Exception):
+                continue
+            cost += llm.spend(resp)
+            for r in ((llm.tool_input(resp, "atom_eras") or {}).get("assignments") or []):
+                aid, era = (r.get("atom") or "").strip(), (r.get("era") or "").strip()
+                if aid not in want:
+                    drop["대상 밖"] += 1
+                    continue
+                sp = spheres[want[aid]]
+                if era != "atemporal" and era not in {s["key"] for s in sp["strata"]}:
+                    drop["층 밖"] += 1
+                    continue
+                body = (atlas.atom_detail(aid) or {}).get("body") or ""
+                if era != "atemporal" and not _quote_ok(r.get("quote", ""), body):
+                    drop["근거 구절 불일치"] += 1
+                    continue
+                atom_era[aid] = {"sphere": want[aid], "era": era, "by": "llm",
+                                 "basis": (r.get("quote") or "").strip()[:200]}
+                by_llm += 1
+        print(f"   배정 {by_llm} · 폐기 {sum(drop.values())} {dict(drop) or ''}")
+
+    meta = dict(store.get("meta") or {})
+    meta.update({
+        "pass": "C", "built": _now(), "model": settings.model_fact,
+        "cluster_km": CLUSTER_KM,
+        "sphere_total": len(spheres), "assigned": len(atom_era),
+        "assigned_by_period": by_period, "assigned_by_llm": by_llm,
+        "lint_flagged": [k for k, sp in spheres.items() if sp.get("lint")],
+        "cost_usd": round((meta.get("cost_usd") or 0.0) + cost, 4),
+        "note": ("시대 층위는 사료권마다 다르다 — 하나의 세계 눈금이 아니다. "
+                 "민족주의 시점(국민국가 투사·목적론·계승 주장)은 프롬프트에서 배제하고 린트로 표시한다."),
+    })
+    out = {"meta": meta, "spheres": dict(sorted(spheres.items())), "atom_era": atom_era}
+    _save_json(PERIODS_JSON, out)
+    print(f"   → {PERIODS_JSON.relative_to(ROOT)} · 사료권 {len(spheres)} · 배정 {len(atom_era)}/{len(atoms)}"
+          f" · ${cost:.3f}\n")
+    return out
+
+
+# ══════════════════════════════════════════════════════════════════
 #  검수
 # ══════════════════════════════════════════════════════════════════
 def sample_relations(n: int, seed: int) -> None:
@@ -632,6 +1013,37 @@ def sample_actors(n: int, seed: int) -> None:
     print()
 
 
+def sample_eras(n: int) -> None:
+    d = _load_json(PERIODS_JSON, {})
+    spheres = d.get("spheres") or {}
+    era_of = d.get("atom_era") or {}
+    if not spheres:
+        print("   사료권이 없다 — 패스C 를 먼저 돌려라.")
+        return
+    counts: dict[tuple[str, str], int] = {}
+    for a in era_of.values():
+        key = (a["sphere"], a["era"])
+        counts[key] = counts.get(key, 0) + 1
+    order = sorted(spheres.values(), key=lambda s: -s["atom_count"])[:n]
+    print(f"\n  == 사료권 {len(order)}/{len(spheres)} · 시대 층위 ==============")
+    for sp in order:
+        print(f"\n  ◆ {sp['label_ko']} ({sp['label_en']}) · 원자 {sp['atom_count']}"
+              f" · {sp['center'][0]:.1f},{sp['center'][1]:.1f}")
+        print(f"    기준: {sp['frame']}")
+        print(f"    한계: {sp['caution']}")
+        if sp.get("lint"):
+            print(f"    ! 민족주의 린트: {sp['lint']}")
+        for st in sp["strata"]:
+            span = f"{st['start']}–{st.get('end') or ''}"
+            cnt = counts.get((sp["key"], st["key"]), 0)
+            alt = f"  ({' / '.join(st.get('also_called') or [])})" if st.get("also_called") else ""
+            print(f"      {span:>12}  {st['label_ko']}{alt}   원자 {cnt}")
+            print(f"                    └ {st['basis']}")
+    at = sum(1 for a in era_of.values() if a["era"] == "atemporal")
+    print(f"\n   배정 {len(era_of)} (무시기 {at}) · 연도 유도 "
+          f"{sum(1 for a in era_of.values() if a['by'] == 'period')}\n")
+
+
 def stats() -> None:
     led = _load_json(ENTITIES_JSON, {})
     rel = _load_json(RELATIONS_JSON, {})
@@ -654,6 +1066,20 @@ def stats() -> None:
               f" · 최근 폐기 {m.get('last_dropped')} · 강등 {m.get('last_demoted')}")
     else:
         print("   관계   (없음)")
+    per = _load_json(PERIODS_JSON, {})
+    spheres = per.get("spheres") or {}
+    if spheres:
+        m = per.get("meta") or {}
+        strata = sum(len(sp["strata"]) for sp in spheres.values())
+        ae = per.get("atom_era") or {}
+        by = Counter(v.get("by") for v in ae.values())
+        print(f"   시대   {len(spheres):4} 사료권 · 층 {strata} · 배정 {len(ae)}"
+              f" (연도 유도 {by.get('period', 0)} · 본문 판독 {by.get('llm', 0)}"
+              f" · 무시기 {sum(1 for v in ae.values() if v.get('era') == 'atemporal')})"
+              f" · ${m.get('cost_usd', 0):.3f}")
+        print(f"          민족주의 린트: {m.get('lint_flagged') or '없음'}")
+    else:
+        print("   시대   (없음)")
     print()
 
 
@@ -673,10 +1099,17 @@ def main() -> None:
     b.add_argument("--redo", action="store_true")
     b.add_argument("--dry-run", action="store_true")
 
+    c = sub.add_parser("eras", help="패스C — 사료권과 시대 층위")
+    c.add_argument("--batch", type=int, default=12)
+    c.add_argument("--limit", type=int, default=None, help="큰 군집 N개만(파일럿)")
+    c.add_argument("--redo", action="store_true")
+    c.add_argument("--dry-run", action="store_true")
+
     s = sub.add_parser("sample", help="검수 표본")
     s.add_argument("-n", type=int, default=20)
     s.add_argument("--seed", type=int, default=7)
     s.add_argument("--actors", action="store_true", help="관계 대신 대장 표본")
+    s.add_argument("--eras", action="store_true", help="사료권 층위 표본")
 
     sub.add_parser("stats", help="사이드카 현황")
 
@@ -684,15 +1117,20 @@ def main() -> None:
     if ns.cmd == "stats":
         return stats()
     if ns.cmd == "sample":
+        if ns.eras:
+            return sample_eras(ns.n)
         return sample_actors(ns.n, ns.seed) if ns.actors else sample_relations(ns.n, ns.seed)
 
     settings = load_settings()
     if not settings.has_anthropic:
         print("   ! ANTHROPIC_API_KEY 가 없다(.env)."); sys.exit(1)
+    kw = dict(redo=ns.redo, batch=ns.batch, limit=ns.limit, dry=ns.dry_run)
     if ns.cmd == "entities":
-        pass_a(settings, redo=ns.redo, batch=ns.batch, limit=ns.limit, dry=ns.dry_run)
+        pass_a(settings, **kw)
+    elif ns.cmd == "relations":
+        pass_b(settings, **kw)
     else:
-        pass_b(settings, redo=ns.redo, batch=ns.batch, limit=ns.limit, dry=ns.dry_run)
+        pass_c(settings, **kw)
     llm.close_client()
 
 

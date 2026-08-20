@@ -26,6 +26,7 @@ REPORT_DIR = ROOT / "docs" / "report"
 DATA = Path(__file__).resolve().parents[1] / "data"  # 패스A·B 사이드카
 ENTITIES_JSON = DATA / "entities.json"
 RELATIONS_JSON = DATA / "relations.json"
+PERIODS_JSON = DATA / "periods.json"
 
 # 관계 유형 표기 — 뷰어가 그대로 쓴다(백엔드가 유일한 어휘 출처)
 REL_KO = {
@@ -67,6 +68,8 @@ def build() -> dict[str, Any]:
     ent_index: dict[str, list[str]] = idx.get("entities") or {}
     ledger: dict[str, dict] = _load_sidecar(ENTITIES_JSON, "actors", {})
     rel_side: list[dict] = _load_sidecar(RELATIONS_JSON, "relations", [])
+    spheres: dict[str, dict] = _load_sidecar(PERIODS_JSON, "spheres", {})
+    atom_era: dict[str, dict] = _load_sidecar(PERIODS_JSON, "atom_era", {})
 
     # ── 행위자 ──────────────────────────────────────────────────
     actors: dict[str, dict] = {}
@@ -107,8 +110,20 @@ def build() -> dict[str, Any]:
             score += rules.TYPE_THEME_BOOST.get(atype, {}).get(th, 0.0)
             themes[th] = round(score, 2)
 
+        # 시대 층위 — 이 행위자의 원자가 어느 층에 앉아 있나(사료권마다 눈금이 다르다)
+        eras: dict[str, int] = {}
+        sph: dict[str, int] = {}
+        for a in my_atoms:
+            ae = atom_era.get(a["id"])
+            if not ae:
+                continue
+            eras[ae["era"]] = eras.get(ae["era"], 0) + 1
+            sph[ae["sphere"]] = sph.get(ae["sphere"], 0) + 1
+
         actors[slug] = {
             "slug": slug,
+            "sphere": (max(sph, key=sph.get) if sph else None),
+            "eras": eras,
             "label": led.get("label_ko") or rules.label_of(slug),
             "label_en": led.get("label_en") or rules.label_of(slug),
             "basis": led.get("basis") or None,
@@ -161,7 +176,16 @@ def build() -> dict[str, Any]:
             for th in (r.get("themes") or []):      # 유형이 지정한 주 테마는 반드시 남긴다
                 themes[th] = max(themes.get(th, 0.0), 1.0)
             rel = r.get("type", "related")
+            e_eras: dict[str, int] = {}
+            e_sph: dict[str, int] = {}
+            for aid in (r.get("atoms") or []):
+                ae = atom_era.get(aid)
+                if ae:
+                    e_eras[ae["era"]] = e_eras.get(ae["era"], 0) + 1
+                    e_sph[ae["sphere"]] = e_sph.get(ae["sphere"], 0) + 1
             edge_list.append({
+                "eras": e_eras,
+                "sphere": (max(e_sph, key=e_sph.get) if e_sph else None),
                 "src": s, "dst": d,
                 "rel": rel, "rel_ko": REL_KO.get(rel, "관련"),
                 "dir": r.get("dir", "->"),
@@ -177,6 +201,7 @@ def build() -> dict[str, Any]:
             edge_list.append({
                 "src": s, "dst": d,
                 "rel": "comention", "rel_ko": "동시 서술", "dir": "<->", "period": None,
+                "eras": {}, "sphere": None,
                 "atoms": e["atoms"],
                 "strength": len(e["atoms"]),
                 "layer": max(e["layers"], key=e["layers"].get),
@@ -209,6 +234,8 @@ def build() -> dict[str, Any]:
                 "actors_heuristic": len(actors) - from_ledger,
                 "edges": "relations" if rel_side else "comention",
             },
+            "spheres_total": len(spheres),
+            "atom_era_assigned": len(atom_era),
             "comention_pairs": len(comention),
             "comention_uncovered": uncovered,
             "rel_types": sorted({e["rel"] for e in edge_list}),
@@ -217,9 +244,19 @@ def build() -> dict[str, Any]:
                      if rel_side else
                      "엣지 = 원자 동시 서술(전 엣지 원자 인용). 관계 유형은 패스B 를 돌리면 붙는다."),
         },
+        "spheres": sorted(spheres.values(), key=lambda s: -s.get("atom_count", 0)),
         "actors": sorted(actors.values(), key=lambda x: -x["atom_count"]),
         "edges": edge_list,
     }
+
+
+def era_index() -> dict[str, dict]:
+    """원자 → 시대 층 배정(패스C). 상세 패널이 원자마다 시대를 붙일 때 쓴다."""
+    return _load_sidecar(PERIODS_JSON, "atom_era", {})
+
+
+def sphere_index() -> dict[str, dict]:
+    return _load_sidecar(PERIODS_JSON, "spheres", {})
 
 
 # ── 상세 조회 (지연 로드) ────────────────────────────────────────

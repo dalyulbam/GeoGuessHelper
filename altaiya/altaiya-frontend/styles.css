@@ -232,3 +232,93 @@ body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic
   .stats{display:none}
   .panel{width:100vw;max-width:100vw}
 }
+
+/* ── 시대 독 — 사료권마다 눈금이 다르다(세계 공통 슬라이더가 아니다) ── */
+.topbtn{font-family:var(--serif);font-size:12.5px;font-weight:700;color:var(--parch);
+  background:linear-gradient(180deg,var(--wood2),var(--wood1));border:1px solid var(--gold-line);
+  border-radius:3px;padding:6px 11px;cursor:pointer;white-space:nowrap;transition:.14s}
+.topbtn:hover{border-color:var(--gold);color:var(--gold-hi)}
+
+.erabar{position:absolute;left:16px;right:16px;bottom:14px;z-index:30;
+  background:linear-gradient(180deg,rgba(33,24,9,.96),rgba(21,16,8,.97));
+  border:1px solid var(--gold-line);border-radius:4px;padding:9px 12px 11px;
+  box-shadow:0 10px 26px rgba(0,0,0,.5);backdrop-filter:blur(3px);max-width:min(1180px,calc(100% - 32px))}
+.erabar[hidden]{display:none}
+.eb-head{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.eb-tag{font-size:10.5px;letter-spacing:.14em;color:var(--muted);font-weight:700}
+.eb-sel{flex:1;min-width:0;font-family:var(--serif);font-size:13px;font-weight:700;color:var(--parch);
+  background:var(--wood0);border:1px solid var(--gold-line);border-radius:3px;padding:4px 7px}
+.eb-btn{font-size:11.5px;font-weight:700;color:var(--parch-dim);background:var(--wood2);
+  border:1px solid var(--gold-line);border-radius:3px;padding:4px 9px;cursor:pointer}
+.eb-btn:hover,.eb-btn.on{color:var(--wood0);background:var(--gold);border-color:var(--gold)}
+.eb-strip{display:flex;gap:4px;align-items:stretch}
+.eb-era{flex:1 1 0;min-width:0;text-align:left;cursor:pointer;padding:6px 8px 7px;border-radius:3px;
+  background:linear-gradient(180deg,rgba(217,182,83,.09),rgba(217,182,83,.03));
+  border:1px solid var(--gold-line);transition:.14s;position:relative;overflow:hidden}
+.eb-era:hover{border-color:var(--gold);background:rgba(217,182,83,.16)}
+.eb-era.on{border-color:var(--gold-hi);background:linear-gradient(180deg,rgba(243,220,143,.28),rgba(217,182,83,.12))}
+.eb-era.empty{opacity:.42}
+.eb-span{display:block;font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.02em}
+.eb-name{display:block;font-size:11.5px;font-weight:700;color:var(--parch);line-height:1.35;
+  margin-top:2px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.eb-cnt{position:absolute;top:5px;right:6px;font-family:var(--mono);font-size:9.5px;color:var(--muted)}
+.eb-alt{display:block;font-size:10px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eb-frame{margin-top:8px;font-size:11.5px;line-height:1.6;color:var(--parch-dim);
+  border-top:1px solid var(--gold-line);padding-top:7px}
+.eb-frame b{color:var(--gold)}
+
+/* ── 상세 패널 탭 (도시 · 외교 · 연표) ── */
+.p-tabs{display:flex;gap:4px;margin:10px 0 4px}
+.p-tab{flex:1;font-family:var(--serif);font-size:12px;font-weight:700;color:var(--parch-dim);
+  background:var(--wood2);border:1px solid var(--gold-line);border-radius:3px;padding:5px 0;cursor:pointer}
+.p-tab.on{color:var(--wood0);background:var(--gold);border-color:var(--gold)}
+.rel-group{margin-bottom:9px}
+.rel-gh{font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.04em;margin:6px 0 3px}
+.tl-era{margin-bottom:10px}
+.tl-head{display:flex;align-items:baseline;gap:7px;border-bottom:1px solid var(--gold-line);padding-bottom:3px}
+.tl-span{font-family:var(--mono);font-size:10.5px;color:var(--gold)}
+.tl-name{font-size:12.5px;font-weight:700;color:var(--parch)}
+.tl-basis{font-size:11px;color:var(--muted);line-height:1.55;margin:4px 0 5px}
+.tl-atom{font-size:12px;color:var(--parch-dim);padding:3px 0 3px 10px;border-left:2px solid var(--gold-line);
+  margin-left:2px;cursor:pointer}
+.tl-atom:hover{color:var(--parch);border-left-color:var(--gold)}
+
+/* ── 시빌로피디아 ── */
+.codex{position:fixed;inset:0;z-index:80;background:rgba(6,4,2,.72);backdrop-filter:blur(2px);
+  display:flex;align-items:center;justify-content:center;padding:24px}
+.codex[hidden]{display:none}
+.cx-box{width:min(1080px,100%);max-height:86vh;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,var(--wood1),var(--wood0));border:1px solid var(--gold);border-radius:5px;
+  box-shadow:0 24px 60px rgba(0,0,0,.65)}
+.cx-head{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--gold-line)}
+.cx-head b{font-family:var(--serif);font-size:16px;color:var(--gold-hi);letter-spacing:.06em}
+.cx-sub{font-size:11.5px;color:var(--muted);flex:1}
+.cx-q{width:260px;font-size:12.5px;color:var(--parch);background:var(--wood0);
+  border:1px solid var(--gold-line);border-radius:3px;padding:5px 9px}
+.cx-x{font-size:20px;line-height:1;color:var(--parch-dim);background:none;border:0;cursor:pointer}
+.cx-x:hover{color:var(--gold-hi)}
+.cx-body{overflow:auto;padding:12px 14px 18px}
+.cx-sph{margin-bottom:14px}
+.cx-sh{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+.cx-sh b{font-size:13.5px;color:var(--parch)}
+.cx-sh span{font-size:11px;color:var(--muted)}
+.cx-strata{font-family:var(--mono);font-size:10.5px;color:var(--gold-dim);margin-bottom:5px;line-height:1.6}
+.cx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:5px}
+.cx-a{display:flex;align-items:center;gap:6px;padding:5px 7px;border-radius:3px;cursor:pointer;
+  border:1px solid transparent;background:rgba(217,182,83,.05)}
+.cx-a:hover{border-color:var(--gold);background:rgba(217,182,83,.14)}
+.cx-a .lb{flex:1;font-size:12px;font-weight:650;color:var(--parch);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cx-a .mt{font-family:var(--mono);font-size:10px;color:var(--muted)}
+
+/* 시대 독이 뜨면 범례·줌 버튼을 그 위로 올린다(겹치면 지도를 못 본다) */
+.erabar{left:16px;right:70px;max-width:calc(100% - 86px)}
+body.has-dock #legend{bottom:150px}
+body.has-dock #zoomctl{bottom:150px}
+.p-sub{font-size:11.5px;color:var(--muted);margin-top:2px}
+.atom-era{font-family:var(--mono);font-size:9.5px;color:var(--wood0);background:var(--gold-dim);
+  border-radius:2px;padding:1px 4px;flex:0 0 auto;max-width:120px;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+
+/* 패널이 열리면 시대 독을 그만큼 줄인다 — 층위가 패널 밑에 숨지 않게 */
+body.panel-open .erabar{right:420px;max-width:calc(100% - 436px)}
+body.panel-open.has-dock #zoomctl{bottom:150px;right:420px}

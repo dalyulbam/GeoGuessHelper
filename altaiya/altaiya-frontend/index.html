@@ -17,6 +17,7 @@
     <b>ALTAIYA</b><span class="sub">지식 아틀라스</span>
   </div>
   <div id="stats" class="stats"></div>
+  <button id="codex-open" class="topbtn" title="시빌로피디아 — 행위자 색인">📖 백과</button>
   <div class="searchbox">
     <input id="search" type="text" placeholder="행위자 검색…  (예: dubrovnik, frankopan)" autocomplete="off" spellcheck="false">
     <div id="search-drop" class="search-drop" hidden></div>
@@ -81,6 +82,17 @@
     </div>
   </div>
 
+  <div id="erabar" class="erabar" hidden>
+    <div class="eb-head">
+      <span class="eb-tag">사료권</span>
+      <select id="eb-sphere" class="eb-sel" title="사료권 — 지역마다 시대 눈금이 다르다"></select>
+      <button id="eb-all" class="eb-btn" title="시대 필터 해제">전 시대</button>
+      <button id="eb-note" class="eb-btn" title="이 구획의 기준과 한계">ⓘ</button>
+    </div>
+    <div id="eb-strip" class="eb-strip"></div>
+    <div id="eb-frame" class="eb-frame" hidden></div>
+  </div>
+
   <div id="zoomctl">
     <button id="z-in" title="확대">＋</button>
     <button id="z-out" title="축소">－</button>
@@ -91,6 +103,17 @@
     <button id="panel-close" class="panel-close" title="닫기 (Esc)">×</button>
     <div id="panel-body"></div>
   </aside>
+
+  <div id="codex" class="codex" hidden>
+    <div class="cx-box">
+      <div class="cx-head">
+        <b>시빌로피디아</b><span class="cx-sub">사료권 → 행위자 → 원자·관계·보고서</span>
+        <input id="cx-q" class="cx-q" placeholder="행위자·사료권 검색…" spellcheck="false">
+        <button id="cx-close" class="cx-x" title="닫기 (Esc)">×</button>
+      </div>
+      <div id="cx-body" class="cx-body"></div>
+    </div>
+  </div>
 
   <div id="loading" class="overlay">
     <div class="spin"></div>
