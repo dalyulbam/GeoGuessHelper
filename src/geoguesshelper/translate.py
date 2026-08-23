@@ -18,6 +18,7 @@ coordinate_estimate 같은 **로직 값은 애초에 전송되지 않아** 번�
 from __future__ import annotations
 
 import copy
+import time as _time
 from typing import Any
 
 from . import i18n, llm
@@ -179,7 +180,7 @@ def translate_texts(
             "Translate every `text` below. Call translated_strings exactly once with one entry per "
             "input id.\n\n" + _json_compact(payload)
         )
-        resp = llm.call(
+        return llm.call(
             settings,
             system=system,
             messages=[{"role": "user", "content": user}],
@@ -190,33 +191,48 @@ def translate_texts(
             deadline_s=settings.translate_timeout_s,
             role="fact",            # 번역은 창작이 아니라 변환
         )
-        return part, resp
-
-    results = llm.gather([(lambda c=c: run_one(c)) for c in chunks], settings)
 
     out = dict(texts)  # 기본값 = 원문(모델이 빠뜨린 항목 보호)
     cost = 0.0
-    failed = 0
-    errs: list[str] = []
-    for res in results:
-        if isinstance(res, Exception):
-            failed += 1
-            errs.append(f"{type(res).__name__}: {str(res)[:80]}")
-            continue
-        part, resp = res
-        cost += llm.spend(resp)
-        data = llm.tool_input(resp, "translated_strings") or {}
-        got = 0
-        for item in data.get("items") or []:
-            if not isinstance(item, dict):
+
+    def _absorb(parts: list[dict], results: list) -> list[tuple[dict, str]]:
+        """응답을 out 에 반영하고, 실패한 (청크, 사유) 목록을 돌려준다."""
+        nonlocal cost
+        bad: list[tuple[dict, str]] = []
+        for part, res in zip(parts, results):
+            if isinstance(res, Exception):
+                bad.append((part, f"{type(res).__name__}: {str(res)[:80]}"))
                 continue
-            i, t = item.get("id"), item.get("text")
-            if isinstance(i, str) and i in part and isinstance(t, str) and t.strip():
-                out[i] = t
-                got += 1
-        if got == 0:
-            failed += 1
-            errs.append("빈 응답(도구 호출 없음 또는 항목 0개)")
+            cost += llm.spend(res)
+            data = llm.tool_input(res, "translated_strings") or {}
+            got = 0
+            for item in data.get("items") or []:
+                if not isinstance(item, dict):
+                    continue
+                i, t = item.get("id"), item.get("text")
+                if isinstance(i, str) and i in part and isinstance(t, str) and t.strip():
+                    out[i] = t
+                    got += 1
+            if got == 0:
+                bad.append((part, "빈 응답(도구 호출 없음 또는 항목 0개)"))
+        return bad
+
+    failed_pairs = _absorb(chunks, llm.gather([(lambda c=c: run_one(c)) for c in chunks], settings))
+    if failed_pairs:
+        # 실패의 대부분은 일시 오류(레이트리밋·타임아웃)다 — 특히 밤에 보고서를 연달아
+        # 뽑을 때 그렇다(실측: 260813 밤 배치 9건에서 한국어 청크들이 죽어 영어로 남았다).
+        # 실패한 청크만 잠시 뒤 **순차로** 한 번 더 보낸다. 동시성을 줄여야 같은 제한에
+        # 다시 걸리지 않는다.
+        _time.sleep(3.0)
+        retry_parts = [p for p, _ in failed_pairs]
+        failed_pairs = _absorb(
+            retry_parts,
+            llm.gather([(lambda c=c: run_one(c)) for c in retry_parts], settings, limit=1),
+        )
+        if stats is not None:
+            stats["retried"] = len(retry_parts)
+    failed = len(failed_pairs)
+    errs = [msg for _, msg in failed_pairs]
 
     if stats is not None:
         stats["requested"] += len(texts)

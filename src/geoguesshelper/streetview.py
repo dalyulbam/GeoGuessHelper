@@ -18,6 +18,25 @@ def _loc(pose: dict) -> str:
     return f'{pose["lat"]},{pose["lng"]}'
 
 
+def view_aspect(pose: dict, settings) -> float:
+    """화면 로드뷰 패널(#pano)의 종횡비(폭/높이).
+
+    보고서에 들어가는 캡처는 화면 캔버스 **전체**를 담아야 한다. 화면 패널은 창 크기를
+    따르는 가변 비율(와이드 모니터에서 2.5:1 안팎)인데, 캡처가 4:3 고정이면 화면
+    좌우가 잘려 나간다 — 그래서 클라이언트가 캡처 시점의 실제 패널 크기(viewW/viewH)를
+    포즈에 실어 보내고, 서버 재렌더는 전부 이 비율을 따른다.
+    값이 없으면(구 클라이언트·API 직접 호출) 설정 기본값(4:3)으로 물러선다.
+    """
+    try:
+        w = float(pose.get("viewW") or 0)
+        h = float(pose.get("viewH") or 0)
+        if w > 0 and h > 0:
+            return max(0.4, min(3.5, w / h))
+    except (TypeError, ValueError):
+        pass
+    return settings.viewport_w / max(1, settings.viewport_h)
+
+
 def streetview_url(pose: dict, key: str, *, w: int = 640, h: int = 480) -> str:
     params: dict = {
         "size": f"{w}x{h}",

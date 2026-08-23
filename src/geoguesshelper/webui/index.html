@@ -42,6 +42,13 @@
     <div id="pano" class="pane pane-rv"></div>
     <div id="map" class="pane pane-map"></div>
 
+    <!-- 로드뷰가 이전 장면에 멈췄을 때 스스로 빠져나오는 수단.
+         #pano 의 형제로 두는 이유: 파노 컨테이너 안에 넣으면 SDK 가 언제 건드릴지 모른다.
+         그리고 사진구체 캔버스(z-index:3)보다 **위**여야 한다 — 걷어내는 버튼이
+         걷어낼 대상에 가려지면 아무 소용이 없다. -->
+    <button id="btn-reload-view" class="rv-reload" hidden
+            title="지금 파노를 다시 불러옵니다 — 로드뷰맨을 옮겼는데 이미지가 이전 장면에 멈춰 있을 때">🔄 로드뷰 새로고침</button>
+
     <div id="intro" class="intro">
       <div class="intro-card">
         <div class="intro-ic">🧭</div>
@@ -109,6 +116,16 @@
         <input id="synth-input" type="text" spellcheck="false" autocomplete="off"
           placeholder="엔티티/태그로 종합 (예: carolingian-empire, romanesque)">
         <button id="btn-synth" class="primary" disabled title="저장된 원자만으로 종합 보고서 — 새 웹 검색 없음">📚 종합</button>
+      </div>
+    </div>
+
+    <div class="card" id="cleanup-card" hidden>
+      <h3>저장소 정리 <span id="clean-total" class="muted"></span></h3>
+      <div class="card-note">보고서는 이미지를 <b>base64 로 임베드</b>하므로, 보고서가 나온 뒤의 원본 캡처는 지워도 보고서가 그대로 열립니다. 지식 저장소는 어떤 경우에도 지워지지 않습니다.</div>
+      <div id="clean-cats" class="clean-cats"></div>
+      <div class="clean-row">
+        <button id="btn-clean-scan" class="btn-link" title="다시 계산">↻ 다시 스캔</button>
+        <button id="btn-clean" class="primary" disabled title="선택한 범주를 실제로 삭제합니다">🧹 정리</button>
       </div>
     </div>
 

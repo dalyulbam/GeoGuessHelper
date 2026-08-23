@@ -49,7 +49,7 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Streamin
 from fastapi.staticfiles import StaticFiles
 
 from . import capture as capture_mod
-from . import i18n, jobs, knowledge, linkresolver, streetview, translate
+from . import cleanup, i18n, jobs, knowledge, linkresolver, streetview, translate
 from . import report as report_mod
 from . import research as research_mod
 from .analyze import analyze_captures
@@ -819,6 +819,34 @@ def build_app(settings: Settings) -> FastAPI:
             raise HTTPException(status_code=422, detail="엔티티 또는 태그(selector)가 필요합니다.")
         langs = _norm_langs(payload.get("langs") or settings.report_lang)
         result = await _in_pool(_synthesize_sync, settings, selector, langs)
+        return JSONResponse(result)
+
+    # ── 저장소 정리 ─────────────────────────────────────────────
+    @app.get("/api/cleanup")
+    async def api_cleanup_scan(older_than: float = 0.0, keep_last: int = 0):
+        """지울 수 있는 것을 범주별로 보여준다. 아무것도 지우지 않는다."""
+        report = await _in_pool(
+            cleanup.scan_pos, settings, older_than, keep_last, _QUEUE
+        )
+        report.pop("_cats", None)
+        return JSONResponse(report)
+
+    @app.post("/api/cleanup")
+    async def api_cleanup_run(payload: dict | None = None):
+        """실제 정리. `apply` 가 참일 때만 지운다(기본은 모의 실행)."""
+        p = payload or {}
+        try:
+            result = await _in_pool(
+                cleanup.sweep_pos, settings,
+                [str(c) for c in (p.get("categories") or [])],
+                float(p.get("olderThan") or 0.0),
+                int(p.get("keepLast") or 0),
+                bool(p.get("apply")),
+                _QUEUE,
+            )
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+        result["memory"] = cleanup.prune_memory(_QUEUE)
         return JSONResponse(result)
 
     # ── 정적 파일 ───────────────────────────────────────────────

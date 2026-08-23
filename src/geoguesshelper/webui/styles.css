@@ -226,6 +226,20 @@ h3 .badge{font-family:inherit;font-size:10.5px;font-weight:700;padding:1px 7px;b
 .synth-row button{height:34px;padding:0 14px;font-size:12.5px}
 .synth-row button:disabled{background:#e7ecea;color:var(--muted);cursor:not-allowed}
 
+/* ── 저장소 정리 ── */
+.clean-cats{display:flex;flex-direction:column;gap:4px}
+.clean-cat{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;
+  font-size:12px;cursor:pointer;border:1px solid transparent}
+.clean-cat:hover{background:var(--accent-soft);border-color:var(--line)}
+.clean-cat input{margin:0;flex:none}
+.clean-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.clean-size{font-family:var(--mono);font-size:11.5px;font-variant-numeric:tabular-nums}
+.clean-files{font-family:var(--mono);font-size:11px;color:var(--muted);
+  font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
+.clean-row{display:flex;gap:7px;align-items:center;margin-top:11px}
+.clean-row #btn-clean{margin-left:auto;height:34px;padding:0 14px;font-size:12.5px}
+.clean-row #btn-clean:disabled{background:#e7ecea;color:var(--muted);cursor:not-allowed}
+
 /* ── 판별 사슬 (분석 카드) ── */
 ol.narrow{list-style:none;counter-reset:n;padding:0;margin:8px 0 4px;position:relative}
 ol.narrow::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:2px;
@@ -286,6 +300,19 @@ ol.narrow::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;widt
   z-index: 3; display: block; cursor: grab; touch-action: none;
 }
 .sphere-canvas.grabbing { cursor: grabbing; }
+
+/* 로드뷰 새로고침 — **구체 캔버스(z-index:3)보다 위**여야 한다.
+   막힌 화면을 걷어내는 버튼이 막힌 화면에 가려지면 탈출구가 아니다. */
+.rv-reload {
+  position: absolute; top: 10px; right: 10px; z-index: 4;
+  font: 600 12px/1 var(--ui, system-ui), sans-serif; color: #14302a;
+  background: rgba(255,255,255,.93); border: 1px solid rgba(0,0,0,.16);
+  border-radius: 999px; padding: 8px 13px; cursor: pointer;
+  box-shadow: 0 1px 5px rgba(0,0,0,.32);
+}
+.rv-reload:hover { background: #fff; }
+.rv-reload:active { transform: translateY(1px); }
+.rv-reload[hidden] { display: none; }
 
 /* 실행 중인 코드 버전. 화면에 박아 두면 "서버를 다시 켰는가"를 스크린샷만으로 알 수 있다 —
    지금까지 재현 안 되는 신고를 쫓느라 이걸 몰라서 시간을 많이 썼다. */

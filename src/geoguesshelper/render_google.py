@@ -380,7 +380,7 @@ class _LocalServer:
             pass
 
 
-def _top_is_black(path: Path, settings: Settings) -> float | None:
+def _top_is_black(path: Path, settings: Settings, *, pane_h: int | None = None) -> float | None:
     """캡처 상단(로드뷰 영역)의 평균 밝기. Pillow 없으면 None(판정 생략)."""
     try:
         from PIL import Image  # type: ignore
@@ -388,7 +388,8 @@ def _top_is_black(path: Path, settings: Settings) -> float | None:
         with Image.open(path) as im:
             g = im.convert("L")
             w, h = g.size
-            cut = max(1, int(h * settings.viewport_h / max(1, settings.viewport_h + settings.map_h)))
+            ph = pane_h or settings.viewport_h
+            cut = max(1, int(h * ph / max(1, ph + settings.map_h)))
             top = g.crop((0, 0, w, cut))
             data = list(top.get_flattened_data()) if hasattr(top, "get_flattened_data") else list(top.getdata())
             return sum(data) / max(1, len(data))
@@ -420,7 +421,8 @@ def _zoom_from_pose(pose: dict, settings: Settings) -> float:
     return max(0.0, min(5.0, round(math.log2(180.0 / fov), 3)))
 
 
-def _build_html(pose: dict, settings: Settings, key: str, *, official_only: bool = False) -> str:
+def _build_html(pose: dict, settings: Settings, key: str, *, official_only: bool = False,
+                pane_w: int | None = None, pane_h: int | None = None) -> str:
     # pano/key 는 JS 문자열 리터럴/URL 로 들어가므로 안전 문자만 남긴다(</script> 브레이크아웃 방지).
     # 유효한 구글 pano id 는 base64url 계열([A-Za-z0-9_-]) → 무해한 값이 아니면 좌표 경로로 폴백됨.
     pano = re.sub(r"[^A-Za-z0-9_-]", "", pose.get("pano") or "")
@@ -430,8 +432,8 @@ def _build_html(pose: dict, settings: Settings, key: str, *, official_only: bool
     lat = _f(pose.get("lat"), 0.0)
     lng = _f(pose.get("lng"), 0.0)
     repl = {
-        "__W__": str(settings.viewport_w),
-        "__PH__": str(settings.viewport_h),
+        "__W__": str(pane_w or settings.viewport_w),
+        "__PH__": str(pane_h or settings.viewport_h),
         "__MH__": str(settings.map_h),
         "__KEY__": safe_key,
         "__USE_PANO__": "true" if has_pano else "false",
@@ -462,14 +464,21 @@ def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool
             "message": "playwright 미설치 — `uv sync --extra all` 후 `playwright install chromium` 하세요.",
         }
 
-    w, total_h = settings.viewport_w, settings.viewport_h + settings.map_h
+    # 로드뷰 영역은 화면 패널과 같은 종횡비로 잡는다 — 같은 SDK 를 같은 비율·같은 zoom
+    # 으로 돌리면 화면 캔버스와 동일한 프레이밍이 나온다(보고서 이미지의 요구 조건).
+    from . import streetview as _sv
+
+    ph = settings.viewport_h
+    w = max(320, min(1600, round(ph * _sv.view_aspect(pose, settings))))
+    total_h = ph + settings.map_h
     jpeg = settings.capture_format == "jpeg"
     fname = f"capture_{uuid.uuid4().hex[:12]}.{'jpg' if jpeg else 'png'}"
     out = settings.captures_dir / fname
 
     # HTML 은 captures_dir 아래 임시파일로 두고 localhost 로 서빙(파일 URL 아님 → 리퍼러 유지).
     tmp = settings.captures_dir / f".rv_{uuid.uuid4().hex[:8]}.html"
-    tmp.write_text(_build_html(pose, settings, key, official_only=official_only), encoding="utf-8")
+    tmp.write_text(_build_html(pose, settings, key, official_only=official_only,
+                               pane_w=w, pane_h=ph), encoding="utf-8")
 
     # server.start() 는 반드시 try 안에 있어야 한다. 예전에는 try 바깥이라, start() 가
     # 던지면 finally 의 tmp 정리가 실행되지 않아 API 키가 든 .rv_*.html 이 계속 쌓였고,
@@ -563,7 +572,7 @@ def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool
 
     # 검은 화면 판정은 **픽셀로** 한다. 제3자냐 아니냐로 미리 재단하지 않는다 —
     # 제3자 파노도 평소엔 정상 렌더되고, 검게 나오는 원인은 lh3 CDN 의 429 다.
-    dark = _top_is_black(out, settings)
+    dark = _top_is_black(out, settings, pane_h=ph)
     if dark is not None and dark < 8.0:
         out.unlink(missing_ok=True)
         throttled = tiles["codes"].get(429, 0)

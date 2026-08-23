@@ -18,6 +18,19 @@ from . import streetview
 from .config import Settings
 
 
+def _fnum(v, d: float) -> float:
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return d
+
+
+def hfov_deg(v_deg: float, aspect: float) -> float:
+    """수직 FOV(도) + 종횡비 → 수평 FOV(도). sphere.js 의 hFovFor 와 같은 식."""
+    v = max(1.0, min(170.0, v_deg))
+    return math.degrees(2 * math.atan(aspect * math.tan(math.radians(v) / 2)))
+
+
 def _ext_of(data: bytes) -> str:
     """매직 바이트로 실제 형식 판정 — 확장자와 내용이 어긋나지 않게."""
     if data[:2] == b"\xff\xd8":
@@ -76,7 +89,14 @@ async def capture_photo_url(pose: dict, settings: Settings) -> dict:
     if not photo:
         return {"status": "NO_PHOTO_URL", "message": "링크에 직접 이미지 URL(!6s)이 없습니다."}
 
-    url = photo_url_for(photo, pose, w=settings.viewport_w * 2, h=settings.viewport_h * 2)
+    # 화면 패널 종횡비 그대로 받는다 — photo_url_for 가 w/h 로 수평 FOV 를 계산하므로,
+    # 비율만 맞으면 수직·수평 시야가 화면 캔버스와 정확히 일치한다.
+    aspect = streetview.view_aspect(pose, settings)
+    h = settings.viewport_h * 2
+    w = round(h * aspect)
+    if w > 2048:                      # 와이드 화면에서 폭이 과대해지면 비율 유지한 채 줄인다
+        w, h = 2048, max(200, round(2048 / aspect))
+    url = photo_url_for(photo, pose, w=w, h=h)
     try:
         sv_bytes = await asyncio.to_thread(streetview.fetch_bytes_sync, url, timeout=25.0)
     except Exception as exc:  # noqa: BLE001
@@ -209,10 +229,22 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
     if meta.get("pano_id") and not snapped.get("pano"):
         snapped["pano"] = meta["pano_id"]
 
-    # 2) 이미지 2장 fetch
-    sv_url = streetview.streetview_url(
-        snapped, key, w=settings.viewport_w, h=settings.viewport_h
-    )
+    # 2) 이미지 2장 fetch — 크기와 시야를 화면 패널에 맞춘다.
+    #    Static API 는 640×640 상한이 있으므로 그 안에서 종횡비만 화면과 같게 잡는다.
+    aspect = streetview.view_aspect(pose, settings)
+    cap = min(640, settings.viewport_w)
+    if aspect >= 1.0:
+        sv_w, sv_h = cap, max(120, round(cap / aspect))
+    else:
+        sv_w, sv_h = max(120, round(cap * aspect)), cap
+    # Static API 의 fov 파라미터는 **수평** FOV 다(공식 문서). pose["fov"] 는 수직(`75y`
+    # 규약)이므로 변환해서 보낸다 — 그대로 넣으면 화면보다 좁게 잘린다(lh3 `-fo` 와 같은
+    # 실수였다). 수평 상한 120° 를 넘는 와이드 화면은 여기서는 다 못 담는다 — auto 모드가
+    # 그 경우 브라우저 렌더를 먼저 시도하고, 여기 왔다면 결과에 fov_capped 로 표시한다.
+    v = max(20.0, min(120.0, _fnum(snapped.get("fov"), float(settings.default_fov))))
+    hfov = hfov_deg(v, aspect)
+    snapped["fov"] = min(120.0, hfov)
+    sv_url = streetview.streetview_url(snapped, key, w=sv_w, h=sv_h)
     map_url = streetview.staticmap_url(
         snapped, key, w=settings.viewport_w, h=settings.map_h
     )
@@ -254,7 +286,7 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
     except Exception as exc:  # noqa: BLE001
         return {"status": "COMPOSE_ERROR", "message": f"이미지 합성 실패: {exc}"}
 
-    return {
+    res = {
         "status": "OK",
         "file": fname,
         "url": f"/captures/{fname}",
@@ -267,11 +299,26 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
         "composited": composited,
         "mode": "static",
     }
+    if hfov > 120.0:
+        # 화면의 수평 시야가 Static 상한을 넘었다 — 캡처 좌우가 화면보다 좁다.
+        res["fov_capped"] = round(hfov, 1)
+    return res
 
 
 # static 실패 사유가 "키/프로젝트 설정" 문제일 때만 브라우저 렌더로 폴백한다.
 # ZERO_RESULTS/NOT_FOUND(진짜 커버리지 없음)는 브라우저로도 안 되므로 폴백 안 함.
 _FALLBACKABLE = {"REQUEST_DENIED", "NO_KEY", "META_ERROR", "FETCH_ERROR", "OVER_QUERY_LIMIT"}
+
+
+def _playwright_ready(settings: Settings) -> bool:
+    """브라우저 렌더를 시도할 수 있는가 — 키가 있고 playwright 가 설치돼 있는가."""
+    if not (settings.js_api_key or settings.effective_static_key):
+        return False
+    try:
+        import playwright  # type: ignore  # noqa: F401
+    except ModuleNotFoundError:
+        return False
+    return True
 
 
 async def render_playwright(pose: dict, settings: Settings, *, official_only: bool = False) -> dict:
@@ -361,10 +408,23 @@ async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict
             return ph
         # 실패하면 아래 일반 경로로 계속 — 이 길이 막혀도 캡처를 포기하지 않는다.
 
+    # 화면 패널이 넓어 필요한 수평 시야가 Static API 상한(120°)을 넘으면, Static 으로는
+    # 화면 캔버스 전체를 담을 수 없다. 그 경우 화면과 **같은 SDK·같은 종횡비·같은 zoom**
+    # 으로 그리는 브라우저 렌더가 유일하게 전체를 보장하므로 순서를 뒤집는다.
+    tried_pw = False
+    aspect = streetview.view_aspect(pose, settings)
+    v = max(20.0, min(120.0, _fnum(pose.get("fov"), float(settings.default_fov))))
+    if hfov_deg(v, aspect) > 120.0 and _playwright_ready(settings):
+        tried_pw = True
+        pw = await render_playwright(pose, settings)
+        if pw.get("status") == "OK":
+            return pw
+        # 브라우저 렌더가 실패해도 캡처를 포기하지 않는다 — Static(120° 상한)으로 계속.
+
     res = await capture_static(pose, settings)
     if res.get("status") == "OK":
         return res
-    if res.get("status") in _FALLBACKABLE:
+    if not tried_pw and res.get("status") in _FALLBACKABLE:
         pw = await render_playwright(pose, settings)
         if pw.get("status") == "OK":
             pw["fallback_from"] = res.get("status")

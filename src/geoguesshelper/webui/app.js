@@ -70,6 +70,7 @@ async function boot() {
   wireUI();
   renderLangMenu();
   renderKnowledge();
+  renderCleanup();
   refreshJobs();
   setInterval(refreshJobs, 5000);   // SSE 가 끊겨도 상태가 굳지 않도록 하는 안전망
   if (CONFIG.hasJsKey) loadGoogleMaps(CONFIG.jsApiKey);
@@ -185,7 +186,8 @@ function loadActive() {
   lastAnalysis = t.analysis;
   lastAnalysisFiles = t.analysisFiles;
 
-  renderPose(t.extracted);
+  // 카드는 **캡처가 찍을 것**을 말해야 한다 — 링크 원본이 아니라 지금 포즈다.
+  renderPose(t.current || t.extracted);
   renderAlbum();
   renderReports();
   if (lastAnalysis && lastAnalysis.analysis) renderAnalysis(lastAnalysis);
@@ -354,6 +356,12 @@ function wireUI() {
   $("#btn-report").addEventListener("click", doReport);
   const syn = $("#btn-synth");
   if (syn) syn.addEventListener("click", doSynthesize);
+  const cln = $("#btn-clean");
+  if (cln) cln.addEventListener("click", doCleanup);
+  const clr = $("#btn-clean-scan");
+  if (clr) clr.addEventListener("click", renderCleanup);
+  const rlv = $("#btn-reload-view");
+  if (rlv) rlv.addEventListener("click", reloadViewer);
   const rt = $("#research-on");
   if (rt) {
     try { const s = localStorage.getItem("gg_research"); if (s !== null) rt.checked = s === "1"; } catch (e) {}
@@ -521,9 +529,14 @@ function initSplit(pose, tabId) {
     pano.setPov({ heading: pose.heading || 0, pitch: pose.pitch || 0 });
   }
 
+  const rlb = $("#btn-reload-view");
+  if (rlb) rlb.hidden = false;         // 뷰어가 생긴 뒤부터 탈출구를 보여준다
+
   clearFallback();
+  // 무장 판정의 기준선 — **이 로드 전에** 화면에 있던 파노. 이것과 달라졌다는 사실이
+  // "우리 요청이 올라왔다"는 증거가 된다(아래 armWhenLoaded 참고).
+  const shownBefore = (pano && pano.getPano && pano.getPano()) || "";
   if (pose.pano) {
-    armWhenLoaded(myToken, pose.pano, tabId);
     // **먼저 해석되는 파노인지 확인하고 나서** 넘긴다.
     // CIHM…/일부 사진구체는 Maps JS API 가 아예 모른다(실측: ID·좌표 조회 모두 ZERO_RESULTS).
     // 그런 ID 를 setPano() 에 넣으면 조용히 아무 일도 일어나지 않고, 뷰어는 **직전 탭의 장면을
@@ -532,20 +545,25 @@ function initSplit(pose, tabId) {
     // 제공하지 않는다는 뜻이 아니라 인코딩이 다를 뿐이다 — 서버가 감싼 형식을
     // pano_alt 로 함께 준다(실측: CIHM/CIAB 세 건 모두 감싸면 OK 로 해석된다).
     // 그래서 원본 → 감싼 형식 → 그래도 안 되면 물러서기, 순서로 시도한다.
+    //
+    // 그리고 **무장은 SDK 가 돌려준 id 로** 한다. 예전엔 링크의 날것 id 로 무장해 놓고
+    // 감싼 id 를 띄웠다 — 둘은 영원히 다르므로 동기화가 한 번도 켜지지 않았고, 그 탭의
+    // 포즈는 링크 값에 얼어붙었다. 사용자가 아무리 이동해도 캡처는 **링크의 원본 사진구체**를
+    // 다시 찍었다(실측: 연속 5장이 353,330바이트로 완전히 동일).
     svc.getPanorama({ pano: pose.pano })
-      .then(() => { if (myToken === loadToken) pano.setPano(pose.pano); })
+      .then(({ data }) => ({ id: panoIdOf(data, pose.pano), wrapped: false }))
       .catch(() => {
+        if (!pose.pano_alt) throw new Error("NO_ALT");
+        return svc.getPanorama({ pano: pose.pano_alt })
+          .then(({ data }) => ({ id: panoIdOf(data, pose.pano_alt), wrapped: true }));
+      })
+      .then(({ id, wrapped }) => {
         if (myToken !== loadToken) return;
-        if (!pose.pano_alt) { panoUnavailable(pose, myToken, tabId); return; }
-        svc.getPanorama({ pano: pose.pano_alt })
-          .then(() => {
-            if (myToken !== loadToken) return;
-            syncWantPano = pose.pano_alt;      // 무장 조건도 실제로 뜨는 id 로 맞춘다
-            pano.setPano(pose.pano_alt);
-            setStatus("사진구체를 지도 SDK 형식으로 변환해 표시합니다", "ok", 4000);
-          })
-          .catch(() => { if (myToken === loadToken) panoUnavailable(pose, myToken, tabId); });
-      });
+        armWhenLoaded(myToken, [pose.pano, pose.pano_alt, id], shownBefore, tabId);
+        pano.setPano(id);
+        if (wrapped) setStatus("사진구체를 지도 SDK 형식으로 변환해 표시합니다", "ok", 4000);
+      })
+      .catch(() => { if (myToken === loadToken) panoUnavailable(pose, myToken, tabId); });
   } else if (p) {
     const req = {
       location: p, radius: (CONFIG.defaults && CONFIG.defaults.radius) || 50,
@@ -555,7 +573,7 @@ function initSplit(pose, tabId) {
     svc.getPanorama(req)
       .then(({ data }) => {
         if (myToken !== loadToken) return;             // 다른 탭으로 전환됨 → stale 무시
-        armWhenLoaded(myToken, data.location.pano, tabId);
+        armWhenLoaded(myToken, [data.location.pano], shownBefore, tabId);
         pano.setPano(data.location.pano);
       })
       .catch(() => {
@@ -570,18 +588,48 @@ function initSplit(pose, tabId) {
   }
 }
 
+/** getPanorama 응답에서 **SDK 가 부르는 이름**을 꺼낸다. 우리가 물어본 문자열과 다를 수 있다. */
+function panoIdOf(data, fallback) {
+  const id = data && data.location && data.location.pano;
+  return id ? String(id) : fallback;
+}
+
+/** 두 id 가 **같은 파노**를 가리키는가.
+ *  사진구체는 날것(CIHM…)과 감싼 형식(CAoS…)이 공존한다 — 문자열은 다르지만 같은 장면이다.
+ *  그 둘만 동일시한다(둘 다 이 탭 링크의 id 일 때). 아니면 문자열이 같아야 같은 것이다. */
+function samePano(a, b, t) {
+  if (!a || !b) return false;
+  if (String(a) === String(b)) return true;
+  const ex = (t && t.extracted) || {};
+  const pair = [ex.pano, ex.pano_alt].filter(Boolean).map(String);
+  return pair.indexOf(String(a)) >= 0 && pair.indexOf(String(b)) >= 0;
+}
+
 /** 요청한 파노가 **실제로 올라온 뒤에만** 동기화를 켠다.
  *  시간(1000ms)이 아니라 사실을 기준으로 하므로, 느린 회선이나 느린 getPanorama 왕복에도
- *  이전 탭의 좌표가 새 탭에 새는 일이 없다. */
-function armWhenLoaded(myToken, wantPano, tabId) {
-  syncWantPano = wantPano;
+ *  이전 탭의 좌표가 새 탭에 새는 일이 없다.
+ *
+ *  판정을 **id 하나**로 하지 않는 이유: SDK 는 우리가 넘긴 id 를 그대로 돌려주지 않을 수
+ *  있다(사진구체는 감싼 형식으로 뜬다). 그래서 두 가지 증거 중 하나면 무장한다 —
+ *    ① 우리가 요청한 id 들 중 하나가 실제로 올라왔다.
+ *    ② 그게 아니어도 화면의 파노가 **이 로드 직전의 것과 달라졌다** → 우리 요청이 부른 것이다.
+ *  ②가 있어야 "영원히 무장되지 않는" 조용한 고장이 생기지 않고, ①·②의 조합이 원래 지키려던
+ *  성질(이전 탭의 좌표가 새 탭에 새지 않는다)도 그대로 지킨다 — 로드가 끝나기 전에는
+ *  화면이 여전히 shownBefore 이므로 어느 조건도 성립하지 않는다. */
+function armWhenLoaded(myToken, acceptIds, shownBefore, tabId) {
+  const accept = (Array.isArray(acceptIds) ? acceptIds : [acceptIds]).filter(Boolean).map(String);
+  const before = String(shownBefore || "");
+  syncWantPano = accept.length ? accept[accept.length - 1] : null;
   const tryArm = () => {
     if (myToken !== loadToken) return false;                 // 더 최신 로드가 있다
     if (!pano || !pano.getPano) return false;
-    if (wantPano && pano.getPano() !== wantPano) return false; // 아직 그 파노가 아니다
+    const shown = String(pano.getPano() || "");
+    if (!shown) return false;                                // 아직 아무것도 안 떴다
+    if (accept.indexOf(shown) < 0 && shown === before) return false;   // 아직 직전 장면이다
     syncArmed = true;
     syncTabId = tabId;
     reportViewerState(pano, tabById(tabId));   // 로드 직후 실제 상태를 즉시 보여준다
+    syncFromPano();                            // 그리고 **실제** 위치/시점을 탭에 바로 기록한다
     return true;
   };
   if (tryArm()) return;
@@ -717,7 +765,15 @@ function watchTiles() {
   if (id === watchedPano) return;          // 같은 파노를 두 번 다루지 않는다
   watchedPano = id;
   gpmsToken = null; gpmsBlocked = false;
+  // **이전 파노의 뷰어를 반드시 걷는다.** 예전엔 hideFallback() 만 불렀는데 그건
+  // <img> 덮개만 지운다. 자체 구체 뷰어는 z-index:3 캔버스라 그대로 남았고,
+  // 게다가 그 캔버스가 포인터 입력까지 먹으므로 뷰어 안에서는 빠져나올 수도 없었다
+  // (지도에서 로드뷰맨을 옮기는 것이 유일한 탈출구인데, 그 경로가 바로 이 결함이다).
+  // 실측: 제3자 파노 → 로드뷰맨 이동 → 파노 id 는 CAoSFk…→nk7rlfff… 로 바뀌는데
+  // 화면 지문은 픽셀 단위로 동일했다. 사용자 신고 "기존 이미지로 고정"이 이것이다.
+  stopSphere();
   hideFallback();
+  lastPaintKey = "";
 
   // **감지하지 않는다.** 타일이 실제로 왔는지 브라우저 안에서 아는 방법이 없다:
   //   · 캔버스 읽기 — 실제 GPU 에선 화면과 무관하게 늘 검게 나온다(실측: 화면 116.5 인데 판정 true)
@@ -746,6 +802,9 @@ function useOwnViewer(id) {
       gpmsBlocked = true;
       const t = tabById(syncTabId) || activeTab();
       const pv = pano.getPov ? pano.getPov() : { heading: 0, pitch: 0 };
+      // 지금 화면의 **출처**를 탭 포즈에 적는다. 적지 않으면 캡처는 직전 장면의
+      // 이미지 URL(링크의 !6s)을 그대로 써서 다른 장소를 찍는다 — 사용자 신고의 절반이 이것이다.
+      noteSphereSource(t, id, r.base);
       startSphere({ heading: pv.heading, pitch: pv.pitch,
                     fov: 180 / Math.pow(2, pano.getZoom ? pano.getZoom() : 1),
                     ya_offset: 0, pano: id },
@@ -772,6 +831,41 @@ function scheduleFallback() {
   fallbackTimer = setTimeout(paintFallback, 200);
 }
 
+/** 지금 보고 있는 파노를 **처음부터 다시** 불러온다.
+ *
+ *  왜 버튼이 필요한가
+ *    자동 복구는 우리가 아는 고장만 고친다. 그런데 이 앱에서 화면을 덮는 것은
+ *    입력까지 받는 캔버스라, 한 번 잘못 남으면 그 위로는 아무것도 누를 수 없다 —
+ *    사용자가 스스로 빠져나올 수단이 아예 없었다. 그래서 이 버튼은 **구체보다 위**
+ *    (z-index 4)에 둔다. 걷어내는 버튼이 걷어낼 대상에 가려지면 아무 소용이 없다.
+ */
+function reloadViewer() {
+  if (!pano || !pano.getPano) { setStatus("아직 로드뷰가 없습니다", "err", 3000); return; }
+  // 링크가 준 원본을 띄운 상태(pin)라면 **그 원본을** 다시 띄운다.
+  // 여기서 밑 파노로 떨어뜨리면 사용자는 다른 장소를 보게 된다 — 복구가 아니라 이동이다.
+  if (photoPinned && pinnedPose) {
+    startSphere(pinnedPose, pinnedTabId);
+    setStatus("원본 파노라마를 다시 불러왔습니다", "ok", 3000);
+    return;
+  }
+  const id = pano.getPano();
+  if (!id) { setStatus("표시 중인 파노가 없습니다", "err", 3000); return; }
+  const pv = pano.getPov ? pano.getPov() : null;
+  const z = pano.getZoom ? pano.getZoom() : null;
+
+  clearFallback();                 // 덮은 것을 전부 걷고 우회 상태를 초기화한다
+  // 같은 id 를 그대로 다시 넣으면 SDK 가 무시한다 — 한 번 비워야 타일을 다시 받는다.
+  try {
+    pano.setPano("");
+    pano.setPano(id);
+    if (pv) pano.setPov(pv);
+    if (z != null) pano.setZoom(z);
+  } catch (e) { /* SDK 가 거부해도 오버레이는 이미 걷혔다 */ }
+  try { google.maps.event.trigger(pano, "resize"); } catch (e) {}
+  watchTiles();                    // 분류를 처음부터 다시
+  setStatus("현재 파노를 다시 불러왔습니다", "ok", 3000);
+}
+
 /* ── 사진구체: 그림이 아니라 **뷰어** ──────────────────────────────────────────
  *
  * 예전에는 서버가 잘라 준 평면 이미지를 <img> 로 덮었다. 그건 pointer-events:none 인
@@ -783,9 +877,25 @@ function scheduleFallback() {
  */
 let sphere = null;
 let sphereToken = null;
+let sphereYaOffset = 0;   // 이 구체를 띄울 때 쓴 진북 보정 — 캡처가 같은 각도를 써야 한다
 
 function sphereUrl(base, w) {
   return `/api/pano-image?base=${encodeURIComponent(base)}&w=${w}&mode=equi`;
+}
+
+/** 지금 화면에 띄운 구체의 **출처**(파노 id + 이미지 토큰)를 탭 포즈에 적는다.
+ *
+ *  캡처는 서버에서 이 photo_url 로 이미지를 다시 받는다. 그러니 화면을 바꿨으면
+ *  여기도 바꿔야 한다 — 안 그러면 "지금 화면 캡처"가 이전 장소를 찍는다. */
+function noteSphereSource(t, id, base) {
+  if (!t) return;
+  const pos = pano && pano.getPosition ? pano.getPosition() : null;
+  const next = Object.assign({}, t.current || t.extracted, {
+    pano: id, photo_url: base, ya_offset: 0, photo_ya: null, photo_pi: null,
+  });
+  if (pos) { next.lat = pos.lat(); next.lng = pos.lng(); }
+  t.current = next;
+  if (t.id === activeId) { currentPose = next; renderPose(next); }
 }
 
 function startSphere(pose, tabId) {
@@ -811,6 +921,7 @@ function startSphere(pose, tabId) {
   if (!sphere) { paintFallback(); return; }        // WebGL 없음 → 정지 이미지라도 보여준다
 
   sphereToken = gpmsToken;
+  sphereYaOffset = yaOff;
   const base = gpmsToken;
   // ① 1024 를 먼저 — 즉시 보이게. ② 4096 으로 조용히 교체 — 선명하게.
   sphere.setTexture(sphereUrl(base, 1024))
@@ -830,7 +941,7 @@ function startSphere(pose, tabId) {
 
 function stopSphere() {
   if (sphere) { try { sphere.destroy(); } catch (e) { /* 무시 */ } }
-  sphere = null; sphereToken = null;
+  sphere = null; sphereToken = null; sphereYaOffset = 0;
 }
 
 /** 뷰어에서 시점이 바뀌면 **탭 포즈에 그대로 기록**한다.
@@ -968,12 +1079,16 @@ function syncFromPano() {
   const t0 = tabById(syncTabId);
   const prev = (t0 && t0.current) || {};
   reportViewerState(pano, t0);
-  const same = prev.pano && prev.pano === nextPano;
+  const same = samePano(prev.pano, nextPano, t0);
+  // 화면이 우리 구체 뷰어면 **시점의 주인은 그쪽**이다. 밑에 깔린 파노의 pov 로 덮으면
+  // 사용자가 구체를 돌려 둔 방향이 지워지고, 캡처가 화면과 다른 쪽을 찍는다.
+  const own = !!sphere;
   // 여기도 마찬가지 — 이전 포즈를 바탕에 깔고 바뀐 것만 덮는다.
   const next = Object.assign({}, prev, {
     lat: pos.lat(), lng: pos.lng(), pano: nextPano,
-    heading: pov.heading, pitch: pov.pitch,
-    fov: currentPose ? currentPose.fov : 90, zoom: pano.getZoom(),
+    heading: own ? prev.heading : pov.heading,
+    pitch: own ? prev.pitch : pov.pitch,
+    fov: prev.fov != null ? prev.fov : 90, zoom: pano.getZoom(),
     // 같은 파노 안에서 시점만 돌린 것이면 이미지 URL 이 그대로 유효하다
     // (시점은 URL 파라미터로 다시 겨눈다). 파노가 바뀌면 그 파노의 사실은 전부 버린다.
     photo_url: same ? (prev.photo_url || null) : null,
@@ -1002,6 +1117,114 @@ function showFallback(pose) {
 }
 
 // ── 캡처 ───────────────────────────────────────────────────────
+/** 캡처 직전에 **화면에서 직접** 포즈를 만든다.
+ *
+ *  왜 currentPose 를 그대로 믿지 않는가 — currentPose 는 이벤트로 갱신되는 *거울*이다.
+ *  거울을 갱신하는 경로(syncArmed)가 어떤 이유로든 꺼지면, 캡처는 조용히 **옛 장면**을
+ *  찍는다. 실제로 그랬다: 사진구체 링크에서 동기화가 한 번도 켜지지 않아, 이동을 해도
+ *  링크의 원본 이미지가 매번 다시 받아졌다(연속 5장 바이트 동일).
+ *  그래서 "지금 화면 캡처"는 거울이 아니라 **화면 자체**를 읽는다.
+ *
+ *  화면은 둘 중 하나다:
+ *    · 우리 구체 뷰어(제3자 파노/사진구체) → 찍을 것은 그 구체의 원본 이미지(sphereToken)
+ *    · 구글 뷰어(공식 파노)               → 찍을 것은 그 파노(id/좌표/시점), 이미지 URL 은 없다
+ */
+/** 화면 로드뷰 패널(#pano)의 CSS 픽셀 크기. 캡처는 이 종횡비로 재렌더해야 화면
+ *  캔버스 **전체**가 담긴다 — 서버 기본값(4:3)만 쓰면 와이드 창에서 좌우가 잘렸다. */
+function paneSize() {
+  const el = $("#pano");
+  const w = el ? el.clientWidth : 0;
+  const h = el ? el.clientHeight : 0;
+  return (w > 0 && h > 0) ? { viewW: w, viewH: h } : {};
+}
+
+function livePose() {
+  const t = activeTab();
+  const base = Object.assign({}, (t && (t.current || t.extracted)) || currentPose || {}, paneSize());
+  if (!pano || !pano.getPano) return base;
+
+  const shown = String(pano.getPano() || "");
+  const pos = pano.getPosition ? pano.getPosition() : null;
+
+  if (sphere && sphereToken) {
+    const pv = sphere.getPov();
+    const out = Object.assign({}, base, {
+      photo_url: sphereToken, ya_offset: sphereYaOffset,
+      photo_ya: null, photo_pi: null,
+      heading: pv.heading, pitch: pv.pitch, fov: pv.fov,
+    });
+    // 링크의 사진구체를 띄운 상태(pin)면 밑에 깔린 파노는 **다른 장소**다 — 그쪽 좌표를
+    // 쓰면 하단 지도가 엉뚱한 곳을 가리킨다. 그럴 땐 pin 의 좌표를 쓴다.
+    const src = (photoPinned && pinnedPose) ? pinnedPose : null;
+    if (src) {
+      out.pano = src.pano || base.pano;
+      if (src.lat != null) { out.lat = src.lat; out.lng = src.lng; }
+    } else {
+      if (shown) out.pano = shown;
+      if (pos) { out.lat = pos.lat(); out.lng = pos.lng(); }
+    }
+    return keepKind(out, t);
+  }
+
+  // WebGL 이 없어 정지 이미지(<img>)로 덮은 상태 — 그것도 "지금 화면"이다.
+  // paintFallback 이 밑 파노의 pov 로 겨눠 받으므로 캡처도 같은 값을 쓴다(ya 보정 없음).
+  const fb = $("#pano-fallback");
+  if (gpmsToken && gpmsBlocked && fb && fb.classList.contains("on")) {
+    const pv0 = pano.getPov ? pano.getPov() : { heading: 0, pitch: 0 };
+    const src0 = (photoPinned && pinnedPose) ? pinnedPose : null;
+    const o = Object.assign({}, base, {
+      photo_url: gpmsToken, ya_offset: 0, photo_ya: null, photo_pi: null,
+      heading: pv0.heading, pitch: pv0.pitch,
+      fov: Math.max(20, Math.min(120, 180 / Math.pow(2, pano.getZoom ? pano.getZoom() : 1))),
+    });
+    if (src0) {
+      o.pano = src0.pano || base.pano;
+      if (src0.lat != null) { o.lat = src0.lat; o.lng = src0.lng; }
+    } else {
+      if (shown) o.pano = shown;
+      if (pos) { o.lat = pos.lat(); o.lng = pos.lng(); }
+    }
+    return keepKind(o, t);
+  }
+
+  const out = Object.assign({}, base, {
+    photo_url: null, photo_ya: null, photo_pi: null, ya_offset: 0,
+  });
+  if (shown) out.pano = shown;
+  if (pos) { out.lat = pos.lat(); out.lng = pos.lng(); }
+  const pv = pano.getPov ? pano.getPov() : null;
+  if (pv) { out.heading = pv.heading; out.pitch = pv.pitch; }
+  // 구글 뷰어가 **링크의 사진구체 그 자체**를 띄우고 있다면, 링크가 준 이미지 URL 이 곧
+  // 그 화면이다. 정적 API 는 이런 파노를 모르므로(ZERO_RESULTS) 이 실마리를 버리면
+  // 캡처가 통째로 실패한다. 같은 파노일 때만 쓴다 — 이동하면 위에서 이미 지워졌다.
+  const link = (t && t.extracted) || {};
+  if (link.photo_url && samePano(shown, link.pano, t)) {
+    out.photo_url = link.photo_url;
+    out.ya_offset = link.ya_offset || 0;
+    out.photo_ya = link.photo_ya != null ? link.photo_ya : null;
+    out.photo_pi = link.photo_pi != null ? link.photo_pi : null;
+  }
+  return keepKind(out, t);
+}
+
+/** pano_kind 는 **링크의 파노**를 분류한 값이다. 다른 파노로 옮겨갔다면 그 라벨은
+ *  더 이상 사실이 아니므로 떼어 낸다(카드에는 "?" 로 표시된다). */
+function keepKind(pose, t) {
+  const link = (t && t.extracted && t.extracted.pano) || null;
+  if (pose.pano && link && pose.pano !== link) pose.pano_kind = null;
+  return pose;
+}
+
+/** 화면에서 읽은 포즈를 탭에 반영한다 — 캡처가 찍은 것과 카드가 말하는 것을 일치시킨다. */
+function adoptLivePose() {
+  const pose = livePose();
+  const t = activeTab();
+  if (t) t.current = pose;
+  currentPose = pose;
+  renderPose(pose);
+  return pose;
+}
+
 async function doCapture() {
   if (!currentPose || (currentPose.lat == null && !currentPose.pano)) {
     setStatus("먼저 링크를 추출하세요", "err");
@@ -1011,8 +1234,10 @@ async function doCapture() {
   if (tabBusy(originId)) { setStatus("이 탭은 이미 작업이 진행 중입니다", "err"); return; }
   const btn = $("#btn-capture");
   if (btn.disabled) return;
+  // 포즈를 먼저 굳히고 나서 버튼을 잠근다 — adoptLivePose 가 카드를 다시 그리며
+  // updateActionButtons 를 부르므로, 순서를 뒤집으면 잠금이 곧바로 풀린다.
+  const pose = adoptLivePose();
   btn.disabled = true;                       // 더블클릭으로 중복 캡처가 쌓이던 것 차단
-  const pose = currentPose;
   const mode = ($("#capture-mode") && $("#capture-mode").value) || "auto";
   const modeLabel = mode === "playwright" ? "브라우저 렌더" : mode === "static" ? "Static API 합성" : "자동";
   setStatus(`캡처 중… (${modeLabel})`, "", 0);
@@ -1029,16 +1254,24 @@ async function doCapture() {
     return;
   }
   if (r.status === "OK") {
-    addToAlbum(r, originId);
-    const via = r.mode === "playwright"
+    const dup = addToAlbum(r, originId);
+    let via = r.mode === "playwright"
       ? (r.fallback_from ? "브라우저 렌더 — Static 미가용 자동 폴백" : "브라우저 렌더")
       : (r.composited ? "로드뷰+지도 합성" : "로드뷰만 — Pillow 미설치");
+    // 화면 수평 시야가 Static API 상한(120°)을 넘어 좌우가 일부 못 담긴 경우 — 침묵하지 않는다.
+    if (r.fov_capped) via += ` · 화면(${r.fov_capped}°)보다 좁게 담김(Static 상한 120°)`;
     if (r.substituted) {
       // 요청한 지점이 아닌 곳을 찍었다 — 반드시 알린다. 조용히 다른 거리를 분석하는 것이
       // 이 도구에서 가장 나쁜 실패다.
       setStatus(`⚠ 요청한 지점의 타일을 받지 못해(${r.substituted_reason || "검은 화면"}) `
         + `근처 구글 공식 지점으로 대체 촬영했습니다 — 분석 대상이 원래 위치와 다릅니다.`,
         "err", 12000);
+    } else if (dup) {
+      // 같은 장면이 계속 쌓이면 그건 대개 "화면은 움직였는데 캡처는 안 따라온" 고장이었다.
+      // 조용히 넘어가지 않고 말한다 — 사용자가 같은 자리에서 두 번 찍은 것이면 무시하면 된다.
+      setStatus("캡처 완료 — 다만 **직전 캡처와 완전히 같은 장면**입니다"
+        + " (같은 파노·같은 시점). 화면을 옮겼는데도 이 표시가 나오면 '로드뷰 새로고침' 후 다시 찍어 보세요.",
+        "err", 9000);
     } else {
       setStatus("캡처 완료 (" + via + ")"
         + (r.third_party ? ` · 사용자 기여 파노 ${r.third_party}` : ""), "ok");
@@ -1058,15 +1291,32 @@ async function doCapture() {
   updateActionButtons();
 }
 
+/** 앨범에 넣고, **직전 캡처와 같은 장면인지** 알려준다(true = 같음). */
 function addToAlbum(r, tabId) {
   const id = tabId != null ? tabId : activeId;
   const t = tabById(id);
-  if (t) t.album.push({ file: r.file, url: r.url, sel: true });
+  const key = sceneKey(r);
+  let dup = false;
+  if (t) {
+    const last = t.album[t.album.length - 1];
+    dup = !!(last && last.key && key && last.key === key);
+    t.album.push({ file: r.file, url: r.url, sel: true, key });
+  }
   if (id === activeId) {
     if (t) album = t.album;
     renderAlbum();
   }
   renderTabbar();
+  return dup;
+}
+
+/** 캡처 결과의 정체성 — 같은 원본을 같은 시점으로 찍었으면 같은 값이 된다.
+ *  좌표는 5자리(≈1m), 각도는 0.1° 까지 본다. 이미지 출처는 시점 접미사를 뗀 **토큰**으로
+ *  비교한다 — 그래야 "다른 파노인데 같은 원본"을 정확히 잡는다. */
+function sceneKey(r) {
+  const f = (v, d) => (v == null ? "-" : Number(v).toFixed(d));
+  const src = String(r.photo_url || "").replace(/=w\d+-h\d+.*$/, "");
+  return [r.pano_id || "", f(r.lat, 5), f(r.lng, 5), f(r.heading, 1), f(r.pitch, 1), src].join("|");
 }
 
 function renderAlbum() {
@@ -1162,7 +1412,8 @@ async function doQuickReport() {
   const originId = activeId;
   if (tabBusy(originId)) { setStatus("이 탭은 이미 작업이 진행 중입니다", "err"); return; }
   await submitJob("scene-report", {
-    pose: currentPose,
+    pose: adoptLivePose(),      // 캡처와 같은 규칙 — 거울이 아니라 화면을 찍는다
+
     mode: ($("#capture-mode") && $("#capture-mode").value) || "auto",
     langs: selectedLangs, research: researchOn(), start: startCoord(),
   }, originId, "바로 보고서 · " + (activeTab() ? tabTitle(activeTab()) : ""));
@@ -1286,7 +1537,7 @@ async function onJobDone(rec) {
     setStatus(`보고서 ${reps.length}건 완료${t ? "" : " (닫힌 탭 — 아래 큐에서 열 수 있습니다)"}${tmsg}${kmsg}`, "ok", 9000);
     flashTab(rec.tabId);
   }
-  renderQueue(); renderTabbar(); renderKnowledge(); updateActionButtons();
+  renderQueue(); renderTabbar(); renderKnowledge(); renderCleanup(); updateActionButtons();
 }
 
 function flashTab(id) {
@@ -1376,6 +1627,88 @@ async function renderKnowledge() {
     `<span class="chip">보고서 ${k.reports || 0}</span>`;
   const btn = $("#btn-synth");
   if (btn) btn.disabled = (k.atoms || 0) < 2;
+}
+
+// ── 저장소 정리 패널 ───────────────────────────────────────────
+// 이 앱은 만들기만 하고 지우지 않았다 — 보고서 13건에 캡처가 379개(196MB) 쌓여 있었고
+// 그중 306개는 어떤 보고서도 참조하지 않는 고아였다. 여기서 그걸 눈에 보이게 만든다.
+let CLEAN_SCAN = null;
+
+async function renderCleanup() {
+  const card = $("#cleanup-card");
+  if (!card) return;
+  let r;
+  try { r = await api("/api/cleanup"); } catch (e) { card.hidden = true; return; }
+  CLEAN_SCAN = r;
+  const cats = (r.categories || []).filter((c) => c.files > 0);
+  if (!cats.length) { card.hidden = true; return; }
+  card.hidden = false;
+  $("#clean-total").textContent = `회수 가능 ${r.totalSizeHuman}`;
+  $("#clean-cats").innerHTML = cats.map((c) => `
+    <label class="clean-cat" title="${esc(c.detail)}">
+      <input type="checkbox" data-cat="${esc(c.key)}"${c.default ? " checked" : ""}>
+      <span class="clean-name">${esc(c.label)}</span>
+      <span class="clean-size">${esc(c.sizeHuman)}</span>
+      <span class="clean-files">${c.files}개</span>
+    </label>`).join("");
+  $("#clean-cats").querySelectorAll("input[data-cat]").forEach((el) => {
+    el.addEventListener("change", updateCleanButton);
+  });
+  updateCleanButton();
+}
+
+function selectedCleanCats() {
+  return Array.from($("#clean-cats").querySelectorAll("input[data-cat]:checked"))
+    .map((el) => el.dataset.cat);
+}
+
+function updateCleanButton() {
+  const btn = $("#btn-clean");
+  if (!btn || !CLEAN_SCAN) return;
+  const sel = new Set(selectedCleanCats());
+  const cats = (CLEAN_SCAN.categories || []).filter((c) => sel.has(c.key));
+  const bytes = cats.reduce((a, c) => a + (c.size || 0), 0);
+  const files = cats.reduce((a, c) => a + (c.files || 0), 0);
+  btn.disabled = !files;
+  btn.textContent = files ? `🧹 ${files}개 정리 (${humanBytes(bytes)})` : "🧹 정리";
+}
+
+function humanBytes(n) {
+  const u = ["B", "KB", "MB", "GB"];
+  let i = 0;
+  while (n >= 1024 && i < u.length - 1) { n /= 1024; i += 1; }
+  return i === 0 ? `${n} B` : `${n.toFixed(1)} ${u[i]}`;
+}
+
+async function doCleanup() {
+  const cats = selectedCleanCats();
+  if (!cats.length) return;
+  const btn = $("#btn-clean");
+  const label = btn.textContent;
+  // 되돌릴 수 없는 삭제다 — 무엇이 몇 개 지워지는지 확인받고 진행한다.
+  const sel = new Set(cats);
+  const chosen = (CLEAN_SCAN.categories || []).filter((c) => sel.has(c.key));
+  const lines = chosen.map((c) => `· ${c.label} — ${c.files}개 ${c.sizeHuman}`).join("\n");
+  const bytes = chosen.reduce((a, c) => a + (c.size || 0), 0);
+  if (!confirm(`다음을 영구 삭제합니다 (되돌릴 수 없습니다):\n\n${lines}\n\n총 ${humanBytes(bytes)}`)) return;
+  btn.disabled = true;
+  setStatus("정리 중…", "", 0);
+  try {
+    const r = await api("/api/cleanup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ apply: true, categories: cats }),
+    });
+    const failed = (r.failed || []).length;
+    setStatus(
+      `정리 완료 — ${r.removed}개 삭제, ${r.freedHuman} 확보` + (failed ? ` (실패 ${failed}건)` : ""),
+      failed ? "err" : "ok", 6000);
+  } catch (e) {
+    setStatus(`정리 실패: ${e.message || e}`, "err", 6000);
+  } finally {
+    btn.textContent = label;
+    await renderCleanup();
+  }
 }
 
 async function doSynthesize() {
