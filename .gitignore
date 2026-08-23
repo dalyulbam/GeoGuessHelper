@@ -13,10 +13,10 @@ dist/
 
 # runtime artifacts
 captures/
-docs/report/*.html
-docs/report/*.script.json
-# retranslate 가 남기는 원본 백업 — 로컬 안전장치일 뿐 저장소에 넣지 않는다
-docs/report/*.bak
+# 보고서는 전부 로컬 전용 — 하위 폴더(크로아시아/, atlas/ …)와 zip 까지 통째로 막아
+# 용량 과다(실측 328MB)를 방지한다. 이전의 docs/report/*.html 은 * 가 / 를 넘지
+# 못해 하위 폴더가 새고 있었다.
+docs/report/*
 !docs/report/.gitkeep
 # 작업 큐 실행 로그 — 실행할 때마다 바뀌는 상태 (gitignore 는 인라인 주석을 지원하지 않는다)
 docs/jobs/
@@ -26,3 +26,9 @@ docs/jobs/
 
 # Playwright 실증 산출물(스크린샷) — 로컬 전용
 .testout/
+
+# 참고용 스크린샷 모음 — 로컬 전용. 폴더째 막아 하위(legacy/ …)까지 포함한다.
+reference/
+
+# Windows 탐색기가 폴더마다 남기는 아이콘 설정 파일
+desktop.ini
