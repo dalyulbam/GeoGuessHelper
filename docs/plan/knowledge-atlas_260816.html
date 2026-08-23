@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessHelper — 지식 아틀라스 v2: 거점·행위자·관계의 전략 지도 (260816)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+.tagrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.t{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent-deep)}
+.t.a2{background:#fdf1d6;color:#8a5a00}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+.tblwrap{overflow-x:auto}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre .c{color:#7f978f}
+pre .k{color:#7fd6b6}
+pre .s{color:#e5c07b}
+.sev{font-size:11px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap}
+.sev.h{color:var(--danger);background:var(--danger-soft)} .sev.m{color:var(--warn);background:var(--warn-soft)} .sev.l{color:var(--muted);background:#eef1f0}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--ink-2);margin-top:8px}
+.flow .box{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
+.flow .box b{color:var(--accent-deep)}
+.flow .arr{color:var(--accent);font-weight:800}
+.foot{padding:34px 0 60px;color:var(--muted);font-size:13px}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{position:relative;padding:10px 0 10px 40px;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:9px;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent-deep);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:22px;position:relative;margin:7px 0;font-size:14px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.next li::before{content:"→";color:var(--accent)}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.phase{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px dashed var(--line)}
+.phase:last-child{border-bottom:none}
+.phase .pn{flex:0 0 auto;width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));color:#fff;font-weight:800;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;line-height:1.2}
+.phase .pn b{font-size:18px}
+.phase .pc{flex:1}
+.phase .pc h4{font-size:15.5px;font-weight:750;margin-bottom:4px}
+.phase .pc p{font-size:13.5px;color:var(--ink-2)}
+.ac{font-size:12.5px;color:var(--ok);font-weight:600;margin-top:6px;display:block}
+.kv{font-size:13px;color:var(--ink-2)}
+.kv b{color:var(--ink)}
+.small{font-size:12px;color:var(--muted)}
+/* 전략 지도 목업 */
+.mapwrap{background:linear-gradient(160deg,#0a1a22,#0e2530);border-radius:14px;padding:18px;margin-top:12px;box-shadow:var(--shadow);overflow-x:auto}
+.mapwrap svg{display:block;margin:0 auto}
+.m-land{fill:#15302b;stroke:#2a5248;stroke-width:1.2}
+.m-isle{fill:#183833;stroke:#2a5248;stroke-width:1}
+.m-label{font-family:'Pretendard',sans-serif;font-size:9.5px;font-weight:700;fill:#cfe9df;text-anchor:middle}
+.m-label.dim{fill:#7fa094;font-weight:600}
+.m-hub{fill:#0f6a55;stroke:#4fd8b0;stroke-width:1.6}
+.m-inf{fill:hsl(168 70% 45% / .10);stroke:hsl(168 70% 55% / .55);stroke-width:1;stroke-dasharray:2 3}
+.m-inf-h{fill:hsl(38 85% 55% / .08);stroke:hsl(38 85% 60% / .6);stroke-width:1;stroke-dasharray:5 4}
+.rl-sup{stroke:#4fd8b0;stroke-width:2;fill:none}
+.rl-trd{stroke:#8fd67f;stroke-width:1.6;fill:none;stroke-dasharray:1 0}
+.rl-con{stroke:#5db9d6;stroke-width:2;fill:none}
+.rl-his{stroke:#e0a83c;stroke-width:1.5;fill:none;stroke-dasharray:6 4}
+.rl-opp{stroke:#e06a5a;stroke-width:1.5;fill:none;stroke-dasharray:2 4}
+.rl-cap{font-size:8.5px;font-weight:700;fill:#9fc9bb;text-anchor:middle}
+.dipcard{fill:#0d2027;stroke:#2a5248}
+.maplegend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:12px;font-size:12px;color:#a8c2ba;font-weight:600}
+.maplegend span{display:flex;align-items:center;gap:6px}
+.lg{width:22px;height:0;border-top:3px solid;display:inline-block;border-radius:2px}
+.grade{font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.grade.g3{background:var(--ok-soft);color:var(--ok)}
+.grade.g2{background:var(--accent-soft);color:var(--accent-deep)}
+.grade.g1{background:var(--warn-soft);color:var(--warn)}
+.grade.g0{background:#20292c;color:#8fa39d}
+.rel{font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.rel.sup{background:#e2f7ef;color:#0b6b52}
+.rel.con{background:#e3f2f8;color:#20647e}
+.rel.trd{background:#eaf6e4;color:#3d7a2c}
+.rel.his{background:#fdf1d6;color:#8a5a00}
+.rel.opp{background:var(--danger-soft);color:var(--danger)}
+.rel.par{background:#eef1f0;color:#5a6d66}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span> GeoGuessHelper · 기획 v2 — 지식 아틀라스</div>
+  <nav class="topnav">
+    <a href="#why">재정의</a><a href="#assets">자산 실측</a><a href="#screens">화면 설계</a>
+    <a href="#actors">행위자</a><a href="#relations">관계 온톨로지</a><a href="#themes">7테마</a>
+    <a href="#model">데이터 모델</a><a href="#arch">아키텍처</a><a href="#feasibility">실현성 검토</a>
+    <a href="#report">종합 보고서</a><a href="#roadmap">로드맵</a><a href="#limits">한계</a><a href="#verify">검증</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">기획 v2 (재정립) · Knowledge Atlas · 2026-08-16</div>
+  <h1>지식 아틀라스 — <span style="color:var(--accent-deep)">거점·행위자·관계</span>를 지도 위에 도식화한다</h1>
+  <p><b>v1에 대한 피드백:</b> "문명5의 은유가 아니라, 문명5<b>처럼</b> 지도와 관계를 도식화하라 —
+  각 테마별 주요 거점·기업·조직·단체·사람들이 주는 <b>영향</b>과 그들 사이의 <b>관계 역학</b>을 시각적으로 파악하기 쉽게."
+  그래서 중심을 바꾼다. v1의 중심이던 커버리지(안개)는 보조 오버레이로 내리고,
+  <b>지도 위의 행위자 네트워크</b> — 누가 어디에 있고, 어디까지 영향을 미치며, 누구와 어떤 관계인가 — 를 시스템의 본체로 삼는다.
+  재료는 이미 있다: 엔티티 229개(가문·기업·항만·인물·정치체…)와 원자 190개가 이미 관계를 <b>문장으로</b> 담고 있다.
+  빠진 것은 그 관계를 <b>데이터로 추출해 그리는 일</b>이다.</p>
+  <div class="meta">
+    <span class="chip ac">행위자 = 기존 엔티티 229개 (분류·지오코딩만 추가)</span>
+    <span class="chip ac">관계 후보 실측: 원자 146개에 엔티티 동시출현 · 고유 쌍 330개</span>
+    <span class="chip ok">서버 열람: GET /atlas · 외부 라이브러리 0</span>
+    <span class="chip wn">모든 관계선은 원자 인용 필수 — 인용 없는 엣지 금지</span>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<!-- ══════════════ 1. 재정의 ══════════════ -->
+<section class="section" id="why">
+  <div class="eyebrow">문제 재정의</div>
+  <h2 class="sec">관계는 이미 문장 속에 있다 — 그리는 데이터가 없을 뿐</h2>
+  <p class="sec-desc">"보고서가 이해에 도움이 되는가"라는 의문의 답은 v1의 진단(낱장 소비·공급자 관점)에 하나를 더해 완성된다:
+  이해란 사실의 목록이 아니라 <b>관계의 그림</b>이다. 현 시스템은 그림 재료를 모아놓고 그림을 그리지 않는다.</p>
+  <div class="grid g3">
+    <div class="card">
+      <h3><span class="ic">🧩</span>관계가 텍스트에 갇혀 있다</h3>
+      <p>"프랑코판 가문이 크르크를 통치하며 글라골 문자 문화를 후원했다"는 원자는 <b>통치·후원이라는 엣지 2개</b>를 담고 있지만,
+      지금은 산문일 뿐이다. 실측: 원자 190개 중 <b>146개(77%)</b>가 엔티티 2개 이상을 함께 언급한다 — 추출을 기다리는 관계다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🕸️</span>허브가 이미 드러나 있다</h3>
+      <p>엔티티 동시출현 고유 쌍 330개. 두브로브니크와 크로아티아가 각 14회로 최다 언급 — 그래프의 허브 후보가 데이터에서 저절로 떠오른다.
+      두브로브니크~그루주, 딩가치~펠레샤츠 같은 상위 쌍은 이미 "거점-배후지" 구조를 보여준다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🗺️</span>지도 없이는 역학이 안 보인다</h3>
+      <p>JANAF 송유관이 왜 오미샬에 있는지는 목록으로는 안 보이고, 지도에서 크르크 대교·아드리아 수심과 함께 보면 자명해진다.
+      관계는 <b>공간 위에서</b> 그려질 때 역학이 된다 — 그래서 그래프 뷰가 아니라 <b>지도 위의 그래프</b>여야 한다.</p>
+    </div>
+  </div>
+  <div class="callout">
+    <b>한 문장 정의:</b> 지식 아틀라스는 <b>원자에서 추출한 행위자(거점·기업·조직·인물)와 관계(공급·연결·통치·대립…)를
+    실제 지도 위에 그려, 테마별로 "누가 판을 움직이는가"를 한눈에 보여주는 시스템</b>이다. 문명5가 도시·유닛·교역로·국경으로
+    세계의 역학을 보여주듯이.
+  </div>
+</section>
+
+<!-- ══════════════ 2. 자산 실측 ══════════════ -->
+<section class="section" id="assets">
+  <div class="eyebrow">현재 자산 실측</div>
+  <h2 class="sec">그림 재료의 재고 조사 (2026-08-16, index.json 직접 집계)</h2>
+  <div class="tblwrap"><table>
+    <tr><th>자산</th><th>수량</th><th>아틀라스에서의 역할</th></tr>
+    <tr><td>엔티티 노트 (entities/*.md)</td><td><b>229개</b></td><td><b>행위자 후보 전체.</b> 가문(프랑코판)·기업(게데온 리히터, JANAF)·대학(옥스퍼드)·인물(이스마일 케말리)·인프라(크르크 대교, TAP)·정치체(라구사 공화국, 오스만) 혼재 — 타입 분류 필요</td></tr>
+    <tr><td>지식 원자 (atoms/*.md)</td><td><b>190개</b></td><td><b>관계의 출처.</b> 146개가 엔티티 ≥2 동시 언급(평균 2.21개/원자) — 관계 추출 대상</td></tr>
+    <tr><td>엔티티 동시출현 쌍</td><td><b>330쌍</b></td><td>잠재 엣지 상한. 상위: 두브로브니크~그루주(4) · 딩가치~펠레샤츠(3) · 크로아티아~크바르네르(3)</td></tr>
+    <tr><td>보고서 / 장소셀</td><td><b>40건 / 33셀</b></td><td>행위자 카드의 근거 링크 · 지도 앵커 좌표</td></tr>
+    <tr><td>레이어 분포</td><td>경제 49 · 문화 36 · 역사 30 · 지리 30 · 건축 23 · 언어 12 · 자연 10</td><td>경제(49)와 역사(30)가 두텁다 — 공급망·계보 관계가 먼저 그려질 것</td></tr>
+  </table></div>
+  <div class="callout ok"><b>재조사 없음 원칙 유지.</b> 행위자 분류(229건)와 관계 추출(146원자)은 기존 텍스트에 대한
+  1회성 구조화 패스다(캐시·증분). 웹 검색을 다시 하지 않고, 원자에 <b>적혀 있는 관계만</b> 추출한다 — 적혀 있지 않은 관계를
+  모델이 지어내는 것은 금지(닫힌 세계 규칙, <a href="#limits">#한계</a>).</div>
+</section>
+
+<!-- ══════════════ 3. 화면 설계 ══════════════ -->
+<section class="section" id="screens">
+  <div class="eyebrow">화면 설계</div>
+  <h2 class="sec">문명5의 화면 4개를 그대로 대응시킨다</h2>
+  <p class="sec-desc">은유가 아니라 화면 단위의 대응이다. 문명5에서 세계를 읽는 네 화면 — 전략 지도·도시 화면·외교 화면·백과 —
+  이 각각 아틀라스의 뷰 하나가 된다.</p>
+  <div class="tblwrap"><table>
+    <tr><th>화면</th><th>문명5에서</th><th>아틀라스에서</th><th>데이터</th></tr>
+    <tr><td><b>① 전략 지도</b></td><td>도시·유닛·교역로·국경·자원 아이콘</td><td>실제 해안선 지도 + 행위자 마커(타입 아이콘) + <b>영향권 원</b> + <b>관계선</b>(교역로 스타일) + 테마 토글 + 시대 슬라이더</td><td>entities.json + relations.json</td></tr>
+    <tr><td><b>② 도시 화면</b></td><td>도시 클릭 → 타일·건물·산출 상세</td><td>거점 클릭 → 로컬 관계도(1촌 네트워크) + 소속 원자·보고서·구글 지도 4축척 링크</td><td>ego-graph + places/ 백링크</td></tr>
+    <tr><td><b>③ 외교 화면</b></td><td>문명 간 관계 매트릭스·성향</td><td>행위자 간 관계 목록/매트릭스 — 관계 유형·시기·테마로 필터. "프랑코판의 모든 관계" 같은 질의</td><td>relations.json 필터 뷰</td></tr>
+    <tr><td><b>④ 시빌로피디아</b></td><td>게임 내 백과</td><td>엔티티 카드 — <b>이미 존재</b>(entities/*.md 229개, [[..]] 링크). 관계 목록 섹션만 추가</td><td>기존 노트 + relations 역참조</td></tr>
+  </table></div>
+
+  <h3 class="sub">전략 지도 목업 — 아드리아, 실제 데이터로</h3>
+  <p class="sec-desc" style="margin-bottom:8px">아래 행위자·관계는 전부 현재 저장소의 실제 엔티티·원자에서 왔다.
+  마커는 행위자, 점선 원은 영향권, 선은 관계다(범례 참조). 우하단은 행위자 클릭 시의 외교 화면 카드.</p>
+  <div class="mapwrap">
+    <svg width="660" height="320" viewBox="0 0 660 320">
+      <!-- 본토 (발칸 내륙) -->
+      <path class="m-land" d="M 105,0 C 130,40 140,75 178,105 C 225,142 275,168 330,192 C 395,220 470,244 560,262 C 600,270 635,276 660,280 L 660,0 Z"/>
+      <text x="430" y="60" class="m-label dim" font-size="12">발칸 내륙</text>
+      <text x="430" y="76" class="m-label dim">디나르알프스 너머 · 오스만 압력의 방향 (역사 레이어)</text>
+      <!-- 섬들 -->
+      <ellipse class="m-isle" cx="120" cy="120" rx="24" ry="14"/>
+      <text x="120" y="112" class="m-label dim">크르크섬</text>
+      <ellipse class="m-isle" cx="163" cy="163" rx="13" ry="7" transform="rotate(-20 163 163)"/>
+      <text x="163" y="180" class="m-label dim">라브</text>
+      <ellipse class="m-isle" cx="215" cy="196" rx="30" ry="8" transform="rotate(-24 215 196)"/>
+      <ellipse class="m-isle" cx="452" cy="257" rx="32" ry="7" transform="rotate(-14 452 257)"/>
+      <text x="440" y="245" class="m-label dim">펠레샤츠</text>
+      <ellipse class="m-isle" cx="415" cy="287" rx="21" ry="6" transform="rotate(-10 415 287)"/>
+      <text x="413" y="302" class="m-label dim">믈레트</text>
+      <!-- 영향권: 프랑코판 (역사, 크바르네르 일대) -->
+      <ellipse class="m-inf-h" cx="150" cy="140" rx="85" ry="62"/>
+      <text x="88" y="200" class="m-label" fill="#e0be6f" text-anchor="start">프랑코판 영향권 (중세 크바르네르)</text>
+      <!-- 영향권: 두브로브니크 (여행/교역) -->
+      <circle class="m-inf" cx="530" cy="268" r="52"/>
+      <!-- 관계선: 오스만 압력 → 세니 -->
+      <path class="rl-opp" d="M 330,120 C 290,130 250,140 212,158"/>
+      <text x="272" y="122" class="rl-cap" fill="#e8988c">대립 · 오스만 압력 → 우스코크 (16c)</text>
+      <!-- 관계선: JANAF 공급 -->
+      <path class="rl-sup" d="M 128,108 C 170,70 230,45 300,32"/>
+      <text x="232" y="30" class="rl-cap">공급 · 원유 → 중부유럽 정제소</text>
+      <!-- 관계선: 크르크 대교 연결 -->
+      <path class="rl-con" d="M 138,112 L 165,98"/>
+      <!-- 관계선: 파그 교역 -->
+      <path class="rl-trd" d="M 222,192 C 255,196 280,204 305,214"/>
+      <text x="292" y="196" class="rl-cap" fill="#a9dc9a">교역 · 소금·치즈 → 본토</text>
+      <!-- 관계선: 그루주 페리 -->
+      <path class="rl-con" d="M 524,262 C 490,272 455,280 432,285"/>
+      <text x="474" y="292" class="rl-cap" fill="#8fc9dc">연결 · 페리 → 엘라피티·믈레트</text>
+      <!-- 관계선: 딩가치 → 그루주 -->
+      <path class="rl-trd" d="M 462,252 C 485,256 505,260 520,264"/>
+      <!-- 관계선: 라구사 계승 (역사) -->
+      <path class="rl-his" d="M 560,240 C 548,248 540,256 534,263"/>
+      <text x="583" y="236" class="rl-cap" fill="#e0be6f">계승 · 라구사 공화국 → 현대 두브로브니크</text>
+      <!-- 행위자 마커 -->
+      <circle class="m-hub" cx="128" cy="108" r="6"/>
+      <text x="128" y="94" class="m-label">🛢 JANAF 오미샬 터미널</text>
+      <circle class="m-hub" cx="152" cy="105" r="4"/>
+      <text x="185" y="110" class="m-label">🌉 크르크 대교</text>
+      <circle class="m-hub" cx="208" cy="160" r="5"/>
+      <text x="208" y="150" class="m-label">🏰 세니 · 네하이 요새</text>
+      <circle class="m-hub" cx="212" cy="199" r="5"/>
+      <text x="205" y="216" class="m-label">🧂 솔라나 파그 · 파그 치즈</text>
+      <circle class="m-hub" cx="455" cy="254" r="5"/>
+      <text x="472" y="268" class="m-label">🍷 딩가치</text>
+      <circle class="m-hub" cx="530" cy="268" r="7"/>
+      <text x="540" y="255" class="m-label">⚓ 두브로브니크 · 그루주항</text>
+      <!-- 외교 화면 카드 -->
+      <rect class="dipcard" x="18" y="222" width="248" height="88" rx="10"/>
+      <text x="32" y="243" class="m-label" text-anchor="start" font-size="11">▮ 외교 화면 — 프랑코판 가문 (org · 중세)</text>
+      <text x="32" y="262" class="rl-cap" text-anchor="start" fill="#e0be6f">통치 → 크르크섬 · 세니 [[atm_ea4cec02c2f6]]</text>
+      <text x="32" y="278" class="rl-cap" text-anchor="start" fill="#e0be6f">후원 → 글라골 문자 문화 [[atm_050d1beb807a]]</text>
+      <text x="32" y="294" class="rl-cap" text-anchor="start" fill="#e8988c">대립 ← 오스만 제국 (관련 원자 링크)</text>
+    </svg>
+    <div class="maplegend">
+      <span><span class="lg" style="border-color:#4fd8b0"></span>공급·운영</span>
+      <span><span class="lg" style="border-color:#5db9d6"></span>연결 (인프라·항로)</span>
+      <span><span class="lg" style="border-color:#8fd67f"></span>교역·생산</span>
+      <span><span class="lg" style="border-color:#e0a83c;border-top-style:dashed"></span>통치·계승 (역사)</span>
+      <span><span class="lg" style="border-color:#e06a5a;border-top-style:dotted"></span>대립·경쟁</span>
+      <span>⭕ 점선 원 = 영향권</span>
+    </div>
+  </div>
+  <p class="small" style="margin-top:8px">※ 해안선은 목업에서만 양식화했다. 실제 뷰어는 Natural Earth 110m 해안선(퍼블릭 도메인, 단순화 ~90KB)을
+  내장해 세계↔지역 줌을 제공한다 — 외부 지도 타일 불필요, Maps ToS 무관. 테마 토글을 travel로 바꾸면 위 지도에서 JANAF·공급선이
+  사라지고 믈레트 국립공원·성벽·페리 관문이 남는다 — <b>같은 지역, 다른 판</b>.</p>
+</section>
+
+<!-- ══════════════ 4. 행위자 ══════════════ -->
+<section class="section" id="actors">
+  <div class="eyebrow">행위자 모델</div>
+  <h2 class="sec">엔티티 229개를 행위자 대장(臺帳)으로</h2>
+  <p class="sec-desc">엔티티는 이미 존재한다 — 없는 것은 <b>타입·좌표·영향범위</b>다. 1회 분류 패스로 대장을 만든다.</p>
+  <div class="tblwrap"><table>
+    <tr><th>타입</th><th>정의</th><th>현재 저장소의 실례</th><th>지도 표현</th></tr>
+    <tr><td>📍 거점 <code>place</code></td><td>도시·항만·지구 — 관계가 모이는 곳</td><td>두브로브니크, 그루주, 세니, 바르나울, 옥스퍼드</td><td>크기 = 연결 수(중심성) 마커</td></tr>
+    <tr><td>🏭 기업 <code>company</code></td><td>상업 조직</td><td>게데온 리히터, JANAF, 솔라나 파그, MINI 카울리 공장, 랍스카 플로비드바(페리)</td><td>기업 아이콘 + 소재지 앵커</td></tr>
+    <tr><td>🏛 조직·단체 <code>org</code></td><td>비상업 조직 — 가문·대학·교단·공화국</td><td>프랑코판 가문, 옥스퍼드대, 코르도바 국립대, 벡타시 교단, 라구사 공화국</td><td>조직 아이콘, 존속 시기 부착</td></tr>
+    <tr><td>👤 인물 <code>person</code></td><td>개인</td><td>이스마일 케말리, 유라이 달마티나츠, 게르만 티토프, 칼라시니코프</td><td>활동 거점에 앵커 + 계보선</td></tr>
+    <tr><td>🌉 인프라 <code>infra</code></td><td>연결하는 구조물</td><td>크르크 대교, TAP 파이프라인, 세체니 온천(시설)</td><td><b>마커가 아니라 선</b> — 연결 관계 그 자체</td></tr>
+    <tr><td>👑 정치체 <code>polity</code></td><td>국가·제국 — 광역 행위자</td><td>오스만 제국, 오스트리아-헝가리, 소련, 무굴 제국</td><td>영향권 면(面) — 특정 좌표에 고정하지 않음</td></tr>
+    <tr><td>🗣 문화권 <code>culture</code></td><td>언어·양식·관습의 권역</td><td>차카비안 방언, 글라골 문자, 콜리지에이트 고딕, 쿠아르테토 음악</td><td>영향권 면 + 전파선</td></tr>
+  </table></div>
+  <div class="callout"><b>영향의 표현 = 영향권 + 중심성.</b> 행위자의 "영향"은 두 값으로 그린다.
+  ① <b>영향권</b>(scope): 기존 SCOPES(point~global)를 재사용해 원/면의 크기로. ② <b>중심성</b>(degree): 테마 필터된 그래프에서의
+  연결 수로 마커 크기를 정한다 — 계산은 표준 라이브러리로 충분하다. "이 판의 주인공이 누구인가"가 마커 크기로 즉답된다.</div>
+</section>
+
+<!-- ══════════════ 5. 관계 온톨로지 ══════════════ -->
+<section class="section" id="relations">
+  <div class="eyebrow">관계 온톨로지</div>
+  <h2 class="sec">관계 유형 9종 — 전부 현재 원자에 실례가 있다</h2>
+  <p class="sec-desc">유형을 늘리는 것보다 <b>전 엣지 원자 인용</b>이 중요하다. 아래 9종으로 시작하고, 분류 불가면 <code>related</code>로
+  두되 버리지 않는다(추출 손실 방지). 각 관계는 방향·시기·테마 태그를 갖는다.</p>
+  <div class="tblwrap"><table>
+    <tr><th>유형</th><th>의미 (방향)</th><th>현재 원자 속 실례</th><th>주 테마</th></tr>
+    <tr><td><span class="rel sup">운영 operates</span></td><td>A가 B를 소유·운영 →</td><td>JANAF → 오미샬 터미널 · BMW → MINI 카울리 공장</td><td>주식·법인</td></tr>
+    <tr><td><span class="rel sup">공급 supplies</span></td><td>A가 B에 재화·에너지 공급 →</td><td>JANAF 송유관 → 중부유럽 · TAP → 이탈리아</td><td>수출입·주식</td></tr>
+    <tr><td><span class="rel trd">생산 produces</span></td><td>A가 특산 B를 산출 →</td><td>솔라나 파그 → 소금 · 파그 양 → 치즈 · 딩가치 → 와인</td><td>수출입·여행</td></tr>
+    <tr><td><span class="rel con">연결 connects</span></td><td>A가 B와 C를 잇다 ↔</td><td>크르크 대교: 본토↔크르크 · 랍스카 플로비드바: 스티니차↔라브 · 그루주: 엘라피티 페리</td><td>수출입·여행·부동산</td></tr>
+    <tr><td><span class="rel his">통치 ruled</span></td><td>A가 B를 지배 (시기) →</td><td>프랑코판 → 크르크 · 라구사 공화국 → 두브로브니크 · 무굴 → 데칸</td><td>역사</td></tr>
+    <tr><td><span class="rel his">계승 succeeded</span></td><td>A가 B에서 기원·계승 ←</td><td>현대 두브로브니크 ← 라구사 · 바르나울 ← 데미도프 은광</td><td>역사·법인</td></tr>
+    <tr><td><span class="rel his">후원 founded</span></td><td>A가 B를 설립·육성 →</td><td>프랑코판 → 글라골 문자 문화 · 데미도프 → 바르나울 · 1918 개혁 → 코르도바대 체제</td><td>역사·교육</td></tr>
+    <tr><td><span class="rel opp">대립 opposed</span></td><td>A와 B가 충돌 ↔ (시기)</td><td>우스코크(세니) ↔ 오스만 · 오스만 ↔ 합스부르크 국경</td><td>역사</td></tr>
+    <tr><td><span class="rel par">소속 part-of</span></td><td>A가 B의 일부 →</td><td>그루주 → 두브로브니크 · 크르크 → 크바르네르 · 딩가치 → 펠레샤츠</td><td>전 테마 (지도 계층)</td></tr>
+  </table></div>
+  <h3 class="sub">추출 규칙 — 날조를 막는 세 가지</h3>
+  <ul class="clean">
+    <li><b>닫힌 세계:</b> 원자 1개를 입력하면 그 원자가 언급한 엔티티들 사이의 관계만 출력한다. 원자에 없는 엔티티·관계를 만들면 폐기.</li>
+    <li><b>문장 근거:</b> 관계마다 원자 본문에서 근거 구절을 함께 출력하게 해 검증 표본 대조를 쉽게 한다(구절은 저장하지 않고 검증에만 사용).</li>
+    <li><b>병합:</b> 같은 (src, dst, type)은 엣지 1개로 합치고 원자 인용을 누적한다. 인용 수가 곧 엣지 굵기(strength 1~3)다.</li>
+  </ul>
+</section>
+
+<!-- ══════════════ 6. 7테마 ══════════════ -->
+<section class="section" id="themes">
+  <div class="eyebrow">수요 테마</div>
+  <h2 class="sec">테마 = 그래프의 필터 — "어느 판을 볼 것인가"</h2>
+  <p class="sec-desc">v1에서 테마는 점수의 축이었다. v2에서 테마는 <b>전략 지도에 어떤 행위자와 관계를 남길지 정하는 렌즈</b>다.
+  행위자·관계 양쪽에 테마 태그가 붙고(추출 패스에서 함께 산출), 토글 하나로 판이 바뀐다.</p>
+  <div class="tblwrap"><table>
+    <tr><th>테마</th><th>독자의 질문</th><th>이 렌즈에서 남는 것 (아드리아 예시)</th></tr>
+    <tr><td>📈 주식 투자 <code>stock</code></td><td>이 지역에 노출된 상장기업은?</td><td>기업 마커(게데온 리히터·BMW/MINI) + 운영·공급선. 아드리아엔 상장기업 원자가 아직 없음 — 공백이 그대로 보인다</td></tr>
+    <tr><td>🏘️ 부동산 투자 <code>realty</code></td><td>수요 압력의 방향은?</td><td>거점 마커 + 연결선(교통 결절) + 관광 영향권. 그루주: 페리·버스 결절 = 결절 프리미엄 후보</td></tr>
+    <tr><td>🚢 수출입 <code>trade</code></td><td>물류·공급망 구조는?</td><td>공급·생산·연결선의 지도: JANAF, TAP, 파그 소금·치즈, 항만·페리망</td></tr>
+    <tr><td>🏢 법인사업 <code>corporate</code></td><td>사업장 환경과 배후 인프라는?</td><td>기업+인프라+거점: 바르나울 산업 허브, 크르크 대교 접근성</td></tr>
+    <tr><td>🎓 교육·인재 <code>talent</code></td><td>대학·인재 풀은?</td><td>대학 조직 마커 + 후원·계승선: 옥스퍼드대, 코르도바대(1918 개혁 계보)</td></tr>
+    <tr><td>🧳 여행·문화 <code>travel</code></td><td>어디를 방문하나?</td><td>거점+문화권+연결선: 성벽 도시, 믈레트, 딩가치 와인루트, 페리 동선 — 곧 여행 동선도(圖)</td></tr>
+    <tr><td>🏛️ 역사·기록 <code>heritage</code></td><td>이 땅의 층위는?</td><td>통치·계승·대립·후원선 + 시대 슬라이더: 프랑코판 → 오스만 압력 → 합스부르크 → 현대의 층서</td></tr>
+  </table></div>
+</section>
+
+<!-- ══════════════ 7. 데이터 모델 ══════════════ -->
+<section class="section" id="model">
+  <div class="eyebrow">데이터 모델</div>
+  <h2 class="sec">원자 불변 — 대장·관계는 사이드카, 그래프는 빌드 산출물</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3><span class="ic">🗂️</span>entities.json — 행위자 대장 (사이드카 · 증분)</h3>
+      <p>229개 1회 분류 + 지오코딩(원자 좌표에서 유도, LLM 지오코딩 아님). 신규 엔티티만 증분.</p>
+<pre>{
+  "frankopan": {
+    "type": "org", "label_ko": "프랑코판 가문",
+    "anchor": {"lat":45.02,"lng":14.57,
+               "from":"krk-island 원자 좌표"},
+    "scope": "region",
+    "period": [1100, 1671],
+    "themes": ["heritage"],
+    "atoms": 3, "reports": 2
+  }
+}</pre>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🔗</span>relations.json — 관계 (사이드카 · 증분)</h3>
+      <p>엔티티 ≥2인 원자 146개에서 추출. 배치 15원자씩 ~10콜, model_fact(claude-sonnet-5). 신규 원자만 증분.</p>
+<pre>[{
+  "src": "frankopan", "dst": "krk-island",
+  "type": "ruled", "dir": "->",
+  "period": [1100, 1480],
+  "themes": ["heritage"],
+  "atoms": ["atm_ea4cec02c2f6"],
+  "strength": 1
+}]</pre>
+    </div>
+  </div>
+  <div class="card" style="margin-top:15px">
+    <h3><span class="ic">🗺️</span>atlas.json — 조립된 그래프 (빌드 산출물 · 매번 재생성)</h3>
+    <p><code>atlas build</code>가 대장+관계+index.json을 조립한다: 노드(좌표·타입·테마·중심성), 엣지(유형·굵기·인용),
+    테마별 서브그래프 인덱스, 커버리지 오버레이(v1의 등급 계산 — 보조 지위로 유지), 시대 버킷.
+    뷰어와 종합 보고서의 유일한 데이터 소스. 대사 검증: 노드 수 = 대장 수, 전 엣지 인용 원자 존재.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 8. 아키텍처 ══════════════ -->
+<section class="section" id="arch">
+  <div class="eyebrow">아키텍처</div>
+  <h2 class="sec">추출 2패스 + 조립 1빌드 + 뷰 4장</h2>
+  <div class="flow">
+    <span class="box">entities/ · atoms/<br><b>기존 지식 (불변)</b></span><span class="arr">→</span>
+    <span class="box">패스A 행위자 분류<br><b>entities.json</b></span><span class="arr">→</span>
+    <span class="box">패스B 관계 추출<br><b>relations.json</b></span><span class="arr">→</span>
+    <span class="box">atlas build<br><b>atlas.json</b></span><span class="arr">→</span>
+    <span class="box">GET /atlas 뷰어<br><b>지도·도시·외교·백과</b></span><span class="arr">→</span>
+    <span class="box">어드바이저 보고서<br><b>docs/report/atlas/</b></span>
+  </div>
+  <h3 class="sub">구성 요소</h3>
+  <div class="tblwrap"><table>
+    <tr><th>파일</th><th>역할</th><th>비고</th></tr>
+    <tr><td><code>src/geoguesshelper/atlas.py</code> <b>(신규)</b></td><td>패스A·B 추출(캐시·증분) · 그래프 조립 · 중심성 · 보고서 생성</td><td>knowledge.py 인덱스/지오해시, llm.py 구조화 호출 재사용</td></tr>
+    <tr><td><code>webui/atlas.html·js</code> <b>(신규)</b></td><td>전략 지도(SVG, viewBox 팬줌) · 테마 토글 · 시대 슬라이더 · 도시/외교 패널</td><td>외부 라이브러리 0 · 해안선 GeoJSON(Natural Earth 110m, PD) 내장</td></tr>
+    <tr><td><code>server.py</code> (확장)</td><td><code>GET /atlas</code> · <code>GET /api/atlas</code>(stale 시 재빌드) · <code>GET /api/atlas/actor/{slug}</code> · <code>POST /api/jobs/atlas-report</code></td><td>기존 잡 큐·SSE 진행 스트림 재사용</td></tr>
+    <tr><td><code>cli.py</code> (확장)</td><td><code>atlas extract [--redo]</code> · <code>atlas build [--embed]</code> · <code>atlas report -t 테마 [-r 범위]</code> · <code>atlas doctor</code></td><td>--embed = JSON 인라인, 서버 없이 파일로 열람 · doctor = 결손 감지·사후 적재 (<a href="#feasibility">#실현성</a>)</td></tr>
+    <tr><td><code>report.py</code> (확장)</td><td>어드바이저 템플릿 — 기존 다국어·인쇄 파이프라인 통과</td><td>번역 재시도(v0.5.0)·retranslate 혜택 자동 승계</td></tr>
+  </table></div>
+</section>
+
+<!-- ══════════════ 8.5 실현성 검토 ══════════════ -->
+<section class="section" id="feasibility">
+  <div class="eyebrow">실현성 검토 (코드 실측)</div>
+  <h2 class="sec">세 가지 질문, 세 가지 실측 답변</h2>
+  <p class="sec-desc">"서버를 열 수 있는가 · 쌓이는 원자를 쓸 수 있는가 · 보고서는 어떻게 만들어지는가"를
+  가정이 아니라 현재 코드(server.py · cli.py · knowledge.py)에서 직접 확인했다.</p>
+
+  <h3 class="sub">① 로컬 서버 — 이미 열린다. 아틀라스는 라우트만 얹는다</h3>
+  <div class="tblwrap"><table>
+    <tr><th>확인 항목</th><th>실측 (현재 코드)</th></tr>
+    <tr><td>구동 방법</td><td><code>uv run geoguesshelper serve</code> → FastAPI + uvicorn. 시작 배너에 접속 URL·키 상태·<b>지식 저장소 원자 수</b>까지 출력한다 (server.py <code>main()</code>)</td></tr>
+    <tr><td>포트 충돌</td><td><code>_find_free_port()</code>가 자동으로 빈 포트를 찾는다 — 다중 실행에도 안전</td></tr>
+    <tr><td>정적 서빙</td><td><code>/captures/·/reports/·/knowledge/{sub}</code> 라우트가 이미 있다 — 엔티티 노트(시빌로피디아)는 <b>오늘도 서버로 열람 가능</b></td></tr>
+    <tr><td>지식 API</td><td><code>GET /api/knowledge</code>(통계) · <code>GET /api/knowledge/atoms</code> · <code>POST /api/knowledge/synthesize</code>가 이미 존재 — 아틀라스 API는 이 패턴의 연장</td></tr>
+    <tr><td>잡 인프라</td><td>잡 큐(동시 실행 상한·대기 큐)·SSE 진행 스트림·취소·시간 예산이 전부 가동 중 — atlas-report 잡이 그대로 탄다</td></tr>
+  </table></div>
+  <div class="callout ok"><b>결론: 신규 인프라 0.</b> 추가분은 라우트 4개(<code>/atlas</code>·<code>/api/atlas</code>·<code>/api/atlas/actor/{slug}</code>·<code>POST /api/jobs/atlas-report</code>)와
+  webui 정적 파일 1벌뿐이다. 서버 없이 쓰는 경로도 확보한다: <code>atlas build --embed</code>가 atlas.json을 HTML에 인라인해 <code>file://</code>로도 열린다.</div>
+
+  <h3 class="sub">② 원자 축적 — 보고서를 만들 때마다 자동으로 쌓이고 있다</h3>
+  <p class="sec-desc" style="margin-bottom:8px">보고서 잡(report/scene-report 공통 경로)의 실측 흐름. 지식 단계는 <code>knowledge_enabled</code>(기본 켜짐)일 때 항상 돈다.</p>
+  <div class="flow">
+    <span class="box">분석<br><b>장면 식별</b></span><span class="arr">→</span>
+    <span class="box">회상 recall<br><b>기존 원자 → 프롬프트</b></span><span class="arr">→</span>
+    <span class="box">리서치<br><b>아는 건 재검색 안 함</b></span><span class="arr">→</span>
+    <span class="box">번역·보고서<br><b>HTML 산출</b></span><span class="arr">→</span>
+    <span class="box">적재 ingest<br><b>원자 신규·병합</b></span><span class="arr">→</span>
+    <span class="box">보고서 노트<br><b>reports/*.md</b></span>
+  </div>
+  <ul class="clean" style="margin-top:12px">
+    <li>이 파이프라인이 지금까지 원자 190개·노트 37건을 만들었다 — <b>아틀라스가 요구하는 축적은 이미 작동 중</b>이고, 앞으로의 보고서도 같은 경로로 쌓인다(보고서 1건 ≈ 원자 5개, 190/40 실측).</li>
+    <li>원자 스키마가 아틀라스 요구를 이미 충족한다: entities(행위자 후보)·lat/lng·cell(지도 앵커)·reports(근거 링크)·period(시대 슬라이더). <b>스키마 변경 없이 소비만 하면 된다.</b></li>
+    <li>추출 패스 A·B는 증분이므로(스코어 없는 엔티티·원자만 처리) 새 보고서 → <code>atlas build</code> 한 번으로 지도에 반영된다.</li>
+  </ul>
+  <div class="callout warn"><b>실측된 구멍 하나: 노트 37건 vs 보고서 40건.</b> 잡에 시간 예산 가드가 있어
+  예산 초과 시 "지식 적재 생략"하고 보고서만 내보낸다(server.py 실측 — 의도된 트레이드오프). 이렇게 건너뛴 보고서는 원자를 남기지 않는다.
+  보강: <code>atlas doctor</code>가 보고서 폴더와 노트를 대사해 결손을 찾고, 결손 보고서에 한해 <b>사후 적재</b>(기존 ingest 재사용)를 돌린다.
+  빌드 때마다 결손 수를 배너로 보여줘 침묵 손실을 없앤다.</div>
+
+  <h3 class="sub">③ 아틀라스 보고서의 데이터 — 쓰기만 하는 게 아니라 스스로도 데이터가 된다</h3>
+  <div class="grid g2">
+    <div class="card">
+      <h3><span class="ic">🔄</span>비순환 원칙 — 아틀라스 보고서는 적재하지 않는다</h3>
+      <p>지점 보고서는 <b>새 조사</b>를 담으므로 적재하지만, 아틀라스 보고서는 기존 원자의 <b>재서술</b>이다.
+      이걸 다시 적재하면 원자→보고서→원자 순환으로 같은 사실이 출처를 잃고 증식한다(자기 인용 오염).
+      따라서 atlas-report 잡은 ingest 단계를 갖지 않는다 — 설계로 금지.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">📦</span>기계 가독 슬라이스 내장 — 보고서가 데이터 캐리어</h3>
+      <p>지점 보고서 HTML엔 구조화 데이터가 없다(실측 — 사후 수확이 어려웠던 이유). 아틀라스 보고서는 다르게 간다:
+      <code>&lt;script type="application/json" id="atlas-slice"&gt;</code>로 사용한 서브그래프(행위자·관계·인용 원자 id)를 내장한다.
+      효과 ① 보고서 단독으로 테마 토글 등 로컬 인터랙션, ② 낡은 보고서와 새 보고서의 <b>기계 대조</b>(그때는 몰랐던 관계가 지금은 있다),
+      ③ 뷰어 없이도 슬라이스만 긁어 재이용 가능.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 9. 종합 보고서 ══════════════ -->
+<section class="section" id="report">
+  <div class="eyebrow">산출물</div>
+  <h2 class="sec">어드바이저 종합 보고서 — 거점 → 행위자 → 역학 → 행동</h2>
+  <p class="sec-desc">테마 1개 × 범위 1개(세계/국가/지역)로 생성. 본문의 뼈대가 v1의 "지역 랭킹"에서 <b>"관계 역학의 서술"</b>로 바뀐다.</p>
+
+  <h3 class="sub">생성 방식 — 기존 잡 인프라 위의 5단계</h3>
+  <div class="flow">
+    <span class="box">POST /api/jobs/atlas-report<br><b>{theme, range, langs}</b></span><span class="arr">→</span>
+    <span class="box">① atlas.json 로드<br><b>stale 시 재빌드</b></span><span class="arr">→</span>
+    <span class="box">② 슬라이스<br><b>테마·범위 서브그래프</b></span><span class="arr">→</span>
+    <span class="box">③ LLM 종합<br><b>원자만으로 서술</b></span><span class="arr">→</span>
+    <span class="box">④ 렌더<br><b>지도 SVG + 본문</b></span><span class="arr">→</span>
+    <span class="box">⑤ 번역·저장<br><b>기존 파이프라인</b></span>
+  </div>
+  <ul class="clean" style="margin-top:12px">
+    <li><b>③의 입력은 닫혀 있다:</b> 슬라이스의 행위자·관계·인용 원자 본문만 — 기본값으로 <b>웹 검색 없음</b>(빠르고 싸며, 서술↔인용 정합이 보장된다).
+    <code>--research</code> 옵션을 켠 경우에만 공백 보충 조사를 허용하고, 그 결과는 지점 조사와 동일하게 원자로 적재된 뒤 재빌드를 거쳐 반영된다.</li>
+    <li><b>진행·취소·예산:</b> 기존 잡 큐의 SSE 진행 스트림("슬라이스 42행위자·88관계" 식), 취소, 시간 예산 가드를 그대로 상속한다.</li>
+    <li><b>다국어:</b> 기준 언어(en) 1회 생성 후 문자열 번역(harvest→translate→splice) — 번역 재시도·retranslate 복구까지 기존 체계 그대로.</li>
+  </ul>
+
+  <h3 class="sub">파일 포맷</h3>
+  <div class="tblwrap"><table>
+    <tr><th>항목</th><th>규격</th></tr>
+    <tr><td>경로·이름</td><td><code>docs/report/atlas/atlas_&lt;theme&gt;_&lt;range&gt;_&lt;ts&gt;_&lt;langs&gt;.html</code> — 예: <code>atlas_travel_hr_260820_1430_ko.html</code>. 지점 보고서와 폴더로 구분</td></tr>
+    <tr><td>자립성</td><td>단일 HTML — 지도 SVG 인라인, 외부 요청 0 (지점 보고서와 동일 원칙)</td></tr>
+    <tr><td>내장 데이터</td><td><code>#atlas-slice</code> JSON(행위자·관계·인용 원자 id·빌드 시각·추출 모델) — 재이용·대조용 (<a href="#feasibility">#실현성 ③</a>)</td></tr>
+    <tr><td>인용</td><td>모든 역학 문장에 [[atm_..]] → linkresolver가 <code>/knowledge/atoms/..</code> 링크로 변환 — 서버 열람 시 원문 1클릭</td></tr>
+    <tr><td>다국어·인쇄</td><td>기존 언어 탭 UI·인쇄 CSS 재사용 — 인쇄물에도 지도 스냅샷·인용 각주 유지</td></tr>
+    <tr><td>메타 표기</td><td>표지에 데이터 기반(행위자 n·관계 m·원자 k)·커버리지 분포·생성 모델·<b>"투자 조언 아님" 고지</b>(stock·realty)</td></tr>
+  </table></div>
+  <ol class="steps">
+    <li><b>표지</b> — 테마·범위·데이터 기반(행위자 n·관계 m·원자 k) + 커버리지 분포 선언("이 판은 충분 2권역·공백 9권역 위에서 그려졌다").</li>
+    <li><b>전략 지도 스냅샷</b> — 테마 필터된 지도(SVG 인라인, 뷰어와 동일 렌더 코드). 인쇄에서도 지도가 살아 있다.</li>
+    <li><b>주요 거점</b> — 중심성 상위 거점 카드: 왜 결절인가, 무엇이 모이는가, 대표 보고서·구글 지도 링크.</li>
+    <li><b>주요 행위자</b> — 기업·조직·인물 카드: 타입, 영향권, 연결된 관계 목록, 존속/활동 시기.</li>
+    <li><b>관계 역학</b> — 사슬 단위 서술: 공급망 사슬(JANAF: 탱커→오미샬→송유관→내륙), 역사 계보(프랑코판→합스부르크→현대),
+    대립 구도(우스코크↔오스만). <b>모든 문장에 원자 인용</b> — 인용 없는 문장은 생성 금지(기존 linkresolver 링크화).</li>
+    <li><b>행동 포인트</b> — 여행자: 방문 동선(연결선 따라 걷는 경로). 기업인: 확인 목록("확인하라·주목하라·조사하라" 동사만 —
+    투자 테마에서 "사라·팔라"는 구조적으로 생성 불가).</li>
+    <li><b>공백 고지 + 다음 탐사</b> — 이 판에서 비어 있는 권역·행위자 타입 명시, 조사 제안(갭 루프 입구).</li>
+  </ol>
+  <div class="callout"><b>갭 루프(v1 유지, 관계 관점 추가):</b> 안개 셀만이 아니라 <b>끊긴 사슬</b>도 탐사 대상이다 —
+  "딩가치 와인의 수출 경로 행위자가 비어 있다"처럼 관계 그래프의 공백이 다음 조사 프롬프트 힌트가 된다.
+  조사→원자→추출(증분)→재빌드로 지도에 선이 하나 늘어나는 것을 본다.</div>
+</section>
+
+<!-- ══════════════ 10. 로드맵 ══════════════ -->
+<section class="section" id="roadmap">
+  <div class="eyebrow">로드맵</div>
+  <h2 class="sec">6단계 — 각 단계가 독립 검증 가능</h2>
+  <div class="phase"><div class="pn"><b>1</b>대장</div><div class="pc">
+    <h4>행위자 대장 (패스A → entities.json)</h4>
+    <p>229 엔티티 타입 분류 + 원자 좌표 유도 앵커. 완료 판정: 무작위 20건 수작업 검수에서 타입 오류 0, 앵커 이상 ≤ 2건.</p>
+    <span class="ac">✓ 산출: entities.json · <code>atlas extract --entities</code></span>
+  </div></div>
+  <div class="phase"><div class="pn"><b>2</b>관계</div><div class="pc">
+    <h4>관계 추출 (패스B → relations.json)</h4>
+    <p>엔티티 ≥2 원자 146개 → 유형·방향·시기·테마 붙은 엣지(추정 150~300개). 닫힌 세계 규칙. 완료 판정: 표본 20엣지 원문 대조 정밀도 ≥ 90% · 날조 0.</p>
+    <span class="ac">✓ 산출: relations.json · <code>atlas extract --relations</code></span>
+  </div></div>
+  <div class="phase"><div class="pn"><b>3</b>지도</div><div class="pc">
+    <h4>전략 지도 뷰어 (atlas build + webui + 라우트)</h4>
+    <p>해안선 내장 지도 + 행위자 마커(중심성 크기) + 관계선 + 영향권 + 테마 토글 + 시대 슬라이더. 완료 판정: /atlas에서 테마 전환 시 판이 바뀌고, 아드리아 목업의 관계들이 실데이터로 재현된다.</p>
+    <span class="ac">✓ 산출: GET /atlas · /api/atlas</span>
+  </div></div>
+  <div class="phase"><div class="pn"><b>4</b>상세</div><div class="pc">
+    <h4>도시 화면 · 외교 화면 · 시빌로피디아 연결</h4>
+    <p>거점 클릭 → 로컬 관계도+원자+보고서. 행위자 클릭 → 관계 목록. 엔티티 노트에 관계 섹션 자동 삽입. 완료 판정: 프랑코판 클릭 → 통치·후원·대립 관계와 원자 링크가 열린다.</p>
+    <span class="ac">✓ 산출: /api/atlas/actor/{slug} · 외교 뷰</span>
+  </div></div>
+  <div class="phase"><div class="pn"><b>5</b>보고서</div><div class="pc">
+    <h4>어드바이저 보고서 파일럿 — travel × 크로아티아 (ko)</h4>
+    <p>사람이 이미 종합한 정답이 있는 유일한 범위라 회귀 기준으로 쓴다(V5). heritage × 크바르네르로 관계 역학 서술도 함께 파일럿(V2 관계들이 산문이 되는지).</p>
+    <span class="ac">✓ 산출: docs/report/atlas/*.html · POST /api/jobs/atlas-report</span>
+  </div></div>
+  <div class="phase"><div class="pn"><b>6</b>확장</div><div class="pc">
+    <h4>7테마 전체 + 다국어 + 커버리지 오버레이 + 갭 루프</h4>
+    <p>나머지 테마 프롬프트 튜닝, ko-en-fr 연결, v1의 커버리지 등급을 오버레이 토글로 탑재, 끊긴 사슬 → 조사 제안 버튼.</p>
+    <span class="ac">✓ 산출: 지도에 선이 늘어나는 것을 본다</span>
+  </div></div>
+</section>
+
+<!-- ══════════════ 11. 한계 ══════════════ -->
+<section class="section" id="limits">
+  <div class="eyebrow">숨기지 않는 것</div>
+  <h2 class="sec">이 시스템이 할 수 없는 것</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3><span class="ic">🎭</span>관계 날조 위험 <span class="sev h">최우선 통제</span></h3>
+      <p>관계 추출은 이 설계에서 가장 위험한 LLM 패스다 — 그럴듯한 엣지를 지어낼 수 있다. 통제: 닫힌 세계 규칙(원자에 언급된
+      엔티티 간만) + 근거 구절 동시 출력 + 표본 20엣지 원문 대조(P2 게이트) + 전 엣지 원자 인용으로 독자가 원문 확인 가능.
+      그래도 잔존 위험은 0이 아니다 — 뷰어에 "모든 선은 인용 원자로 검증하라" 고지.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🕳️</span>그래프의 공백 ≠ 관계의 부재 <span class="sev m">고지로 대응</span></h3>
+      <p>선이 없는 것은 "관계가 없다"가 아니라 "그 관계를 담은 원자가 아직 없다"다. 표집 편향(지오게서 라운드 위치)이 그래프
+      밀도에 그대로 실린다 — 아드리아가 조밀한 것은 세계에서 가장 중요해서가 아니라 우리가 많이 갔기 때문이다.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🚫</span>투자 조언 아님 <span class="sev h">고정 한계</span></h3>
+      <p>주식·부동산 테마는 "현장 관찰과 지역 지식의 참고 단서 + 출처"까지. 재무·시세·규제 데이터가 없으므로 종목 추천·매수
+      판단은 불가하고 흉내도 내지 않는다. 해당 테마 보고서 머리에 고정 고지문.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">📚</span>출처 품질 혼재 · 시의성 <span class="sev m">표기로 대응</span></h3>
+      <p>원자 출처엔 위키·브리태니커와 블로그급이 섞여 있고, 경제 관계(공장 가동, 항로 운항)는 낡는다. 행위자 카드에 원자
+      updated 시각과 출처를 그대로 노출한다. 자동 재검증은 범위 밖.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🗺️</span>지도 정밀도 <span class="sev l">의도된 단순화</span></h3>
+      <p>110m 해안선 + 좌표 앵커는 전략도용이다. 정밀 위치·경계는 도시 화면의 구글 지도 4축척 링크로 넘긴다.
+      정치체 영향권 면은 시기별 개략이지 정확한 국경이 아니다 — 지도 구석 상시 고지.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic">🎯</span>추출 재현성 <span class="sev m">측정 후 판단</span></h3>
+      <p>분류·추출은 모델 판단이라 재실행 시 흔들릴 수 있다. 캐시로 1회 고정하고, P1·P2 게이트에서 일치율을 실측해 기록.
+      기준 문구 변경 시에만 <code>--redo</code> 전체 재추출.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 12. 검증 ══════════════ -->
+<section class="section" id="verify">
+  <div class="eyebrow">검증 계획</div>
+  <h2 class="sec">"파악하기 쉬운가"를 판정 가능한 문장으로</h2>
+  <div class="tblwrap"><table>
+    <tr><th>#</th><th>검증 항목</th><th>기준</th></tr>
+    <tr><td>V1</td><td><b>관계 정밀도</b> — 표본 20엣지를 원자 원문과 대조</td><td>정밀도 ≥ 90% · 날조(원문에 없는 관계) 0건. 미달 시 P2 프롬프트 보강 후 재추출</td></tr>
+    <tr><td>V2</td><td><b>아드리아 관계도 대조</b> — 사람이 아는 관계 체크리스트</td><td>프랑코판→크르크 통치 · JANAF→오미샬 운영 · 크르크 대교 연결 · 솔라나 파그 생산 · 우스코크↔오스만 대립 · 라구사→두브로브니크 계승이 전부 그래프에 존재하고 원자 인용을 가진다</td></tr>
+    <tr><td>V3</td><td><b>집계 대사</b> — atlas.json 무결성</td><td>노드 수 = 대장 수(229+α) · 전 엣지의 인용 원자가 index.json에 실존 · 원자 190개 보존</td></tr>
+    <tr><td>V4</td><td><b>인용 무결성</b> — 보고서·뷰어의 관계 서술</td><td>관계 역학 문장 전수에 원자 인용, linkresolver 전수 해석 가능</td></tr>
+    <tr><td>V5</td><td><b>크로아티아 회귀 대조</b> — travel × hr 파일럿</td><td>사람의 기존 종합(그루주 거점 숙박, 믈레트 1순위, 딩가치, 슈티코비차 제외) 재현. 불일치는 원자 부족/추출 누락/종합 오류로 원인 분류</td></tr>
+    <tr><td>V6</td><td><b>가독성 실사용</b> — "시각적으로 파악하기 쉬운가"</td><td>사용자가 /atlas에서 테마 2개(travel·heritage)를 전환해 보고, 30초 안에 "이 지역의 주인공과 관계"를 말할 수 있는가 — 통과/보완점을 사용자가 직접 판정</td></tr>
+  </table></div>
+  <div class="callout ok"><b>V2가 이 재정립의 crux다.</b> 사람이 이미 아는 관계 6개가 기계 추출 그래프에 그대로 나타나면
+  "원자 속 관계를 지도로 꺼낼 수 있다"가 증명된다. V6은 사용자의 원래 요구("시각적으로 파악하기 쉽게")를 그대로 판정 기준으로 만든 것이다.</div>
+</section>
+
+</main>
+
+<footer class="foot"><div class="wrap">
+  GeoGuessHelper · 기획 문서 v2 (재정립: 커버리지 중심 → 행위자·관계 중심) · 2026-08-16 · 대상 버전 v0.6.0<br>
+  관련 문서: <a href="geoguesshelper-split-capture-plan_260708.html">최초 설계 (260708)</a> ·
+  <a href="../error/capture-canvas-crop_260814.html">캡처 정합 개선 (260814)</a> ·
+  <a href="../error/report-missing-korean_260814.html">번역 파이프라인 복원력 (260814)</a><br>
+  데이터 실측: 보고서 40건 · 원자 190개(엔티티 ≥2: 146개) · 엔티티 229개 · 동시출현 쌍 330개 (docs/knowledge/index.json, 2026-08-16 집계)
+</div></footer>
+</body>
+</html>

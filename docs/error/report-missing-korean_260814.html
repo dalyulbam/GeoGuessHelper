@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한국어 탭에 영어가 남았다 — 밤 배치의 번역 실패 (260814)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--warn),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--warn);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero .lede{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+h2{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+p{max-width:80ch}
+p+p{margin-top:10px}
+.mt{margin-top:14px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre b{color:#ffd479;font-weight:700}
+pre .c{color:#7f978f} pre .r{color:#ff9a8f} pre .g{color:#8fe0a8}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+footer{padding:34px 0 60px;color:var(--muted);font-size:13px}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:22px;position:relative;margin:7px 0;font-size:14px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.next li::before{content:"→";color:var(--accent)}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+.steps>div{position:relative;padding:12px 0 12px 26px;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+.steps>div:last-child{border-bottom:none}
+.steps>div::before{content:"▸";position:absolute;left:2px;top:12px;color:var(--accent);font-weight:800}
+.flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--ink-2);margin-top:12px}
+.flow .box{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
+.flow .box b{color:var(--accent-deep)}
+.flow .box.bad{border-color:#f3c6c1;background:#fffaf9;color:var(--danger)}
+.flow .box.ok{border-color:#bfe6d1;background:#f8fffb;color:var(--ok)}
+.flow .arr{color:var(--accent);font-weight:800}
+.verdict{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-left:5px solid var(--warn);
+  border-radius:12px;padding:16px 18px;margin-top:14px;box-shadow:var(--shadow)}
+.verdict .vt{flex:0 0 auto;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+.verdict .vb{font-size:14.5px;color:var(--ink)}
+.hash{font-family:var(--mono);font-size:12px}
+.dim{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>GeoGuessHelper · 오류 기록</div>
+  <nav class="topnav">
+    <a href="#s1">한 줄 요약</a><a href="#s2">증거</a><a href="#s3">원인</a>
+    <a href="#s4">왜 또 나갔나</a><a href="#s5">고친 방식</a><a href="#s6">검증</a><a href="#s7">남은 것</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">260814 · v0.5.0 작업 트리</div>
+  <h1>한국어 탭에 영어가 남았다 — 밤 배치의 번역 실패</h1>
+  <p class="lede">사용자 신고: &ldquo;<code>report_hr_dubrovnik_42.661&hellip;_ko-en-fr.html</code> 에 한국어가 없다.&rdquo;
+  파일을 열면 <b>한국어 탭은 있다</b> &mdash; 라벨도, UI 도 전부 한국어다. 그런데 정작 본문 서술
+  약 9천 자가 영어였다: <span class="hash">&ldquo;This is Gruž, the working port and&hellip;&rdquo;</span>
+  260813 밤 두 시간 동안 연달아 뽑은 <b>보고서 9건 전부</b>가 같은 증상이었고,
+  1건은 프랑스어 탭까지 영어였다. 조사해 보니 <b>이미 한 번 고쳤다고 기록한 병의 재발</b>이었다
+  &mdash; 정확히는, 그때 고친 것은 병이 아니라 <b>병상일지</b>였다.</p>
+  <div class="meta">
+    <span class="chip dn">증상: ko 탭 영어 산문 · 9건</span>
+    <span class="chip wn">일시 오류에 재시도 없음</span>
+    <span class="chip ac">translate.py · cli.py · retranslate.py</span>
+    <span class="chip ok">14건 전수 수리 · $1.17</span>
+  </div>
+</header>
+
+<!-- ═══════════ 1 ═══════════ -->
+<section id="s1"><h2>1. 한 줄 요약</h2>
+<div class="callout"><b>다국어 보고서는 영어로 한 번 만들고 나머지 언어는 문자열만 번역하는데,
+번역 청크가 일시 오류로 죽으면 설계상 원문(영어)이 그대로 남는다.</b>
+v0.3.3 이 고친 것은 &ldquo;실패를 <b>조용히</b> 넘기던 것&rdquo;이다 &mdash; 작업 로그에는 경고가 찍히게 됐지만,
+<b>보고서 파일은 여전히 영어를 실은 채 저장됐다</b>. 실패한 청크를 다시 시도하는 코드는 없었고,
+밤에 9건을 연달아 돌리는 부하에서 그 구멍이 아홉 번 반복됐다.</div>
+
+<div class="flow">
+  <span class="box">분석·서술 <b>영어(기준)</b></span><span class="arr">→</span>
+  <span class="box">청크 분할 → 동시 번역</span><span class="arr">→</span>
+  <span class="box bad">일부 청크 실패 (재시도 없음)</span><span class="arr">→</span>
+  <span class="box">경고는 로그로</span><span class="arr">→</span>
+  <span class="box bad">보고서엔 영어 그대로</span>
+</div>
+</section>
+
+<!-- ═══════════ 2 ═══════════ -->
+<section id="s2"><h2>2. 증거 &mdash; 크로아티아 폴더 전수 스캔</h2>
+<p class="sec-desc">두 가지 독립 계측: <code>retranslate.collect()</code> 의 미번역 노드 수(한글 문자 부재 판정)와,
+언어 문서 안의 영어 표지어 &ldquo;<code>&nbsp;the&nbsp;</code>&rdquo; 출현 횟수(산문 잔존 판정).</p>
+
+<table>
+<thead><tr><th>보고서 (생성 시각)</th><th>ko 미번역 노드/문자</th><th>ko 산문 잔존(&nbsp;the&nbsp;)</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>dingac-peljesac (13일 21:22)</td><td>129개 / 3,111자</td><td>6</td><td></td></tr>
+<tr><td>mljet-island (21:27)</td><td>123개 / 3,034자</td><td>2</td><td></td></tr>
+<tr><td>orasac-dubrovnik (21:31)</td><td>121개 / 2,999자</td><td>0</td><td></td></tr>
+<tr><td>zaton-veliki (22:24)</td><td>124개 / 3,100자</td><td>3</td><td></td></tr>
+<tr><td>stikovica (23:04)</td><td>153개 / 4,658자</td><td>1</td><td><b>fr 문서도 영어(the&times;43)</b></td></tr>
+<tr><td>mokosica-dubrovnik (23:08)</td><td>142개 / 4,943자</td><td>5</td><td></td></tr>
+<tr><td>komolac-dubrovnik (23:13)</td><td>114개 / 2,528자</td><td>3</td><td></td></tr>
+<tr><td>dubrovnik 42.6608 (23:18)</td><td>118개 / 3,546자</td><td>1</td><td></td></tr>
+<tr><td><b>dubrovnik 42.661 (23:22) — 신고 파일</b></td><td><b>130개 / 9,180자</b></td><td><b>65</b></td><td>서술 산문 통째로 영어</td></tr>
+<tr><td class="dim">senj · stinica · gospic · krk · pag (10~12일)</td><td class="dim">0~25개</td><td class="dim">0~1</td><td class="dim">기존 수리분(.bak 보유) — 정상 기준선</td></tr>
+</tbody></table>
+
+<div class="callout danger"><b>260813 밤 배치 9건 전부가 이환됐다.</b> 사용자는 그중 가장 심한 1건
+(서술 9,180자 전부 영어)을 발견해 신고했다 &mdash; 다른 8건은 판별 사슬 라벨·후보 칩 수준의
+영어 잔존이라 훑어봐서는 티가 나지 않는다. <b>신고된 것보다 병소가 넓다는 것</b>이
+전수 스캔의 값어치다. 프랑스어는 라틴 문자라 자동 판정이 안 되므로(뒤의 &sect;7)
+표지어 밀도로 별도 확인했고, stikovica 1건이 걸렸다.</div>
+
+<h3 class="sub">신고 파일의 실제 모습</h3>
+<pre><span class="c">&lt;div class="wrap doc" id="doc-ko" lang="ko"&gt; 의 본문 (수리 전)</span>
+한국어 GeoGuessHelper 리포트 · 2026-08-13 23:22 크로아티아 (HR) … 여기가 어디인가 …
+<span class="r">This is Gruž, the working port and transport-hub district of Dubrovnik on the
+Croatian Adriatic coast, located at the mouth of the Rijeka Dubrovačka inlet…</span>
+<span class="c">← UI 크롬은 한국어(서버 i18n 라벨), 산문은 영어(번역 실패분). "한국어가 없다"의 실체.</span></pre>
+</section>
+
+<!-- ═══════════ 3 ═══════════ -->
+<section id="s3"><h2>3. 원인 &mdash; 설계는 옳았고, 복구가 없었다</h2>
+<p class="sec-desc">언어마다 전부 재분석하던 시절의 비용·정합 문제를 해결한 것이 지금의
+&ldquo;영어 한 벌 + 문자열 번역&rdquo; 구조다(<code>translate.py</code> 머리 주석). 이 구조 자체는 유지할 가치가 있다.</p>
+
+<div class="steps">
+  <div><b>기준 언어 원칙</b> — 분석(비전)·리서치(웹 검색)·서술(스크립트)은 영어로 한 번만.
+    <code>ko/fr</code> 는 harvest → 평평한 {id:text} → 번역 → splice 로 문자열만 바꾼다.
+    로직 값(좌표·신뢰도·enum)은 애초에 전송이 안 돼 번역이 망가뜨릴 수 없다.</div>
+  <div><b>실패 시 원문 유지</b> — <code>translate_texts()</code> 는 실패해도 원문을 돌려준다.
+    &ldquo;보고서는 반드시 만든다&rdquo;는 예산 철학의 일부로, <b>의도된 동작</b>이다.
+    문제는 그 앞 단계 &mdash; 실패한 호출을 <b>다시 시도하지 않는다</b>.</div>
+  <div><b>부하 정황</b> — 21:22~23:22 두 시간에 9건. 각 건이 분석+리서치+다국어 번역+서술 검증을
+    동시에(<code>llm.gather</code>) 돌린다. SDK 자체 재시도(max_retries=2)를 뚫고 실패가 표면화될
+    조건이다. 신고 파일(23:22, 배치 마지막)이 가장 심하게 이환된 것도 정황과 맞는다.</div>
+</div>
+
+<p class="mt small">그 밤의 작업 로그는 서버 재시작으로 남아 있지 않아, 실패가 429(레이트리밋)였는지
+스트림 마감(<code>LLMTimeout</code>)이었는지는 단정하지 않는다. 어느 쪽이든 <b>일시 오류</b>이고,
+아래 수리에서 같은 텍스트가 전부 정상 번역된 것이 그 방증이다.</p>
+</section>
+
+<!-- ═══════════ 4 ═══════════ -->
+<section id="s4"><h2>4. 왜 또 나갔나 &mdash; 병상일지만 고친 수리</h2>
+<p class="sec-desc"><code>retranslate.py</code> 머리 주석: &ldquo;번역이 통째로 실패해도 조용히 원문이 남는 버그가 있었다
+(v0.3.3 에서 수정)&rdquo;. 이 문장이 이번 재발의 지도다.</p>
+
+<table>
+<thead><tr><th>시점</th><th>무엇을 했나</th><th>무엇을 안 했나</th></tr></thead>
+<tbody>
+<tr><td>v0.3.3</td><td>실패를 stats 로 밖으로 — 작업 로그에 &ldquo;⚠ 한국어 번역 일부 실패&rdquo;가 찍히게 됨</td>
+  <td><b>실패한 청크의 재시도</b>. 경고 후 영어를 실은 채 저장하는 것은 그대로.</td></tr>
+<tr><td>260812</td><td>그 시기에 이환된 보고서 5건을 <code>retranslate.repair_file()</code> 로 사후 수리(.bak 5개가 그 흔적)</td>
+  <td>수리 도구의 <b>CLI 연결</b>. 모듈로만 존재해 다음 사람이 손으로 불러야 했다.</td></tr>
+<tr><td>260813 밤</td><td>보고서 9건 생산</td><td>로그의 경고를 <b>본 사람이 없었다</b> — 새벽 배치였고, 산출물은 멀쩡해 보였다.</td></tr>
+</tbody></table>
+
+<div class="verdict">
+  <span class="vt">패턴</span>
+  <span class="vb">&ldquo;실패를 알린다&rdquo;는 복구가 아니다. 알림의 수신자가 없는 시간대(밤 배치)에는
+  알림 채널(작업 로그)이 곧 침묵이다. 일시 오류는 <b>그 자리에서 다시 시도</b>하는 것만이
+  산출물을 지킨다 &mdash; 사람이 아니라 코드가 수신자여야 한다.</span>
+</div>
+</section>
+
+<!-- ═══════════ 5 ═══════════ -->
+<section id="s5"><h2>5. 고친 방식</h2>
+<p class="sec-desc">재발 방지(재시도) · 복구 수단(CLI) · 현재 병소의 수리(전수 실행), 세 겹.</p>
+
+<div class="grid g3">
+  <div class="card"><h3><span class="ic">①</span>실패 청크만 1회 재시도</h3>
+    <p><code>translate_texts()</code> 가 1차 결과에서 실패한 청크만 모아 <b>3초 뒤 순차로</b>(동시성 1)
+    다시 보낸다. 동시성을 줄여야 같은 제한에 재차 걸리지 않는다.
+    재시도 횟수는 <code>stats["retried"]</code> 로 남긴다.</p></div>
+
+  <div class="card"><h3><span class="ic">②</span>수리 도구를 CLI 로</h3>
+    <p><code>uv run geoguesshelper retranslate &lt;파일|폴더&gt; -l ko [--dry-run]</code>.
+    <code>--dry-run</code> 은 API 호출 없이 미번역 노드 수만 센다.
+    원본은 <code>.bak</code> 으로 보존. README 에 문서화.</p></div>
+
+  <div class="card"><h3><span class="ic">③</span>이환분 전수 수리</h3>
+    <p>9건에 ko(stikovica 는 ko+fr) 수리 실행. 치환 1,225곳, 비용 <b>$1.168</b>.
+    치환은 텍스트 노드만 — base64 이미지·속성·구조는 손대지 않는다.</p></div>
+</div>
+
+<pre><span class="c">수리 실행 결과 (260814)</span>
+dingac-peljesac      ko: 129건 → 106건 번역 · $0.0749
+dubrovnik 42.6608    ko: 118건 →  95건 번역 · $0.0717
+<b>dubrovnik 42.661     ko: 130건 →  98건 번역 (실패 1덩이) · $0.1448</b>   <span class="c">← 신고 파일</span>
+komolac-dubrovnik    ko: 114건 → 112건 번역 · $0.0629
+mljet-island         ko: 123건 → 119건 번역 · $0.0723
+mokosica-dubrovnik   ko: 142건 → 138건 번역 · $0.0955
+orasac-dubrovnik     ko: 121건 → 119건 번역 · $0.0719
+zaton-veliki         ko: 124건 → 123건 번역 · $0.0730
+stikovica            ko: 153건 → 151건 · <b>fr: 362건 → 164건</b> · $0.5009
+<span class="c">"번역 N건"과 "발견 M건"의 차이는 모델이 원문 유지를 택한 고유명사들이다
+(시스템 프롬프트: 정착된 대응어가 없으면 원문 유지 — Konzum · Jadranska cesta 류).</span></pre>
+</section>
+
+<!-- ═══════════ 6 ═══════════ -->
+<section id="s6"><h2>6. 검증 &mdash; 수리 후 같은 계측을 다시</h2>
+
+<table>
+<thead><tr><th>계측</th><th>수리 전</th><th>수리 후</th></tr></thead>
+<tbody>
+<tr><td>신고 파일 ko 산문 잔존(&nbsp;the&nbsp;)</td><td><b>65</b></td><td><b>0</b></td></tr>
+<tr><td>14개 파일 ko 산문 잔존 합계</td><td>90</td><td><b>2</b> <span class="small">(stinica·stikovica 각 1 — 고유명사 문맥)</span></td></tr>
+<tr><td>stikovica fr 산문 잔존</td><td>43</td><td><b>0</b></td></tr>
+<tr><td>ko 미번역 노드 (collect 재스캔)</td><td>114~153개/건</td><td>0~33개/건 <span class="small">— 기존 수리분(0~25개)과 같은 분포, 원문 유지 고유명사</span></td></tr>
+</tbody></table>
+
+<h3 class="sub">신고 파일의 지금 모습</h3>
+<pre><span class="c">같은 doc-ko 본문 (수리 후)</span>
+<span class="g">이곳은 크로아티아 아드리아해 연안 두브로브니크의 항구이자 교통 요지 구역인 그루주(Gruž)로,
+리예카 두브로바치카(Rijeka Dubrovačka) 만 입구, 구시가지에서 북서쪽으로 약 2km 떨어진 곳에
+위치한다. 좁은 협만을 가로지르는 단일 주탑 사장교인 프란요 투지만 다리(Franjo Tuđman Bridge)로…</span></pre>
+
+<p class="mt small">수리 중에도 신고 파일에서 1덩이가 실패했다(위 &sect;5 표) &mdash; 새 재시도 코드가 이미 켜진
+상태에서의 실패이므로, 재시도 1회가 만능이 아니라는 실측이기도 하다. 다만 그 덩이의 항목들은
+최종 스캔에서 영어 산문으로 남지 않았다(짧은 라벨·고유명사 범주). 항목 단위 대조까지는 하지 않았다.</p>
+</section>
+
+<!-- ═══════════ 7 ═══════════ -->
+<section id="s7"><h2>7. 남은 것 — 숨기지 않는다</h2>
+<ul class="clean warn-li">
+  <li><b>라틴 문자 언어의 이환은 자동으로 못 잡는다.</b> <code>retranslate._HAS</code> 는 ko/ja/zh 만
+      문자 클래스로 판정한다. fr/de/es 문서에 영어가 남아도 collect 는 전부를 &ldquo;미번역 후보&rdquo;로
+      세므로 신호가 없다 &mdash; stikovica 의 fr 이환은 표지어(&nbsp;the&nbsp;) 밀도라는 임시 계측으로 찾았다.
+      언어 판별 휴리스틱(불용어 프로필)이 다음 후보다.</li>
+  <li><b>재시도는 1회, 백오프는 3초 고정이다.</b> 지속적 제한(수 분 단위 429)은 못 넘는다.
+      큐 수준의 배치 간 간격 조절은 없다.</li>
+  <li><b>번역이 끝내 실패한 채 저장되는 보고서는 지금도 겉으로 표가 안 난다.</b>
+      langbar 나 해당 탭에 &ldquo;이 언어는 일부 원문(영어)입니다&rdquo; 배지를 다는 것이 정직하다 — 미구현.</li>
+  <li>보고서 생성 직후 산출물 자체를 스캔(한글 부재 검사)해서 즉시 <code>retranslate</code> 를 물리는
+      자동 복구 고리도 가능하다 — 이번에는 도구와 수순만 만들었고 자동화하지 않았다.</li>
+  <li>수리 비용 $1.168 은 번역 모델(<code>model_fact</code> = Sonnet) 기준. 원 생성 시 정상 번역됐다면
+      들지 않았을 돈이다 — 재시도 1회의 값이 이보다 싸다.</li>
+</ul>
+
+<div class="callout ok"><b>이번에 코드로 굳힌 규칙.</b>
+<b>일시 오류의 1차 수신자는 사람이 아니라 코드다.</b> 실패를 로그로 알리는 것은 진단이지 치료가 아니다 —
+산출물에 실리는 값은 실패 지점에서 즉시, 조건을 바꿔(순차·지연) 한 번 더 시도한 뒤의 값이어야 한다.
+그리고 사후 수리 도구는 <b>CLI 가 있어야 도구다</b> — 모듈로만 있는 수리는 다음 사람에게 없는 것과 같다.</div>
+</section>
+
+<footer><p>GeoGuessHelper · 260814 ·
+관련: <a href="./capture-canvas-crop_260814.html">capture-canvas-crop_260814</a> ·
+<a href="./six-times-wrong-diagnosis_260812.html">six-times-wrong-diagnosis_260812</a> ·
+대상: <code>docs/report/크로아시아/*_ko-en-fr.html</code> 14건</p></footer>
+</div>
+
+</body>
+</html>

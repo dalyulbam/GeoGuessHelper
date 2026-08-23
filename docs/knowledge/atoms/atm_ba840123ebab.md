@@ -1,0 +1,59 @@
+---
+{
+  "body": "Along the boundary between the Ilocos lowlands and the Cordillera, two distinct cultural spheres coexist: the Ilocano-speaking lowland/foothill sphere (irrigated paddy, hollow-block housing, Catholic town centers) and indigenous highland groups (e.g. the Bago/Bagbag-o people in southern Ilocos Sur, or Bontoc/Ifugao/Kalinga further north) who maintain distinct customary practices, upland settlement patterns, and are increasingly incorporated into ecotourism (e.g. 'tribe houses' at heritage parks) as a cultural draw distinct from Spanish colonial heritage tourism.",
+  "cell": "wej9x8g",
+  "created": 1786494761.635634,
+  "entities": [
+    "bago-people",
+    "cordillera-mountains",
+    "ilocos-sur"
+  ],
+  "id": "atm_ba840123ebab",
+  "lang": "en",
+  "lat": 17.1430598,
+  "layer": "culture",
+  "lng": 120.5682363,
+  "period_end": null,
+  "period_start": null,
+  "radius_km": 200,
+  "refs": [],
+  "reports": [
+    "report_ph_salcedo-ilocos-sur_17.1431_120.5682_260812_093215_ko-en-fr.html"
+  ],
+  "scope": "region",
+  "sources": [
+    "https://arvincaparros04.wordpress.com/",
+    "https://pia.gov.ph/news/2021/07/17/bdp-projects-to-boost-tourism-give-livelihood-in-ilocos-sur",
+    "https://rsisinternational.org/journals/ijriss/articles/cultural-significance-of-the-one-town-one-product-otop-in-the-province-of-ilocos-sur/",
+    "https://www.region1.dilg.gov.ph/index.php/11-ilocos-sur/214-ilocos-sur-held-sbdp-projects-groundbreaking-ceremonies-the-first-in-region-1",
+    "https://www.detailedpedia.com/wiki-Salcedo,_Ilocos_Sur",
+    "https://en.wikipedia.org/wiki/Salcedo,_Ilocos_Sur",
+    "https://pia.gov.ph/news/luzon/ir/discovering-southern-ilocos-surs-nature-history-culture/",
+    "https://newsinfo.inquirer.net/1763306/ilocos-region-economy-grows-by-7-6-in-2022/amp",
+    "https://www.scribd.com/document/400352734/1-LOGO",
+    "https://www.wisdomlib.org/cities/salcedo-37601"
+  ],
+  "tags": [
+    "bago-people",
+    "cordillera",
+    "ecotourism",
+    "ethnography",
+    "ilocos",
+    "indigenous-culture"
+  ],
+  "title": "Ilocano lowland vs. indigenous highland cultural spheres in the Ilocos-Cordillera borderland",
+  "updated": 1786494761.6358707,
+  "uses": 1
+}
+---
+
+# Ilocano lowland vs. indigenous highland cultural spheres in the Ilocos-Cordillera borderland
+
+`atm_ba840123ebab` · **culture** / region · cell `wej9x8g`
+
+Along the boundary between the Ilocos lowlands and the Cordillera, two distinct cultural spheres coexist: the Ilocano-speaking lowland/foothill sphere (irrigated paddy, hollow-block housing, Catholic town centers) and indigenous highland groups (e.g. the Bago/Bagbag-o people in southern Ilocos Sur, or Bontoc/Ifugao/Kalinga further north) who maintain distinct customary practices, upland settlement patterns, and are increasingly incorporated into ecotourism (e.g. 'tribe houses' at heritage parks) as a cultural draw distinct from Spanish colonial heritage tourism.
+
+**태그**: #bago-people #cordillera #ecotourism #ethnography #ilocos #indigenous-culture
+
+## 이 원자를 쓴 보고서
+- `report_ph_salcedo-ilocos-sur_17.1431_120.5682_260812_093215_ko-en-fr.html`

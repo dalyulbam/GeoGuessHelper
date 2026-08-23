@@ -17,7 +17,8 @@
   "radius_km": 1200,
   "refs": [],
   "reports": [
-    "report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html"
+    "report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html",
+    "report_is_berserkjahraun_64.966_-22.883_260814_111430_ko.html"
   ],
   "scope": "country",
   "sources": [
@@ -42,8 +43,8 @@
     "volcanic"
   ],
   "title": "Icelandic subarctic treeless landscape and lava fields",
-  "updated": 1786294863.1925905,
-  "uses": 1
+  "updated": 1786673692.8065841,
+  "uses": 2
 }
 ---
 
@@ -57,3 +58,4 @@ Iceland has a subarctic oceanic climate producing cool summers, mild wet winters
 
 ## 이 원자를 쓴 보고서
 - `report_isl_gardabaer_64.0945_-21.904_260810_020042_ko-en-fr.html`
+- `report_is_berserkjahraun_64.966_-22.883_260814_111430_ko.html`
