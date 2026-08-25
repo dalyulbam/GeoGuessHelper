@@ -187,8 +187,12 @@ class Atom:
         if not text.startswith("---"):
             return None
         try:
-            _, fm, _ = text.split("---", 2)
-            data = json.loads(fm)
+            # 구분자는 줄 단위로 찾는다 — 본문/URL 속의 "---"(예: bgp-5---employment)에
+            # 걸려 프론트매터가 중간에서 잘리면 안 된다.
+            m = re.match(r"^---\r?\n(.*?)\r?\n---(?:\r?\n|$)", text, re.S)
+            if not m:
+                return None
+            data = json.loads(m.group(1))
         except Exception:  # noqa: BLE001
             return None
         allowed = {f for f in Atom.__dataclass_fields__}  # type: ignore[attr-defined]

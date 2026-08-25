@@ -54,6 +54,19 @@ def main() -> None:
     p_rt.add_argument("--dry-run", action="store_true",
                       help="번역하지 않고 대상 개수만 보여준다")
 
+    p_ex = sub.add_parser(
+        "expand",
+        help="지식 원자 전방위 확장 (worldwide/people/counterpart)",
+        description=(
+            "저장된 원자를 씨앗으로, 전세계 병렬 사례·같은 업의 인물·반대급부 축으로 "
+            "새 원자를 만든다. 웹 검색 없이 모델 지식만 쓰고, 체크포인트로 이어서 돈다."
+        ),
+    )
+    p_ex.add_argument("--limit", type=int, default=0, help="처리할 씨앗 수 (0=남은 전부)")
+    p_ex.add_argument("--batch", type=int, default=6, help="호출당 씨앗 수")
+    p_ex.add_argument("--parallel", type=int, default=3, help="동시 호출 수")
+    p_ex.add_argument("--dry-run", action="store_true", help="호출 없이 남은 씨앗 수만 보여준다")
+
     args = ap.parse_args()
 
     if args.cmd == "extract":
@@ -69,6 +82,20 @@ def main() -> None:
 
     if args.cmd == "retranslate":
         _retranslate(args)
+        return
+
+    if args.cmd == "expand":
+        from . import expand
+        from .config import load_settings
+
+        state = expand.run(
+            load_settings(),
+            limit=args.limit, batch=args.batch, parallel=args.parallel, dry_run=args.dry_run,
+        )
+        print(json.dumps(
+            {k: state[k] for k in ("created", "merged", "skipped", "cost_usd")}
+            | {"seeds_done": len(state["seeds_done"])},
+            ensure_ascii=False, indent=2))
         return
 
     # 기본: 서버 실행
