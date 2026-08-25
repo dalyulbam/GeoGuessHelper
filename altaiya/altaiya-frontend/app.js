@@ -50,6 +50,7 @@ const state = {
   era: null,                    // 고른 시대 층 key (없으면 전 시대)
   panelTab: "city",             // 도시 · 외교 · 연표
   panelData: null,
+  placelessAxis: null,          // slug → 축(worldwide/people/counterpart/other) — 백과가 지연 로드
 };
 
 /* ── 데이터 로드 ─────────────────────────────────────────────── */
@@ -125,6 +126,15 @@ function drawGraph(data) {
   for (const e of data.edges) {
     const a = state.actors.get(e.src), b = state.actors.get(e.dst);
     if (!a || !b) continue;
+    // 무장소 행위자가 낀 관계는 좌표가 없어 선을 그을 수 없다. 그래프(adj)에는 넣어
+    // 외교 화면·백과에서 쓰되, 지도에는 경로를 만들지 않는다.
+    if (e.mappable === false) {
+      if (!state.adj.has(e.src)) state.adj.set(e.src, new Set());
+      if (!state.adj.has(e.dst)) state.adj.set(e.dst, new Set());
+      state.adj.get(e.src).add(e.dst);
+      state.adj.get(e.dst).add(e.src);
+      continue;
+    }
     const x1 = px(a.lng), y1 = py(a.lat), x2 = px(b.lng), y2 = py(b.lat);
     const dx = x2 - x1, dy = y2 - y1, dist = Math.hypot(dx, dy) || 1;
     const off = Math.min(dist * 0.16, 26);          // 항로 느낌의 곡률
@@ -150,6 +160,11 @@ function drawGraph(data) {
   }
 
   for (const a of data.actors) {
+    // 무장소 행위자(세계 패턴·인물·반대급부)는 앵커가 없어 지도에 마커를 못 놓는다.
+    // 백과·검색·관계 목록에서는 그대로 살아 있다 — 문명5 시빌로피디아가 지도에 없는
+    // 개념까지 전부 싣는 것과 같은 분업이다.
+    if (a.placeless) continue;
+
     // 영향권 — 국가·광역 행위자만 (지역 이하는 마커로 충분)
     if ((a.scope === "country" || a.scope === "polity") && a.influence_km > 0) {
       const c = document.createElementNS(NS, "circle");
@@ -262,7 +277,10 @@ let flyReq = 0;
 function flyTo(a, targetK) {
   const { w, h } = viewSize();
   const v0 = { ...state.view };
-  const k1 = targetK ?? Math.max(v0.k, state.fitK * 9);
+  // 텔레포트 금지 원칙 — 이동은 항상 애니메이션 팬이고, 줌은 지금 줌을 존중한다:
+  // 원경(fit×5 미만)에서만 ×5 로 다가가고, 이미 그보다 가까우면 줌을 바꾸지 않는다.
+  // (예전 fit×9 강제 점프는 화면이 "도망가는" 느낌을 만들었다)
+  const k1 = targetK ?? (v0.k < state.fitK * 5 ? state.fitK * 5 : v0.k);
   const pw = Math.min(400, w * 0.92);         // 상세 패널이 가리는 폭 — 남는 영역 중앙에 놓는다
   const x1 = (w - pw) / 2 - px(a.lng) * k1;
   const y1 = h / 2 - py(a.lat) * k1;
@@ -407,6 +425,35 @@ function moveTooltip(ev) {
   tooltip.style.top = `${Math.max(6, y)}px`;
 }
 
+/* ── 상태 리본 — 문명5 ActionInfoPanel 문법 ─────────────────────
+   "지금 무엇을 보고 있고, 다음 행동이 무엇인가"를 항상 우하단 한 자리에 쓴다.
+   우선순위: 선택된 행위자 > 시대 렌즈 > 기본 안내. 클릭은 그 상태에 맞는 행동. */
+function setRibbon() {
+  const rb = $("#ribbon");
+  if (!rb) return;
+  rb.classList.remove("selected");
+  if (state.selected) {
+    const a = state.actors.get(state.selected);
+    rb.classList.add("selected");
+    rb.innerHTML = `${TYPE_ICON[a.type] || ""} ${esc(a.label)}
+      <span class="rb-sub">${a.placeless ? "무장소 — 지도에 없는 개념 · Esc: 선택 해제"
+                                          : "클릭: 위치로 이동 · Esc: 선택 해제"}</span>`;
+    rb.onclick = a.placeless ? (() => {}) : (() => flyTo(a));
+    return;
+  }
+  if (state.era && state.sphere) {
+    const sp = state.spheres.get(state.sphere);
+    const st = sp?.strata.find(s => s.key === state.era);
+    rb.innerHTML = `시대 렌즈: ${esc(st?.label_ko || state.era)}
+      <span class="rb-sub">${esc(sp?.label_ko || "")} · 클릭: 전 시대로</span>`;
+    rb.onclick = () => setEra(null);
+    return;
+  }
+  rb.innerHTML = `행위자를 선택하라
+    <span class="rb-sub">지도 클릭 · 검색 · 클릭: 백과 열기</span>`;
+  rb.onclick = () => { $("#codex").hidden = false; renderCodex(""); $("#cx-q").focus(); };
+}
+
 /* ── 선택 + 상세 패널 ────────────────────────────────────────── */
 async function select(slug, { fly = true } = {}) {
   const a = state.actors.get(slug);
@@ -414,10 +461,14 @@ async function select(slug, { fly = true } = {}) {
   if (state.selected) state.nodeEl.get(state.selected)?.g.classList.remove("selected");
   state.selected = slug;
   state.nodeEl.get(slug)?.g.classList.add("selected");
-  if (fly) flyTo(a);
-  else ensureVisible(a);
+  // 무장소 행위자는 갈 곳이 없다 — 지도를 움직이지 않는다(빈 좌표로 날아가면 화면이 튄다).
+  if (!a.placeless) {
+    if (fly) flyTo(a);
+    else ensureVisible(a);
+  }
   applyView();
   applyLod();                    // 선택된 행위자는 밀도 컷에서 제외
+  setRibbon();
 
   if (a.sphere && a.sphere !== state.sphere) setSphere(a.sphere, { keepEra: false });
 
@@ -448,6 +499,7 @@ function deselect() {
   $("#panel").classList.remove("open");
   applyView();
   applyLod();
+  setRibbon();
 }
 
 function ensureVisible(a) {
@@ -637,6 +689,7 @@ function setSphere(key, { keepEra = false } = {}) {
      같은 시대를 뜻하지 않는다.`;
   renderEraStrip();
   applyTheme(state.theme);
+  setRibbon();
 }
 
 function renderEraStrip() {
@@ -666,7 +719,8 @@ function renderEraStrip() {
 function setEra(era) {
   state.era = era;
   renderEraStrip();
-  applyTheme(state.theme);
+  applyTheme(state.theme);    // 필터만 바꾼다 — 뷰포트는 건드리지 않는다(텔레포트 금지)
+  setRibbon();
 }
 
 /* ── 시빌로피디아 — 사료권 → 행위자 색인 ─────────────────────
@@ -681,12 +735,32 @@ function buildCodex() {
   q.addEventListener("input", () => renderCodex(q.value.trim().toLowerCase()));
 }
 
+/* 무장소의 축(세계 패턴/인물/반대급부)은 원자 태그에서 나온다 — 프론트에 태그가 없으므로
+   백엔드 /api/placeless 가 한 번 갈라 준다. 실패해도 백과는 축 없이 한 덩어리로 선다. */
+function loadPlacelessAxes() {
+  if (state.placelessAxis !== null) return;       // 이미 로드됐거나 진행 중
+  state.placelessAxis = new Map();                // pending 표시를 겸한다 — 빈 맵이면 축 없이 그린다
+  fetch(`${API}/api/placeless`)
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => {
+      if (!d) return;
+      for (const [axis, list] of Object.entries(d.axes || {}))
+        for (const a of list) state.placelessAxis.set(a.slug, axis);
+      const box = $("#codex");
+      if (!box.hidden) renderCodex($("#cx-q").value.trim().toLowerCase());
+    })
+    .catch(() => {});
+}
+
 function renderCodex(query) {
   const bySphere = new Map();
   const loose = [];
+  const placeless = [];
   for (const a of state.actors.values()) {
     if (query && !(a.slug.includes(query) || a.label.toLowerCase().includes(query)
       || (a.label_en || "").toLowerCase().includes(query))) continue;
+    // 무장소는 사료권 밑에 섞지 않고 따로 세운다 — 지도에 없는 것을 백과가 떠맡는다
+    if (a.placeless) { placeless.push(a); continue; }
     if (a.sphere && state.spheres.has(a.sphere)) {
       if (!bySphere.has(a.sphere)) bySphere.set(a.sphere, []);
       bySphere.get(a.sphere).push(a);
@@ -708,7 +782,36 @@ function renderCodex(query) {
   const rest = loose.length ? `<div class="cx-sph">
       <div class="cx-sh"><b>사료권 미배정</b><span>행위자 ${loose.length}</span></div>
       <div class="cx-grid">${loose.sort((a, b) => b.degree - a.degree).map(card).join("")}</div></div>` : "";
-  $("#cx-body").innerHTML = (blocks + rest) || `<div class="p-empty">일치하는 행위자가 없다.</div>`;
+  // 무장소 — 원자 확장이 만든 세계 패턴·인물·반대급부. 지도에 좌표가 없을 뿐 관계는 있다.
+  // 축 매핑(/api/placeless)이 오기 전에는 한 덩어리로, 온 뒤에는 축별로 갈라 세운다.
+  if (placeless.length) loadPlacelessAxes();
+  const AXIS_KO = {
+    worldwide:   ["세계 패턴", "같은 패턴의 전세계 병렬 사례 — 씨앗 원자를 일반화한 세계 원자다."],
+    people:      ["인물", "같은 업·분야의 실존 인물들 — 그 판을 만든 사람이다."],
+    counterpart: ["반대급부", "반작용·대항 사례·그 패턴이 치른 대가다."],
+    other:       ["기타 무장소", "축이 붙지 않은, 좌표 없는 행위자다."],
+  };
+  const byAxis = new Map();
+  for (const a of placeless) {
+    const axis = (state.placelessAxis && state.placelessAxis.get(a.slug)) || "other";
+    if (!byAxis.has(axis)) byAxis.set(axis, []);
+    byAxis.get(axis).push(a);
+  }
+  const plessSort = list => list.sort((a, b) => b.degree - a.degree || b.atom_count - a.atom_count);
+  const axed = state.placelessAxis && state.placelessAxis.size > 0;
+  const pless = !placeless.length ? "" : axed
+    ? Object.keys(AXIS_KO).filter(k => byAxis.has(k)).map(k => `<div class="cx-sph">
+        <div class="cx-sh"><b>무장소 — ${AXIS_KO[k][0]}</b>
+          <span>행위자 ${byAxis.get(k).length} · 지도에 없음</span></div>
+        <div class="cx-strata">${AXIS_KO[k][1]} 선택하면 관계와 원자 원문을 볼 수 있다.</div>
+        <div class="cx-grid">${plessSort(byAxis.get(k)).map(card).join("")}</div></div>`).join("")
+    : `<div class="cx-sph">
+      <div class="cx-sh"><b>무장소 — 세계 패턴 · 인물 · 반대급부</b>
+        <span>행위자 ${placeless.length} · 지도에 없음</span></div>
+      <div class="cx-strata">한 좌표에 속하지 않는 개념들이다 — 조립식 주거 가족, 포드주의,
+        어느 도시에도 앵커되지 않은 인물. 선택하면 관계와 원자 원문을 볼 수 있다.</div>
+      <div class="cx-grid">${plessSort(placeless).map(card).join("")}</div></div>`;
+  $("#cx-body").innerHTML = (blocks + rest + pless) || `<div class="p-empty">일치하는 행위자가 없다.</div>`;
   $("#cx-body").querySelectorAll(".cx-a").forEach(el =>
     el.addEventListener("click", () => { $("#codex").hidden = true; select(el.dataset.slug); }));
 }
@@ -716,10 +819,15 @@ function renderCodex(query) {
 /* ── UI(테마 칩·검색·통계) ───────────────────────────────────── */
 function buildUI() {
   const m = state.meta;
+  // 문명5 상단바 문법 — 아이콘 + 색 코딩 숫자 (골드·과학·문화·식량 색)
+  // 지도에 올라간 것과 백과에만 있는 것을 나눠 밝힌다 — 숫자가 화면과 어긋나면 안 된다
+  const pl = m.actor_placeless ? ` <span style="color:var(--muted)">+${m.actor_placeless}</span>` : "";
+  const ep = m.edge_placeless ? ` <span style="color:var(--muted)">+${m.edge_placeless}</span>` : "";
   $("#stats").innerHTML =
-    `<span class="st">행위자 <b>${m.actor_total}</b></span>
-     <span class="st">관계 <b>${m.edge_total}</b></span>
-     <span class="st">원자 <b>${m.atom_total}</b></span>`;
+    `<span class="st actors" title="지도 ${m.actor_mapped ?? m.actor_total} · 무장소 ${m.actor_placeless || 0}(백과에만)">👑 행위자 <b>${m.actor_mapped ?? m.actor_total}</b>${pl}</span>
+     <span class="st edges" title="지도에 그린 관계 ${m.edge_mappable ?? m.edge_total} · 무장소가 낀 관계 ${m.edge_placeless || 0}">🔗 관계 <b>${m.edge_mappable ?? m.edge_total}</b>${ep}</span>
+     <span class="st atoms">🧩 원자 <b>${m.atom_total}</b></span>
+     <span class="st spheres">🗺 사료권 <b>${state.spheres.size}</b></span>`;
 
   document.querySelectorAll(".theme-chip").forEach(b => {
     const th = b.dataset.theme;
@@ -765,6 +873,7 @@ function buildUI() {
 
   buildEraDock();
   buildCodex();
+  setRibbon();
   $("#legend-toggle").addEventListener("click", () => $("#legend").classList.toggle("closed"));
   $("#panel-close").addEventListener("click", deselect);
   $("#retry").addEventListener("click", boot);

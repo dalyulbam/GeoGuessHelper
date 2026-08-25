@@ -101,6 +101,36 @@ def spheres():
     return {"spheres": _atlas().get("spheres") or []}
 
 
+@app.get("/api/placeless")
+def placeless():
+    """무장소 행위자 — 지도에 앵커가 없는 것들(세계 패턴·인물·반대급부).
+
+    패스D(원자 전방위 확장)가 만든 "소비에트 조립식 주거 가족" 같은 개념은 한 좌표에
+    속하지 않는다. 지도에는 못 올리지만 백과·검색·관계에서는 1급이라, 뷰어가 따로
+    묶어 보여줄 수 있도록 축(worldwide/people/counterpart)별로 갈라 싣는다.
+    """
+    data = _atlas()
+    by_axis: dict[str, list] = {"worldwide": [], "people": [], "counterpart": [], "other": []}
+    idx = atlas._load_index()
+    atoms = idx.get("atoms") or {}
+    for a in data["actors"]:
+        if not a.get("placeless"):
+            continue
+        tags: set[str] = set()
+        for aid in a["atoms"]:
+            tags.update((atoms.get(aid) or {}).get("tags") or [])
+        axis = ("people" if a["type"] == "person" else
+                "worldwide" if "x-worldwide" in tags else
+                "counterpart" if "x-counterpart" in tags else
+                "people" if "x-people" in tags else "other")
+        by_axis[axis].append({k: a[k] for k in
+                              ("slug", "label", "label_en", "type", "scope",
+                               "atom_count", "degree", "themes", "period")})
+    for v in by_axis.values():
+        v.sort(key=lambda x: (-x["degree"], -x["atom_count"]))
+    return {"total": sum(len(v) for v in by_axis.values()), "axes": by_axis}
+
+
 @app.get("/api/atom/{atom_id}")
 def atom(atom_id: str):
     a = atlas.atom_detail(atom_id)

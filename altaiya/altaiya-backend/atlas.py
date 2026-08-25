@@ -12,6 +12,7 @@
 from __future__ import annotations
 
 import json
+import re
 import statistics
 import time
 from itertools import combinations
@@ -53,6 +54,91 @@ def _load_sidecar(p: Path, key: str, default):
         return default
 
 
+# ── 국가 폴리곤 앵커 ────────────────────────────────────────────
+# 원자 확장(패스D)이 만든 세계 패턴 원자는 scope=global 이라 좌표가 없다. 그 바람에
+# "프랑스"·"인도네시아" 같은 **실재하는 나라**까지 앵커를 못 받아 지도에서 빠졌다.
+# LLM 지오코딩은 여전히 금지다(없는 좌표를 지어내는 순간 아틀라스가 거짓말을 한다).
+# 대신 뷰어가 이미 쓰는 Natural Earth 해안선(퍼블릭 도메인)의 국가 폴리곤에서
+# 중심을 계산해 붙인다 — 결정론적이고, 출처가 분명하고, 재현된다.
+WORLD_GEOJSON = Path(__file__).resolve().parents[1] / "altaiya-frontend" / "world.geo.json"
+
+# 저장소 슬러그와 Natural Earth 표기가 다른 것들만 손으로 맞춘다
+_COUNTRY_ALIAS = {
+    "united-states": "United States of America", "usa": "United States of America",
+    "america": "United States of America", "uk": "United Kingdom",
+    "britain": "United Kingdom", "great-britain": "United Kingdom",
+    "england": "United Kingdom", "scotland": "United Kingdom", "wales": "United Kingdom",
+    "russia": "Russia", "south-korea": "South Korea", "north-korea": "North Korea",
+    "czechia": "Czech Republic", "czech-republic": "Czech Republic",
+    "turkiye": "Turkey", "netherlands": "Netherlands", "bosnia": "Bosnia and Herzegovina",
+    "macedonia": "Macedonia", "north-macedonia": "Macedonia", "myanmar": "Myanmar",
+    "ivory-coast": "Ivory Coast", "drc": "Democratic Republic of the Congo",
+}
+
+_country_cache: dict[str, tuple[float, float]] | None = None
+
+
+def _ring_centroid(ring: list) -> tuple[float, float, float]:
+    """폴리곤 링의 면적과 무게중심(x,y). 면적은 부호 없는 값."""
+    a = cx = cy = 0.0
+    n = len(ring)
+    for i in range(n - 1):
+        x0, y0 = ring[i][0], ring[i][1]
+        x1, y1 = ring[i + 1][0], ring[i + 1][1]
+        cross = x0 * y1 - x1 * y0
+        a += cross
+        cx += (x0 + x1) * cross
+        cy += (y0 + y1) * cross
+    if abs(a) < 1e-12:
+        return 0.0, ring[0][0], ring[0][1]
+    return abs(a / 2.0), cx / (3.0 * a), cy / (3.0 * a)
+
+
+def _country_anchors() -> dict[str, tuple[float, float]]:
+    """국가명 슬러그 → (lat, lng). 본토(가장 큰 링)의 중심을 쓴다 —
+    미국·프랑스처럼 멀리 떨어진 해외 영토가 있는 나라는 평균을 내면 바다에 찍힌다."""
+    global _country_cache
+    if _country_cache is not None:
+        return _country_cache
+    out: dict[str, tuple[float, float]] = {}
+    try:
+        geo = json.loads(WORLD_GEOJSON.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        _country_cache = out
+        return out
+    for f in geo.get("features") or []:
+        name = ((f.get("properties") or {}).get("name") or "").strip()
+        geom = f.get("geometry") or {}
+        polys = (geom.get("coordinates") or []) if geom.get("type") == "MultiPolygon" \
+            else [geom.get("coordinates") or []] if geom.get("type") == "Polygon" else []
+        best = (0.0, None)
+        for poly in polys:
+            if not poly:
+                continue
+            area, x, y = _ring_centroid(poly[0])
+            if area > best[0]:
+                best = (area, (y, x))          # GeoJSON 은 [lng, lat] 순서다
+        if name and best[1]:
+            out[re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")] = best[1]
+    _country_cache = out
+    return out
+
+
+def _country_anchor(slug: str, label_en: str) -> tuple[float, float] | None:
+    idx = _country_anchors()
+    for key in (slug, re.sub(r"[^a-z0-9]+", "-", (label_en or "").lower()).strip("-")):
+        if not key:
+            continue
+        if key in idx:
+            return idx[key]
+        alias = _COUNTRY_ALIAS.get(key)
+        if alias:
+            a = re.sub(r"[^a-z0-9]+", "-", alias.lower()).strip("-")
+            if a in idx:
+                return idx[a]
+    return None
+
+
 def _median_anchor(coords: list[tuple[float, float]]) -> tuple[float, float] | None:
     """중앙값 앵커 — 평균과 달리 한쪽 끝의 원자 하나가 앵커를 끌고 가지 않는다."""
     if not coords:
@@ -81,8 +167,19 @@ def build() -> dict[str, Any]:
         coords = [(a["lat"], a["lng"]) for a in my_atoms
                   if isinstance(a.get("lat"), (int, float)) and isinstance(a.get("lng"), (int, float))]
         anchor = _median_anchor(coords)
+        anchor_from = "원자 좌표 중앙값" if anchor else None
         if anchor is None:
-            continue                     # 좌표 없는 행위자는 지도에 올릴 수 없다 (meta 에 집계)
+            # 나라는 무장소가 아니다 — 원자가 전부 scope=global 이라 좌표를 못 받았을 뿐이다.
+            # 뷰어가 쓰는 Natural Earth 폴리곤에서 본토 중심을 계산해 붙인다(지오코딩 아님).
+            led0 = ledger.get(slug) or {}
+            anchor = _country_anchor(slug, led0.get("label_en") or "")
+            if anchor:
+                anchor_from = "국가 폴리곤 중심(Natural Earth)"
+        # 그래도 좌표가 없으면 버리지 않는다 — 원자 확장(패스D)이 만든 세계 패턴·인물·
+        # 반대급부는 본래 무장소다("소비에트 조립식 주거 가족", "포드주의"). 예전에는 여기서
+        # continue 로 통째로 사라져 백과에서도 검색되지 않았다. 이제 placeless 로 그래프에
+        # 남기고, 지도에는 올리지 않되 백과·검색·관계 목록에서는 1급 시민으로 다룬다.
+        placeless = anchor is None
 
         layers: dict[str, int] = {}
         reports: set[str] = set()
@@ -129,10 +226,12 @@ def build() -> dict[str, Any]:
             "basis": led.get("basis") or None,
             "type": atype,
             "typed_by": "ledger" if led else "heuristic",
-            "lat": round(anchor[0], 5),
-            "lng": round(anchor[1], 5),
+            "placeless": placeless,
+            "anchor_from": anchor_from,
+            "lat": None if placeless else round(anchor[0], 5),
+            "lng": None if placeless else round(anchor[1], 5),
             "scope": scope,
-            "influence_km": _SCOPE_RADIUS.get(scope, 0),
+            "influence_km": 0 if placeless else _SCOPE_RADIUS.get(scope, 0),
             "atoms": atom_ids,
             "atom_count": len(my_atoms),
             "layers": layers,
@@ -212,19 +311,26 @@ def build() -> dict[str, Any]:
     for e in edge_list:
         actors[e["src"]]["degree"] += 1
         actors[e["dst"]]["degree"] += 1
+        # 양끝이 다 좌표를 가져야 선을 그을 수 있다. 무장소 행위자가 낀 관계는 실재하지만
+        # 지도에 선으로 표현할 수 없다 — 버리지 말고 외교 화면·백과에서만 쓰도록 표시한다.
+        e["mappable"] = not (actors[e["src"]]["placeless"] or actors[e["dst"]]["placeless"])
 
     edge_list.sort(key=lambda e: -e["strength"])
     linked = {(e["src"], e["dst"]) for e in edge_list} | {(e["dst"], e["src"]) for e in edge_list}
     uncovered = sum(1 for pair in comention if pair not in linked)
 
-    dropped = len(ent_index) - len(actors)
+    placeless_n = sum(1 for a in actors.values() if a["placeless"])
+    unmappable_n = sum(1 for e in edge_list if not e["mappable"])
     return {
         "meta": {
             "built": time.time(),
             "atom_total": len(atoms),
             "actor_total": len(actors),
-            "actor_dropped_no_coords": dropped,
+            "actor_mapped": len(actors) - placeless_n,
+            "actor_placeless": placeless_n,
             "edge_total": len(edge_list),
+            "edge_mappable": len(edge_list) - unmappable_n,
+            "edge_placeless": unmappable_n,
             "themes": list(rules.THEMES),
             "edge_theme_min": rules.EDGE_THEME_MIN,
             "actor_theme_min": rules.ACTOR_THEME_MIN,

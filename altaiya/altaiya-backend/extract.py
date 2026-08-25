@@ -851,7 +851,10 @@ def pass_c(settings, *, redo: bool, batch: int, limit: int | None, dry: bool) ->
             strata = [s for s in (raw or []) if isinstance(s, dict)
                       and s.get("key") and s.get("start") is not None]
             strata.sort(key=lambda s: s["start"])
-            if not strata or not d.get("key"):
+            # 살려낸(_salvage) 입력은 필드가 빠질 수 있다 — 스키마가 required 로 걸어도
+            # 잘린 출력에서 복구한 dict 는 그 보장을 못 받는다. 예전엔 여기서 d["caution"]
+            # 이 KeyError 를 내며 이미 성공한 41개 호출의 결과까지 통째로 날렸다.
+            if not strata or not d.get("key") or not d.get("label_ko") or not d.get("label_en"):
                 retry.append(c)
                 if attempt >= 3:
                     bad.append({"center": [round(c["center"][0], 2), round(c["center"][1], 2)],
@@ -872,7 +875,8 @@ def pass_c(settings, *, redo: bool, batch: int, limit: int | None, dry: bool) ->
                 flagged.append({"sphere": d["key"], "words": hits})
             spheres[key] = {
                 "key": key, "label_ko": d["label_ko"], "label_en": d["label_en"],
-                "frame": d["frame"], "caution": d["caution"],
+                "frame": d.get("frame") or "(기준 미기재 — 재추출 대상)",
+                "caution": d.get("caution") or "(한계 미기재 — 재추출 대상)",
                 "center": [round(c["center"][0], 3), round(c["center"][1], 3)],
                 "atoms": c["atoms"], "atom_count": len(c["atoms"]),
                 "strata": strata, "lint": hits,

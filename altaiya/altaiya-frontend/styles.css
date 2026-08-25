@@ -1,18 +1,23 @@
-/* ALTAIYA — 문명5풍 인터페이스: 금장 프레임 · 가죽 패널 · 양피지 텍스트 · 헥스 그리드 */
+/* ALTAIYA — 문명5 실측 인터페이스: 딥 티일 유리 · 금 트림 · 크림 라벨 · 헥스 그리드
+   팔레트는 docs/report/civilzation/civ5-ui-research_260825.html §3 의 스크린샷 실측값.
+   변수 이름은 구버전(wood*)을 유지한다 — 전체 스타일이 변수로 재도장되게. */
 :root{
   /* 바다·땅 */
   --ocean0:#04101d; --ocean1:#0a2138; --land:#20301d; --land-line:#3a5232;
-  /* 목재·가죽 패널 */
-  --wood0:#151008; --wood1:#211809; --wood2:#2c2010; --wood3:#3a2c15;
-  /* 금장 */
-  --gold:#d9b653; --gold-hi:#f3dc8f; --gold-dim:#8a6d33; --gold-line:#5f4c22;
-  /* 양피지 텍스트 */
-  --parch:#ecdcae; --parch-dim:#c9b586; --muted:#95875f;
+  /* 티일 유리 패널 (실측: 모달 본체 #05090c · 내비 #031716 · 헤더 밴드 #0e3733~#133632) */
+  --wood0:#04100e; --wood1:#071815; --wood2:#0b211d; --wood3:#10302b;
+  --teal-band:#133632; --teal-deep:#0e3733;
+  /* 금 트림 (실측: #d4b982 밝음 · #c8a45a 진함 · 황동 #d5d5af) */
+  --gold:#d0ab5e; --gold-hi:#f0dfae; --gold-dim:#96814d; --gold-line:#57492a;
+  --brass:#d5d5af;
+  /* 크림 텍스트 (실측: 라벨 #fffec1 · 본문 크림) */
+  --parch:#f0e8cd; --parch-dim:#c9c1a0; --muted:#8d9683;
   --lay-economy:#3fd0a4; --lay-history:#e8b34b; --lay-culture:#c983e8;
   --lay-geography:#5fb7dd; --lay-language:#ee7fa9; --lay-architecture:#9d92f2; --lay-nature:#8ed877;
   --shadow:0 10px 34px -10px rgba(0,0,0,.75);
   --mono:'SFMono-Regular',Consolas,Menlo,monospace;
-  --serif:'Noto Serif KR','Cinzel',Georgia,'Batang',serif;
+  /* 문명5 는 Tw Cent MT(기하학적 산세리프) 단일 서체 — 웹 대체는 Jost, 한글은 Pretendard */
+  --serif:'Jost','Pretendard','Malgun Gothic',sans-serif;
   --frame:1px solid var(--gold-dim);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -20,31 +25,34 @@ html,body{height:100%;overflow:hidden}
 body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic',system-ui,sans-serif;
   background:var(--wood0);color:var(--parch);letter-spacing:-.01em;display:flex;flex-direction:column}
 
-/* ── 상단 리본 (자원 표시줄 느낌) ── */
-#topbar{display:flex;align-items:center;gap:18px;height:56px;padding:0 16px;z-index:30;flex:0 0 auto;
-  background:linear-gradient(180deg,#31240f 0%,#241a09 55%,#1a1206 100%);
-  border-bottom:2px solid var(--gold-line);
-  box-shadow:0 1px 0 rgba(243,220,143,.14) inset,0 -6px 14px -8px #000 inset,0 4px 10px rgba(0,0,0,.5)}
+/* ── 상단 바 — 문명5 TopPanel: 불투명 검정 정보 띠 + 색 코딩 숫자 (장식은 여기 없다) ── */
+#topbar{display:flex;align-items:center;gap:18px;height:52px;padding:0 16px;z-index:30;flex:0 0 auto;
+  background:#050807;
+  border-bottom:1px solid var(--gold-dim);
+  box-shadow:0 1px 0 rgba(240,223,174,.08) inset,0 4px 10px rgba(0,0,0,.5)}
 .brand{display:flex;align-items:center;gap:10px;white-space:nowrap}
-.brand b{font-family:'Cinzel',var(--serif);font-size:19px;font-weight:900;letter-spacing:.22em;
+.brand b{font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:.3em;
   background:linear-gradient(180deg,var(--gold-hi) 15%,var(--gold) 55%,#a8842e 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 1px 0 rgba(0,0,0,.8))}
-.brand .sub{font-family:var(--serif);font-size:12px;color:var(--parch-dim);font-weight:700;letter-spacing:.08em}
-.brand .orb{width:11px;height:11px;transform:rotate(45deg);align-self:center;flex:0 0 auto;
-  background:linear-gradient(135deg,var(--gold-hi),#a8842e);border:1px solid #6b5527;
-  box-shadow:0 0 9px rgba(217,182,83,.55)}
-.stats{display:flex;gap:8px;font-size:12px;color:var(--parch-dim);white-space:nowrap}
-.stats .st{padding:3.5px 12px;border:var(--frame);border-radius:3px;
-  background:linear-gradient(180deg,rgba(243,220,143,.07),rgba(0,0,0,.25));
-  box-shadow:0 1px 0 rgba(243,220,143,.1) inset}
-.stats .st b{color:var(--gold-hi);font-family:var(--mono);font-size:12.5px}
+.brand .sub{font-family:var(--serif);font-size:12px;color:var(--parch-dim);font-weight:600;letter-spacing:.08em}
+.brand .orb{width:12px;height:12px;border-radius:50%;align-self:center;flex:0 0 auto;
+  background:radial-gradient(circle at 32% 28%,var(--gold-hi),#a8842e 70%);border:1px solid #6b5527;
+  box-shadow:0 0 9px rgba(208,171,94,.55)}
+/* 자원 수지 — 아이콘+색 숫자. 문명5 상단바처럼 숫자 자체가 색이다 */
+.stats{display:flex;gap:14px;font-size:12.5px;color:var(--parch-dim);white-space:nowrap;align-items:center}
+.stats .st{padding:0;border:0;background:none;box-shadow:none}
+.stats .st b{font-family:var(--mono);font-size:13px;margin-left:2px}
+.stats .st.actors b{color:#ffd75e}   /* 골드 */
+.stats .st.edges b{color:#7ec8ff}    /* 과학 */
+.stats .st.atoms b{color:#ff8fd5}    /* 문화 */
+.stats .st.spheres b{color:#9be564}  /* 식량 */
 .searchbox{margin-left:auto;position:relative;width:min(340px,38vw)}
-#search{width:100%;height:34px;padding:0 13px;border-radius:3px;border:var(--frame);
-  background:linear-gradient(180deg,#0e1a12 0%,#101c14 100%);background:#141008;
+#search{width:100%;height:34px;padding:0 13px;border-radius:17px;border:var(--frame);
+  background:#081512;
   color:var(--parch);font-size:13px;outline:none;transition:.15s;
   box-shadow:0 2px 5px rgba(0,0,0,.55) inset}
-#search:focus{border-color:var(--gold);box-shadow:0 2px 5px rgba(0,0,0,.55) inset,0 0 0 3px rgba(217,182,83,.15)}
+#search:focus{border-color:var(--gold);box-shadow:0 2px 5px rgba(0,0,0,.55) inset,0 0 0 3px rgba(208,171,94,.15)}
 #search::placeholder{color:var(--muted)}
 .search-drop{position:absolute;top:39px;left:0;right:0;max-height:320px;overflow-y:auto;z-index:60;
   background:linear-gradient(180deg,var(--wood2),var(--wood1));border:1px solid var(--gold-dim);
@@ -57,18 +65,18 @@ body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic
 .sd-item .mt{font-size:11px;color:var(--muted)}
 .sd-item:hover,.sd-item.hot{background:rgba(217,182,83,.14)}
 
-/* ── 테마 바 (고문단 버튼) ── */
-#themebar{display:flex;gap:7px;padding:9px 16px;z-index:29;flex:0 0 auto;overflow-x:auto;scrollbar-width:none;
-  background:linear-gradient(180deg,#1c1409,#150f06);border-bottom:1px solid var(--gold-line)}
+/* ── 테마 바 — 문명5 알약 버튼: 티일 그라데이션 + 금 헤어라인 + 크림 라벨 ── */
+#themebar{display:flex;gap:7px;padding:8px 16px;z-index:29;flex:0 0 auto;overflow-x:auto;scrollbar-width:none;
+  background:linear-gradient(180deg,#081512,#050d0b);border-bottom:1px solid var(--gold-line)}
 #themebar::-webkit-scrollbar{display:none}
-.theme-chip{font-family:var(--serif);font-size:12.5px;font-weight:700;color:var(--parch-dim);cursor:pointer;
-  white-space:nowrap;padding:5.5px 14px;border-radius:3px;transition:.16s;letter-spacing:.02em;
-  background:linear-gradient(180deg,var(--wood3) 0%,var(--wood1) 100%);
-  border:1px solid var(--gold-line);box-shadow:0 1px 0 rgba(243,220,143,.09) inset,0 2px 4px rgba(0,0,0,.4)}
-.theme-chip:hover{color:var(--parch);border-color:var(--gold-dim)}
-.theme-chip.active{color:#241a09;font-weight:800;
+.theme-chip{font-family:var(--serif);font-size:12.5px;font-weight:600;color:var(--parch);cursor:pointer;
+  white-space:nowrap;padding:5.5px 16px;border-radius:15px;transition:.16s;letter-spacing:.05em;
+  background:linear-gradient(180deg,#16453e 0%,#0b2b27 100%);
+  border:1px solid var(--gold-dim);box-shadow:0 1px 0 rgba(240,223,174,.1) inset,0 2px 4px rgba(0,0,0,.4)}
+.theme-chip:hover{color:#fffec1;border-color:var(--gold);filter:brightness(1.15)}
+.theme-chip.active{color:#241a09;font-weight:700;
   background:linear-gradient(180deg,var(--gold-hi) 0%,var(--gold) 45%,#b8934a 100%);
-  border-color:var(--gold-hi);box-shadow:0 1px 0 #fff6 inset,0 0 12px rgba(217,182,83,.4)}
+  border-color:var(--gold-hi);box-shadow:0 1px 0 #fff6 inset,0 0 12px rgba(208,171,94,.4)}
 .theme-chip .cnt{opacity:.72;font-weight:600;margin-left:3px;font-family:var(--mono);font-size:11px}
 
 /* ── 지도 ── */
@@ -108,24 +116,24 @@ body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic
 #map.dimmed .edge.lit{opacity:.92}
 #map.dimmed .node.lit text.lb{opacity:1}
 
-/* ── 툴팁 (문명5 스타일: 갈색 판 + 금테) ── */
+/* ── 툴팁 — 실측: 암부 유리판(#171d1b) + 금 헤어라인, 제목은 키워드색 ── */
 #tooltip{position:absolute;z-index:40;pointer-events:none;max-width:290px;padding:10px 13px;
-  background:linear-gradient(180deg,rgba(44,32,16,.97),rgba(26,18,8,.97));
-  border:1px solid var(--gold-dim);outline:1px solid rgba(0,0,0,.8);border-radius:3px;
+  background:linear-gradient(180deg,rgba(23,29,27,.97),rgba(9,13,12,.97));
+  border:1px solid var(--gold-dim);outline:1px solid rgba(0,0,0,.8);border-radius:6px;
   font-size:12.5px;color:var(--parch);box-shadow:var(--shadow)}
-#tooltip .tt-title{font-family:var(--serif);font-weight:800;font-size:13.5px;margin-bottom:3px;color:var(--gold-hi)}
+#tooltip .tt-title{font-family:var(--serif);font-weight:700;font-size:13.5px;margin-bottom:3px;color:var(--gold-hi)}
 #tooltip .tt-sub{color:var(--parch-dim);font-size:11.5px}
 #tooltip .tt-themes{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
 #tooltip .tt-themes span{font-size:10.5px;font-weight:700;padding:1.5px 8px;border-radius:2px;
   background:rgba(217,182,83,.14);color:var(--gold);border:1px solid var(--gold-line)}
 
-/* ── 범례 ── */
+/* ── 범례 — 문명5 미니맵 액자: 황동 프레임 + 티일 헤더 밴드 ── */
 .legend{position:absolute;left:14px;bottom:14px;z-index:25;width:236px;overflow:hidden;font-size:12px;
-  background:linear-gradient(180deg,rgba(44,32,16,.94),rgba(21,16,8,.96));
-  border:1px solid var(--gold-dim);outline:2px solid rgba(0,0,0,.55);border-radius:4px;box-shadow:var(--shadow)}
+  background:linear-gradient(180deg,rgba(11,33,29,.94),rgba(4,16,14,.96));
+  border:1px solid var(--gold);outline:2px solid rgba(0,0,0,.55);border-radius:8px 8px 4px 4px;box-shadow:var(--shadow)}
 .legend-head{padding:8px 13px;cursor:pointer;display:flex;justify-content:space-between;
-  font-family:var(--serif);font-weight:800;letter-spacing:.1em;color:var(--gold);
-  background:linear-gradient(180deg,rgba(243,220,143,.10),transparent);border-bottom:1px solid var(--gold-line)}
+  font-family:var(--serif);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-hi);
+  background:linear-gradient(180deg,var(--teal-band),var(--teal-deep));border-bottom:1px solid var(--gold-dim)}
 .legend-head:hover{color:var(--gold-hi)}
 .legend.closed .legend-body{display:none}
 .legend.closed .legend-head{border-bottom:none}
@@ -140,30 +148,48 @@ body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic
 .lg-note{margin-top:9px;padding-top:8px;border-top:1px dashed var(--gold-line);color:var(--muted);font-size:11px;line-height:1.55}
 .lg-note b{color:var(--parch-dim)}
 
+/* ── 상태 리본 — 문명5 ActionInfoPanel: "지금 뭘 해야/보고 있는가"가 항상 한 곳에 ── */
+#ribbon{position:absolute;right:14px;bottom:156px;z-index:26;max-width:300px;cursor:pointer;
+  font-family:var(--serif);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:#eef3df;text-align:center;padding:7px 20px;border-radius:5px;user-select:none;
+  background:linear-gradient(180deg,#4c6a51,#31473a);
+  border:1px solid var(--brass);outline:1px solid rgba(0,0,0,.7);
+  box-shadow:0 1px 0 rgba(255,255,255,.15) inset,0 4px 10px rgba(0,0,0,.5);transition:.15s}
+#ribbon:hover{filter:brightness(1.12)}
+#ribbon.selected{background:linear-gradient(180deg,var(--teal-band),#0a2b27);border-color:var(--gold)}
+#ribbon .rb-sub{display:block;font-size:10px;letter-spacing:.08em;text-transform:none;
+  color:rgba(238,243,223,.75);font-weight:500;margin-top:1px}
+
 /* ── 줌 버튼 (청동 원형) ── */
 #zoomctl{position:absolute;right:14px;bottom:14px;z-index:25;display:flex;flex-direction:column;gap:7px}
 #zoomctl button{width:40px;height:40px;border-radius:50%;cursor:pointer;color:var(--gold-hi);
-  font-size:17px;font-weight:800;font-family:var(--serif);transition:.15s;
-  background:radial-gradient(circle at 32% 28%,#4a3818,#2c2010 68%);
-  border:1px solid var(--gold-dim);outline:2px solid rgba(0,0,0,.55);
-  box-shadow:0 1px 0 rgba(243,220,143,.2) inset,0 3px 7px rgba(0,0,0,.5)}
-#zoomctl button:hover{border-color:var(--gold);color:#fff;box-shadow:0 1px 0 rgba(243,220,143,.25) inset,0 0 11px rgba(217,182,83,.4)}
+  font-size:17px;font-weight:700;font-family:var(--serif);transition:.15s;
+  background:radial-gradient(circle at 32% 28%,#16453e,#04100e 70%);
+  border:2px solid var(--gold-dim);outline:2px solid rgba(0,0,0,.55);
+  box-shadow:0 1px 0 rgba(240,223,174,.2) inset,0 3px 7px rgba(0,0,0,.5)}
+#zoomctl button:hover{border-color:var(--gold);color:#fff;box-shadow:0 1px 0 rgba(240,223,174,.25) inset,0 0 11px rgba(208,171,94,.4)}
 
-/* ── 상세 패널 (도시 화면) ── */
+/* ── 상세 패널 (도시 화면) — 티일 유리 판 + 좌변 금 이중선 ── */
 .panel{position:absolute;top:0;right:0;bottom:0;width:404px;max-width:92vw;z-index:35;overflow-y:auto;overscroll-behavior:contain;
   background:linear-gradient(180deg,var(--wood2) 0%,var(--wood1) 30%,var(--wood0) 100%);
-  border-left:1px solid var(--gold-dim);
-  box-shadow:-2px 0 0 rgba(0,0,0,.6),-4px 0 0 rgba(217,182,83,.18),-20px 0 46px -18px rgba(0,0,0,.8);
+  border-left:1px solid var(--gold);
+  box-shadow:-2px 0 0 rgba(0,0,0,.6),-4px 0 0 rgba(208,171,94,.25),-20px 0 46px -18px rgba(0,0,0,.8);
   transform:translateX(103%);transition:transform .28s cubic-bezier(.2,.8,.25,1)}
 .panel.open{transform:translateX(0)}
 .panel-close{position:absolute;top:10px;right:12px;z-index:2;width:30px;height:30px;border-radius:3px;cursor:pointer;
   border:1px solid var(--gold-line);background:rgba(0,0,0,.3);color:var(--parch-dim);font-size:17px}
 .panel-close:hover{border-color:var(--gold-dim);color:var(--gold-hi);background:rgba(217,182,83,.1)}
 #panel-body{padding:18px 18px 30px}
-.p-head{display:flex;gap:12px;align-items:center;margin:0 -18px 4px;padding:4px 18px 12px;
-  background:linear-gradient(180deg,rgba(243,220,143,.08),transparent);border-bottom:1px solid var(--gold-line)}
-.p-ic{font-size:30px;line-height:1;filter:drop-shadow(0 2px 3px rgba(0,0,0,.7))}
-.p-title{font-family:var(--serif);font-size:19px;font-weight:900;letter-spacing:.01em;color:var(--gold-hi);
+/* 패널 헤더 — 문명5 헤더 문법: 원형 메달리온 + 티일 밴드 */
+.p-head{display:flex;gap:12px;align-items:center;margin:0 -18px 4px;padding:10px 18px 12px;
+  background:linear-gradient(180deg,var(--teal-band),rgba(14,55,51,.35) 80%,transparent);
+  border-bottom:1px solid var(--gold-dim)}
+.p-ic{font-size:26px;line-height:1;width:52px;height:52px;flex:0 0 auto;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 35% 30%,#123a34,#04100e 75%);
+  border:2px solid var(--gold);box-shadow:0 0 0 1px rgba(0,0,0,.7),0 2px 6px rgba(0,0,0,.6);
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.7))}
+.p-title{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.03em;color:var(--gold-hi);
   text-shadow:0 1px 0 rgba(0,0,0,.8)}
 .p-meta{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 2px}
 .p-chip{font-size:11px;font-weight:700;padding:2.5px 10px;border-radius:2px;color:var(--parch-dim);
@@ -224,9 +250,10 @@ body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic
   border-radius:3px;padding:8px 24px;box-shadow:0 1px 0 #fff5 inset,0 3px 8px rgba(0,0,0,.5)}
 .ov-btn:hover{filter:brightness(1.08)}
 
+/* 스크롤바 — 실측: 금 트랙 장식 + 티일 썸 */
 ::-webkit-scrollbar{width:10px;height:10px}
-::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#5a4722,#3a2c15);border-radius:5px;border:1px solid #241a09}
-::-webkit-scrollbar-track{background:rgba(0,0,0,.3)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#96814d,#57492a);border-radius:5px;border:1px solid #0b211d}
+::-webkit-scrollbar-track{background:rgba(0,0,0,.35)}
 
 @media(max-width:760px){
   .stats{display:none}
@@ -240,8 +267,8 @@ body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic
 .topbtn:hover{border-color:var(--gold);color:var(--gold-hi)}
 
 .erabar{position:absolute;left:16px;right:16px;bottom:14px;z-index:30;
-  background:linear-gradient(180deg,rgba(33,24,9,.96),rgba(21,16,8,.97));
-  border:1px solid var(--gold-line);border-radius:4px;padding:9px 12px 11px;
+  background:linear-gradient(180deg,rgba(11,33,29,.96),rgba(4,16,14,.97));
+  border:1px solid var(--gold-dim);border-radius:10px 10px 4px 4px;padding:9px 12px 11px;
   box-shadow:0 10px 26px rgba(0,0,0,.5);backdrop-filter:blur(3px);max-width:min(1180px,calc(100% - 32px))}
 .erabar[hidden]{display:none}
 .eb-head{display:flex;align-items:center;gap:9px;margin-bottom:8px}
@@ -287,11 +314,18 @@ body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic
 .codex{position:fixed;inset:0;z-index:80;background:rgba(6,4,2,.72);backdrop-filter:blur(2px);
   display:flex;align-items:center;justify-content:center;padding:24px}
 .codex[hidden]{display:none}
-.cx-box{width:min(1080px,100%);max-height:86vh;display:flex;flex-direction:column;
-  background:linear-gradient(180deg,var(--wood1),var(--wood0));border:1px solid var(--gold);border-radius:5px;
-  box-shadow:0 24px 60px rgba(0,0,0,.65)}
-.cx-head{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--gold-line)}
-.cx-head b{font-family:var(--serif);font-size:16px;color:var(--gold-hi);letter-spacing:.06em}
+/* 문명5 모달 문법: 상부 큰 라운드 + 금 이중 테두리 + 상단 크레스트(팔각 별) + 티일 헤더 밴드 */
+.cx-box{width:min(1080px,100%);max-height:86vh;display:flex;flex-direction:column;position:relative;
+  background:linear-gradient(180deg,var(--wood1),var(--wood0));
+  border:2px solid var(--gold);outline:1px solid rgba(0,0,0,.8);border-radius:18px 18px 6px 6px;
+  box-shadow:0 0 0 1px rgba(240,223,174,.18) inset,0 24px 60px rgba(0,0,0,.65)}
+.cx-box::before{content:"✳";position:absolute;top:-23px;left:50%;transform:translateX(-50%);
+  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:#7ec8ff;background:radial-gradient(circle at 35% 30%,#16453e,#04100e 75%);
+  border:2px solid var(--gold);box-shadow:0 0 0 2px rgba(0,0,0,.6),0 3px 8px rgba(0,0,0,.6)}
+.cx-head{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--gold-dim);
+  background:linear-gradient(180deg,var(--teal-band),var(--teal-deep));border-radius:16px 16px 0 0}
+.cx-head b{font-family:var(--serif);font-size:15px;color:var(--gold-hi);letter-spacing:.2em;text-transform:uppercase}
 .cx-sub{font-size:11.5px;color:var(--muted);flex:1}
 .cx-q{width:260px;font-size:12.5px;color:var(--parch);background:var(--wood0);
   border:1px solid var(--gold-line);border-radius:3px;padding:5px 9px}
@@ -310,10 +344,12 @@ body{font-family:'Pretendard','Pretendard Variable',-apple-system,'Malgun Gothic
 .cx-a .lb{flex:1;font-size:12px;font-weight:650;color:var(--parch);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cx-a .mt{font-family:var(--mono);font-size:10px;color:var(--muted)}
 
-/* 시대 독이 뜨면 범례·줌 버튼을 그 위로 올린다(겹치면 지도를 못 본다) */
+/* 시대 독이 뜨면 범례·줌 버튼·리본을 그 위로 올린다(겹치면 지도를 못 본다) */
 .erabar{left:16px;right:70px;max-width:calc(100% - 86px)}
 body.has-dock #legend{bottom:150px}
 body.has-dock #zoomctl{bottom:150px}
+body.has-dock #ribbon{bottom:292px}
+body.panel-open.has-dock #ribbon{right:420px}
 .p-sub{font-size:11.5px;color:var(--muted);margin-top:2px}
 .atom-era{font-family:var(--mono);font-size:9.5px;color:var(--wood0);background:var(--gold-dim);
   border-radius:2px;padding:1px 4px;flex:0 0 auto;max-width:120px;overflow:hidden;

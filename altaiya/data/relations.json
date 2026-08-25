@@ -1,202 +1,772 @@
 {
  "meta": {
   "pass": "B",
-  "built": 1787091095.0225651,
+  "built": 1787642117.0592363,
   "model": "claude-sonnet-5",
   "atoms_done": [
+   "atm_00addc4985e1",
+   "atm_00dd197580ec",
+   "atm_015ed1a68936",
+   "atm_01813ad314d3",
    "atm_019c308b2979",
+   "atm_01edea247fa5",
    "atm_020ef391a7c6",
+   "atm_045e268ca1ce",
+   "atm_04e0153e2160",
    "atm_050d1beb807a",
    "atm_05dc60e6542c",
    "atm_0625509c4e13",
    "atm_06391f17f753",
+   "atm_065d923adab8",
+   "atm_06a55bd9fa2f",
+   "atm_06bd6a770961",
+   "atm_072819aec72c",
+   "atm_079537684ebd",
+   "atm_07c8da00fbe4",
    "atm_080c7ca4a29f",
+   "atm_087beb8d3718",
+   "atm_08a5788cfe1e",
+   "atm_08ad7f81de9f",
+   "atm_08ede209b5a3",
    "atm_0b13748cb731",
+   "atm_0b558ec13f6d",
+   "atm_0c3d90f15260",
+   "atm_0c5f6ed3609b",
+   "atm_0cb98245d4ef",
+   "atm_0cdcb5f44842",
+   "atm_0de705b1aa28",
+   "atm_0e03ac7cf71d",
+   "atm_0ec0f7ac5b23",
+   "atm_0ec520e0a9b1",
    "atm_0f643119e6e7",
    "atm_108fc78d5679",
+   "atm_10f4a4478224",
    "atm_11081ef61216",
    "atm_11357b5b510a",
+   "atm_11de3f1b2c80",
+   "atm_120bafa46093",
+   "atm_12390aa7055a",
    "atm_1258c6d2471f",
    "atm_1270c7cffadd",
+   "atm_1281f5fa3d76",
+   "atm_128968f951fe",
+   "atm_128ca252a80f",
+   "atm_129ae2473775",
+   "atm_130e3fcf3770",
+   "atm_131252aa7616",
+   "atm_13601d2b6254",
    "atm_136ca6c5fec1",
    "atm_142d60e0141b",
    "atm_14600699a3e7",
+   "atm_1488e46f2dcc",
    "atm_14bd04044110",
+   "atm_14ed08f922f7",
+   "atm_15836e374094",
    "atm_15b8c8e30fd8",
    "atm_15c884566bad",
    "atm_1614bc8a7ec4",
    "atm_1655b70a6821",
+   "atm_16c50820ea0a",
+   "atm_173d2666b831",
+   "atm_17d7a249b4d0",
    "atm_17f4f8c25b51",
+   "atm_17fbd8445d93",
+   "atm_18175b41a930",
+   "atm_1836cc39ec5e",
+   "atm_187fd589b152",
+   "atm_18dbba2c1bb0",
+   "atm_18f21fa2e6eb",
+   "atm_1927638bf02d",
+   "atm_198968193acf",
+   "atm_19b1bdd556c5",
+   "atm_19b8c44b6c65",
+   "atm_19e7bb82b228",
+   "atm_1a2577d61235",
    "atm_1a3815c39ac0",
+   "atm_1a59425e959b",
+   "atm_1ae19d25aa2d",
    "atm_1b291689479e",
    "atm_1b9b30221a10",
+   "atm_1c127820bd81",
    "atm_1c5093f42f97",
+   "atm_1cd2aa06b732",
+   "atm_1cf9913c8381",
+   "atm_1d3c15882ba5",
+   "atm_1d6ebe8d8350",
+   "atm_1e838f1226ff",
+   "atm_1ebe4a61b6ca",
    "atm_1eddc1d27617",
    "atm_1f02156385ca",
    "atm_1f7c52fa2190",
    "atm_1fe30f1788db",
+   "atm_2018d9cd2ed1",
+   "atm_201d500a41a8",
+   "atm_203a14419593",
+   "atm_20bdeebbe509",
    "atm_20fcefef8581",
    "atm_2109c072bc2d",
+   "atm_2142c38119f1",
+   "atm_21a020846dcd",
+   "atm_21d5acac15fb",
+   "atm_2203350430d8",
+   "atm_2290b01ea31a",
+   "atm_2293f2bdddc3",
+   "atm_22a2a817503c",
+   "atm_22c1260453e8",
+   "atm_22e41b91d513",
+   "atm_2318f07c811c",
+   "atm_232e07af9298",
+   "atm_2370481fd82f",
+   "atm_238b76fd3141",
+   "atm_23aeee0b6c9e",
+   "atm_2480ce1ef18a",
+   "atm_2494855827a9",
    "atm_24f93f86a20d",
+   "atm_25a35da69a9d",
    "atm_25d589535f80",
+   "atm_263fbcaac613",
+   "atm_26670bdff72a",
+   "atm_268a9d39e0a9",
+   "atm_2731cc8cba42",
+   "atm_278ce6fc5e3b",
+   "atm_27be18fbd5d7",
    "atm_290e8dc4ccdf",
+   "atm_29521439c31f",
+   "atm_299833074c58",
+   "atm_29a23adab5e1",
+   "atm_29aac8d5f161",
+   "atm_29fe1e053400",
+   "atm_2ab20230403f",
+   "atm_2b6553ea8e6b",
+   "atm_2bd0043d5a35",
+   "atm_2c669f570d8e",
+   "atm_2cdc40298a80",
+   "atm_2d742d4bd680",
    "atm_2d85430db3fd",
+   "atm_2e7a14e50f55",
+   "atm_2f0478c72970",
    "atm_3015394136d6",
+   "atm_302c63ec2d88",
    "atm_305dc82d2d42",
+   "atm_31b06bbe84f4",
+   "atm_31bf07aa9649",
+   "atm_31da6d150e39",
    "atm_322a44091c44",
+   "atm_32659ddd04fc",
+   "atm_329f3ad24f9a",
    "atm_3340739b4d02",
+   "atm_33649f9fc5f8",
+   "atm_3399a29c8934",
+   "atm_3511703bd640",
+   "atm_35a25e757bca",
+   "atm_35cb6c4f4c17",
    "atm_35d9bccaf4af",
    "atm_35ff70ea7db7",
+   "atm_36410c44e299",
    "atm_3688bcb73509",
+   "atm_368943d7fda6",
+   "atm_36aed5dbc192",
    "atm_36c2f7426aa1",
    "atm_371fbba51c79",
+   "atm_37347c1e1caf",
+   "atm_37da4e8f433a",
+   "atm_37fb4b96ed8f",
+   "atm_38d8cec03379",
+   "atm_3922a208d3ea",
+   "atm_399453199a88",
+   "atm_39bb6b54a823",
    "atm_3a98a4b0d928",
+   "atm_3aea28b9b1fd",
+   "atm_3af854f0ba2f",
+   "atm_3b4caddc25e6",
+   "atm_3b9faf71c73e",
    "atm_3ba44d2fa55c",
+   "atm_3bb44773624a",
+   "atm_3c3147af69b0",
    "atm_3c9007b712ed",
+   "atm_3d003294436f",
+   "atm_3d0e81322e1d",
+   "atm_3d2e64f3716f",
+   "atm_3d33c4440f5a",
+   "atm_3e6a73b6e2d7",
+   "atm_3e7ea3aee50a",
+   "atm_3e84d5b04e4e",
+   "atm_3e91b9d2189a",
    "atm_3ecf707f944b",
+   "atm_3f3b472abc32",
    "atm_3f5066a286fc",
+   "atm_3f8ac8e75e7f",
+   "atm_3fb234b540b2",
+   "atm_3fc712b096be",
+   "atm_40345729907e",
+   "atm_40442a8896ec",
+   "atm_405c3139fb6e",
+   "atm_4083b2bd8030",
+   "atm_40e6de97e66c",
+   "atm_4161e6b8e990",
+   "atm_419b94faedad",
+   "atm_41b9d367e8a1",
    "atm_41ec08d72f50",
+   "atm_427e564cfa66",
+   "atm_4281a231dd42",
+   "atm_42f3954a370e",
    "atm_431d5baec140",
+   "atm_4320a76ed8fb",
    "atm_43a50564de5b",
    "atm_44016e9885d2",
    "atm_443690c733d1",
+   "atm_44a0d39c71c2",
    "atm_4518bd105a25",
    "atm_45446d19bcd9",
+   "atm_455a82778814",
+   "atm_45b4b6a01e83",
    "atm_45ce011e8047",
+   "atm_45fc2a8c8c1e",
+   "atm_4629ce3c8114",
    "atm_465631657fbd",
+   "atm_4660185d53c4",
    "atm_46789363d08f",
+   "atm_467d62279854",
+   "atm_4782de81e402",
    "atm_483358c79995",
+   "atm_4871d8db4f2c",
    "atm_4878a96cdb97",
+   "atm_488e4487d1d1",
+   "atm_491e7b3d9d67",
    "atm_4938ba62e38a",
    "atm_49b6b08fee5f",
+   "atm_4a1dc25fe60d",
+   "atm_4a4623565283",
+   "atm_4a4ba4bb9d46",
+   "atm_4a4fd31e7db5",
+   "atm_4a66ab569c4f",
+   "atm_4ac41a5ca83d",
+   "atm_4acceee36057",
+   "atm_4aeb3a99a3c3",
+   "atm_4b231970ad83",
+   "atm_4b3b17e5270b",
+   "atm_4bd93c84a1a2",
+   "atm_4be2cb5e9ebf",
+   "atm_4c333db3423d",
    "atm_4c506c031137",
+   "atm_4c5224f835d7",
+   "atm_4c7eadba0e52",
+   "atm_4c848bc30e60",
    "atm_4cfc350ac012",
+   "atm_4d1293100514",
+   "atm_4d957e14b50e",
+   "atm_4db6f48f473b",
    "atm_4dd0f4e3344f",
    "atm_4e479dbead43",
+   "atm_4e9b40bde863",
+   "atm_4eb41294f670",
    "atm_4f6b8bc9af59",
+   "atm_4f9a4a052204",
+   "atm_4fbc680d4671",
+   "atm_51dc81130b7c",
    "atm_521c45c28b29",
+   "atm_5251a86ba37c",
    "atm_52db6220e238",
+   "atm_52f830b17ac5",
+   "atm_532ae8610bb9",
+   "atm_534a1ac8ceb2",
+   "atm_5436844715ef",
    "atm_5449e17b7e07",
+   "atm_545ea5598310",
+   "atm_5469b89fe83f",
+   "atm_54a887a29bb7",
    "atm_5550ff4942ef",
+   "atm_555b771dd648",
+   "atm_55c87390ef27",
+   "atm_56d1ff380ebc",
+   "atm_56e8dca2f8e4",
    "atm_57188af5a165",
+   "atm_57714df5d867",
    "atm_57b210c8d833",
+   "atm_581f9c20bf4a",
+   "atm_585940dbb92e",
+   "atm_58770f3d8138",
+   "atm_58cb667ee304",
+   "atm_59574d3e0cdb",
+   "atm_59af20843ed4",
+   "atm_59ecc2c796e2",
+   "atm_5a0a958e8c06",
+   "atm_5a589c8ec7fd",
+   "atm_5a8a57ca7628",
+   "atm_5aa40cca080a",
+   "atm_5ae0b4619855",
    "atm_5ae0c15bc20f",
+   "atm_5afe29208137",
    "atm_5b2b5964e8b3",
    "atm_5b556739268d",
+   "atm_5bd08234dae3",
+   "atm_5c44ba60abaa",
+   "atm_5c6dd5af93f3",
+   "atm_5cd03c33de8d",
+   "atm_5d0db7397579",
    "atm_5d77688926e3",
+   "atm_5d8136685090",
+   "atm_5d981c49eb79",
+   "atm_5d9c6a60125a",
    "atm_5ef83226f788",
    "atm_5fed154c3c3e",
+   "atm_6027bd868209",
+   "atm_606ab6ca1071",
+   "atm_607ed4c93082",
+   "atm_609755d083a1",
+   "atm_6153039a726c",
+   "atm_62b989fe9ba7",
+   "atm_62c209ca3767",
+   "atm_62f40469349a",
+   "atm_6304db471db9",
+   "atm_63a50c8c26e7",
+   "atm_63e18235d646",
+   "atm_643dcf756f84",
+   "atm_644914e23e54",
+   "atm_64a9f475dc8d",
+   "atm_6680f15e0cd5",
+   "atm_66fd8453fad2",
    "atm_67097f4cbca4",
+   "atm_672cd87996ab",
+   "atm_682bb3462a77",
+   "atm_686c8557c04e",
+   "atm_687e4fb20c84",
+   "atm_6986b6d05009",
+   "atm_69a406f23cf1",
+   "atm_6a2636820c4a",
+   "atm_6ab89cff1634",
+   "atm_6b0ef5e85c67",
+   "atm_6b306aa68601",
+   "atm_6b644a9dae5a",
+   "atm_6b8ad57c88d9",
+   "atm_6c126db35f72",
+   "atm_6c3b2c906a15",
    "atm_6c4efdf6ce82",
+   "atm_6c6e2e89aba8",
+   "atm_6cefcc371ed0",
+   "atm_6d710f051abb",
    "atm_6de13da9aefc",
+   "atm_6e9930db96c5",
+   "atm_6ed47b7f0e70",
    "atm_6f2f315da529",
    "atm_6f410dc5745b",
+   "atm_6f9fc96c5833",
+   "atm_6fc5a77d7760",
+   "atm_6fe925c46af6",
+   "atm_70b3ea9fe6d5",
+   "atm_70da774c5793",
+   "atm_70f0ec5e8b9e",
    "atm_7109014d9dbc",
    "atm_714f55d47cd5",
+   "atm_7183fc7dcba5",
+   "atm_7195f0711f76",
+   "atm_71e9c5df38ee",
+   "atm_7266b73130ce",
+   "atm_726f0d1570b0",
+   "atm_73325db2b48d",
    "atm_736ac4eed284",
+   "atm_73d871c5d58d",
+   "atm_741bead7dff9",
    "atm_7439e4c1e09e",
+   "atm_743c7efc3d36",
+   "atm_748fe7365e89",
+   "atm_74acd4f10fb8",
+   "atm_7509ab273022",
+   "atm_7575a008d46f",
    "atm_7583caa0118c",
    "atm_764d16790153",
+   "atm_766d932ca0da",
+   "atm_769bef8463f0",
+   "atm_76a3682ea41f",
    "atm_76d4211f5d39",
+   "atm_771069e5f670",
+   "atm_7720d1e5ddff",
+   "atm_782100ea4834",
+   "atm_782949996ae7",
+   "atm_784d91e88be1",
+   "atm_786e9b689833",
+   "atm_78de1e5521ab",
+   "atm_78e74e486126",
+   "atm_792a1b421feb",
+   "atm_7976ef60a483",
+   "atm_799bb85e5b74",
+   "atm_7a086646074f",
+   "atm_7a45cf49ac33",
+   "atm_7a548ba0d999",
+   "atm_7a762797e3e5",
    "atm_7c89b761a51c",
+   "atm_7d0a7b2ffb16",
+   "atm_7d875b0f04b5",
+   "atm_7e047d064bd0",
    "atm_7e67c8b59e9a",
+   "atm_7f0b825b3655",
    "atm_7f1b78158b4f",
    "atm_7f225359d507",
+   "atm_7f3c42ce0b03",
+   "atm_7f76ba334efe",
+   "atm_7fee21f2b232",
+   "atm_8007662335f8",
    "atm_8037259cd69e",
+   "atm_8083543e02d9",
+   "atm_80d8c0cb7bd1",
+   "atm_80da3b6542c6",
+   "atm_811342082c50",
    "atm_81203c6e0b37",
+   "atm_817a541c7533",
+   "atm_8180accfcd7c",
+   "atm_81f38865642b",
+   "atm_82edcde321b3",
+   "atm_834518c0235a",
+   "atm_83ccf4c193cc",
    "atm_842aeebf0a85",
+   "atm_843671f5da2f",
+   "atm_84831e5db897",
+   "atm_85656101e754",
+   "atm_861e5346626d",
+   "atm_86c1b5091ece",
    "atm_87059bc2df36",
+   "atm_8721acb94173",
+   "atm_876958b4611d",
+   "atm_877f06d37696",
+   "atm_87a8877b3652",
+   "atm_88607a862857",
+   "atm_8892cd774fb3",
+   "atm_88a307f18d64",
+   "atm_89b807a21016",
+   "atm_89fc40b8d9af",
+   "atm_8a0170f2319b",
+   "atm_8ab91b1ea054",
    "atm_8b6110d669e6",
+   "atm_8c11beb087d8",
    "atm_8c55d94bc98f",
+   "atm_8ca97c9de43b",
+   "atm_8cf354495661",
    "atm_8cfbd0212321",
    "atm_8d15238d48f7",
    "atm_8d9e4ea3562c",
+   "atm_8dcbffe35680",
    "atm_8dcf3ffe7cd6",
+   "atm_8dea6efc26d9",
+   "atm_8ee140f398ac",
+   "atm_8f2867c35c4e",
+   "atm_8f3cf2470f73",
+   "atm_8f953db197d4",
    "atm_8fa1d9becc4b",
+   "atm_9018bddfc691",
+   "atm_9064de413210",
    "atm_90d3d84bcd02",
    "atm_91b6f26a63b1",
+   "atm_91db08094e34",
+   "atm_925176336489",
+   "atm_9252ce6549a2",
+   "atm_928d871d477b",
    "atm_92b70bd29630",
+   "atm_92f75e584a5b",
+   "atm_931c0da62f9c",
+   "atm_93d28ea9d736",
    "atm_9517519bc35a",
+   "atm_955fc6f411b6",
    "atm_956d68eebfe7",
+   "atm_9590fe7cadd2",
    "atm_95a8e4f4f190",
+   "atm_95b8853f8fa0",
    "atm_964ed629535c",
+   "atm_96f35fc5636b",
+   "atm_9715e7ff4e77",
+   "atm_97258e6e6f9e",
+   "atm_979160e118e7",
    "atm_97cb0403cd30",
+   "atm_98b71d3e6aa3",
+   "atm_98f1eccf8187",
+   "atm_9a043a4cd035",
+   "atm_9a36dc95436a",
+   "atm_9a87a28cd0a5",
+   "atm_9b58a70e7561",
    "atm_9cae96b246e6",
+   "atm_9d236750cd97",
    "atm_9d42b1e8cd15",
    "atm_9d45a7bad7f9",
    "atm_9d7ccc769c8d",
+   "atm_9dd182ac73ec",
+   "atm_9e35ecc6159d",
    "atm_9e38828f06db",
    "atm_9f241d0453c6",
+   "atm_9f5cf46a539a",
+   "atm_9f82416b4957",
+   "atm_9fdd839f0e14",
+   "atm_9fe5ccb4b404",
+   "atm_a2124f73a376",
+   "atm_a249e0ca28e4",
+   "atm_a2f5bbd08003",
+   "atm_a309cdfab8ce",
+   "atm_a346128efb21",
    "atm_a3a52c438d71",
+   "atm_a3a6b6c3d5f3",
+   "atm_a3ce9e955521",
+   "atm_a3d751ae5532",
+   "atm_a3ecd2a93518",
+   "atm_a437b6c478f6",
+   "atm_a4707a37e4a4",
    "atm_a4c36a4c80dc",
+   "atm_a4d5672562ff",
+   "atm_a58facd06de0",
+   "atm_a5f1b76fba94",
    "atm_a604a76ce31b",
+   "atm_a60aa4ae835e",
    "atm_a60f6d19f902",
    "atm_a64438386449",
+   "atm_a6587759b307",
    "atm_a741bec60f9c",
+   "atm_a78bf6ec32f7",
    "atm_a7cf23a3d7b1",
+   "atm_a80e8c9540ff",
+   "atm_a89c6a101444",
    "atm_a8fd0dd52605",
+   "atm_a919b2d25025",
+   "atm_a99f6f632ef8",
+   "atm_a9d14aedd052",
+   "atm_aa0299aeaed3",
+   "atm_aa03a02047ac",
+   "atm_aa1543dd152e",
+   "atm_aa4716639ec8",
+   "atm_aa8849279b22",
+   "atm_ab372db09824",
    "atm_ab5319b5158c",
    "atm_abbf940e60d2",
+   "atm_ac0bbb65ec93",
+   "atm_ad0093de4697",
+   "atm_ad1ba461b58a",
+   "atm_ad2145fa222e",
+   "atm_ad3db50d1df5",
+   "atm_ad9031be275c",
    "atm_ae4c5a7357ff",
+   "atm_ae653c208653",
+   "atm_af77a40342bd",
+   "atm_b050477b82a7",
+   "atm_b0a49d400a66",
+   "atm_b104178decc7",
    "atm_b26521d126ce",
+   "atm_b2fe9975ad3d",
+   "atm_b371d09d3268",
+   "atm_b3fcc2116fe1",
+   "atm_b4155eafc9ab",
+   "atm_b4423012789e",
+   "atm_b4ae449d656c",
+   "atm_b4d7360b2ed5",
    "atm_b4e047668ccb",
+   "atm_b57da26de8ba",
+   "atm_b596b7eba650",
+   "atm_b621829c5d7d",
+   "atm_b65dc9520205",
+   "atm_b6cd03916d58",
+   "atm_b71ca9914bc6",
+   "atm_b748544d5f58",
+   "atm_b8f95b26bab9",
+   "atm_b8ff25417de5",
+   "atm_b9a0f391e167",
+   "atm_b9d0390869b7",
+   "atm_b9e670bd45e8",
    "atm_ba70b4476414",
    "atm_ba840123ebab",
+   "atm_bb85705ffd68",
+   "atm_bcc371cc942c",
+   "atm_bd2899174a72",
+   "atm_bd294a967894",
+   "atm_bd48449bc42a",
+   "atm_bd5db3edc7de",
+   "atm_bd63316fe56b",
+   "atm_bd6f3d0908f6",
    "atm_bdc7c74090b5",
+   "atm_be2b79054b54",
+   "atm_be43b29468d1",
+   "atm_be5beb4f44d0",
    "atm_bf283b566073",
+   "atm_bf39ad75c9fc",
    "atm_bfa44d28d5f9",
    "atm_bffa90fceb9e",
+   "atm_c0ad2b5cf825",
+   "atm_c113219fd136",
+   "atm_c116449f3bbd",
+   "atm_c15358d3e42a",
+   "atm_c1eda50f3874",
+   "atm_c28be990f5bb",
+   "atm_c28e031fd493",
+   "atm_c2c5ced5d1a1",
    "atm_c370d530dba1",
+   "atm_c398e35ab0ee",
+   "atm_c3a16dd3c51a",
    "atm_c3ac51f65d6e",
    "atm_c464359a13cf",
+   "atm_c4a188a539c4",
+   "atm_c54cff8dbe41",
+   "atm_c5683d7f6a32",
+   "atm_c57fe98938af",
+   "atm_c5e197941608",
+   "atm_c61a7886e287",
+   "atm_c653b1ff1ed2",
    "atm_c65d1dbc1ab1",
    "atm_c6796d5edf50",
+   "atm_c6a6064d3dec",
+   "atm_c75bbb7b444a",
+   "atm_c84c3dee88ba",
+   "atm_c896bc4ee57d",
    "atm_c9991713a212",
+   "atm_c9dd7ef02ea9",
    "atm_ca62fa29fa29",
+   "atm_cacf275f7979",
    "atm_cad327cb9b65",
+   "atm_cba815c32e45",
    "atm_cbb1c8efe37a",
+   "atm_cc10d9c89d05",
    "atm_cd600d8705f5",
+   "atm_cdb0d471f078",
    "atm_cdedcaf5402e",
    "atm_ce9d24778d61",
+   "atm_cf0c36b87c60",
+   "atm_cf38712e2c3e",
+   "atm_cfac9d9821b9",
+   "atm_cfc46321cef3",
+   "atm_cff59a9d0f8a",
+   "atm_d09f20285662",
+   "atm_d0b1999402af",
+   "atm_d114d8bf82fb",
+   "atm_d1552342082f",
+   "atm_d15c475691e7",
    "atm_d17226bbf6bf",
+   "atm_d198e3430a25",
+   "atm_d26a0a671de4",
+   "atm_d2c493bf1863",
+   "atm_d3727eb4767a",
+   "atm_d4a4fe9e2fff",
+   "atm_d57d50cbd46f",
+   "atm_d5a50c32999b",
    "atm_d5d073d080fc",
+   "atm_d75f452353d9",
+   "atm_d77af7df6d03",
+   "atm_d80cb3222d17",
    "atm_d83deb4b95ed",
+   "atm_d943fb448339",
    "atm_da05c0cbeb92",
    "atm_da86790feea2",
+   "atm_dabaeb90be5a",
+   "atm_dad10402d915",
+   "atm_dad94d45743f",
+   "atm_db47f02242c9",
+   "atm_db5a6557e4b5",
+   "atm_db8cc6726188",
    "atm_dbf795f532fa",
+   "atm_dc1c985d5299",
+   "atm_dc472430fd0e",
+   "atm_dc6f04f6a1d0",
+   "atm_dcc3f946acb2",
    "atm_dce47f562810",
+   "atm_dd7d5f9e2fdf",
+   "atm_dda55212e144",
+   "atm_de27d76e98ed",
+   "atm_de55a01ea4e0",
+   "atm_dfa20e6bf23f",
    "atm_dfc05d10dfcf",
+   "atm_dfd645ef05c0",
+   "atm_e0803fa5b650",
    "atm_e1447da93736",
+   "atm_e1b6266b00e7",
+   "atm_e20896f61acd",
+   "atm_e2336b077e82",
+   "atm_e36d83d3428b",
+   "atm_e3a6a253be44",
+   "atm_e433d79a595f",
+   "atm_e47cf0a88468",
    "atm_e53b24ec7dce",
    "atm_e5882c19fe5d",
+   "atm_e59def631833",
+   "atm_e67ad45cb772",
+   "atm_e6a65ff46fe5",
+   "atm_e6e35b3b1e55",
    "atm_e6f75e7898c3",
+   "atm_e70740d7190f",
+   "atm_e75b1bf2f7fa",
+   "atm_e7a4a8ee0935",
+   "atm_e7e897e7b245",
+   "atm_e81470498de1",
    "atm_e85177c2fa30",
+   "atm_e887947ecd67",
+   "atm_e8e315133a8c",
+   "atm_e94197bd43c4",
+   "atm_ea03891d3c0c",
+   "atm_ea0b843c8040",
+   "atm_ea156d0cc9ef",
    "atm_ea35d8f70c99",
    "atm_ea4cec02c2f6",
+   "atm_ead3c22e0d4f",
+   "atm_ebee608c19db",
+   "atm_ec228de3a806",
+   "atm_ec52e7b7a8fa",
    "atm_ecfdf6713ffe",
+   "atm_ed9d09b8ce1a",
    "atm_edd60e50c814",
+   "atm_edfd7ad1c77f",
    "atm_ee8caa0687d3",
    "atm_eea7bee4a533",
    "atm_ef0a76735f18",
+   "atm_ef1de3b43459",
+   "atm_efbde06d812d",
+   "atm_f10c40951ca6",
+   "atm_f167e28677f7",
+   "atm_f16ce9b85697",
+   "atm_f16db702a7df",
    "atm_f16dfd0eeeac",
+   "atm_f19e50fa21b8",
+   "atm_f1d46de95da5",
    "atm_f1e627fbac6a",
+   "atm_f1f2aae7e0ab",
+   "atm_f4afa21fa970",
+   "atm_f4d0689cb5d2",
+   "atm_f4e97ad3a62e",
+   "atm_f5e47e7ec9a6",
    "atm_f644bdf4dd51",
    "atm_f72378f74a6b",
+   "atm_f7aaf036dac5",
+   "atm_f80efa7220d3",
+   "atm_f84319433582",
+   "atm_f84831b3eb8b",
+   "atm_f8b6f3e82ec4",
+   "atm_f96548a4730e",
+   "atm_fa3ae8f3354e",
+   "atm_fa4666575fc8",
+   "atm_fa72e793a49c",
    "atm_fb1c88a99dbf",
+   "atm_fb5a69de595c",
+   "atm_fb73bf27bdb5",
    "atm_fb908e0b6c54",
+   "atm_fb9cdb121df3",
    "atm_fbc1ae263ecd",
    "atm_fc22ca49a31d",
-   "atm_fe41075e4a29"
+   "atm_fc90c4a62930",
+   "atm_fcd1da2c1009",
+   "atm_fd0c7f79f1c7",
+   "atm_fd11c8cbb7ac",
+   "atm_fd3cb2045447",
+   "atm_fd66a101e97c",
+   "atm_fdfb75d2c5b0",
+   "atm_fe3149f63023",
+   "atm_fe4065858dce",
+   "atm_fe41075e4a29",
+   "atm_febaf6d982d6",
+   "atm_feccf0569915",
+   "atm_ff720525fc91",
+   "atm_ff7e0527ae32",
+   "atm_ff812a421048",
+   "atm_ff9a965b152a"
   ],
-  "relation_total": 189,
-  "last_raw": 200,
+  "relation_total": 541,
+  "last_raw": 380,
   "last_dropped": {
-   "닫힌 세계 위반": 1
+   "닫힌 세계 위반": 5
   },
-  "cost_usd": 0.7061,
+  "cost_usd": 2.125,
   "last_demoted": {
-   "operates→related": 11,
-   "founded→related": 2,
+   "founded→related": 3,
+   "operates→related": 19,
    "ruled→related": 1
   }
  },
@@ -220,14 +790,15 @@
     "atm_24f93f86a20d",
     "atm_5550ff4942ef",
     "atm_57b210c8d833",
-    "atm_d17226bbf6bf"
+    "atm_d17226bbf6bf",
+    "atm_be43b29468d1"
    ],
    "layers": {
     "culture": 2,
     "history": 1,
-    "economy": 1
+    "economy": 2
    },
-   "strength": 4,
+   "strength": 5,
    "layer": "culture"
   },
   {
@@ -257,6 +828,86 @@
    },
    "strength": 3,
    "layer": "geography"
+  },
+  {
+   "src": "karl-marx-hof",
+   "dst": "vienna",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_37da4e8f433a",
+    "atm_f4afa21fa970",
+    "atm_f4e97ad3a62e"
+   ],
+   "layers": {
+    "history": 2,
+    "architecture": 1
+   },
+   "strength": 3,
+   "layer": "history"
+  },
+  {
+   "src": "latgale",
+   "dst": "latvia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4c506c031137",
+    "atm_08ad7f81de9f",
+    "atm_ec228de3a806"
+   ],
+   "layers": {
+    "geography": 1,
+    "culture": 2
+   },
+   "strength": 3,
+   "layer": "culture"
+  },
+  {
+   "src": "pahang",
+   "dst": "malaysia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_49b6b08fee5f",
+    "atm_299833074c58",
+    "atm_a60aa4ae835e"
+   ],
+   "layers": {
+    "economy": 3
+   },
+   "strength": 3,
+   "layer": "economy"
   },
   {
    "src": "albolote",
@@ -314,6 +965,108 @@
    "layer": "history"
   },
   {
+   "src": "bratislava",
+   "dst": "slovakia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4bd93c84a1a2",
+    "atm_9a87a28cd0a5"
+   ],
+   "layers": {
+    "geography": 2
+   },
+   "strength": 2,
+   "layer": "geography"
+  },
+  {
+   "src": "bytom",
+   "dst": "upper-silesia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_736ac4eed284",
+    "atm_c15358d3e42a"
+   ],
+   "layers": {
+    "architecture": 1,
+    "economy": 1
+   },
+   "strength": 2,
+   "layer": "architecture"
+  },
+  {
+   "src": "ciudad-del-carmen",
+   "dst": "campeche",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_3ba44d2fa55c",
+    "atm_e94197bd43c4"
+   ],
+   "layers": {
+    "economy": 2
+   },
+   "strength": 2,
+   "layer": "economy"
+  },
+  {
+   "src": "cordoba-argentina",
+   "dst": "argentina",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_35ff70ea7db7",
+    "atm_bb85705ffd68"
+   ],
+   "layers": {
+    "geography": 1,
+    "economy": 1
+   },
+   "strength": 2,
+   "layer": "geography"
+  },
+  {
    "src": "dingac",
    "dst": "peljesac-peninsula",
    "type": "part-of",
@@ -338,6 +1091,32 @@
    },
    "strength": 2,
    "layer": "history"
+  },
+  {
+   "src": "dubrovnik",
+   "dst": "dalmatia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_419b94faedad",
+    "atm_8c11beb087d8"
+   ],
+   "layers": {
+    "architecture": 1,
+    "economy": 1
+   },
+   "strength": 2,
+   "layer": "architecture"
   },
   {
    "src": "hindi-belt",
@@ -365,6 +1144,200 @@
    "layer": "language"
   },
   {
+   "src": "ismail-qemali",
+   "dst": "albania",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1912,
+    1912
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_6f410dc5745b",
+    "atm_7266b73130ce"
+   ],
+   "layers": {
+    "history": 2
+   },
+   "strength": 2,
+   "layer": "history"
+  },
+  {
+   "src": "izrael-poznanski",
+   "dst": "lodz",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_534a1ac8ceb2",
+    "atm_ea156d0cc9ef"
+   ],
+   "layers": {
+    "economy": 2
+   },
+   "strength": 2,
+   "layer": "economy"
+  },
+  {
+   "src": "jacobo-arbenz",
+   "dst": "guatemala",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1911,
+    1954
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_771069e5f670",
+    "atm_b596b7eba650"
+   ],
+   "layers": {
+    "economy": 1,
+    "history": 1
+   },
+   "strength": 2,
+   "layer": "economy"
+  },
+  {
+   "src": "jadrolinija",
+   "dst": "gruz",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_57b210c8d833",
+    "atm_8f2867c35c4e"
+   ],
+   "layers": {
+    "economy": 2
+   },
+   "strength": 2,
+   "layer": "economy"
+  },
+  {
+   "src": "jakob-reumann",
+   "dst": "vienna",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_37da4e8f433a",
+    "atm_f4afa21fa970"
+   ],
+   "layers": {
+    "history": 1,
+    "architecture": 1
+   },
+   "strength": 2,
+   "layer": "history"
+  },
+  {
+   "src": "karl-ehn",
+   "dst": "karl-marx-hof",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_37da4e8f433a",
+    "atm_f4afa21fa970"
+   ],
+   "layers": {
+    "history": 1,
+    "architecture": 1
+   },
+   "strength": 2,
+   "layer": "history"
+  },
+  {
+   "src": "karl-seitz",
+   "dst": "vienna",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_37da4e8f433a",
+    "atm_f4afa21fa970"
+   ],
+   "layers": {
+    "history": 1,
+    "architecture": 1
+   },
+   "strength": 2,
+   "layer": "history"
+  },
+  {
+   "src": "lazaro-cardenas",
+   "dst": "mexico",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_11de3f1b2c80",
+    "atm_4a1dc25fe60d"
+   ],
+   "layers": {
+    "economy": 2
+   },
+   "strength": 2,
+   "layer": "economy"
+  },
+  {
+   "src": "lusatia",
+   "dst": "germany",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_1d3c15882ba5",
+    "atm_4782de81e402"
+   ],
+   "layers": {
+    "economy": 2
+   },
+   "strength": 2,
+   "layer": "economy"
+  },
+  {
    "src": "novalja",
    "dst": "pag-island",
    "type": "part-of",
@@ -390,6 +1363,27 @@
    "layer": "economy"
   },
   {
+   "src": "ragusan-republic",
+   "dst": "gruz",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5550ff4942ef",
+    "atm_399453199a88"
+   ],
+   "layers": {
+    "history": 2
+   },
+   "strength": 2,
+   "layer": "history"
+  },
+  {
    "src": "saltillo",
    "dst": "coahuila",
    "type": "part-of",
@@ -413,6 +1407,232 @@
     "geography": 1
    },
    "strength": 2,
+   "layer": "economy"
+  },
+  {
+   "src": "solana-pag",
+   "dst": "pag-island",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_7109014d9dbc",
+    "atm_fd66a101e97c"
+   ],
+   "layers": {
+    "economy": 2
+   },
+   "strength": 2,
+   "layer": "economy"
+  },
+  {
+   "src": "tupras",
+   "dst": "izmit",
+   "type": "related",
+   "dir": "->",
+   "period": [
+    1961,
+    null
+   ],
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_6f2f315da529",
+    "atm_e7a4a8ee0935"
+   ],
+   "layers": {
+    "economy": 2
+   },
+   "strength": 2,
+   "layer": "economy"
+  },
+  {
+   "src": "united-fruit-company",
+   "dst": "izabal",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_97cb0403cd30",
+    "atm_3e84d5b04e4e"
+   ],
+   "layers": {
+    "history": 1,
+    "economy": 1
+   },
+   "strength": 2,
+   "layer": "history"
+  },
+  {
+   "src": "velebit",
+   "dst": "senj",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel"
+   ],
+   "atoms": [
+    "atm_eea7bee4a533",
+    "atm_b4423012789e"
+   ],
+   "layers": {
+    "nature": 2
+   },
+   "strength": 2,
+   "layer": "nature"
+  },
+  {
+   "src": "vidzeme",
+   "dst": "latvia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4c506c031137",
+    "atm_fd0c7f79f1c7"
+   ],
+   "layers": {
+    "geography": 1,
+    "history": 1
+   },
+   "strength": 2,
+   "layer": "geography"
+  },
+  {
+   "src": "william-of-wykeham",
+   "dst": "oxford",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1379,
+    1379
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_861e5346626d",
+    "atm_febaf6d982d6"
+   ],
+   "layers": {
+    "history": 1,
+    "culture": 1
+   },
+   "strength": 2,
+   "layer": "history"
+  },
+  {
+   "src": "ada-colau",
+   "dst": "barcelona",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    2015,
+    2015
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_22a2a817503c"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "adnan-menderes",
+   "dst": "turkey",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_3399a29c8934"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "akinfiy-demidov",
+   "dst": "demidov-dynasty",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4ac41a5ca83d"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "akinfiy-demidov",
+   "dst": "urals",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4ac41a5ca83d"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
    "layer": "economy"
   },
   {
@@ -503,6 +1723,294 @@
    "layer": "architecture"
   },
   {
+   "src": "alhambra",
+   "dst": "granada",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_dc6f04f6a1d0"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "alhambra",
+   "dst": "kingdom-of-granada",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_c57fe98938af"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "almohad-caliphate",
+   "dst": "kingdom-of-aragon",
+   "type": "opposed",
+   "dir": "<->",
+   "period": [
+    1212,
+    1212
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5436844715ef"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "almohad-caliphate",
+   "dst": "kingdom-of-castile",
+   "type": "opposed",
+   "dir": "<->",
+   "period": [
+    1212,
+    1212
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5436844715ef"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "alpujarras",
+   "dst": "kingdom-of-granada",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5aa40cca080a"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "althingi",
+   "dst": "iceland",
+   "type": "part-of",
+   "dir": "->",
+   "period": [
+    930,
+    null
+   ],
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_81f38865642b"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "alvaro-de-luna",
+   "dst": "juan-ii-of-castile",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_e20896f61acd"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "ambrosio-de-vico",
+   "dst": "granada",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_ff7e0527ae32"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "amsterdam",
+   "dst": "het-schip",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_01edea247fa5"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "anangu",
+   "dst": "uluru",
+   "type": "related",
+   "dir": "<->",
+   "period": [
+    2019,
+    2019
+   ],
+   "themes": [
+    "realty",
+    "travel"
+   ],
+   "atoms": [
+    "atm_555b771dd648"
+   ],
+   "layers": {
+    "nature": 1
+   },
+   "strength": 1,
+   "layer": "nature"
+  },
+  {
+   "src": "arcelormittal",
+   "dst": "galati",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_ead3c22e0d4f"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "arcelormittal",
+   "dst": "huta-katowice",
+   "type": "operates",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_ead3c22e0d4f"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "arni-magnusson-institute",
+   "dst": "iceland",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_73325db2b48d"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
    "src": "arona",
    "dst": "italy",
    "type": "part-of",
@@ -519,6 +2027,24 @@
    ],
    "atoms": [
     "atm_5d77688926e3"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "auguste-de-marmont",
+   "dst": "dubrovnik",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_27be18fbd5d7"
    ],
    "layers": {
     "history": 1
@@ -551,6 +2077,85 @@
    "layer": "history"
   },
   {
+   "src": "aurangzeb",
+   "dst": "maharashtra",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1658,
+    1707
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_8cf354495661"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "aurangzeb",
+   "dst": "mughal-empire",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_2e7a14e50f55"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "aurangzeb",
+   "dst": "shah-jahan",
+   "type": "succeeded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_2e7a14e50f55"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "austro-hungarian-empire",
+   "dst": "bosnia-herzegovina",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1882,
+    1903
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f1d46de95da5"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "austro-hungarian-empire",
    "dst": "ciro-railway",
    "type": "founded",
@@ -562,6 +2167,198 @@
    ],
    "atoms": [
     "atm_e1447da93736"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "bajio",
+   "dst": "trans-mexican-volcanic-belt",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_aa1543dd152e"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "bal-gangadhar-tilak",
+   "dst": "maharashtra",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f80efa7220d3"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "baska-tablet",
+   "dst": "krk-island",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_079537684ebd"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "becontree",
+   "dst": "london",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_01edea247fa5"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "bektashi-order",
+   "dst": "tirana",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_3d2e64f3716f"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "bektashi-order",
+   "dst": "tirana",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_8ca97c9de43b"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "benedikt-kotruljevic",
+   "dst": "republic-of-ragusa",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_d75f452353d9"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "benjamin-jowett",
+   "dst": "oxford",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_861e5346626d"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "benjamin-kallay",
+   "dst": "bosnia-herzegovina",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1882,
+    1903
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f1d46de95da5"
    ],
    "layers": {
     "history": 1
@@ -618,6 +2415,107 @@
    "layer": "architecture"
   },
   {
+   "src": "billa",
+   "dst": "slovakia",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_7a548ba0d999"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "boca-costa",
+   "dst": "guatemala",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5469b89fe83f"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "boca-costa",
+   "dst": "guatemala",
+   "type": "produces",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "travel"
+   ],
+   "atoms": [
+    "atm_5469b89fe83f"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "boris-magas",
+   "dst": "krk",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_feccf0569915"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "boris-podrecca",
+   "dst": "millennium-tower",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4161e6b8e990"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
    "src": "borromeo-family",
    "dst": "arona",
    "type": "ruled",
@@ -634,6 +2532,51 @@
    },
    "strength": 1,
    "layer": "history"
+  },
+  {
+   "src": "borromeo-family",
+   "dst": "isola-bella",
+   "type": "related",
+   "dir": "->",
+   "period": [
+    1600,
+    1699
+   ],
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_9fdd839f0e14"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "bp",
+   "dst": "socar",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_cf0c36b87c60"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "brigittenau",
@@ -677,6 +2620,25 @@
    },
    "strength": 1,
    "layer": "culture"
+  },
+  {
+   "src": "british-india",
+   "dst": "east-india-company",
+   "type": "succeeded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_5a8a57ca7628"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
   },
   {
    "src": "british-india",
@@ -780,6 +2742,88 @@
    "layer": "culture"
   },
   {
+   "src": "buenos-aires",
+   "dst": "cordoba-argentina",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7e047d064bd0"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "bulgaria",
+   "dst": "european-union",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f5e47e7ec9a6"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "bulgaria",
+   "dst": "ottoman-empire",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_3f8ac8e75e7f"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "bulgaria",
+   "dst": "romania",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_08a5788cfe1e"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
    "src": "bytom",
    "dst": "gop",
    "type": "part-of",
@@ -805,7 +2849,25 @@
   },
   {
    "src": "bytom",
-   "dst": "upper-silesia",
+   "dst": "krakow",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_2370481fd82f"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "bytom",
+   "dst": "poland",
    "type": "part-of",
    "dir": "->",
    "period": null,
@@ -819,13 +2881,98 @@
     "heritage"
    ],
    "atoms": [
-    "atm_736ac4eed284"
+    "atm_22e41b91d513"
    ],
    "layers": {
-    "architecture": 1
+    "economy": 1
    },
    "strength": 1,
-   "layer": "architecture"
+   "layer": "economy"
+  },
+  {
+   "src": "cagayan-valley",
+   "dst": "cordillera-mountains",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "trade",
+    "corporate",
+    "travel"
+   ],
+   "atoms": [
+    "atm_38d8cec03379"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "caledonian-macbrayne",
+   "dst": "hebrides",
+   "type": "connects",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "trade",
+    "travel",
+    "realty"
+   ],
+   "atoms": [
+    "atm_bd48449bc42a"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "california",
+   "dst": "new-spain",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_2018d9cd2ed1"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "campeche",
+   "dst": "sabancuy",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_581f9c20bf4a"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
   },
   {
    "src": "carlo-borromeo",
@@ -852,6 +2999,89 @@
    "layer": "history"
   },
   {
+   "src": "carlos-la-mona-jimenez",
+   "dst": "cuarteto",
+   "type": "related",
+   "dir": "->",
+   "period": [
+    1940,
+    null
+   ],
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_13601d2b6254"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "carol-i-romania",
+   "dst": "osman-pasha",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_aa8849279b22"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "carole-meredith",
+   "dst": "plavac-mali",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_0b558ec13f6d"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "carole-meredith",
+   "dst": "uc-davis",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a3ce9e955521"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
    "src": "castile",
    "dst": "kingdom-of-granada",
    "type": "opposed",
@@ -862,6 +3092,48 @@
    ],
    "atoms": [
     "atm_ecfdf6713ffe"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "catherine-ii",
+   "dst": "cossack-hetmanate",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1764,
+    1764
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_37fb4b96ed8f"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "catherine-ii",
+   "dst": "zaporozhian-sich",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1775,
+    1775
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_37fb4b96ed8f"
    ],
    "layers": {
     "history": 1
@@ -894,6 +3166,48 @@
    "layer": "geography"
   },
   {
+   "src": "cesvaine-manor",
+   "dst": "latvia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_54a887a29bb7"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "cetinje",
+   "dst": "ottoman-empire",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_405c3139fb6e"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "cfe",
    "dst": "mexico",
    "type": "related",
@@ -914,6 +3228,42 @@
    },
    "strength": 1,
    "layer": "economy"
+  },
+  {
+   "src": "charles-i-of-hungary",
+   "dst": "kingdom-of-hungary",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_01813ad314d3"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "charles-iii-of-spain",
+   "dst": "society-of-jesus",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_c3a16dd3c51a"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
   },
   {
    "src": "cherating",
@@ -940,6 +3290,27 @@
    "layer": "economy"
   },
   {
+   "src": "chernozem",
+   "dst": "ukraine",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "trade",
+    "corporate",
+    "travel"
+   ],
+   "atoms": [
+    "atm_78e74e486126"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
    "src": "chhatrapati-sambhajinagar",
    "dst": "aurangabad",
    "type": "succeeded",
@@ -957,6 +3328,46 @@
    },
    "strength": 1,
    "layer": "history"
+  },
+  {
+   "src": "chhatrapati-sambhajinagar",
+   "dst": "maharashtra",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7d0a7b2ffb16"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "christopher-wren",
+   "dst": "oxford",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_3e6a73b6e2d7"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
   },
   {
    "src": "ciro-railway",
@@ -999,28 +3410,26 @@
    "layer": "history"
   },
   {
-   "src": "ciudad-del-carmen",
-   "dst": "campeche",
-   "type": "part-of",
+   "src": "clement-of-ohrid",
+   "dst": "saints-cyril-and-methodius",
+   "type": "succeeded",
    "dir": "->",
-   "period": null,
+   "period": [
+    886,
+    971
+   ],
    "themes": [
-    "stock",
-    "realty",
-    "trade",
-    "corporate",
-    "talent",
-    "travel",
-    "heritage"
+    "heritage",
+    "corporate"
    ],
    "atoms": [
-    "atm_3ba44d2fa55c"
+    "atm_7fee21f2b232"
    ],
    "layers": {
-    "economy": 1
+    "language": 1
    },
    "strength": 1,
-   "layer": "economy"
+   "layer": "language"
   },
   {
    "src": "club-med",
@@ -1045,8 +3454,8 @@
    "layer": "economy"
   },
   {
-   "src": "cordoba-argentina",
-   "dst": "argentina",
+   "src": "cooper-allen",
+   "dst": "kanpur",
    "type": "part-of",
    "dir": "->",
    "period": null,
@@ -1060,7 +3469,72 @@
     "heritage"
    ],
    "atoms": [
-    "atm_35ff70ea7db7"
+    "atm_128ca252a80f"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "copan",
+   "dst": "quirigu",
+   "type": "opposed",
+   "dir": "<->",
+   "period": [
+    724,
+    785
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_62c209ca3767"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "cordillera-mountains",
+   "dst": "james-c-scott",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b371d09d3268"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "cordillera-mountains",
+   "dst": "luzon",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_38d8cec03379"
    ],
    "layers": {
     "geography": 1
@@ -1086,6 +3560,114 @@
    },
    "strength": 1,
    "layer": "culture"
+  },
+  {
+   "src": "council-for-leather-exports",
+   "dst": "kanpur",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_782100ea4834"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "crljenak-kastelanski",
+   "dst": "zinfandel",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_8f953db197d4"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "croatia",
+   "dst": "velebit",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_8f3cf2470f73"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "cuarteto",
+   "dst": "cordoba-argentina",
+   "type": "succeeded",
+   "dir": "->",
+   "period": [
+    1940,
+    null
+   ],
+   "themes": [
+    "heritage",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_13601d2b6254"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "czechia",
+   "dst": "czechoslovakia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_3b4caddc25e6"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
   },
   {
    "src": "dalmatia",
@@ -1131,6 +3713,86 @@
    },
    "strength": 1,
    "layer": "architecture"
+  },
+  {
+   "src": "dalmatia",
+   "dst": "peljesac-bridge",
+   "type": "connects",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "trade",
+    "travel",
+    "realty"
+   ],
+   "atoms": [
+    "atm_56d1ff380ebc"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "dalmatia",
+   "dst": "plavac-mali",
+   "type": "produces",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "travel"
+   ],
+   "atoms": [
+    "atm_232e07af9298"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "dalmatia",
+   "dst": "posip",
+   "type": "produces",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "travel"
+   ],
+   "atoms": [
+    "atm_232e07af9298"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "daniel-pauly",
+   "dst": "fao",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4b231970ad83"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "danube",
@@ -1217,6 +3879,49 @@
    "layer": "geography"
   },
   {
+   "src": "date-clan",
+   "dst": "sendai",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_dda55212e144"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "debrecen",
+   "dst": "hungary",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4a4ba4bb9d46"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
    "src": "deccan-plateau",
    "dst": "india",
    "type": "part-of",
@@ -1263,6 +3968,26 @@
    "layer": "history"
   },
   {
+   "src": "deodoro-roca",
+   "dst": "universidad-nacional-de-cordoba",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_80d8c0cb7bd1"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "dingac",
    "dst": "potomje",
    "type": "connects",
@@ -1278,6 +4003,26 @@
    ],
    "atoms": [
     "atm_322a44091c44"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "dollfuss",
+   "dst": "karl-marx-hof",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f4e97ad3a62e"
    ],
    "layers": {
     "history": 1
@@ -1306,6 +4051,48 @@
   },
   {
    "src": "dubrovnik",
+   "dst": "barcelona",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_35a25e757bca"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "dubrovnik",
+   "dst": "croatian-war-of-independence",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_329f3ad24f9a"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "dubrovnik",
    "dst": "republic-of-ragusa",
    "type": "related",
    "dir": "<->",
@@ -1323,6 +4110,53 @@
    },
    "strength": 1,
    "layer": "history"
+  },
+  {
+   "src": "dubrovnik",
+   "dst": "republic-of-ragusa",
+   "type": "part-of",
+   "dir": "->",
+   "period": [
+    1667,
+    1667
+   ],
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_467d62279854"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "dubrovnik",
+   "dst": "venice",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_35a25e757bca"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
   },
   {
    "src": "dubrovnik-littoral",
@@ -1385,6 +4219,285 @@
    "layer": "history"
   },
   {
+   "src": "duchy-of-courland",
+   "dst": "kettler-dynasty",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_072819aec72c"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "eastern-slovakia",
+   "dst": "slovakia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4bd93c84a1a2"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "echigo-plain",
+   "dst": "niigata",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_c113219fd136"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "ecole-normale-superieure",
+   "dst": "ecole-polytechnique",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_32659ddd04fc"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "edi-maletic",
+   "dst": "plavac-mali",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_0b558ec13f6d"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "elgin-mills",
+   "dst": "kanpur",
+   "type": "part-of",
+   "dir": "->",
+   "period": [
+    1860,
+    1869
+   ],
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_128ca252a80f"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "enver-hoxha",
+   "dst": "albania",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b621829c5d7d"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "erich-koch",
+   "dst": "reichskommissariat-ukraine",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1941,
+    1944
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_cf38712e2c3e"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "essen",
+   "dst": "ruhr-area",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_0c5f6ed3609b"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "faroese-language",
+   "dst": "old-norse",
+   "type": "succeeded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_92f75e584a5b"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "ferdinand-ii-of-aragon",
+   "dst": "kingdom-of-granada",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1492,
+    1492
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f7aaf036dac5"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "ferenc-kazinczy",
+   "dst": "hungary",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_31bf07aa9649"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "flixbus",
+   "dst": "slovakia",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_b748544d5f58"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "floridsdorf",
    "dst": "vienna",
    "type": "part-of",
@@ -1407,6 +4520,45 @@
    },
    "strength": 1,
    "layer": "economy"
+  },
+  {
+   "src": "fran-krsto-frankopan",
+   "dst": "habsburg-monarchy",
+   "type": "opposed",
+   "dir": "<->",
+   "period": [
+    1671,
+    1671
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_89fc40b8d9af"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "france",
+   "dst": "united-states",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_201d500a41a8"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
   },
   {
    "src": "franjo-tudman-bridge",
@@ -1439,6 +4591,84 @@
    ],
    "atoms": [
     "atm_ea4cec02c2f6"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "fridtjof-nansen",
+   "dst": "norwegian-polar-institute",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_302c63ec2d88"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "fridtjof-nansen",
+   "dst": "tromso",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_84831e5db897"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "frigyes-schulek",
+   "dst": "budapest",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_7976ef60a483"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "fujiko-f-fujio",
+   "dst": "takaoka",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a3ecd2a93518"
    ],
    "layers": {
     "culture": 1
@@ -1521,6 +4751,46 @@
   },
   {
    "src": "garifuna",
+   "dst": "belize",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_fa4666575fc8"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "garifuna",
+   "dst": "honduras",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_fa4666575fc8"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "garifuna",
    "dst": "izabal",
    "type": "related",
    "dir": "<->",
@@ -1540,6 +4810,90 @@
    "layer": "culture"
   },
   {
+   "src": "garifuna",
+   "dst": "roatan",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_fa4666575fc8"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "garifuna",
+   "dst": "st-vincent",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_fa4666575fc8"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "gedeon-richter",
+   "dst": "budapest",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_8ab91b1ea054"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "general-motors",
+   "dst": "coahuila",
+   "type": "related",
+   "dir": "->",
+   "period": [
+    1981,
+    1981
+   ],
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_3922a208d3ea"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "general-motors",
    "dst": "saltillo",
    "type": "related",
@@ -1554,6 +4908,72 @@
    ],
    "atoms": [
     "atm_bfa44d28d5f9"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "george-grierson",
+   "dst": "india",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "corporate",
+    "talent",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_e6e35b3b1e55"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "george-town",
+   "dst": "penang",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_ab372db09824"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "gerard-blitz",
+   "dst": "club-med",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1950,
+    1950
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_c116449f3bbd"
    ],
    "layers": {
     "economy": 1
@@ -1602,6 +5022,28 @@
    "layer": "history"
   },
   {
+   "src": "grgic-vina",
+   "dst": "peljesac-peninsula",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4c5224f835d7"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "gruz",
    "dst": "dubrovnik",
    "type": "related",
@@ -1646,6 +5088,111 @@
    "layer": "economy"
   },
   {
+   "src": "gundulic-family",
+   "dst": "republic-of-ragusa",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_2293f2bdddc3"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "gustav-peichl",
+   "dst": "millennium-tower",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4161e6b8e990"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "gyozo-czigler",
+   "dst": "budapest",
+   "type": "related",
+   "dir": "->",
+   "period": [
+    1913,
+    1913
+   ],
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_6b0ef5e85c67"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "habsburg-monarchy",
+   "dst": "croatia",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1671,
+    1699
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7a45cf49ac33"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "habsburg-monarchy",
+   "dst": "venice",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b4d7360b2ed5"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "hafnarfjordur",
    "dst": "reykjavik-capital-region",
    "type": "part-of",
@@ -1670,6 +5217,176 @@
    "layer": "geography"
   },
   {
+   "src": "harry-truman",
+   "dst": "potsdam-conference",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f84319433582"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "harvard",
+   "dst": "yale",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_32659ddd04fc"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "henckel-von-donnersmarck",
+   "dst": "upper-silesia",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_9715e7ff4e77"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "henry-vi",
+   "dst": "cambridge",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1441,
+    1441
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_861e5346626d"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "het-schip",
+   "dst": "amsterdam",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7f0b825b3655"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "hiroya-masuda",
+   "dst": "japan",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_e75b1bf2f7fa"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "hokkaido",
+   "dst": "japan",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_726f0d1570b0"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "house-of-este",
+   "dst": "lago-di-garda",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b71ca9914bc6"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "hungarian-language",
    "dst": "hungary",
    "type": "related",
@@ -1688,6 +5405,25 @@
    },
    "strength": 1,
    "layer": "language"
+  },
+  {
+   "src": "hyderabad",
+   "dst": "mughal-empire",
+   "type": "succeeded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_83ccf4c193cc"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
   },
   {
    "src": "iapodes",
@@ -1710,6 +5446,65 @@
    "layer": "history"
   },
   {
+   "src": "ibn-al-awwam",
+   "dst": "seville",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_e1b6266b00e7"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "ibn-bassal",
+   "dst": "toledo",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_e1b6266b00e7"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "icelandic-forestry-association",
+   "dst": "iceland",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_a2124f73a376"
+   ],
+   "layers": {
+    "nature": 1
+   },
+   "strength": 1,
+   "layer": "nature"
+  },
+  {
    "src": "icelandic-language",
    "dst": "iceland",
    "type": "related",
@@ -1722,6 +5517,88 @@
    ],
    "atoms": [
     "atm_e6f75e7898c3"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "ifugao-rice-terraces",
+   "dst": "banaue",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_d15c475691e7"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "ignac-alpar",
+   "dst": "budapest",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_7976ef60a483"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "ignatius-of-loyola",
+   "dst": "council-of-trent",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_6b306aa68601"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "ihor-smilianskyi",
+   "dst": "ukrposhta",
+   "type": "operates",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_876958b4611d"
    ],
    "layers": {
     "language": 1
@@ -1751,6 +5628,25 @@
    "layer": "geography"
   },
   {
+   "src": "imre-steindl",
+   "dst": "budapest",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_7976ef60a483"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
    "src": "imss",
    "dst": "mexico",
    "type": "related",
@@ -1773,26 +5669,256 @@
    "layer": "economy"
   },
   {
-   "src": "ismail-qemali",
-   "dst": "albania",
+   "src": "india",
+   "dst": "tamil-nadu",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_843671f5da2f"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "infonavit",
+   "dst": "mexico",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_ef1de3b43459"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "instituto-nacional-de-industria",
+   "dst": "spain",
    "type": "founded",
    "dir": "->",
-   "period": [
-    1912,
-    1912
-   ],
+   "period": null,
    "themes": [
     "heritage",
     "talent"
    ],
    "atoms": [
-    "atm_6f410dc5745b"
+    "atm_0e03ac7cf71d"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "interstate-highway-system",
+   "dst": "united-states",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "trade",
+    "corporate",
+    "travel"
+   ],
+   "atoms": [
+    "atm_bd2899174a72"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "isabella-i-of-castile",
+   "dst": "kingdom-of-granada",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1492,
+    1492
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f7aaf036dac5"
    ],
    "layers": {
     "history": 1
    },
    "strength": 1,
    "layer": "history"
+  },
+  {
+   "src": "isar-river",
+   "dst": "munich",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a80e8c9540ff"
+   ],
+   "layers": {
+    "nature": 1
+   },
+   "strength": 1,
+   "layer": "nature"
+  },
+  {
+   "src": "isola-bella",
+   "dst": "lago-maggiore",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_9fdd839f0e14"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "istria",
+   "dst": "croatia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_57714df5d867"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "istvan-szechenyi",
+   "dst": "budapest",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_087beb8d3718"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "ivan-gundulic",
+   "dst": "ragusan-republic",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_399453199a88"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "ivan-kotliarevsky",
+   "dst": "ukraine",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_cfac9d9821b9"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "ivar-aasen",
+   "dst": "norway",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_2b6553ea8e6b"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
   },
   {
    "src": "izabal",
@@ -1861,26 +5987,45 @@
    "layer": "culture"
   },
   {
-   "src": "jadrolinija",
-   "dst": "gruz",
-   "type": "related",
-   "dir": "->",
-   "period": null,
+   "src": "jacobo-arbenz",
+   "dst": "sam-zemurray",
+   "type": "opposed",
+   "dir": "<->",
+   "period": [
+    1911,
+    1954
+   ],
    "themes": [
-    "stock",
-    "realty",
-    "trade",
-    "corporate",
-    "talent"
+    "heritage"
    ],
    "atoms": [
-    "atm_57b210c8d833"
+    "atm_771069e5f670"
    ],
    "layers": {
     "economy": 1
    },
    "strength": 1,
    "layer": "economy"
+  },
+  {
+   "src": "james-stirling",
+   "dst": "oxford",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_70b3ea9fe6d5"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
   },
   {
    "src": "janaf",
@@ -1905,6 +6050,255 @@
    "layer": "economy"
   },
   {
+   "src": "janis-endzelins",
+   "dst": "latvian-language",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_87a8877b3652"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "japan",
+   "dst": "dubai",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_c5683d7f6a32"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "japan",
+   "dst": "mongolia",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_a78bf6ec32f7"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "japan",
+   "dst": "myanmar",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_a78bf6ec32f7"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "japan",
+   "dst": "singapore",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_c5683d7f6a32"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "japan",
+   "dst": "united-kingdom",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a919b2d25025"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "jeronimo-luis-de-cabrera",
+   "dst": "cordoba-argentina",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_64a9f475dc8d"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "jock-kinneir",
+   "dst": "united-kingdom",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_792a1b421feb"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "joe-mathias",
+   "dst": "squamish-nation",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7720d1e5ddff"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "johann-gottfried-herder",
+   "dst": "riga",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_6b8ad57c88d9"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "joseph-stalin",
+   "dst": "potsdam-conference",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f84319433582"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "josip-broz-tito",
+   "dst": "yugoslavia",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7f76ba334efe"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "juan-carlos-ongania",
+   "dst": "universidad-de-buenos-aires",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_00dd197580ec"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "juraj-dalmatinac",
    "dst": "pag-town",
    "type": "related",
@@ -1925,6 +6319,46 @@
    "layer": "architecture"
   },
   {
+   "src": "juraj-dalmatinac",
+   "dst": "sibenik",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_dc1c985d5299"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "jyotirao-phule",
+   "dst": "maharashtra",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f80efa7220d3"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "kanpur",
    "dst": "british-india",
    "type": "supplies",
@@ -1942,6 +6376,107 @@
    },
    "strength": 1,
    "layer": "history"
+  },
+  {
+   "src": "karl-friedrich-schinkel",
+   "dst": "prussia",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_db5a6557e4b5"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "karl-ganser",
+   "dst": "ruhr-valley",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_dc472430fd0e"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "karl-scheibler",
+   "dst": "lodz",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_ea156d0cc9ef"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "karol-scheibler",
+   "dst": "lodz",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_534a1ac8ceb2"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "katowice",
+   "dst": "silesian-museum",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_de27d76e98ed"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "katowice-metropolitan-area",
@@ -2010,6 +6545,49 @@
    "layer": "economy"
   },
   {
+   "src": "kaufland",
+   "dst": "slovakia",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_7a548ba0d999"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "kelantan",
+   "dst": "malaysia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_299833074c58"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "kemaman",
    "dst": "kuantan",
    "type": "related",
@@ -2042,6 +6620,77 @@
    ],
    "atoms": [
     "atm_c9991713a212"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "kingdom-of-castile",
+   "dst": "kingdom-of-aragon",
+   "type": "related",
+   "dir": "<->",
+   "period": [
+    1492,
+    1492
+   ],
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5436844715ef"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "klaipeda",
+   "dst": "lithuania",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_1c127820bd81"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "koc-holding",
+   "dst": "turkey",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5a0a958e8c06"
    ],
    "layers": {
     "economy": 1
@@ -2146,6 +6795,72 @@
    "layer": "history"
   },
   {
+   "src": "kosovo",
+   "dst": "albania",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_fd3cb2045447"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "krk",
+   "dst": "yugoslavia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_feccf0569915"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "krk-bridge",
+   "dst": "great-belt-bridge",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_07c8da00fbe4"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "krk-bridge",
    "dst": "kvarner",
    "type": "part-of",
@@ -2170,6 +6885,28 @@
    "layer": "architecture"
   },
   {
+   "src": "krk-bridge",
+   "dst": "oresund-bridge",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_07c8da00fbe4"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "krk-island",
    "dst": "kvarner",
    "type": "part-of",
@@ -2192,6 +6929,30 @@
    },
    "strength": 1,
    "layer": "language"
+  },
+  {
+   "src": "kuala-lumpur",
+   "dst": "malaysia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_74acd4f10fb8"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
   },
   {
    "src": "kuantan",
@@ -2290,6 +7051,25 @@
    "layer": "geography"
   },
   {
+   "src": "lakshmi-mittal",
+   "dst": "arcelormittal",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_187fd589b152"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "lapad",
    "dst": "dubrovnik",
    "type": "part-of",
@@ -2314,30 +7094,6 @@
    "layer": "culture"
   },
   {
-   "src": "latgale",
-   "dst": "latvia",
-   "type": "part-of",
-   "dir": "->",
-   "period": null,
-   "themes": [
-    "stock",
-    "realty",
-    "trade",
-    "corporate",
-    "talent",
-    "travel",
-    "heritage"
-   ],
-   "atoms": [
-    "atm_4c506c031137"
-   ],
-   "layers": {
-    "geography": 1
-   },
-   "strength": 1,
-   "layer": "geography"
-  },
-  {
    "src": "latvian-language",
    "dst": "latvia",
    "type": "related",
@@ -2356,6 +7112,47 @@
    },
    "strength": 1,
    "layer": "language"
+  },
+  {
+   "src": "lazaro-cardenas",
+   "dst": "pemex",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1938,
+    1938
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_11de3f1b2c80"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "lidl",
+   "dst": "slovakia",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_7a548ba0d999"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "lika-senj-county",
@@ -2382,6 +7179,155 @@
    "layer": "economy"
   },
   {
+   "src": "lithuania",
+   "dst": "klaipeda",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_1c127820bd81"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "lng-croatia",
+   "dst": "croatia",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_ebee608c19db"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "lubeck-law",
+   "dst": "magdeburg-law",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_e7e897e7b245"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "ludwik-geyer",
+   "dst": "lodz",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_534a1ac8ceb2"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "luigi-brugnaro",
+   "dst": "venice",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    2024,
+    2024
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_22a2a817503c"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "maeda-clan",
+   "dst": "kanazawa",
+   "type": "related",
+   "dir": "->",
+   "period": [
+    1538,
+    1614
+   ],
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7f3c42ce0b03"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "maeda-clan",
+   "dst": "takaoka",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1609,
+    1609
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_7f3c42ce0b03"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "maharashtra",
    "dst": "india",
    "type": "part-of",
@@ -2404,6 +7350,66 @@
    },
    "strength": 1,
    "layer": "language"
+  },
+  {
+   "src": "malaysia",
+   "dst": "cherating",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_be5beb4f44d0"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "mangal-pandey",
+   "dst": "rani-lakshmibai",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_799bb85e5b74"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "manuel-avila-camacho",
+   "dst": "mexico",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1943,
+    1943
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_11de3f1b2c80"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "manzana-jesuitica",
@@ -2470,6 +7476,193 @@
    "layer": "language"
   },
   {
+   "src": "margaret-calvert",
+   "dst": "united-kingdom",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_792a1b421feb"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "marmara-region",
+   "dst": "turkey",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_e81470498de1"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "maslenica-bridge",
+   "dst": "velebit",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel"
+   ],
+   "atoms": [
+    "atm_de55a01ea4e0"
+   ],
+   "layers": {
+    "nature": 1
+   },
+   "strength": 1,
+   "layer": "nature"
+  },
+  {
+   "src": "maya-civilization",
+   "dst": "yucatan-peninsula",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_545ea5598310"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "meiji-restoration",
+   "dst": "japan",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_609755d083a1"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "mexico",
+   "dst": "ejido",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1934,
+    1940
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_aa03a02047ac"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "mexico-city",
+   "dst": "trans-mexican-volcanic-belt",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_aa1543dd152e"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "michel-de-klerk",
+   "dst": "het-schip",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_7f0b825b3655"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "michelozzo",
+   "dst": "dubrovnik",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_58770f3d8138"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
    "src": "mikhail-kalashnikov",
    "dst": "altai-krai",
    "type": "related",
@@ -2488,6 +7681,71 @@
    },
    "strength": 1,
    "layer": "culture"
+  },
+  {
+   "src": "mikhail-kalashnikov",
+   "dst": "izhevsk",
+   "type": "related",
+   "dir": "->",
+   "period": [
+    1949,
+    1961
+   ],
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a89c6a101444"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "mikhail-skobelev",
+   "dst": "osman-pasha",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_aa8849279b22"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "military-frontier",
+   "dst": "habsburg-monarchy",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7d875b0f04b5"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
   },
   {
    "src": "millennium-tower",
@@ -2514,6 +7772,49 @@
    "layer": "architecture"
   },
   {
+   "src": "mindanao",
+   "dst": "philippines",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a6587759b307"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "minor-c-keith",
+   "dst": "united-fruit-company",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_3e84d5b04e4e"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "miroslav-hirtz",
    "dst": "jablanac",
    "type": "founded",
@@ -2531,6 +7832,30 @@
    },
    "strength": 1,
    "layer": "culture"
+  },
+  {
+   "src": "mljet",
+   "dst": "dalmatia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b4ae449d656c"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
   },
   {
    "src": "mljet-national-park",
@@ -2608,6 +7933,90 @@
    "layer": "culture"
   },
   {
+   "src": "morihiko-hiramatsu",
+   "dst": "japan",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_29aac8d5f161"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "morihiko-hiramatsu",
+   "dst": "oita-prefecture",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1979,
+    2003
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_29aac8d5f161"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "moriscos",
+   "dst": "granada",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b9a0f391e167"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "moscow",
+   "dst": "russia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_1cf9913c8381"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
    "src": "mughal-empire",
    "dst": "bibi-ka-maqbara",
    "type": "founded",
@@ -2625,6 +8034,115 @@
    },
    "strength": 1,
    "layer": "architecture"
+  },
+  {
+   "src": "muhammad-i-ibn-nasr",
+   "dst": "kingdom-of-granada",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1238,
+    1273
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_d4a4fe9e2fff"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "muhammad-i-ibn-nasr",
+   "dst": "nasrid-dynasty",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1238,
+    1273
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_d4a4fe9e2fff"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "muhammad-i-of-granada",
+   "dst": "nasrid-dynasty",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_dc6f04f6a1d0"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "mumbai",
+   "dst": "maharashtra",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_dfd645ef05c0"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "mustafa-kemal-ataturk",
+   "dst": "turkey",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1923,
+    1938
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4a66ab569c4f"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
   },
   {
    "src": "myslibor",
@@ -2715,6 +8233,24 @@
   },
   {
    "src": "nasrid-dynasty",
+   "dst": "granada",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_dc6f04f6a1d0"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "nasrid-dynasty",
    "dst": "kingdom-of-granada",
    "type": "ruled",
    "dir": "->",
@@ -2756,6 +8292,134 @@
    "layer": "history"
   },
   {
+   "src": "nikita-khrushchev",
+   "dst": "hermann-henselmann",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_c0ad2b5cf825"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "nikita-khrushchev",
+   "dst": "soviet-union",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1955,
+    1955
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_8721acb94173"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "nikola-firentinac",
+   "dst": "sibenik",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4871d8db4f2c"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "nikola-firentinac",
+   "dst": "trogir",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4871d8db4f2c"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "nikolai-shvernik",
+   "dst": "alexei-kosygin",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_40e6de97e66c"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "nitra",
+   "dst": "slovakia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_9a87a28cd0a5"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
    "src": "northern-mexico",
    "dst": "mexico",
    "type": "part-of",
@@ -2778,6 +8442,254 @@
    },
    "strength": 1,
    "layer": "culture"
+  },
+  {
+   "src": "norway",
+   "dst": "howe-sound",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "trade",
+    "corporate",
+    "travel"
+   ],
+   "atoms": [
+    "atm_dfa20e6bf23f"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "norway",
+   "dst": "merkur-programmet",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_a9d14aedd052"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "norwegian-polar-institute",
+   "dst": "tromso",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_302c63ec2d88"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "novalja",
+   "dst": "croatia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f8b6f3e82ec4"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "novi-beograd",
+   "dst": "belgrade",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a5f1b76fba94"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "novi-beograd",
+   "dst": "yugoslavia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_ec52e7b7a8fa"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "nowa-huta",
+   "dst": "krakow",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_25a35da69a9d"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "nowa-huta",
+   "dst": "poland",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_ec52e7b7a8fa"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "octavia-hill",
+   "dst": "england",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b9d0390869b7"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "oia",
+   "dst": "santorini",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4c848bc30e60"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "oita-prefecture",
+   "dst": "japan",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_dcc3f946acb2"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "oleksandriia",
@@ -2844,6 +8756,68 @@
    "layer": "history"
   },
   {
+   "src": "onufry-kopczynski",
+   "dst": "poland",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "corporate",
+    "talent",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_368943d7fda6"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "oslo",
+   "dst": "norway",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_955fc6f411b6"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "osman-pasha",
+   "dst": "pleven",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_aa8849279b22"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "ostrava",
    "dst": "upper-silesia",
    "type": "part-of",
@@ -2869,6 +8843,42 @@
   },
   {
    "src": "ottoman-empire",
+   "dst": "mostar",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a3d751ae5532"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "ottoman-empire",
+   "dst": "pocitelj",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a3d751ae5532"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "ottoman-empire",
    "dst": "senj",
    "type": "opposed",
    "dir": "<->",
@@ -2878,6 +8888,45 @@
    ],
    "atoms": [
     "atm_5b2b5964e8b3"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "ottoman-empire",
+   "dst": "sofia",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_405c3139fb6e"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "oxbridge",
+   "dst": "university-of-london",
+   "type": "opposed",
+   "dir": "<->",
+   "period": [
+    1836,
+    1871
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_766d932ca0da"
    ],
    "layers": {
     "history": 1
@@ -2950,30 +8999,6 @@
   },
   {
    "src": "pahang",
-   "dst": "malaysia",
-   "type": "part-of",
-   "dir": "->",
-   "period": null,
-   "themes": [
-    "stock",
-    "realty",
-    "trade",
-    "corporate",
-    "talent",
-    "travel",
-    "heritage"
-   ],
-   "atoms": [
-    "atm_49b6b08fee5f"
-   ],
-   "layers": {
-    "economy": 1
-   },
-   "strength": 1,
-   "layer": "economy"
-  },
-  {
-   "src": "pahang",
    "dst": "peninsular-malaysia",
    "type": "part-of",
    "dir": "->",
@@ -2997,6 +9022,33 @@
    "layer": "geography"
   },
   {
+   "src": "peljesac-bridge",
+   "dst": "croatia",
+   "type": "part-of",
+   "dir": "->",
+   "period": [
+    2022,
+    2022
+   ],
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_23aeee0b6c9e"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "peljesac-peninsula",
    "dst": "plavac-mali",
    "type": "produces",
@@ -3008,6 +9060,52 @@
    ],
    "atoms": [
     "atm_a4c36a4c80dc"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "pemex",
+   "dst": "ciudad-del-carmen",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_e94197bd43c4"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "penang",
+   "dst": "malaysia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a346128efb21"
    ],
    "layers": {
     "economy": 1
@@ -3051,6 +9149,67 @@
    ],
    "atoms": [
     "atm_a3a52c438d71"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "piraeus",
+   "dst": "athens",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_3fb234b540b2"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "plavac-mali",
+   "dst": "carole-meredith",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a3ce9e955521"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "plavac-mali",
+   "dst": "dalmatia",
+   "type": "produces",
+   "dir": "<-",
+   "period": null,
+   "themes": [
+    "trade",
+    "travel"
+   ],
+   "atoms": [
+    "atm_232e07af9298"
    ],
    "layers": {
     "economy": 1
@@ -3147,6 +9306,24 @@
    "layer": "geography"
   },
   {
+   "src": "pocitelj",
+   "dst": "venice",
+   "type": "opposed",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a3d751ae5532"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
    "src": "polace",
    "dst": "mljet",
    "type": "part-of",
@@ -3240,6 +9417,26 @@
   },
   {
    "src": "pomerania",
+   "dst": "poland",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4320a76ed8fb"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "pomerania",
    "dst": "prussia",
    "type": "part-of",
    "dir": "->",
@@ -3261,6 +9458,30 @@
    },
    "strength": 1,
    "layer": "architecture"
+  },
+  {
+   "src": "porto-marghera",
+   "dst": "venice",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_be43b29468d1"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "postup",
@@ -3355,6 +9576,75 @@
    "layer": "culture"
   },
   {
+   "src": "preslav",
+   "dst": "first-bulgarian-empire",
+   "type": "part-of",
+   "dir": "->",
+   "period": [
+    886,
+    971
+   ],
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7fee21f2b232"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "primitivo",
+   "dst": "puglia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_8f953db197d4"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "publius-cornelius-dolabella",
+   "dst": "roman-dalmatia",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_3e91b9d2189a"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "punjab",
    "dst": "india",
    "type": "part-of",
@@ -3423,6 +9713,26 @@
    "layer": "culture"
   },
   {
+   "src": "rab",
+   "dst": "lokrum",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b6cd03916d58"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "rab-island",
    "dst": "stinica",
    "type": "connects",
@@ -3463,26 +9773,6 @@
    "layer": "nature"
   },
   {
-   "src": "ragusan-republic",
-   "dst": "gruz",
-   "type": "related",
-   "dir": "<->",
-   "period": null,
-   "themes": [
-    "talent",
-    "travel",
-    "heritage"
-   ],
-   "atoms": [
-    "atm_5550ff4942ef"
-   ],
-   "layers": {
-    "history": 1
-   },
-   "strength": 1,
-   "layer": "history"
-  },
-  {
    "src": "rajasthan",
    "dst": "india",
    "type": "part-of",
@@ -3507,6 +9797,26 @@
    "layer": "language"
   },
   {
+   "src": "rani-lakshmibai",
+   "dst": "bahadur-shah-ii",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_799bb85e5b74"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "rapska-plovidba",
    "dst": "rab-island",
    "type": "related",
@@ -3527,6 +9837,26 @@
    "layer": "history"
   },
   {
+   "src": "rasmus-rask",
+   "dst": "iceland",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "corporate",
+    "talent",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_73325db2b48d"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
    "src": "red-vienna",
    "dst": "gemeindebau",
    "type": "related",
@@ -3545,6 +9875,28 @@
    },
    "strength": 1,
    "layer": "architecture"
+  },
+  {
+   "src": "regiojet",
+   "dst": "slovakia",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_b748544d5f58"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "reichskommissariat-ukraine",
@@ -3609,6 +9961,44 @@
    "layer": "history"
   },
   {
+   "src": "republic-of-venice",
+   "dst": "dalmatia",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_ed9d09b8ce1a"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "republic-of-venice",
+   "dst": "republic-of-genoa",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_8a0170f2319b"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "reykjavik",
    "dst": "reykjavik-capital-region",
    "type": "part-of",
@@ -3654,6 +10044,118 @@
    "layer": "geography"
   },
   {
+   "src": "river-cam",
+   "dst": "cambridge",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "trade",
+    "corporate",
+    "travel"
+   ],
+   "atoms": [
+    "atm_b3fcc2116fe1"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "river-cherwell",
+   "dst": "oxford",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "trade",
+    "corporate",
+    "travel"
+   ],
+   "atoms": [
+    "atm_ff9a965b152a"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "river-thames",
+   "dst": "oxford",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "realty",
+    "trade",
+    "corporate",
+    "travel"
+   ],
+   "atoms": [
+    "atm_ff9a965b152a"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "rochdale-pioneers",
+   "dst": "rochdale",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_fe4065858dce"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "rothschild-family",
+   "dst": "ostrava",
+   "type": "related",
+   "dir": "->",
+   "period": [
+    1800,
+    1899
+   ],
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_1a2577d61235"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "ruin-bars",
    "dst": "budapest",
    "type": "related",
@@ -3672,6 +10174,110 @@
    },
    "strength": 1,
    "layer": "culture"
+  },
+  {
+   "src": "russia",
+   "dst": "estonia",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1944,
+    1991
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5afe29208137"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "russia",
+   "dst": "latvia",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1944,
+    1991
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5afe29208137"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "russia",
+   "dst": "lithuania",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1944,
+    1991
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_5afe29208137"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "russia",
+   "dst": "turkstream",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_8007662335f8"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "russia",
+   "dst": "vladivostok",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_fd11c8cbb7ac"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "russo-turkish-war-1877-78",
@@ -3714,6 +10320,258 @@
    "layer": "history"
   },
   {
+   "src": "safdarjungs-tomb",
+   "dst": "delhi",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b65dc9520205"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "safdarjungs-tomb",
+   "dst": "taj-mahal",
+   "type": "succeeded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_b65dc9520205"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "saints-cyril-and-methodius",
+   "dst": "first-bulgarian-empire",
+   "type": "related",
+   "dir": "<->",
+   "period": [
+    886,
+    971
+   ],
+   "themes": [
+    "corporate",
+    "talent",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_7fee21f2b232"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "sakaiminato",
+   "dst": "shigeru-mizuki",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_aa0299aeaed3"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "sam-zemurray",
+   "dst": "honduras",
+   "type": "ruled",
+   "dir": "->",
+   "period": [
+    1911,
+    1911
+   ],
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_771069e5f670"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "sangaste-manor",
+   "dst": "estonia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_54a887a29bb7"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "senj",
+   "dst": "venice",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b4d7360b2ed5"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "serbia",
+   "dst": "gajs-latin-alphabet",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "corporate",
+    "talent",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_c6a6064d3dec"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "sergei-korolev",
+   "dst": "german-titov",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a89c6a101444"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "shah-deniz",
+   "dst": "azerbaijan",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4a4623565283"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "shimazu-clan",
+   "dst": "satsuma",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_dda55212e144"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "shimazu-clan",
+   "dst": "satsuma",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_dda55212e144"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "siberia",
    "dst": "russia",
    "type": "part-of",
@@ -3736,6 +10594,72 @@
    },
    "strength": 1,
    "layer": "culture"
+  },
+  {
+   "src": "silao",
+   "dst": "coahuila",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_491e7b3d9d67"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "slovakia",
+   "dst": "czech-republic",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "corporate",
+    "talent",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_edfd7ad1c77f"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "slovakia",
+   "dst": "czechoslovakia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_3b4caddc25e6"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
   },
   {
    "src": "snaefellsnes-peninsula",
@@ -3782,9 +10706,9 @@
    "layer": "geography"
   },
   {
-   "src": "solana-pag",
-   "dst": "pag-island",
-   "type": "related",
+   "src": "socar",
+   "dst": "azerbaijan",
+   "type": "part-of",
    "dir": "->",
    "period": null,
    "themes": [
@@ -3792,16 +10716,57 @@
     "realty",
     "trade",
     "corporate",
-    "talent"
+    "talent",
+    "travel",
+    "heritage"
    ],
    "atoms": [
-    "atm_7109014d9dbc"
+    "atm_cf0c36b87c60"
    ],
    "layers": {
     "economy": 1
    },
    "strength": 1,
    "layer": "economy"
+  },
+  {
+   "src": "society-of-jesus",
+   "dst": "spanish-empire",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_c3a16dd3c51a"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "society-of-jesus",
+   "dst": "universidad-nacional-de-cordoba",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_36aed5dbc192"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
   },
   {
    "src": "solana-pag",
@@ -3821,6 +10786,46 @@
    },
    "strength": 1,
    "layer": "economy"
+  },
+  {
+   "src": "solola",
+   "dst": "kiche-maya",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_877f06d37696"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "south-africa",
+   "dst": "united-kingdom",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a919b2d25025"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
   },
   {
    "src": "squamish",
@@ -3891,6 +10896,28 @@
    "layer": "culture"
   },
   {
+   "src": "standard-fruit-company",
+   "dst": "honduras",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_3b9faf71c73e"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "stawamus-chief",
    "dst": "coast-mountains",
    "type": "part-of",
@@ -3934,6 +10961,54 @@
    "layer": "nature"
   },
   {
+   "src": "sudetenland",
+   "dst": "czechoslovakia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_db47f02242c9"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "szeged",
+   "dst": "hungary",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_4a4ba4bb9d46"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
    "src": "sziget-festival",
    "dst": "budapest",
    "type": "related",
@@ -3946,6 +11021,243 @@
    ],
    "atoms": [
     "atm_3340739b4d02"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "szimpla-kert",
+   "dst": "budapest",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a4d5672562ff"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "taj-mahal",
+   "dst": "agra",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_b65dc9520205"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "tanap",
+   "dst": "azerbaijan",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_4a4623565283"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "tanap",
+   "dst": "nord-stream",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4a4623565283"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "terengganu",
+   "dst": "malaysia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_299833074c58"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "tesco",
+   "dst": "slovakia",
+   "type": "supplies",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "trade",
+    "stock"
+   ],
+   "atoms": [
+    "atm_7a548ba0d999"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "thailand",
+   "dst": "japan",
+   "type": "succeeded",
+   "dir": "->",
+   "period": [
+    1979,
+    null
+   ],
+   "themes": [
+    "heritage",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_dcc3f946acb2"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "thomas-wolsey",
+   "dst": "oxford",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1546,
+    1546
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_febaf6d982d6"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "tomas-bata",
+   "dst": "zlin",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1920,
+    1939
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_741bead7dff9"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "torcuato-di-tella",
+   "dst": "argentina",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_bb85705ffd68"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "totonicapan",
+   "dst": "kiche-maya",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_877f06d37696"
    ],
    "layers": {
     "culture": 1
@@ -3993,6 +11305,26 @@
    "layer": "economy"
   },
   {
+   "src": "treaty-of-san-stefano",
+   "dst": "bulgaria",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_3f8ac8e75e7f"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
    "src": "troms",
    "dst": "norway",
    "type": "part-of",
@@ -4017,29 +11349,23 @@
    "layer": "geography"
   },
   {
-   "src": "tupras",
-   "dst": "izmit",
+   "src": "turtle-conservation-society-of-malaysia",
+   "dst": "rantau-abang",
    "type": "related",
    "dir": "->",
-   "period": [
-    1961,
-    null
-   ],
+   "period": null,
    "themes": [
-    "stock",
     "realty",
-    "trade",
-    "corporate",
-    "talent"
+    "travel"
    ],
    "atoms": [
-    "atm_6f2f315da529"
+    "atm_5bd08234dae3"
    ],
    "layers": {
-    "economy": 1
+    "nature": 1
    },
    "strength": 1,
-   "layer": "economy"
+   "layer": "nature"
   },
   {
    "src": "u-s-steel-kosice",
@@ -4086,10 +11412,70 @@
    "layer": "economy"
   },
   {
-   "src": "united-fruit-company",
-   "dst": "izabal",
-   "type": "related",
+   "src": "ukraine",
+   "dst": "dnipro",
+   "type": "ruled",
    "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_0cb98245d4ef"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "ukraine",
+   "dst": "kharkiv",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_0cb98245d4ef"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "ukrposhta",
+   "dst": "ukraine",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_876958b4611d"
+   ],
+   "layers": {
+    "language": 1
+   },
+   "strength": 1,
+   "layer": "language"
+  },
+  {
+   "src": "unam",
+   "dst": "apra",
+   "type": "related",
+   "dir": "<->",
    "period": null,
    "themes": [
     "talent",
@@ -4097,13 +11483,162 @@
     "heritage"
    ],
    "atoms": [
-    "atm_97cb0403cd30"
+    "atm_29fe1e053400"
    ],
    "layers": {
     "history": 1
    },
    "strength": 1,
    "layer": "history"
+  },
+  {
+   "src": "united-fruit-company",
+   "dst": "puerto-barrios",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_3e84d5b04e4e"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "united-states",
+   "dst": "germany",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_70f0ec5e8b9e"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "universidad-nacional-de-cordoba",
+   "dst": "cordoba-argentina",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_36aed5dbc192"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "universidad-nacional-mayor-de-san-marcos",
+   "dst": "apra",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_29fe1e053400"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "university-of-alaska-fairbanks",
+   "dst": "fairbanks",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_82edcde321b3"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "university-of-birmingham",
+   "dst": "university-of-leeds",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_89b807a21016"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "university-of-manchester",
+   "dst": "university-of-birmingham",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_89b807a21016"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
   },
   {
    "src": "university-reform-1918",
@@ -4123,6 +11658,65 @@
    },
    "strength": 1,
    "layer": "history"
+  },
+  {
+   "src": "urban-forms-foundation",
+   "dst": "lodz",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_8ee140f398ac"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "vancouver",
+   "dst": "whistler",
+   "type": "connects",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "trade",
+    "travel",
+    "realty"
+   ],
+   "atoms": [
+    "atm_9a36dc95436a"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "vehbi-koc",
+   "dst": "koc-holding",
+   "type": "founded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_5a0a958e8c06"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "velebit",
@@ -4149,41 +11743,39 @@
    "layer": "economy"
   },
   {
-   "src": "velebit",
-   "dst": "senj",
+   "src": "vice-milicic",
+   "dst": "pavle-andricevic",
    "type": "related",
    "dir": "<->",
    "period": null,
    "themes": [
-    "realty",
-    "travel"
-   ],
-   "atoms": [
-    "atm_eea7bee4a533"
-   ],
-   "layers": {
-    "nature": 1
-   },
-   "strength": 1,
-   "layer": "nature"
-  },
-  {
-   "src": "vidzeme",
-   "dst": "latvia",
-   "type": "part-of",
-   "dir": "->",
-   "period": null,
-   "themes": [
-    "stock",
-    "realty",
-    "trade",
-    "corporate",
     "talent",
     "travel",
     "heritage"
    ],
    "atoms": [
-    "atm_4c506c031137"
+    "atm_29521439c31f"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "vienna",
+   "dst": "danube-river",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "trade",
+    "corporate",
+    "travel"
+   ],
+   "atoms": [
+    "atm_56e8dca2f8e4"
    ],
    "layers": {
     "geography": 1
@@ -4204,6 +11796,72 @@
    ],
    "atoms": [
     "atm_4e479dbead43"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "vik-i-myrdal",
+   "dst": "iceland",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_e0803fa5b650"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "vinarija-milos",
+   "dst": "peljesac-peninsula",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4c5224f835d7"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "vitaly-lagutenko",
+   "dst": "nikita-khrushchev",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_45b4b6a01e83"
    ],
    "layers": {
     "architecture": 1
@@ -4263,6 +11921,259 @@
    "layer": "geography"
   },
   {
+   "src": "vukovar",
+   "dst": "krajina",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_ea03891d3c0c"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "walbrzych",
+   "dst": "poland",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_22e41b91d513"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "warren-harding",
+   "dst": "yosemite-national-park",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a4707a37e4a4"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "westfjords",
+   "dst": "iceland",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_925176336489"
+   ],
+   "layers": {
+    "nature": 1
+   },
+   "strength": 1,
+   "layer": "nature"
+  },
+  {
+   "src": "william-howard-taft",
+   "dst": "philippines",
+   "type": "ruled",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage"
+   ],
+   "atoms": [
+    "atm_1d6ebe8d8350"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "william-morris",
+   "dst": "oxford",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1912,
+    1912
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_4c7eadba0e52"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "william-waynflete",
+   "dst": "oxford",
+   "type": "founded",
+   "dir": "->",
+   "period": [
+    1458,
+    1458
+   ],
+   "themes": [
+    "heritage",
+    "talent"
+   ],
+   "atoms": [
+    "atm_febaf6d982d6"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "winston-churchill",
+   "dst": "potsdam-conference",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f84319433582"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "xxxlutz",
+   "dst": "austria",
+   "type": "succeeded",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "heritage",
+    "corporate"
+   ],
+   "atoms": [
+    "atm_2ab20230403f"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "yugoslavia",
+   "dst": "dubrovnik",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "realty",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_f10c40951ca6"
+   ],
+   "layers": {
+    "architecture": 1
+   },
+   "strength": 1,
+   "layer": "architecture"
+  },
+  {
+   "src": "yvon-chouinard",
+   "dst": "yosemite-national-park",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_a4707a37e4a4"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "zagreb",
+   "dst": "croatia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_57714df5d867"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
    "src": "zaton",
    "dst": "dubrovnik",
    "type": "related",
@@ -4281,6 +12192,30 @@
    },
    "strength": 1,
    "layer": "history"
+  },
+  {
+   "src": "zaton",
+   "dst": "dubrovnik",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_1488e46f2dcc"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
   },
   {
    "src": "zaton",
@@ -4347,6 +12282,94 @@
    ],
    "atoms": [
     "atm_1b9b30221a10"
+   ],
+   "layers": {
+    "history": 1
+   },
+   "strength": 1,
+   "layer": "history"
+  },
+  {
+   "src": "zinfandel",
+   "dst": "primitivo",
+   "type": "related",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_8f953db197d4"
+   ],
+   "layers": {
+    "culture": 1
+   },
+   "strength": 1,
+   "layer": "culture"
+  },
+  {
+   "src": "zlin",
+   "dst": "czechoslovakia",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_741bead7dff9"
+   ],
+   "layers": {
+    "economy": 1
+   },
+   "strength": 1,
+   "layer": "economy"
+  },
+  {
+   "src": "zollverein",
+   "dst": "essen",
+   "type": "part-of",
+   "dir": "->",
+   "period": null,
+   "themes": [
+    "stock",
+    "realty",
+    "trade",
+    "corporate",
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_0c5f6ed3609b"
+   ],
+   "layers": {
+    "geography": 1
+   },
+   "strength": 1,
+   "layer": "geography"
+  },
+  {
+   "src": "zrinski-family",
+   "dst": "fran-krsto-frankopan",
+   "type": "related",
+   "dir": "<->",
+   "period": null,
+   "themes": [
+    "talent",
+    "travel",
+    "heritage"
+   ],
+   "atoms": [
+    "atm_89fc40b8d9af"
    ],
    "layers": {
     "history": 1
