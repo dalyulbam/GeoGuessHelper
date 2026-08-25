@@ -1,8 +1,9 @@
 # 엔티티 · herzegovina
 
-원자 1개 · 이 엔티티를 다룬 보고서 1건
+원자 2개 · 이 엔티티를 다룬 보고서 1건
 
 ## 원자
+- [[atm_8c11beb087d8]] **Coastal tourism boom versus karst hinterland depopulation in Dalmatia** (economy/region)
 - [[atm_e1447da93736]] **Ćiro narrow-gauge railway to Herzegovina (Austro-Hungarian era)** (history/region)
 
 ## 보고서

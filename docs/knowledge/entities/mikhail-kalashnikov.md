@@ -1,8 +1,9 @@
 # 엔티티 · mikhail-kalashnikov
 
-원자 1개 · 이 엔티티를 다룬 보고서 1건
+원자 2개 · 이 엔티티를 다룬 보고서 1건
 
 ## 원자
+- [[atm_a89c6a101444]] **Soviet cosmonaut corps and design-bureau pioneers** (history/country)
 - [[atm_bffa90fceb9e]] **Altai as gateway to Altai Mountains and notable natives** (culture/region)
 
 ## 보고서

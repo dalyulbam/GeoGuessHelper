@@ -1,8 +1,9 @@
 # 엔티티 · kingdom-of-hungary
 
-원자 1개 · 이 엔티티를 다룬 보고서 1건
+원자 2개 · 이 엔티티를 다룬 보고서 1건
 
 ## 원자
+- [[atm_01813ad314d3]] **Angevin kings and Hungarian town-chartering policy** (history/polity)
 - [[atm_1b9b30221a10]] **Žilina town law (žilinské právo) in medieval Slovakia** (history/polity)
 
 ## 보고서

@@ -1,10 +1,11 @@
 # 엔티티 · kosice
 
-원자 3개 · 이 엔티티를 다룬 보고서 1건
+원자 4개 · 이 엔티티를 다룬 보고서 1건
 
 ## 원자
 - [[atm_019c308b2979]] **Socialist-era single-industry satellite housing estates (panelák sídliská) in Czechoslovakia** (history/region)
 - [[atm_305dc82d2d42]] **U.S. Steel Košice — Central Europe's largest integrated steelworks** (economy/polity)
+- [[atm_51dc81130b7c]] **Single-industry dependency risk and deindustrialization in steel towns** (economy/region)
 - [[atm_76d4211f5d39]] **Košice Basin and eastern Slovakia macro-region markers** (geography/region)
 
 ## 보고서

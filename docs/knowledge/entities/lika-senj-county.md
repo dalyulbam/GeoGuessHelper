@@ -1,8 +1,9 @@
 # 엔티티 · lika-senj-county
 
-원자 2개 · 이 엔티티를 다룬 보고서 2건
+원자 3개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
+- [[atm_4c333db3423d]] **Seasonal Adriatic tourism as replacement economy for lost forestry jobs** (economy/region)
 - [[atm_5ae0c15bc20f]] **Velebit timber cableway economy and its post-WWII collapse** (economy/region)
 - [[atm_95a8e4f4f190]] **Lika-Senj County: lowest industrial output, severe depopulation** (economy/region)
 

@@ -1,8 +1,9 @@
 # 엔티티 · lake-garda
 
-원자 1개 · 이 엔티티를 다룬 보고서 1건
+원자 2개 · 이 엔티티를 다룬 보고서 1건
 
 ## 원자
+- [[atm_39bb6b54a823]] **Alpine lakeside resort hierarchies: Lake Como, Lake Geneva, Lake Garda** (economy/global)
 - [[atm_8c55d94bc98f]] **Lago Maggiore pre-Alpine lake basin geography** (geography/region)
 
 ## 보고서

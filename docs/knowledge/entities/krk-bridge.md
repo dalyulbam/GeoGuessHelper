@@ -1,8 +1,9 @@
 # 엔티티 · krk-bridge
 
-원자 1개 · 이 엔티티를 다룬 보고서 1건
+원자 2개 · 이 엔티티를 다룬 보고서 1건
 
 ## 원자
+- [[atm_07c8da00fbe4]] **Fixed-link bridges displacing island ferry economies** (economy/region)
 - [[atm_14bd04044110]] **Krk Bridge, world-class concrete arch (1980)** (architecture/polity)
 
 ## 보고서

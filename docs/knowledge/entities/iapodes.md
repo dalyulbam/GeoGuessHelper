@@ -1,8 +1,9 @@
 # 엔티티 · iapodes
 
-원자 1개 · 이 엔티티를 다룬 보고서 1건
+원자 2개 · 이 엔티티를 다룬 보고서 1건
 
 ## 원자
+- [[atm_6ed47b7f0e70]] **Croat settlement and Illyrian substrate continuity debate** (history/region)
 - [[atm_8cfbd0212321]] **Iapodes tribal confederation of the Velebit hinterland** (history/region)
 
 ## 보고서

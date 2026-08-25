@@ -1,10 +1,11 @@
 # 엔티티 · austro-hungarian-empire
 
-원자 2개 · 이 엔티티를 다룬 보고서 2건
+원자 3개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_c65d1dbc1ab1]] **Habsburg-era grandeur and UNESCO Danube cityscape of Budapest** (architecture/city)
 - [[atm_e1447da93736]] **Ćiro narrow-gauge railway to Herzegovina (Austro-Hungarian era)** (history/region)
+- [[atm_f1d46de95da5]] **Austro-Hungarian railway engineers and colonial administrators in Bosnia-Herzegovina** (history/polity)
 
 ## 보고서
 - `report_hr_komolac-dubrovnik_42.6707_18.1276_260813_231326_ko-en-fr.html`

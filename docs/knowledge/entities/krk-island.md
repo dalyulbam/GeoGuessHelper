@@ -1,9 +1,11 @@
 # 엔티티 · krk-island
 
-원자 3개 · 이 엔티티를 다룬 보고서 2건
+원자 5개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_050d1beb807a]] **Čakavian dialect and Glagolitic literacy on Kvarner islands** (language/region)
+- [[atm_079537684ebd]] **Glagolitic scribal culture and the Baška Tablet** (culture/region)
+- [[atm_4aeb3a99a3c3]] **Sheltered maquis and cultivated terraces as counter-landscape** (nature/region)
 - [[atm_abbf940e60d2]] **Kvarner/Rijeka Bay bora-driven microclimate asymmetry** (economy/region)
 - [[atm_ea4cec02c2f6]] **Frankopan dynasty of Krk** (culture/region)
 
