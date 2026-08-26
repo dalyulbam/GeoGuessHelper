@@ -34,6 +34,11 @@
   <button class="theme-chip" data-theme="talent">🎓 교육·인재</button>
   <button class="theme-chip" data-theme="travel">🧳 여행·문화</button>
   <button class="theme-chip" data-theme="heritage">🏛️ 역사·기록</button>
+  <!-- 연관 렌즈 배지 — 켜져 있는 동안 지도는 씨앗 + 그래프 이웃만 남는다 -->
+  <div id="cbadge" class="cbadge" hidden>
+    <span class="cb-ic">◉</span><b id="cb-name"></b><span class="cb-sub">연관 렌즈</span>
+    <button id="cb-x" title="연관 렌즈 해제 (Esc)">×</button>
+  </div>
 </nav>
 
 <main id="stage">
@@ -96,6 +101,19 @@
 
   <!-- 상태 리본 — 문명5 "A UNIT NEEDS ORDERS" 문법: 현재 상태/다음 행동이 항상 한 자리에 -->
   <div id="ribbon" title="클릭: 상태에 맞는 행동"></div>
+
+  <!-- 시간 렌즈 — 선사 ~ 현대. 창을 드래그·휠로 움직여 그 시기의 행위자·관계만 남긴다 -->
+  <div id="timeline" title="드래그: 시기 선택 · 휠: 시대 이동 · Shift+휠: 폭 조절 · 더블클릭: 해제">
+    <div class="tl-row">
+      <span class="tl-tag">시간</span>
+      <span id="tl-label">전 시대</span>
+      <button id="tl-reset" title="시간 렌즈 해제">전체</button>
+    </div>
+    <div id="tl-track">
+      <div id="tl-ticks"></div>
+      <div id="tl-win" hidden><i class="tl-h l"></i><i class="tl-h r"></i></div>
+    </div>
+  </div>
 
   <div id="zoomctl">
     <button id="z-in" title="확대">＋</button>

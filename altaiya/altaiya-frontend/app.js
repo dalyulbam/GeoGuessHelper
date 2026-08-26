@@ -51,7 +51,38 @@ const state = {
   panelTab: "city",             // 도시 · 외교 · 연표
   panelData: null,
   placelessAxis: null,          // slug → 축(worldwide/people/counterpart/other) — 백과가 지연 로드
+  timeWin: null,                // 시간 렌즈 [t0,t1] (연도) — null 이면 전 시대
+  eraSpan: new Map(),           // 사료권 층 key → [start, end|null] — 행위자 활동기 합성 재료
+  concept: null,                // 연관 렌즈의 씨앗 slug
+  conceptSet: null,             // 씨앗 + 그래프 이웃 slug Set — null 이면 렌즈 꺼짐
 };
+
+/* ── 시간 스케일 — 선사(-10000) ~ 현대(2026), 근현대에 넓은 자리를 주는 워프 ──
+   지도의 원자가 근현대에 몰려 있으므로 선형 눈금이면 창 조작이 전부 오른쪽 끝에서
+   일어난다. 앵커 사이 구간별 선형 보간으로 시대마다 화면 폭을 다르게 준다. */
+const TIME_MIN = -10000, TIME_MAX = 2026;
+const TIME_ANCHORS = [
+  [-10000, 0], [-1000, .07], [0, .13], [500, .19], [1000, .27], [1300, .34],
+  [1500, .42], [1700, .54], [1800, .63], [1850, .70], [1900, .78], [1950, .87], [2026, 1],
+];
+function warp(y) {                       // 연도 → 트랙 위치 0..1
+  y = Math.max(TIME_MIN, Math.min(TIME_MAX, y));
+  for (let i = 1; i < TIME_ANCHORS.length; i++) {
+    const [y0, p0] = TIME_ANCHORS[i - 1], [y1, p1] = TIME_ANCHORS[i];
+    if (y <= y1) return p0 + (p1 - p0) * ((y - y0) / (y1 - y0));
+  }
+  return 1;
+}
+function unwarp(p) {                     // 트랙 위치 0..1 → 연도
+  p = Math.max(0, Math.min(1, p));
+  for (let i = 1; i < TIME_ANCHORS.length; i++) {
+    const [y0, p0] = TIME_ANCHORS[i - 1], [y1, p1] = TIME_ANCHORS[i];
+    if (p <= p1) return y0 + (y1 - y0) * ((p - p0) / (p1 - p0));
+  }
+  return TIME_MAX;
+}
+const fmtYear = y => y <= -9000 ? "선사" : y < 0 ? `BC ${Math.round(-y)}`
+  : y >= TIME_MAX ? "현재" : `${Math.round(y)}`;
 
 /* ── 데이터 로드 ─────────────────────────────────────────────── */
 async function boot() {
@@ -232,7 +263,8 @@ function applyLod() {
   const b = state.lodBucket;
   state.lodHidden.clear();
   for (const { g, a } of state.nodeEl.values()) {
-    const hide = state.selected !== a.slug
+    // 연관 렌즈가 켜지면 밀도 컷을 끈다 — 몇 안 남은 이웃까지 걷어내면 렌즈가 빈다
+    const hide = !state.conceptSet && state.selected !== a.slug
       && ((b === 0 && a.degree < 2 && a.atom_count < 3)
         || (b === 1 && a.degree < 1 && a.atom_count < 2));
     if (hide) state.lodHidden.add(a.slug);
@@ -247,13 +279,24 @@ function syncEdges() {
     const on = ent.themeOn !== false
       && !state.lodHidden.has(ent.e.src) && !state.lodHidden.has(ent.e.dst);
     ent.el.classList.toggle("off", !on);
+    ent.el.classList.toggle("tghost", on && ent.ghost === true);
   }
 }
 
 function fitView() {
   const { w, h } = viewSize();
   let minX = 1e9, minY = 1e9, maxX = -1e9, maxY = -1e9;
+  // 렌즈가 켜져 있으면 남은 행위자에 맞춘다 — ⤢ 는 "지금 보이는 것 전체"다
+  let fitted = 0;
   for (const a of state.actors.values()) {
+    const el = state.nodeEl.get(a.slug);
+    if (!el || el.g.classList.contains("theme-off")) continue;
+    minX = Math.min(minX, px(a.lng)); maxX = Math.max(maxX, px(a.lng));
+    minY = Math.min(minY, py(a.lat)); maxY = Math.max(maxY, py(a.lat));
+    fitted++;
+  }
+  if (!fitted) for (const a of state.actors.values()) {
+    if (a.placeless) continue;
     minX = Math.min(minX, px(a.lng)); maxX = Math.max(maxX, px(a.lng));
     minY = Math.min(minY, py(a.lat)); maxY = Math.max(maxY, py(a.lat));
   }
@@ -339,7 +382,10 @@ function bindMapControls() {
   window.addEventListener("keydown", ev => {
     if (ev.key !== "Escape") return;
     if (!$("#codex").hidden) { $("#codex").hidden = true; return; }
-    deselect(); hideSearch();
+    if (state.selected) { deselect(); hideSearch(); return; }
+    if (state.concept) { clearConcept(); return; }        // 렌즈는 선택 다음에 벗긴다
+    if (state.timeWin) { setTimeWin(null); return; }
+    hideSearch();
   });
 }
 
@@ -355,19 +401,202 @@ function eraOk(x) {
   return ((x.eras || {})[state.era] || 0) > 0;
 }
 
-function applyTheme(th) {
-  state.theme = th;
+/* 시간 렌즈 — 행위자의 활동기를 대장 period ∪ 시대층 원자에서 합성한다.
+   period 만 쓰면 168/553 이라 지도가 비고, 시대층까지 합치면 430/553 이 시기를 가진다. */
+function actorSpan(a) {
+  if (a._span !== undefined) return a._span;
+  let s = null, e = null;
+  const acc = (s2, e2) => {
+    if (s2 == null) return;
+    s = s === null ? s2 : Math.min(s, s2);
+    const end = e2 ?? TIME_MAX;          // 끝이 없으면 현재까지 이어진다
+    e = e === null ? end : Math.max(e, end);
+  };
+  if (a.period) acc(a.period[0], a.period[1]);
+  for (const [k, n] of Object.entries(a.eras || {}))
+    if (n > 0 && state.eraSpan.has(k)) acc(...state.eraSpan.get(k));
+  return (a._span = s === null ? null : [s, e]);
+}
+
+/* on = 창과 겹친다 · off = 겹치지 않는다 · ghost = 시기를 모른다.
+   미상을 숨기면 "그때 없었다"는 거짓말이 되고, 그대로 두면 렌즈가 안 보인다 — 유령으로 남긴다. */
+function timeState(a) {
+  if (!state.timeWin) return "on";
+  const sp = actorSpan(a);
+  if (!sp) return "ghost";
+  return sp[0] <= state.timeWin[1] && sp[1] >= state.timeWin[0] ? "on" : "off";
+}
+
+function edgeTimeOk(e) {
+  if (!state.timeWin || !e.period || e.period[0] == null) return true;   // 시기 없는 관계는 양끝이 판정한다
+  return e.period[0] <= state.timeWin[1] && (e.period[1] ?? TIME_MAX) >= state.timeWin[0];
+}
+
+const conceptOk = slug => !state.conceptSet || state.conceptSet.has(slug);
+
+/* 모든 렌즈(테마 · 사료권 시대 · 시간 · 연관)의 교집합이 지도다 */
+function applyFilters() {
+  const th = state.theme;
   document.querySelectorAll(".theme-chip").forEach(b =>
     b.classList.toggle("active", b.dataset.theme === th));
-  const vis = new Set();
-  for (const a of state.actors.values()) if (actorVisible(a, th) && eraOk(a)) vis.add(a.slug);
-  for (const { g, a } of state.nodeEl.values()) g.classList.toggle("theme-off", !vis.has(a.slug));
-  for (const [slug, c] of state.ringEl) c.classList.toggle("theme-off", !vis.has(slug));
+  const vis = new Set(), ghost = new Set();
+  for (const a of state.actors.values()) {
+    if (!(actorVisible(a, th) && eraOk(a) && conceptOk(a.slug))) continue;
+    const t = timeState(a);
+    if (t === "off") continue;
+    vis.add(a.slug);
+    if (t === "ghost") ghost.add(a.slug);
+  }
+  for (const { g, a } of state.nodeEl.values()) {
+    g.classList.toggle("theme-off", !vis.has(a.slug));
+    g.classList.toggle("tghost", ghost.has(a.slug));
+  }
+  for (const [slug, c] of state.ringEl) {
+    c.classList.toggle("theme-off", !vis.has(slug));
+    c.classList.toggle("tghost", ghost.has(slug));
+  }
+  let mapped = 0;
+  for (const slug of vis) if (state.nodeEl.has(slug) && !ghost.has(slug)) mapped++;
+  state._visCount = mapped;
   for (const ent of state.edgeEl) {
-    ent.themeOn = vis.has(ent.e.src) && vis.has(ent.e.dst) && eraOk(ent.e)
+    ent.themeOn = vis.has(ent.e.src) && vis.has(ent.e.dst) && eraOk(ent.e) && edgeTimeOk(ent.e)
       && (th === "all" || (ent.e.themes[th] ?? 0) >= state.themeMin.edge);
+    ent.ghost = ghost.has(ent.e.src) || ghost.has(ent.e.dst);
   }
   syncEdges();
+  updateTimelineUI();
+}
+
+function applyTheme(th) {
+  state.theme = th;
+  applyFilters();
+}
+
+/* ── 연관 렌즈 — 키워드(행위자)를 씨앗으로, 그래프 이웃만 지도에 남긴다 ──
+   관계는 원자 본문이 서술한 것만이므로, 이 렌즈는 "이 개념과 같은 문장에 살았던
+   것들"을 보여준다. 이웃의 이웃까지는 늘리지 않는다 — 한 다리면 근거가 직접이다. */
+function applyConcept(slug) {
+  const a = state.actors.get(slug);
+  if (!a) return;
+  const set = new Set([slug]);
+  for (const n of state.adj.get(slug) || []) set.add(n);
+  state.concept = slug;
+  state.conceptSet = set;
+  $("#cbadge").hidden = false;
+  $("#cb-name").textContent = a.label;
+  applyFilters();
+  applyLod();
+  setRibbon();
+}
+
+function clearConcept() {
+  state.concept = null;
+  state.conceptSet = null;
+  $("#cbadge").hidden = true;
+  applyFilters();
+  applyLod();
+  setRibbon();
+}
+
+/* ── 시간 렌즈 UI — 창을 드래그·핸들·휠로 움직인다 ─────────────── */
+function setTimeWin(win) {
+  // 전 범위를 덮으면 렌즈가 아니다 — 자동 해제
+  if (win && win[0] <= TIME_MIN && win[1] >= TIME_MAX) win = null;
+  state.timeWin = win;
+  applyFilters();
+  setRibbon();
+}
+
+function updateTimelineUI() {
+  const winEl = $("#tl-win"), label = $("#tl-label");
+  if (!winEl) return;
+  if (!state.timeWin) {
+    winEl.hidden = true;
+    label.textContent = "전 시대";
+    return;
+  }
+  const [t0, t1] = state.timeWin;
+  const p0 = warp(t0), p1 = warp(t1);
+  winEl.hidden = false;
+  winEl.style.left = `${(p0 * 100).toFixed(2)}%`;
+  winEl.style.width = `${((p1 - p0) * 100).toFixed(2)}%`;
+  label.innerHTML = `<b>${fmtYear(t0)} – ${fmtYear(t1)}</b> · 행위자 ${state._visCount ?? 0}`;
+}
+
+function buildTimeline() {
+  // 시대층 스팬 색인 — 행위자 활동기 합성(actorSpan)의 재료
+  for (const sp of state.spheres.values())
+    for (const st of sp.strata || [])
+      if (st.start != null) state.eraSpan.set(st.key, [st.start, st.end ?? null]);
+
+  const ticks = $("#tl-ticks");
+  ticks.innerHTML = [[-10000, "선사"], [-1000, "BC1000"], [0, "0"], [1000, "1000"],
+    [1500, "1500"], [1800, "1800"], [1900, "1900"], [1975, "1975"]]
+    .map(([y, t]) => `<span style="left:${(warp(y) * 100).toFixed(2)}%">${t}</span>`).join("");
+
+  const track = $("#tl-track"), winEl = $("#tl-win");
+  const posOf = ev => {
+    const r = track.getBoundingClientRect();
+    return Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width));
+  };
+  const MINW = 0.02;                     // 창 최소 폭 (워프 좌표)
+
+  let drag = null;   // {mode: "new"|"pan"|"l"|"r", p0, w0:[p,p]}
+  track.addEventListener("pointerdown", ev => {
+    ev.preventDefault();
+    const p = posOf(ev);
+    const w = state.timeWin ? [warp(state.timeWin[0]), warp(state.timeWin[1])] : null;
+    const onHandle = ev.target.classList?.contains("tl-h");
+    if (onHandle) drag = { mode: ev.target.classList.contains("l") ? "l" : "r", p0: p, w0: w };
+    else if (w && ev.target === winEl) drag = { mode: "pan", p0: p, w0: w };
+    else drag = { mode: "new", p0: p, w0: null };
+    track.setPointerCapture(ev.pointerId);
+  });
+  track.addEventListener("pointermove", ev => {
+    if (!drag) return;
+    const p = posOf(ev);
+    let a, b;
+    if (drag.mode === "new") { a = Math.min(drag.p0, p); b = Math.max(drag.p0, p); if (b - a < MINW) return; }
+    else if (drag.mode === "pan") {
+      const wdt = drag.w0[1] - drag.w0[0];
+      a = Math.max(0, Math.min(1 - wdt, drag.w0[0] + (p - drag.p0)));
+      b = a + wdt;
+    } else if (drag.mode === "l") { a = Math.min(p, drag.w0[1] - MINW); b = drag.w0[1]; }
+    else { a = drag.w0[0]; b = Math.max(p, drag.w0[0] + MINW); }
+    setTimeWin([unwarp(a), unwarp(b)]);
+  });
+  const endDrag = ev => {
+    if (!drag) return;
+    // 클릭(이동 없음)으로 창 밖을 짚으면 그 지점에 기본 폭의 창을 놓는다
+    if (drag.mode === "new" && Math.abs(posOf(ev) - drag.p0) < 0.004) {
+      const HALF = 0.07;
+      setTimeWin([unwarp(drag.p0 - HALF), unwarp(drag.p0 + HALF)]);
+    }
+    drag = null;
+  };
+  track.addEventListener("pointerup", endDrag);
+  track.addEventListener("pointercancel", () => { drag = null; });
+
+  // 휠 = 시대 이동(워프 좌표로 균일하게) · Shift+휠 = 창 폭 조절
+  $("#timeline").addEventListener("wheel", ev => {
+    ev.preventDefault();
+    const dir = Math.sign(ev.deltaY);                    // 아래로 굴리면 과거로
+    let w = state.timeWin ? [warp(state.timeWin[0]), warp(state.timeWin[1])]
+      : [0.78, 0.92];                                    // 렌즈가 꺼져 있으면 근현대에서 시작
+    if (ev.shiftKey) {
+      const c = (w[0] + w[1]) / 2, half = Math.max(MINW / 2, (w[1] - w[0]) / 2 + dir * 0.03);
+      w = [Math.max(0, c - half), Math.min(1, c + half)];
+    } else {
+      const wdt = w[1] - w[0], step = -dir * 0.05;
+      const a = Math.max(0, Math.min(1 - wdt, w[0] + step));
+      w = [a, a + wdt];
+    }
+    setTimeWin([unwarp(w[0]), unwarp(w[1])]);
+  }, { passive: false });
+
+  $("#tl-reset").addEventListener("click", () => setTimeWin(null));
+  track.addEventListener("dblclick", () => setTimeWin(null));
+  $("#cb-x").addEventListener("click", clearConcept);
 }
 
 /* ── 호버 강조 + 툴팁 ────────────────────────────────────────── */
@@ -441,12 +670,26 @@ function setRibbon() {
     rb.onclick = a.placeless ? (() => {}) : (() => flyTo(a));
     return;
   }
+  if (state.concept) {
+    const seed = state.actors.get(state.concept);
+    rb.classList.add("selected");
+    rb.innerHTML = `연관 렌즈: ${esc(seed?.label || state.concept)}
+      <span class="rb-sub">씨앗+이웃 ${state.conceptSet.size} · 지도에 ${state._visCount ?? 0} · 클릭/Esc: 해제</span>`;
+    rb.onclick = clearConcept;
+    return;
+  }
   if (state.era && state.sphere) {
     const sp = state.spheres.get(state.sphere);
     const st = sp?.strata.find(s => s.key === state.era);
     rb.innerHTML = `시대 렌즈: ${esc(st?.label_ko || state.era)}
       <span class="rb-sub">${esc(sp?.label_ko || "")} · 클릭: 전 시대로</span>`;
     rb.onclick = () => setEra(null);
+    return;
+  }
+  if (state.timeWin) {
+    rb.innerHTML = `시간 렌즈: ${fmtYear(state.timeWin[0])} – ${fmtYear(state.timeWin[1])}
+      <span class="rb-sub">그 시기의 행위자 ${state._visCount ?? "?"} · 클릭: 해제</span>`;
+    rb.onclick = () => setTimeWin(null);
     return;
   }
   rb.innerHTML = `행위자를 선택하라
@@ -541,6 +784,8 @@ function drawPanel() {
       <span class="p-chip">원자 ${a.atom_count}</span>
       <span class="p-chip">연결 ${a.degree}</span>
       ${sphere ? `<span class="p-chip">${esc(sphere.label_ko)}</span>` : ""}
+      <button class="p-chip cbtn" id="p-cfilter" title="이 행위자와 관계로 이어진 것만 지도에 남긴다">
+        ${state.concept === a.slug ? "◉ 연관 해제" : "◉ 연관만 보기"}</button>
     </div>
     <div class="p-tabs">
       <button class="p-tab${tab === "city" ? " on" : ""}" data-tab="city">도시</button>
@@ -551,6 +796,11 @@ function drawPanel() {
 
   document.querySelectorAll("#panel .p-tab").forEach(b =>
     b.addEventListener("click", () => { state.panelTab = b.dataset.tab; drawPanel(); }));
+  $("#p-cfilter")?.addEventListener("click", () => {
+    if (state.concept === a.slug) clearConcept();
+    else applyConcept(a.slug);
+    drawPanel();                       // 버튼 라벨(연관만/해제)을 갱신한다
+  });
   document.querySelectorAll("#panel .rel-row").forEach(row =>
     row.addEventListener("click", () => select(row.dataset.slug)));
   document.querySelectorAll("#panel .atom-head").forEach(h =>
@@ -850,11 +1100,20 @@ function buildUI() {
     drop.innerHTML = items.map((a, i) =>
       `<div class="sd-item${i === 0 ? " hot" : ""}" data-slug="${esc(a.slug)}">
          <span class="ic">${TYPE_ICON[a.type]}</span><span class="lb">${esc(a.label)}</span>
-         <span class="mt">${TYPE_KO[a.type]} · 연결 ${a.degree}</span></div>`).join("")
+         <span class="mt">${TYPE_KO[a.type]} · 연결 ${a.degree}</span>
+         <span class="sd-flt" data-flt="${esc(a.slug)}" title="연관 렌즈 — 이 행위자와 관계로 이어진 것만 지도에 남긴다">◉ 연관</span></div>`).join("")
       || `<div class="sd-item"><span class="lb" style="color:var(--muted)">일치하는 행위자 없음</span></div>`;
     drop.hidden = false;
     drop.querySelectorAll(".sd-item[data-slug]").forEach(el =>
-      el.addEventListener("pointerdown", ev => { ev.preventDefault(); pick(el.dataset.slug); }));
+      el.addEventListener("pointerdown", ev => {
+        ev.preventDefault();
+        if (ev.target.dataset?.flt) {                     // ◉ = 이동하지 않고 렌즈만 씌운다
+          hideSearch(); input.blur(); input.value = "";
+          applyConcept(ev.target.dataset.flt);
+          return;
+        }
+        pick(el.dataset.slug);
+      }));
   }
   function pick(slug) { hideSearch(); input.blur(); input.value = ""; select(slug); }
   function markHot() {
@@ -873,6 +1132,7 @@ function buildUI() {
 
   buildEraDock();
   buildCodex();
+  buildTimeline();
   setRibbon();
   $("#legend-toggle").addEventListener("click", () => $("#legend").classList.toggle("closed"));
   $("#panel-close").addEventListener("click", deselect);

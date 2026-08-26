@@ -358,3 +358,58 @@ body.panel-open.has-dock #ribbon{right:420px}
 /* 패널이 열리면 시대 독을 그만큼 줄인다 — 층위가 패널 밑에 숨지 않게 */
 body.panel-open .erabar{right:420px;max-width:calc(100% - 436px)}
 body.panel-open.has-dock #zoomctl{bottom:150px;right:420px}
+
+/* ── 시간 렌즈 — 선사 ~ 현대 워프 타임라인. 창 = 지도에 남는 시기 ── */
+#timeline{position:absolute;left:50%;transform:translateX(-50%);bottom:20px;z-index:26;
+  width:min(600px,46vw);padding:6px 10px 8px;border-radius:5px;user-select:none;
+  background:linear-gradient(180deg,var(--wood2),var(--wood0));
+  border:var(--frame);outline:1px solid rgba(0,0,0,.6);box-shadow:var(--shadow)}
+body.has-dock #timeline{bottom:156px}
+body.panel-open #timeline{left:calc((100% - 404px)/2)}
+#timeline .tl-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+#timeline .tl-tag{font-family:var(--serif);font-size:10px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);background:rgba(208,171,94,.12);
+  border:1px solid var(--gold-line);border-radius:3px;padding:1px 7px}
+#tl-label{flex:1;font-family:var(--serif);font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--parch)}
+#tl-label b{color:var(--gold-hi)}
+#tl-reset{font-family:var(--serif);font-size:10.5px;font-weight:600;cursor:pointer;padding:2px 9px;
+  color:var(--parch-dim);background:transparent;border:1px solid var(--gold-line);border-radius:3px;transition:.15s}
+#tl-reset:hover{color:var(--gold-hi);border-color:var(--gold)}
+#tl-track{position:relative;height:26px;border-radius:3px;cursor:crosshair;overflow:hidden;
+  background:linear-gradient(180deg,#04121b,#081c2c);border:1px solid rgba(87,73,42,.6)}
+#tl-ticks{position:absolute;inset:0;pointer-events:none}
+#tl-ticks span{position:absolute;top:0;bottom:0;border-left:1px solid rgba(208,171,94,.22);
+  padding:1px 0 0 3px;font-family:var(--mono);font-size:8.5px;color:var(--muted);white-space:nowrap}
+#tl-win{position:absolute;top:0;bottom:0;cursor:grab;
+  background:rgba(208,171,94,.22);border-left:1px solid var(--gold);border-right:1px solid var(--gold);
+  box-shadow:0 0 12px rgba(208,171,94,.25) inset}
+#tl-win:active{cursor:grabbing}
+#tl-win .tl-h{position:absolute;top:0;bottom:0;width:9px;cursor:ew-resize}
+#tl-win .tl-h.l{left:-4px}
+#tl-win .tl-h.r{right:-4px}
+#tl-win .tl-h::after{content:"";position:absolute;left:3px;top:5px;bottom:5px;width:3px;
+  border-radius:2px;background:var(--gold);box-shadow:0 0 5px rgba(208,171,94,.7)}
+
+/* 시기 미상 유령 — 시간 렌즈가 켜졌을 때, 숨기면 거짓말이고 그대로 두면 소음이다 */
+.node.tghost{opacity:.18}
+.node.tghost text.lb{opacity:0}
+.ring.tghost{opacity:.04}
+.edge.tghost{opacity:.12}
+
+/* ── 연관 렌즈 — 씨앗 + 그래프 이웃만 지도에 남긴다 ── */
+.cbadge[hidden]{display:none}
+.cbadge{display:flex;align-items:center;gap:7px;margin-left:auto;flex:0 0 auto;padding:3px 6px 3px 12px;border-radius:4px;
+  font-family:var(--serif);font-size:12px;letter-spacing:.04em;
+  background:rgba(208,171,94,.14);border:1px solid var(--gold);color:var(--parch)}
+.cbadge .cb-ic{color:var(--gold-hi);font-size:11px}
+.cbadge b{color:var(--gold-hi);font-weight:700;max-width:180px;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+.cbadge .cb-sub{font-size:10px;color:var(--parch-dim)}
+.cbadge button{cursor:pointer;border:none;background:transparent;color:var(--parch-dim);
+  font-size:15px;line-height:1;padding:0 4px}
+.cbadge button:hover{color:#fff}
+.sd-flt{flex:0 0 auto;cursor:pointer;font-size:11px;color:var(--gold-dim);padding:2px 6px;
+  border:1px solid transparent;border-radius:3px}
+.sd-flt:hover{color:var(--gold-hi);border-color:var(--gold);background:rgba(208,171,94,.15)}
+.p-chip.cbtn{cursor:pointer;font-family:inherit;color:var(--gold-hi);border-color:var(--gold-dim);background:rgba(208,171,94,.1)}
+.p-chip.cbtn:hover{border-color:var(--gold);background:rgba(208,171,94,.2)}
