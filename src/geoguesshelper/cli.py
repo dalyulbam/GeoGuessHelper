@@ -67,6 +67,18 @@ def main() -> None:
     p_ex.add_argument("--parallel", type=int, default=3, help="동시 호출 수")
     p_ex.add_argument("--dry-run", action="store_true", help="호출 없이 남은 씨앗 수만 보여준다")
 
+    p_wk = sub.add_parser(
+        "wiki",
+        help="위키피디아 인제스트 (시대·왕조·제국·국가 리스트 → 원자)",
+        description=(
+            "위키피디아 리스트 문서 4개(시대 구획·왕조·제국·사라진 국가)를 청크로 갈라 "
+            "원자로 압축한다. 모든 원자에 출처 URL 이 남고, 체크포인트로 이어서 돈다."
+        ),
+    )
+    p_wk.add_argument("--limit", type=int, default=0, help="처리할 청크 수 (0=남은 전부)")
+    p_wk.add_argument("--parallel", type=int, default=3, help="동시 호출 수")
+    p_wk.add_argument("--dry-run", action="store_true", help="호출 없이 청크 계획만 보여준다")
+
     args = ap.parse_args()
 
     if args.cmd == "extract":
@@ -95,6 +107,20 @@ def main() -> None:
         print(json.dumps(
             {k: state[k] for k in ("created", "merged", "skipped", "cost_usd")}
             | {"seeds_done": len(state["seeds_done"])},
+            ensure_ascii=False, indent=2))
+        return
+
+    if args.cmd == "wiki":
+        from . import wiki
+        from .config import load_settings
+
+        state = wiki.run(
+            load_settings(),
+            limit=args.limit, parallel=args.parallel, dry_run=args.dry_run,
+        )
+        print(json.dumps(
+            {k: state[k] for k in ("created", "merged", "skipped", "cost_usd")}
+            | {"chunks_done": len(state["chunks_done"])},
             ensure_ascii=False, indent=2))
         return
 
