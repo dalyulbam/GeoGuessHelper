@@ -413,3 +413,92 @@ body.panel-open #timeline{left:calc((100% - 404px)/2)}
 .sd-flt:hover{color:var(--gold-hi);border-color:var(--gold);background:rgba(208,171,94,.15)}
 .p-chip.cbtn{cursor:pointer;font-family:inherit;color:var(--gold-hi);border-color:var(--gold-dim);background:rgba(208,171,94,.1)}
 .p-chip.cbtn:hover{border-color:var(--gold);background:rgba(208,171,94,.2)}
+
+/* ── 손으로 그린 강역 — 점선 + 빗금 = "이것은 사람의 주장"의 시각 언어 ── */
+.terr{fill-opacity:.13;stroke-width:1.5;stroke-dasharray:7 4;vector-effect:non-scaling-stroke;
+  cursor:pointer;transition:fill-opacity .15s}
+.terr:hover{fill-opacity:.26}
+.terr.disputed{fill-opacity:.09}
+.terr.off{display:none}
+.terr.tghost{fill-opacity:.04;stroke-opacity:.25}
+#map.dimmed .terr:not(.lit){opacity:.08}
+
+/* ── 강역 에디터 ── */
+#g-edit .ed-line{fill:rgba(232,197,71,.15);stroke:#f0dfae;stroke-width:1.8;
+  vector-effect:non-scaling-stroke;stroke-dasharray:5 4}
+#g-edit .ed-cur{fill:none;stroke:#f0dfae;stroke-width:1.4;vector-effect:non-scaling-stroke}
+#g-edit .ed-v{fill:#f0dfae;stroke:#0a1f2e;stroke-width:1;cursor:grab}
+#g-edit .ed-v.first{fill:#fff}
+#g-edit .ed-mid{fill:none;stroke:#f0dfae;stroke-width:1;opacity:.55;cursor:copy}
+#editbar{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:40;
+  display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:5px;
+  font-family:var(--serif);font-size:12.5px;color:var(--parch);
+  background:linear-gradient(180deg,var(--teal-band),#0a2b27);
+  border:1px solid var(--gold);outline:1px solid rgba(0,0,0,.7);box-shadow:var(--shadow)}
+#editbar[hidden]{display:none}
+#editbar .ed-tag{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-hi);background:rgba(208,171,94,.16);border:1px solid var(--gold-line);
+  border-radius:3px;padding:1px 7px}
+#editbar b{color:var(--gold-hi)}
+#editbar #ed-hint{font-size:10.5px;color:var(--parch-dim)}
+#editbar button{font-family:var(--serif);font-size:11px;font-weight:600;cursor:pointer;
+  padding:3px 10px;color:var(--parch);background:rgba(208,171,94,.1);
+  border:1px solid var(--gold-line);border-radius:3px;transition:.15s}
+#editbar button:hover{border-color:var(--gold);color:var(--gold-hi)}
+body.editing #map{cursor:crosshair}
+
+/* ── 모달 폼 (강역 메타 · 새 강역) ── */
+.modal{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;
+  background:rgba(2,8,6,.6);backdrop-filter:blur(2px)}   /* 코덱스(80)보다 위 */
+.modal[hidden]{display:none}
+.md-box{width:min(430px,92vw);padding:18px 20px;border-radius:8px;
+  background:linear-gradient(180deg,var(--wood2),var(--wood0));
+  border:1px solid var(--gold);outline:1px solid rgba(0,0,0,.7);box-shadow:var(--shadow)}
+.md-head{font-family:var(--serif);font-size:14px;font-weight:700;letter-spacing:.05em;
+  color:var(--parch);margin-bottom:13px}
+.md-head b{color:var(--gold-hi)}
+.md-box label{display:block;font-size:11.5px;color:var(--parch-dim);margin:9px 0 3px}
+.md-box input[type=text],.md-box input[type=number],.md-box input:not([type]),.md-box textarea{
+  display:block;width:100%;margin-top:3px;padding:6px 9px;font-size:13px;color:var(--parch);
+  background:rgba(4,16,14,.8);border:1px solid var(--gold-line);border-radius:4px;outline:none;
+  font-family:inherit}
+.md-box input:focus,.md-box textarea:focus{border-color:var(--gold)}
+.md-row{display:flex;gap:10px} .md-row label{flex:1}
+.md-chk{display:flex;align-items:center;gap:7px;cursor:pointer}
+.md-chk input{accent-color:var(--gold)}
+.md-btns{display:flex;gap:8px;margin-top:15px}
+.md-btns button{flex:1;font-family:var(--serif);font-size:12.5px;font-weight:700;cursor:pointer;
+  padding:7px 0;border-radius:4px;color:var(--parch);background:transparent;
+  border:1px solid var(--gold-line);transition:.15s}
+.md-btns button.pri{background:rgba(208,171,94,.2);border-color:var(--gold);color:var(--gold-hi)}
+.md-btns button:hover{border-color:var(--gold);color:#fff}
+.md-err{margin-top:10px;font-size:12px;color:#f0a0a0;background:rgba(179,38,30,.15);
+  border:1px solid rgba(179,38,30,.5);border-radius:4px;padding:6px 10px}
+.md-err[hidden]{display:none}
+
+/* ── 패널 강역 판본 목록 ── */
+.p-claims{margin:10px 14px 4px;border:1px solid var(--gold-line);border-radius:6px;
+  background:rgba(208,171,94,.05);padding:9px 11px}
+.pc-head{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.pc-row{display:flex;align-items:center;gap:7px;padding:4px 0;font-size:12px;color:var(--parch);
+  border-top:1px solid rgba(87,73,42,.35)}
+.pc-row:first-of-type{border-top:none}
+.pc-row .per{font-family:var(--mono);font-size:10px;color:var(--muted);flex:0 0 auto}
+.pc-row .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-row .dp{font-size:9.5px;color:#d9a84b}
+.pc-row button{font-size:10px;cursor:pointer;padding:2px 7px;color:var(--parch-dim);
+  background:transparent;border:1px solid var(--gold-line);border-radius:3px}
+.pc-row button:hover{color:var(--gold-hi);border-color:var(--gold)}
+.pc-basis{font-size:10.5px;color:var(--muted);margin:1px 0 3px;padding-left:2px}
+.pc-add{width:100%;margin-top:7px;font-family:var(--serif);font-size:11px;font-weight:600;
+  cursor:pointer;padding:5px 0;color:var(--gold-hi);background:rgba(208,171,94,.1);
+  border:1px dashed var(--gold-dim);border-radius:4px}
+.pc-add:hover{border-color:var(--gold)}
+.cx-nt{font-family:var(--serif);font-size:11px;font-weight:600;cursor:pointer;padding:4px 10px;
+  color:var(--gold-hi);background:rgba(208,171,94,.1);border:1px solid var(--gold-line);
+  border-radius:3px;flex:0 0 auto}
+.cx-nt:hover{border-color:var(--gold)}
+
+/* 그리는 동안 노드·관계선·강역이 클릭을 가로채지 않는다 — 어디를 찍어도 꼭짓점 */
+body.editing .node,body.editing .edge,body.editing .terr,body.editing .ring{pointer-events:none}

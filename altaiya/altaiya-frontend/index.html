@@ -56,11 +56,14 @@
     </defs>
     <g id="viewport">
       <g id="g-world"></g>
+      <!-- 손으로 그린 강역 — 원자 데이터가 아니라 서명된 주장. 점선이 그 시각 언어다 -->
+      <g id="g-territory"></g>
       <rect id="hexgrid" x="0" y="0" width="2880" height="1440" fill="url(#hexpat)"/>
       <g id="g-grat"></g>
       <g id="g-influence"></g>
       <g id="g-edges"></g>
       <g id="g-nodes"></g>
+      <g id="g-edit"></g>
     </g>
   </svg>
 
@@ -102,6 +105,39 @@
   <!-- 상태 리본 — 문명5 "A UNIT NEEDS ORDERS" 문법: 현재 상태/다음 행동이 항상 한 자리에 -->
   <div id="ribbon" title="클릭: 상태에 맞는 행동"></div>
 
+  <!-- 강역 에디터 툴바 — 그리는 동안 지도 위쪽 한 자리에 -->
+  <div id="editbar" hidden>
+    <span class="ed-tag">✍ 강역</span><b id="ed-title"></b><span id="ed-hint"></span>
+    <button id="ed-close-ring" title="현재 링 닫기 (Enter)">링 닫기</button>
+    <button id="ed-undo" title="마지막 꼭짓점 무르기 (Backspace)">무르기</button>
+    <button id="ed-save">저장…</button>
+    <button id="ed-cancel" title="취소 (Esc)">취소</button>
+  </div>
+
+  <!-- 강역 메타 폼 — 판본 이름·시기·근거 없이는 저장되지 않는다 -->
+  <div id="editform" class="modal" hidden><div class="md-box">
+    <div class="md-head">✍ 강역 판본 저장 — <b id="ef-label"></b></div>
+    <label>판본 이름 <input id="ef-claim" placeholder="예: 최대 강역 · 1264년 시점 · 핵심부"></label>
+    <div class="md-row">
+      <label>시작 연도 <input id="ef-start" type="number" placeholder="예: 1232 (BC는 음수)"></label>
+      <label>끝 연도 <input id="ef-end" type="number" placeholder="비우면 현재까지"></label>
+    </div>
+    <label>근거 (필수) <textarea id="ef-basis" rows="3"
+      placeholder="왜 이렇게 그었는가 — 한 줄이라도. 예: 위키피디아 1264년 지도 눈대중"></textarea></label>
+    <label class="md-chk"><input id="ef-disputed" type="checkbox" checked> 논란 있음 (빗금 표시)</label>
+    <div class="md-btns"><button id="ef-ok" class="pri">저장</button><button id="ef-back">돌아가기</button></div>
+    <div id="ef-err" class="md-err" hidden></div>
+  </div></div>
+
+  <!-- 새 강역 — 대장에 없는 대상(청나라·한나라)도 강역이 먼저 올 수 있다 -->
+  <div id="newterr" class="modal" hidden><div class="md-box">
+    <div class="md-head">✍ 새 강역 — 대장에 없어도 그릴 수 있다</div>
+    <label>슬러그 (영문 소문자·하이픈) <input id="nt-slug" placeholder="예: qing-dynasty"></label>
+    <label>표시 이름 <input id="nt-label" placeholder="예: 청나라"></label>
+    <div class="md-btns"><button id="nt-ok" class="pri">그리기 시작</button><button id="nt-cancel">닫기</button></div>
+    <div id="nt-err" class="md-err" hidden></div>
+  </div></div>
+
   <!-- 시간 렌즈 — 선사 ~ 현대. 창을 드래그·휠로 움직여 그 시기의 행위자·관계만 남긴다 -->
   <div id="timeline" title="드래그: 시기 선택 · 휠: 시대 이동 · Shift+휠: 폭 조절 · 더블클릭: 해제">
     <div class="tl-row">
@@ -130,6 +166,7 @@
     <div class="cx-box">
       <div class="cx-head">
         <b>시빌로피디아</b><span class="cx-sub">사료권 → 행위자 → 원자·관계·보고서</span>
+        <button id="cx-newterr" class="cx-nt" title="대장에 없는 대상도 강역을 먼저 그릴 수 있다">✍ 새 강역</button>
         <input id="cx-q" class="cx-q" placeholder="행위자·사료권 검색…" spellcheck="false">
         <button id="cx-close" class="cx-x" title="닫기 (Esc)">×</button>
       </div>

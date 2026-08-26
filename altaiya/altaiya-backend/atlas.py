@@ -28,6 +28,7 @@ DATA = Path(__file__).resolve().parents[1] / "data"  # 패스A·B 사이드카
 ENTITIES_JSON = DATA / "entities.json"
 RELATIONS_JSON = DATA / "relations.json"
 PERIODS_JSON = DATA / "periods.json"
+TERRITORY_DIR = DATA / "territories"                 # 손으로 그린 강역 — 행위자당 GeoJSON 한 파일
 
 # 관계 유형 표기 — 뷰어가 그대로 쓴다(백엔드가 유일한 어휘 출처)
 REL_KO = {
@@ -148,6 +149,58 @@ def _median_anchor(coords: list[tuple[float, float]]) -> tuple[float, float] | N
     return statistics.median(lats), statistics.median(lngs)
 
 
+# ── 손으로 그린 강역 (territory-sketch 기획, 260826) ──────────────
+# 강역은 원자에서 유도된 사실이 아니라 **서명된 주장**이다 — 그린 이·날짜·근거(basis)·
+# 시기가 판본(claim)마다 붙고, 뷰어는 점선·✍ 로 원자 데이터와 절대 섞지 않는다.
+_SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{1,59}$")
+
+
+def _load_territories() -> dict[str, dict]:
+    """territories/*.geojson → slug → {label, features}. 깨진 파일은 건너뛰되 meta 에 남긴다."""
+    out: dict[str, dict] = {}
+    if not TERRITORY_DIR.exists():
+        return out
+    for p in sorted(TERRITORY_DIR.glob("*.geojson")):
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+            slug = d.get("slug") or p.stem
+            if not _SLUG_RE.match(slug):
+                continue
+            feats = [f for f in (d.get("features") or [])
+                     if isinstance(f, dict) and (f.get("geometry") or {}).get("coordinates")]
+            if feats:
+                out[slug] = {"slug": slug, "label": d.get("label") or slug,
+                             "rev": d.get("rev") or 1, "features": feats}
+        except (ValueError, OSError):
+            continue
+    return out
+
+
+def _territory_polys(feats: list[dict]) -> list[list]:
+    """Feature 들의 폴리곤 목록(MultiPolygon 평탄화). 각 항목 = [외곽링, 구멍…]."""
+    polys: list[list] = []
+    for f in feats:
+        g = f.get("geometry") or {}
+        c = g.get("coordinates") or []
+        if g.get("type") == "Polygon":
+            polys.append(c)
+        elif g.get("type") == "MultiPolygon":
+            polys.extend(c)
+    return polys
+
+
+def _territory_anchor(feats: list[dict]) -> tuple[float, float] | None:
+    """전 판본을 통틀어 가장 큰 외곽링의 중심 — 국가 폴리곤 앵커와 같은 결정론적 계산."""
+    best = (0.0, None)
+    for poly in _territory_polys(feats):
+        if not poly:
+            continue
+        area, x, y = _ring_centroid(poly[0])
+        if area > best[0]:
+            best = (area, (y, x))               # GeoJSON 은 [lng, lat] 순서다
+    return best[1]
+
+
 def build() -> dict[str, Any]:
     idx = _load_index()
     atoms: dict[str, dict] = idx.get("atoms") or {}
@@ -241,6 +294,50 @@ def build() -> dict[str, Any]:
             "degree": 0,                 # 아래 엣지 조립에서 채움
         }
 
+    # ── 손으로 그린 강역 조인 ───────────────────────────────────
+    territories = _load_territories()
+    for t_slug, terr in territories.items():
+        feats = terr["features"]
+        # 판본 시기의 합집합 — 강역 전용 행위자의 period 이자, 시간 렌즈의 재료
+        t_start, t_end, open_end = None, None, False
+        for f in feats:
+            per = (f.get("properties") or {}).get("period")
+            if isinstance(per, list) and per and per[0] is not None:
+                t_start = per[0] if t_start is None else min(t_start, per[0])
+                if per[1] is None or len(per) < 2:
+                    open_end = True
+                elif not open_end:
+                    t_end = per[1] if t_end is None else max(t_end, per[1])
+        if t_slug not in actors:
+            # 강역 전용 행위자 — 원자가 아직 없는 대상(청나라·한나라)도 강역이 먼저 올 수
+            # 있다. 원자 0 을 숨기지 않는다 — 훗날 원자가 쌓이면 같은 슬러그로 합쳐진다.
+            actors[t_slug] = {
+                "slug": t_slug, "sphere": None, "eras": {},
+                "label": terr["label"], "label_en": terr["label"],
+                "basis": "손으로 그린 강역만 있음 — 원자 없음",
+                "type": "polity", "typed_by": "territory",
+                "placeless": True, "anchor_from": None, "lat": None, "lng": None,
+                "scope": "polity", "influence_km": 0,
+                "atoms": [], "atom_count": 0, "layers": {},
+                # 강역 전용 행위자는 역사·기록 테마에만 산다 — 다른 테마 점수를 지어내지 않는다
+                "themes": {th: (1.0 if th == "heritage" else 0.0) for th in rules.THEMES},
+                "reports": [],
+                "period": [t_start, t_end if not open_end else None] if t_start is not None else None,
+                "degree": 0,
+            }
+        a = actors[t_slug]
+        a["territory"] = {"claims": len(feats), "rev": terr["rev"]}
+        if a.get("period") is None and t_start is not None:
+            a["period"] = [t_start, t_end if not open_end else None]
+        # 앵커 승격 — 무장소 행위자가 강역을 얻으면 본토 최대 링의 중심으로 지도에 선다.
+        # 사람이 그린 다각형에서 나온 결정론적 계산이라 지오코딩 금지 원칙을 어기지 않는다.
+        if a["placeless"]:
+            anc = _territory_anchor(feats)
+            if anc:
+                a["placeless"] = False
+                a["anchor_from"] = "손으로 그린 강역 중심"
+                a["lat"], a["lng"] = round(anc[0], 5), round(anc[1], 5)
+
     # ── 동시 서술 쌍 ────────────────────────────────────────────
     # 관계 사이드카가 없을 때의 폴백이자, 있을 때는 커버리지의 분모다
     # ("함께 서술됐지만 관계로 인정되지 않은 쌍"이 몇 개인지 정직하게 밝힌다).
@@ -324,6 +421,8 @@ def build() -> dict[str, Any]:
     return {
         "meta": {
             "built": time.time(),
+            "territory_actors": len(territories),
+            "territory_claims": sum(len(t["features"]) for t in territories.values()),
             "atom_total": len(atoms),
             "actor_total": len(actors),
             "actor_mapped": len(actors) - placeless_n,
@@ -353,7 +452,103 @@ def build() -> dict[str, Any]:
         "spheres": sorted(spheres.values(), key=lambda s: -s.get("atom_count", 0)),
         "actors": sorted(actors.values(), key=lambda x: -x["atom_count"]),
         "edges": edge_list,
+        "territories": sorted(territories.values(), key=lambda t: t["slug"]),
     }
+
+
+def save_territory(slug: str, payload: dict) -> tuple[dict | None, str | None, int]:
+    """강역 저장 — 백엔드 유일의 쓰기 경로. 반환 (저장 결과, 오류, HTTP 상태).
+
+    검증이 곧 원칙이다: 링 3점 미만 거부, 근거(basis) 없는 판본 거부, rev 가 낮으면
+    409(다른 창에서 먼저 저장했다 — 덮어쓰지 않는다). features 가 비면 파일을 지운다.
+    """
+    if not _SLUG_RE.match(slug or ""):
+        return None, "잘못된 슬러그", 400
+    if not isinstance(payload, dict):
+        return None, "본문이 JSON 객체가 아니다", 400
+    p = TERRITORY_DIR / f"{slug}.geojson"
+    cur_rev = 0
+    if p.exists():
+        try:
+            cur_rev = json.loads(p.read_text(encoding="utf-8")).get("rev") or 1
+        except (ValueError, OSError):
+            cur_rev = 1
+    base = payload.get("rev") or 0
+    if cur_rev and base != cur_rev:
+        return None, f"rev 충돌 — 파일은 {cur_rev}, 요청은 {base}. 다시 불러와 병합하라.", 409
+
+    feats_in = payload.get("features")
+    if not isinstance(feats_in, list):
+        return None, "features 배열이 없다", 400
+    if not feats_in:                      # 판본 전부 삭제 = 강역 제거
+        if p.exists():
+            p.unlink()
+        return {"slug": slug, "deleted": True}, None, 200
+
+    feats_out: list[dict] = []
+    for i, f in enumerate(feats_in):
+        g = (f or {}).get("geometry") or {}
+        props = (f or {}).get("properties") or {}
+        gtype = g.get("type")
+        coords = g.get("coordinates")
+        if gtype == "Polygon":
+            polys = [coords]
+        elif gtype == "MultiPolygon":
+            polys = coords
+        else:
+            return None, f"판본 {i + 1}: geometry 는 Polygon/MultiPolygon 이어야 한다", 400
+        clean_polys = []
+        for poly in polys or []:
+            clean_rings = []
+            for ring in poly or []:
+                pts = []
+                for pt in ring or []:
+                    try:
+                        lng, lat = float(pt[0]), float(pt[1])
+                    except (TypeError, ValueError, IndexError):
+                        return None, f"판본 {i + 1}: 좌표가 숫자가 아니다", 400
+                    if not (-180 <= lng <= 180 and -90 <= lat <= 90):
+                        return None, f"판본 {i + 1}: 좌표 범위 밖 ({lng}, {lat})", 400
+                    pts.append([round(lng, 4), round(lat, 4)])
+                if pts and pts[0] != pts[-1]:
+                    pts.append(list(pts[0]))          # GeoJSON 링은 닫혀 있어야 한다
+                if len(pts) < 4:                       # 닫힘 포함 4 = 실꼭짓점 3
+                    return None, f"판본 {i + 1}: 링은 꼭짓점 3개 이상이어야 한다", 400
+                clean_rings.append(pts)
+            if clean_rings:
+                clean_polys.append(clean_rings)
+        if not clean_polys:
+            return None, f"판본 {i + 1}: 링이 없다", 400
+        claim = str(props.get("claim") or "").strip()
+        basis = str(props.get("basis") or "").strip()
+        if not claim:
+            return None, f"판본 {i + 1}: 판본 이름(claim)이 없다", 400
+        if not basis:
+            return None, f"판본 {i + 1}: 근거(basis)가 없다 — 한 줄이라도 남겨라", 400
+        per = props.get("period")
+        if per is not None:
+            if not (isinstance(per, list) and len(per) == 2
+                    and all(v is None or isinstance(v, int) for v in per)):
+                return None, f"판본 {i + 1}: period 는 [시작, 끝] 정수(또는 null)여야 한다", 400
+        feats_out.append({
+            "type": "Feature",
+            "geometry": {"type": "MultiPolygon", "coordinates": clean_polys},
+            "properties": {
+                "claim": claim[:60], "period": per, "basis": basis[:500],
+                "disputed": bool(props.get("disputed")),
+                "drawn_by": str(props.get("drawn_by") or "user")[:40],
+                "drawn_at": str(props.get("drawn_at") or time.strftime("%Y-%m-%d"))[:10],
+            },
+        })
+
+    TERRITORY_DIR.mkdir(parents=True, exist_ok=True)
+    doc = {"type": "FeatureCollection", "slug": slug,
+           "label": str(payload.get("label") or slug)[:80],
+           "rev": cur_rev + 1, "features": feats_out}
+    tmp = p.with_suffix(".geojson.tmp")
+    tmp.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    tmp.replace(p)
+    return doc, None, 200
 
 
 def era_index() -> dict[str, dict]:

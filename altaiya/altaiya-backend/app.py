@@ -22,7 +22,7 @@ app = FastAPI(title="ALTAIYA", docs_url=None, redoc_url=None)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],        # 로컬 도구 — 프론트가 다른 포트에서 fetch 한다
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],   # POST 는 강역 저장 한 경로뿐이다
     allow_headers=["*"],
 )
 
@@ -129,6 +129,22 @@ def placeless():
     for v in by_axis.values():
         v.sort(key=lambda x: (-x["degree"], -x["atom_count"]))
     return {"total": sum(len(v) for v in by_axis.values()), "axes": by_axis}
+
+
+@app.post("/api/territory/{slug}")
+def save_territory(slug: str, payload: dict):
+    """강역 저장 — 이 백엔드의 유일한 쓰기 경로 (territory-sketch 기획, 260826).
+
+    강역은 원자에서 유도된 사실이 아니라 사람이 그린 **서명된 주장**이다. 검증(3점
+    미만·근거 없음 400, rev 충돌 409)은 atlas.save_territory 가 맡고, 저장이 성공하면
+    아틀라스 캐시를 비워 다음 조회 때 강역 전용 행위자·앵커 승격이 반영되게 한다.
+    """
+    global _ATLAS
+    doc, err, status = atlas.save_territory(slug, payload)
+    if err:
+        return JSONResponse({"error": err}, status_code=status)
+    _ATLAS = {}                       # 조립 0.1초 — 다음 GET 이 새로 만든다
+    return doc
 
 
 @app.get("/api/atom/{atom_id}")

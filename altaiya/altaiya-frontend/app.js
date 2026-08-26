@@ -55,6 +55,9 @@ const state = {
   eraSpan: new Map(),           // 사료권 층 key → [start, end|null] — 행위자 활동기 합성 재료
   concept: null,                // 연관 렌즈의 씨앗 slug
   conceptSet: null,             // 씨앗 + 그래프 이웃 slug Set — null 이면 렌즈 꺼짐
+  territories: new Map(),       // slug → 강역 FeatureCollection (손으로 그린 주장)
+  terrEl: [],                   // {el, slug, feat} — 강역 폴리곤 DOM
+  editor: null,                 // 강역 에디터 상태 — null 이면 꺼짐
 };
 
 /* ── 시간 스케일 — 선사(-10000) ~ 현대(2026), 근현대에 넓은 자리를 주는 워프 ──
@@ -102,10 +105,12 @@ async function boot() {
     state.themeMin.edge = data.meta.edge_theme_min ?? 0.4;
     for (const a of data.actors) state.actors.set(a.slug, a);
     for (const sp of data.spheres || []) state.spheres.set(sp.key, sp);
+    for (const t of data.territories || []) state.territories.set(t.slug, t);
 
     if (world) drawWorld(world);
     drawGraticule();
     drawGraph(data);
+    drawTerritories();
     fitView();
     buildUI();
     $("#loading").hidden = true;
@@ -237,6 +242,80 @@ function drawGraph(data) {
   }
 }
 
+/* ── 손으로 그린 강역 — 원자 데이터가 아니라 서명된 주장. 점선이 그 표시다 ── */
+function terrPath(geom) {
+  const polys = geom.type === "Polygon" ? [geom.coordinates]
+    : geom.type === "MultiPolygon" ? geom.coordinates : [];
+  let d = "";
+  for (const poly of polys) for (const ring of poly)
+    d += ring.map((c, i) => `${i ? "L" : "M"}${px(c[0]).toFixed(1)} ${py(c[1]).toFixed(1)}`).join("") + "Z";
+  return d;
+}
+
+function drawTerritories() {
+  const g = $("#g-territory");
+  g.innerHTML = "";
+  state.terrEl = [];
+  for (const t of state.territories.values()) {
+    const a = state.actors.get(t.slug);
+    const color = TYPE_COLOR[a?.type || "polity"] || "#e8c547";
+    (t.features || []).forEach((feat, fi) => {
+      const d = terrPath(feat.geometry || {});
+      if (!d) return;
+      const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("d", d);
+      p.setAttribute("class", `terr${(feat.properties || {}).disputed ? " disputed" : ""}`);
+      p.setAttribute("fill", color);
+      p.setAttribute("stroke", color);
+      p.setAttribute("fill-rule", "evenodd");     // 구멍 링이 실제로 뚫리게
+      p.addEventListener("pointerenter", ev => terrHover(t, feat, p, ev));
+      p.addEventListener("pointermove", ev => moveTooltip(ev));
+      p.addEventListener("pointerleave", clearHover);
+      p.addEventListener("click", ev => {
+        if (state.editor) return;                 // 편집 중엔 지도 클릭이 꼭짓점이다
+        ev.stopPropagation();
+        select(t.slug, { fly: false });
+      });
+      g.appendChild(p);
+      state.terrEl.push({ el: p, slug: t.slug, feat, fi });
+    });
+  }
+  syncTerritories();
+}
+
+function terrHover(t, feat, el, ev) {
+  const pr = feat.properties || {};
+  const a = state.actors.get(t.slug);
+  const per = pr.period && pr.period[0] != null
+    ? `${fmtYear(pr.period[0])} – ${pr.period[1] == null ? "현재" : fmtYear(pr.period[1])}` : "시기 미기재";
+  tooltip.innerHTML =
+    `<div class="tt-title">✍ ${esc(a?.label || t.label)} — ${esc(pr.claim || "강역")}</div>
+     <div class="tt-sub">${per}${pr.disputed ? " · <b>논란 있음</b>" : ""} ·
+       손으로 그린 주장 (${esc(pr.drawn_by || "?")}, ${esc(pr.drawn_at || "?")})</div>
+     <div class="tt-sub">${esc((pr.basis || "").slice(0, 120))}</div>`;
+  tooltip.hidden = false;
+  moveTooltip(ev);
+}
+
+/* 강역 가시성 — 행위자 필터를 따르고, 판본 시기는 시간 렌즈와 교차 판정한다 */
+function syncTerritories() {
+  for (const ent of state.terrEl) {
+    const nodeEnt = state.nodeEl.get(ent.slug);
+    const actorOff = nodeEnt ? nodeEnt.g.classList.contains("theme-off") : false;
+    const ghost = nodeEnt ? nodeEnt.g.classList.contains("tghost") : false;
+    let timeOff = false;
+    const per = (ent.feat.properties || {}).period;
+    if (state.timeWin && per && per[0] != null) {
+      timeOff = !(per[0] <= state.timeWin[1] && (per[1] ?? TIME_MAX) >= state.timeWin[0]);
+    }
+    // 수정 중인 판본만 숨긴다 — 초안이 그 자리를 대신 그린다
+    const beingEdited = state.editor && state.editor.slug === ent.slug
+      && state.editor.editIndex === ent.fi;
+    ent.el.classList.toggle("off", actorOff || timeOff || !!beingEdited);
+    ent.el.classList.toggle("tghost", ghost);
+  }
+}
+
 /* ── 뷰(팬·줌) ───────────────────────────────────────────────── */
 function viewSize() {
   const r = svg.getBoundingClientRect();
@@ -257,6 +336,7 @@ function applyView() {
   // 줌 밀도(LOD) — 원경에서 마이너 행위자를 걷어 아드리아 같은 밀집 지대가 뭉개지지 않게
   const bucket = rel > 6 ? 2 : rel > 2.2 ? 1 : 0;
   if (bucket !== state.lodBucket) { state.lodBucket = bucket; applyLod(); }
+  if (state.editor) renderEditor();      // 꼭짓점 반지름은 화면 픽셀 기준 — 줌마다 다시 잰다
 }
 
 function applyLod() {
@@ -370,7 +450,16 @@ function bindMapControls() {
     const wasDrag = drag && drag.moved;
     drag = null;
     svg.classList.remove("dragging");
-    if (!wasDrag && (ev.target === svg || ev.target.classList.contains("country") || ev.target.classList.contains("grat")))
+    if (wasDrag) return;
+    // 에디터가 켜져 있으면 맨클릭 = 꼭짓점 추가 (에디터 자기 요소 위는 제외 — 자기가 처리한다)
+    if (state.editor) {
+      if (!ev.target.closest("#g-edit") && !state.editor.drag) {
+        state.editor.cur.push(scr2world(ev));
+        renderEditor();
+      }
+      return;
+    }
+    if (ev.target === svg || ev.target.classList.contains("country") || ev.target.classList.contains("grat"))
       deselect();
   });
   svg.addEventListener("pointercancel", () => { drag = null; svg.classList.remove("dragging"); });
@@ -381,6 +470,13 @@ function bindMapControls() {
   window.addEventListener("resize", applyView);
   window.addEventListener("keydown", ev => {
     if (ev.key !== "Escape") return;
+    if (!$("#editform").hidden) { $("#editform").hidden = true; return; }
+    if (!$("#newterr").hidden) { $("#newterr").hidden = true; return; }
+    if (state.editor) {                                   // 에디터가 최우선 — 그리던 게 있으면 묻는다
+      const ed = state.editor;
+      if (!(ed.rings.length || ed.cur.length) || confirm("그리던 강역을 버린다 — 계속?")) exitEditor();
+      return;
+    }
     if (!$("#codex").hidden) { $("#codex").hidden = true; return; }
     if (state.selected) { deselect(); hideSearch(); return; }
     if (state.concept) { clearConcept(); return; }        // 렌즈는 선택 다음에 벗긴다
@@ -464,6 +560,7 @@ function applyFilters() {
     ent.ghost = ghost.has(ent.e.src) || ghost.has(ent.e.dst);
   }
   syncEdges();
+  syncTerritories();
   updateTimelineUI();
 }
 
@@ -599,6 +696,274 @@ function buildTimeline() {
   $("#cb-x").addEventListener("click", clearConcept);
 }
 
+/* ── 강역 에디터 — 논란 많은 국경은 사람이 긋는다 (territory-sketch 기획) ──
+   그린 것은 사실이 아니라 서명된 주장으로 저장된다. LLM 은 여기 관여하지 않는다. */
+function scr2world(ev) {
+  const r = svg.getBoundingClientRect();
+  const wx = (ev.clientX - r.left - state.view.x) / state.view.k;
+  const wy = (ev.clientY - r.top - state.view.y) / state.view.k;
+  return [Math.round((wx / K - 180) * 1e4) / 1e4, Math.round((90 - wy / K) * 1e4) / 1e4];
+}
+
+function startEditor({ slug, label, editIndex = null }) {
+  if (state.editor) return;
+  deselect();                      // 패널을 접는다 — 그리는 동안은 지도 전체가 캔버스다
+  const ed = { slug, label, editIndex, rings: [], cur: [], meta: null, drag: null };
+  if (editIndex !== null) {
+    // 기존 판본 수정 — 링을 초안으로 불러온다 (닫힘 좌표는 벗긴다)
+    const feat = (state.territories.get(slug)?.features || [])[editIndex];
+    if (!feat) return;
+    ed.meta = { ...(feat.properties || {}) };
+    const polys = feat.geometry.type === "Polygon" ? [feat.geometry.coordinates]
+      : feat.geometry.coordinates;
+    for (const poly of polys || []) for (const ring of poly || []) {
+      const pts = ring.map(c => [c[0], c[1]]);
+      if (pts.length > 1 && pts[0][0] === pts.at(-1)[0] && pts[0][1] === pts.at(-1)[1]) pts.pop();
+      ed.rings.push(pts);
+    }
+  }
+  state.editor = ed;
+  document.body.classList.add("editing");
+  $("#editbar").hidden = false;
+  $("#ed-title").textContent = label;
+  $("#codex").hidden = true;
+  syncTerritories();               // 수정 중인 판본은 지도에서 숨긴다 — 초안이 대신 선다
+  renderEditor();
+  setRibbon();
+}
+
+function exitEditor() {
+  state.editor = null;
+  document.body.classList.remove("editing");
+  $("#editbar").hidden = true;
+  $("#editform").hidden = true;
+  $("#g-edit").innerHTML = "";
+  syncTerritories();
+  setRibbon();
+}
+
+function renderEditor() {
+  const ed = state.editor;
+  const g = $("#g-edit");
+  if (!ed) { g.innerHTML = ""; return; }
+  const NS = "http://www.w3.org/2000/svg";
+  g.innerHTML = "";
+  const rv = 4.5 / state.view.k, rm = 3 / state.view.k;
+
+  const vertex = (lng, lat, cls, onDown, onClick) => {
+    const c = document.createElementNS(NS, "circle");
+    c.setAttribute("cx", px(lng)); c.setAttribute("cy", py(lat));
+    c.setAttribute("r", cls.includes("mid") ? rm : rv);
+    c.setAttribute("class", cls);
+    if (onDown) c.addEventListener("pointerdown", onDown);
+    if (onClick) c.addEventListener("click", ev => { ev.stopPropagation(); onClick(ev); });
+    g.appendChild(c);
+  };
+
+  // 닫힌 링들 — 면으로
+  ed.rings.forEach((ring, ri) => {
+    if (ring.length < 3) return;
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", ring.map((c, i) =>
+      `${i ? "L" : "M"}${px(c[0]).toFixed(1)} ${py(c[1]).toFixed(1)}`).join("") + "Z");
+    p.setAttribute("class", "ed-line");
+    g.appendChild(p);
+  });
+  // 그리는 중인 링 — 열린 선으로
+  if (ed.cur.length > 1) {
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", ed.cur.map((c, i) =>
+      `${i ? "L" : "M"}${px(c[0]).toFixed(1)} ${py(c[1]).toFixed(1)}`).join(""));
+    p.setAttribute("class", "ed-cur");
+    g.appendChild(p);
+  }
+  // 꼭짓점 — 드래그 이동 · Alt+클릭 삭제 · (그리는 링의) 첫 점 클릭 = 닫기
+  const bindDrag = (ri, vi) => ev => {
+    ev.stopPropagation();
+    ev.preventDefault();
+    ed.drag = { ri, vi, pid: ev.pointerId };
+    ev.target.setPointerCapture(ev.pointerId);
+  };
+  ed.rings.forEach((ring, ri) => {
+    ring.forEach(([lng, lat], vi) => vertex(lng, lat, "ed-v", bindDrag(ri, vi), ev => {
+      if (ev.altKey && ring.length > 3) { ring.splice(vi, 1); renderEditor(); }
+    }));
+    // 변 중점 — 클릭하면 사이에 꼭짓점을 심는다
+    ring.forEach(([lng, lat], vi) => {
+      const [lng2, lat2] = ring[(vi + 1) % ring.length];
+      vertex((lng + lng2) / 2, (lat + lat2) / 2, "ed-mid", null, () => {
+        ring.splice(vi + 1, 0, [(lng + lng2) / 2, (lat + lat2) / 2]);
+        renderEditor();
+      });
+    });
+  });
+  ed.cur.forEach(([lng, lat], vi) => {
+    vertex(lng, lat, vi === 0 ? "ed-v first" : "ed-v", bindDrag(-1, vi), ev => {
+      if (ev.altKey) { ed.cur.splice(vi, 1); renderEditor(); return; }
+      if (vi === 0 && ed.cur.length >= 3) editorCloseRing();
+    });
+  });
+
+  const n = ed.rings.reduce((s, r) => s + r.length, 0) + ed.cur.length;
+  $("#ed-hint").textContent = ed.cur.length
+    ? `그리는 중 — 꼭짓점 ${ed.cur.length} · 첫 점 클릭/Enter: 링 닫기`
+    : ed.rings.length
+      ? `링 ${ed.rings.length} · 꼭짓점 ${n} · 클릭: 새 링 시작 · 드래그: 이동 · Alt+클릭: 삭제`
+      : "지도를 클릭해 꼭짓점을 찍어라";
+}
+
+function editorCloseRing() {
+  const ed = state.editor;
+  if (!ed || ed.cur.length < 3) return;
+  ed.rings.push(ed.cur);
+  ed.cur = [];
+  renderEditor();
+}
+
+function editorUndo() {
+  const ed = state.editor;
+  if (!ed) return;
+  if (ed.cur.length) ed.cur.pop();
+  else if (ed.rings.length) ed.cur = ed.rings.pop();   // 마지막 링을 다시 연다
+  renderEditor();
+}
+
+function openMetaForm() {
+  const ed = state.editor;
+  if (!ed) return;
+  if (ed.cur.length >= 3) editorCloseRing();           // 그리다 만 링은 닫아 준다
+  if (!ed.rings.length) { $("#ed-hint").textContent = "저장할 링이 없다 — 꼭짓점 3개 이상을 찍어라"; return; }
+  const m = ed.meta || {};
+  $("#ef-label").textContent = ed.label;
+  $("#ef-claim").value = m.claim || "";
+  $("#ef-start").value = m.period?.[0] ?? "";
+  $("#ef-end").value = m.period?.[1] ?? "";
+  $("#ef-basis").value = m.basis || "";
+  $("#ef-disputed").checked = m.disputed !== false;
+  $("#ef-err").hidden = true;
+  $("#editform").hidden = false;
+  $("#ef-claim").focus();
+}
+
+async function submitTerritory() {
+  const ed = state.editor;
+  if (!ed) return;
+  const claim = $("#ef-claim").value.trim();
+  const basis = $("#ef-basis").value.trim();
+  const err = $("#ef-err");
+  if (!claim || !basis) {
+    err.textContent = "판본 이름과 근거는 필수다 — 근거는 한 줄이라도 남겨라.";
+    err.hidden = false;
+    return;
+  }
+  const s = $("#ef-start").value.trim(), e = $("#ef-end").value.trim();
+  const period = s === "" && e === "" ? null
+    : [s === "" ? null : parseInt(s, 10), e === "" ? null : parseInt(e, 10)];
+  const feature = {
+    type: "Feature",
+    geometry: { type: "MultiPolygon",
+      coordinates: ed.rings.map(r => [[...r, r[0]]]) },   // 링마다 폴리곤 하나(섬·비지)
+    properties: { claim, basis, period, disputed: $("#ef-disputed").checked,
+                  drawn_by: (ed.meta || {}).drawn_by || "user",
+                  drawn_at: (ed.meta || {}).drawn_at },
+  };
+  const terr = state.territories.get(ed.slug);
+  const features = terr ? [...terr.features] : [];
+  if (ed.editIndex !== null) features[ed.editIndex] = feature;
+  else features.push(feature);
+  await postTerritory(ed.slug, ed.label, features, err);
+}
+
+async function postTerritory(slug, label, features, errEl) {
+  const terr = state.territories.get(slug);
+  try {
+    const res = await fetch(`${API}/api/territory/${encodeURIComponent(slug)}`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rev: terr?.rev || 0, label, features }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error || res.status);
+    const isNewActor = !state.actors.has(slug);
+    if (d.deleted) state.territories.delete(slug);
+    else state.territories.set(slug, d);
+    exitEditor();
+    drawTerritories();
+    // 강역 전용 행위자(대장에 없던 슬러그)나 앵커 승격은 조립을 다시 받아야 지도에 선다
+    if (isNewActor || state.actors.get(slug)?.placeless) { location.reload(); return; }
+    if (state.selected === slug && state.panelData) drawPanel();
+    return true;
+  } catch (ex) {
+    if (errEl) { errEl.textContent = `저장 실패: ${ex.message}`; errEl.hidden = false; }
+    else alert(`강역 저장 실패: ${ex.message}`);
+    return false;
+  }
+}
+
+async function deleteClaim(slug, fi) {
+  const terr = state.territories.get(slug);
+  if (!terr) return;
+  const pr = terr.features[fi]?.properties || {};
+  if (!confirm(`판본 "${pr.claim || fi + 1}" 을 지운다 — 되돌리려면 git 이력뿐이다. 계속?`)) return;
+  const features = terr.features.filter((_, i) => i !== fi);
+  const a = state.actors.get(slug);
+  if (await postTerritory(slug, terr.label || a?.label || slug, features)) {
+    if (state.selected === slug && state.panelData) drawPanel();
+  }
+}
+
+function buildEditorUI() {
+  $("#ed-close-ring").addEventListener("click", editorCloseRing);
+  $("#ed-undo").addEventListener("click", editorUndo);
+  $("#ed-save").addEventListener("click", openMetaForm);
+  $("#ed-cancel").addEventListener("click", () => {
+    const ed = state.editor;
+    if (ed && (ed.rings.length || ed.cur.length)
+      && !confirm("그리던 강역을 버린다 — 계속?")) return;
+    exitEditor();
+  });
+  $("#ef-ok").addEventListener("click", submitTerritory);
+  $("#ef-back").addEventListener("click", () => { $("#editform").hidden = true; });
+
+  // 새 강역 — 대장에 없는 대상(청나라)도 슬러그·이름만 정하면 그릴 수 있다
+  $("#cx-newterr").addEventListener("click", () => {
+    $("#codex").hidden = true;                    // 백과 위에 겹쳐 두면 손이 닿지 않는다
+    $("#newterr").hidden = false;
+    $("#nt-slug").focus();
+  });
+  $("#nt-cancel").addEventListener("click", () => { $("#newterr").hidden = true; });
+  $("#nt-ok").addEventListener("click", () => {
+    const slug = $("#nt-slug").value.trim().toLowerCase();
+    const label = $("#nt-label").value.trim();
+    const err = $("#nt-err");
+    if (!/^[a-z0-9][a-z0-9-]{1,59}$/.test(slug)) {
+      err.textContent = "슬러그는 영문 소문자·숫자·하이픈 2~60자다. 예: qing-dynasty";
+      err.hidden = false;
+      return;
+    }
+    if (!label) { err.textContent = "표시 이름을 넣어라."; err.hidden = false; return; }
+    $("#newterr").hidden = true;
+    $("#nt-slug").value = ""; $("#nt-label").value = ""; err.hidden = true;
+    startEditor({ slug, label });
+  });
+
+  // 꼭짓점 드래그 — capture 를 건 circle 이 move/up 을 받는다
+  svg.addEventListener("pointermove", ev => {
+    const ed = state.editor;
+    if (!ed || !ed.drag) return;
+    const [lng, lat] = scr2world(ev);
+    const ring = ed.drag.ri === -1 ? ed.cur : ed.rings[ed.drag.ri];
+    if (ring && ring[ed.drag.vi]) { ring[ed.drag.vi] = [lng, lat]; renderEditor(); }
+  });
+  svg.addEventListener("pointerup", () => { if (state.editor) state.editor.drag = null; });
+
+  window.addEventListener("keydown", ev => {
+    if (!state.editor) return;
+    if (/INPUT|TEXTAREA/.test(ev.target.tagName)) return;   // 폼 입력 중엔 손대지 않는다
+    if (ev.key === "Enter") { ev.preventDefault(); editorCloseRing(); }
+    else if (ev.key === "Backspace") { ev.preventDefault(); editorUndo(); }
+  });
+}
+
 /* ── 호버 강조 + 툴팁 ────────────────────────────────────────── */
 function litEgo(slug) {
   svg.classList.add("dimmed");
@@ -661,6 +1026,14 @@ function setRibbon() {
   const rb = $("#ribbon");
   if (!rb) return;
   rb.classList.remove("selected");
+  if (state.editor) {
+    const ed = state.editor;
+    rb.classList.add("selected");
+    rb.innerHTML = `강역 그리기: ${esc(ed.label)}
+      <span class="rb-sub">클릭: 꼭짓점 · Enter: 링 닫기 · Backspace: 무르기 · Esc: 취소</span>`;
+    rb.onclick = () => {};
+    return;
+  }
   if (state.selected) {
     const a = state.actors.get(state.selected);
     rb.classList.add("selected");
@@ -699,6 +1072,7 @@ function setRibbon() {
 
 /* ── 선택 + 상세 패널 ────────────────────────────────────────── */
 async function select(slug, { fly = true } = {}) {
+  if (state.editor) return;              // 그리는 중엔 선택이 바뀌지 않는다
   const a = state.actors.get(slug);
   if (!a) return;
   if (state.selected) state.nodeEl.get(state.selected)?.g.classList.remove("selected");
@@ -787,6 +1161,7 @@ function drawPanel() {
       <button class="p-chip cbtn" id="p-cfilter" title="이 행위자와 관계로 이어진 것만 지도에 남긴다">
         ${state.concept === a.slug ? "◉ 연관 해제" : "◉ 연관만 보기"}</button>
     </div>
+    ${claimsBlock(a)}
     <div class="p-tabs">
       <button class="p-tab${tab === "city" ? " on" : ""}" data-tab="city">도시</button>
       <button class="p-tab${tab === "diplo" ? " on" : ""}" data-tab="diplo">외교 ${relations.length}</button>
@@ -801,6 +1176,12 @@ function drawPanel() {
     else applyConcept(a.slug);
     drawPanel();                       // 버튼 라벨(연관만/해제)을 갱신한다
   });
+  $("#pc-add")?.addEventListener("click", () => startEditor({ slug: a.slug, label: a.label }));
+  document.querySelectorAll("#panel .pc-e").forEach(b =>
+    b.addEventListener("click", () =>
+      startEditor({ slug: a.slug, label: a.label, editIndex: +b.dataset.fi })));
+  document.querySelectorAll("#panel .pc-d").forEach(b =>
+    b.addEventListener("click", () => deleteClaim(a.slug, +b.dataset.fi)));
   document.querySelectorAll("#panel .rel-row").forEach(row =>
     row.addEventListener("click", () => select(row.dataset.slug)));
   document.querySelectorAll("#panel .atom-head").forEach(h =>
@@ -809,6 +1190,29 @@ function drawPanel() {
     el.addEventListener("click", () => { state.panelTab = "city"; drawPanel();
       const t = document.querySelector(`#panel .atom-item[data-id="${el.dataset.id}"]`);
       if (t) { t.classList.add("open"); t.scrollIntoView({ block: "center", behavior: "smooth" }); } }));
+}
+
+/* 강역 판본 목록 — 사람이 그린 주장은 원자 인용과 나란히, 그러나 구분되게 */
+function claimsBlock(a) {
+  const terr = state.territories.get(a.slug);
+  const rows = (terr?.features || []).map((f, fi) => {
+    const pr = f.properties || {};
+    const per = pr.period && pr.period[0] != null
+      ? `${fmtYear(pr.period[0])}–${pr.period[1] == null ? "현재" : fmtYear(pr.period[1])}` : "시기 없음";
+    return `<div class="pc-row">
+        <span class="per">${esc(per)}</span>
+        <span class="nm">${esc(pr.claim || `판본 ${fi + 1}`)}</span>
+        ${pr.disputed ? `<span class="dp">논란</span>` : ""}
+        <button class="pc-e" data-fi="${fi}" title="이 판본의 꼭짓점을 수정한다">수정</button>
+        <button class="pc-d" data-fi="${fi}" title="이 판본을 지운다">삭제</button>
+      </div>
+      <div class="pc-basis">✍ ${esc((pr.basis || "").slice(0, 90))} — ${esc(pr.drawn_by || "?")}, ${esc(pr.drawn_at || "?")}</div>`;
+  }).join("");
+  return `<div class="p-claims">
+      <div class="pc-head">✍ 강역 — 사람이 그린 주장${terr ? ` · 판본 ${terr.features.length}` : ""}</div>
+      ${rows}
+      <button class="pc-add" id="pc-add">✍ ${terr ? "새 판본 그리기" : "강역 그리기"}</button>
+    </div>`;
 }
 
 /* 도시 화면 — 테마 신호 · 원자 원문 · 근거 보고서 */
@@ -1018,7 +1422,7 @@ function renderCodex(query) {
   }
   const card = a => `<div class="cx-a" data-slug="${esc(a.slug)}">
       <span>${TYPE_ICON[a.type]}</span><span class="lb">${esc(a.label)}</span>
-      <span class="mt">${a.atom_count}·${a.degree}</span></div>`;
+      <span class="mt">${state.territories.has(a.slug) ? "✍ " : ""}${a.atom_count}·${a.degree}</span></div>`;
   const blocks = [...bySphere.entries()]
     .sort((x, y) => y[1].length - x[1].length)
     .map(([key, list]) => {
@@ -1133,6 +1537,7 @@ function buildUI() {
   buildEraDock();
   buildCodex();
   buildTimeline();
+  buildEditorUI();
   setRibbon();
   $("#legend-toggle").addEventListener("click", () => $("#legend").classList.toggle("closed"));
   $("#panel-close").addEventListener("click", deselect);
