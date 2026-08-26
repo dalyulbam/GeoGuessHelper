@@ -1,9 +1,10 @@
 # 엔티티 · malaysia
 
-원자 20개 · 이 엔티티를 다룬 보고서 2건
+원자 21개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_065d923adab8]] **Light pollution and boat traffic threats to firefly tourism sites** (nature/region)
+- [[atm_125e62c3667a]] **House of Temenggong (Malaysia/Johor)** (history/polity)
 - [[atm_1655b70a6821]] **Batik and pandanus handicrafts as east-coast Malay cultural markers** (culture/region)
 - [[atm_1cd2aa06b732]] **Egg harvesting and coastal development as turtle population threats** (economy/region)
 - [[atm_25d589535f80]] **Malaysian Federal Route 3 as the Peninsular East Coast trunk road** (geography/region)

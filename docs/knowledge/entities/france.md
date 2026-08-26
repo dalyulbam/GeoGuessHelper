@@ -1,6 +1,6 @@
 # 엔티티 · france
 
-원자 12개 · 이 엔티티를 다룬 보고서 0건
+원자 13개 · 이 엔티티를 다룬 보고서 0건
 
 ## 원자
 - [[atm_19e7bb82b228]] **Romance-language street-naming conventions as a contrast case** (language/country)
@@ -12,6 +12,7 @@
 - [[atm_979160e118e7]] **Regional road-number range zoning as a navigation code** (geography/global)
 - [[atm_d77af7df6d03]] **Vienna Convention harmonization versus persistent national signage variants** (architecture/global)
 - [[atm_dad10402d915]] **Counter-urbanization and rural revival movements** (economy/global)
+- [[atm_ecb833635a0b]] **French dynasties (early to Bourbon)** (history/country)
 - [[atm_f84831b3eb8b]] **Historic town-center retail decline and high-street preservation movements** (economy/global)
 - [[atm_fb73bf27bdb5]] **European corporate legal-form suffixes as country identifiers** (economy/global)
 - [[atm_fcd1da2c1009]] **Company-form suffixes as national linguistic fingerprints** (language/global)

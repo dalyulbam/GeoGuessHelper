@@ -1,9 +1,10 @@
 # 엔티티 · japan
 
-원자 20개 · 이 엔티티를 다룬 보고서 0건
+원자 21개 · 이 엔티티를 다룬 보고서 0건
 
 ## 원자
 - [[atm_0de705b1aa28]] **National highway numbering and driving-side as geolocation cues** (geography/global)
+- [[atm_252f5171f26d]] **Imperial House of Japan** (history/polity)
 - [[atm_26670bdff72a]] **British colonial legacy of left-hand traffic** (geography/global)
 - [[atm_29aac8d5f161]] **Morihiko Hiramatsu, originator of One Village One Product** (economy/country)
 - [[atm_31b06bbe84f4]] **National administrative-unit vocabularies as toponymic fingerprints** (language/global)

@@ -1,6 +1,6 @@
 # 엔티티 · croatia
 
-원자 33개 · 이 엔티티를 다룬 보고서 8건
+원자 34개 · 이 엔티티를 다룬 보고서 8건
 
 ## 원자
 - [[atm_050d1beb807a]] **Čakavian dialect and Glagolitic literacy on Kvarner islands** (language/region)
@@ -10,6 +10,7 @@
 - [[atm_13f509999bc0]] **Croatia's rapid national demographic aging and youth outmigration** (history/country)
 - [[atm_14bd04044110]] **Krk Bridge, world-class concrete arch (1980)** (architecture/polity)
 - [[atm_1614bc8a7ec4]] **Protected traditional fishing rights within Croatian marine national parks** (economy/region)
+- [[atm_172cfa49a08b]] **Croatian dynasties** (history/country)
 - [[atm_1f7c52fa2190]] **Cyrillic glosses on Croatian-Herzegovinian borderland signage** (language/region)
 - [[atm_2142c38119f1]] **Croatian Cyrillic-Latin script tension in border regions** (language/country)
 - [[atm_23aeee0b6c9e]] **Bridge-building as ferry route replacement** (economy/region)

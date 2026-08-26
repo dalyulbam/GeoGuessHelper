@@ -1,10 +1,11 @@
 # 엔티티 · republic-of-ragusa
 
-원자 7개 · 이 엔티티를 다룬 보고서 3건
+원자 8개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_020ef391a7c6]] **Ljetnikovac: Ragusan ashlar villa with arched quay doorway** (architecture/region)
 - [[atm_2293f2bdddc3]] **Ragusan patrician families and villa patronage** (history/polity)
+- [[atm_247632c71cf3]] **Historical states of Croatia** (history/country)
 - [[atm_431d5baec140]] **Ragusan noble summer villas at Zaton bay** (history/polity)
 - [[atm_467d62279854]] **1667 Dubrovnik earthquake's destruction of noble villa culture** (history/point)
 - [[atm_483358c79995]] **End of the Republic of Ragusa, 1808–1814** (history/polity)
