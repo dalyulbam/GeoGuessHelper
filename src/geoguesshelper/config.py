@@ -138,10 +138,19 @@ class Settings:
     ])
 
     # ── 지식 축적 ─────────────────────────────────────────────────
+    # 적재는 세 갈래다(docs/plan/atom-density-map-detail_260829.html §density):
+    #   P1 지점 단서 — 캡처의 pano 좌표에 point 스코프로. 예산 밖(백그라운드/사후 적재)에서만 돈다.
+    #   P2 장소 사실 — 지금까지의 단일 패스와 같은 재료(narrowing·cultural_economic_read).
+    #                  유일하게 잡 예산 안에서 동기 호출된다.
+    #   P3 프로파일 사실 — 리서치 프로파일 절마다. P1 과 같이 예산 밖에서만 돈다.
     knowledge_enabled: bool = True
     knowledge_effort: str | None = "medium"
     knowledge_max_tokens: int = 8000
-    knowledge_max_atoms: int = 8
+    knowledge_max_atoms: int = 12       # P2 상한(과거 8 — 단일 패스 시절의 값)
+    knowledge_p1_max_per_image: int = 5
+    knowledge_p1_max_atoms: int = 24
+    knowledge_p3_max_per_section: int = 4
+    knowledge_p3_max_atoms: int = 20
     knowledge_recall_limit: int = 12
     knowledge_recall_chars: int = 6000
     synthesis_max_tokens: int = 12000

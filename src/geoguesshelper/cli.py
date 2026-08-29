@@ -67,6 +67,20 @@ def main() -> None:
     p_ex.add_argument("--parallel", type=int, default=3, help="동시 호출 수")
     p_ex.add_argument("--dry-run", action="store_true", help="호출 없이 남은 씨앗 수만 보여준다")
 
+    p_cat = sub.add_parser(
+        "categorize",
+        help="보고서 유래 원자에 닫힌 범주(category) 어휘를 채운다 (기획 v3 1단계)",
+        description=(
+            "이미 저장된 원자 중 보고서에서 태어난 것만 골라 knowledge.ALL_CATEGORIES 닫힌 "
+            "어휘로 분류한다. 본문·태그·좌표는 그대로 — category 한 칸만 채운다. "
+            "체크포인트로 이어서 돈다."
+        ),
+    )
+    p_cat.add_argument("--limit", type=int, default=0, help="처리할 원자 수 (0=남은 전부)")
+    p_cat.add_argument("--batch", type=int, default=20, help="호출당 원자 수")
+    p_cat.add_argument("--parallel", type=int, default=3, help="동시 호출 수")
+    p_cat.add_argument("--dry-run", action="store_true", help="호출 없이 남은 대상 수만 보여준다")
+
     p_wk = sub.add_parser(
         "wiki",
         help="위키피디아 인제스트 (시대·왕조·제국·국가 리스트 → 원자)",
@@ -144,6 +158,20 @@ def main() -> None:
             ensure_ascii=False, indent=2))
         return
 
+    if args.cmd == "categorize":
+        from . import categorize
+        from .config import load_settings
+
+        state = categorize.run(
+            load_settings(),
+            limit=args.limit, batch=args.batch, parallel=args.parallel, dry_run=args.dry_run,
+        )
+        print(json.dumps(
+            {k: state[k] for k in ("categorized", "other", "skipped", "cost_usd")}
+            | {"done": len(state["done"])},
+            ensure_ascii=False, indent=2))
+        return
+
     if args.cmd == "wiki":
         from . import wiki
         from .config import load_settings
@@ -181,12 +209,17 @@ def main() -> None:
     serve_main()
 
 
+_KNOWLEDGE_PASSES = ("p1", "p2", "p3")
+
+
 def _ingest(args) -> None:
     """보고서↔지식 노트 대사 + 사후 적재.
 
-    재료는 잡 로그(docs/jobs/jobs.jsonl)의 result.primaryAnalysis 다 — 분석은 이미
-    끝나 있으므로 비전 재호출 없이 적재 LLM 한 번이면 된다. 리서치 결과는 잡 로그에
-    저장되지 않아 사후 적재 원자는 분석 근거만 갖는다(한계를 노트에 명시).
+    재료는 잡 로그(docs/jobs/jobs.jsonl)의 result.primaryAnalysis(P1·P2 재료) ·
+    result.research(P3 재료, 260830 이전 로그에는 없음) · result.primaryAnalysis.image_panos
+    (P1 좌표, 마찬가지로 260830 이전 로그에는 없음) 다. 결손은 보고서 단위가 아니라 **패스
+    단위**로 잡는다 — P2 노트가 있어도 P1·P3 가 없으면 그 두 패스만 소급한다
+    (docs/plan/atom-density-map-detail_260829.html §stages 3단계).
     """
     import re
     from pathlib import Path
@@ -197,7 +230,15 @@ def _ingest(args) -> None:
     settings = load_settings()
     st = knowledge.store_for(settings)
     idx = st.index()
-    noted = set((idx.get("reports") or {}).keys())
+    notes = idx.get("reports") or {}
+
+    def existing_passes(fname: str) -> set[str]:
+        entry = notes.get(fname)
+        if not entry:
+            return set()
+        p = entry.get("passes")
+        # 패스 구분 이전(260830 이전) 노트는 옛 단일 패스 = 지금의 p2 였다고 본다.
+        return set(p) if p else {"p2"}
 
     # 잡 로그: 보고서 파일명 → 잡 결과 (뒤 항목이 더 최신이라 덮어쓴다)
     by_file: dict[str, dict] = {}
@@ -222,13 +263,18 @@ def _ingest(args) -> None:
     else:
         files = sorted(settings.reports_dir.rglob("report_*.html"))
 
-    targets = [f for f in files if args.redo or f.name not in noted]
-    print(f"[ingest] 보고서 {len(files)}건 중 노트 결손 {len(targets)}건"
-          + ("" if args.redo else f" (노트 있음 {len(files) - len(targets)}건은 건너뜀)"))
+    want = set(_KNOWLEDGE_PASSES)
+    targets: list[tuple[Path, tuple[str, ...]]] = []
+    for f in files:
+        missing = want if args.redo else (want - existing_passes(f.name))
+        if missing:
+            targets.append((f, tuple(sorted(missing))))
+    print(f"[ingest] 보고서 {len(files)}건 중 패스 결손 {len(targets)}건"
+          + ("" if args.redo else f" (완전히 채워진 {len(files) - len(targets)}건은 건너뜀)"))
 
     coord_re = re.compile(r"_(-?\d+(?:\.\d+)?)_(-?\d+(?:\.\d+)?)_(\d{6})_(\d{6})_([a-z-]+)\.html$")
     total_cost, done = 0.0, 0
-    for f in targets:
+    for f, missing in targets:
         res = by_file.get(f.name)
         analysis = (res or {}).get("primaryAnalysis")
         m = coord_re.search(f.name)
@@ -237,7 +283,7 @@ def _ingest(args) -> None:
             print(f"  - {f.name}: 재료 없음({why}) — 건너뜀")
             continue
         if not args.apply:
-            print(f"  - {f.name}: 적재 가능 (--apply 로 실행)")
+            print(f"  - {f.name}: 적재 가능({'/'.join(missing)}) (--apply 로 실행)")
             continue
 
         lat, lng = float(m.group(1)), float(m.group(2))
@@ -248,9 +294,14 @@ def _ingest(args) -> None:
                                             g.get("country")] if x)
         known = [x for x in (st.load(i) for i in
                              ((res.get("knowledge") or {}).get("recalled") or [])) if x]
+        # 260830 이전 잡 로그에는 research·image_panos 가 없다 — 그런 보고서의 P3(프로파일)·
+        # P1(지점 단서)은 소급되지 않고 재료 없음으로 조용히 0개 처리된다(ingest() 의 skipped).
+        research = res.get("research")
+        image_panos = (analysis or {}).get("image_panos")
         kb = knowledge.ingest(
-            settings, analysis=analysis, research=None,
+            settings, analysis=analysis, research=research,
             lat=lat, lng=lng, report_file=f.name, known=known,
+            image_panos=image_panos, passes=missing,
         )
         total_cost += kb.get("cost_usd") or 0.0
         summary = ""
@@ -264,11 +315,13 @@ def _ingest(args) -> None:
         knowledge.write_report_note(
             settings, report_file=f.name, place=place_label, lat=lat, lng=lng,
             atoms=kb.get("atoms") or [], langs=langs,
-            summary=(summary + "\n\n(사후 적재 — 리서치 결과 없이 분석만으로 적재됨)").strip(),
+            summary=(summary + "\n\n(사후 적재)").strip(),
+            passes=list(missing),
         )
         done += 1
+        p_bits = " · ".join(f"{k}:{v.get('n', 0)}" for k, v in (kb.get("passes") or {}).items())
         print(f"  + {f.name}: 원자 {kb.get('created', 0)} 신규 · {kb.get('merged', 0)} 병합"
-              f" · ${kb.get('cost_usd') or 0.0:.3f}")
+              f" ({p_bits}) · ${kb.get('cost_usd') or 0.0:.3f}")
     if args.apply:
         print(f"[ingest] 적재 {done}건 · ${total_cost:.3f}")
 
