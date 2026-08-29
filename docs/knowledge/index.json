@@ -45531,6 +45531,340 @@
    "uses": 1,
    "created": 1787964651.2545128,
    "updated": 1787964651.2546008
+  },
+  "atm_d51008e27081": {
+   "id": "atm_d51008e27081",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Paraguay's post-2014 PY-prefixed route numbering system",
+   "tags": [
+    "geolocation",
+    "infrastructure",
+    "paraguay",
+    "road-numbering",
+    "signage"
+   ],
+   "entities": [
+    "paraguay"
+   ],
+   "period_start": 2014,
+   "period_end": null,
+   "lat": -27.3074,
+   "lng": -55.8638,
+   "radius_km": 1200,
+   "cell": "6g0k8uc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_py_encarnacion_-27.3074_-55.8638_260829_092750_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000545.2741754,
+   "updated": 1788000545.2852037
+  },
+  "atm_1045b3405f8d": {
+   "id": "atm_1045b3405f8d",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Tierra colorada: lateritic red soil belt of the upper Paraná basin",
+   "tags": [
+    "atlantic-forest",
+    "lateritic-soil",
+    "soil-geology",
+    "tierra-colorada",
+    "tri-border-area"
+   ],
+   "entities": [
+    "alto-parana",
+    "itapua",
+    "misiones",
+    "parana-brazil"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -27.3074,
+   "lng": -55.8638,
+   "radius_km": 200,
+   "cell": "6g0k8uc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_py_encarnacion_-27.3074_-55.8638_260829_092750_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000545.3494098,
+   "updated": 1788000545.349678
+  },
+  "atm_9af3c124876b": {
+   "id": "atm_9af3c124876b",
+   "layer": "history",
+   "scope": "region",
+   "title": "Yacyretá dam reservoir and Paraná River flooding at Encarnación",
+   "tags": [
+    "costanera",
+    "dam",
+    "hydroelectric",
+    "parana-river",
+    "urban-relocation",
+    "yacyreta"
+   ],
+   "entities": [
+    "argentina",
+    "encarnacion",
+    "paraguay",
+    "parana-river"
+   ],
+   "period_start": 1994,
+   "period_end": 2011,
+   "lat": -27.3074,
+   "lng": -55.8638,
+   "radius_km": 200,
+   "cell": "6g0k8uc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_py_encarnacion_-27.3074_-55.8638_260829_092750_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000545.4039123,
+   "updated": 1788000545.4041996
+  },
+  "atm_71255f910af9": {
+   "id": "atm_71255f910af9",
+   "layer": "culture",
+   "scope": "polity",
+   "title": "Spanish-Guaraní bilingual cultural sphere of Paraguay",
+   "tags": [
+    "bilingualism",
+    "brasiguayo",
+    "guarani",
+    "mennonite-colonies",
+    "paraguay",
+    "toponymy"
+   ],
+   "entities": [
+    "paraguay"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -27.3074,
+   "lng": -55.8638,
+   "radius_km": 2000,
+   "cell": "6g0k8uc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_py_encarnacion_-27.3074_-55.8638_260829_092750_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000545.4658747,
+   "updated": 1788000545.4660888
+  },
+  "atm_10a3dec0d708": {
+   "id": "atm_10a3dec0d708",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Encarnación as cross-border retail-tourism hub with Posadas, Argentina",
+   "tags": [
+    "agro-logistics",
+    "cross-border-trade",
+    "encarnacion",
+    "itapua",
+    "retail-tourism"
+   ],
+   "entities": [
+    "encarnacion",
+    "itapua",
+    "posadas"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -27.3074,
+   "lng": -55.8638,
+   "radius_km": 25,
+   "cell": "6g0k8uc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_py_encarnacion_-27.3074_-55.8638_260829_092750_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000545.5275946,
+   "updated": 1788000545.5278487
+  },
+  "atm_ef1e5540144e": {
+   "id": "atm_ef1e5540144e",
+   "layer": "economy",
+   "scope": "polity",
+   "title": "Russian domestic fuel-retail brands as country identifiers",
+   "tags": [
+    "commercial-brand",
+    "fuel-station",
+    "linguistic-marker",
+    "oil-industry",
+    "post-soviet",
+    "russia"
+   ],
+   "entities": [
+    "gazprom-neft",
+    "lukoil",
+    "russia",
+    "tatneft"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.7391,
+   "lng": 51.7371,
+   "radius_km": 2000,
+   "cell": "v1uv16c",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000562.8871922,
+   "updated": 1788000562.8875847
+  },
+  "atm_a5822442b0ee": {
+   "id": "atm_a5822442b0ee",
+   "layer": "culture",
+   "scope": "polity",
+   "title": "Tatarstan as a titular Turkic-Muslim republic within Russia",
+   "tags": [
+    "dual-script-signage",
+    "tatar",
+    "tatarstan",
+    "titular-republic",
+    "turkic",
+    "volga-region"
+   ],
+   "entities": [
+    "kazan",
+    "naberezhnye-chelny",
+    "russia",
+    "tatarstan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.7391,
+   "lng": 51.7371,
+   "radius_km": 2000,
+   "cell": "v1uv16c",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000562.9527476,
+   "updated": 1788000562.9530318
+  },
+  "atm_41abb4a57c7a": {
+   "id": "atm_41abb4a57c7a",
+   "layer": "geography",
+   "scope": "region",
+   "title": "M7 'Volga' federal highway and Middle Volga-Kama forest-steppe",
+   "tags": [
+    "chernozem",
+    "federal-highway",
+    "forest-steppe",
+    "m7-highway",
+    "shelterbelt",
+    "volga-region"
+   ],
+   "entities": [
+    "m7-volga-highway",
+    "russia",
+    "tatarstan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.7391,
+   "lng": 51.7371,
+   "radius_km": 200,
+   "cell": "v1uv16c",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000563.0280235,
+   "updated": 1788000563.0282571
+  },
+  "atm_3594786dc613": {
+   "id": "atm_3594786dc613",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Yelabuga Special Economic Zone and heavy-freight corridor near Naberezhnye Chelny",
+   "tags": [
+    "freight-corridor",
+    "industrial-investment",
+    "kamaz",
+    "special-economic-zone",
+    "yelabuga"
+   ],
+   "entities": [
+    "naberezhnye-chelny",
+    "tatarstan",
+    "yelabuga"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.7391,
+   "lng": 51.7371,
+   "radius_km": 200,
+   "cell": "v1uv16c",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000563.0930219,
+   "updated": 1788000563.0932813
+  },
+  "atm_e5601aaeca59": {
+   "id": "atm_e5601aaeca59",
+   "layer": "language",
+   "scope": "region",
+   "title": "Tatar-language toponym patterns within Tatarstan signage",
+   "tags": [
+    "dual-script-signage",
+    "road-signage",
+    "tatar-language",
+    "toponymy",
+    "transliteration"
+   ],
+   "entities": [
+    "russia",
+    "tatarstan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.7391,
+   "lng": 51.7371,
+   "radius_km": 200,
+   "cell": "v1uv16c",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788000563.1512938,
+   "updated": 1788000563.1515517
   }
  },
  "cells": {
@@ -46282,6 +46616,26 @@
   ],
   "u0q": [
    "atm_a8902b79c383"
+  ],
+  "6g": [
+   "atm_d51008e27081",
+   "atm_71255f910af9"
+  ],
+  "6g0": [
+   "atm_1045b3405f8d",
+   "atm_9af3c124876b"
+  ],
+  "6g0k8": [
+   "atm_10a3dec0d708"
+  ],
+  "v1": [
+   "atm_ef1e5540144e",
+   "atm_a5822442b0ee"
+  ],
+  "v1u": [
+   "atm_41abb4a57c7a",
+   "atm_3594786dc613",
+   "atm_e5601aaeca59"
   ]
  },
  "entities": {
@@ -46339,7 +46693,11 @@
    "atm_fcd1da2c1009",
    "atm_fd11c8cbb7ac",
    "atm_532ae8610bb9",
-   "atm_5afe29208137"
+   "atm_5afe29208137",
+   "atm_ef1e5540144e",
+   "atm_a5822442b0ee",
+   "atm_41abb4a57c7a",
+   "atm_e5601aaeca59"
   ],
   "soviet-union": [
    "atm_764d16790153",
@@ -46446,7 +46804,8 @@
    "atm_35ff70ea7db7",
    "atm_4668689bcc6e",
    "atm_bb85705ffd68",
-   "atm_530209fff20e"
+   "atm_530209fff20e",
+   "atm_9af3c124876b"
   ],
   "bodleian-library": [
    "atm_dbf795f532fa"
@@ -55633,6 +55992,62 @@
   ],
   "central-switzerland": [
    "atm_e80514d5e6c7"
+  ],
+  "paraguay": [
+   "atm_d51008e27081",
+   "atm_9af3c124876b",
+   "atm_71255f910af9"
+  ],
+  "alto-parana": [
+   "atm_1045b3405f8d"
+  ],
+  "itapua": [
+   "atm_1045b3405f8d",
+   "atm_10a3dec0d708"
+  ],
+  "misiones": [
+   "atm_1045b3405f8d"
+  ],
+  "parana-brazil": [
+   "atm_1045b3405f8d"
+  ],
+  "encarnacion": [
+   "atm_9af3c124876b",
+   "atm_10a3dec0d708"
+  ],
+  "parana-river": [
+   "atm_9af3c124876b"
+  ],
+  "posadas": [
+   "atm_10a3dec0d708"
+  ],
+  "gazprom-neft": [
+   "atm_ef1e5540144e"
+  ],
+  "lukoil": [
+   "atm_ef1e5540144e"
+  ],
+  "tatneft": [
+   "atm_ef1e5540144e"
+  ],
+  "kazan": [
+   "atm_a5822442b0ee"
+  ],
+  "naberezhnye-chelny": [
+   "atm_a5822442b0ee",
+   "atm_3594786dc613"
+  ],
+  "tatarstan": [
+   "atm_a5822442b0ee",
+   "atm_41abb4a57c7a",
+   "atm_3594786dc613",
+   "atm_e5601aaeca59"
+  ],
+  "m7-volga-highway": [
+   "atm_41abb4a57c7a"
+  ],
+  "yelabuga": [
+   "atm_3594786dc613"
   ]
  },
  "tags": {
@@ -55767,7 +56182,8 @@
    "atm_1cf9913c8381",
    "atm_9252ce6549a2",
    "atm_532ae8610bb9",
-   "atm_ff43edba76d3"
+   "atm_ff43edba76d3",
+   "atm_ef1e5540144e"
   ],
   "prospekt": [
    "atm_764d16790153"
@@ -56451,7 +56867,8 @@
    "atm_3569d417f648",
    "atm_0de705b1aa28",
    "atm_26670bdff72a",
-   "atm_263fbcaac613"
+   "atm_263fbcaac613",
+   "atm_d51008e27081"
   ],
   "natural-gas": [
    "atm_4f6b8bc9af59"
@@ -56961,7 +57378,8 @@
    "atm_10f4a4478224",
    "atm_268a9d39e0a9",
    "atm_a8965343eeda",
-   "atm_9bcc84872634"
+   "atm_9bcc84872634",
+   "atm_e5601aaeca59"
   ],
   "bura": [
    "atm_eea7bee4a533",
@@ -57310,7 +57728,9 @@
    "atm_9354d1b9747c",
    "atm_e20de7719377",
    "atm_fa8ff513c430",
-   "atm_f32a9d025eca"
+   "atm_f32a9d025eca",
+   "atm_71255f910af9",
+   "atm_e5601aaeca59"
   ],
   "catholic": [
    "atm_4c506c031137",
@@ -57704,7 +58124,8 @@
    "atm_d63c438c5214",
    "atm_1836cc39ec5e",
    "atm_c6a6064d3dec",
-   "atm_769bef8463f0"
+   "atm_769bef8463f0",
+   "atm_d51008e27081"
   ],
   "tavern": [
    "atm_080c7ca4a29f"
@@ -57902,7 +58323,8 @@
    "atm_a58facd06de0",
    "atm_4b3b17e5270b",
    "atm_f32a9d025eca",
-   "atm_9bcc84872634"
+   "atm_9bcc84872634",
+   "atm_ef1e5540144e"
   ],
   "homeland-war": [
    "atm_11081ef61216"
@@ -58780,7 +59202,8 @@
    "atm_0de705b1aa28",
    "atm_979160e118e7",
    "atm_2cdc40298a80",
-   "atm_263fbcaac613"
+   "atm_263fbcaac613",
+   "atm_d51008e27081"
   ],
   "snaefellsnes": [
    "atm_da86790feea2"
@@ -59106,7 +59529,8 @@
   ],
   "commercial-brand": [
    "atm_cdedcaf5402e",
-   "atm_4be2cb5e9ebf"
+   "atm_4be2cb5e9ebf",
+   "atm_ef1e5540144e"
   ],
   "coop-jednota": [
    "atm_cdedcaf5402e"
@@ -59382,7 +59806,8 @@
   ],
   "bilingualism": [
    "atm_4878a96cdb97",
-   "atm_9252ce6549a2"
+   "atm_9252ce6549a2",
+   "atm_71255f910af9"
   ],
   "diglossia": [
    "atm_4878a96cdb97",
@@ -62000,7 +62425,8 @@
    "atm_e94197bd43c4"
   ],
   "oil-industry": [
-   "atm_e94197bd43c4"
+   "atm_e94197bd43c4",
+   "atm_ef1e5540144e"
   ],
   "holiday-vernacular": [
    "atm_ff812a421048"
@@ -62181,7 +62607,8 @@
    "atm_dfa20e6bf23f"
   ],
   "hydroelectric": [
-   "atm_dfa20e6bf23f"
+   "atm_dfa20e6bf23f",
+   "atm_9af3c124876b"
   ],
   "industrial-pollution": [
    "atm_dfa20e6bf23f"
@@ -62673,7 +63100,8 @@
    "atm_7509ab273022"
   ],
   "forest-steppe": [
-   "atm_7509ab273022"
+   "atm_7509ab273022",
+   "atm_41abb4a57c7a"
   ],
   "climate-contrast": [
    "atm_6d710f051abb",
@@ -62739,7 +63167,8 @@
    "atm_769bef8463f0",
    "atm_2bd0043d5a35",
    "atm_bd33b40b4b46",
-   "atm_a54d90c20b3e"
+   "atm_a54d90c20b3e",
+   "atm_d51008e27081"
   ],
   "highway-network": [
    "atm_0de705b1aa28",
@@ -63873,7 +64302,8 @@
    "atm_be2b79054b54"
   ],
   "cross-border-trade": [
-   "atm_6a2636820c4a"
+   "atm_6a2636820c4a",
+   "atm_10a3dec0d708"
   ],
   "used-car-trade": [
    "atm_6a2636820c4a"
@@ -64648,7 +65078,8 @@
    "atm_748fe7365e89"
   ],
   "guarani": [
-   "atm_cacf275f7979"
+   "atm_cacf275f7979",
+   "atm_71255f910af9"
   ],
   "jesuit-missions": [
    "atm_cacf275f7979"
@@ -65414,7 +65845,8 @@
   ],
   "chernozem": [
    "atm_40442a8896ec",
-   "atm_78e74e486126"
+   "atm_78e74e486126",
+   "atm_41abb4a57c7a"
   ],
   "great-plains": [
    "atm_40442a8896ec"
@@ -67727,7 +68159,8 @@
    "atm_a11944bd3211",
    "atm_b90f0413ee79",
    "atm_09be58f5b64b",
-   "atm_dd39f30491d6"
+   "atm_dd39f30491d6",
+   "atm_a5822442b0ee"
   ],
   "shan-states": [
    "atm_f06926eede4d"
@@ -68166,7 +68599,8 @@
    "atm_08f055f03832",
    "atm_f6d29ceff035",
    "atm_a6817ed48e64",
-   "atm_e7bd3821bb4a"
+   "atm_e7bd3821bb4a",
+   "atm_ef1e5540144e"
   ],
   "sri-lanka": [
    "atm_f0e0dedae6d8",
@@ -68890,7 +69324,9 @@
    "atm_6f4d854e6ff1"
   ],
   "paraguay": [
-   "atm_170bcbc0e9ef"
+   "atm_170bcbc0e9ef",
+   "atm_d51008e27081",
+   "atm_71255f910af9"
   ],
   "inca": [
    "atm_59d740c202ba"
@@ -69492,6 +69928,104 @@
   ],
   "housing-shortage": [
    "atm_16e78de06075"
+  ],
+  "atlantic-forest": [
+   "atm_1045b3405f8d"
+  ],
+  "lateritic-soil": [
+   "atm_1045b3405f8d"
+  ],
+  "soil-geology": [
+   "atm_1045b3405f8d"
+  ],
+  "tierra-colorada": [
+   "atm_1045b3405f8d"
+  ],
+  "tri-border-area": [
+   "atm_1045b3405f8d"
+  ],
+  "costanera": [
+   "atm_9af3c124876b"
+  ],
+  "dam": [
+   "atm_9af3c124876b"
+  ],
+  "parana-river": [
+   "atm_9af3c124876b"
+  ],
+  "urban-relocation": [
+   "atm_9af3c124876b"
+  ],
+  "yacyreta": [
+   "atm_9af3c124876b"
+  ],
+  "brasiguayo": [
+   "atm_71255f910af9"
+  ],
+  "mennonite-colonies": [
+   "atm_71255f910af9"
+  ],
+  "agro-logistics": [
+   "atm_10a3dec0d708"
+  ],
+  "encarnacion": [
+   "atm_10a3dec0d708"
+  ],
+  "itapua": [
+   "atm_10a3dec0d708"
+  ],
+  "retail-tourism": [
+   "atm_10a3dec0d708"
+  ],
+  "fuel-station": [
+   "atm_ef1e5540144e"
+  ],
+  "dual-script-signage": [
+   "atm_a5822442b0ee",
+   "atm_e5601aaeca59"
+  ],
+  "tatar": [
+   "atm_a5822442b0ee"
+  ],
+  "tatarstan": [
+   "atm_a5822442b0ee"
+  ],
+  "titular-republic": [
+   "atm_a5822442b0ee"
+  ],
+  "volga-region": [
+   "atm_a5822442b0ee",
+   "atm_41abb4a57c7a"
+  ],
+  "federal-highway": [
+   "atm_41abb4a57c7a"
+  ],
+  "m7-highway": [
+   "atm_41abb4a57c7a"
+  ],
+  "shelterbelt": [
+   "atm_41abb4a57c7a"
+  ],
+  "freight-corridor": [
+   "atm_3594786dc613"
+  ],
+  "industrial-investment": [
+   "atm_3594786dc613"
+  ],
+  "kamaz": [
+   "atm_3594786dc613"
+  ],
+  "special-economic-zone": [
+   "atm_3594786dc613"
+  ],
+  "yelabuga": [
+   "atm_3594786dc613"
+  ],
+  "tatar-language": [
+   "atm_e5601aaeca59"
+  ],
+  "transliteration": [
+   "atm_e5601aaeca59"
   ]
  },
  "reports": {
@@ -70453,6 +70987,42 @@
     "atm_e80514d5e6c7",
     "atm_a8902b79c383",
     "atm_16e78de06075"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_py_encarnacion_-27.3074_-55.8638_260829_092750_ko-en-fr.html": {
+   "place": "Encarnación (Barrio San Pedro / Av. Víctor Matiauda access), Itapúa Department, Paraguay",
+   "lat": -27.3074,
+   "lng": -55.8638,
+   "cell": "6g0k8",
+   "atoms": [
+    "atm_d51008e27081",
+    "atm_1045b3405f8d",
+    "atm_9af3c124876b",
+    "atm_71255f910af9",
+    "atm_10a3dec0d708"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html": {
+   "place": "Morty / Tatarsky Dyum-Dyum junction, Yelabuga district, Republic of Tatarstan, Russia",
+   "lat": 55.7391,
+   "lng": 51.7371,
+   "cell": "v1uv1",
+   "atoms": [
+    "atm_ef1e5540144e",
+    "atm_a5822442b0ee",
+    "atm_41abb4a57c7a",
+    "atm_3594786dc613",
+    "atm_e5601aaeca59"
    ],
    "langs": [
     "ko",
