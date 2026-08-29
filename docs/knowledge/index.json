@@ -70473,407 +70473,527 @@
   },
   "report_pl_lodz_51.7643_19.4424_260814_023750_ko.html": {
    "place": "우치 (Łódź), 우치 주 (Łódzkie), 폴레시에·시르드미에시치에 구, 폴란드",
-   "lat": 51.7642643,
-   "lng": 19.4423915,
+   "lat": 51.7643,
+   "lng": 19.4424,
    "cell": "u3jy6",
    "atoms": [
     "atm_20fcefef8581",
-    "atm_85267ed54f12",
     "atm_2eba6c4a5d40",
+    "atm_85267ed54f12",
     "atm_aa81c19581e4",
     "atm_e29dd72ae7f9"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_my_cherating_4.1206_103.3815_260814_024200_ko.html": {
    "place": "체라팅 (쿠안탄 인근), 파항 주, 말레이시아",
-   "lat": 4.1205809,
-   "lng": 103.3814527,
+   "lat": 4.1206,
+   "lng": 103.3815,
    "cell": "w29x2",
    "atoms": [
-    "atm_f19e4901ccab",
+    "atm_1655b70a6821",
     "atm_25d589535f80",
-    "atm_9f241d0453c6",
     "atm_49b6b08fee5f",
+    "atm_9f241d0453c6",
     "atm_cd600d8705f5",
-    "atm_1655b70a6821"
+    "atm_f19e4901ccab"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_ca_squamish_49.6912_-123.1462_260814_033950_ko.html": {
    "place": "스쿼미시 (Squamish), 브리티시컬럼비아주 (스쿼미시-릴루엣 지역구), 캐나다",
-   "lat": 49.6912326,
-   "lng": -123.1462298,
+   "lat": 49.6912,
+   "lng": -123.1462,
    "cell": "c2b6t",
    "atoms": [
     "atm_43a50564de5b",
     "atm_5ef83226f788",
-    "atm_dfc05d10dfcf",
-    "atm_8d9e4ea3562c"
+    "atm_8d9e4ea3562c",
+    "atm_dfc05d10dfcf"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_ca_squamish_49.6912_-123.1462_260814_105459_ko.html": {
    "place": "스쿼미시, 브리티시컬럼비아주 (Sea to Sky 회랑, 스쿼미시-릴루엣 지역구), 캐나다",
-   "lat": 49.6912326,
-   "lng": -123.1462298,
+   "lat": 49.6912,
+   "lng": -123.1462,
    "cell": "c2b6t",
    "atoms": [
-    "atm_da05c0cbeb92",
-    "atm_e5882c19fe5d",
     "atm_7fa8e7276ff8",
-    "atm_8d15238d48f7"
+    "atm_8d15238d48f7",
+    "atm_da05c0cbeb92",
+    "atm_e5882c19fe5d"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_my_cherating_4.1206_103.3815_260814_105834_ko.html": {
    "place": "체라팅 (Cherating), 파항주 (Pahang), 크마만 접경 남측 해안, 말레이시아",
-   "lat": 4.1205809,
-   "lng": 103.3814527,
+   "lat": 4.1206,
+   "lng": 103.3815,
    "cell": "w29x2",
    "atoms": [
     "atm_3015394136d6",
-    "atm_5b556739268d",
     "atm_371fbba51c79",
+    "atm_5b556739268d",
     "atm_cbb1c8efe37a"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_in_kanpur_26.4656_80.3218_260814_110146_ko.html": {
    "place": "칸푸르, 우타르프라데시주, 인도",
-   "lat": 26.4656425,
-   "lng": 80.3217896,
+   "lat": 26.4656,
+   "lng": 80.3218,
    "cell": "tu9ne",
    "atoms": [
-    "atm_2109c072bc2d",
-    "atm_6c4efdf6ce82",
-    "atm_36c2f7426aa1",
-    "atm_92e90898b5a0",
     "atm_108fc78d5679",
-    "atm_6a979dd94d7e"
+    "atm_2109c072bc2d",
+    "atm_36c2f7426aa1",
+    "atm_6a979dd94d7e",
+    "atm_6c4efdf6ce82",
+    "atm_92e90898b5a0"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_it_arona_45.7636_8.552_260814_110552_ko.html": {
    "place": "아로나 (라고 마조레 남단), 피에몬테주 노바라현 / 롬바르디아주 바레세현 접경, 이탈리아",
-   "lat": 45.7636059,
-   "lng": 8.5520385,
+   "lat": 45.7636,
+   "lng": 8.552,
    "cell": "u0nh6",
    "atoms": [
-    "atm_dddae32137b0",
-    "atm_8c55d94bc98f",
     "atm_3f5066a286fc",
+    "atm_5d77688926e3",
     "atm_7f225359d507",
-    "atm_5d77688926e3"
+    "atm_8c55d94bc98f",
+    "atm_dddae32137b0"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_tr_izmit_40.7615_29.9392_260814_111004_ko.html": {
    "place": "이즈미트 (코자엘리), 코자엘리 주 (마르마라 지역), 튀르키예",
-   "lat": 40.7614517,
-   "lng": 29.9392062,
+   "lat": 40.7615,
+   "lng": 29.9392,
    "cell": "sxjrc",
    "atoms": [
-    "atm_9a486159e361",
-    "atm_fc22ca49a31d",
     "atm_15c884566bad",
-    "atm_6f2f315da529",
+    "atm_4f6928e8ab4d",
     "atm_590816a2ad04",
-    "atm_4f6928e8ab4d"
+    "atm_6f2f315da529",
+    "atm_9a486159e361",
+    "atm_fc22ca49a31d"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_is_berserkjahraun_64.966_-22.883_260814_111430_ko.html": {
    "place": "베르세르캬흐라운 / 비아르나르회픈 인근 (그룬다르피외르뒤르–스티키스홀뮈르 사이), 베스튀를란드(서부), 스나이펠스네스 반도, 아이슬란드",
-   "lat": 64.96599,
-   "lng": -22.8830382,
+   "lat": 64.966,
+   "lng": -22.883,
    "cell": "g7x9x",
    "atoms": [
-    "atm_da86790feea2",
-    "atm_cad327cb9b65",
-    "atm_9d42b1e8cd15",
     "atm_485864d7d355",
-    "atm_ad6f64fbb564"
+    "atm_9d42b1e8cd15",
+    "atm_ad6f64fbb564",
+    "atm_cad327cb9b65",
+    "atm_da86790feea2"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_at_vienna_48.2518_16.3927_260814_111850_ko.html": {
    "place": "빈 (Wien), 빈 (Floridsdorf 21구 / Brigittenau 20구, 도나우 강변), 오스트리아",
-   "lat": 48.2517596,
-   "lng": 16.3927228,
+   "lat": 48.2518,
+   "lng": 16.3927,
    "cell": "u2edm",
    "atoms": [
-    "atm_4e479dbead43",
     "atm_142d60e0141b",
-    "atm_f16dfd0eeeac",
+    "atm_4e479dbead43",
     "atm_e4e3e2300015",
+    "atm_f16dfd0eeeac",
     "atm_f72378f74a6b"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_mx_kilometro-36-campeche_18.6176_-90.849_260814_231336_ko.html": {
    "place": "킬로메트로 36 (Kilómetro Treinta y Seis), 에스카르세가 시 인근, 캄페체주 (남부 에스카르세가 회랑), 멕시코",
-   "lat": 18.6175538,
-   "lng": -90.8489787,
+   "lat": 18.6176,
+   "lng": -90.849,
    "cell": "9gr3u",
    "atoms": [
     "atm_45446d19bcd9",
-    "atm_ef0a76735f18",
-    "atm_fb1c88a99dbf",
+    "atm_59493deb0040",
     "atm_632fccf1df46",
-    "atm_59493deb0040"
+    "atm_ef0a76735f18",
+    "atm_fb1c88a99dbf"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_pl_mysliborz_52.9267_14.8708_260814_233100_ko.html": {
    "place": "미실리부시(Myślibórz), 오그로도바/발로바 거리 일대, 서포모제주(자호드니오포모르스키에), 폴란드",
-   "lat": 52.9267102,
-   "lng": 14.8708448,
+   "lat": 52.9267,
+   "lng": 14.8708,
    "cell": "u36t4",
    "atoms": [
-    "atm_a64438386449",
+    "atm_07287096cac3",
     "atm_956d68eebfe7",
-    "atm_bf283b566073",
-    "atm_07287096cac3"
+    "atm_a64438386449",
+    "atm_bf283b566073"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_mx_saltillo_25.4201_-100.9739_260814_233559_ko.html": {
    "place": "사티요 (콜로니아 사파리나메 / 우르디뇰라 부근), 코아우일라주, 멕시코",
-   "lat": 25.4200978,
-   "lng": -100.9739032,
+   "lat": 25.4201,
+   "lng": -100.9739,
    "cell": "9u80w",
    "atoms": [
-    "atm_bfa44d28d5f9",
-    "atm_e53b24ec7dce",
-    "atm_a741bec60f9c",
     "atm_0f5685ec7286",
-    "atm_a7cf23a3d7b1"
+    "atm_a741bec60f9c",
+    "atm_a7cf23a3d7b1",
+    "atm_bfa44d28d5f9",
+    "atm_e53b24ec7dce"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_sk_kysucke-nove-mesto_49.3023_18.7819_260817_040440_ko.html": {
    "place": "키수츠케 노베 메스토 (Kysucké Nové Mesto), 질리나 주 (Žilinský kraj), 키수체 지역, 슬로바키아",
-   "lat": 49.302293,
-   "lng": 18.7818847,
+   "lat": 49.3023,
+   "lng": 18.7819,
    "cell": "u2v27",
    "atoms": [
-    "atm_7f1b78158b4f",
-    "atm_cdedcaf5402e",
-    "atm_9e38828f06db",
     "atm_1b9b30221a10",
+    "atm_465631657fbd",
+    "atm_7f1b78158b4f",
+    "atm_9e38828f06db",
     "atm_c9991713a212",
-    "atm_465631657fbd"
+    "atm_cdedcaf5402e"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_sk_kosice_48.6947_21.2482_260817_040902_ko.html": {
    "place": "코시체, 코시체주 (코시체 II·서부 산업지구, 알레요바/프리 프라하르니 일대), 슬로바키아",
-   "lat": 48.6947266,
-   "lng": 21.2481768,
+   "lat": 48.6947,
+   "lng": 21.2482,
    "cell": "u2xj5",
    "atoms": [
-    "atm_fba72a044766",
-    "atm_305dc82d2d42",
     "atm_019c308b2979",
+    "atm_305dc82d2d42",
+    "atm_76d4211f5d39",
     "atm_8fa1d9becc4b",
-    "atm_76d4211f5d39"
+    "atm_fba72a044766"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_no_tromso_69.6711_18.9671_260817_041314_ko.html": {
    "place": "트롬쇠 (브레이비카/트롬쇠야 동쪽 사면), 트롬스 (Troms) 주, 노르웨이",
-   "lat": 69.671104,
-   "lng": 18.9671027,
+   "lat": 69.6711,
+   "lng": 18.9671,
    "cell": "ukmkr",
    "atoms": [
-    "atm_4dd0f4e3344f",
-    "atm_d63c438c5214",
     "atm_0439d48bd32a",
+    "atm_45ce011e8047",
+    "atm_4dd0f4e3344f",
     "atm_b4e047668ccb",
-    "atm_45ce011e8047"
+    "atm_d63c438c5214"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_ua_oleksandriia_48.657_33.1238_260817_041703_ko.html": {
    "place": "올렉산드리아 (Oleksandriia), 피우덴니 미크로라욘, 키로보흐라드주 (Kirovohrad Oblast), 우크라이나",
-   "lat": 48.6569823,
-   "lng": 33.1237523,
+   "lat": 48.657,
+   "lng": 33.1238,
    "cell": "u8xsc",
    "atoms": [
-    "atm_b26521d126ce",
-    "atm_4878a96cdb97",
     "atm_06391f17f753",
+    "atm_0f643119e6e7",
+    "atm_4878a96cdb97",
+    "atm_b26521d126ce",
     "atm_d146af6844dc",
-    "atm_dce47f562810",
-    "atm_0f643119e6e7"
+    "atm_dce47f562810"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_es_albolote_37.2246_-3.6435_260817_042114_ko.html": {
    "place": "알볼로테 (그라나다 광역권), 안달루시아 자치주 그라나다 주, 스페인",
-   "lat": 37.2246056,
-   "lng": -3.6434619,
+   "lat": 37.2246,
+   "lng": -3.6435,
    "cell": "eyt7v",
    "atoms": [
-    "atm_a8fd0dd52605",
-    "atm_ecfdf6713ffe",
     "atm_1b291689479e",
     "atm_1c5093f42f97",
+    "atm_5fed154c3c3e",
     "atm_a604a76ce31b",
-    "atm_5fed154c3c3e"
+    "atm_a8fd0dd52605",
+    "atm_ecfdf6713ffe"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_gt_morales-izabal_15.5009_-88.827_260817_042426_ko.html": {
    "place": "모랄레스 (라스 안호스토라스/CA-9 구간), 이사발 주 (Izabal), 과테말라",
-   "lat": 15.5008524,
-   "lng": -88.8269852,
+   "lat": 15.5009,
+   "lng": -88.827,
    "cell": "d4bb4",
    "atoms": [
-    "atm_97cb0403cd30",
-    "atm_d83deb4b95ed",
     "atm_1270c7cffadd",
     "atm_443690c733d1",
+    "atm_97cb0403cd30",
+    "atm_d83deb4b95ed",
     "atm_ea35d8f70c99"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_pl_bytom_50.3477_18.9009_260817_042852_ko.html": {
    "place": "비톰 (Bytom), 실롱스크(실레지아) 주, 비톰 시 시내(Śródmieście) 남서부, 폴란드",
-   "lat": 50.3477333,
-   "lng": 18.9009174,
+   "lat": 50.3477,
+   "lng": 18.9009,
    "cell": "u2vqq",
    "atoms": [
-    "atm_ce9d24778d61",
-    "atm_f644bdf4dd51",
-    "atm_842aeebf0a85",
-    "atm_736ac4eed284",
     "atm_17f4f8c25b51",
-    "atm_35d9bccaf4af"
+    "atm_35d9bccaf4af",
+    "atm_736ac4eed284",
+    "atm_842aeebf0a85",
+    "atm_ce9d24778d61",
+    "atm_f644bdf4dd51"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_bg_zgalevo_43.3719_24.7913_260817_043201_ko.html": {
    "place": "즈갈레보(Згалево), 플레벤 주, 포르도임 시(市), 불가리아",
-   "lat": 43.3718558,
-   "lng": 24.7912617,
+   "lat": 43.3719,
+   "lng": 24.7913,
    "cell": "sx9ws",
    "atoms": [
-    "atm_e972c3d2ffab",
+    "atm_136ca6c5fec1",
     "atm_3569d417f648",
     "atm_3688bcb73509",
-    "atm_136ca6c5fec1",
+    "atm_e972c3d2ffab",
     "atm_f0b127710ce5"
    ],
    "langs": [
     "ko"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html": {
    "place": "Regina, Saskatchewan, Canada",
-   "lat": 50.4337107,
-   "lng": -104.5993402,
+   "lat": 50.4337,
+   "lng": -104.5993,
    "cell": "c8vwg",
    "atoms": [
-    "atm_d58b8f318cd5",
     "atm_0205c14dc6c2",
-    "atm_f93a956e3f2f",
     "atm_3affdebfbd15",
-    "atm_9354d1b9747c"
+    "atm_9354d1b9747c",
+    "atm_d58b8f318cd5",
+    "atm_f93a956e3f2f"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_lk_negombo_7.2157_79.8619_260829_083944_ko-en-fr.html": {
    "place": "Negombo (Katuwapitiya / Thimbirigaskatuwa area), Western Province, Gampaha District, Sri Lanka",
-   "lat": 7.2156679,
-   "lng": 79.8619015,
+   "lat": 7.2157,
+   "lng": 79.8619,
    "cell": "tc2c1",
    "atoms": [
-    "atm_395187fe388d",
     "atm_01ff3b6b06b5",
-    "atm_7b960649767d",
+    "atm_395187fe388d",
     "atm_6aa637b1877d",
-    "atm_b9a5c0270203",
-    "atm_847c69212d36"
+    "atm_7b960649767d",
+    "atm_847c69212d36",
+    "atm_b9a5c0270203"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html": {
    "place": "Victorica, La Pampa Province, Argentina",
-   "lat": -36.2479652,
-   "lng": -65.424882,
+   "lat": -36.248,
+   "lng": -65.4249,
    "cell": "6993z",
    "atoms": [
-    "atm_5f68a2115a45",
-    "atm_99a388995ff6",
-    "atm_903cbb9320fc",
     "atm_530209fff20e",
-    "atm_62c66acd242d"
+    "atm_5f68a2115a45",
+    "atm_62c66acd242d",
+    "atm_903cbb9320fc",
+    "atm_99a388995ff6"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_kg_lebedinovka_42.88_74.6989_260829_091757_ko-en-fr.html": {
    "place": "Lebedinovka (Chüy Region, Bishkek suburb), Chuy Region, Kyrgyzstan",
-   "lat": 42.8800065,
-   "lng": 74.6989125,
+   "lat": 42.88,
+   "lng": 74.6989,
    "cell": "txt5g",
    "atoms": [
+    "atm_5a1490e2317e",
     "atm_bc282d8bf5a5",
     "atm_e20de7719377",
-    "atm_5a1490e2317e",
     "atm_ef51d7d80c44",
     "atm_ff43edba76d3"
    ],
@@ -70881,117 +71001,152 @@
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_gb_monktonhall-musselburgh_55.9297_-3.0567_260829_092228_ko-en-fr.html": {
    "place": "Monktonhall / Musselburgh, East Lothian, Scotland, United Kingdom",
-   "lat": 55.9297342,
-   "lng": -3.0567248,
+   "lat": 55.9297,
+   "lng": -3.0567,
    "cell": "gcvy4",
    "atoms": [
-    "atm_7493c55d0bf4",
-    "atm_20964856ecd8",
     "atm_0f6b34497068",
+    "atm_20964856ecd8",
+    "atm_7493c55d0bf4",
     "atm_a7cc8c04d19a"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html": {
    "place": "Mazatlán, Sinaloa, Mexico",
-   "lat": 23.2415848,
-   "lng": -106.4429944,
+   "lat": 23.2416,
+   "lng": -106.443,
    "cell": "9shk1",
    "atoms": [
-    "atm_b6414f383cd3",
+    "atm_0f259f84fb29",
     "atm_533222e45251",
-    "atm_ea92c4c667d4",
-    "atm_bd33b40b4b46",
     "atm_a54d90c20b3e",
-    "atm_0f259f84fb29"
+    "atm_b6414f383cd3",
+    "atm_bd33b40b4b46",
+    "atm_ea92c4c667d4"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html": {
    "place": "Fukuyama (Teshiro-cho / Hikino area), Hiroshima Prefecture, Japan",
-   "lat": 34.4836144,
-   "lng": 133.3950997,
+   "lat": 34.4836,
+   "lng": 133.3951,
    "cell": "wynu5",
    "atoms": [
-    "atm_a20a2bd85dc2",
-    "atm_30508cea81f3",
     "atm_2893ef2e3a1c",
-    "atm_966e456e1d2c",
+    "atm_30508cea81f3",
     "atm_609755d083a1",
-    "atm_8f4166ec8daf"
+    "atm_8f4166ec8daf",
+    "atm_966e456e1d2c",
+    "atm_a20a2bd85dc2"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html": {
    "place": "Cerdanyola del Vallès, Catalonia (Vallès Occidental, Barcelona province), Spain",
-   "lat": 41.4835407,
-   "lng": 2.1348995,
+   "lat": 41.4835,
+   "lng": 2.1349,
    "cell": "sp3eb",
    "atoms": [
-    "atm_fa8ff513c430",
-    "atm_4c34ab75768e",
-    "atm_b1792f8f1e86",
     "atm_3b756d7dfdab",
-    "atm_a8965343eeda"
+    "atm_4c34ab75768e",
+    "atm_a8965343eeda",
+    "atm_b1792f8f1e86",
+    "atm_fa8ff513c430"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_ro_brasov_45.6462_25.5847_260829_094617_ko-en-fr.html": {
    "place": "Brașov, Brașov County, Transylvania, Romania",
-   "lat": 45.6461945,
-   "lng": 25.5846838,
+   "lat": 45.6462,
+   "lng": 25.5847,
    "cell": "u845w",
    "atoms": [
-    "atm_9bee7878b6c8",
-    "atm_8baefc94ff8b",
-    "atm_f32a9d025eca",
-    "atm_63a220d3ccc8",
     "atm_53897c1a878f",
-    "atm_a22c987c3ba5"
+    "atm_63a220d3ccc8",
+    "atm_8baefc94ff8b",
+    "atm_9bee7878b6c8",
+    "atm_a22c987c3ba5",
+    "atm_f32a9d025eca"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_ch_zug_47.161_8.5204_260829_095029_ko-en-fr.html": {
    "place": "Zug, Canton of Zug, Switzerland",
-   "lat": 47.1610331,
-   "lng": 8.5203824,
+   "lat": 47.161,
+   "lng": 8.5204,
    "cell": "u0qh3",
    "atoms": [
-    "atm_c23d23b3926b",
-    "atm_bc76c93c3cae",
+    "atm_16e78de06075",
     "atm_9bcc84872634",
-    "atm_e80514d5e6c7",
     "atm_a8902b79c383",
-    "atm_16e78de06075"
+    "atm_bc76c93c3cae",
+    "atm_c23d23b3926b",
+    "atm_e80514d5e6c7"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_py_encarnacion_-27.3074_-55.8638_260829_092750_ko-en-fr.html": {
@@ -71000,16 +71155,21 @@
    "lng": -55.8638,
    "cell": "6g0k8",
    "atoms": [
-    "atm_d51008e27081",
     "atm_1045b3405f8d",
-    "atm_9af3c124876b",
+    "atm_10a3dec0d708",
     "atm_71255f910af9",
-    "atm_10a3dec0d708"
+    "atm_9af3c124876b",
+    "atm_d51008e27081"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   },
   "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html": {
@@ -71018,17 +71178,23 @@
    "lng": 51.7371,
    "cell": "v1uv1",
    "atoms": [
-    "atm_ef1e5540144e",
-    "atm_a5822442b0ee",
-    "atm_41abb4a57c7a",
     "atm_3594786dc613",
-    "atm_e5601aaeca59"
+    "atm_41abb4a57c7a",
+    "atm_a5822442b0ee",
+    "atm_e5601aaeca59",
+    "atm_ef1e5540144e"
    ],
    "langs": [
     "ko",
     "en",
     "fr"
+   ],
+   "passes": [
+    "p1",
+    "p2",
+    "p3"
    ]
   }
- }
+ },
+ "categories": {}
 }

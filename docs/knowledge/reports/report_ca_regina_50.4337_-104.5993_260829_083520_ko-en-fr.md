@@ -2,8 +2,8 @@
 {
   "report": "report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html",
   "place": "Regina, Saskatchewan, Canada",
-  "lat": 50.4337107,
-  "lng": -104.5993402,
+  "lat": 50.4337,
+  "lng": -104.5993,
   "cell": "c8vwg",
   "langs": [
     "ko",
@@ -11,26 +11,32 @@
     "fr"
   ],
   "atoms": [
-    "atm_d58b8f318cd5",
     "atm_0205c14dc6c2",
-    "atm_f93a956e3f2f",
     "atm_3affdebfbd15",
-    "atm_9354d1b9747c"
+    "atm_9354d1b9747c",
+    "atm_d58b8f318cd5",
+    "atm_f93a956e3f2f"
   ],
-  "created": 1787960139.8337495
+  "passes": [
+    "p1",
+    "p3"
+  ],
+  "created": 1788024482.0653746
 }
 ---
 
 # Regina, Saskatchewan, Canada
 
-보고서: `report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html` · 언어 ko, en, fr
+보고서: `report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html` · 언어 ko, en, fr · 적재 p1/p3
 장소 노트: [[c8vwg]]
 
-Regina is the capital of Saskatchewan, a mid-sized prairie city of roughly 226,000 (metro ~249,000) built around stable government and Crown-corporation employment (SaskPower, SaskTel, SGI, SaskEnergy), industry (Co-op Refinery, Evraz, Brandt) and the RCMP's national training academy. It has grown steadily, largely through immigration, becoming increasingly multicultural while retaining an affordable, small-city pace of life. Notable natives include Leslie Nielsen, Tatiana Maslany, and Colin James, and the city is often framed as the stable administrative counterpart to resource-driven Saskatoon.
+This is Gladmer Park, a middle-class residential pocket in south-central Regina, Saskatchewan, pinned to a cluster of 1950s–70s bungalows and split-levels immediately north of the Saskatchewan Science Centre between Quinn Drive and Winnipeg Street. The identification rests on the distinctive artificial landscape of Wascana Lake and its flanking civic monuments (Saskatchewan Legislative Building, museum, and science centre), combined with the neighbourhood's curvilinear street pattern and proximity to the lake's eastern shore.
+
+(사후 적재)
 
 ## 이 보고서가 쓴 원자
-- [[atm_d58b8f318cd5]]
 - [[atm_0205c14dc6c2]]
-- [[atm_f93a956e3f2f]]
 - [[atm_3affdebfbd15]]
 - [[atm_9354d1b9747c]]
+- [[atm_d58b8f318cd5]]
+- [[atm_f93a956e3f2f]]

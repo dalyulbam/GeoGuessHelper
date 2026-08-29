@@ -2,8 +2,8 @@
 {
   "report": "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html",
   "place": "Mazatlán, Sinaloa, Mexico",
-  "lat": 23.2415848,
-  "lng": -106.4429944,
+  "lat": 23.2416,
+  "lng": -106.443,
   "cell": "9shk1",
   "langs": [
     "ko",
@@ -11,28 +11,34 @@
     "fr"
   ],
   "atoms": [
-    "atm_b6414f383cd3",
+    "atm_0f259f84fb29",
     "atm_533222e45251",
-    "atm_ea92c4c667d4",
-    "atm_bd33b40b4b46",
     "atm_a54d90c20b3e",
-    "atm_0f259f84fb29"
+    "atm_b6414f383cd3",
+    "atm_bd33b40b4b46",
+    "atm_ea92c4c667d4"
   ],
-  "created": 1787963586.5101886
+  "passes": [
+    "p1",
+    "p3"
+  ],
+  "created": 1788024483.147651
 }
 ---
 
 # Mazatlán, Sinaloa, Mexico
 
-보고서: `report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html` · 언어 ko, en, fr
+보고서: `report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html` · 언어 ko, en, fr · 적재 p1/p3
 장소 노트: [[9shk1]]
 
-Mazatlán is a major Pacific coast city in Sinaloa, Mexico, renowned as the world's shrimp capital and home to Mexico's largest Pacific port. Its economy blends commercial fishing, agriculture-linked trade, logistics, and a thriving tourism sector anchored by beaches, cruise ships, and sport fishing. The historic Pacífico brewery, founded in 1900, remains a defining industrial and cultural landmark alongside the city's fleet of fishing and food-processing enterprises.
+This is an inland commercial arterial in Mazatlán, Sinaloa, Mexico, identified by area code 669, Mexican retail chains, and mid-market commercial tenants serving the city's tourism and construction economy. The location sits between the Lomas de Mazatlán residential district and the Gran Plaza retail cluster, away from the beachfront Zona Dorada but firmly within the city's service infrastructure.
+
+(사후 적재)
 
 ## 이 보고서가 쓴 원자
-- [[atm_b6414f383cd3]]
-- [[atm_533222e45251]]
-- [[atm_ea92c4c667d4]]
-- [[atm_bd33b40b4b46]]
-- [[atm_a54d90c20b3e]]
 - [[atm_0f259f84fb29]]
+- [[atm_533222e45251]]
+- [[atm_a54d90c20b3e]]
+- [[atm_b6414f383cd3]]
+- [[atm_bd33b40b4b46]]
+- [[atm_ea92c4c667d4]]
