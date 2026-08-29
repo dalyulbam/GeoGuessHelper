@@ -16024,10 +16024,15 @@
    "scope": "period",
    "title": "Meiji abolition of the han system and daimyo domains",
    "tags": [
+    "bingo-fukuyama-han",
+    "daimyo",
     "daimyo-abolition",
+    "edo-period",
     "expansion",
+    "fukuyama-castle",
     "haihan-chiken",
     "meiji-restoration",
+    "mizuno-clan",
     "x-counterpart"
    ],
    "entities": [
@@ -16041,14 +16046,27 @@
    "radius_km": 0,
    "cell": "",
    "lang": "en",
-   "sources": [],
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fukushima-cho_Station",
+    "https://en.wikipedia.org/wiki/Fukutomi,_Hiroshima",
+    "https://en.wikipedia.org/wiki/Fukuyama,_Hiroshima",
+    "https://en.wikipedia.org/wiki/Fukuyama_Hachimang%C5%AB",
+    "https://en.wikipedia.org/wiki/Fukuyama_Tsuun_Rose_Stadium",
+    "https://en.wikipedia.org/wiki/Higashi-ku,_Hiroshima",
+    "https://en.wikipedia.org/wiki/Hijiyama-shita_Station",
+    "https://en.wikipedia.org/wiki/Shin-ichi_Station",
+    "https://www.tripadvisor.com/Restaurants-g298131-zfd11722-Fukuyama_Hiroshima_Prefecture_Chugoku-Ramen.html",
+    "https://www.wikidata.org/wiki/Q661038"
+   ],
    "refs": [
     "atm_52fa8fc7482a"
    ],
-   "reports": [],
-   "uses": 1,
+   "reports": [
+    "report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html"
+   ],
+   "uses": 2,
    "created": 1787609389.468023,
-   "updated": 1787609389.4682367
+   "updated": 1787963878.4410834
   },
   "atm_63a50c8c26e7": {
    "id": "atm_63a50c8c26e7",
@@ -43198,6 +43216,2321 @@
    "uses": 1,
    "created": 1787784449.9210715,
    "updated": 1787784449.9211583
+  },
+  "atm_d58b8f318cd5": {
+   "id": "atm_d58b8f318cd5",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Canadian prairie provinces street/back-lane pattern",
+   "tags": [
+    "alberta",
+    "back-lane",
+    "canada",
+    "manitoba",
+    "prairie",
+    "saskatchewan",
+    "urban-forest"
+   ],
+   "entities": [
+    "alberta",
+    "canadian-prairies",
+    "manitoba",
+    "saskatchewan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 50.4337107,
+   "lng": -104.5993402,
+   "radius_km": 500.0,
+   "cell": "c8vwgv1",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/List_of_people_from_Regina,_Saskatchewan",
+    "https://www.quora.com/Who-are-some-famous-people-from-Regina-Saskatchewan",
+    "https://en.wikipedia.org/wiki/Stuart_Burton_(politician)",
+    "https://en.wikipedia.org/wiki/Cornelius_Rink",
+    "https://en.wikipedia.org/wiki/William_F._Eddy",
+    "https://en.wikipedia.org/wiki/Category:People_from_Regina,_Saskatchewan",
+    "https://en.wikipedia.org/wiki/Victor_Cicansky",
+    "https://en.wikipedia.org/wiki/Lloyd_Barber",
+    "https://en.wikipedia.org/wiki/William_E._Mason_(Canadian_politician)",
+    "https://en.wikipedia.org/wiki/John_K._McInnis"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960139.6273308,
+   "updated": 1787960139.627615
+  },
+  "atm_0205c14dc6c2": {
+   "id": "atm_0205c14dc6c2",
+   "layer": "economy",
+   "scope": "polity",
+   "title": "Regina vs Saskatoon economic specialization within Saskatchewan",
+   "tags": [
+    "core-periphery",
+    "crown-corporations",
+    "government-town",
+    "regina",
+    "resource-economy",
+    "saskatoon"
+   ],
+   "entities": [
+    "regina",
+    "saskatchewan",
+    "saskatoon"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 50.4337107,
+   "lng": -104.5993402,
+   "radius_km": 300.0,
+   "cell": "c8vwgv1",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/List_of_people_from_Regina,_Saskatchewan",
+    "https://www.quora.com/Who-are-some-famous-people-from-Regina-Saskatchewan",
+    "https://en.wikipedia.org/wiki/Stuart_Burton_(politician)",
+    "https://en.wikipedia.org/wiki/Cornelius_Rink",
+    "https://en.wikipedia.org/wiki/William_F._Eddy",
+    "https://en.wikipedia.org/wiki/Category:People_from_Regina,_Saskatchewan",
+    "https://en.wikipedia.org/wiki/Victor_Cicansky",
+    "https://en.wikipedia.org/wiki/Lloyd_Barber",
+    "https://en.wikipedia.org/wiki/William_E._Mason_(Canadian_politician)",
+    "https://en.wikipedia.org/wiki/John_K._McInnis"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960139.66069,
+   "updated": 1787960139.6608622
+  },
+  "atm_f93a956e3f2f": {
+   "id": "atm_f93a956e3f2f",
+   "layer": "geography",
+   "scope": "city",
+   "title": "Wascana Centre / Wascana Lake as Regina's identifying landmark",
+   "tags": [
+    "artificial-lake",
+    "landmark",
+    "legislative-building",
+    "regina",
+    "wascana-lake"
+   ],
+   "entities": [
+    "regina",
+    "wascana-lake"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 50.4337107,
+   "lng": -104.5993402,
+   "radius_km": 10.0,
+   "cell": "c8vwgv1",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/List_of_people_from_Regina,_Saskatchewan",
+    "https://www.quora.com/Who-are-some-famous-people-from-Regina-Saskatchewan",
+    "https://en.wikipedia.org/wiki/Stuart_Burton_(politician)",
+    "https://en.wikipedia.org/wiki/Cornelius_Rink",
+    "https://en.wikipedia.org/wiki/William_F._Eddy",
+    "https://en.wikipedia.org/wiki/Category:People_from_Regina,_Saskatchewan",
+    "https://en.wikipedia.org/wiki/Victor_Cicansky",
+    "https://en.wikipedia.org/wiki/Lloyd_Barber",
+    "https://en.wikipedia.org/wiki/William_E._Mason_(Canadian_politician)",
+    "https://en.wikipedia.org/wiki/John_K._McInnis"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960139.6958792,
+   "updated": 1787960139.6961713
+  },
+  "atm_3affdebfbd15": {
+   "id": "atm_3affdebfbd15",
+   "layer": "culture",
+   "scope": "country",
+   "title": "CBC and provincial-institution naming as Canada vs US discriminator on maps",
+   "tags": [
+    "canada",
+    "cbc",
+    "discriminator",
+    "legislative-building",
+    "map-cues"
+   ],
+   "entities": [
+    "canada"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 50.4337107,
+   "lng": -104.5993402,
+   "radius_km": 1200,
+   "cell": "c8vwgv1",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/List_of_people_from_Regina,_Saskatchewan",
+    "https://www.quora.com/Who-are-some-famous-people-from-Regina-Saskatchewan",
+    "https://en.wikipedia.org/wiki/Stuart_Burton_(politician)",
+    "https://en.wikipedia.org/wiki/Cornelius_Rink",
+    "https://en.wikipedia.org/wiki/William_F._Eddy",
+    "https://en.wikipedia.org/wiki/Category:People_from_Regina,_Saskatchewan",
+    "https://en.wikipedia.org/wiki/Victor_Cicansky",
+    "https://en.wikipedia.org/wiki/Lloyd_Barber",
+    "https://en.wikipedia.org/wiki/William_E._Mason_(Canadian_politician)",
+    "https://en.wikipedia.org/wiki/John_K._McInnis"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960139.7298045,
+   "updated": 1787960139.7299707
+  },
+  "atm_9354d1b9747c": {
+   "id": "atm_9354d1b9747c",
+   "layer": "history",
+   "scope": "region",
+   "title": "Treaty 4 territory and Cree/Assiniboine-CPR layered place naming on the Canadian prairies",
+   "tags": [
+    "assiniboine",
+    "cpr",
+    "cree",
+    "prairie-settlement",
+    "toponymy",
+    "treaty-4"
+   ],
+   "entities": [
+    "regina",
+    "saskatchewan",
+    "treaty-4"
+   ],
+   "period_start": 1874,
+   "period_end": null,
+   "lat": 50.4337107,
+   "lng": -104.5993402,
+   "radius_km": 300.0,
+   "cell": "c8vwgv1",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/List_of_people_from_Regina,_Saskatchewan",
+    "https://www.quora.com/Who-are-some-famous-people-from-Regina-Saskatchewan",
+    "https://en.wikipedia.org/wiki/Stuart_Burton_(politician)",
+    "https://en.wikipedia.org/wiki/Cornelius_Rink",
+    "https://en.wikipedia.org/wiki/William_F._Eddy",
+    "https://en.wikipedia.org/wiki/Category:People_from_Regina,_Saskatchewan",
+    "https://en.wikipedia.org/wiki/Victor_Cicansky",
+    "https://en.wikipedia.org/wiki/Lloyd_Barber",
+    "https://en.wikipedia.org/wiki/William_E._Mason_(Canadian_politician)",
+    "https://en.wikipedia.org/wiki/John_K._McInnis"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960139.7619488,
+   "updated": 1787960139.762092
+  },
+  "atm_395187fe388d": {
+   "id": "atm_395187fe388d",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Negombo's 'Little Rome' Catholic Sinhala coastal belt",
+   "tags": [
+    "catholic",
+    "cultural-sphere",
+    "little-rome",
+    "negombo",
+    "sinhala",
+    "sri-lanka"
+   ],
+   "entities": [
+    "negombo",
+    "sri-lanka"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 7.2156679,
+   "lng": 79.8619015,
+   "radius_km": 200,
+   "cell": "tc2c139",
+   "lang": "en",
+   "sources": [
+    "https://amazinglanka.com/wp/negombo/",
+    "https://www.researchgate.net/publication/399757873_Cultural_Beliefs_and_Occupational_Practices_of_Fishermen_in_Negombo_Fishermen",
+    "https://www.storiesbysoumya.com/fish-market-negombo-sri-lanka/",
+    "https://www.cbd.int/doc/meetings/mar/ebsaws-2015-01/other/ebsaws-2015-01-template-srilanka-en.pdf",
+    "https://www.ugaresorts.com/blog/2026/03/a-guide-to-negombo/",
+    "https://www.hellomondo.com/sri-lanka/negombo/",
+    "https://happynegombo.com/negombo-fishing-community-traditions/",
+    "https://watermelonscrib.wordpress.com/2022/02/17/fishing-for-their-lives-negombo-fish-industry-buzz-with-action/",
+    "https://graphsearch.epfl.ch/fr/concept/4374054",
+    "https://www.cda.gov.lk/web/images/pdf/2024-Registered-Exporters.pdf"
+   ],
+   "refs": [],
+   "reports": [
+    "report_lk_negombo_7.2157_79.8619_260829_083944_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960407.885915,
+   "updated": 1787960407.8863022
+  },
+  "atm_01ff3b6b06b5": {
+   "id": "atm_01ff3b6b06b5",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Karava (Karaiyar) Catholic fishing caste of Sri Lanka's west coast",
+   "tags": [
+    "fishing-caste",
+    "karaiyar",
+    "karava",
+    "language-preservation",
+    "sri-lanka",
+    "tamil-dialect"
+   ],
+   "entities": [
+    "negombo",
+    "sri-lanka"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 7.2156679,
+   "lng": 79.8619015,
+   "radius_km": 200,
+   "cell": "tc2c139",
+   "lang": "en",
+   "sources": [
+    "https://amazinglanka.com/wp/negombo/",
+    "https://www.researchgate.net/publication/399757873_Cultural_Beliefs_and_Occupational_Practices_of_Fishermen_in_Negombo_Fishermen",
+    "https://www.storiesbysoumya.com/fish-market-negombo-sri-lanka/",
+    "https://www.cbd.int/doc/meetings/mar/ebsaws-2015-01/other/ebsaws-2015-01-template-srilanka-en.pdf",
+    "https://www.ugaresorts.com/blog/2026/03/a-guide-to-negombo/",
+    "https://www.hellomondo.com/sri-lanka/negombo/",
+    "https://happynegombo.com/negombo-fishing-community-traditions/",
+    "https://watermelonscrib.wordpress.com/2022/02/17/fishing-for-their-lives-negombo-fish-industry-buzz-with-action/",
+    "https://graphsearch.epfl.ch/fr/concept/4374054",
+    "https://www.cda.gov.lk/web/images/pdf/2024-Registered-Exporters.pdf"
+   ],
+   "refs": [],
+   "reports": [
+    "report_lk_negombo_7.2157_79.8619_260829_083944_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960407.912865,
+   "updated": 1787960407.9129994
+  },
+  "atm_7b960649767d": {
+   "id": "atm_7b960649767d",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Sri Lanka's 'Coconut Triangle' and coir export industry",
+   "tags": [
+    "coconut-economy",
+    "coconut-triangle",
+    "coir-industry",
+    "export-processing",
+    "sri-lanka"
+   ],
+   "entities": [
+    "negombo",
+    "sri-lanka"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 7.2156679,
+   "lng": 79.8619015,
+   "radius_km": 200,
+   "cell": "tc2c139",
+   "lang": "en",
+   "sources": [
+    "https://amazinglanka.com/wp/negombo/",
+    "https://www.researchgate.net/publication/399757873_Cultural_Beliefs_and_Occupational_Practices_of_Fishermen_in_Negombo_Fishermen",
+    "https://www.storiesbysoumya.com/fish-market-negombo-sri-lanka/",
+    "https://www.cbd.int/doc/meetings/mar/ebsaws-2015-01/other/ebsaws-2015-01-template-srilanka-en.pdf",
+    "https://www.ugaresorts.com/blog/2026/03/a-guide-to-negombo/",
+    "https://www.hellomondo.com/sri-lanka/negombo/",
+    "https://happynegombo.com/negombo-fishing-community-traditions/",
+    "https://watermelonscrib.wordpress.com/2022/02/17/fishing-for-their-lives-negombo-fish-industry-buzz-with-action/",
+    "https://graphsearch.epfl.ch/fr/concept/4374054",
+    "https://www.cda.gov.lk/web/images/pdf/2024-Registered-Exporters.pdf"
+   ],
+   "refs": [],
+   "reports": [
+    "report_lk_negombo_7.2157_79.8619_260829_083944_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960407.9386837,
+   "updated": 1787960407.9388707
+  },
+  "atm_6aa637b1877d": {
+   "id": "atm_6aa637b1877d",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Sri Lankan suburban vernacular housing markers",
+   "tags": [
+    "coconut-garden-subdivision",
+    "self-built-housing",
+    "sri-lanka",
+    "suburban-housing",
+    "vernacular-architecture"
+   ],
+   "entities": [
+    "sri-lanka"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 7.2156679,
+   "lng": 79.8619015,
+   "radius_km": 200,
+   "cell": "tc2c139",
+   "lang": "en",
+   "sources": [
+    "https://amazinglanka.com/wp/negombo/",
+    "https://www.researchgate.net/publication/399757873_Cultural_Beliefs_and_Occupational_Practices_of_Fishermen_in_Negombo_Fishermen",
+    "https://www.storiesbysoumya.com/fish-market-negombo-sri-lanka/",
+    "https://www.cbd.int/doc/meetings/mar/ebsaws-2015-01/other/ebsaws-2015-01-template-srilanka-en.pdf",
+    "https://www.ugaresorts.com/blog/2026/03/a-guide-to-negombo/",
+    "https://www.hellomondo.com/sri-lanka/negombo/",
+    "https://happynegombo.com/negombo-fishing-community-traditions/",
+    "https://watermelonscrib.wordpress.com/2022/02/17/fishing-for-their-lives-negombo-fish-industry-buzz-with-action/",
+    "https://graphsearch.epfl.ch/fr/concept/4374054",
+    "https://www.cda.gov.lk/web/images/pdf/2024-Registered-Exporters.pdf"
+   ],
+   "refs": [],
+   "reports": [
+    "report_lk_negombo_7.2157_79.8619_260829_083944_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960407.95921,
+   "updated": 1787960407.959383
+  },
+  "atm_b9a5c0270203": {
+   "id": "atm_b9a5c0270203",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Sri Lanka's wet-zone southwest coast vs dry-zone north/east contrast",
+   "tags": [
+    "climate-zones",
+    "dry-zone",
+    "sri-lanka",
+    "vegetation-belt",
+    "wet-zone"
+   ],
+   "entities": [
+    "sri-lanka"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 7.2156679,
+   "lng": 79.8619015,
+   "radius_km": 200,
+   "cell": "tc2c139",
+   "lang": "en",
+   "sources": [
+    "https://amazinglanka.com/wp/negombo/",
+    "https://www.researchgate.net/publication/399757873_Cultural_Beliefs_and_Occupational_Practices_of_Fishermen_in_Negombo_Fishermen",
+    "https://www.storiesbysoumya.com/fish-market-negombo-sri-lanka/",
+    "https://www.cbd.int/doc/meetings/mar/ebsaws-2015-01/other/ebsaws-2015-01-template-srilanka-en.pdf",
+    "https://www.ugaresorts.com/blog/2026/03/a-guide-to-negombo/",
+    "https://www.hellomondo.com/sri-lanka/negombo/",
+    "https://happynegombo.com/negombo-fishing-community-traditions/",
+    "https://watermelonscrib.wordpress.com/2022/02/17/fishing-for-their-lives-negombo-fish-industry-buzz-with-action/",
+    "https://graphsearch.epfl.ch/fr/concept/4374054",
+    "https://www.cda.gov.lk/web/images/pdf/2024-Registered-Exporters.pdf"
+   ],
+   "refs": [],
+   "reports": [
+    "report_lk_negombo_7.2157_79.8619_260829_083944_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960407.9790602,
+   "updated": 1787960407.9792082
+  },
+  "atm_847c69212d36": {
+   "id": "atm_847c69212d36",
+   "layer": "language",
+   "scope": "country",
+   "title": "Distinguishing Sinhala from Tamil, Malayalam, and Bengali scripts",
+   "tags": [
+    "bengali-script",
+    "language-identification",
+    "malayalam-script",
+    "sinhala-script",
+    "south-asia",
+    "tamil-script"
+   ],
+   "entities": [
+    "bangladesh",
+    "india",
+    "sri-lanka"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 7.2156679,
+   "lng": 79.8619015,
+   "radius_km": 1200,
+   "cell": "tc2c139",
+   "lang": "en",
+   "sources": [
+    "https://amazinglanka.com/wp/negombo/",
+    "https://www.researchgate.net/publication/399757873_Cultural_Beliefs_and_Occupational_Practices_of_Fishermen_in_Negombo_Fishermen",
+    "https://www.storiesbysoumya.com/fish-market-negombo-sri-lanka/",
+    "https://www.cbd.int/doc/meetings/mar/ebsaws-2015-01/other/ebsaws-2015-01-template-srilanka-en.pdf",
+    "https://www.ugaresorts.com/blog/2026/03/a-guide-to-negombo/",
+    "https://www.hellomondo.com/sri-lanka/negombo/",
+    "https://happynegombo.com/negombo-fishing-community-traditions/",
+    "https://watermelonscrib.wordpress.com/2022/02/17/fishing-for-their-lives-negombo-fish-industry-buzz-with-action/",
+    "https://graphsearch.epfl.ch/fr/concept/4374054",
+    "https://www.cda.gov.lk/web/images/pdf/2024-Registered-Exporters.pdf"
+   ],
+   "refs": [],
+   "reports": [
+    "report_lk_negombo_7.2157_79.8619_260829_083944_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960408.0005376,
+   "updated": 1787960408.0006936
+  },
+  "atm_5f68a2115a45": {
+   "id": "atm_5f68a2115a45",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Caldenal/Espinal ecoregion of central Argentina",
+   "tags": [
+    "argentina-biomes",
+    "caldenal",
+    "cattle-ranching",
+    "espinal",
+    "prosopis-caldenia",
+    "savanna"
+   ],
+   "entities": [
+    "caldenal",
+    "espinal-ecoregion",
+    "la-pampa-province"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -36.2479652,
+   "lng": -65.424882,
+   "radius_km": 200,
+   "cell": "6993z1r",
+   "lang": "en",
+   "sources": [
+    "https://www.argentina.gob.ar/habitat/casapropia/obras-casa-propia/la-pampa-victorica",
+    "https://www.victorica.gob.ar/historia/index.html",
+    "https://www.victorica.gob.ar/noticias/2020/entregaron-creditos-de-economia-social.html",
+    "https://www.victorica.gob.ar/turismo/circuitos.html",
+    "https://1deoctubre.com.ar/notas/209-escuela-de-agricultura-de-victorica-una-pionera-del-siglo-xx",
+    "https://www.lapampa.gob.ar/victorica.html",
+    "https://news.agrofy.com.ar/noticia/54544/victorica-se-afirma-en-la-cria-vacuna",
+    "https://zonalpress.com.ar/nota/9125/victorica-movilizo-el-turismo-en-la-pampa",
+    "https://www.infobae.com/economia/campo/2022/10/28/la-pampa-productores-temen-la-expropiacion-de-casi-110000-hectareas-de-campos-para-la-creacion-de-un-parque-nacional/",
+    "https://www.lapampa.gob.ar/economia.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960915.857049,
+   "updated": 1787960915.8573143
+  },
+  "atm_99a388995ff6": {
+   "id": "atm_99a388995ff6",
+   "layer": "history",
+   "scope": "region",
+   "title": "Conquista del Desierto and the Ranquel frontier in La Pampa",
+   "tags": [
+    "conquista-del-desierto",
+    "fortines",
+    "indigenous-frontier",
+    "la-pampa-founding",
+    "ranquel"
+   ],
+   "entities": [
+    "la-pampa-province",
+    "ranquel-people",
+    "victorica"
+   ],
+   "period_start": 1870,
+   "period_end": 1885,
+   "lat": -36.2479652,
+   "lng": -65.424882,
+   "radius_km": 200,
+   "cell": "6993z1r",
+   "lang": "en",
+   "sources": [
+    "https://www.argentina.gob.ar/habitat/casapropia/obras-casa-propia/la-pampa-victorica",
+    "https://www.victorica.gob.ar/historia/index.html",
+    "https://www.victorica.gob.ar/noticias/2020/entregaron-creditos-de-economia-social.html",
+    "https://www.victorica.gob.ar/turismo/circuitos.html",
+    "https://1deoctubre.com.ar/notas/209-escuela-de-agricultura-de-victorica-una-pionera-del-siglo-xx",
+    "https://www.lapampa.gob.ar/victorica.html",
+    "https://news.agrofy.com.ar/noticia/54544/victorica-se-afirma-en-la-cria-vacuna",
+    "https://zonalpress.com.ar/nota/9125/victorica-movilizo-el-turismo-en-la-pampa",
+    "https://www.infobae.com/economia/campo/2022/10/28/la-pampa-productores-temen-la-expropiacion-de-casi-110000-hectareas-de-campos-para-la-creacion-de-un-parque-nacional/",
+    "https://www.lapampa.gob.ar/economia.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960915.9012895,
+   "updated": 1787960915.9016216
+  },
+  "atm_903cbb9320fc": {
+   "id": "atm_903cbb9320fc",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Extensive caldén-woodland cattle ranching as regional economic base",
+   "tags": [
+    "caldenal",
+    "cattle-ranching",
+    "la-pampa-economy",
+    "livestock-auctions",
+    "monte-pampeano"
+   ],
+   "entities": [
+    "caldenal",
+    "la-pampa-province"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -36.2479652,
+   "lng": -65.424882,
+   "radius_km": 200,
+   "cell": "6993z1r",
+   "lang": "en",
+   "sources": [
+    "https://www.argentina.gob.ar/habitat/casapropia/obras-casa-propia/la-pampa-victorica",
+    "https://www.victorica.gob.ar/historia/index.html",
+    "https://www.victorica.gob.ar/noticias/2020/entregaron-creditos-de-economia-social.html",
+    "https://www.victorica.gob.ar/turismo/circuitos.html",
+    "https://1deoctubre.com.ar/notas/209-escuela-de-agricultura-de-victorica-una-pionera-del-siglo-xx",
+    "https://www.lapampa.gob.ar/victorica.html",
+    "https://news.agrofy.com.ar/noticia/54544/victorica-se-afirma-en-la-cria-vacuna",
+    "https://zonalpress.com.ar/nota/9125/victorica-movilizo-el-turismo-en-la-pampa",
+    "https://www.infobae.com/economia/campo/2022/10/28/la-pampa-productores-temen-la-expropiacion-de-casi-110000-hectareas-de-campos-para-la-creacion-de-un-parque-nacional/",
+    "https://www.lapampa.gob.ar/economia.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960915.9496672,
+   "updated": 1787960915.949954
+  },
+  "atm_530209fff20e": {
+   "id": "atm_530209fff20e",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Argentine provincial route shield and rural infrastructure conventions",
+   "tags": [
+    "argentina-roads",
+    "policia-caminera",
+    "route-shields",
+    "rural-infrastructure",
+    "town-gateway-arch"
+   ],
+   "entities": [
+    "argentina"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -36.2479652,
+   "lng": -65.424882,
+   "radius_km": 1200,
+   "cell": "6993z1r",
+   "lang": "en",
+   "sources": [
+    "https://www.argentina.gob.ar/habitat/casapropia/obras-casa-propia/la-pampa-victorica",
+    "https://www.victorica.gob.ar/historia/index.html",
+    "https://www.victorica.gob.ar/noticias/2020/entregaron-creditos-de-economia-social.html",
+    "https://www.victorica.gob.ar/turismo/circuitos.html",
+    "https://1deoctubre.com.ar/notas/209-escuela-de-agricultura-de-victorica-una-pionera-del-siglo-xx",
+    "https://www.lapampa.gob.ar/victorica.html",
+    "https://news.agrofy.com.ar/noticia/54544/victorica-se-afirma-en-la-cria-vacuna",
+    "https://zonalpress.com.ar/nota/9125/victorica-movilizo-el-turismo-en-la-pampa",
+    "https://www.infobae.com/economia/campo/2022/10/28/la-pampa-productores-temen-la-expropiacion-de-casi-110000-hectareas-de-campos-para-la-creacion-de-un-parque-nacional/",
+    "https://www.lapampa.gob.ar/economia.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960916.0150478,
+   "updated": 1787960916.0155241
+  },
+  "atm_62c66acd242d": {
+   "id": "atm_62c66acd242d",
+   "layer": "culture",
+   "scope": "polity",
+   "title": "Frontier town founding narratives in post-Conquista Argentina",
+   "tags": [
+    "argentina-founding-myths",
+    "civic-branding",
+    "frontier-towns",
+    "heritage-tourism"
+   ],
+   "entities": [
+    "la-pampa-province",
+    "victorica"
+   ],
+   "period_start": 1880,
+   "period_end": null,
+   "lat": -36.2479652,
+   "lng": -65.424882,
+   "radius_km": 2000,
+   "cell": "6993z1r",
+   "lang": "en",
+   "sources": [
+    "https://www.argentina.gob.ar/habitat/casapropia/obras-casa-propia/la-pampa-victorica",
+    "https://www.victorica.gob.ar/historia/index.html",
+    "https://www.victorica.gob.ar/noticias/2020/entregaron-creditos-de-economia-social.html",
+    "https://www.victorica.gob.ar/turismo/circuitos.html",
+    "https://1deoctubre.com.ar/notas/209-escuela-de-agricultura-de-victorica-una-pionera-del-siglo-xx",
+    "https://www.lapampa.gob.ar/victorica.html",
+    "https://news.agrofy.com.ar/noticia/54544/victorica-se-afirma-en-la-cria-vacuna",
+    "https://zonalpress.com.ar/nota/9125/victorica-movilizo-el-turismo-en-la-pampa",
+    "https://www.infobae.com/economia/campo/2022/10/28/la-pampa-productores-temen-la-expropiacion-de-casi-110000-hectareas-de-campos-para-la-creacion-de-un-parque-nacional/",
+    "https://www.lapampa.gob.ar/economia.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787960916.0629723,
+   "updated": 1787960916.0631852
+  },
+  "atm_bc282d8bf5a5": {
+   "id": "atm_bc282d8bf5a5",
+   "layer": "language",
+   "scope": "country",
+   "title": "Kyrgyz-specific Cyrillic letters distinguish Kyrgyz from Kazakh/Tajik/Uzbek orthography",
+   "tags": [
+    "central-asia",
+    "cyrillic-script",
+    "kyrgyz-language",
+    "orthography",
+    "script-identification"
+   ],
+   "entities": [
+    "kazakhstan",
+    "kyrgyzstan",
+    "tajikistan",
+    "uzbekistan"
+   ],
+   "period_start": 1940,
+   "period_end": null,
+   "lat": 42.8800065,
+   "lng": 74.6989125,
+   "radius_km": 1200,
+   "cell": "txt5gy4",
+   "lang": "en",
+   "sources": [
+    "https://www.wisdomlib.org/cities/lebedinovka-23600",
+    "https://mindtrip.ai/location/lebedinovka-kyrgyzstan/lebedinovka/lo-8igfnvR4",
+    "https://en.wikipedia.org/wiki/Lebedinovka",
+    "https://travelpal.ai/destinations/asia/kyrgyzstan/chuy-region/lebedinovka",
+    "https://en.wikipedia.org/wiki/Ivanovka,_Kyrgyzstan",
+    "https://en.wikipedia.org/wiki/Alekseyevka,_Ch%C3%BCy",
+    "https://www.wander.am/travel/lebedinovka-65715",
+    "https://grokipedia.com/page/Ch%C3%BCy_Region",
+    "https://www.dnb.com/business-directory/company-information.other_schools_and_instruction.kg.chui_region.lebedinovski_aiylny_aimak.html",
+    "https://en.wikipedia.org/wiki/Alamudun_District"
+   ],
+   "refs": [],
+   "reports": [
+    "report_kg_lebedinovka_42.88_74.6989_260829_091757_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962698.9908915,
+   "updated": 1787962698.991351
+  },
+  "atm_e20de7719377": {
+   "id": "atm_e20de7719377",
+   "layer": "history",
+   "scope": "region",
+   "title": "Russian/Slavic peasant colonization of the Chüy Valley (late 19th century)",
+   "tags": [
+    "chuy-valley",
+    "kyrgyzstan",
+    "slavic-settlers",
+    "toponymy",
+    "tsarist-colonization"
+   ],
+   "entities": [
+    "chuy-region",
+    "kyrgyzstan",
+    "russian-empire"
+   ],
+   "period_start": 1868,
+   "period_end": 1917,
+   "lat": 42.8800065,
+   "lng": 74.6989125,
+   "radius_km": 200,
+   "cell": "txt5gy4",
+   "lang": "en",
+   "sources": [
+    "https://www.wisdomlib.org/cities/lebedinovka-23600",
+    "https://mindtrip.ai/location/lebedinovka-kyrgyzstan/lebedinovka/lo-8igfnvR4",
+    "https://en.wikipedia.org/wiki/Lebedinovka",
+    "https://travelpal.ai/destinations/asia/kyrgyzstan/chuy-region/lebedinovka",
+    "https://en.wikipedia.org/wiki/Ivanovka,_Kyrgyzstan",
+    "https://en.wikipedia.org/wiki/Alekseyevka,_Ch%C3%BCy",
+    "https://www.wander.am/travel/lebedinovka-65715",
+    "https://grokipedia.com/page/Ch%C3%BCy_Region",
+    "https://www.dnb.com/business-directory/company-information.other_schools_and_instruction.kg.chui_region.lebedinovski_aiylny_aimak.html",
+    "https://en.wikipedia.org/wiki/Alamudun_District"
+   ],
+   "refs": [],
+   "reports": [
+    "report_kg_lebedinovka_42.88_74.6989_260829_091757_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962699.0143468,
+   "updated": 1787962699.0144892
+  },
+  "atm_5a1490e2317e": {
+   "id": "atm_5a1490e2317e",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Chüy Valley as Kyrgyzstan's principal breadbasket",
+   "tags": [
+    "agriculture",
+    "breadbasket",
+    "chuy-valley",
+    "irrigated-oasis",
+    "kyrgyzstan"
+   ],
+   "entities": [
+    "bishkek",
+    "chuy-region",
+    "kyrgyzstan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 42.8800065,
+   "lng": 74.6989125,
+   "radius_km": 200,
+   "cell": "txt5gy4",
+   "lang": "en",
+   "sources": [
+    "https://www.wisdomlib.org/cities/lebedinovka-23600",
+    "https://mindtrip.ai/location/lebedinovka-kyrgyzstan/lebedinovka/lo-8igfnvR4",
+    "https://en.wikipedia.org/wiki/Lebedinovka",
+    "https://travelpal.ai/destinations/asia/kyrgyzstan/chuy-region/lebedinovka",
+    "https://en.wikipedia.org/wiki/Ivanovka,_Kyrgyzstan",
+    "https://en.wikipedia.org/wiki/Alekseyevka,_Ch%C3%BCy",
+    "https://www.wander.am/travel/lebedinovka-65715",
+    "https://grokipedia.com/page/Ch%C3%BCy_Region",
+    "https://www.dnb.com/business-directory/company-information.other_schools_and_instruction.kg.chui_region.lebedinovski_aiylny_aimak.html",
+    "https://en.wikipedia.org/wiki/Alamudun_District"
+   ],
+   "refs": [],
+   "reports": [
+    "report_kg_lebedinovka_42.88_74.6989_260829_091757_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962699.0341475,
+   "updated": 1787962699.0342686
+  },
+  "atm_ef51d7d80c44": {
+   "id": "atm_ef51d7d80c44",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Chuy Region vs Issyk-Kul/Naryn/Osh — landscape discriminators within Kyrgyzstan",
+   "tags": [
+    "central-asia-geography",
+    "chuy-region",
+    "kyrgyzstan",
+    "landscape-discriminator",
+    "vernacular-settlement"
+   ],
+   "entities": [
+    "chuy-region",
+    "issyk-kul",
+    "kyrgyzstan",
+    "naryn-region",
+    "osh-region"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 42.8800065,
+   "lng": 74.6989125,
+   "radius_km": 200,
+   "cell": "txt5gy4",
+   "lang": "en",
+   "sources": [
+    "https://www.wisdomlib.org/cities/lebedinovka-23600",
+    "https://mindtrip.ai/location/lebedinovka-kyrgyzstan/lebedinovka/lo-8igfnvR4",
+    "https://en.wikipedia.org/wiki/Lebedinovka",
+    "https://travelpal.ai/destinations/asia/kyrgyzstan/chuy-region/lebedinovka",
+    "https://en.wikipedia.org/wiki/Ivanovka,_Kyrgyzstan",
+    "https://en.wikipedia.org/wiki/Alekseyevka,_Ch%C3%BCy",
+    "https://www.wander.am/travel/lebedinovka-65715",
+    "https://grokipedia.com/page/Ch%C3%BCy_Region",
+    "https://www.dnb.com/business-directory/company-information.other_schools_and_instruction.kg.chui_region.lebedinovski_aiylny_aimak.html",
+    "https://en.wikipedia.org/wiki/Alamudun_District"
+   ],
+   "refs": [],
+   "reports": [
+    "report_kg_lebedinovka_42.88_74.6989_260829_091757_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962699.0758986,
+   "updated": 1787962699.0760536
+  },
+  "atm_ff43edba76d3": {
+   "id": "atm_ff43edba76d3",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Bilingual Kyrgyz-first, Russian-second public signage as post-independence language policy marker",
+   "tags": [
+    "bilingual-signage",
+    "cultural-layering",
+    "kyrgyzstan",
+    "language-policy",
+    "post-soviet"
+   ],
+   "entities": [
+    "chuy-region",
+    "kyrgyzstan"
+   ],
+   "period_start": 1991,
+   "period_end": null,
+   "lat": 42.8800065,
+   "lng": 74.6989125,
+   "radius_km": 1200,
+   "cell": "txt5gy4",
+   "lang": "en",
+   "sources": [
+    "https://www.wisdomlib.org/cities/lebedinovka-23600",
+    "https://mindtrip.ai/location/lebedinovka-kyrgyzstan/lebedinovka/lo-8igfnvR4",
+    "https://en.wikipedia.org/wiki/Lebedinovka",
+    "https://travelpal.ai/destinations/asia/kyrgyzstan/chuy-region/lebedinovka",
+    "https://en.wikipedia.org/wiki/Ivanovka,_Kyrgyzstan",
+    "https://en.wikipedia.org/wiki/Alekseyevka,_Ch%C3%BCy",
+    "https://www.wander.am/travel/lebedinovka-65715",
+    "https://grokipedia.com/page/Ch%C3%BCy_Region",
+    "https://www.dnb.com/business-directory/company-information.other_schools_and_instruction.kg.chui_region.lebedinovski_aiylny_aimak.html",
+    "https://en.wikipedia.org/wiki/Alamudun_District"
+   ],
+   "refs": [],
+   "reports": [
+    "report_kg_lebedinovka_42.88_74.6989_260829_091757_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962699.0997915,
+   "updated": 1787962699.1000068
+  },
+  "atm_7493c55d0bf4": {
+   "id": "atm_7493c55d0bf4",
+   "layer": "language",
+   "scope": "country",
+   "title": "UK dual metric/imperial height restriction signage",
+   "tags": [
+    "height-restriction",
+    "imperial-units",
+    "ireland-comparison",
+    "road-signs",
+    "uk-signage"
+   ],
+   "entities": [
+    "ireland",
+    "united-kingdom"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.9297342,
+   "lng": -3.0567248,
+   "radius_km": 1200,
+   "cell": "gcvy4mw",
+   "lang": "en",
+   "sources": [
+    "https://www.tandfonline.com/doi/full/10.1080/14702541.2024.2419436",
+    "https://canmore.org.uk/site/72677/monktonhall-colliery",
+    "https://www.mindat.org/loc-387127.html",
+    "https://www.trove.scot/place/72677",
+    "https://www.johngraycentre.org/collections/getrecord/MLHER_MEL8652/",
+    "https://www.railscot.co.uk/locations/M/Monktonhall_Colliery/",
+    "https://www.28dayslater.co.uk/threads/monktonhall-colliery-site-march-2013.78831/",
+    "https://en.wikipedia.org/wiki/Monkwearmouth_Colliery",
+    "http://www.dmm.org.uk/collnear/m228.htm",
+    "https://www.insider.co.uk/special-reports/regional-report--east-lothian-9875731"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gb_monktonhall-musselburgh_55.9297_-3.0567_260829_092228_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962965.7949357,
+   "updated": 1787962965.7952282
+  },
+  "atm_20964856ecd8": {
+   "id": "atm_20964856ecd8",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Lowland Scottish housing vernacular vs England/Wales",
+   "tags": [
+    "central-belt",
+    "harling",
+    "pantile-roof",
+    "scottish-architecture",
+    "vernacular-housing",
+    "wet-dash-render"
+   ],
+   "entities": [
+    "england",
+    "scotland",
+    "wales"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.9297342,
+   "lng": -3.0567248,
+   "radius_km": 200,
+   "cell": "gcvy4mw",
+   "lang": "en",
+   "sources": [
+    "https://www.tandfonline.com/doi/full/10.1080/14702541.2024.2419436",
+    "https://canmore.org.uk/site/72677/monktonhall-colliery",
+    "https://www.mindat.org/loc-387127.html",
+    "https://www.trove.scot/place/72677",
+    "https://www.johngraycentre.org/collections/getrecord/MLHER_MEL8652/",
+    "https://www.railscot.co.uk/locations/M/Monktonhall_Colliery/",
+    "https://www.28dayslater.co.uk/threads/monktonhall-colliery-site-march-2013.78831/",
+    "https://en.wikipedia.org/wiki/Monkwearmouth_Colliery",
+    "http://www.dmm.org.uk/collnear/m228.htm",
+    "https://www.insider.co.uk/special-reports/regional-report--east-lothian-9875731"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gb_monktonhall-musselburgh_55.9297_-3.0567_260829_092228_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962965.819238,
+   "updated": 1787962965.8193989
+  },
+  "atm_0f6b34497068": {
+   "id": "atm_0f6b34497068",
+   "layer": "history",
+   "scope": "region",
+   "title": "Midlothian/East Lothian coalfield and its 'super pits'",
+   "tags": [
+    "coal-mining",
+    "deindustrialization",
+    "midlothian-coalfield",
+    "monktonhall-colliery",
+    "scottish-industry",
+    "super-pit"
+   ],
+   "entities": [
+    "midlothian-coalfield",
+    "monktonhall",
+    "scotland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.9297342,
+   "lng": -3.0567248,
+   "radius_km": 200,
+   "cell": "gcvy4mw",
+   "lang": "en",
+   "sources": [
+    "https://www.tandfonline.com/doi/full/10.1080/14702541.2024.2419436",
+    "https://canmore.org.uk/site/72677/monktonhall-colliery",
+    "https://www.mindat.org/loc-387127.html",
+    "https://www.trove.scot/place/72677",
+    "https://www.johngraycentre.org/collections/getrecord/MLHER_MEL8652/",
+    "https://www.railscot.co.uk/locations/M/Monktonhall_Colliery/",
+    "https://www.28dayslater.co.uk/threads/monktonhall-colliery-site-march-2013.78831/",
+    "https://en.wikipedia.org/wiki/Monkwearmouth_Colliery",
+    "http://www.dmm.org.uk/collnear/m228.htm",
+    "https://www.insider.co.uk/special-reports/regional-report--east-lothian-9875731"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gb_monktonhall-musselburgh_55.9297_-3.0567_260829_092228_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962965.8456116,
+   "updated": 1787962965.8457959
+  },
+  "atm_a7cc8c04d19a": {
+   "id": "atm_a7cc8c04d19a",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Post-industrial East Lothian/Lothian commuter-belt economic transition",
+   "tags": [
+    "commuter-belt",
+    "deindustrialization",
+    "economic-diversification",
+    "edinburgh",
+    "gentrification"
+   ],
+   "entities": [
+    "east-lothian",
+    "edinburgh",
+    "musselburgh"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 55.9297342,
+   "lng": -3.0567248,
+   "radius_km": 1200,
+   "cell": "gcvy4mw",
+   "lang": "en",
+   "sources": [
+    "https://www.tandfonline.com/doi/full/10.1080/14702541.2024.2419436",
+    "https://canmore.org.uk/site/72677/monktonhall-colliery",
+    "https://www.mindat.org/loc-387127.html",
+    "https://www.trove.scot/place/72677",
+    "https://www.johngraycentre.org/collections/getrecord/MLHER_MEL8652/",
+    "https://www.railscot.co.uk/locations/M/Monktonhall_Colliery/",
+    "https://www.28dayslater.co.uk/threads/monktonhall-colliery-site-march-2013.78831/",
+    "https://en.wikipedia.org/wiki/Monkwearmouth_Colliery",
+    "http://www.dmm.org.uk/collnear/m228.htm",
+    "https://www.insider.co.uk/special-reports/regional-report--east-lothian-9875731"
+   ],
+   "refs": [],
+   "reports": [
+    "report_gb_monktonhall-musselburgh_55.9297_-3.0567_260829_092228_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787962965.8827653,
+   "updated": 1787962965.8828702
+  },
+  "atm_b6414f383cd3": {
+   "id": "atm_b6414f383cd3",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Mazatlán as global shrimp-fishing hub and Mexico's largest Pacific port",
+   "tags": [
+    "fishing-fleet",
+    "mazatlan",
+    "pacific-port",
+    "shrimp-fishing",
+    "sinaloa",
+    "tourism"
+   ],
+   "entities": [
+    "mazatlan",
+    "sinaloa"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 23.2415848,
+   "lng": -106.4429944,
+   "radius_km": 25,
+   "cell": "9shk1z4",
+   "lang": "en",
+   "sources": [
+    "https://www.ceoe.es/en/ceoe-news/internacional/mazatlan-authorities-present-business-and-investment-opportunities-mexican",
+    "https://kids.britannica.com/students/article/Sinaloa/336596",
+    "https://www.britannica.com/place/Mazatlan",
+    "https://www.davestravelcorner.com/journals/destination-north-america/charming-and-mysterious-mazatlan/",
+    "https://wavesandcobblestones.com/things-to-do-in-mazatlan-cruise-port/",
+    "https://kids.kiddle.co/Mazatl%C3%A1n",
+    "https://themazatlanpost.com/2021/08/12/southern-sinaloa-contributes-21-8-of-state-gdp/",
+    "https://www.visit-mexico.mx/sinaloa/mazatlan/",
+    "https://mitechnews.com/guest-columns/mazatlan-a-tapestry-of-diverse-economy/",
+    "https://www.dnb.com/business-directory/company-information.agriculture_forestry_fishing_and_hunting.mx.sinaloa.html?page=2"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963586.345163,
+   "updated": 1787963586.3453906
+  },
+  "atm_533222e45251": {
+   "id": "atm_533222e45251",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Sinaloa as Mexico's agricultural breadbasket",
+   "tags": [
+    "agriculture",
+    "breadbasket",
+    "irrigated-farmland",
+    "service-sector",
+    "sinaloa"
+   ],
+   "entities": [
+    "sinaloa"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 23.2415848,
+   "lng": -106.4429944,
+   "radius_km": 200,
+   "cell": "9shk1z4",
+   "lang": "en",
+   "sources": [
+    "https://www.ceoe.es/en/ceoe-news/internacional/mazatlan-authorities-present-business-and-investment-opportunities-mexican",
+    "https://kids.britannica.com/students/article/Sinaloa/336596",
+    "https://www.britannica.com/place/Mazatlan",
+    "https://www.davestravelcorner.com/journals/destination-north-america/charming-and-mysterious-mazatlan/",
+    "https://wavesandcobblestones.com/things-to-do-in-mazatlan-cruise-port/",
+    "https://kids.kiddle.co/Mazatl%C3%A1n",
+    "https://themazatlanpost.com/2021/08/12/southern-sinaloa-contributes-21-8-of-state-gdp/",
+    "https://www.visit-mexico.mx/sinaloa/mazatlan/",
+    "https://mitechnews.com/guest-columns/mazatlan-a-tapestry-of-diverse-economy/",
+    "https://www.dnb.com/business-directory/company-information.agriculture_forestry_fishing_and_hunting.mx.sinaloa.html?page=2"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963586.3884535,
+   "updated": 1787963586.3885672
+  },
+  "atm_ea92c4c667d4": {
+   "id": "atm_ea92c4c667d4",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Grupo Modelo/Pacífico brewery as historic industrial anchor",
+   "tags": [
+    "ab-inbev",
+    "brewing-industry",
+    "grupo-modelo",
+    "mazatlan",
+    "pacifico-brewery"
+   ],
+   "entities": [
+    "grupo-modelo",
+    "mazatlan",
+    "pacifico-brewery"
+   ],
+   "period_start": 1900,
+   "period_end": null,
+   "lat": 23.2415848,
+   "lng": -106.4429944,
+   "radius_km": 25,
+   "cell": "9shk1z4",
+   "lang": "en",
+   "sources": [
+    "https://www.ceoe.es/en/ceoe-news/internacional/mazatlan-authorities-present-business-and-investment-opportunities-mexican",
+    "https://kids.britannica.com/students/article/Sinaloa/336596",
+    "https://www.britannica.com/place/Mazatlan",
+    "https://www.davestravelcorner.com/journals/destination-north-america/charming-and-mysterious-mazatlan/",
+    "https://wavesandcobblestones.com/things-to-do-in-mazatlan-cruise-port/",
+    "https://kids.kiddle.co/Mazatl%C3%A1n",
+    "https://themazatlanpost.com/2021/08/12/southern-sinaloa-contributes-21-8-of-state-gdp/",
+    "https://www.visit-mexico.mx/sinaloa/mazatlan/",
+    "https://mitechnews.com/guest-columns/mazatlan-a-tapestry-of-diverse-economy/",
+    "https://www.dnb.com/business-directory/company-information.agriculture_forestry_fishing_and_hunting.mx.sinaloa.html?page=2"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963586.4099464,
+   "updated": 1787963586.410047
+  },
+  "atm_bd33b40b4b46": {
+   "id": "atm_bd33b40b4b46",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Mexican retail/hospitality chains as country-identification markers",
+   "tags": [
+    "brand-identification",
+    "cinepolis",
+    "city-express",
+    "geolocation",
+    "mexico",
+    "retail-chains",
+    "soriana"
+   ],
+   "entities": [
+    "cinepolis",
+    "mexico",
+    "soriana"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 23.2415848,
+   "lng": -106.4429944,
+   "radius_km": 200,
+   "cell": "9shk1z4",
+   "lang": "en",
+   "sources": [
+    "https://www.ceoe.es/en/ceoe-news/internacional/mazatlan-authorities-present-business-and-investment-opportunities-mexican",
+    "https://kids.britannica.com/students/article/Sinaloa/336596",
+    "https://www.britannica.com/place/Mazatlan",
+    "https://www.davestravelcorner.com/journals/destination-north-america/charming-and-mysterious-mazatlan/",
+    "https://wavesandcobblestones.com/things-to-do-in-mazatlan-cruise-port/",
+    "https://kids.kiddle.co/Mazatl%C3%A1n",
+    "https://themazatlanpost.com/2021/08/12/southern-sinaloa-contributes-21-8-of-state-gdp/",
+    "https://www.visit-mexico.mx/sinaloa/mazatlan/",
+    "https://mitechnews.com/guest-columns/mazatlan-a-tapestry-of-diverse-economy/",
+    "https://www.dnb.com/business-directory/company-information.agriculture_forestry_fishing_and_hunting.mx.sinaloa.html?page=2"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963586.4324474,
+   "updated": 1787963586.4325504
+  },
+  "atm_a54d90c20b3e": {
+   "id": "atm_a54d90c20b3e",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Mexican telephone area codes as sub-national geolocation markers",
+   "tags": [
+    "area-codes",
+    "geolocation",
+    "mexico",
+    "telephone-numbering"
+   ],
+   "entities": [
+    "mexico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 23.2415848,
+   "lng": -106.4429944,
+   "radius_km": 1200,
+   "cell": "9shk1z4",
+   "lang": "en",
+   "sources": [
+    "https://www.ceoe.es/en/ceoe-news/internacional/mazatlan-authorities-present-business-and-investment-opportunities-mexican",
+    "https://kids.britannica.com/students/article/Sinaloa/336596",
+    "https://www.britannica.com/place/Mazatlan",
+    "https://www.davestravelcorner.com/journals/destination-north-america/charming-and-mysterious-mazatlan/",
+    "https://wavesandcobblestones.com/things-to-do-in-mazatlan-cruise-port/",
+    "https://kids.kiddle.co/Mazatl%C3%A1n",
+    "https://themazatlanpost.com/2021/08/12/southern-sinaloa-contributes-21-8-of-state-gdp/",
+    "https://www.visit-mexico.mx/sinaloa/mazatlan/",
+    "https://mitechnews.com/guest-columns/mazatlan-a-tapestry-of-diverse-economy/",
+    "https://www.dnb.com/business-directory/company-information.agriculture_forestry_fishing_and_hunting.mx.sinaloa.html?page=2"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963586.4564555,
+   "updated": 1787963586.4565647
+  },
+  "atm_0f259f84fb29": {
+   "id": "atm_0f259f84fb29",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Pacific vs. inland/Gulf Mexico terrain and vegetation contrasts",
+   "tags": [
+    "bajio",
+    "mexico",
+    "pacific-coast",
+    "regional-identification",
+    "terrain",
+    "vegetation",
+    "yucatan"
+   ],
+   "entities": [
+    "bajio",
+    "mexico",
+    "sinaloa",
+    "yucatan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 23.2415848,
+   "lng": -106.4429944,
+   "radius_km": 200,
+   "cell": "9shk1z4",
+   "lang": "en",
+   "sources": [
+    "https://www.ceoe.es/en/ceoe-news/internacional/mazatlan-authorities-present-business-and-investment-opportunities-mexican",
+    "https://kids.britannica.com/students/article/Sinaloa/336596",
+    "https://www.britannica.com/place/Mazatlan",
+    "https://www.davestravelcorner.com/journals/destination-north-america/charming-and-mysterious-mazatlan/",
+    "https://wavesandcobblestones.com/things-to-do-in-mazatlan-cruise-port/",
+    "https://kids.kiddle.co/Mazatl%C3%A1n",
+    "https://themazatlanpost.com/2021/08/12/southern-sinaloa-contributes-21-8-of-state-gdp/",
+    "https://www.visit-mexico.mx/sinaloa/mazatlan/",
+    "https://mitechnews.com/guest-columns/mazatlan-a-tapestry-of-diverse-economy/",
+    "https://www.dnb.com/business-directory/company-information.agriculture_forestry_fishing_and_hunting.mx.sinaloa.html?page=2"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963586.4791327,
+   "updated": 1787963586.4792924
+  },
+  "atm_a20a2bd85dc2": {
+   "id": "atm_a20a2bd85dc2",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Setouchi/Inland Sea housing lacks snow-country roof features",
+   "tags": [
+    "climate-adaptation",
+    "japan",
+    "kawara-tile",
+    "roof-architecture",
+    "setouchi",
+    "snow-country"
+   ],
+   "entities": [
+    "chugoku-region",
+    "japan",
+    "setouchi"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 34.4836144,
+   "lng": 133.3950997,
+   "radius_km": 200.0,
+   "cell": "wynu5mx",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fukushima-cho_Station",
+    "https://www.wikidata.org/wiki/Q661038",
+    "https://en.wikipedia.org/wiki/Fukuyama,_Hiroshima",
+    "https://www.tripadvisor.com/Restaurants-g298131-zfd11722-Fukuyama_Hiroshima_Prefecture_Chugoku-Ramen.html",
+    "https://en.wikipedia.org/wiki/Shin-ichi_Station",
+    "https://en.wikipedia.org/wiki/Fukuyama_Hachimang%C5%AB",
+    "https://en.wikipedia.org/wiki/Fukuyama_Tsuun_Rose_Stadium",
+    "https://en.wikipedia.org/wiki/Hijiyama-shita_Station",
+    "https://en.wikipedia.org/wiki/Fukutomi,_Hiroshima",
+    "https://en.wikipedia.org/wiki/Higashi-ku,_Hiroshima"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963878.3247125,
+   "updated": 1787963878.3249993
+  },
+  "atm_30508cea81f3": {
+   "id": "atm_30508cea81f3",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Seto Inland Sea rain-shadow climate belt",
+   "tags": [
+    "climate",
+    "rain-shadow",
+    "seto-inland-sea",
+    "setouchi",
+    "western-honshu"
+   ],
+   "entities": [
+    "seto-inland-sea",
+    "setouchi"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 34.4836144,
+   "lng": 133.3950997,
+   "radius_km": 300.0,
+   "cell": "wynu5mx",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fukushima-cho_Station",
+    "https://www.wikidata.org/wiki/Q661038",
+    "https://en.wikipedia.org/wiki/Fukuyama,_Hiroshima",
+    "https://www.tripadvisor.com/Restaurants-g298131-zfd11722-Fukuyama_Hiroshima_Prefecture_Chugoku-Ramen.html",
+    "https://en.wikipedia.org/wiki/Shin-ichi_Station",
+    "https://en.wikipedia.org/wiki/Fukuyama_Hachimang%C5%AB",
+    "https://en.wikipedia.org/wiki/Fukuyama_Tsuun_Rose_Stadium",
+    "https://en.wikipedia.org/wiki/Hijiyama-shita_Station",
+    "https://en.wikipedia.org/wiki/Fukutomi,_Hiroshima",
+    "https://en.wikipedia.org/wiki/Higashi-ku,_Hiroshima"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963878.3672214,
+   "updated": 1787963878.3673198
+  },
+  "atm_2893ef2e3a1c": {
+   "id": "atm_2893ef2e3a1c",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Japanese telephone area codes as fine-grained geographic identifiers",
+   "tags": [
+    "administrative-geography",
+    "area-code",
+    "geolocation-cue",
+    "japan",
+    "telephone"
+   ],
+   "entities": [
+    "japan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 34.4836144,
+   "lng": 133.3950997,
+   "radius_km": 1200,
+   "cell": "wynu5mx",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fukushima-cho_Station",
+    "https://www.wikidata.org/wiki/Q661038",
+    "https://en.wikipedia.org/wiki/Fukuyama,_Hiroshima",
+    "https://www.tripadvisor.com/Restaurants-g298131-zfd11722-Fukuyama_Hiroshima_Prefecture_Chugoku-Ramen.html",
+    "https://en.wikipedia.org/wiki/Shin-ichi_Station",
+    "https://en.wikipedia.org/wiki/Fukuyama_Hachimang%C5%AB",
+    "https://en.wikipedia.org/wiki/Fukuyama_Tsuun_Rose_Stadium",
+    "https://en.wikipedia.org/wiki/Hijiyama-shita_Station",
+    "https://en.wikipedia.org/wiki/Fukutomi,_Hiroshima",
+    "https://en.wikipedia.org/wiki/Higashi-ku,_Hiroshima"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963878.3871567,
+   "updated": 1787963878.3872817
+  },
+  "atm_966e456e1d2c": {
+   "id": "atm_966e456e1d2c",
+   "layer": "economy",
+   "scope": "polity",
+   "title": "Fukuyama's steel/manufacturing industrial cluster",
+   "tags": [
+    "fukuyama",
+    "hiroshima-prefecture",
+    "industrial-city",
+    "jfe-steel",
+    "manufacturing-cluster"
+   ],
+   "entities": [
+    "fukuyama",
+    "hiroshima-prefecture"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 34.4836144,
+   "lng": 133.3950997,
+   "radius_km": 30.0,
+   "cell": "wynu5mx",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fukushima-cho_Station",
+    "https://www.wikidata.org/wiki/Q661038",
+    "https://en.wikipedia.org/wiki/Fukuyama,_Hiroshima",
+    "https://www.tripadvisor.com/Restaurants-g298131-zfd11722-Fukuyama_Hiroshima_Prefecture_Chugoku-Ramen.html",
+    "https://en.wikipedia.org/wiki/Shin-ichi_Station",
+    "https://en.wikipedia.org/wiki/Fukuyama_Hachimang%C5%AB",
+    "https://en.wikipedia.org/wiki/Fukuyama_Tsuun_Rose_Stadium",
+    "https://en.wikipedia.org/wiki/Hijiyama-shita_Station",
+    "https://en.wikipedia.org/wiki/Fukutomi,_Hiroshima",
+    "https://en.wikipedia.org/wiki/Higashi-ku,_Hiroshima"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963878.4142313,
+   "updated": 1787963878.414322
+  },
+  "atm_8f4166ec8daf": {
+   "id": "atm_8f4166ec8daf",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Kei-class yellow-plate cars as a uniquely Japanese vehicle category",
+   "tags": [
+    "automotive-culture",
+    "daihatsu",
+    "japan",
+    "kei-car",
+    "yellow-plate"
+   ],
+   "entities": [
+    "daihatsu",
+    "japan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 34.4836144,
+   "lng": 133.3950997,
+   "radius_km": 1200,
+   "cell": "wynu5mx",
+   "lang": "en",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fukushima-cho_Station",
+    "https://www.wikidata.org/wiki/Q661038",
+    "https://en.wikipedia.org/wiki/Fukuyama,_Hiroshima",
+    "https://www.tripadvisor.com/Restaurants-g298131-zfd11722-Fukuyama_Hiroshima_Prefecture_Chugoku-Ramen.html",
+    "https://en.wikipedia.org/wiki/Shin-ichi_Station",
+    "https://en.wikipedia.org/wiki/Fukuyama_Hachimang%C5%AB",
+    "https://en.wikipedia.org/wiki/Fukuyama_Tsuun_Rose_Stadium",
+    "https://en.wikipedia.org/wiki/Hijiyama-shita_Station",
+    "https://en.wikipedia.org/wiki/Fukutomi,_Hiroshima",
+    "https://en.wikipedia.org/wiki/Higashi-ku,_Hiroshima"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787963878.4697044,
+   "updated": 1787963878.469902
+  },
+  "atm_fa8ff513c430": {
+   "id": "atm_fa8ff513c430",
+   "layer": "language",
+   "scope": "polity",
+   "title": "Catalan toponymic and administrative generics distinguish Catalonia from Castilian Spain",
+   "tags": [
+    "catalan-language",
+    "catalonia",
+    "linguistic-geography",
+    "road-codes",
+    "toponymy"
+   ],
+   "entities": [
+    "basque-country",
+    "catalonia",
+    "spain",
+    "valencia"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 41.4835407,
+   "lng": 2.1348995,
+   "radius_km": 2000,
+   "cell": "sp3ebxf",
+   "lang": "en",
+   "sources": [
+    "https://www.cells.es/en",
+    "https://en.wikipedia.org/wiki/Barcelona_Synchrotron_Park",
+    "https://catalogogics.cdti.es/en/national_research_infrastructures/alba-synchrotron",
+    "https://agenciaeconomica.amb.cat/es/serveis-per-empreses/prestadors/detall/-/prestadorservei/sincrotron-alba/7941398/11708",
+    "https://www.barcelonasynchrotronpark.com/en/1738/services.html",
+    "https://www.barcelonasynchrotronpark.com/en/1752/strategic-sectors.html",
+    "https://www.barcelonasynchrotronpark.com/",
+    "https://en.wikipedia.org/wiki/ALBA_(synchrotron)",
+    "https://www.barcelonasynchrotronpark.com/EN/2099/BSP/news/catalonia-confirms-itself-as-pole-of-attraction-for-foreign-investments.html",
+    "https://barcelonacatalonia.eu/en/project/cerdanyola-del-valles-parc-de-lalba-barcelona-synchrotron-park/"
+   ],
+   "refs": [],
+   "reports": [
+    "report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964154.7663844,
+   "updated": 1787964154.7667403
+  },
+  "atm_4c34ab75768e": {
+   "id": "atm_4c34ab75768e",
+   "layer": "economy",
+   "scope": "polity",
+   "title": "Barcelona's Vallès Occidental as a knowledge-industry corridor",
+   "tags": [
+    "barcelona-metro",
+    "commuter-suburb",
+    "research-infrastructure",
+    "tech-corridor",
+    "valles-occidental"
+   ],
+   "entities": [
+    "barcelona",
+    "cerdanyola-del-valles",
+    "sabadell",
+    "sant-cugat-del-valles"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 41.4835407,
+   "lng": 2.1348995,
+   "radius_km": 2000,
+   "cell": "sp3ebxf",
+   "lang": "en",
+   "sources": [
+    "https://www.cells.es/en",
+    "https://en.wikipedia.org/wiki/Barcelona_Synchrotron_Park",
+    "https://catalogogics.cdti.es/en/national_research_infrastructures/alba-synchrotron",
+    "https://agenciaeconomica.amb.cat/es/serveis-per-empreses/prestadors/detall/-/prestadorservei/sincrotron-alba/7941398/11708",
+    "https://www.barcelonasynchrotronpark.com/en/1738/services.html",
+    "https://www.barcelonasynchrotronpark.com/en/1752/strategic-sectors.html",
+    "https://www.barcelonasynchrotronpark.com/",
+    "https://en.wikipedia.org/wiki/ALBA_(synchrotron)",
+    "https://www.barcelonasynchrotronpark.com/EN/2099/BSP/news/catalonia-confirms-itself-as-pole-of-attraction-for-foreign-investments.html",
+    "https://barcelonacatalonia.eu/en/project/cerdanyola-del-valles-parc-de-lalba-barcelona-synchrotron-park/"
+   ],
+   "refs": [],
+   "reports": [
+    "report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964154.8130918,
+   "updated": 1787964154.813203
+  },
+  "atm_b1792f8f1e86": {
+   "id": "atm_b1792f8f1e86",
+   "layer": "economy",
+   "scope": "city",
+   "title": "ALBA Synchrotron as anchor of a Barcelona-area science park cluster",
+   "tags": [
+    "materials-science",
+    "microelectronics",
+    "research-infrastructure",
+    "science-park",
+    "synchrotron"
+   ],
+   "entities": [
+    "alba-synchrotron",
+    "cerdanyola-del-valles"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 41.4835407,
+   "lng": 2.1348995,
+   "radius_km": 25,
+   "cell": "sp3ebxf",
+   "lang": "en",
+   "sources": [
+    "https://www.cells.es/en",
+    "https://en.wikipedia.org/wiki/Barcelona_Synchrotron_Park",
+    "https://catalogogics.cdti.es/en/national_research_infrastructures/alba-synchrotron",
+    "https://agenciaeconomica.amb.cat/es/serveis-per-empreses/prestadors/detall/-/prestadorservei/sincrotron-alba/7941398/11708",
+    "https://www.barcelonasynchrotronpark.com/en/1738/services.html",
+    "https://www.barcelonasynchrotronpark.com/en/1752/strategic-sectors.html",
+    "https://www.barcelonasynchrotronpark.com/",
+    "https://en.wikipedia.org/wiki/ALBA_(synchrotron)",
+    "https://www.barcelonasynchrotronpark.com/EN/2099/BSP/news/catalonia-confirms-itself-as-pole-of-attraction-for-foreign-investments.html",
+    "https://barcelonacatalonia.eu/en/project/cerdanyola-del-valles-parc-de-lalba-barcelona-synchrotron-park/"
+   ],
+   "refs": [],
+   "reports": [
+    "report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964154.8324213,
+   "updated": 1787964154.8325105
+  },
+  "atm_3b756d7dfdab": {
+   "id": "atm_3b756d7dfdab",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Spanish suburban 'urbanización' garden-wall style",
+   "tags": [
+    "garden-walls",
+    "self-built-housing",
+    "spain",
+    "suburban-architecture",
+    "urbanizacion"
+   ],
+   "entities": [
+    "spain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 41.4835407,
+   "lng": 2.1348995,
+   "radius_km": 200,
+   "cell": "sp3ebxf",
+   "lang": "en",
+   "sources": [
+    "https://www.cells.es/en",
+    "https://en.wikipedia.org/wiki/Barcelona_Synchrotron_Park",
+    "https://catalogogics.cdti.es/en/national_research_infrastructures/alba-synchrotron",
+    "https://agenciaeconomica.amb.cat/es/serveis-per-empreses/prestadors/detall/-/prestadorservei/sincrotron-alba/7941398/11708",
+    "https://www.barcelonasynchrotronpark.com/en/1738/services.html",
+    "https://www.barcelonasynchrotronpark.com/en/1752/strategic-sectors.html",
+    "https://www.barcelonasynchrotronpark.com/",
+    "https://en.wikipedia.org/wiki/ALBA_(synchrotron)",
+    "https://www.barcelonasynchrotronpark.com/EN/2099/BSP/news/catalonia-confirms-itself-as-pole-of-attraction-for-foreign-investments.html",
+    "https://barcelonacatalonia.eu/en/project/cerdanyola-del-valles-parc-de-lalba-barcelona-synchrotron-park/"
+   ],
+   "refs": [],
+   "reports": [
+    "report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964154.8501372,
+   "updated": 1787964154.8502216
+  },
+  "atm_a8965343eeda": {
+   "id": "atm_a8965343eeda",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Spanish DGT road signage conventions",
+   "tags": [
+    "dgt",
+    "road-signage",
+    "spain",
+    "traffic-signs"
+   ],
+   "entities": [
+    "spain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 41.4835407,
+   "lng": 2.1348995,
+   "radius_km": 1200,
+   "cell": "sp3ebxf",
+   "lang": "en",
+   "sources": [
+    "https://www.cells.es/en",
+    "https://en.wikipedia.org/wiki/Barcelona_Synchrotron_Park",
+    "https://catalogogics.cdti.es/en/national_research_infrastructures/alba-synchrotron",
+    "https://agenciaeconomica.amb.cat/es/serveis-per-empreses/prestadors/detall/-/prestadorservei/sincrotron-alba/7941398/11708",
+    "https://www.barcelonasynchrotronpark.com/en/1738/services.html",
+    "https://www.barcelonasynchrotronpark.com/en/1752/strategic-sectors.html",
+    "https://www.barcelonasynchrotronpark.com/",
+    "https://en.wikipedia.org/wiki/ALBA_(synchrotron)",
+    "https://www.barcelonasynchrotronpark.com/EN/2099/BSP/news/catalonia-confirms-itself-as-pole-of-attraction-for-foreign-investments.html",
+    "https://barcelonacatalonia.eu/en/project/cerdanyola-del-valles-parc-de-lalba-barcelona-synchrotron-park/"
+   ],
+   "refs": [],
+   "reports": [
+    "report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964154.868895,
+   "updated": 1787964154.868982
+  },
+  "atm_9bee7878b6c8": {
+   "id": "atm_9bee7878b6c8",
+   "layer": "history",
+   "scope": "region",
+   "title": "Transylvanian Saxon fortified towns network (Siebenbürgen)",
+   "tags": [
+    "fortified-towns",
+    "hungarian-kingdom",
+    "saxon-seats",
+    "siebenburgen",
+    "transylvania",
+    "transylvanian-saxons"
+   ],
+   "entities": [
+    "brasov",
+    "medias",
+    "sibiu",
+    "sighisoara",
+    "transylvania",
+    "transylvanian-saxons"
+   ],
+   "period_start": 1150,
+   "period_end": 1867,
+   "lat": 45.6461945,
+   "lng": 25.5846838,
+   "radius_km": 200,
+   "cell": "u845wjw",
+   "lang": "en",
+   "sources": [
+    "https://www.phdportal.com/cities/504/brasov.html",
+    "https://www.mastersportal.com/cities/504/brasov.html",
+    "https://eures.europa.eu/living-and-working/labour-market-information/labour-market-information-romania_en",
+    "https://www.bachelorsportal.com/cities/504/brasov.html",
+    "https://www.researchgate.net/publication/406734655_Chapter_Ten_The_political_economy_of_city_rebranding_Brasov_from_an_industrial_center_to_the_El_Dorado_of_real_estate_development",
+    "https://www.distancelearningportal.com/cities/504/brasov.html",
+    "https://expat.com/en/guide/europe/romania/12611-work-in-brasov.html",
+    "https://www.riseconsortium.com/10-reasons-why-you-should-invest-in-brasov/",
+    "https://www.dnb.com/business-directory/company-information.employment_services.ro.brasov.html?page=3",
+    "https://www.britannica.com/place/Brasov-Romania"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ro_brasov_45.6462_25.5847_260829_094617_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964400.7055202,
+   "updated": 1787964400.7057483
+  },
+  "atm_8baefc94ff8b": {
+   "id": "atm_8baefc94ff8b",
+   "layer": "architecture",
+   "scope": "city",
+   "title": "Saxon guild-town urban morphology vs Wallachian/Moldavian and Székely forms",
+   "tags": [
+    "curtain-wall",
+    "gothic-hall-church",
+    "guild-town",
+    "saxon-architecture",
+    "transylvania",
+    "urban-morphology"
+   ],
+   "entities": [
+    "brasov",
+    "sibiu",
+    "sighisoara",
+    "transylvanian-saxons"
+   ],
+   "period_start": 1200,
+   "period_end": 1867,
+   "lat": 45.6461945,
+   "lng": 25.5846838,
+   "radius_km": 25,
+   "cell": "u845wjw",
+   "lang": "en",
+   "sources": [
+    "https://www.phdportal.com/cities/504/brasov.html",
+    "https://www.mastersportal.com/cities/504/brasov.html",
+    "https://eures.europa.eu/living-and-working/labour-market-information/labour-market-information-romania_en",
+    "https://www.bachelorsportal.com/cities/504/brasov.html",
+    "https://www.researchgate.net/publication/406734655_Chapter_Ten_The_political_economy_of_city_rebranding_Brasov_from_an_industrial_center_to_the_El_Dorado_of_real_estate_development",
+    "https://www.distancelearningportal.com/cities/504/brasov.html",
+    "https://expat.com/en/guide/europe/romania/12611-work-in-brasov.html",
+    "https://www.riseconsortium.com/10-reasons-why-you-should-invest-in-brasov/",
+    "https://www.dnb.com/business-directory/company-information.employment_services.ro.brasov.html?page=3",
+    "https://www.britannica.com/place/Brasov-Romania"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ro_brasov_45.6462_25.5847_260829_094617_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964400.748963,
+   "updated": 1787964400.7490563
+  },
+  "atm_f32a9d025eca": {
+   "id": "atm_f32a9d025eca",
+   "layer": "language",
+   "scope": "country",
+   "title": "Romanian orthography and toponymic generics as a country discriminator",
+   "tags": [
+    "diacritics",
+    "linguistic-marker",
+    "romania",
+    "romanian-language",
+    "toponymy"
+   ],
+   "entities": [
+    "romania"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 45.6461945,
+   "lng": 25.5846838,
+   "radius_km": 1200,
+   "cell": "u845wjw",
+   "lang": "en",
+   "sources": [
+    "https://www.phdportal.com/cities/504/brasov.html",
+    "https://www.mastersportal.com/cities/504/brasov.html",
+    "https://eures.europa.eu/living-and-working/labour-market-information/labour-market-information-romania_en",
+    "https://www.bachelorsportal.com/cities/504/brasov.html",
+    "https://www.researchgate.net/publication/406734655_Chapter_Ten_The_political_economy_of_city_rebranding_Brasov_from_an_industrial_center_to_the_El_Dorado_of_real_estate_development",
+    "https://www.distancelearningportal.com/cities/504/brasov.html",
+    "https://expat.com/en/guide/europe/romania/12611-work-in-brasov.html",
+    "https://www.riseconsortium.com/10-reasons-why-you-should-invest-in-brasov/",
+    "https://www.dnb.com/business-directory/company-information.employment_services.ro.brasov.html?page=3",
+    "https://www.britannica.com/place/Brasov-Romania"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ro_brasov_45.6462_25.5847_260829_094617_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964400.7767928,
+   "updated": 1787964400.7769835
+  },
+  "atm_63a220d3ccc8": {
+   "id": "atm_63a220d3ccc8",
+   "layer": "economy",
+   "scope": "polity",
+   "title": "Romania's post-1989 demographic decline and regional variance",
+   "tags": [
+    "demographics",
+    "depopulation",
+    "post-communist-transition",
+    "regional-inequality",
+    "romania"
+   ],
+   "entities": [
+    "brasov-county",
+    "romania",
+    "sibiu-county"
+   ],
+   "period_start": 1990,
+   "period_end": 2021,
+   "lat": 45.6461945,
+   "lng": 25.5846838,
+   "radius_km": 2000,
+   "cell": "u845wjw",
+   "lang": "en",
+   "sources": [
+    "https://www.phdportal.com/cities/504/brasov.html",
+    "https://www.mastersportal.com/cities/504/brasov.html",
+    "https://eures.europa.eu/living-and-working/labour-market-information/labour-market-information-romania_en",
+    "https://www.bachelorsportal.com/cities/504/brasov.html",
+    "https://www.researchgate.net/publication/406734655_Chapter_Ten_The_political_economy_of_city_rebranding_Brasov_from_an_industrial_center_to_the_El_Dorado_of_real_estate_development",
+    "https://www.distancelearningportal.com/cities/504/brasov.html",
+    "https://expat.com/en/guide/europe/romania/12611-work-in-brasov.html",
+    "https://www.riseconsortium.com/10-reasons-why-you-should-invest-in-brasov/",
+    "https://www.dnb.com/business-directory/company-information.employment_services.ro.brasov.html?page=3",
+    "https://www.britannica.com/place/Brasov-Romania"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ro_brasov_45.6462_25.5847_260829_094617_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964400.800572,
+   "updated": 1787964400.8006656
+  },
+  "atm_53897c1a878f": {
+   "id": "atm_53897c1a878f",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Germans (Transylvanian Saxons) as a residual minority in modern Romania",
+   "tags": [
+    "demographics",
+    "emigration",
+    "german-minority",
+    "romania",
+    "transylvanian-saxons"
+   ],
+   "entities": [
+    "romania",
+    "transylvanian-saxons"
+   ],
+   "period_start": 1990,
+   "period_end": 2021,
+   "lat": 45.6461945,
+   "lng": 25.5846838,
+   "radius_km": 1200,
+   "cell": "u845wjw",
+   "lang": "en",
+   "sources": [
+    "https://www.phdportal.com/cities/504/brasov.html",
+    "https://www.mastersportal.com/cities/504/brasov.html",
+    "https://eures.europa.eu/living-and-working/labour-market-information/labour-market-information-romania_en",
+    "https://www.bachelorsportal.com/cities/504/brasov.html",
+    "https://www.researchgate.net/publication/406734655_Chapter_Ten_The_political_economy_of_city_rebranding_Brasov_from_an_industrial_center_to_the_El_Dorado_of_real_estate_development",
+    "https://www.distancelearningportal.com/cities/504/brasov.html",
+    "https://expat.com/en/guide/europe/romania/12611-work-in-brasov.html",
+    "https://www.riseconsortium.com/10-reasons-why-you-should-invest-in-brasov/",
+    "https://www.dnb.com/business-directory/company-information.employment_services.ro.brasov.html?page=3",
+    "https://www.britannica.com/place/Brasov-Romania"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ro_brasov_45.6462_25.5847_260829_094617_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964400.819549,
+   "updated": 1787964400.8196483
+  },
+  "atm_a22c987c3ba5": {
+   "id": "atm_a22c987c3ba5",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Post-socialist restitution property polarization in Romanian hillside districts",
+   "tags": [
+    "post-socialist",
+    "property-polarization",
+    "restitution",
+    "romania",
+    "vernacular-housing"
+   ],
+   "entities": [
+    "romania"
+   ],
+   "period_start": 1990,
+   "period_end": null,
+   "lat": 45.6461945,
+   "lng": 25.5846838,
+   "radius_km": 200,
+   "cell": "u845wjw",
+   "lang": "en",
+   "sources": [
+    "https://www.phdportal.com/cities/504/brasov.html",
+    "https://www.mastersportal.com/cities/504/brasov.html",
+    "https://eures.europa.eu/living-and-working/labour-market-information/labour-market-information-romania_en",
+    "https://www.bachelorsportal.com/cities/504/brasov.html",
+    "https://www.researchgate.net/publication/406734655_Chapter_Ten_The_political_economy_of_city_rebranding_Brasov_from_an_industrial_center_to_the_El_Dorado_of_real_estate_development",
+    "https://www.distancelearningportal.com/cities/504/brasov.html",
+    "https://expat.com/en/guide/europe/romania/12611-work-in-brasov.html",
+    "https://www.riseconsortium.com/10-reasons-why-you-should-invest-in-brasov/",
+    "https://www.dnb.com/business-directory/company-information.employment_services.ro.brasov.html?page=3",
+    "https://www.britannica.com/place/Brasov-Romania"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ro_brasov_45.6462_25.5847_260829_094617_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964400.8473988,
+   "updated": 1787964400.8475049
+  },
+  "atm_c23d23b3926b": {
+   "id": "atm_c23d23b3926b",
+   "layer": "economy",
+   "scope": "polity",
+   "title": "Zug's post-1960s low-tax transformation into a corporate/crypto hub",
+   "tags": [
+    "commodity-trading",
+    "corporate-tax",
+    "crypto-valley",
+    "low-tax-jurisdiction",
+    "switzerland",
+    "zug"
+   ],
+   "entities": [
+    "switzerland",
+    "zug"
+   ],
+   "period_start": 1960,
+   "period_end": null,
+   "lat": 47.1610331,
+   "lng": 8.5203824,
+   "radius_km": 2000,
+   "cell": "u0qh3ck",
+   "lang": "en",
+   "sources": [
+    "https://zg.ch/dam/jcr:65eb86e5-de4c-4da0-8192-5587af0c0876/Zug%20Commodity_Cluster.pdf",
+    "https://time.com/archive/6595072/zugs-secrets-switzerlands-corporate-hideaway/",
+    "https://economy.zg.ch/en/cluster/gross_rohstoffhandel",
+    "https://zugoil.com/analysis/switzerland-global-oil-trading-hub/",
+    "https://zugeconomy.com/tax/zug-tax-rates/",
+    "https://nomadcapitalist.com/finance/zug-canton-taxes/",
+    "https://xn--grndung-schweiz-0vb.com/en/zug",
+    "https://swisscompanyformation.com/articles/biggest-swiss-companies/",
+    "https://www.dnb.com/business-directory/company-information.securities_and_commodity_contracts_intermediation_and_brokerage.ch.zug.html?page=3",
+    "https://www.dnb.com/business-directory/company-information.securities_commodity_contracts_and_other_financial_investments_and_related_activities.ch.zug.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ch_zug_47.161_8.5204_260829_095029_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964651.0990949,
+   "updated": 1787964651.0996761
+  },
+  "atm_bc76c93c3cae": {
+   "id": "atm_bc76c93c3cae",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Swiss cantonal political institutions: Kantonsrat and party branding",
+   "tags": [
+    "cantonal-elections",
+    "fdp",
+    "kantonsrat",
+    "militia-democracy",
+    "political-culture",
+    "switzerland"
+   ],
+   "entities": [
+    "switzerland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 47.1610331,
+   "lng": 8.5203824,
+   "radius_km": 1200,
+   "cell": "u0qh3ck",
+   "lang": "en",
+   "sources": [
+    "https://zg.ch/dam/jcr:65eb86e5-de4c-4da0-8192-5587af0c0876/Zug%20Commodity_Cluster.pdf",
+    "https://time.com/archive/6595072/zugs-secrets-switzerlands-corporate-hideaway/",
+    "https://economy.zg.ch/en/cluster/gross_rohstoffhandel",
+    "https://zugoil.com/analysis/switzerland-global-oil-trading-hub/",
+    "https://zugeconomy.com/tax/zug-tax-rates/",
+    "https://nomadcapitalist.com/finance/zug-canton-taxes/",
+    "https://xn--grndung-schweiz-0vb.com/en/zug",
+    "https://swisscompanyformation.com/articles/biggest-swiss-companies/",
+    "https://www.dnb.com/business-directory/company-information.securities_and_commodity_contracts_intermediation_and_brokerage.ch.zug.html?page=3",
+    "https://www.dnb.com/business-directory/company-information.securities_commodity_contracts_and_other_financial_investments_and_related_activities.ch.zug.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ch_zug_47.161_8.5204_260829_095029_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964651.1322792,
+   "updated": 1787964651.1324341
+  },
+  "atm_9bcc84872634": {
+   "id": "atm_9bcc84872634",
+   "layer": "architecture",
+   "scope": "country",
+   "title": "Swiss road-restriction signage: 'Zubringerdienst gestattet'",
+   "tags": [
+    "driving-side",
+    "linguistic-marker",
+    "road-signage",
+    "switzerland",
+    "traffic-signs"
+   ],
+   "entities": [
+    "switzerland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 47.1610331,
+   "lng": 8.5203824,
+   "radius_km": 1200,
+   "cell": "u0qh3ck",
+   "lang": "en",
+   "sources": [
+    "https://zg.ch/dam/jcr:65eb86e5-de4c-4da0-8192-5587af0c0876/Zug%20Commodity_Cluster.pdf",
+    "https://time.com/archive/6595072/zugs-secrets-switzerlands-corporate-hideaway/",
+    "https://economy.zg.ch/en/cluster/gross_rohstoffhandel",
+    "https://zugoil.com/analysis/switzerland-global-oil-trading-hub/",
+    "https://zugeconomy.com/tax/zug-tax-rates/",
+    "https://nomadcapitalist.com/finance/zug-canton-taxes/",
+    "https://xn--grndung-schweiz-0vb.com/en/zug",
+    "https://swisscompanyformation.com/articles/biggest-swiss-companies/",
+    "https://www.dnb.com/business-directory/company-information.securities_and_commodity_contracts_intermediation_and_brokerage.ch.zug.html?page=3",
+    "https://www.dnb.com/business-directory/company-information.securities_commodity_contracts_and_other_financial_investments_and_related_activities.ch.zug.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ch_zug_47.161_8.5204_260829_095029_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964651.1580417,
+   "updated": 1787964651.1581516
+  },
+  "atm_e80514d5e6c7": {
+   "id": "atm_e80514d5e6c7",
+   "layer": "architecture",
+   "scope": "city",
+   "title": "Central Swiss pre-Alpine lake-basin vernacular architecture",
+   "tags": [
+    "central-switzerland",
+    "chalet-style",
+    "lake-basin",
+    "pre-alps",
+    "vernacular-architecture"
+   ],
+   "entities": [
+    "central-switzerland",
+    "zug"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 47.1610331,
+   "lng": 8.5203824,
+   "radius_km": 25,
+   "cell": "u0qh3ck",
+   "lang": "en",
+   "sources": [
+    "https://zg.ch/dam/jcr:65eb86e5-de4c-4da0-8192-5587af0c0876/Zug%20Commodity_Cluster.pdf",
+    "https://time.com/archive/6595072/zugs-secrets-switzerlands-corporate-hideaway/",
+    "https://economy.zg.ch/en/cluster/gross_rohstoffhandel",
+    "https://zugoil.com/analysis/switzerland-global-oil-trading-hub/",
+    "https://zugeconomy.com/tax/zug-tax-rates/",
+    "https://nomadcapitalist.com/finance/zug-canton-taxes/",
+    "https://xn--grndung-schweiz-0vb.com/en/zug",
+    "https://swisscompanyformation.com/articles/biggest-swiss-companies/",
+    "https://www.dnb.com/business-directory/company-information.securities_and_commodity_contracts_intermediation_and_brokerage.ch.zug.html?page=3",
+    "https://www.dnb.com/business-directory/company-information.securities_commodity_contracts_and_other_financial_investments_and_related_activities.ch.zug.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ch_zug_47.161_8.5204_260829_095029_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964651.1991758,
+   "updated": 1787964651.199462
+  },
+  "atm_a8902b79c383": {
+   "id": "atm_a8902b79c383",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Zug's cherry-growing tradition and Zuger Kirschtorte",
+   "tags": [
+    "aop",
+    "cherry-culture",
+    "festival",
+    "food-heritage",
+    "kirsch",
+    "zug"
+   ],
+   "entities": [
+    "zug"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 47.1610331,
+   "lng": 8.5203824,
+   "radius_km": 200,
+   "cell": "u0qh3ck",
+   "lang": "en",
+   "sources": [
+    "https://zg.ch/dam/jcr:65eb86e5-de4c-4da0-8192-5587af0c0876/Zug%20Commodity_Cluster.pdf",
+    "https://time.com/archive/6595072/zugs-secrets-switzerlands-corporate-hideaway/",
+    "https://economy.zg.ch/en/cluster/gross_rohstoffhandel",
+    "https://zugoil.com/analysis/switzerland-global-oil-trading-hub/",
+    "https://zugeconomy.com/tax/zug-tax-rates/",
+    "https://nomadcapitalist.com/finance/zug-canton-taxes/",
+    "https://xn--grndung-schweiz-0vb.com/en/zug",
+    "https://swisscompanyformation.com/articles/biggest-swiss-companies/",
+    "https://www.dnb.com/business-directory/company-information.securities_and_commodity_contracts_intermediation_and_brokerage.ch.zug.html?page=3",
+    "https://www.dnb.com/business-directory/company-information.securities_commodity_contracts_and_other_financial_investments_and_related_activities.ch.zug.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ch_zug_47.161_8.5204_260829_095029_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964651.225691,
+   "updated": 1787964651.225784
+  },
+  "atm_16e78de06075": {
+   "id": "atm_16e78de06075",
+   "layer": "economy",
+   "scope": "city",
+   "title": "Zug's housing squeeze from low-tax-driven in-migration",
+   "tags": [
+    "affluent-suburb",
+    "commuter-belt",
+    "housing-shortage",
+    "tax-competition",
+    "zug"
+   ],
+   "entities": [
+    "zug"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 47.1610331,
+   "lng": 8.5203824,
+   "radius_km": 25,
+   "cell": "u0qh3ck",
+   "lang": "en",
+   "sources": [
+    "https://zg.ch/dam/jcr:65eb86e5-de4c-4da0-8192-5587af0c0876/Zug%20Commodity_Cluster.pdf",
+    "https://time.com/archive/6595072/zugs-secrets-switzerlands-corporate-hideaway/",
+    "https://economy.zg.ch/en/cluster/gross_rohstoffhandel",
+    "https://zugoil.com/analysis/switzerland-global-oil-trading-hub/",
+    "https://zugeconomy.com/tax/zug-tax-rates/",
+    "https://nomadcapitalist.com/finance/zug-canton-taxes/",
+    "https://xn--grndung-schweiz-0vb.com/en/zug",
+    "https://swisscompanyformation.com/articles/biggest-swiss-companies/",
+    "https://www.dnb.com/business-directory/company-information.securities_and_commodity_contracts_intermediation_and_brokerage.ch.zug.html?page=3",
+    "https://www.dnb.com/business-directory/company-information.securities_commodity_contracts_and_other_financial_investments_and_related_activities.ch.zug.html"
+   ],
+   "refs": [],
+   "reports": [
+    "report_ch_zug_47.161_8.5204_260829_095029_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1787964651.2545128,
+   "updated": 1787964651.2546008
   }
  },
  "cells": {
@@ -43274,7 +45607,9 @@
    "atm_a730bfa14785",
    "atm_ae4c5a7357ff",
    "atm_8af183b8f49b",
-   "atm_b9d0390869b7"
+   "atm_b9d0390869b7",
+   "atm_7493c55d0bf4",
+   "atm_a7cc8c04d19a"
   ],
   "sr": [
    "atm_6f410dc5745b",
@@ -43549,7 +45884,10 @@
   "u0": [
    "atm_dddae32137b0",
    "atm_3f5066a286fc",
-   "atm_5d77688926e3"
+   "atm_5d77688926e3",
+   "atm_c23d23b3926b",
+   "atm_bc76c93c3cae",
+   "atm_9bcc84872634"
   ],
   "u0n": [
    "atm_8c55d94bc98f",
@@ -43641,7 +45979,10 @@
    "atm_0f643119e6e7",
    "atm_cf38712e2c3e",
    "atm_78e74e486126",
-   "atm_876958b4611d"
+   "atm_876958b4611d",
+   "atm_f32a9d025eca",
+   "atm_63a220d3ccc8",
+   "atm_53897c1a878f"
   ],
   "u8x": [
    "atm_4878a96cdb97",
@@ -43699,7 +46040,10 @@
    "atm_df3a31d14948"
   ],
   "wy": [
-   "atm_1ebe4a61b6ca"
+   "atm_1ebe4a61b6ca",
+   "atm_2893ef2e3a1c",
+   "atm_966e456e1d2c",
+   "atm_8f4166ec8daf"
   ],
   "sre": [
    "atm_1e838f1226ff",
@@ -43756,7 +46100,9 @@
    "atm_0b558ec13f6d"
   ],
   "69": [
-   "atm_7e047d064bd0"
+   "atm_7e047d064bd0",
+   "atm_530209fff20e",
+   "atm_62c66acd242d"
   ],
   "u1": [
    "atm_ad0093de4697"
@@ -43771,7 +46117,10 @@
    "atm_d15c475691e7"
   ],
   "sp": [
-   "atm_21d5acac15fb"
+   "atm_21d5acac15fb",
+   "atm_fa8ff513c430",
+   "atm_4c34ab75768e",
+   "atm_a8965343eeda"
   ],
   "v4": [
    "atm_a89c6a101444"
@@ -43858,6 +46207,81 @@
   ],
   "sry": [
    "atm_a5f1b76fba94"
+  ],
+  "c8v": [
+   "atm_d58b8f318cd5",
+   "atm_9354d1b9747c"
+  ],
+  "c8": [
+   "atm_0205c14dc6c2",
+   "atm_3affdebfbd15"
+  ],
+  "c8vwg": [
+   "atm_f93a956e3f2f"
+  ],
+  "tc2": [
+   "atm_395187fe388d",
+   "atm_01ff3b6b06b5",
+   "atm_7b960649767d",
+   "atm_6aa637b1877d",
+   "atm_b9a5c0270203"
+  ],
+  "tc": [
+   "atm_847c69212d36"
+  ],
+  "699": [
+   "atm_5f68a2115a45",
+   "atm_99a388995ff6",
+   "atm_903cbb9320fc"
+  ],
+  "tx": [
+   "atm_bc282d8bf5a5",
+   "atm_ff43edba76d3"
+  ],
+  "txt": [
+   "atm_e20de7719377",
+   "atm_5a1490e2317e",
+   "atm_ef51d7d80c44"
+  ],
+  "gcv": [
+   "atm_20964856ecd8",
+   "atm_0f6b34497068"
+  ],
+  "9shk1": [
+   "atm_b6414f383cd3",
+   "atm_ea92c4c667d4"
+  ],
+  "9sh": [
+   "atm_533222e45251",
+   "atm_bd33b40b4b46",
+   "atm_0f259f84fb29"
+  ],
+  "9s": [
+   "atm_a54d90c20b3e"
+  ],
+  "wyn": [
+   "atm_a20a2bd85dc2",
+   "atm_30508cea81f3"
+  ],
+  "sp3eb": [
+   "atm_b1792f8f1e86"
+  ],
+  "sp3": [
+   "atm_3b756d7dfdab"
+  ],
+  "u84": [
+   "atm_9bee7878b6c8",
+   "atm_a22c987c3ba5"
+  ],
+  "u845w": [
+   "atm_8baefc94ff8b"
+  ],
+  "u0qh3": [
+   "atm_e80514d5e6c7",
+   "atm_16e78de06075"
+  ],
+  "u0q": [
+   "atm_a8902b79c383"
   ]
  },
  "entities": {
@@ -43977,7 +46401,8 @@
    "atm_41b9d367e8a1",
    "atm_26670bdff72a",
    "atm_427e564cfa66",
-   "atm_843671f5da2f"
+   "atm_843671f5da2f",
+   "atm_847c69212d36"
   ],
   "devanagari-script": [
    "atm_f1e627fbac6a"
@@ -44020,7 +46445,8 @@
   "argentina": [
    "atm_35ff70ea7db7",
    "atm_4668689bcc6e",
-   "atm_bb85705ffd68"
+   "atm_bb85705ffd68",
+   "atm_530209fff20e"
   ],
   "bodleian-library": [
    "atm_dbf795f532fa"
@@ -44095,7 +46521,8 @@
    "atm_792a1b421feb",
    "atm_d943fb448339",
    "atm_263fbcaac613",
-   "atm_5ae0b4619855"
+   "atm_5ae0b4619855",
+   "atm_7493c55d0bf4"
   ],
   "albania": [
    "atm_6f410dc5745b",
@@ -44867,7 +47294,8 @@
    "atm_2d742d4bd680",
    "atm_3f3b472abc32",
    "atm_10f4a4478224",
-   "atm_268a9d39e0a9"
+   "atm_268a9d39e0a9",
+   "atm_3affdebfbd15"
   ],
   "stawamus-chief": [
    "atm_da05c0cbeb92"
@@ -45078,7 +47506,10 @@
    "atm_4a1dc25fe60d",
    "atm_11de3f1b2c80",
    "atm_bd2899174a72",
-   "atm_3fc712b096be"
+   "atm_3fc712b096be",
+   "atm_bd33b40b4b46",
+   "atm_a54d90c20b3e",
+   "atm_0f259f84fb29"
   ],
   "escarcega": [
    "atm_ef0a76735f18"
@@ -45557,7 +47988,10 @@
    "atm_686c8557c04e",
    "atm_d77af7df6d03",
    "atm_278ce6fc5e3b",
-   "atm_c28be990f5bb"
+   "atm_c28be990f5bb",
+   "atm_c23d23b3926b",
+   "atm_bc76c93c3cae",
+   "atm_9bcc84872634"
   ],
   "ivar-aasen": [
    "atm_2b6553ea8e6b"
@@ -45604,7 +48038,8 @@
    "atm_63a50c8c26e7",
    "atm_22a2a817503c",
    "atm_19b1bdd556c5",
-   "atm_238b76fd3141"
+   "atm_238b76fd3141",
+   "atm_4c34ab75768e"
   ],
   "latrobe-valley": [
    "atm_55c87390ef27"
@@ -45664,7 +48099,10 @@
    "atm_fcd1da2c1009",
    "atm_5ae0b4619855",
    "atm_d63bb6e17e2f",
-   "atm_f248a010c782"
+   "atm_f248a010c782",
+   "atm_fa8ff513c430",
+   "atm_3b756d7dfdab",
+   "atm_a8965343eeda"
   ],
   "echigo-plain": [
    "atm_c113219fd136"
@@ -45970,7 +48408,10 @@
    "atm_a78bf6ec32f7",
    "atm_c5683d7f6a32",
    "atm_726f0d1570b0",
-   "atm_252f5171f26d"
+   "atm_252f5171f26d",
+   "atm_a20a2bd85dc2",
+   "atm_2893ef2e3a1c",
+   "atm_8f4166ec8daf"
   ],
   "thailand": [
    "atm_31b06bbe84f4",
@@ -46083,7 +48524,10 @@
    "atm_14ed08f922f7"
   ],
   "saskatchewan": [
-   "atm_14ed08f922f7"
+   "atm_14ed08f922f7",
+   "atm_d58b8f318cd5",
+   "atm_0205c14dc6c2",
+   "atm_9354d1b9747c"
   ],
   "house-of-este": [
    "atm_b71ca9914bc6",
@@ -46364,7 +48808,8 @@
    "atm_9f82416b4957"
   ],
   "uzbekistan": [
-   "atm_9f82416b4957"
+   "atm_9f82416b4957",
+   "atm_bc282d8bf5a5"
   ],
   "mustafa-kemal-ataturk": [
    "atm_4a66ab569c4f",
@@ -46460,7 +48905,8 @@
    "atm_22a2a817503c"
   ],
   "canadian-prairies": [
-   "atm_7509ab273022"
+   "atm_7509ab273022",
+   "atm_d58b8f318cd5"
   ],
   "kazakh-steppe": [
    "atm_7509ab273022"
@@ -46681,7 +49127,11 @@
    "atm_3bb44773624a"
   ],
   "zug": [
-   "atm_3bb44773624a"
+   "atm_3bb44773624a",
+   "atm_c23d23b3926b",
+   "atm_e80514d5e6c7",
+   "atm_a8902b79c383",
+   "atm_16e78de06075"
   ],
   "minneapolis-saint-paul": [
    "atm_c130ba747993"
@@ -47024,7 +49474,8 @@
   "england": [
    "atm_b9d0390869b7",
    "atm_1281f5fa3d76",
-   "atm_c2dd9ee05b3d"
+   "atm_c2dd9ee05b3d",
+   "atm_20964856ecd8"
   ],
   "octavia-hill": [
    "atm_b9d0390869b7"
@@ -47066,7 +49517,8 @@
    "atm_2f0478c72970"
   ],
   "yucatan": [
-   "atm_2f0478c72970"
+   "atm_2f0478c72970",
+   "atm_0f259f84fb29"
   ],
   "ibn-al-awwam": [
    "atm_e1b6266b00e7"
@@ -47200,7 +49652,8 @@
   ],
   "bajio": [
    "atm_b8ff25417de5",
-   "atm_aa1543dd152e"
+   "atm_aa1543dd152e",
+   "atm_0f259f84fb29"
   ],
   "slovakia-auto-corridor": [
    "atm_b8ff25417de5"
@@ -47558,7 +50011,11 @@
   ],
   "romania": [
    "atm_08a5788cfe1e",
-   "atm_40345729907e"
+   "atm_40345729907e",
+   "atm_f32a9d025eca",
+   "atm_63a220d3ccc8",
+   "atm_53897c1a878f",
+   "atm_a22c987c3ba5"
   ],
   "belize": [
    "atm_fa4666575fc8",
@@ -47783,7 +50240,8 @@
    "atm_1ae19d25aa2d"
   ],
   "wales": [
-   "atm_1ae19d25aa2d"
+   "atm_1ae19d25aa2d",
+   "atm_20964856ecd8"
   ],
   "menorca": [
    "atm_130e3fcf3770"
@@ -47955,7 +50413,8 @@
    "atm_532ae8610bb9"
   ],
   "kazakhstan": [
-   "atm_9252ce6549a2"
+   "atm_9252ce6549a2",
+   "atm_bc282d8bf5a5"
   ],
   "ivan-kotliarevsky": [
    "atm_cfac9d9821b9"
@@ -52233,7 +54692,8 @@
    "atm_60081dc7de4a"
   ],
   "russian-empire": [
-   "atm_88ce3ad43618"
+   "atm_88ce3ad43618",
+   "atm_e20de7719377"
   ],
   "russian-republic": [
    "atm_88ce3ad43618"
@@ -52973,6 +55433,206 @@
   ],
   "italian-regency-of-carnaro": [
    "atm_21feddb0f810"
+  ],
+  "alberta": [
+   "atm_d58b8f318cd5"
+  ],
+  "manitoba": [
+   "atm_d58b8f318cd5"
+  ],
+  "regina": [
+   "atm_0205c14dc6c2",
+   "atm_f93a956e3f2f",
+   "atm_9354d1b9747c"
+  ],
+  "saskatoon": [
+   "atm_0205c14dc6c2"
+  ],
+  "wascana-lake": [
+   "atm_f93a956e3f2f"
+  ],
+  "treaty-4": [
+   "atm_9354d1b9747c"
+  ],
+  "negombo": [
+   "atm_395187fe388d",
+   "atm_01ff3b6b06b5",
+   "atm_7b960649767d"
+  ],
+  "sri-lanka": [
+   "atm_395187fe388d",
+   "atm_01ff3b6b06b5",
+   "atm_7b960649767d",
+   "atm_6aa637b1877d",
+   "atm_b9a5c0270203",
+   "atm_847c69212d36"
+  ],
+  "bangladesh": [
+   "atm_847c69212d36"
+  ],
+  "caldenal": [
+   "atm_5f68a2115a45",
+   "atm_903cbb9320fc"
+  ],
+  "espinal-ecoregion": [
+   "atm_5f68a2115a45"
+  ],
+  "la-pampa-province": [
+   "atm_5f68a2115a45",
+   "atm_99a388995ff6",
+   "atm_903cbb9320fc",
+   "atm_62c66acd242d"
+  ],
+  "ranquel-people": [
+   "atm_99a388995ff6"
+  ],
+  "victorica": [
+   "atm_99a388995ff6",
+   "atm_62c66acd242d"
+  ],
+  "kyrgyzstan": [
+   "atm_bc282d8bf5a5",
+   "atm_e20de7719377",
+   "atm_5a1490e2317e",
+   "atm_ef51d7d80c44",
+   "atm_ff43edba76d3"
+  ],
+  "tajikistan": [
+   "atm_bc282d8bf5a5"
+  ],
+  "chuy-region": [
+   "atm_e20de7719377",
+   "atm_5a1490e2317e",
+   "atm_ef51d7d80c44",
+   "atm_ff43edba76d3"
+  ],
+  "bishkek": [
+   "atm_5a1490e2317e"
+  ],
+  "issyk-kul": [
+   "atm_ef51d7d80c44"
+  ],
+  "naryn-region": [
+   "atm_ef51d7d80c44"
+  ],
+  "osh-region": [
+   "atm_ef51d7d80c44"
+  ],
+  "ireland": [
+   "atm_7493c55d0bf4"
+  ],
+  "scotland": [
+   "atm_20964856ecd8",
+   "atm_0f6b34497068"
+  ],
+  "midlothian-coalfield": [
+   "atm_0f6b34497068"
+  ],
+  "monktonhall": [
+   "atm_0f6b34497068"
+  ],
+  "east-lothian": [
+   "atm_a7cc8c04d19a"
+  ],
+  "edinburgh": [
+   "atm_a7cc8c04d19a"
+  ],
+  "musselburgh": [
+   "atm_a7cc8c04d19a"
+  ],
+  "mazatlan": [
+   "atm_b6414f383cd3",
+   "atm_ea92c4c667d4"
+  ],
+  "sinaloa": [
+   "atm_b6414f383cd3",
+   "atm_533222e45251",
+   "atm_0f259f84fb29"
+  ],
+  "grupo-modelo": [
+   "atm_ea92c4c667d4"
+  ],
+  "pacifico-brewery": [
+   "atm_ea92c4c667d4"
+  ],
+  "cinepolis": [
+   "atm_bd33b40b4b46"
+  ],
+  "soriana": [
+   "atm_bd33b40b4b46"
+  ],
+  "chugoku-region": [
+   "atm_a20a2bd85dc2"
+  ],
+  "setouchi": [
+   "atm_a20a2bd85dc2",
+   "atm_30508cea81f3"
+  ],
+  "seto-inland-sea": [
+   "atm_30508cea81f3"
+  ],
+  "fukuyama": [
+   "atm_966e456e1d2c"
+  ],
+  "hiroshima-prefecture": [
+   "atm_966e456e1d2c"
+  ],
+  "daihatsu": [
+   "atm_8f4166ec8daf"
+  ],
+  "basque-country": [
+   "atm_fa8ff513c430"
+  ],
+  "catalonia": [
+   "atm_fa8ff513c430"
+  ],
+  "valencia": [
+   "atm_fa8ff513c430"
+  ],
+  "cerdanyola-del-valles": [
+   "atm_4c34ab75768e",
+   "atm_b1792f8f1e86"
+  ],
+  "sabadell": [
+   "atm_4c34ab75768e"
+  ],
+  "sant-cugat-del-valles": [
+   "atm_4c34ab75768e"
+  ],
+  "alba-synchrotron": [
+   "atm_b1792f8f1e86"
+  ],
+  "brasov": [
+   "atm_9bee7878b6c8",
+   "atm_8baefc94ff8b"
+  ],
+  "medias": [
+   "atm_9bee7878b6c8"
+  ],
+  "sibiu": [
+   "atm_9bee7878b6c8",
+   "atm_8baefc94ff8b"
+  ],
+  "sighisoara": [
+   "atm_9bee7878b6c8",
+   "atm_8baefc94ff8b"
+  ],
+  "transylvania": [
+   "atm_9bee7878b6c8"
+  ],
+  "transylvanian-saxons": [
+   "atm_9bee7878b6c8",
+   "atm_8baefc94ff8b",
+   "atm_53897c1a878f"
+  ],
+  "brasov-county": [
+   "atm_63a220d3ccc8"
+  ],
+  "sibiu-county": [
+   "atm_63a220d3ccc8"
+  ],
+  "central-switzerland": [
+   "atm_e80514d5e6c7"
   ]
  },
  "tags": {
@@ -53034,7 +55694,8 @@
   "climate": [
    "atm_5449e17b7e07",
    "atm_4f92a18e4ed7",
-   "atm_fb5a69de595c"
+   "atm_fb5a69de595c",
+   "atm_30508cea81f3"
   ],
   "continental-climate": [
    "atm_5449e17b7e07",
@@ -53052,7 +55713,9 @@
    "atm_1e838f1226ff",
    "atm_14ed08f922f7",
    "atm_644914e23e54",
-   "atm_40442a8896ec"
+   "atm_40442a8896ec",
+   "atm_5a1490e2317e",
+   "atm_533222e45251"
   ],
   "dairy": [
    "atm_3ecf707f944b"
@@ -53088,7 +55751,8 @@
    "atm_67097f4cbca4",
    "atm_5c44ba60abaa",
    "atm_d2c493bf1863",
-   "atm_2318f07c811c"
+   "atm_2318f07c811c",
+   "atm_b6414f383cd3"
   ],
   "khrushchyovka": [
    "atm_764d16790153"
@@ -53102,7 +55766,8 @@
    "atm_88a307f18d64",
    "atm_1cf9913c8381",
    "atm_9252ce6549a2",
-   "atm_532ae8610bb9"
+   "atm_532ae8610bb9",
+   "atm_ff43edba76d3"
   ],
   "prospekt": [
    "atm_764d16790153"
@@ -53164,7 +55829,8 @@
   "snow-country": [
    "atm_4f92a18e4ed7",
    "atm_1bb47ee4e339",
-   "atm_c113219fd136"
+   "atm_c113219fd136",
+   "atm_a20a2bd85dc2"
   ],
   "winter-monsoon": [
    "atm_4f92a18e4ed7",
@@ -53185,7 +55851,10 @@
    "atm_e1ce403ee527",
    "atm_29599173c17e",
    "atm_1056694d90e2",
-   "atm_56c08e8e1851"
+   "atm_56c08e8e1851",
+   "atm_a20a2bd85dc2",
+   "atm_2893ef2e3a1c",
+   "atm_8f4166ec8daf"
   ],
   "roofing": [
    "atm_1bb47ee4e339",
@@ -53201,7 +55870,9 @@
    "atm_128968f951fe",
    "atm_38fa6b37b5b9",
    "atm_f7d40e3ac375",
-   "atm_b9e670bd45e8"
+   "atm_b9e670bd45e8",
+   "atm_6aa637b1877d",
+   "atm_e80514d5e6c7"
   ],
   "castle-town": [
    "atm_52fa8fc7482a",
@@ -53210,11 +55881,13 @@
   ],
   "daimyo": [
    "atm_52fa8fc7482a",
-   "atm_dda55212e144"
+   "atm_dda55212e144",
+   "atm_609755d083a1"
   ],
   "edo-period": [
    "atm_52fa8fc7482a",
-   "atm_dda55212e144"
+   "atm_dda55212e144",
+   "atm_609755d083a1"
   ],
   "kaga-domain": [
    "atm_52fa8fc7482a",
@@ -53314,7 +55987,8 @@
    "atm_682bb3462a77",
    "atm_ea03891d3c0c",
    "atm_1488e46f2dcc",
-   "atm_c653b1ff1ed2"
+   "atm_c653b1ff1ed2",
+   "atm_63a220d3ccc8"
   ],
   "manufacturing": [
    "atm_9b6eeb87cb63",
@@ -53549,7 +56223,8 @@
    "atm_35ff70ea7db7"
   ],
   "telephone": [
-   "atm_35ff70ea7db7"
+   "atm_35ff70ea7db7",
+   "atm_2893ef2e3a1c"
   ],
   "ashmolean": [
    "atm_dbf795f532fa"
@@ -53834,11 +56509,14 @@
    "atm_7fa8e7276ff8",
    "atm_f0b127710ce5",
    "atm_f1f2aae7e0ab",
-   "atm_08a5788cfe1e"
+   "atm_08a5788cfe1e",
+   "atm_63a220d3ccc8",
+   "atm_53897c1a878f"
   ],
   "emigration": [
    "atm_ea096b05bb43",
-   "atm_08a5788cfe1e"
+   "atm_08a5788cfe1e",
+   "atm_53897c1a878f"
   ],
   "labor": [
    "atm_ea096b05bb43"
@@ -53924,7 +56602,8 @@
    "atm_e6f75e7898c3",
    "atm_92f75e584a5b",
    "atm_4b3b17e5270b",
-   "atm_87a8877b3652"
+   "atm_87a8877b3652",
+   "atm_bc282d8bf5a5"
   ],
   "toponyms": [
    "atm_e6f75e7898c3",
@@ -54260,7 +56939,8 @@
    "atm_2abba0324777",
    "atm_20fcefef8581",
    "atm_7f1b78158b4f",
-   "atm_fba72a044766"
+   "atm_fba72a044766",
+   "atm_f32a9d025eca"
   ],
   "road-signage": [
    "atm_2abba0324777",
@@ -54279,7 +56959,9 @@
    "atm_16c50820ea0a",
    "atm_3f3b472abc32",
    "atm_10f4a4478224",
-   "atm_268a9d39e0a9"
+   "atm_268a9d39e0a9",
+   "atm_a8965343eeda",
+   "atm_9bcc84872634"
   ],
   "bura": [
    "atm_eea7bee4a533",
@@ -54334,7 +57016,8 @@
   "cultural-sphere": [
    "atm_050d1beb807a",
    "atm_ca62fa29fa29",
-   "atm_3f5066a286fc"
+   "atm_3f5066a286fc",
+   "atm_395187fe388d"
   ],
   "hrvatsko-primorje": [
    "atm_050d1beb807a"
@@ -54623,11 +57306,16 @@
    "atm_fe3149f63023",
    "atm_1ae19d25aa2d",
    "atm_130e3fcf3770",
-   "atm_a309cdfab8ce"
+   "atm_a309cdfab8ce",
+   "atm_9354d1b9747c",
+   "atm_e20de7719377",
+   "atm_fa8ff513c430",
+   "atm_f32a9d025eca"
   ],
   "catholic": [
    "atm_4c506c031137",
-   "atm_08ad7f81de9f"
+   "atm_08ad7f81de9f",
+   "atm_395187fe388d"
   ],
   "kurzeme": [
    "atm_4c506c031137"
@@ -54764,7 +57452,8 @@
   "rain-shadow": [
    "atm_521c45c28b29",
    "atm_455a82778814",
-   "atm_06a55bd9fa2f"
+   "atm_06a55bd9fa2f",
+   "atm_30508cea81f3"
   ],
   "rice-terraces": [
    "atm_521c45c28b29"
@@ -54875,7 +57564,10 @@
    "atm_bd2899174a72",
    "atm_9a78e996a5e2",
    "atm_11ce587e0cc0",
-   "atm_7b1933188ec9"
+   "atm_7b1933188ec9",
+   "atm_bd33b40b4b46",
+   "atm_a54d90c20b3e",
+   "atm_0f259f84fb29"
   ],
   "sct": [
    "atm_635d3f4d1fe8",
@@ -54890,11 +57582,14 @@
   "rural-infrastructure": [
    "atm_1d9a3444fe22",
    "atm_59493deb0040",
-   "atm_2494855827a9"
+   "atm_2494855827a9",
+   "atm_530209fff20e"
   ],
   "self-built-housing": [
    "atm_1d9a3444fe22",
-   "atm_4629ce3c8114"
+   "atm_4629ce3c8114",
+   "atm_6aa637b1877d",
+   "atm_3b756d7dfdab"
   ],
   "artisanal-fishing": [
    "atm_3ba44d2fa55c",
@@ -55205,7 +57900,9 @@
    "atm_2480ce1ef18a",
    "atm_fcd1da2c1009",
    "atm_a58facd06de0",
-   "atm_4b3b17e5270b"
+   "atm_4b3b17e5270b",
+   "atm_f32a9d025eca",
+   "atm_9bcc84872634"
   ],
   "homeland-war": [
    "atm_11081ef61216"
@@ -55251,7 +57948,8 @@
   ],
   "commuter-suburb": [
    "atm_c370d530dba1",
-   "atm_24f93f86a20d"
+   "atm_24f93f86a20d",
+   "atm_4c34ab75768e"
   ],
   "housing-estate": [
    "atm_c370d530dba1",
@@ -55296,7 +57994,8 @@
   "cyrillic-script": [
    "atm_1f7c52fa2190",
    "atm_7fee21f2b232",
-   "atm_2142c38119f1"
+   "atm_2142c38119f1",
+   "atm_bc282d8bf5a5"
   ],
   "ethnolinguistic-sphere": [
    "atm_1f7c52fa2190"
@@ -55323,7 +58022,8 @@
   "landmark": [
    "atm_2d85430db3fd",
    "atm_da05c0cbeb92",
-   "atm_f72378f74a6b"
+   "atm_f72378f74a6b",
+   "atm_f93a956e3f2f"
   ],
   "dinaric-karst": [
    "atm_7e67c8b59e9a"
@@ -55472,7 +58172,8 @@
   ],
   "industrial-city": [
    "atm_85267ed54f12",
-   "atm_ea0b843c8040"
+   "atm_ea0b843c8040",
+   "atm_966e456e1d2c"
   ],
   "lodz": [
    "atm_85267ed54f12",
@@ -55545,7 +58246,8 @@
    "atm_e29dd72ae7f9",
    "atm_dddae32137b0",
    "atm_590816a2ad04",
-   "atm_0de705b1aa28"
+   "atm_0de705b1aa28",
+   "atm_9bcc84872634"
   ],
   "eu-standard": [
    "atm_e29dd72ae7f9"
@@ -55722,11 +58424,14 @@
    "atm_17fbd8445d93"
   ],
   "resource-economy": [
-   "atm_dfc05d10dfcf"
+   "atm_dfc05d10dfcf",
+   "atm_0205c14dc6c2"
   ],
   "canada": [
    "atm_8d9e4ea3562c",
-   "atm_93d7e3a0d637"
+   "atm_93d7e3a0d637",
+   "atm_d58b8f318cd5",
+   "atm_3affdebfbd15"
   ],
   "north-america": [
    "atm_8d9e4ea3562c",
@@ -55799,7 +58504,8 @@
    "atm_3569d417f648",
    "atm_263fbcaac613",
    "atm_8083543e02d9",
-   "atm_69a406f23cf1"
+   "atm_69a406f23cf1",
+   "atm_2893ef2e3a1c"
   ],
   "catchment-area": [
    "atm_371fbba51c79",
@@ -55834,7 +58540,8 @@
   ],
   "linguistic-geography": [
    "atm_6c4efdf6ce82",
-   "atm_931c0da62f9c"
+   "atm_931c0da62f9c",
+   "atm_fa8ff513c430"
   ],
   "punjab": [
    "atm_6c4efdf6ce82"
@@ -55916,7 +58623,9 @@
   "traffic-signs": [
    "atm_dddae32137b0",
    "atm_64a34928a5c3",
-   "atm_d943fb448339"
+   "atm_d943fb448339",
+   "atm_a8965343eeda",
+   "atm_9bcc84872634"
   ],
   "glacial-lake": [
    "atm_8c55d94bc98f",
@@ -56089,7 +58798,8 @@
    "atm_cad327cb9b65",
    "atm_45fc2a8c8c1e",
    "atm_0ec0f7ac5b23",
-   "atm_334d6c63685c"
+   "atm_334d6c63685c",
+   "atm_62c66acd242d"
   ],
   "saga": [
    "atm_cad327cb9b65"
@@ -56245,7 +58955,9 @@
    "atm_fb1c88a99dbf"
   ],
   "vernacular-housing": [
-   "atm_fb1c88a99dbf"
+   "atm_fb1c88a99dbf",
+   "atm_20964856ecd8",
+   "atm_a22c987c3ba5"
   ],
   "sascab": [
    "atm_632fccf1df46"
@@ -56578,7 +59290,8 @@
   ],
   "retail-chains": [
    "atm_d63c438c5214",
-   "atm_769bef8463f0"
+   "atm_769bef8463f0",
+   "atm_bd33b40b4b46"
   ],
   "scandinavia": [
    "atm_d63c438c5214",
@@ -56691,7 +59404,8 @@
    "atm_06391f17f753",
    "atm_ce9d24778d61",
    "atm_f644bdf4dd51",
-   "atm_9f5cf46a539a"
+   "atm_9f5cf46a539a",
+   "atm_0f6b34497068"
   ],
   "industrial-landscape": [
    "atm_06391f17f753"
@@ -57001,7 +59715,9 @@
    "atm_7a086646074f",
    "atm_203a14419593",
    "atm_ad9031be275c",
-   "atm_de27d76e98ed"
+   "atm_de27d76e98ed",
+   "atm_0f6b34497068",
+   "atm_a7cc8c04d19a"
   ],
   "path-dependence": [
    "atm_f644bdf4dd51"
@@ -58566,7 +61282,8 @@
   ],
   "regional-inequality": [
    "atm_6c6e2e89aba8",
-   "atm_8180accfcd7c"
+   "atm_8180accfcd7c",
+   "atm_63a220d3ccc8"
   ],
   "mediterranean-villages": [
    "atm_4c848bc30e60"
@@ -58658,7 +61375,8 @@
   ],
   "core-periphery": [
    "atm_f16db702a7df",
-   "atm_14ed08f922f7"
+   "atm_14ed08f922f7",
+   "atm_0205c14dc6c2"
   ],
   "urbanization": [
    "atm_f16db702a7df",
@@ -58722,7 +61440,8 @@
    "atm_b467313747f1",
    "atm_d57d50cbd46f",
    "atm_b104178decc7",
-   "atm_98b71d3e6aa3"
+   "atm_98b71d3e6aa3",
+   "atm_a7cc8c04d19a"
   ],
   "land-use-displacement": [
    "atm_be43b29468d1"
@@ -59060,7 +61779,9 @@
    "atm_f248a010c782",
    "atm_3351da56f73c",
    "atm_1279ee05d1a3",
-   "atm_264cc8f1ab91"
+   "atm_264cc8f1ab91",
+   "atm_3b756d7dfdab",
+   "atm_a8965343eeda"
   ],
   "housing-displacement": [
    "atm_045e268ca1ce"
@@ -59313,7 +62034,9 @@
    "atm_4871d8db4f2c"
   ],
   "breadbasket": [
-   "atm_14ed08f922f7"
+   "atm_14ed08f922f7",
+   "atm_5a1490e2317e",
+   "atm_533222e45251"
   ],
   "primary-city": [
    "atm_14ed08f922f7"
@@ -59475,7 +62198,8 @@
    "atm_21a674b61681",
    "atm_e775eaaea5b3",
    "atm_f0e0dedae6d8",
-   "atm_5ae0c54d030e"
+   "atm_5ae0c54d030e",
+   "atm_847c69212d36"
   ],
   "deccan-wars": [
    "atm_8cf354495661",
@@ -60013,7 +62737,9 @@
   "geolocation": [
    "atm_0de705b1aa28",
    "atm_769bef8463f0",
-   "atm_2bd0043d5a35"
+   "atm_2bd0043d5a35",
+   "atm_bd33b40b4b46",
+   "atm_a54d90c20b3e"
   ],
   "highway-network": [
    "atm_0de705b1aa28",
@@ -60316,7 +63042,8 @@
    "atm_fd66a101e97c"
   ],
   "affluent-suburb": [
-   "atm_3bb44773624a"
+   "atm_3bb44773624a",
+   "atm_16e78de06075"
   ],
   "fiscal-disparity": [
    "atm_c130ba747993"
@@ -60325,7 +63052,8 @@
    "atm_c130ba747993"
   ],
   "tax-competition": [
-   "atm_c130ba747993"
+   "atm_c130ba747993",
+   "atm_16e78de06075"
   ],
   "urban-inequality": [
    "atm_c130ba747993"
@@ -60824,7 +63552,8 @@
    "atm_843671f5da2f",
    "atm_9252ce6549a2",
    "atm_3b4caddc25e6",
-   "atm_5afe29208137"
+   "atm_5afe29208137",
+   "atm_ff43edba76d3"
   ],
   "ottoman-turkish": [
    "atm_af77a40342bd"
@@ -61162,7 +63891,8 @@
    "atm_2f0478c72970"
   ],
   "yucatan": [
-   "atm_2f0478c72970"
+   "atm_2f0478c72970",
+   "atm_0f259f84fb29"
   ],
   "green-revolution": [
    "atm_e1b6266b00e7"
@@ -61357,7 +64087,8 @@
   ],
   "bajio": [
    "atm_b8ff25417de5",
-   "atm_aa1543dd152e"
+   "atm_aa1543dd152e",
+   "atm_0f259f84fb29"
   ],
   "central-europe-auto": [
    "atm_b8ff25417de5"
@@ -61767,7 +64498,8 @@
    "atm_37fb4b96ed8f"
   ],
   "route-shields": [
-   "atm_811342082c50"
+   "atm_811342082c50",
+   "atm_530209fff20e"
   ],
   "transport-typeface": [
    "atm_811342082c50"
@@ -62150,7 +64882,8 @@
    "atm_dc472430fd0e"
   ],
   "economic-diversification": [
-   "atm_2370481fd82f"
+   "atm_2370481fd82f",
+   "atm_a7cc8c04d19a"
   ],
   "krakow": [
    "atm_2370481fd82f"
@@ -62449,7 +65182,8 @@
   ],
   "bilingual-signage": [
    "atm_1ae19d25aa2d",
-   "atm_3e7ea3aee50a"
+   "atm_3e7ea3aee50a",
+   "atm_ff43edba76d3"
   ],
   "dual-script": [
    "atm_1ae19d25aa2d"
@@ -62665,10 +65399,12 @@
    "atm_e4f6774d9c49"
   ],
   "area-codes": [
-   "atm_5ae0b4619855"
+   "atm_5ae0b4619855",
+   "atm_a54d90c20b3e"
   ],
   "telephone-numbering": [
-   "atm_5ae0b4619855"
+   "atm_5ae0b4619855",
+   "atm_a54d90c20b3e"
   ],
   "mobile-phones": [
    "atm_4668689bcc6e"
@@ -62750,7 +65486,8 @@
    "atm_4660185d53c4"
   ],
   "savanna": [
-   "atm_4660185d53c4"
+   "atm_4660185d53c4",
+   "atm_5f68a2115a45"
   ],
   "columbia-river-basalt": [
    "atm_131252aa7616"
@@ -63207,7 +65944,8 @@
    "atm_af4bd0b30258"
   ],
   "post-socialist": [
-   "atm_40345729907e"
+   "atm_40345729907e",
+   "atm_a22c987c3ba5"
   ],
   "1-euro-houses": [
    "atm_dad10402d915"
@@ -63253,7 +65991,8 @@
    "atm_fd11c8cbb7ac"
   ],
   "vegetation": [
-   "atm_3511703bd640"
+   "atm_3511703bd640",
+   "atm_0f259f84fb29"
   ],
   "wind-shear": [
    "atm_3511703bd640"
@@ -64710,7 +67449,8 @@
    "atm_dd39f30491d6",
    "atm_359a6a50cf97",
    "atm_b1f98038b3d6",
-   "atm_ce517e2ee0d9"
+   "atm_ce517e2ee0d9",
+   "atm_bc282d8bf5a5"
   ],
   "azerbaijan": [
    "atm_e2a755121847"
@@ -65429,7 +68169,12 @@
    "atm_e7bd3821bb4a"
   ],
   "sri-lanka": [
-   "atm_f0e0dedae6d8"
+   "atm_f0e0dedae6d8",
+   "atm_395187fe388d",
+   "atm_01ff3b6b06b5",
+   "atm_7b960649767d",
+   "atm_6aa637b1877d",
+   "atm_b9a5c0270203"
   ],
   "siam": [
    "atm_c6438748e927"
@@ -65659,7 +68404,11 @@
   ],
   "romania": [
    "atm_be15c94cf928",
-   "atm_05e5c6b384f3"
+   "atm_05e5c6b384f3",
+   "atm_f32a9d025eca",
+   "atm_63a220d3ccc8",
+   "atm_53897c1a878f",
+   "atm_a22c987c3ba5"
   ],
   "wallachia": [
    "atm_be15c94cf928"
@@ -66014,7 +68763,10 @@
    "atm_6a54c06dd8a1"
   ],
   "switzerland": [
-   "atm_c9d3ee82cebb"
+   "atm_c9d3ee82cebb",
+   "atm_c23d23b3926b",
+   "atm_bc76c93c3cae",
+   "atm_9bcc84872634"
   ],
   "duchy": [
    "atm_17a4695a5c1d"
@@ -66081,7 +68833,9 @@
   ],
   "transylvania": [
    "atm_91b50d1ce69f",
-   "atm_05e5c6b384f3"
+   "atm_05e5c6b384f3",
+   "atm_9bee7878b6c8",
+   "atm_8baefc94ff8b"
   ],
   "southeastern-europe": [
    "atm_ecdef88d27ab",
@@ -66188,6 +68942,556 @@
   ],
   "dissolved-states": [
    "atm_21feddb0f810"
+  ],
+  "alberta": [
+   "atm_d58b8f318cd5"
+  ],
+  "back-lane": [
+   "atm_d58b8f318cd5"
+  ],
+  "manitoba": [
+   "atm_d58b8f318cd5"
+  ],
+  "prairie": [
+   "atm_d58b8f318cd5"
+  ],
+  "saskatchewan": [
+   "atm_d58b8f318cd5"
+  ],
+  "urban-forest": [
+   "atm_d58b8f318cd5"
+  ],
+  "crown-corporations": [
+   "atm_0205c14dc6c2"
+  ],
+  "government-town": [
+   "atm_0205c14dc6c2"
+  ],
+  "regina": [
+   "atm_0205c14dc6c2",
+   "atm_f93a956e3f2f"
+  ],
+  "saskatoon": [
+   "atm_0205c14dc6c2"
+  ],
+  "artificial-lake": [
+   "atm_f93a956e3f2f"
+  ],
+  "legislative-building": [
+   "atm_f93a956e3f2f",
+   "atm_3affdebfbd15"
+  ],
+  "wascana-lake": [
+   "atm_f93a956e3f2f"
+  ],
+  "cbc": [
+   "atm_3affdebfbd15"
+  ],
+  "discriminator": [
+   "atm_3affdebfbd15"
+  ],
+  "map-cues": [
+   "atm_3affdebfbd15"
+  ],
+  "assiniboine": [
+   "atm_9354d1b9747c"
+  ],
+  "cpr": [
+   "atm_9354d1b9747c"
+  ],
+  "cree": [
+   "atm_9354d1b9747c"
+  ],
+  "prairie-settlement": [
+   "atm_9354d1b9747c"
+  ],
+  "treaty-4": [
+   "atm_9354d1b9747c"
+  ],
+  "little-rome": [
+   "atm_395187fe388d"
+  ],
+  "negombo": [
+   "atm_395187fe388d"
+  ],
+  "sinhala": [
+   "atm_395187fe388d"
+  ],
+  "fishing-caste": [
+   "atm_01ff3b6b06b5"
+  ],
+  "karaiyar": [
+   "atm_01ff3b6b06b5"
+  ],
+  "karava": [
+   "atm_01ff3b6b06b5"
+  ],
+  "language-preservation": [
+   "atm_01ff3b6b06b5"
+  ],
+  "tamil-dialect": [
+   "atm_01ff3b6b06b5"
+  ],
+  "coconut-economy": [
+   "atm_7b960649767d"
+  ],
+  "coconut-triangle": [
+   "atm_7b960649767d"
+  ],
+  "coir-industry": [
+   "atm_7b960649767d"
+  ],
+  "export-processing": [
+   "atm_7b960649767d"
+  ],
+  "coconut-garden-subdivision": [
+   "atm_6aa637b1877d"
+  ],
+  "suburban-housing": [
+   "atm_6aa637b1877d"
+  ],
+  "climate-zones": [
+   "atm_b9a5c0270203"
+  ],
+  "dry-zone": [
+   "atm_b9a5c0270203"
+  ],
+  "vegetation-belt": [
+   "atm_b9a5c0270203"
+  ],
+  "wet-zone": [
+   "atm_b9a5c0270203"
+  ],
+  "bengali-script": [
+   "atm_847c69212d36"
+  ],
+  "language-identification": [
+   "atm_847c69212d36"
+  ],
+  "malayalam-script": [
+   "atm_847c69212d36"
+  ],
+  "sinhala-script": [
+   "atm_847c69212d36"
+  ],
+  "tamil-script": [
+   "atm_847c69212d36"
+  ],
+  "argentina-biomes": [
+   "atm_5f68a2115a45"
+  ],
+  "caldenal": [
+   "atm_5f68a2115a45",
+   "atm_903cbb9320fc"
+  ],
+  "cattle-ranching": [
+   "atm_5f68a2115a45",
+   "atm_903cbb9320fc"
+  ],
+  "espinal": [
+   "atm_5f68a2115a45"
+  ],
+  "prosopis-caldenia": [
+   "atm_5f68a2115a45"
+  ],
+  "conquista-del-desierto": [
+   "atm_99a388995ff6"
+  ],
+  "fortines": [
+   "atm_99a388995ff6"
+  ],
+  "indigenous-frontier": [
+   "atm_99a388995ff6"
+  ],
+  "la-pampa-founding": [
+   "atm_99a388995ff6"
+  ],
+  "ranquel": [
+   "atm_99a388995ff6"
+  ],
+  "la-pampa-economy": [
+   "atm_903cbb9320fc"
+  ],
+  "livestock-auctions": [
+   "atm_903cbb9320fc"
+  ],
+  "monte-pampeano": [
+   "atm_903cbb9320fc"
+  ],
+  "argentina-roads": [
+   "atm_530209fff20e"
+  ],
+  "policia-caminera": [
+   "atm_530209fff20e"
+  ],
+  "town-gateway-arch": [
+   "atm_530209fff20e"
+  ],
+  "argentina-founding-myths": [
+   "atm_62c66acd242d"
+  ],
+  "civic-branding": [
+   "atm_62c66acd242d"
+  ],
+  "frontier-towns": [
+   "atm_62c66acd242d"
+  ],
+  "kyrgyz-language": [
+   "atm_bc282d8bf5a5"
+  ],
+  "script-identification": [
+   "atm_bc282d8bf5a5"
+  ],
+  "chuy-valley": [
+   "atm_e20de7719377",
+   "atm_5a1490e2317e"
+  ],
+  "kyrgyzstan": [
+   "atm_e20de7719377",
+   "atm_5a1490e2317e",
+   "atm_ef51d7d80c44",
+   "atm_ff43edba76d3"
+  ],
+  "slavic-settlers": [
+   "atm_e20de7719377"
+  ],
+  "tsarist-colonization": [
+   "atm_e20de7719377"
+  ],
+  "irrigated-oasis": [
+   "atm_5a1490e2317e"
+  ],
+  "central-asia-geography": [
+   "atm_ef51d7d80c44"
+  ],
+  "chuy-region": [
+   "atm_ef51d7d80c44"
+  ],
+  "landscape-discriminator": [
+   "atm_ef51d7d80c44"
+  ],
+  "vernacular-settlement": [
+   "atm_ef51d7d80c44"
+  ],
+  "cultural-layering": [
+   "atm_ff43edba76d3"
+  ],
+  "height-restriction": [
+   "atm_7493c55d0bf4"
+  ],
+  "imperial-units": [
+   "atm_7493c55d0bf4"
+  ],
+  "ireland-comparison": [
+   "atm_7493c55d0bf4"
+  ],
+  "road-signs": [
+   "atm_7493c55d0bf4"
+  ],
+  "uk-signage": [
+   "atm_7493c55d0bf4"
+  ],
+  "central-belt": [
+   "atm_20964856ecd8"
+  ],
+  "harling": [
+   "atm_20964856ecd8"
+  ],
+  "pantile-roof": [
+   "atm_20964856ecd8"
+  ],
+  "scottish-architecture": [
+   "atm_20964856ecd8"
+  ],
+  "wet-dash-render": [
+   "atm_20964856ecd8"
+  ],
+  "midlothian-coalfield": [
+   "atm_0f6b34497068"
+  ],
+  "monktonhall-colliery": [
+   "atm_0f6b34497068"
+  ],
+  "scottish-industry": [
+   "atm_0f6b34497068"
+  ],
+  "super-pit": [
+   "atm_0f6b34497068"
+  ],
+  "commuter-belt": [
+   "atm_a7cc8c04d19a",
+   "atm_16e78de06075"
+  ],
+  "edinburgh": [
+   "atm_a7cc8c04d19a"
+  ],
+  "fishing-fleet": [
+   "atm_b6414f383cd3"
+  ],
+  "mazatlan": [
+   "atm_b6414f383cd3",
+   "atm_ea92c4c667d4"
+  ],
+  "pacific-port": [
+   "atm_b6414f383cd3"
+  ],
+  "shrimp-fishing": [
+   "atm_b6414f383cd3"
+  ],
+  "sinaloa": [
+   "atm_b6414f383cd3",
+   "atm_533222e45251"
+  ],
+  "irrigated-farmland": [
+   "atm_533222e45251"
+  ],
+  "service-sector": [
+   "atm_533222e45251"
+  ],
+  "ab-inbev": [
+   "atm_ea92c4c667d4"
+  ],
+  "brewing-industry": [
+   "atm_ea92c4c667d4"
+  ],
+  "grupo-modelo": [
+   "atm_ea92c4c667d4"
+  ],
+  "pacifico-brewery": [
+   "atm_ea92c4c667d4"
+  ],
+  "brand-identification": [
+   "atm_bd33b40b4b46"
+  ],
+  "cinepolis": [
+   "atm_bd33b40b4b46"
+  ],
+  "city-express": [
+   "atm_bd33b40b4b46"
+  ],
+  "soriana": [
+   "atm_bd33b40b4b46"
+  ],
+  "pacific-coast": [
+   "atm_0f259f84fb29"
+  ],
+  "regional-identification": [
+   "atm_0f259f84fb29"
+  ],
+  "terrain": [
+   "atm_0f259f84fb29"
+  ],
+  "climate-adaptation": [
+   "atm_a20a2bd85dc2"
+  ],
+  "kawara-tile": [
+   "atm_a20a2bd85dc2"
+  ],
+  "roof-architecture": [
+   "atm_a20a2bd85dc2"
+  ],
+  "setouchi": [
+   "atm_a20a2bd85dc2",
+   "atm_30508cea81f3"
+  ],
+  "seto-inland-sea": [
+   "atm_30508cea81f3"
+  ],
+  "western-honshu": [
+   "atm_30508cea81f3"
+  ],
+  "area-code": [
+   "atm_2893ef2e3a1c"
+  ],
+  "geolocation-cue": [
+   "atm_2893ef2e3a1c"
+  ],
+  "fukuyama": [
+   "atm_966e456e1d2c"
+  ],
+  "hiroshima-prefecture": [
+   "atm_966e456e1d2c"
+  ],
+  "jfe-steel": [
+   "atm_966e456e1d2c"
+  ],
+  "manufacturing-cluster": [
+   "atm_966e456e1d2c"
+  ],
+  "bingo-fukuyama-han": [
+   "atm_609755d083a1"
+  ],
+  "fukuyama-castle": [
+   "atm_609755d083a1"
+  ],
+  "mizuno-clan": [
+   "atm_609755d083a1"
+  ],
+  "automotive-culture": [
+   "atm_8f4166ec8daf"
+  ],
+  "daihatsu": [
+   "atm_8f4166ec8daf"
+  ],
+  "kei-car": [
+   "atm_8f4166ec8daf"
+  ],
+  "yellow-plate": [
+   "atm_8f4166ec8daf"
+  ],
+  "catalan-language": [
+   "atm_fa8ff513c430"
+  ],
+  "catalonia": [
+   "atm_fa8ff513c430"
+  ],
+  "road-codes": [
+   "atm_fa8ff513c430"
+  ],
+  "barcelona-metro": [
+   "atm_4c34ab75768e"
+  ],
+  "research-infrastructure": [
+   "atm_4c34ab75768e",
+   "atm_b1792f8f1e86"
+  ],
+  "tech-corridor": [
+   "atm_4c34ab75768e"
+  ],
+  "valles-occidental": [
+   "atm_4c34ab75768e"
+  ],
+  "materials-science": [
+   "atm_b1792f8f1e86"
+  ],
+  "microelectronics": [
+   "atm_b1792f8f1e86"
+  ],
+  "science-park": [
+   "atm_b1792f8f1e86"
+  ],
+  "synchrotron": [
+   "atm_b1792f8f1e86"
+  ],
+  "garden-walls": [
+   "atm_3b756d7dfdab"
+  ],
+  "suburban-architecture": [
+   "atm_3b756d7dfdab"
+  ],
+  "urbanizacion": [
+   "atm_3b756d7dfdab"
+  ],
+  "dgt": [
+   "atm_a8965343eeda"
+  ],
+  "fortified-towns": [
+   "atm_9bee7878b6c8"
+  ],
+  "hungarian-kingdom": [
+   "atm_9bee7878b6c8"
+  ],
+  "saxon-seats": [
+   "atm_9bee7878b6c8"
+  ],
+  "siebenburgen": [
+   "atm_9bee7878b6c8"
+  ],
+  "transylvanian-saxons": [
+   "atm_9bee7878b6c8",
+   "atm_53897c1a878f"
+  ],
+  "curtain-wall": [
+   "atm_8baefc94ff8b"
+  ],
+  "gothic-hall-church": [
+   "atm_8baefc94ff8b"
+  ],
+  "guild-town": [
+   "atm_8baefc94ff8b"
+  ],
+  "saxon-architecture": [
+   "atm_8baefc94ff8b"
+  ],
+  "urban-morphology": [
+   "atm_8baefc94ff8b"
+  ],
+  "romanian-language": [
+   "atm_f32a9d025eca"
+  ],
+  "post-communist-transition": [
+   "atm_63a220d3ccc8"
+  ],
+  "german-minority": [
+   "atm_53897c1a878f"
+  ],
+  "property-polarization": [
+   "atm_a22c987c3ba5"
+  ],
+  "restitution": [
+   "atm_a22c987c3ba5"
+  ],
+  "commodity-trading": [
+   "atm_c23d23b3926b"
+  ],
+  "corporate-tax": [
+   "atm_c23d23b3926b"
+  ],
+  "crypto-valley": [
+   "atm_c23d23b3926b"
+  ],
+  "low-tax-jurisdiction": [
+   "atm_c23d23b3926b"
+  ],
+  "zug": [
+   "atm_c23d23b3926b",
+   "atm_a8902b79c383",
+   "atm_16e78de06075"
+  ],
+  "cantonal-elections": [
+   "atm_bc76c93c3cae"
+  ],
+  "fdp": [
+   "atm_bc76c93c3cae"
+  ],
+  "kantonsrat": [
+   "atm_bc76c93c3cae"
+  ],
+  "militia-democracy": [
+   "atm_bc76c93c3cae"
+  ],
+  "political-culture": [
+   "atm_bc76c93c3cae"
+  ],
+  "central-switzerland": [
+   "atm_e80514d5e6c7"
+  ],
+  "chalet-style": [
+   "atm_e80514d5e6c7"
+  ],
+  "lake-basin": [
+   "atm_e80514d5e6c7"
+  ],
+  "pre-alps": [
+   "atm_e80514d5e6c7"
+  ],
+  "aop": [
+   "atm_a8902b79c383"
+  ],
+  "cherry-culture": [
+   "atm_a8902b79c383"
+  ],
+  "festival": [
+   "atm_a8902b79c383"
+  ],
+  "food-heritage": [
+   "atm_a8902b79c383"
+  ],
+  "kirsch": [
+   "atm_a8902b79c383"
+  ],
+  "housing-shortage": [
+   "atm_16e78de06075"
   ]
  },
  "reports": {
@@ -66970,6 +70274,190 @@
    ],
    "langs": [
     "ko"
+   ]
+  },
+  "report_ca_regina_50.4337_-104.5993_260829_083520_ko-en-fr.html": {
+   "place": "Regina, Saskatchewan, Canada",
+   "lat": 50.4337107,
+   "lng": -104.5993402,
+   "cell": "c8vwg",
+   "atoms": [
+    "atm_d58b8f318cd5",
+    "atm_0205c14dc6c2",
+    "atm_f93a956e3f2f",
+    "atm_3affdebfbd15",
+    "atm_9354d1b9747c"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_lk_negombo_7.2157_79.8619_260829_083944_ko-en-fr.html": {
+   "place": "Negombo (Katuwapitiya / Thimbirigaskatuwa area), Western Province, Gampaha District, Sri Lanka",
+   "lat": 7.2156679,
+   "lng": 79.8619015,
+   "cell": "tc2c1",
+   "atoms": [
+    "atm_395187fe388d",
+    "atm_01ff3b6b06b5",
+    "atm_7b960649767d",
+    "atm_6aa637b1877d",
+    "atm_b9a5c0270203",
+    "atm_847c69212d36"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html": {
+   "place": "Victorica, La Pampa Province, Argentina",
+   "lat": -36.2479652,
+   "lng": -65.424882,
+   "cell": "6993z",
+   "atoms": [
+    "atm_5f68a2115a45",
+    "atm_99a388995ff6",
+    "atm_903cbb9320fc",
+    "atm_530209fff20e",
+    "atm_62c66acd242d"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_kg_lebedinovka_42.88_74.6989_260829_091757_ko-en-fr.html": {
+   "place": "Lebedinovka (Chüy Region, Bishkek suburb), Chuy Region, Kyrgyzstan",
+   "lat": 42.8800065,
+   "lng": 74.6989125,
+   "cell": "txt5g",
+   "atoms": [
+    "atm_bc282d8bf5a5",
+    "atm_e20de7719377",
+    "atm_5a1490e2317e",
+    "atm_ef51d7d80c44",
+    "atm_ff43edba76d3"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_gb_monktonhall-musselburgh_55.9297_-3.0567_260829_092228_ko-en-fr.html": {
+   "place": "Monktonhall / Musselburgh, East Lothian, Scotland, United Kingdom",
+   "lat": 55.9297342,
+   "lng": -3.0567248,
+   "cell": "gcvy4",
+   "atoms": [
+    "atm_7493c55d0bf4",
+    "atm_20964856ecd8",
+    "atm_0f6b34497068",
+    "atm_a7cc8c04d19a"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_mx_mazatlan_23.2416_-106.443_260829_093244_ko-en-fr.html": {
+   "place": "Mazatlán, Sinaloa, Mexico",
+   "lat": 23.2415848,
+   "lng": -106.4429944,
+   "cell": "9shk1",
+   "atoms": [
+    "atm_b6414f383cd3",
+    "atm_533222e45251",
+    "atm_ea92c4c667d4",
+    "atm_bd33b40b4b46",
+    "atm_a54d90c20b3e",
+    "atm_0f259f84fb29"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html": {
+   "place": "Fukuyama (Teshiro-cho / Hikino area), Hiroshima Prefecture, Japan",
+   "lat": 34.4836144,
+   "lng": 133.3950997,
+   "cell": "wynu5",
+   "atoms": [
+    "atm_a20a2bd85dc2",
+    "atm_30508cea81f3",
+    "atm_2893ef2e3a1c",
+    "atm_966e456e1d2c",
+    "atm_609755d083a1",
+    "atm_8f4166ec8daf"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html": {
+   "place": "Cerdanyola del Vallès, Catalonia (Vallès Occidental, Barcelona province), Spain",
+   "lat": 41.4835407,
+   "lng": 2.1348995,
+   "cell": "sp3eb",
+   "atoms": [
+    "atm_fa8ff513c430",
+    "atm_4c34ab75768e",
+    "atm_b1792f8f1e86",
+    "atm_3b756d7dfdab",
+    "atm_a8965343eeda"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_ro_brasov_45.6462_25.5847_260829_094617_ko-en-fr.html": {
+   "place": "Brașov, Brașov County, Transylvania, Romania",
+   "lat": 45.6461945,
+   "lng": 25.5846838,
+   "cell": "u845w",
+   "atoms": [
+    "atm_9bee7878b6c8",
+    "atm_8baefc94ff8b",
+    "atm_f32a9d025eca",
+    "atm_63a220d3ccc8",
+    "atm_53897c1a878f",
+    "atm_a22c987c3ba5"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ]
+  },
+  "report_ch_zug_47.161_8.5204_260829_095029_ko-en-fr.html": {
+   "place": "Zug, Canton of Zug, Switzerland",
+   "lat": 47.1610331,
+   "lng": 8.5203824,
+   "cell": "u0qh3",
+   "atoms": [
+    "atm_c23d23b3926b",
+    "atm_bc76c93c3cae",
+    "atm_9bcc84872634",
+    "atm_e80514d5e6c7",
+    "atm_a8902b79c383",
+    "atm_16e78de06075"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
    ]
   }
  }

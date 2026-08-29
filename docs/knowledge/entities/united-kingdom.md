@@ -1,12 +1,13 @@
 # 엔티티 · united-kingdom
 
-원자 13개 · 이 엔티티를 다룬 보고서 1건
+원자 14개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_0de705b1aa28]] **National highway numbering and driving-side as geolocation cues** (geography/global)
 - [[atm_263fbcaac613]] **Hierarchical national road classification systems worldwide** (geography/global)
 - [[atm_5ae0b4619855]] **National telephone area-code geography as a locator pattern** (geography/global)
 - [[atm_70f0ec5e8b9e]] **National highway signage and marking standardization systems** (economy/global)
+- [[atm_7493c55d0bf4]] **UK dual metric/imperial height restriction signage** (language/country)
 - [[atm_792a1b421feb]] **Designers of national road-signage systems** (architecture/country)
 - [[atm_811342082c50]] **National road-signage families as country identifiers** (architecture/global)
 - [[atm_8af183b8f49b]] **Standard UK road and vehicle conventions** (geography/country)
@@ -18,4 +19,5 @@
 - [[atm_fb73bf27bdb5]] **European corporate legal-form suffixes as country identifiers** (economy/global)
 
 ## 보고서
+- `report_gb_monktonhall-musselburgh_55.9297_-3.0567_260829_092228_ko-en-fr.html`
 - `report_gbr_oxford_51.743_-1.2584_260810_015326_ko-en-fr.html`
