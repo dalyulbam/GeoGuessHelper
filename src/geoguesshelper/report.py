@@ -79,7 +79,7 @@ def _linkify_atoms(text) -> str:
     """이스케이프 후 인용 토큰만 링크로. 입력이 문자열이 아니면 그대로 이스케이프한다."""
     esc = _esc(text)
     return _ATOM_CITE.sub(
-        lambda m: f'<a class="katom" href="../knowledge/atoms/{m.group(1)}.md">'
+        lambda m: f'<a class="katom" href="../../knowledge/atoms/{m.group(1)}.md">'
                   f'<code>{m.group(1)}</code></a>',
         esc,
     )
@@ -390,7 +390,7 @@ def _knowledge_html(atoms, S: dict) -> str:
             continue
         chips = "".join(f'<span class="ktag">#{_esc(t)}</span>' for t in (tags or [])[:6])
         rows.append(
-            f'<li><a class="katom" href="../knowledge/atoms/{_esc(aid)}.md">'
+            f'<li><a class="katom" href="../../knowledge/atoms/{_esc(aid)}.md">'
             f'<code>{_esc(aid)}</code></a> <b>{_esc(title)}</b>'
             f' <span class="muted">{_esc(layer)}/{_esc(scope)}</span><br>{chips}</li>'
         )

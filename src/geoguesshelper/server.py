@@ -471,7 +471,26 @@ def _make_handlers(settings: Settings):
         result["capture"] = cap
         return _checked(result)
 
-    return {"report": report_job, "scene-report": scene_report_job}
+    async def atlas_report_job(job: jobs.Job) -> dict:
+        """어드바이저 보고서 — 아틀라스 슬라이스(테마 × 범위)를 원자만으로 서술한다.
+
+        지식 적재 단계가 없다(비순환 원칙 — 기존 원자의 재서술을 다시 원자로 만들지 않는다).
+        """
+        import functools
+
+        from . import atlas_report
+
+        p = job.payload
+        fn = functools.partial(
+            atlas_report.run, settings,
+            theme=p.get("theme") or "all", range_spec=p.get("range") or "world",
+            langs=_norm_langs(p.get("langs") or settings.report_lang),
+            on_progress=lambda stage, msg, pct: job.emit(stage, msg, pct),
+            should_stop=lambda: job.cancel_requested,
+        )
+        return _checked(await _in_pool(fn))
+
+    return {"report": report_job, "scene-report": scene_report_job, "atlas-report": atlas_report_job}
 
 
 # ── 앱 ───────────────────────────────────────────────────────────
@@ -709,6 +728,19 @@ def build_app(settings: Settings) -> FastAPI:
             raise HTTPException(status_code=422, detail="유효한 pose(lat/lng 또는 pano)가 필요합니다.")
         try:
             job = await _submit("scene-report", payload, payload.get("label") or "바로 보고서")
+        except RuntimeError as exc:
+            raise HTTPException(status_code=429, detail=str(exc)) from exc
+        return JSONResponse({"job": job.public(), "position": _QUEUE.position(job.id),
+                             "queue": _QUEUE.stats()})
+
+    @app.post("/api/jobs/atlas-report")
+    async def api_job_atlas_report(payload: dict):
+        """어드바이저 보고서 잡 — {theme, range: world|sphere:<key>|actor:<slug>, langs}."""
+        payload = payload or {}
+        theme = str(payload.get("theme") or "all").lower()
+        try:
+            job = await _submit("atlas-report", payload,
+                                payload.get("label") or f"아틀라스 {theme} × {payload.get('range') or 'world'}")
         except RuntimeError as exc:
             raise HTTPException(status_code=429, detail=str(exc)) from exc
         return JSONResponse({"job": job.public(), "position": _QUEUE.position(job.id),

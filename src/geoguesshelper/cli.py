@@ -97,6 +97,22 @@ def main() -> None:
     p_ing.add_argument("--redo", action="store_true",
                        help="이미 노트가 있는 보고서도 다시 적재")
 
+    p_at = sub.add_parser(
+        "atlas-report",
+        help="어드바이저 보고서 — 아틀라스 슬라이스(테마 × 범위)를 원자만으로 서술",
+        description=(
+            "altaiya 조립(행위자·관계·원자)에서 테마 × 범위 서브그래프를 잘라 거점 → 행위자 → "
+            "관계 역학 → 행동 포인트 → 공백 순으로 서술한다. 웹 검색 없음, 지식 적재 없음(비순환). "
+            "결과는 docs/report/atlas/ 에 놓이고 #atlas-slice JSON 이 내장된다."
+        ),
+    )
+    p_at.add_argument("--theme", "-t", default="all",
+                      help="stock|realty|trade|corporate|talent|travel|heritage|all")
+    p_at.add_argument("--range", "-r", default="world",
+                      help="world | sphere:<사료권 key> | actor:<slug>")
+    p_at.add_argument("--lang", "-l", action="append", default=[],
+                      help="언어(반복 지정 가능, 첫 번째가 서술 언어). 생략하면 설정의 보고서 언어")
+
     args = ap.parse_args()
 
     if args.cmd == "extract":
@@ -144,6 +160,19 @@ def main() -> None:
 
     if args.cmd == "ingest":
         _ingest(args)
+        return
+
+    if args.cmd == "atlas-report":
+        from . import atlas_report
+        from .config import load_settings
+
+        settings = load_settings()
+        langs = args.lang or [x.strip() for x in str(settings.report_lang).replace(",", " ").split() if x.strip()]
+        res = atlas_report.run(settings, theme=args.theme, range_spec=args.range, langs=langs,
+                               on_progress=lambda st, msg, pct: print(f"  [{pct:3d}%] {msg}"))
+        print(json.dumps({k: res.get(k) for k in ("status", "message", "cost_usd", "slice", "errors")}
+                         | {"file": (res.get("reports") or [{}])[0].get("path")},
+                         ensure_ascii=False, indent=2, default=str))
         return
 
     # 기본: 서버 실행
