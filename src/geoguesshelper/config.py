@@ -240,3 +240,33 @@ def _env_int(s: Settings, env: str, attr: str, *, lo: int, hi: int) -> None:
         setattr(s, attr, max(lo, min(hi, int(raw))))
     except ValueError:
         pass
+
+
+def report_subdir(settings: Settings, country_tag: str) -> Path:
+    """보고서가 놓이는 국가 폴더 — docs/report/{iso2}/.
+
+    보고서가 60건을 넘자 한 폴더가 읽히지 않았다(260829). 파일명의 국가 조각(alpha-2,
+    없으면 국가명 해시)을 그대로 폴더 이름으로 쓴다 — 파일명과 폴더가 같은 규칙이라
+    사람이 봐도, 코드가 봐도 어긋나지 않는다. 종합(synthesis) 보고서처럼 한 나라에
+    속하지 않는 것은 최상위에 남는다.
+    """
+    tag = (country_tag or "").strip().lower()
+    return settings.reports_dir / tag if tag else settings.reports_dir
+
+
+def find_report(settings: Settings, name: str) -> Path | None:
+    """보고서 파일명(basename) → 실제 경로. 국가 하위 폴더까지 뒤진다.
+
+    지식 저장소·잡 로그·뷰어는 전부 basename 만 기억한다(폴더는 정리 규칙일 뿐 정체성이
+    아니다). 그래서 어디에 있든 이름으로 찾는다 — 최상위를 먼저, 그다음 하위 폴더.
+    """
+    base = Path(name).name
+    if not base:
+        return None
+    direct = settings.reports_dir / base
+    if direct.is_file():
+        return direct
+    for p in settings.reports_dir.rglob(base):
+        if p.is_file():
+            return p
+    return None

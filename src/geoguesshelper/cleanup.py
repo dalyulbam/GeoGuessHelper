@@ -109,7 +109,7 @@ def referenced_captures(settings: Settings) -> set[str]:
     d = settings.reports_dir
     if not d.exists():
         return ref
-    for p in d.iterdir():
+    for p in d.rglob("*"):          # 국가 하위 폴더(docs/report/{iso}/)까지
         if not p.is_file() or p.suffix.lower() not in (".html", ".json", ".bak"):
             continue
         try:
@@ -263,7 +263,7 @@ def scan(
     c = add("report-aux", "보고서 부산물",
             "docs/report/*.bak · *.script.json — 재생성 가능한 중간산물", True)
     if settings.reports_dir.exists():
-        for p in settings.reports_dir.iterdir():
+        for p in settings.reports_dir.rglob("*"):
             if p.suffix.lower() == ".bak" or p.name.endswith(".script.json"):
                 ok, _ = usable(p)
                 if ok:
@@ -274,7 +274,8 @@ def scan(
             "docs/report/*.html — keep_last 로 최신 N건만 남긴다", False)
     if keep_last > 0 and settings.reports_dir.exists():
         htmls = sorted(
-            (p for p in settings.reports_dir.glob("*.html") if p.is_file()),
+            # report_*.html 만 — civilzation/ 같은 문서 폴더의 HTML 은 보고서가 아니다
+            (p for p in settings.reports_dir.rglob("report_*.html") if p.is_file()),
             key=lambda p: p.stat().st_mtime, reverse=True,
         )
         for p in htmls[keep_last:]:

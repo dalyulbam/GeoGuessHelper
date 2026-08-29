@@ -54,7 +54,7 @@ from . import report as report_mod
 from . import research as research_mod
 from .analyze import analyze_captures
 from . import __version__
-from .config import Settings, load_settings
+from .config import Settings, find_report, load_settings
 
 WEBUI_DIR = Path(__file__).parent / "webui"
 
@@ -874,9 +874,10 @@ def build_app(settings: Settings) -> FastAPI:
 
     @app.get("/reports/{name}")
     async def get_report(name: str):
-        path = settings.reports_dir / Path(name).name
+        # 보고서는 docs/report/{국가}/ 하위 폴더에 놓인다 — 이름으로 찾는다(find_report).
         # is_file() — 예전 exists() 는 디렉터리에도 True 라 FileResponse 가 500 을 냈다.
-        if not path.is_file():
+        path = find_report(settings, name)
+        if path is None or not path.is_file():
             raise HTTPException(status_code=404, detail="리포트를 찾을 수 없습니다.")
         return FileResponse(path)
 

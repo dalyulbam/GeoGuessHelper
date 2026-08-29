@@ -29,7 +29,7 @@ import time
 from pathlib import Path
 
 from . import llm
-from .config import Settings
+from .config import Settings, find_report
 
 SCHEMA_VERSION = 1
 
@@ -294,8 +294,11 @@ def build_script(
 def save(settings: Settings, report_file: str, script: dict) -> str | None:
     """스크립트를 보고서 옆에 남긴다 — HTML 을 모델 없이 다시 만들 수 있게."""
     try:
-        settings.reports_dir.mkdir(parents=True, exist_ok=True)
-        out = settings.reports_dir / (Path(report_file).stem + ".script.json")
+        # 보고서가 놓인 국가 폴더 옆에 둔다 — 보고서를 못 찾으면 최상위로.
+        home = find_report(settings, report_file)
+        out_dir = home.parent if home else settings.reports_dir
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out = out_dir / (Path(report_file).stem + ".script.json")
         tmp = out.with_suffix(".json.tmp")
         tmp.write_text(json.dumps(script, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
         tmp.replace(out)
@@ -305,7 +308,10 @@ def save(settings: Settings, report_file: str, script: dict) -> str | None:
 
 
 def load(settings: Settings, report_file: str) -> dict | None:
-    p = settings.reports_dir / (Path(report_file).stem + ".script.json")
+    home = find_report(settings, report_file)
+    p = (home.parent if home else settings.reports_dir) / (Path(report_file).stem + ".script.json")
+    if not p.exists():
+        p = find_report(settings, Path(report_file).stem + ".script.json") or p
     if not p.exists():
         return None
     try:

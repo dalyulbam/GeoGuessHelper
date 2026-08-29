@@ -18,7 +18,7 @@ import re
 import uuid
 from pathlib import Path
 
-from .config import Settings
+from .config import Settings, report_subdir
 
 _MAX_NAME_TRIES = 200
 
@@ -925,14 +925,15 @@ def build_report(result: dict, files: list[str], settings: Settings, lang: str =
     body_inner = f'<div class="wrap">{body["inner"]}</div>'
     html_doc = _document(lang, S["report_word"], body["title"], _BASE_CSS, body_inner)
 
+    out_dir = report_subdir(settings, _country_tag(body["iso"], body["country"]))
     fname = _write_report_atomic(
-        settings.reports_dir,
+        out_dir,
         _report_filename(body["iso"], body["country"], body["place_slug"],
                          start_lat, start_lng, lang, ymd, hms),
         html_doc,
     )
     return {"status": "OK", "file": fname, "url": f"/reports/{fname}",
-            "path": str(settings.reports_dir / fname), "lang": lang,
+            "path": str(out_dir / fname), "lang": lang,
             "images": [im["name"] for im in imgs], "droppedImages": dropped}
 
 
@@ -1013,14 +1014,15 @@ def build_combined_report(sections: list[dict], files: list[str], settings: Sett
 
     _ = knowledge  # combined 본문에서 이미 렌더됨(각 언어 섹션마다)
     lang_tag = "-".join(langs)
+    out_dir = report_subdir(settings, _country_tag(meta["iso"], meta["country"]))
     fname = _write_report_atomic(
-        settings.reports_dir,
+        out_dir,
         _report_filename(meta["iso"], meta["country"], meta["place_slug"],
                          start_lat, start_lng, lang_tag, ymd, hms),
         html_doc,
     )
     return {"status": "OK", "file": fname, "url": f"/reports/{fname}",
-            "path": str(settings.reports_dir / fname), "lang": primary, "langs": langs,
+            "path": str(out_dir / fname), "lang": primary, "langs": langs,
             "images": [im["name"] for im in imgs], "droppedImages": dropped}
 
 
