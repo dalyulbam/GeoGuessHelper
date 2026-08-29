@@ -245,8 +245,11 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
     hfov = hfov_deg(v, aspect)
     snapped["fov"] = min(120.0, hfov)
     sv_url = streetview.streetview_url(snapped, key, w=sv_w, h=sv_h)
+    # 지형 토글(§stages 4단계) — 본체 뷰어의 지형 버튼과 같은 옵션을 캡처 합성에도 낸다.
+    # pose 에 없으면 기본(hybrid) 그대로.
+    map_maptype = pose.get("map_maptype") or "hybrid"
     map_url = streetview.staticmap_url(
-        snapped, key, w=settings.viewport_w, h=settings.map_h
+        snapped, key, w=settings.viewport_w, h=settings.map_h, maptype=map_maptype,
     )
     try:
         sv_bytes = await streetview.fetch_bytes(sv_url)

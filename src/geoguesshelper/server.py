@@ -82,6 +82,16 @@ async def _in_pool(fn, *args):
     return await loop.run_in_executor(_POOL, fn, *args)
 
 
+async def _fetch_elevation(settings: Settings, lat, lng) -> float | None:
+    """보고서 헤더의 "지점 고도" 한 줄(§stages 4단계) — 실패해도 보고서를 막지 않는다."""
+    if lat is None or lng is None or not settings.has_static_key:
+        return None
+    try:
+        return await streetview.elevation(float(lat), float(lng), settings.effective_static_key)
+    except (TypeError, ValueError):
+        return None
+
+
 # ── 보고서 파이프라인 ─────────────────────────────────────────────
 def _build_reports_sync(
     job: jobs.Job,
@@ -92,6 +102,8 @@ def _build_reports_sync(
     do_research: bool,
     start_lat,
     start_lng,
+    panos: dict | None = None,
+    elevation_m: float | None = None,
 ) -> dict:
     """기준 언어로 1회 조사 → 나머지 언어는 번역 → 리포트 1개.
 
@@ -135,6 +147,16 @@ def _build_reports_sync(
         msg = (base_result or {}).get("message") or (base_result or {}).get("status") or "분석 실패"
         return {"status": "FAIL", "reports": [], "errors": [{"lang": base, "message": msg}],
                 "message": msg, "cost_usd": round(total_cost, 4)}
+
+    if panos:
+        # 캡처별 pano 좌표·방위 — P1(지점 단서) 적재가 보고서 시작 좌표가 아니라 **그 캡처의
+        # 실측 좌표**를 쓸 수 있게 남긴다. images[] 자체는 건드리지 않는다(report._analyzed_files
+        # 가 Path(a).name 으로 문자열을 기대한다) — 별도 필드로 붙인다.
+        base_result["image_panos"] = {
+            Path(k).name: v for k, v in panos.items() if isinstance(v, dict) and Path(k).name
+        }
+    if elevation_m is not None:
+        base_result["elevation_m"] = elevation_m
 
     analysis = base_result.get("analysis") or {}
     place = analysis.get("best_guess") or {}
@@ -374,9 +396,13 @@ def _build_reports_sync(
                  f"(사후 적재: geoguesshelper ingest --scan --apply)", 98)
     elif reports and settings.knowledge_enabled:
         job.emit("knowledge", "지식 저장소에 적재 중…", 95)
+        # P2(장소 사실)만 예산 안에서 동기 호출한다 — P1(지점 단서)·P3(프로파일)는 재료가
+        # 이미 result.research/image_panos 에 남았으므로 `geoguesshelper ingest --apply`가
+        # 예산 밖에서 소급한다(docs/plan/atom-density-map-detail_260829.html §stages 3단계).
         kb = knowledge.ingest(
             settings, analysis=base_result, research=base_research,
             lat=start_lat, lng=start_lng, report_file=reports[0]["file"], known=known,
+            passes=("p2",),
         )
         total_cost += kb.get("cost_usd") or 0.0
         knowledge.write_report_note(
@@ -384,6 +410,7 @@ def _build_reports_sync(
             lat=start_lat, lng=start_lng,
             atoms=kb.get("atoms") or [], langs=[s["lang"] for s in sections],
             summary=(base_profile or {}).get("summary", "") if base_profile else "",
+            passes=["p2"],
         )
         job.emit(
             "knowledge",
@@ -396,6 +423,11 @@ def _build_reports_sync(
         "reports": reports,
         "errors": errors,
         "primaryAnalysis": base_result,
+        # 잡 로그에 프로파일(경제·문화/역사·관광·인물 …)을 남긴다 — 지금까지는 실시간 적재
+        # (knowledge.ingest 바로 아래)에만 쓰이고 버려져, 예산 초과로 미룬 보고서의 사후 적재는
+        # 분석 근거만으로 해야 했다(P3 프로파일 원자를 소급할 수 없었다). 이제 `ingest --apply`
+        # 가 이 필드로 P3 를 소급할 수 있다(docs/plan/atom-density-map-detail_260829.html §stages 2단계).
+        "research": base_research,
         "baseLang": base,
         "script": ({"file": script_file, "sections": len((script_doc or {}).get("sections") or []),
                     **((script_doc or {}).get("_meta") or {})} if script_doc
@@ -436,10 +468,11 @@ def _make_handlers(settings: Settings):
         if not files:
             raise ValueError("리포트 생성에는 캡처(files)가 필요합니다.")
         start = p.get("start") or {}
+        elev = await _fetch_elevation(settings, start.get("lat"), start.get("lng"))
         return _checked(await _in_pool(
             _build_reports_sync, job, files, _norm_langs(p.get("langs")), settings,
             p.get("analysis"), bool(p.get("research", True)),
-            start.get("lat"), start.get("lng"),
+            start.get("lat"), start.get("lng"), p.get("panos") or {}, elev,
         ))
 
     async def scene_report_job(job: jobs.Job) -> dict:
@@ -464,9 +497,14 @@ def _make_handlers(settings: Settings):
             )
 
         job.emit("captured", "캡처 완료", 8)
+        cap_panos = {cap["file"]: {
+            "pano_id": cap.get("pano_id"), "lat": cap.get("lat"), "lng": cap.get("lng"),
+            "heading": cap.get("heading"), "pitch": cap.get("pitch"),
+        }}
+        elev = await _fetch_elevation(settings, start_lat, start_lng)
         result = await _in_pool(
             _build_reports_sync, job, [cap["file"]], _norm_langs(p.get("langs")), settings,
-            None, bool(p.get("research", True)), start_lat, start_lng,
+            None, bool(p.get("research", True)), start_lat, start_lng, cap_panos, elev,
         )
         result["capture"] = cap
         return _checked(result)

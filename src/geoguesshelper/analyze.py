@@ -48,6 +48,10 @@ HARD RULES FOR THE CHAIN
 
 THEN
 - `cues`: the raw observations that feed the chain. Tag each with the narrowing level it serves.
+- When more than one image is given, tag each `cue`/`landmark` with `image_index` (0-based, same
+  order as the images were shown) — which exact screenshot it comes from. This lets a downstream
+  tool anchor the observation to that capture's real coordinates. Leave it null only if the
+  observation is not tied to one specific frame.
 - `languages_detected`, `landmarks`, `coarse_filters`, `cultural_economic_read` as specified.
 - `best_guess`: the finest level the chain actually reached — not the country if you got further.
   1-3 alternatives summing (with best) to <= 1.0. Alternatives should be the candidates your LAST
@@ -162,6 +166,14 @@ _TOOL = {
                         "category": {"type": "string"},
                         "observation": {"type": "string"},
                         "weight": {"type": "string"},
+                        "image_index": {
+                            "type": ["integer", "null"],
+                            "description": (
+                                "0-based index into the analyzed images (same order as sent). "
+                                "Which exact screenshot this observation comes from — null if it "
+                                "applies equally to all of them."
+                            ),
+                        },
                         "level": {
                             "type": "string",
                             "description": (
@@ -193,6 +205,10 @@ _TOOL = {
                         "name": {"type": ["string", "null"]},
                         "type": {"type": "string"},
                         "confidence": {"type": "number"},
+                        "image_index": {
+                            "type": ["integer", "null"],
+                            "description": "0-based index into the analyzed images — which screenshot this landmark is visible in.",
+                        },
                     },
                 },
             },

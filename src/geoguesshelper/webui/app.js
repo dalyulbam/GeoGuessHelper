@@ -532,6 +532,21 @@ function initSplit(pose, tabId) {
   const rlb = $("#btn-reload-view");
   if (rlb) rlb.hidden = false;         // 뷰어가 생긴 뒤부터 탈출구를 보여준다
 
+  const mtb = $("#btn-map-terrain");
+  if (mtb) {
+    mtb.hidden = false;
+    if (!mtb._wired) {
+      mtb._wired = true;
+      mtb.addEventListener("click", () => {
+        if (!map) return;
+        const isTerrain = map.getMapTypeId() === "terrain";
+        map.setMapTypeId(isTerrain ? "hybrid" : "terrain");
+        mtb.classList.toggle("on", !isTerrain);
+        mtb.textContent = isTerrain ? "⛰️ 지형" : "🛰️ 위성";
+      });
+    }
+  }
+
   clearFallback();
   // 무장 판정의 기준선 — **이 로드 전에** 화면에 있던 파노. 이것과 달라졌다는 사실이
   // "우리 요청이 올라왔다"는 증거가 된다(아래 armWhenLoaded 참고).
@@ -1141,6 +1156,8 @@ function paneSize() {
 function livePose() {
   const t = activeTab();
   const base = Object.assign({}, (t && (t.current || t.extracted)) || currentPose || {}, paneSize());
+  // 지형 토글(§stages 4단계) — 아래 지도가 지금 terrain 이면 Static 캡처 합성도 같은 배경으로.
+  if (map && map.getMapTypeId) base.map_maptype = map.getMapTypeId();
   if (!pano || !pano.getPano) return base;
 
   const shown = String(pano.getPano() || "");
@@ -1300,7 +1317,10 @@ function addToAlbum(r, tabId) {
   if (t) {
     const last = t.album[t.album.length - 1];
     dup = !!(last && last.key && key && last.key === key);
-    t.album.push({ file: r.file, url: r.url, sel: true, key });
+    t.album.push({
+      file: r.file, url: r.url, sel: true, key,
+      pano_id: r.pano_id, lat: r.lat, lng: r.lng, heading: r.heading, pitch: r.pitch,
+    });
   }
   if (id === activeId) {
     if (t) album = t.album;
@@ -1308,6 +1328,20 @@ function addToAlbum(r, tabId) {
   }
   renderTabbar();
   return dup;
+}
+
+/** files[] → {file: {pano_id, lat, lng, heading, pitch}} — 현재 앨범에서 찾아 붙인다.
+ *  P1(지점 단서) 원자가 캡처의 실측 pano 좌표를 받으려면 이 메타가 잡 결과까지 가야 한다
+ *  (docs/plan/atom-density-map-detail_260829.html §stages 2단계). */
+function panosFor(files) {
+  const out = {};
+  for (const f of files || []) {
+    const a = album.find((x) => x.file === f);
+    if (a && (a.lat != null || a.pano_id)) {
+      out[f] = { pano_id: a.pano_id, lat: a.lat, lng: a.lng, heading: a.heading, pitch: a.pitch };
+    }
+  }
+  return out;
 }
 
 /** 캡처 결과의 정체성 — 같은 원본을 같은 시점으로 찍었으면 같은 값이 된다.
@@ -1426,6 +1460,7 @@ async function doAlbumReport() {
   if (tabBusy(originId)) { setStatus("이 탭은 이미 작업이 진행 중입니다", "err"); return; }
   await submitJob("report", {
     files, langs: selectedLangs, research: researchOn(), start: startCoord(),
+    panos: panosFor(files),
   }, originId, "선택 장면 보고서 · " + (activeTab() ? tabTitle(activeTab()) : ""));
 }
 
@@ -1436,6 +1471,7 @@ async function doReport() {
   await submitJob("report", {
     files: lastAnalysisFiles, langs: selectedLangs, analysis: lastAnalysis,
     research: researchOn(), start: startCoord(),
+    panos: panosFor(lastAnalysisFiles),
   }, originId, "보고서 · " + (activeTab() ? tabTitle(activeTab()) : ""));
 }
 

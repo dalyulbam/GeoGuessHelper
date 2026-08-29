@@ -12,6 +12,7 @@ from .tls import aget
 STATIC_BASE = "https://maps.googleapis.com/maps/api/streetview"
 META_BASE = "https://maps.googleapis.com/maps/api/streetview/metadata"
 STATICMAP_BASE = "https://maps.googleapis.com/maps/api/staticmap"
+ELEVATION_BASE = "https://maps.googleapis.com/maps/api/elevation/json"
 
 
 def _loc(pose: dict) -> str:
@@ -82,6 +83,24 @@ async def check_coverage(pose: dict, key: str, *, timeout: float = 15.0) -> dict
     resp = await aget(META_BASE, params=params, timeout=timeout)
     resp.raise_for_status()
     return resp.json()
+
+
+async def elevation(lat: float, lng: float, key: str, *, timeout: float = 15.0) -> float | None:
+    """보고서 1점의 고도(m). 실패하면 None — 표시용 부가 정보라 보고서를 막지 않는다.
+
+    §terrain 의 조건부 허용 범위: 이 숫자 하나만 표시용으로 쓴다. 지형 배경(격자·타일)을
+    만들거나 영구 저장하지 않는다 — 그 정본은 공개 DEM(§terrain, terrain.py)이다.
+    """
+    try:
+        resp = await aget(ELEVATION_BASE, params={"locations": f"{lat},{lng}", "key": key},
+                          timeout=timeout)
+        resp.raise_for_status()
+        data = resp.json()
+        if data.get("status") == "OK" and data.get("results"):
+            return float(data["results"][0]["elevation"])
+    except Exception:  # noqa: BLE001 — 부가 정보 실패가 보고서를 막으면 안 된다
+        pass
+    return None
 
 
 async def fetch_bytes(url: str, *, timeout: float = 25.0) -> bytes:

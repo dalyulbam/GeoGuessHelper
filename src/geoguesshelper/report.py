@@ -306,7 +306,8 @@ def _locator_maps(lat, lng, settings: Settings) -> list[dict]:
     return out
 
 
-def _maps_html(maps: list[dict], S: dict, lat, lng, classes: list[str] | None = None) -> str:
+def _maps_html(maps: list[dict], S: dict, lat, lng, classes: list[str] | None = None,
+               elevation_m: float | None = None) -> str:
     """위치 지도 컨테이너. classes 를 주면 base64 를 CSS 로 빼서 한 번만 싣는다(통합 리포트)."""
     if not maps:
         return ""
@@ -327,10 +328,15 @@ def _maps_html(maps: list[dict], S: dict, lat, lng, classes: list[str] | None = 
                 f'target="_blank" rel="noopener">{_esc(S["maps_open"])} ↗</a>')
     except (TypeError, ValueError):
         pass
+    elev = ""
+    if isinstance(elevation_m, (int, float)):
+        # Elevation API 는 이 한 점의 숫자에만 쓴다 — 저장은 이 문자열의 반올림 값뿐이고,
+        # 지형 배경(타일·격자)은 만들지 않는다(구글 ToS — §terrain 의 조건부 허용 범위).
+        elev = f' · <span class="mz">{_esc(S["elevation"])} {round(elevation_m)}m</span>'
     return (
         f'<div class="maps-wrap">'
         f'<div class="maps-h">{_esc(S["maps_h"])} '
-        f'<span class="muted">{_esc(S["maps_sub"])}</span>{link}</div>'
+        f'<span class="muted">{_esc(S["maps_sub"])}</span>{elev}{link}</div>'
         f'<div class="maps">{"".join(cells)}</div>'
         f'</div>'
     )
@@ -918,9 +924,11 @@ def build_report(result: dict, files: list[str], settings: Settings, lang: str =
     gallery = _gallery_html(imgs, S)
     map_lat, map_lng = _map_center(result, start_lat, start_lng)
     maps = _locator_maps(map_lat, map_lng, settings)
+    elevation_m = result.get("elevation_m")
     body = _compute_body(result, lang, research, gallery, len(imgs), stamp,
                          knowledge=knowledge, dropped=dropped,
-                         maps_html=_maps_html(maps, S, map_lat, map_lng), script=script)
+                         maps_html=_maps_html(maps, S, map_lat, map_lng, elevation_m=elevation_m),
+                         script=script)
 
     body_inner = f'<div class="wrap">{body["inner"]}</div>'
     html_doc = _document(lang, S["report_word"], body["title"], _BASE_CSS, body_inner)
@@ -972,6 +980,7 @@ def build_combined_report(sections: list[dict], files: list[str], settings: Sett
     # 위치 지도도 언어 수만큼 반복되면 파일이 그만큼 커진다 → 캡처와 같이 CSS 로 한 번만.
     map_lat, map_lng = _map_center(sections[0].get("result"), start_lat, start_lng)
     maps = _locator_maps(map_lat, map_lng, settings)
+    elevation_m = (sections[0].get("result") or {}).get("elevation_m")
     mclasses = [f"mp{i}" for i in range(len(maps))]
     img_css += "".join(
         f'.{mclasses[i]}{{background-image:url("{m["uri"]}")}}' for i, m in enumerate(maps)
@@ -991,7 +1000,8 @@ def build_combined_report(sections: list[dict], files: list[str], settings: Sett
             sc = script
         body = _compute_body(s["result"], lg, s.get("research"), gallery, len(imgs), stamp,
                              knowledge=knowledge, dropped=dropped,
-                             maps_html=_maps_html(maps, S, map_lat, map_lng, classes=mclasses),
+                             maps_html=_maps_html(maps, S, map_lat, map_lng, classes=mclasses,
+                                                  elevation_m=elevation_m),
                              script=sc)
         doc_id = f"doc-{lg}"
         tag = f'<div class="doc-lang-tag">{_esc(i18n.native_name(lg))}</div>'
