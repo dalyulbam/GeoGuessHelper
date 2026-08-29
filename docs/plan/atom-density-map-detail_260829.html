@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessHelper — 원자 밀도와 지도 디테일: 더 많은 범주, 더 촘촘한 원자, 확대해도 살아 있는 지도 (260829)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f1c2bd;color:var(--danger)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat .n{font-size:26px;font-weight:800;letter-spacing:-.03em;color:var(--accent-deep);font-family:var(--mono)}
+.stat .n.bad{color:var(--danger)}
+.stat .l{font-size:12.5px;color:var(--muted);margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+code,pre{font-family:var(--mono)}
+code{font-size:12.5px;background:#eef4f2;border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+pre{font-size:12.5px;background:#0d1f1a;color:#cde8de;border-radius:12px;padding:16px 18px;overflow-x:auto;line-height:1.6;margin-top:8px}
+pre .c{color:#6b9a8b} pre .k{color:#ffd479} pre .s{color:#9be8c8}
+.principle{border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-size:14.5px;color:var(--ink-2)}
+.principle b{color:var(--accent-deep)}
+.warnbox{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-size:14px;color:#6b4d00}
+.dangerbox{border-left:4px solid var(--danger);background:var(--danger-soft);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-size:14px;color:#7a2a24}
+.mock{background:#0a1f2e;border-radius:14px;padding:14px;margin-top:10px}
+.kbd{display:inline-block;font-family:var(--mono);font-size:11.5px;font-weight:700;background:#fff;border:1px solid #cfd9d5;border-bottom-width:2.5px;border-radius:6px;padding:1px 7px;color:var(--ink-2)}
+.foot{padding:30px 0 60px;color:var(--muted);font-size:13px}
+.num{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:24px;height:24px;border-radius:8px;background:var(--accent);color:#fff;font-size:13px;font-weight:800}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:999px;background:#eef4f2;border:1px solid var(--line);color:var(--ink-2);margin:2px 2px 2px 0}
+.ok-t{color:var(--ok);font-weight:700} .no-t{color:var(--danger);font-weight:700} .wn-t{color:var(--warn);font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>원자 밀도와 지도 디테일</div>
+  <nav class="topnav">
+    <a href="#audit">실측</a><a href="#why">진단</a><a href="#taxonomy">범주</a><a href="#density">밀도</a>
+    <a href="#lod">지도 디테일</a><a href="#terrain">지형 데이터</a><a href="#stages">단계</a><a href="#verify">검증</a><a href="#not">하지 않는 것</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">GeoGuessHelper · ALTAIYA 기획 · 2026-08-29</div>
+  <h1>보고서는 사실을 5개만 남기고, 지도는 확대하면 빈다 —<br>범주를 넓히고, 원자를 촘촘히 쌓고, 지형 위에 놓는다</h1>
+  <p>오늘(08-29) 보고서 12건을 돌리고 아틀라스에 흡수시킨 뒤 원자를 세어 봤다. 보고서 한 건이 남기는
+  원자는 <b>중앙값 5개</b>(상한 8개로 코드가 자른다)이고, 1,244개 원자 중 현장 보고서에서 태어난 것은
+  <b>297개(24%)</b>뿐이다. 지점(point) 스코프 원자는 전체에 <b>3개</b>, 지오해시 5자 이상 셀은 32개 —
+  지도를 두 단계만 확대하면 아무것도 없는 이유가 숫자로 나온다. 범주는 레이어 7개가 전부라,
+  로드뷰가 실제로 보여주는 <b>표지판·전신주·차선·번호판·건축 양식</b>은 원자가 될 자리가 없다.
+  이 기획은 세 가지를 정한다: <b>범주 체계</b>(레이어 7 → 범주 40+와 판별 단서), <b>밀도</b>(보고서당
+  5 → 20+ 원자, 캡처마다 지점 원자), <b>지도 디테일</b>(확대 단계별 레이어와 지형 — 구글이 허락하는
+  것과 허락하지 않는 것을 갈라서).</p>
+  <div class="meta">
+    <span class="chip dn">원자/보고서 중앙값 5 · 상한 8</span>
+    <span class="chip dn">point 스코프 3 / 1,244</span>
+    <span class="chip wn">범주 = 레이어 7개</span>
+    <span class="chip ac">구글 지형: 표시만, 추출 금지</span>
+    <span class="chip ok">지형 데이터는 공개 DEM 으로</span>
+  </div>
+</div></header>
+
+<section class="section" id="audit"><div class="wrap">
+  <div class="eyebrow">실측 · 2026-08-29 index.json 직접 집계</div>
+  <h2 class="sec">지금 저장소의 모양</h2>
+  <p class="sec-desc">계획은 실측 위에 선다. 아래 숫자는 오늘 밤 <code>docs/knowledge/index.json</code>(원자 1,244 · 보고서 57)에서 그대로 센 것이다.</p>
+  <div class="grid g4">
+    <div class="stat"><div class="n bad">5</div><div class="l">보고서당 원자 중앙값 (min 3 · max 8) — <code>knowledge_max_atoms = 8</code></div></div>
+    <div class="stat"><div class="n bad">297 / 1,244</div><div class="l">현장 보고서 유래 원자 (24%) · 확장 617 · 위키 330</div></div>
+    <div class="stat"><div class="n bad">3 · 74</div><div class="l">point · city 스코프 원자 — 나머지는 region 410 · country 282 · global 303 · polity 151</div></div>
+    <div class="stat"><div class="n bad">1 · 31 · 69</div><div class="l">지오해시 7자(150m) · 5자(5km) · 3자(156km) 셀 수 — 좌표 있는 원자 453</div></div>
+  </div>
+  <table style="margin-top:16px">
+    <tr><th>축</th><th>현재</th><th>왜 부족한가</th></tr>
+    <tr><td><b>범주</b></td><td>레이어 7개 — geography · history · culture · economy · language · architecture · nature. 태그는 자유 어휘 3,185개(상위: expansion, wiki, x-worldwide, list-of-dynasties, china…)</td>
+      <td>레이어는 "어느 책장"이고 태그는 "아무 단어"다. 그 사이에 <b>검색·집계·렌즈가 붙을 수 있는 중간 범주</b>가 없다. 아틀라스 7테마는 레이어 가중 행렬로 근사할 뿐이다(<code>rules.THEME_MATRIX</code>).</td></tr>
+    <tr><td><b>밀도</b></td><td>적재 1회 호출, 원자 ≤ 8, 분석 결과(cues·narrowing·landmarks·cultural read) + 리서치 프로파일을 한 프롬프트에 넣고 "원자를 뽑아라"</td>
+      <td>재료는 20~40개 사실을 담고 있는데 출력 상한이 8이다. 캡처 이미지마다 있는 <b>지점 단서</b>(이 교차로의 표지판 양식, 이 전신주의 형태)는 장소 수준으로 뭉개진다.</td></tr>
+    <tr><td><b>해상도</b></td><td>원자 좌표 = 보고서 시작 좌표 하나. 셀 정밀도는 스코프가 정한다(point 7자 … country 2자)</td>
+      <td>보고서 하나의 원자가 전부 같은 점에 찍힌다. 확대하면 점 하나에 5개가 겹쳐 있고 그 사이는 비어 있다. 커버리지 오버레이(3자 셀)가 지금 보여주는 것이 딱 그것이다.</td></tr>
+    <tr><td><b>지도</b></td><td>Natural Earth 110m 해안선 + 육각 격자. 국경·강·지형 없음. 줌은 LOD 버킷 3단계(원경·중경·근경)로 라벨 밀도만 조절</td>
+      <td>확대할수록 배경이 사라진다. 원자가 왜 거기 있는지(협곡·해협·고개·평야)를 지도가 말해 주지 않는다 — 문명5의 지형 타일이 없는 셈이다.</td></tr>
+  </table>
+</div></section>
+
+<section class="section" id="why"><div class="wrap">
+  <div class="eyebrow">진단</div>
+  <h2 class="sec">세 가지 병목은 한 줄로 묶인다 — "보고서가 남기는 것이 너무 굵다"</h2>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🧩</span>범주가 굵다</h3>
+      <p>"경제" 레이어 하나에 조선소·양조장·리튬 광산·크루즈 관광이 다 들어간다. 주식 테마 렌즈가 그 중에서
+      상장기업만 남기고 싶어도 레이어로는 못 가른다. <b>범주는 렌즈의 재료</b>다 — 범주가 없으면 렌즈는 근사에 머문다.</p></div>
+    <div class="card"><h3><span class="ic">📉</span>원자가 적다</h3>
+      <p>적재 프롬프트가 "장소를 요약하라"에 가깝다. 요약은 사실을 합치고, 원자는 사실을 가른다. 8개 상한은
+      본래 비용·시간 가드였는데, 지금은 보고서 한 건($1.3)의 결과물을 8문장으로 줄이는 병목이 됐다.</p></div>
+    <div class="card"><h3><span class="ic">🗺️</span>좌표가 하나다</h3>
+      <p>캡처마다 로드뷰 좌표(pano lat/lng)와 방위가 있는데, 원자는 전부 보고서 시작점에 찍힌다. 지점 단서는
+      <b>그 캡처의 좌표</b>를 받아야 확대 지도에서 살아난다. 좌표는 이미 있다 — 잇지 않았을 뿐이다.</p></div>
+  </div>
+  <div class="principle"><b>원칙은 그대로다.</b> 원자는 여전히 보고서(분석·리서치)에서만 태어나고, 좌표는 실측(로드뷰
+  pano 좌표·Static 메타)에서만 온다 — LLM 지오코딩 금지. 늘리는 것은 <b>추출의 해상도</b>이지 추측의 허용이 아니다.
+  범주도 모델이 짓지 않는다 — <b>닫힌 어휘</b>에서 고르고, 못 고르면 <code>other</code> + 태그로 남긴다(관계 유형의 <code>related</code>와 같은 규칙).</div>
+</div></section>
+
+<section class="section" id="taxonomy"><div class="wrap">
+  <div class="eyebrow">범주 체계</div>
+  <h2 class="sec">레이어 7 → 범주 42 + 판별 단서 12 — 원자에 <code>category</code> 한 칸을 더한다</h2>
+  <p class="sec-desc">레이어는 바꾸지 않는다(기존 원자 1,244개·테마 행렬·뷰어 색이 전부 레이어에 걸려 있다). 레이어 아래에
+  <b>범주(category)</b>를 두고, 범주는 닫힌 어휘다. 아래는 첫 판이며, 실제 보고서 20건에서 뽑힌 원자로 검수한 뒤 고정한다.</p>
+  <table>
+    <tr><th>레이어</th><th>범주 (닫힌 어휘 — 슬러그)</th><th>지도 표현</th></tr>
+    <tr><td>economy</td><td><span class="tag">industry</span><span class="tag">agriculture</span><span class="tag">energy</span><span class="tag">mining</span><span class="tag">logistics</span><span class="tag">retail</span><span class="tag">finance</span><span class="tag">tourism-economy</span><span class="tag">real-estate</span><span class="tag">listed-company</span></td><td>기업·인프라 마커, 공급선. <code>listed-company</code>는 주식 렌즈의 유일한 정본</td></tr>
+    <tr><td>geography</td><td><span class="tag">landform</span><span class="tag">hydrology</span><span class="tag">climate</span><span class="tag">coast-port</span><span class="tag">pass-corridor</span><span class="tag">settlement-pattern</span></td><td>지형 위에 놓이는 원자 — 지형 레이어(§지형)와 짝</td></tr>
+    <tr><td>history</td><td><span class="tag">polity-rule</span><span class="tag">war-conflict</span><span class="tag">migration</span><span class="tag">founding</span><span class="tag">succession</span><span class="tag">treaty-border</span><span class="tag">memory-monument</span></td><td>시대 층위·강역과 교차</td></tr>
+    <tr><td>culture</td><td><span class="tag">religion</span><span class="tag">festival</span><span class="tag">cuisine</span><span class="tag">sport</span><span class="tag">media-arts</span><span class="tag">education</span><span class="tag">demography</span><span class="tag">politics-civic</span></td><td>여행·인재 렌즈</td></tr>
+    <tr><td>language</td><td><span class="tag">script</span><span class="tag">toponymy</span><span class="tag">dialect</span><span class="tag">signage-language</span></td><td>판별 단서와 겹침</td></tr>
+    <tr><td>architecture</td><td><span class="tag">housing-typology</span><span class="tag">roof-facade</span><span class="tag">religious-building</span><span class="tag">civic-building</span><span class="tag">urban-form</span><span class="tag">infrastructure-built</span></td><td>지점 원자의 주 공급원</td></tr>
+    <tr><td>nature</td><td><span class="tag">vegetation</span><span class="tag">protected-area</span><span class="tag">wildlife</span><span class="tag">hazard</span></td><td>여행 렌즈, 지형과 짝</td></tr>
+    <tr><td><b>cue</b> (신설 레이어 아님 — <code>category</code>만 있는 지점 원자)</td>
+      <td><span class="tag">road-signage</span><span class="tag">road-marking</span><span class="tag">bollard-guardrail</span><span class="tag">utility-pole</span><span class="tag">license-plate</span><span class="tag">vehicle-fleet</span><span class="tag">street-furniture</span><span class="tag">vegetation-cue</span><span class="tag">soil-terrain-cue</span><span class="tag">camera-coverage</span><span class="tag">business-chain</span><span class="tag">flag-emblem</span></td>
+      <td>확대했을 때만 보이는 마이크로 마커(§지도 디테일). 지오게서 복기의 핵심 재료이자, 확대 지도를 채우는 것</td></tr>
+  </table>
+  <div class="grid g2" style="margin-top:15px">
+    <div class="card"><h3><span class="ic">📐</span>스키마 변경 — 최소</h3>
+      <ul><li><code>Atom.category: str</code> 추가(선택). 없는 기존 원자는 <code>other</code>로 읽힌다 — 마이그레이션 없음.</li>
+      <li>index.json 에 <code>categories</code> 역색인(<code>tags</code>와 같은 모양). 뷰어는 범주 칩으로 필터.</li>
+      <li>적재 도구 스키마에 <code>category: enum[…]</code> 를 건다 — 모델이 어휘 밖을 내면 <code>other</code>로 강등(폐기 아님).</li>
+      <li>altaiya <code>rules.THEME_MATRIX</code> 에 범주 가중을 덧붙인다(레이어 가중은 폴백으로 유지).</li></ul></div>
+    <div class="card"><h3><span class="ic">🧪</span>어휘를 고정하는 방법</h3>
+      <ul><li>기존 원자 297건(보고서 유래)을 범주 어휘로 <b>1회 재분류</b>(LLM, ≈$0.5). 각 범주에 실례가 최소 3개 없으면 어휘에서 뺀다.</li>
+      <li>범주 분포가 한 칸에 30% 이상 몰리면 그 칸을 쪼갠다 — 지금의 "경제"가 그 예다.</li>
+      <li>어휘 변경은 기획서 개정으로만 — 코드에서 즉흥적으로 늘리지 않는다.</li></ul></div>
+  </div>
+</div></section>
+
+<section class="section" id="density"><div class="wrap">
+  <div class="eyebrow">밀도</div>
+  <h2 class="sec">보고서당 5 → 20+ 원자 — 적재를 세 갈래로 가른다</h2>
+  <p class="sec-desc">한 번의 "요약" 호출을 <b>세 개의 추출 패스</b>로 바꾼다. 각 패스는 재료가 다르고 좌표 정밀도가 다르다. 비용은 보고서당 +$0.3 안팎(sonnet, 배치).</p>
+  <table>
+    <tr><th>패스</th><th>재료</th><th>낳는 원자</th><th>좌표·스코프</th><th>상한</th></tr>
+    <tr><td><b>P1 지점 단서</b></td><td>캡처 이미지별 분석 <code>cues[]</code>·<code>landmarks[]</code> + 그 캡처의 pano 좌표·방위</td>
+      <td>"이 교차로의 표지판은 흰 바탕 검정 세리프, 지명은 카탈루냐어 병기" 같은 <b>cue 범주</b> 원자. 캡처당 2~5개</td>
+      <td><b>캡처의 pano 좌표</b> · scope=point (7자 셀). 방위(heading)를 메타로 보존</td><td>캡처당 5 · 보고서당 24</td></tr>
+    <tr><td><b>P2 장소 사실</b></td><td>분석 <code>narrowing</code>(판별 사슬)·<code>cultural_economic_read</code></td>
+      <td>지금의 원자와 같은 것 — 단, 판별 사슬의 <b>단계마다 하나</b>(국가→지역→도시→구역 각각의 판별자)</td>
+      <td>시작 좌표 · scope=city/region</td><td>12</td></tr>
+    <tr><td><b>P3 프로파일 사실</b></td><td>리서치 프로파일의 절(경제·산업·문화/역사·관광·인물·인접 비교·주민)</td>
+      <td>절마다 2~4개, 출처 URL 을 원자에 붙임. 인물·기업은 엔티티로 반드시 남김(아틀라스 행위자가 된다)</td>
+      <td>도시 좌표 · scope=city/region/country</td><td>절당 4 · 보고서당 20</td></tr>
+  </table>
+  <div class="grid g3" style="margin-top:15px">
+    <div class="card"><h3><span class="ic">🔁</span>중복은 병합으로</h3>
+      <p>원자가 4배 늘면 중복도 는다. 지금의 <code>_find_near_duplicate</code>(레이어·엔티티·태그·스코프 근사)에
+      <b>범주</b>를 조건으로 더하고, 같은 셀·같은 범주·제목 유사도 0.8 이상이면 병합한다. 병합은 <code>uses</code>를 올려
+      회상 점수에 남는다 — 지워지는 것은 없다.</p></div>
+    <div class="card"><h3><span class="ic">⏱</span>예산 밖에서 돈다</h3>
+      <p>P1·P3 는 보고서 응답 <b>뒤에</b> 백그라운드로 돈다(지금의 300초 예산 밖). 실패하면 <code>ingest --scan</code> 이
+      결손으로 잡아 사후 적재한다 — 오늘 만든 백필 경로를 그대로 쓴다.</p></div>
+    <div class="card"><h3><span class="ic">🧾</span>기존 57건 소급</h3>
+      <p>잡 로그에 <code>primaryAnalysis</code>가 남은 보고서는 P1·P2 를 소급할 수 있다(캡처 좌표는 result.images 와
+      captures/ 메타에서). 소급 1회 ≈ $15. 리서치 프로파일은 잡 로그에 없어 P3 소급은 <b>앞으로의 보고서부터</b>다 —
+      그래서 결과 JSON 에 프로파일을 남기는 것이 선행 작업이다.</p></div>
+  </div>
+  <div class="warnbox">⚠ 밀도는 회상(recall)에도 압력을 준다. 오늘 회상 필터를 고쳤지만(전역 원자 무조건 통과 폐지), 원자가 5천 개가
+  되면 점수식만으로는 부족하다. P1 지점 원자는 <b>같은 5자 셀 안에서만</b> 회상되게 스코프 규칙을 지키고, 회상 상한(12)은
+  범주별 상한(cue 4 · 장소 4 · 프로파일 4)으로 나눈다.</div>
+</div></section>
+
+<section class="section" id="lod"><div class="wrap">
+  <div class="eyebrow">지도 디테일</div>
+  <h2 class="sec">확대 단계마다 다른 것이 나타난다 — 문명5의 타일처럼</h2>
+  <p class="sec-desc">지금 뷰어의 LOD 는 라벨 밀도만 바꾼다. 앞으로는 <b>배경·원자·단서</b>가 줌에 따라 켜지고 꺼진다. 표는 뷰어의 <code>state.view.k</code>(월드 스케일 1도 = 8단위 기준)로 적었다.</p>
+  <table>
+    <tr><th>줌 (k)</th><th>대략 축척</th><th>배경</th><th>행위자·원자</th><th>새로 필요한 것</th></tr>
+    <tr><td>원경 k &lt; 2</td><td>대륙</td><td>Natural Earth 110m 해안선(지금) + <b>지형 음영(hillshade) 저해상</b></td><td>중심성 상위 행위자 · 사료권 · 강역</td><td>hillshade 래스터 1장(세계, 2,880×1,440 PNG ≈ 400KB)</td></tr>
+    <tr><td>중경 2 ≤ k &lt; 8</td><td>국가·지역</td><td><b>Natural Earth 10m</b> 해안선·강·호수·국경(퍼블릭 도메인) + 사료권 hillshade</td><td>전 행위자 · 관계선 · 커버리지 셀</td><td>10m 벡터를 사료권 bbox 로 잘라 <code>data/terrain/{sphere}.json</code>(≈100~300KB)</td></tr>
+    <tr><td>근경 8 ≤ k &lt; 24</td><td>도시</td><td>10m 벡터 + <b>등고선</b>(DEM 에서 100m 간격, 단순화)</td><td><b>원자 자체가 마커</b> — 장소 원자(city 스코프)를 작은 점으로, 호버에 제목</td><td>DEM 타일 → 등고선 폴리라인 (서버 1회 생성·캐시)</td></tr>
+    <tr><td>초근경 k ≥ 24</td><td>구역·거리</td><td>등고선 + 보고서 시작점 반경 원</td><td><b>지점 단서(cue) 마이크로 마커</b> — 캡처 pano 좌표에, 방위 화살표 · 클릭하면 캡처 썸네일과 원자 원문</td><td>P1 원자(§밀도) · 캡처 썸네일 경로(로컬 전용 — 배포본엔 없음, 정직하게 "로컬에서만" 표시)</td></tr>
+  </table>
+  <div class="grid g2" style="margin-top:15px">
+    <div class="card"><h3><span class="ic">🧭</span>왜 원자를 마커로 올리나</h3>
+      <p>행위자는 원자 좌표의 중앙값 한 점이다. 확대하면 그 중앙값 주위에 실제 관측 지점들이 흩어져 있어야
+      "이 도시는 이 골목들에서 이렇게 읽혔다"가 보인다. 원자가 마커가 되면 <b>지도가 곧 증거 목록</b>이 된다 —
+      관계선이 전부 원자를 인용하는 것과 같은 정직성이다.</p></div>
+    <div class="card"><h3><span class="ic">📦</span>왜 사료권 단위로 자르나</h3>
+      <p>세계 전체 10m 벡터는 수십 MB 다. 사료권(50개)은 이미 원자가 있는 곳만 덮으므로, 그 bbox 로 자르면
+      한 사료권에 100~300KB — 뷰어는 사료권을 선택하거나 그 안으로 줌인할 때만 받는다. <b>원자가 없는 곳은
+      배경도 굵다</b> — 커버리지와 같은 말을 지도 배경이 한다.</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="terrain"><div class="wrap">
+  <div class="eyebrow">지형 데이터</div>
+  <h2 class="sec">구글맵에서 지형을 가져오는 방법 — 되는 것, 안 되는 것, 대신 쓰는 것</h2>
+  <p class="sec-desc">"구글맵에 지형이 있으니 그걸 쓰자"는 세 가지로 갈린다. 표시(보여주기)는 되고, 추출(우리 SVG 로 다시 그리기·저장)은 안 되며,
+  숫자 데이터(고도)는 조건부다. README 의 ToS 절(캡처는 로컬·임시·비재배포, durable key 는 lat/lng)과 같은 선에서 정리한다.</p>
+  <table>
+    <tr><th>경로</th><th>무엇을 주나</th><th>허용 범위 (Google Maps Platform ToS · 서비스별 약관)</th><th>이 프로젝트에서</th></tr>
+    <tr><td><b>Maps JavaScript API — <code>mapTypeId: 'terrain'</code></b></td><td>구글의 지형 음영·등고 타일을 구글 지도 안에 표시</td>
+      <td><span class="ok-t">허용</span> — 구글 지도 위젯 안에서 보여주는 것은 정상 사용. <span class="no-t">금지</span> — 타일을 받아 저장·재조합·다른 지도에 얹기(3.2.3 프리페치/캐시/스크래핑 금지, 콘텐츠를 구글 지도 밖에서 사용 금지)</td>
+      <td><b>본체 2분할 지도에 지형 토글</b>(hybrid ↔ terrain). 가장 싸고 즉시 되는 것 — 캡처 합성 지도에도 지형 타입을 쓸 수 있다(Static Maps <code>maptype=terrain</code>, 이미지는 지금처럼 로컬·임시). 아틀라스 SVG 에는 못 올린다.</td></tr>
+    <tr><td><b>Elevation API</b></td><td>점·경로의 고도(m). $5 / 1,000 요청(2026 가격은 콘솔에서 확인)</td>
+      <td><span class="wn-t">조건부</span> — 숫자 응답을 계산에 쓰는 것은 되지만, 서비스별 약관의 <b>캐시 제한(대부분 콘텐츠 30일)</b>과 "구글 지도 밖 파생 지도 제작" 금지 조항에 걸린다. 사료권 50개 × 등고선용 격자(예: 100×100점 = 1만 점)를 영구 저장해 SVG 로 그리는 것은 그 조항을 정면으로 건드린다.</td>
+      <td><span class="no-t">아틀라스 배경에는 쓰지 않는다.</span> 쓸 곳은 하나 — 보고서의 <b>"이 지점 고도 N m"</b> 한 줄(캡처 좌표 1점, 표시용, 저장은 원자 본문의 숫자뿐). 이것은 약관상 안전한 선이다.</td></tr>
+    <tr><td><b>Map Tiles API (3D/2D 타일)</b></td><td>래스터·3D 타일</td><td><span class="no-t">금지</span> — 구글 렌더러 밖에서 쓰는 것 자체가 허용되지 않는다</td><td>쓰지 않는다</td></tr>
+    <tr><td><b>Copernicus GLO-30 / SRTM (공개 DEM)</b><br>AWS Terrain Tiles(<code>elevation-tiles-prod</code>, Terrarium PNG) · OpenTopography</td><td>전 지구 30m 고도. 오픈 라이선스(Copernicus: 출처 표기, SRTM: 퍼블릭 도메인, Terrain Tiles: 출처 표기)</td>
+      <td><span class="ok-t">허용</span> — 저장·재가공·재배포 가능</td>
+      <td><b>아틀라스 지형의 정본.</b> 사료권 bbox 로 z=7~9 타일을 받아 hillshade 래스터와 등고선 벡터를 만든다. 이 머신의 Python HTTPS 는 깨져 있으므로 <code>wiki.py</code>처럼 <b>curl 서브프로세스</b>로 받는다.</td></tr>
+    <tr><td><b>Natural Earth 10m</b></td><td>해안선·강·호수·국경·도시점 벡터</td><td><span class="ok-t">퍼블릭 도메인</span></td><td>중경·근경 배경 벡터. 110m 은 이미 쓰고 있다.</td></tr>
+    <tr><td><b>OpenStreetMap</b></td><td>도로·건물·행정경계</td><td><span class="wn-t">ODbL</span> — 출처 표기 + 파생 DB 공개 의무. 우리 사이드카(원자·관계)와 섞어 저장하면 그 DB 도 공개 대상이 될 수 있다</td><td>1차 범위 밖. 필요해지면 <b>표시 전용 타일</b>(저장 안 함)로 한정해 별도 기획.</td></tr>
+  </table>
+  <div class="dangerbox">🚫 <b>구글 지형 타일을 우리 SVG 로 옮겨 그리는 방법은 없다</b> — 기술적으로는 되지만 약관이 막고, 이 프로젝트는 README 첫 줄부터
+  ToS 를 지키는 복기 도구다. "안 된다"를 기획서에 적어 두는 이유는, 나중에 편해 보이는 지름길이 다시 떠오를 때 여기로 돌아오게 하려는 것이다.</div>
+  <h3 class="sub">지형 파이프라인 — 사료권 하나당 한 번, 캐시, LLM 무관여</h3>
+  <pre><span class="c"># altaiya/altaiya-backend/terrain.py (신규) — 읽기 전용 원자, 쓰기는 data/terrain/ 뿐</span>
+<span class="k">uv run --project E:\GeoguessHelper python altaiya\altaiya-backend\terrain.py build --sphere south-east-adriatic</span>
+  1. 사료권 bbox(+여백 15%) → 슬리피 타일 z=8 목록 (대개 4~16장)
+  2. curl 로 Terrarium PNG 수신 → 고도 = (R·256 + G + B/256) − 32768  <span class="c"># 저장하지 않는다, 계산만</span>
+  3. hillshade(태양 315°/45°) → 사료권 bbox 로 자른 PNG(≤ 200KB) → <span class="s">data/terrain/{sphere}.hillshade.png</span>
+  4. 등고선 100m 간격(도시권 사료권은 50m) → Douglas–Peucker 단순화 → <span class="s">data/terrain/{sphere}.contours.json</span>
+  5. Natural Earth 10m 벡터를 같은 bbox 로 잘라 <span class="s">data/terrain/{sphere}.vector.json</span>
+  6. meta: 출처·타일 z·생성 시각·라이선스 문자열 → 뷰어 범례가 그대로 표시
+<span class="c"># 뷰어: 사료권 선택 또는 그 bbox 로 줌인(k ≥ 2) 시 fetch, #g-terrain(g-world 아래) 에 image + path</span></pre>
+  <div class="grid g3" style="margin-top:15px">
+    <div class="card"><h3><span class="ic">🧊</span>왜 래스터 + 벡터 둘 다인가</h3><p>음영은 래스터가 싸고(PNG 한 장), 등고선은 벡터라야 줌에서 깨지지 않는다. 둘 다 사료권당 300KB 안쪽이면 배포본(Railway)에 실어도 4.8MB 스냅샷 옆에서 부담이 없다.</p></div>
+    <div class="card"><h3><span class="ic">🧾</span>출처는 화면에</h3><p>범례에 "지형: Copernicus GLO-30 (ESA) · 해안선: Natural Earth"를 상시 표기한다. 오픈 데이터도 출처 표기가 조건이다 — 원자에 출처 URL 을 붙이는 것과 같은 규칙.</p></div>
+    <div class="card"><h3><span class="ic">🛑</span>없으면 없는 대로</h3><p>지형 파일이 없는 사료권은 지금처럼 110m 해안선만 그린다. 뷰어는 어느 사료권에 지형이 있는지 <code>meta.terrain</code> 으로 밝힌다 — 침묵 폴백 금지.</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="stages"><div class="wrap">
+  <div class="eyebrow">개발 계획</div>
+  <h2 class="sec">6단계 — 각 단계가 독립 검증 가능, 앞 단계가 뒤를 막지 않는다</h2>
+  <table>
+    <tr><th style="width:30px"></th><th>단계</th><th>산출물</th><th>끝났음을 아는 방법</th><th>비용</th></tr>
+    <tr><td><span class="num">1</span></td><td><b>범주 어휘 고정</b></td>
+      <td><code>knowledge.CATEGORIES</code>(닫힌 어휘) · <code>Atom.category</code> · index <code>categories</code> 역색인 · 보고서 유래 297건 재분류 스크립트(<code>geoguesshelper categorize</code>, 증분·체크포인트)</td>
+      <td>297건 전부 범주를 갖고 <code>other</code>가 10% 미만. 무작위 30건 수작업 검수에서 오분류 ≤ 3건</td><td>≈ $0.5</td></tr>
+    <tr><td><span class="num">2</span></td><td><b>결과 JSON 에 프로파일 보존</b></td>
+      <td>잡 결과에 <code>research</code>(프로파일·출처) 저장 · 캡처별 pano 좌표·방위를 결과 <code>images[]</code> 메타에</td>
+      <td>새 보고서 1건을 만든 뒤 <code>ingest --redo</code> 로 같은 원자를 재현할 수 있다(재료가 잡 로그에 다 있다)</td><td>0</td></tr>
+    <tr><td><span class="num">3</span></td><td><b>세 갈래 적재 (P1·P2·P3)</b></td>
+      <td><code>knowledge.ingest</code> 를 세 패스로 · P1 은 캡처 좌표·point 스코프 · 예산 밖 백그라운드 · 범주별 회상 상한</td>
+      <td>보고서 1건이 원자 <b>20개 이상</b>을 남기고, 그중 point 스코프가 캡처 수 × 2 이상. 아틀라스 확대 시 마이크로 마커가 캡처 자리마다 뜬다</td><td>보고서당 +$0.3</td></tr>
+    <tr><td><span class="num">4</span></td><td><b>본체 지도 지형 토글</b></td>
+      <td>2분할 지도 hybrid ↔ terrain 토글 · Static 캡처 합성에 <code>maptype=terrain</code> 옵션 · 보고서에 "지점 고도" 한 줄(Elevation API 1점)</td>
+      <td>로드뷰 아래 지도에 등고·음영이 보이고, 보고서 머리에 고도가 찍힌다. 저장되는 것은 숫자 한 개뿐</td><td>Elevation 1점/보고서</td></tr>
+    <tr><td><span class="num">5</span></td><td><b>사료권 지형 파이프라인</b></td>
+      <td><code>terrain.py build</code> · <code>data/terrain/</code> · 뷰어 <code>#g-terrain</code> + 줌 LOD 4단계 · 범례 출처</td>
+      <td>남동 아드리아 사료권을 골라 줌인하면 hillshade·등고선·10m 해안선이 뜨고, 없는 사료권은 "지형 없음"이 범례에 보인다. Railway 배포본에서도 같다</td><td>0 (공개 데이터)</td></tr>
+    <tr><td><span class="num">6</span></td><td><b>원자 마커 + 단서 레이어</b></td>
+      <td>근경에서 city 원자 점 · 초근경에서 cue 마이크로 마커(방위 화살표) · 클릭 → 원자 원문·캡처 썸네일(로컬) · 범주 칩 필터</td>
+      <td>추크 보고서 자리로 줌인하면 캡처 6개 지점에 단서 마커가 서고, 범주 칩 <code>road-signage</code> 만 켜면 표지판 원자만 남는다</td><td>0</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--muted);margin-top:8px">규모 감각: 1단계 ~200줄 · 2단계 ~60줄 · 3단계 ~350줄(적재 분리가 핵심) · 4단계 ~80줄 · 5단계 ~300줄(terrain.py) + 뷰어 ~150줄 · 6단계 ~200줄. 새 라이브러리는 5단계의 PNG 디코드에 Pillow(이미 capture extra 에 있음)뿐이다.</p>
+</div></section>
+
+<section class="section" id="verify"><div class="wrap">
+  <div class="eyebrow">검증 기준</div>
+  <h2 class="sec">"됐다"를 판정 가능한 문장으로</h2>
+  <table>
+    <tr><th>#</th><th>검증 항목</th><th>기준</th></tr>
+    <tr><td>V1</td><td>밀도</td><td>새 보고서 10건의 원자/보고서 <b>중앙값 ≥ 20</b>, point 스코프 비율 ≥ 40%. 병합률(merged/created) ≤ 25%</td></tr>
+    <tr><td>V2</td><td>범주 정밀도</td><td>무작위 40원자 수작업 검수 — 범주 오류 ≤ 4, <code>other</code> ≤ 10%</td></tr>
+    <tr><td>V3</td><td>회상 정합</td><td>지리적으로 무관한 원자가 회상에 실리지 않는다(오늘 고친 필터 유지) — 새 보고서 10건에서 타국 원자 0건. 지점 원자는 5자 셀 밖에서 회상되지 않는다</td></tr>
+    <tr><td>V4</td><td>지도 LOD</td><td>k=1·4·12·30 네 줌에서 각각 정해진 레이어만 켜진다(스크린샷 4장). 초근경에서 60fps 유지(원자 5천 기준)</td></tr>
+    <tr><td>V5</td><td>지형 정합</td><td>남동 아드리아 등고선이 10m 해안선과 200m 이상 어긋나지 않는다(두브로브니크 스르지 산 412m 등고선 위치로 확인)</td></tr>
+    <tr><td>V6</td><td>ToS</td><td>구글 콘텐츠가 저장된 파일이 <code>captures/</code>(로컬·임시) 밖에 하나도 없다 — <code>data/terrain/</code> 의 모든 파일 meta 에 출처가 Copernicus/SRTM/Natural Earth 로 찍혀 있다</td></tr>
+    <tr><td>V7</td><td>실사용</td><td>사용자가 추크 자리로 줌인해 "이 골목의 표지판·전신주가 왜 스위스인지"를 마커 3개로 읽는다 — 통과/보완은 사용자가 판정</td></tr>
+  </table>
+</div></section>
+
+<section class="section" id="not"><div class="wrap">
+  <div class="eyebrow">이 기획이 하지 않는 것</div>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🚫</span>구글 지형의 추출</h3><p>타일·고도 격자를 받아 저장하고 우리 지도에 다시 그리지 않는다. 구글 지형은 구글 지도 안에서만 본다.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>LLM 지오코딩</h3><p>원자 좌표는 캡처 pano 좌표·시작 좌표·국가 폴리곤 중심에서만 온다. "이 표지판은 아마 저 사거리"를 모델이 찍지 않는다.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>OSM 도로망</h3><p>도로·건물은 1차 범위 밖이다. ODbL 의 파생 DB 공개 의무가 사이드카에 번지는 것을 먼저 판단해야 한다 — 별도 기획.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>범주의 즉흥 확장</h3><p>모델이 낸 새 범주를 코드가 받아 주지 않는다. 어휘는 기획서 개정으로만 는다.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>기존 원자 소급 재작성</h3><p>1,244개 원자의 본문은 그대로다. 범주 한 칸을 더할 뿐, 텍스트를 다시 쓰지 않는다(위키·확장 원자는 범주도 <code>other</code>로 두고 태그로 남긴다).</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>3D</h3><p>hillshade 는 2D 음영이다. 3D 지형·건물 렌더는 하지 않는다.</p></div>
+  </div>
+</div></section>
+
+<div class="foot"><div class="wrap">GeoGuessHelper · 원자 밀도와 지도 디테일 기획 · 2026-08-29 — 아틀라스 v2(knowledge-atlas_260816)·강역 스케치(territory-sketch_260826)의 원칙 위에 선다:
+원자 불변 · 사이드카 · 그리는 데이터가 없으면 긋지 않는다 · 구글 콘텐츠는 로컬·임시·비재배포.
+실측: 원자 1,244(보고서 297 · 확장 617 · 위키 330) · 보고서 57 · 원자/보고서 중앙값 5 · point 3 · 좌표 보유 453 · 지오해시 3/5/7자 셀 69/31/1 (docs/knowledge/index.json, 2026-08-29 23:50 집계).
+같은 날 실행: 보고서 12건 흡수(대장 2,677 · 관계 838 · 사료권 50) · 어드바이저 보고서 파일럿(travel × 남동 아드리아, docs/report/atlas/) · 공백 화면·커버리지 오버레이 · ingest 백필.</div></div>
+
+</body>
+</html>
