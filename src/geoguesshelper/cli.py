@@ -79,6 +79,24 @@ def main() -> None:
     p_wk.add_argument("--parallel", type=int, default=3, help="동시 호출 수")
     p_wk.add_argument("--dry-run", action="store_true", help="호출 없이 청크 계획만 보여준다")
 
+    p_ing = sub.add_parser(
+        "ingest",
+        help="지식 적재가 생략된 보고서를 찾아 사후 적재 (doctor)",
+        description=(
+            "보고서 HTML 과 지식 노트를 대사해 결손(예산 초과로 적재가 생략된 보고서 등)을 "
+            "찾고, 잡 로그에 남은 분석 결과로 사후 적재한다. 인자 없이 부르면 결손 목록만 "
+            "보여주는 모의 실행이고, --apply 를 붙여야 실제로 적재한다(LLM 호출·비용 발생). "
+            "특정 보고서만 지정하려면 경로를 넘긴다."
+        ),
+    )
+    p_ing.add_argument("paths", nargs="*", help="보고서 .html 파일 또는 폴더 (생략 = 전체 스캔)")
+    p_ing.add_argument("--scan", action="store_true",
+                       help="(기본 동작과 같음) 결손만 나열 — 과거 호환용 명시 플래그")
+    p_ing.add_argument("--apply", action="store_true",
+                       help="실제로 적재한다 (없으면 결손 목록만)")
+    p_ing.add_argument("--redo", action="store_true",
+                       help="이미 노트가 있는 보고서도 다시 적재")
+
     args = ap.parse_args()
 
     if args.cmd == "extract":
@@ -124,10 +142,106 @@ def main() -> None:
             ensure_ascii=False, indent=2))
         return
 
+    if args.cmd == "ingest":
+        _ingest(args)
+        return
+
     # 기본: 서버 실행
     from .server import main as serve_main
 
     serve_main()
+
+
+def _ingest(args) -> None:
+    """보고서↔지식 노트 대사 + 사후 적재.
+
+    재료는 잡 로그(docs/jobs/jobs.jsonl)의 result.primaryAnalysis 다 — 분석은 이미
+    끝나 있으므로 비전 재호출 없이 적재 LLM 한 번이면 된다. 리서치 결과는 잡 로그에
+    저장되지 않아 사후 적재 원자는 분석 근거만 갖는다(한계를 노트에 명시).
+    """
+    import re
+    from pathlib import Path
+
+    from . import knowledge
+    from .config import load_settings
+
+    settings = load_settings()
+    st = knowledge.store_for(settings)
+    idx = st.index()
+    noted = set((idx.get("reports") or {}).keys())
+
+    # 잡 로그: 보고서 파일명 → 잡 결과 (뒤 항목이 더 최신이라 덮어쓴다)
+    by_file: dict[str, dict] = {}
+    jobs_log = settings.jobs_dir / "jobs.jsonl"
+    if jobs_log.exists():
+        for line in jobs_log.read_text(encoding="utf-8").splitlines():
+            try:
+                d = json.loads(line)
+            except ValueError:
+                continue
+            res = d.get("result") or {}
+            for rep in (res.get("reports") or []):
+                if isinstance(rep, dict) and rep.get("file"):
+                    by_file[rep["file"]] = res
+
+    # 대상: 지정 경로 또는 보고서 폴더 전체(하위 폴더 포함, 아틀라스/문서 폴더 제외)
+    if args.paths:
+        files: list[Path] = []
+        for p in args.paths:
+            pth = Path(p)
+            files += sorted(pth.rglob("report_*.html")) if pth.is_dir() else [pth]
+    else:
+        files = sorted(settings.reports_dir.rglob("report_*.html"))
+
+    targets = [f for f in files if args.redo or f.name not in noted]
+    print(f"[ingest] 보고서 {len(files)}건 중 노트 결손 {len(targets)}건"
+          + ("" if args.redo else f" (노트 있음 {len(files) - len(targets)}건은 건너뜀)"))
+
+    coord_re = re.compile(r"_(-?\d+(?:\.\d+)?)_(-?\d+(?:\.\d+)?)_(\d{6})_(\d{6})_([a-z-]+)\.html$")
+    total_cost, done = 0.0, 0
+    for f in targets:
+        res = by_file.get(f.name)
+        analysis = (res or {}).get("primaryAnalysis")
+        m = coord_re.search(f.name)
+        if not analysis or not m:
+            why = "잡 로그에 분석 결과 없음" if not analysis else "파일명에서 좌표를 못 읽음"
+            print(f"  - {f.name}: 재료 없음({why}) — 건너뜀")
+            continue
+        if not args.apply:
+            print(f"  - {f.name}: 적재 가능 (--apply 로 실행)")
+            continue
+
+        lat, lng = float(m.group(1)), float(m.group(2))
+        langs = [x for x in m.group(5).split("-") if x]
+        a = analysis.get("analysis") if isinstance(analysis, dict) else {}
+        g = (a or {}).get("best_guess") or {}
+        place_label = ", ".join(x for x in [g.get("city"), g.get("region_or_state"),
+                                            g.get("country")] if x)
+        known = [x for x in (st.load(i) for i in
+                             ((res.get("knowledge") or {}).get("recalled") or [])) if x]
+        kb = knowledge.ingest(
+            settings, analysis=analysis, research=None,
+            lat=lat, lng=lng, report_file=f.name, known=known,
+        )
+        total_cost += kb.get("cost_usd") or 0.0
+        summary = ""
+        script_path = f.parent / (f.stem + ".script.json")
+        if script_path.exists():
+            try:
+                summary = (json.loads(script_path.read_text(encoding="utf-8"))
+                           .get("lede") or "")
+            except ValueError:
+                pass
+        knowledge.write_report_note(
+            settings, report_file=f.name, place=place_label, lat=lat, lng=lng,
+            atoms=kb.get("atoms") or [], langs=langs,
+            summary=(summary + "\n\n(사후 적재 — 리서치 결과 없이 분석만으로 적재됨)").strip(),
+        )
+        done += 1
+        print(f"  + {f.name}: 원자 {kb.get('created', 0)} 신규 · {kb.get('merged', 0)} 병합"
+              f" · ${kb.get('cost_usd') or 0.0:.3f}")
+    if args.apply:
+        print(f"[ingest] 적재 {done}건 · ${total_cost:.3f}")
 
 
 def _clean(args) -> None:

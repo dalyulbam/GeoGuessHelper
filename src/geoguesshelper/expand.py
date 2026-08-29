@@ -239,7 +239,11 @@ def run(settings: Settings, *, limit: int = 0, batch: int = 6, dry_run: bool = F
         parallel: int = 3, log=print) -> dict:
     """확장 패스 실행. limit=0 이면 남은 씨앗 전부. 반환은 상태 dict."""
     st = store_for(settings)
-    seeds = [a for a in st.all_atoms() if "expansion" not in a.tags]  # 확장 원자는 재확장하지 않는다
+    # 씨앗은 보고서(현장 조사)에서 태어난 원자만 — 확장 원자는 재확장하지 않고(자기 증식),
+    # 위키 인제스트 원자도 제외한다(이미 일반화된 리스트 요약이라 worldwide/people/counterpart
+    # 축으로 다시 일반화할 것이 없다. eb4d8e1 의 전제도 "다음 보고서가 만든 원자만"이었다).
+    seeds = [a for a in st.all_atoms()
+             if "expansion" not in a.tags and "wiki" not in a.tags]
     state = _load_state(settings)
     done = set(state["seeds_done"])
     todo = [a for a in seeds if a.id not in done]

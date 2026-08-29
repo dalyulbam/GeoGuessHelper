@@ -1,6 +1,8 @@
 [project]
 name = "geoguesshelper"
-version = "0.2.2"
+# 버전의 유일한 출처는 src/geoguesshelper/__init__.py 의 __version__ 이다 —
+# 여기 숫자를 따로 두면 반드시 어긋난다(실제로 0.2.2 vs 0.5.0 으로 어긋났었다).
+dynamic = ["version"]
 description = "지오게서 구글 로드뷰 2분할 뷰어 · 장면 캡처 · 지리/문화/경제 분석"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -26,6 +28,9 @@ geoguesshelper-server = "geoguesshelper.server:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/geoguesshelper/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/geoguesshelper"]

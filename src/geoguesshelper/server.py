@@ -156,7 +156,9 @@ def _build_reports_sync(
             limit=settings.knowledge_recall_limit, char_budget=settings.knowledge_recall_chars,
         )
         if known:
-            job.emit("recall", f"지식 저장소에서 관련 사실 {len(known)}건 회상 — 재조사 생략", 35)
+            # ("재조사 생략" 아님 — 리서치는 그대로 돌고, 아는 사실은 프롬프트로 전달돼
+            #  같은 것을 다시 검색하지 않게 한다.)
+            job.emit("recall", f"지식 저장소에서 관련 사실 {len(known)}건 회상 — 리서치에 전달", 35)
 
     # ── 3) 리서치 (기준 언어 1회) ────────────────────────────────
     job.raise_if_canceled()
@@ -233,6 +235,7 @@ def _build_reports_sync(
         batch.append(make_script)
 
     script_doc = None
+    script_skip = None      # 스크립트 단계가 SKIP 으로 끝났으면 그 이유 — 침묵 폴백 금지
     if batch:
         for res in _llm.gather(batch, settings):
             if isinstance(res, Exception):
@@ -251,6 +254,12 @@ def _build_reports_sync(
                              + (f"{tb.get('verified_by')} (지적 {len(tb.get('unsupported') or [])}건)"
                                 if tb.get("checked") else "생략"),
                              78)
+                else:
+                    # 스크립트는 부가 산출물이라 실패해도 보고서는 나간다 — 하지만 침묵은
+                    # 금물이다(260812 오진 기록의 '조용한 폴백' 패턴). 로그와 결과에 남긴다.
+                    script_skip = tb.get("reason") or "unknown"
+                    errors.append({"lang": "*", "message": f"스크립트 생략: {script_skip}"})
+                    job.emit("script", f"⚠ 스크립트 생략 — {script_skip}", 78)
                 continue
             need_a = lang != analysis_lang
             need_p = base_profile is not None and lang != research_lang
@@ -357,8 +366,12 @@ def _build_reports_sync(
     kb = {}
     if reports and settings.knowledge_enabled and over_budget():
         # 보고서는 이미 나왔다. 예산을 넘었으면 적재는 다음 기회로 미룬다 —
-        # 사용자를 더 기다리게 하는 것보다 낫다.
-        job.emit("knowledge", f"예산 초과({elapsed():.0f}초) — 지식 적재 생략", 98)
+        # 사용자를 더 기다리게 하는 것보다 낫다. 미룬 것은 결과에 표식으로 남겨
+        # `geoguesshelper ingest --scan` 이 찾아 사후 적재할 수 있게 한다.
+        kb = {"skipped": f"over-budget({elapsed():.0f}s)"}
+        job.emit("knowledge",
+                 f"예산 초과({elapsed():.0f}초) — 지식 적재 생략 "
+                 f"(사후 적재: geoguesshelper ingest --scan --apply)", 98)
     elif reports and settings.knowledge_enabled:
         job.emit("knowledge", "지식 저장소에 적재 중…", 95)
         kb = knowledge.ingest(
@@ -384,8 +397,9 @@ def _build_reports_sync(
         "errors": errors,
         "primaryAnalysis": base_result,
         "baseLang": base,
-        "script": {"file": script_file, "sections": len((script_doc or {}).get("sections") or []),
-                   **((script_doc or {}).get("_meta") or {})} if script_doc else None,
+        "script": ({"file": script_file, "sections": len((script_doc or {}).get("sections") or []),
+                    **((script_doc or {}).get("_meta") or {})} if script_doc
+                   else ({"status": "SKIP", "reason": script_skip} if script_skip else None)),
         "elapsed_s": round(elapsed(), 1),
         "budget_s": settings.job_budget_s,
         "cost_usd": round(total_cost, 4),
@@ -397,6 +411,7 @@ def _build_reports_sync(
             "recalled": [a.id for a in known],
             "created": kb.get("created", 0),
             "merged": kb.get("merged", 0),
+            "skipped": kb.get("skipped"),
             "reused": (base_research or {}).get("reused_atom_ids") or [],
             "searches": (base_research or {}).get("searches", 0),
         },

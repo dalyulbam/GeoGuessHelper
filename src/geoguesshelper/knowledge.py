@@ -348,9 +348,15 @@ def recall(
     for aid, meta in idx["atoms"].items():
         scope = meta.get("scope") or "city"
         prec = _SCOPE_PRECISION.get(scope, 5)
+        tag_s = _jaccard(q_tags, {slug(t) for t in (meta.get("tags") or [])})
+        ent_s = _jaccard(q_ents, {slug(e) for e in (meta.get("entities") or [])})
         geo = 0.0
         if prec == 0:
-            geo = 0.6                                   # 시기/전역 원자는 지리 조건 없음
+            # 시기/전역 원자는 지리 조건이 없는 대신 내용 접점이 있어야만 후보가 된다.
+            # 무조건 0.6 을 주면 전역 원자 수백 개가 모든 장소의 후보가 되어, 추크(스위스)
+            # 보고서에 이탈리아·폴란드 원자가 '이미 확립된 사실'로 실렸다(260829 실측).
+            if ent_s > 0 or tag_s >= 0.2:
+                geo = 0.6
         elif q_cell and meta.get("cell"):
             if q_cell[:prec] == str(meta["cell"])[:prec]:
                 geo = 1.0
@@ -358,9 +364,9 @@ def recall(
                 d = haversine_km(lat, lng, meta.get("lat"), meta.get("lng"))
                 if d <= float(meta.get("radius_km") or 0):
                     geo = 0.8
-        tag_s = _jaccard(q_tags, {slug(t) for t in (meta.get("tags") or [])})
-        ent_s = _jaccard(q_ents, {slug(e) for e in (meta.get("entities") or [])})
-        if geo <= 0 and tag_s <= 0 and ent_s <= 0:
+        # 지리 접점도 엔티티 접점도 없는 원자는 태그만으로 들어오지 못한다 —
+        # #road-signage 같은 일반 태그가 지구 반대편 원자를 끌어오는 것을 막는다.
+        if geo <= 0 and ent_s <= 0:
             continue
         age_days = max(0.0, (now - float(meta.get("updated") or now)) / 86400.0)
         score = (
