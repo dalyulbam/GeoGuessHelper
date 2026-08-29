@@ -71,7 +71,8 @@ uv run --extra all playwright install chromium
    - **⚡ 바로 보고서 추출**(포즈 카드) — 지금 화면 캡처 → 분석 → 보고서 한 번에
    - **📄 선택 장면 보고서 생성**(앨범) — 캡처들을 분석+보고서
    - **분석** → **📄 보고서 생성**(분석 카드) — 이미 분석한 결과를 보고서로
-   결과는 `docs/report/*.html`(이미지 임베드 자기완결형).
+   결과는 `docs/report/{국가ISO2}/*.html`(이미지 임베드 자기완결형) — 보고서가 60건을 넘어 국가 폴더로 나눴다.
+   지식 저장소·잡 로그·뷰어는 파일명(basename)만 기억하고 `config.find_report()` 가 폴더를 찾는다.
 
 ### 언어 · 웹 리서치 (헤더)
 - **🌐 보고서 언어** — 한국어(기본)·English·日本語·中文·Español·Français·Deutsch. **여러 개 체크**하면
@@ -82,6 +83,21 @@ uv run --extra all playwright install chromium
 - **🔎 웹 리서치 심화**(기본 켬) — 식별한 도시를 **Claude 웹 검색**으로 조사해, 보고서에 *경제·산업·문화/역사·관광·주요 인물·인접 도시와의 비교/경쟁·장단점·주민 특징 + 출처*를 담은 **도시 프로파일**을 추가한다. (검색 호출이라 리포트당 수십 초·비용 추가 — 끄면 이미지 분석만.)
 - **번역 사후 수리** — 번역 청크가 일시 오류(레이트리밋 등)로 죽어 언어 탭에 영어가 남은 보고서는
   `uv run geoguesshelper retranslate <파일|폴더> -l ko [--dry-run]` 으로 제자리 수리한다(원본 `.bak` 보존).
+
+### 지식 저장소 · 아틀라스 (CLI)
+보고서마다 **지식 원자**(`docs/knowledge/atoms/*.md`)가 쌓이고, 다음 보고서가 그것을 회상해 재조사를 줄인다.
+쌓인 원자는 하위 프로젝트 [`altaiya/`](altaiya/README.md)(지식 아틀라스 — 행위자·관계·시대·강역 지도)가 읽는다.
+
+| 명령 | 하는 일 |
+|---|---|
+| `uv run geoguesshelper ingest [--apply] [--redo]` | 보고서↔지식 노트 대사(doctor). 예산 초과로 적재가 생략된 보고서를 잡 로그의 분석 결과로 사후 적재. 기본은 모의 실행 |
+| `uv run geoguesshelper atlas-report -t travel -r sphere:<key> -l ko -l en` | **어드바이저 보고서** — 아틀라스 슬라이스(테마 × 범위)를 원자만으로 서술 → `docs/report/atlas/`. 웹 검색·지식 적재 없음(비순환). 서버는 `POST /api/jobs/atlas-report` |
+| `uv run geoguesshelper expand [--dry-run]` | 원자 전방위 확장(worldwide/people/counterpart) — 보고서 유래 원자만 씨앗 |
+| `uv run geoguesshelper wiki [--dry-run]` | 위키피디아 리스트(시대·왕조·제국·국가) → 원자 |
+| `uv run geoguesshelper clean [--apply]` | 캡처·임시파일·로그 정리(기본 모의 실행) |
+
+원자가 늘면 아틀라스 사이드카를 **`entities → relations → eras` 순서로** 증분 추출하고(`altaiya/README.md`), `altaiya/sync-knowledge.ps1` 로 배포 스냅샷을 갱신한다.
+다음 기획: [원자 밀도와 지도 디테일 (260829)](docs/plan/atom-density-map-detail_260829.html) — 범주 체계·보고서당 원자 20+·줌 LOD·공개 DEM 지형.
 
 ## 아키텍처
 
@@ -95,10 +111,22 @@ src/geoguesshelper/
   analyze.py      Claude 비전(tool_use 구조화 출력) — 언어 지정, 개인 식별 금지 가드
   research.py     Claude 웹 검색(server tool)으로 도시 프로파일 조사 + 출처
   report.py       분석+리서치 → 다국어 자기완결형 HTML 리포트(이미지 base64 임베드)
+  script.py       보고서 스크립트(초안 haiku → 검증 opus) — HTML 옆 .script.json
+  translate.py    문자열 번역 파이프라인(harvest → translate → splice) · retranslate.py 사후 수리
+  jobs.py         작업 큐(동시 실행 상한·SSE 진행·취소·시간 예산) · docs/jobs/jobs.jsonl
+  knowledge.py    지식 저장소 — 원자 추출(ingest)·회상(recall)·엔티티/장소/보고서 노트·종합
+  expand.py       패스D 원자 전방위 확장 · wiki.py 패스W 위키피디아 인제스트
+  atlas_report.py 어드바이저 보고서 — altaiya 조립을 슬라이스해 원자만으로 서술
+  llm.py          모델 라우팅(vision/fact/reason/draft)·스트리밍·예산 · tls.py 프록시 TLS
+  cleanup.py      캡처·임시파일·로그 정리(모의 실행 기본, docs/knowledge 보호)
+  cli.py          serve · extract · clean · retranslate · expand · wiki · ingest · atlas-report
   i18n.py         지원 언어 레지스트리 + 리포트 라벨/enum 현지화
-  config.py       .env(python-dotenv) + Settings
-  webui/          index.html · app.js · styles.css (2분할 SPA)
-captures/         캡처 스틸(로컬·임시)      docs/plan · docs/report
+  config.py       .env(python-dotenv) + Settings · report_subdir/find_report
+  webui/          index.html · app.js · sphere.js · styles.css (2분할 SPA)
+captures/         캡처 스틸(로컬·임시)
+docs/report/{iso2}/  지점 보고서(국가 폴더) · docs/report/atlas/ 어드바이저 보고서 · docs/knowledge/ 원자·노트
+docs/plan · docs/error · docs/implement   기획 · 오진 기록 · 구현 노트
+altaiya/          지식 아틀라스 서브모듈(dalyulbam/altaiya) — 뷰어·추출기·사이드카·배포 스냅샷
 ```
 
 설계·기술 근거(구글 API 표면, URL 파싱, ToS)는 [설계 문서](docs/plan/geoguesshelper-split-capture-plan_260708.html)에 정리돼 있다.
