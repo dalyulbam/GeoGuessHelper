@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeoGuessr 국가별 팀 — Nations Cup·한국 씬</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --ink:#1c2430; --sub:#5b6570; --line:#e3e7ec;
+  --accent:#0f766e; --accent-soft:#e6f2f1; --warn:#92400e; --warn-soft:#fef3c7;
+  --raw:#7c3aed; --raw-soft:#f3e8ff; --gold:#b45309;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#12161c; --card:#1a2029; --ink:#e8ecf1; --sub:#9aa5b1; --line:#2a323d;
+    --accent:#2dd4bf; --accent-soft:#123f3b; --warn:#fbbf24; --warn-soft:#3a2c0e;
+    --raw:#c4b5fd; --raw-soft:#2e2350; --gold:#fbbf24; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.65}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+nav a{padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);text-decoration:none;font-size:14px}
+nav a.here{background:var(--accent);border-color:var(--accent);color:#fff}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+h3{font-size:16px;margin:20px 0 8px}
+.sub{color:var(--sub);font-size:14px;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0}
+a{color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--sub);font-weight:600;font-size:13px}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.ok{background:var(--accent-soft);color:var(--accent)}
+.mid{background:var(--warn-soft);color:var(--warn)}
+.raw{background:var(--raw-soft);color:var(--raw)}
+.champ{color:var(--gold);font-weight:700}
+.note{font-size:13px;color:var(--sub)}
+footer{margin-top:44px;font-size:13px;color:var(--sub);border-top:1px solid var(--line);padding-top:14px}
+.tablewrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a href="index.html">허브</a>
+  <a href="players.html">선수</a>
+  <a href="matches.html">경기·승부처</a>
+  <a href="schedule.html">대회 일정</a>
+  <a href="broadcasts.html">중계 채널</a>
+  <a class="here" href="teams.html">국가별 팀</a>
+</nav>
+
+<h1>국가별 팀 — Nations Cup · 한국 씬</h1>
+<p class="sub">기준일 2026-09-03 · 이 페이지의 대부분은 Liquipedia 위키텍스트 원문에서 추출한 <span class="badge raw">수집 단계</span> 정보(교차검증 미실시)이며, 별도 표기한 항목만 검증됨</p>
+
+<h2>전제 — “국가별 팀”의 현실 <span class="badge ok">검증됨(부분)</span></h2>
+<div class="card">
+<p>공식 월드 챔피언십 서킷은 <b>개인전(1v1)</b>이라 상설 국가대표팀 제도가 없다. 국가 단위 팀이 실제로 겨루는 무대는:</p>
+<ul>
+<li><b>GeoGuessr Nations Cup</b> — 커뮤니티 주최 국가대항전(아래 상세). 현재까지 확인된 유일한 본격 국가대항 팀전.</li>
+<li><b>GeoGuessr Pro Team (Duels) Tournament</b> — 공식 방송 팀 이벤트(2026-03-01 시작)이나 국가 기반인지 여부와 로스터는 이번 조사에서 확보되지 않음. <span class="badge ok">존재는 검증됨</span></li>
+</ul>
+</div>
+
+<h2>GeoGuessr Nations Cup Season 1 — 8개국 로스터 <span class="badge raw">수집 단계</span></h2>
+<p>온라인 · 2026-03-29 ~ 04-05 · 더블 엘리미네이션 · $1,000 · 주최: Ke-WA Corporation + 일본 지오 스포츠 협회(Japan Geo Sports Association)</p>
+<div class="tablewrap"><table>
+<tr><th>순위</th><th>국가</th><th>로스터</th><th>결과</th></tr>
+<tr><td class="champ">1위</td><td class="champ">🇺🇸 미국</td><td>Radu, mk, Angelo, Kirstin <span class="note">(Kirstin은 2일차 합류)</span></td><td>그랜드 파이널 2-3 패배 후 브래킷 리셋 3-0 승 · $700</td></tr>
+<tr><td>2위</td><td>🇫🇷 프랑스</td><td>Blinky, Noksi, Alfa</td><td>$300</td></tr>
+<tr><td>3위권</td><td>🇸🇪 스웨덴</td><td>Kapten, kfl, Panam, Wafflyss</td><td>어퍼 파이널 1-3 USA 패, 로워 파이널 2-3 프랑스 패</td></tr>
+<tr><td>—</td><td>🇯🇵 일본</td><td>Shiina, YRP, Eurya, Shiyoe</td><td>1라운드 2-1 독일 승, 어퍼 4강 0-2 USA 패</td></tr>
+<tr><td>—</td><td>🇨🇦 캐나다</td><td>Moo, Fau, Ronnilol, Gawynn</td><td>1라운드 2-0 프랑스 승, 어퍼 4강 0-2 스웨덴 패</td></tr>
+<tr><td>—</td><td>🇧🇷 브라질</td><td>Orlando, Impossible, Mathias, lofi</td><td>1라운드 0-2 USA 패</td></tr>
+<tr><td>—</td><td>🇩🇪 독일</td><td>Jamabi, Orion, AI Generated Brain, Jakob</td><td>1라운드 1-2 일본 패</td></tr>
+<tr><td>—</td><td>🇦🇺 호주</td><td>Kirania, Feneb, Leero, Repler</td><td>1라운드 0-2 스웨덴 패</td></tr>
+</table></div>
+<p class="note">방식: 2v2 팀 듀얼 Bo3(Move→No Move→NMPZ), 상위 라운드는 팀 보이스챗을 낀 1v1 Bo5. 맵: An Informed World(Move) · A Pro World(No Move) · An Arbitrary Rural World(NMPZ).
+중계: 메인 영어 <a href="https://www.twitch.tv/geoguessr">twitch.tv/GeoGuessr</a>, 일본어 <a href="https://www.youtube.com/@StephenGeoGuessr">@StephenGeoGuessr</a>.
+<b>한국 팀은 8개국에 포함되지 않았다.</b></p>
+
+<h2>2026 결선 24강의 국가 분포 (개인전 기준) <span class="badge ok">검증됨 3-0</span></h2>
+<div class="tablewrap"><table>
+<tr><th>국가</th><th>인원</th><th>선수</th></tr>
+<tr><td>🇺🇸 미국</td><td>4</td><td>Radu C, mk, Ecal, The Gymtimidator</td></tr>
+<tr><td>🇫🇷 프랑스</td><td>3</td><td>Blinky, Noksi, Kratsooo</td></tr>
+<tr><td>🇩🇪 독일</td><td>2</td><td>Lennli, Jamabi</td></tr>
+<tr><td>🇸🇪 스웨덴</td><td>2</td><td>Kapten, kfl</td></tr>
+<tr><td>1명씩</td><td>13</td><td>이탈리아(manuelson) · 캐나다(Moo) · 중국(Lingding) · 폴란드(Strefan) · 덴마크(Clement) · 일본(Shiina) · 네덜란드(Consus) · 아일랜드(Finbarr) · 헝가리(Debre) · 호주(Kirania) · 불가리아(BulgariaEnjoyer) · 룩셈부르크(malfunctionn) · 싱가포르(Trabota)</td></tr>
+</table></div>
+
+<h2>🇰🇷 한국 씬 현황</h2>
+<div class="card">
+<h3>요약</h3>
+<ul>
+<li><b>2026 월드 챔피언십 24강에 한국 선수 없음</b> — APAC 4장은 일본·중국·호주·싱가포르. <span class="badge ok">검증됨 3-0</span></li>
+<li><b>확인된 한국 국가대표팀/조직 없음</b> — Nations Cup S1 8개국에도 미포함. <span class="badge ok">검증됨(부재 확인)</span></li>
+<li>한국 선수들의 활동 무대는 커뮤니티 <b>APAC Cup 동아시아 예선</b>. <span class="badge raw">수집 단계</span></li>
+</ul>
+<h3>확인된 한국 선수 <span class="badge raw">수집 단계</span></h3>
+<div class="tablewrap"><table>
+<tr><th>선수</th><th>확인된 기록</th></tr>
+<tr><td><b>VIVER (viver)</b></td><td>APAC Cup 2025 동아시아 예선(2025-02-15): 한국 선수 중 유일하게 8강 진출, Pika(중국)에 1-2 패.<br>
+APAC Cup 2026 동아시아 예선(2026-05-31): A조 1위(승점 9) 통과 후 어퍼 브래킷에서 Lingding(중국)에 0-2, 로워 브래킷에서 Lemon(홍콩)에 0-2 — 본선 진출 실패.</td></tr>
+<tr><td><b>norujumping</b></td><td>APAC Cup 2025 예선 조별 탈락 · 2026 예선 D조 4위(플레이오프 진출 실패)</td></tr>
+<tr><td><b>skilless</b></td><td>APAC Cup 2025 예선 조별 탈락</td></tr>
+</table></div>
+<p class="note">2026 동아시아 예선 본선행 6장은 Lingding(중국), bmo·Kanmuru(대만), cyru·Lemon·hermitt(홍콩)이 가져갔다.
+동아시아 예선 중계는 대만 채널(<a href="https://www.youtube.com/@GeoGuessrTW">@GeoGuessrTW</a>, <a href="https://www.youtube.com/@nanami3306">@nanami3306</a>)에서 중국어로 진행 — 한국어 중계는 확인되지 않음.</p>
+</div>
+
+<h2>조사 한계</h2>
+<div class="card note">
+<ul>
+<li>Nations Cup 로스터·결과는 Liquipedia 위키텍스트 원문 인용으로 추출됐으나 교차검증 단계는 거치지 않음(예산 내 상위 25건에 미포함).</li>
+<li>Pro Team Tournament의 팀 구성은 미확보 — 후속 조사 과제.</li>
+<li>“한국 팀 없음”은 조사 범위 내 부재 확인이며, 소규모 비공개 커뮤니티 팀까지 배제하는 증명은 아님.</li>
+</ul>
+</div>
+
+<footer>국가별 팀 페이지 · 작성 2026-09-03 · 출처: liquipedia.net/geoguessr (Nations_Cup/Season_1, APAC_Cup/2025·2026 East_Asia_Qualifier, GWC 2026 Finals), geoguessr.com/world-championship</footer>
+</div>
+</body>
+</html>

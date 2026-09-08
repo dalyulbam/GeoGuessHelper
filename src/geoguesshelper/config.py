@@ -155,8 +155,27 @@ class Settings:
     knowledge_recall_chars: int = 6000
     synthesis_max_tokens: int = 12000
 
+    # ── 자동 정정 루프 (260907 goal · docs/plan/impl-spec_260907.md) ─────────────
+    # 보고서 잡이 끝나면 같은 캡처를 지도 없이(blind) 다시 판단 → 실측 pano 좌표·aided 분석으로
+    # "X 는 사실 X2" 정정 → 판별자 원자 적재 → 다음 분석 프롬프트에 회상 주입. 사람 승인 없음.
+    correction_enabled: bool = True
+    correction_effort: str | None = "medium"     # 정정 호출(비전·추론)의 effort
+    correction_timeout_s: float = 150.0
+    correction_max_atoms: int = 8                # 정정 1건이 남길 판별자 원자 상한
+    correction_recall_limit: int = 10            # blind 2패스에 주입할 회상 원자 상한
+
+    # ── 원자 대화 (docs/plan/atom-dialogue_260906.html — 승인 관문 없음, 인용 관문만) ─────
+    dialogue_effort: str | None = "medium"
+    dialogue_max_tokens: int = 6000
+    dialogue_timeout_s: float = 120.0
+    dialogue_max_context_atoms: int = 24
+    dialogue_max_images: int = 4
+
     captures_dir: Path = field(default_factory=lambda: project_root() / "captures")
     reports_dir: Path = field(default_factory=lambda: project_root() / "docs" / "report")
+    # 어드바이저(아틀라스) 보고서 — docs/report **밖**이다. docs/report/* 는 용량(수십 MB×수백)
+    # 때문에 git 이 무시하지만, 아틀라스 보고서는 원자만으로 만든 수백 KB 문서라 추적한다.
+    atlas_dir: Path = field(default_factory=lambda: project_root() / "docs" / "atlas")
     knowledge_dir: Path = field(default_factory=lambda: project_root() / "docs" / "knowledge")
     jobs_dir: Path = field(default_factory=lambda: project_root() / "docs" / "jobs")
 
@@ -236,7 +255,9 @@ def load_settings() -> Settings:
         s.capture_format = "jpeg" if fmt in ("jpeg", "jpg") else "png"
     if os.environ.get("GEOHELPER_KNOWLEDGE_OFF", "").strip().lower() in ("1", "true", "yes", "on"):
         s.knowledge_enabled = False
-    for d in (s.captures_dir, s.reports_dir, s.knowledge_dir, s.jobs_dir):
+    if os.environ.get("GEOHELPER_CORRECTION_OFF", "").strip().lower() in ("1", "true", "yes", "on"):
+        s.correction_enabled = False
+    for d in (s.captures_dir, s.reports_dir, s.atlas_dir, s.knowledge_dir, s.jobs_dir):
         d.mkdir(parents=True, exist_ok=True)
     return s
 
@@ -252,22 +273,28 @@ def _env_int(s: Settings, env: str, attr: str, *, lo: int, hi: int) -> None:
 
 
 def report_subdir(settings: Settings, country_tag: str) -> Path:
-    """보고서가 놓이는 국가 폴더 — docs/report/{iso2}/.
+    """보고서가 놓이는 국가 폴더 — docs/report/country/{iso2}/.
 
     보고서가 60건을 넘자 한 폴더가 읽히지 않았다(260829). 파일명의 국가 조각(alpha-2,
     없으면 국가명 해시)을 그대로 폴더 이름으로 쓴다 — 파일명과 폴더가 같은 규칙이라
     사람이 봐도, 코드가 봐도 어긋나지 않는다. 종합(synthesis) 보고서처럼 한 나라에
-    속하지 않는 것은 최상위에 남는다.
+    속하지 않는 것은 최상위(docs/report/)에 남는다.
+
+    260907: 국가 폴더를 country/ 한 단계 아래로 내렸다 — 최상위에 국가 코드 폴더 40개와
+    문서 폴더(atlas/, civilzation/)·시장조사 문서가 섞여 무엇이 보고서인지 구분되지
+    않았다. 아틀라스 보고서는 docs/atlas/(settings.atlas_dir)로 나갔다.
     """
     tag = (country_tag or "").strip().lower()
-    return settings.reports_dir / tag if tag else settings.reports_dir
+    return settings.reports_dir / "country" / tag if tag else settings.reports_dir
 
 
 def find_report(settings: Settings, name: str) -> Path | None:
-    """보고서 파일명(basename) → 실제 경로. 국가 하위 폴더까지 뒤진다.
+    """보고서 파일명(basename) → 실제 경로. 국가 하위 폴더, 그다음 docs/atlas 까지 뒤진다.
 
     지식 저장소·잡 로그·뷰어는 전부 basename 만 기억한다(폴더는 정리 규칙일 뿐 정체성이
-    아니다). 그래서 어디에 있든 이름으로 찾는다 — 최상위를 먼저, 그다음 하위 폴더.
+    아니다). 그래서 어디에 있든 이름으로 찾는다 — 최상위를 먼저, 그다음 하위 폴더
+    (country/{iso2}/), 마지막으로 docs/report 밖의 아틀라스 폴더. 그래서 아틀라스 보고서도
+    같은 /reports/{name} URL 로 열린다.
     """
     base = Path(name).name
     if not base:
@@ -278,4 +305,12 @@ def find_report(settings: Settings, name: str) -> Path | None:
     for p in settings.reports_dir.rglob(base):
         if p.is_file():
             return p
+    atlas = getattr(settings, "atlas_dir", None)
+    if atlas is not None and atlas.exists():
+        direct = atlas / base
+        if direct.is_file():
+            return direct
+        for p in atlas.rglob(base):
+            if p.is_file():
+                return p
     return None

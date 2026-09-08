@@ -13,7 +13,8 @@
   · 주식·부동산 테마는 "확인하라·주목하라·조사하라"까지다. 매수·매도는 구조적으로 못 낸다.
 
 데이터는 altaiya 의 조립(atlas.build)을 그대로 가져온다 — 사이드카가 정본이고 서버가
-따로 떠 있을 필요가 없다. 파일은 docs/report/atlas/ 에 놓인다.
+따로 떠 있을 필요가 없다. 파일은 docs/atlas/(settings.atlas_dir)에 놓인다 — docs/report 밖이라
+git 이 추적한다(지점 보고서와 달리 캡처가 없어 작다). /reports/{name} 으로도 열린다(find_report 폴백).
 """
 from __future__ import annotations
 
@@ -26,8 +27,9 @@ from pathlib import Path
 from typing import Any
 
 from . import i18n, llm, translate
-from .config import Settings, project_root, report_subdir
-from .report import _BASE_CSS, _SWITCHER_CSS, _SWITCHER_JS, _document, _esc, _slug, _write_report_atomic
+from .config import Settings, project_root
+from .report import (_BASE_CSS, _KROOT, _SWITCHER_CSS, _SWITCHER_JS, _document, _esc, _resolve_kroot, _slug,
+                     _write_report_atomic)
 
 THEMES = ("stock", "realty", "trade", "corporate", "talent", "travel", "heritage")
 THEME_KO = {"stock": "주식 투자", "realty": "부동산", "trade": "수출입", "corporate": "법인사업",
@@ -344,13 +346,14 @@ _ATOM_RE = re.compile(r"\[\[(atm_[0-9a-zA-Z]{4,})\]\]")
 
 
 def _linkify(text: Any) -> str:
+    # 상대 경로는 render() 가 파일을 쓰기 직전 _resolve_kroot 로 넣는다(report.py 의 표식과 같다).
     esc = _esc(text)
-    return _ATOM_RE.sub(lambda m: f'<a class="katom" href="../../knowledge/atoms/{m.group(1)}.md"><code>{m.group(1)}</code></a>', esc)
+    return _ATOM_RE.sub(lambda m: f'<a class="katom" href="{_KROOT}/atoms/{m.group(1)}.md"><code>{m.group(1)}</code></a>', esc)
 
 
 def _atom_links(ids) -> str:
     good = [i for i in (ids or []) if isinstance(i, str) and i.startswith("atm_")]
-    return " ".join(f'<a class="katom" href="../../knowledge/atoms/{_esc(i)}.md"><code>{_esc(i)}</code></a>' for i in good[:10])
+    return " ".join(f'<a class="katom" href="{_KROOT}/atoms/{_esc(i)}.md"><code>{_esc(i)}</code></a>' for i in good[:10])
 
 
 def _map_svg(sl: dict) -> str:
@@ -491,7 +494,7 @@ def _slice_json(sl: dict, docs: dict[str, dict]) -> str:
 
 
 def render(settings: Settings, sl: dict, docs: dict[str, dict]) -> dict:
-    """언어별 doc → 한 HTML(언어 스위처) — docs/report/atlas/."""
+    """언어별 doc → 한 HTML(언어 스위처) — docs/atlas/(settings.atlas_dir)."""
     langs = list(docs)
     primary = langs[0]
     now = datetime.datetime.now()
@@ -517,7 +520,8 @@ def render(settings: Settings, sl: dict, docs: dict[str, dict]) -> dict:
     html_doc = _document(primary, Lp["word"], title, css, inner + slice_tag, tail=tail)
     range_slug = _slug(sl["range_key"] or "world")[:32] or "world"
     fname = f"atlas_{sl['theme']}_{range_slug}_{ymd}_{hms}_{'-'.join(langs)}.html"
-    out_dir = report_subdir(settings, "atlas")
+    out_dir = settings.atlas_dir
+    html_doc = _resolve_kroot(html_doc, out_dir, settings.knowledge_dir)
     fname = _write_report_atomic(out_dir, fname, html_doc)
     return {"status": "OK", "file": fname, "url": f"/reports/{fname}", "path": str(out_dir / fname),
             "lang": primary, "langs": langs, "langName": " · ".join(i18n.native_name(lg) for lg in langs),

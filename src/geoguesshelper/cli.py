@@ -117,7 +117,7 @@ def main() -> None:
         description=(
             "altaiya 조립(행위자·관계·원자)에서 테마 × 범위 서브그래프를 잘라 거점 → 행위자 → "
             "관계 역학 → 행동 포인트 → 공백 순으로 서술한다. 웹 검색 없음, 지식 적재 없음(비순환). "
-            "결과는 docs/report/atlas/ 에 놓이고 #atlas-slice JSON 이 내장된다."
+            "결과는 docs/atlas/ 에 놓이고(git 공유 대상) #atlas-slice JSON 이 내장된다."
         ),
     )
     p_at.add_argument("--theme", "-t", default="all",
@@ -127,7 +127,104 @@ def main() -> None:
     p_at.add_argument("--lang", "-l", action="append", default=[],
                       help="언어(반복 지정 가능, 첫 번째가 서술 언어). 생략하면 설정의 보고서 언어")
 
+    p_bl = sub.add_parser(
+        "baseline",
+        help="평가 기준선 — blind(로드뷰만) vs aided(지도 포함) 전후 분석과 추론 계층",
+        description=(
+            "캡처 하단 지도(zoom 15 + 정답 마커)가 추론을 오염시키는지 잰다. 같은 캡처를 로드뷰 "
+            "패널만 잘라서, 그리고 원본으로 두 번 분석해 사슬·단서·원자를 대조하고 "
+            "docs/knowledge/baseline/ 에 기록한다. 원자는 샌드박스 저장소에만 적재된다."
+        ),
+    )
+    p_bl.add_argument("action", choices=["run", "report"],
+                      help="run = 분석 실행(LLM 비용) · report = 결과로 문서·tiers 재생성")
+    p_bl.add_argument("--limit", type=int, default=0, help="처리할 잡 수 (0=전부)")
+    p_bl.add_argument("--job", action="append", default=[], help="특정 잡 id 만(반복 지정 가능)")
+    p_bl.add_argument("--redo", action="store_true", help="이미 결과가 있는 잡도 다시 실행")
+    p_bl.add_argument("--lang", default="en", help="분석 출력 언어 (기본 en — 대조가 쉽다)")
+    p_bl.add_argument("--no-ingest", action="store_true", help="샌드박스 적재 생략")
+    p_bl.add_argument("--no-narrate", action="store_true", help="로직 변화 서술(LLM) 생략")
+
+    p_mol = sub.add_parser(
+        "molecule",
+        help="원자 임베딩 → 거리 그래프 → molecule(분자) 문서 (docs/knowledge/molecule/)",
+        description=(
+            "원자마다 임베딩 벡터를 만들고 코사인 거리 그래프의 최대 클리크를 molecule 로 묶어 "
+            "이름·특징·관련 개념 문서를 쓴다. 임베딩은 시스템 Python(torch·sentence-transformers)"
+            "에서 돈다 — 자세한 실행법은 docs/knowledge/molecule/README.md."
+        ),
+    )
+    p_mol.add_argument("action", nargs="?", default="help",
+                       help="embed | build | name | reify | help — 인자는 molecule 모듈로 그대로 전달")
+    p_mol.add_argument("rest", nargs=argparse.REMAINDER)
+
+    p_cor = sub.add_parser(
+        "correct",
+        help="자동 정정 루프 — 좌표를 가리고 판단(X) → 실측으로 정정(X2) → 판별자 원자 적재",
+        description=(
+            "image_panos 가 있는 잡의 캡처를 로드뷰 패널만으로 다시 판단하고(blind, 회상 주입 2패스), "
+            "실측 pano 좌표·aided 분석과 대조해 'X 는 사실 X2 였다'는 정정을 만들어 kind=discriminator "
+            "원자로 적재한다. 사람 승인 없음 — hits/misses 증거가 원자를 올리고 내린다. "
+            "기록: docs/knowledge/corrections/. 자세한 인자는 correction 모듈(--help)."
+        ),
+    )
+    p_cor.add_argument("action", nargs="?", default="help",
+                       help="run | report | help — 인자는 correction 모듈로 그대로 전달")
+    p_cor.add_argument("rest", nargs=argparse.REMAINDER)
+
+    p_obs = sub.add_parser(
+        "observe",
+        help="관측 사이드카 빌드 — docs/knowledge/observe/ (계기판·대장·임베딩 지도·분자 서가 재료)",
+        description=(
+            "index.json·molecule/·baseline/·corrections/·recall_log 를 읽어 atom_meta·series·layout·"
+            "neighbors·dups·lineage·signals 를 만든다. 원자 파일은 건드리지 않는다. 임베딩 투영은 "
+            "시스템 Python(numpy) 에서 돈다 — docs/knowledge/observe/README.md."
+        ),
+    )
+    p_obs.add_argument("action", nargs="?", default="help",
+                       help="build | help — 인자는 observe 모듈로 그대로 전달")
+    p_obs.add_argument("rest", nargs=argparse.REMAINDER)
+
     args = ap.parse_args()
+
+    if args.cmd in ("correct", "observe"):
+        import runpy
+        import sys as _sys
+
+        module = {"correct": "geoguesshelper.correction", "observe": "geoguesshelper.observe"}[args.cmd]
+        _sys.argv = [f"geoguesshelper {args.cmd}", args.action, *args.rest]
+        try:
+            runpy.run_module(module, run_name="__main__")
+        except ImportError as exc:          # runpy 는 ModuleNotFoundError 가 아닌 ImportError 를 낸다
+            print(f"{module} 모듈을 불러올 수 없습니다: {exc}")
+        return
+
+    if args.cmd == "baseline":
+        from . import baseline
+        from .config import load_settings
+
+        settings = load_settings()
+        if args.action == "run":
+            res = baseline.run(settings, limit=args.limit, only=args.job or None,
+                               skip_existing=not args.redo, lang=args.lang,
+                               ingest=not args.no_ingest, narrate=not args.no_narrate)
+            baseline.report(settings)
+        else:
+            res = baseline.report(settings)
+        print(json.dumps(res, ensure_ascii=False, indent=2, default=str))
+        return
+
+    if args.cmd == "molecule":
+        import runpy
+        import sys as _sys
+
+        _sys.argv = ["geoguesshelper molecule", args.action, *args.rest]
+        try:
+            runpy.run_module("geoguesshelper.molecule", run_name="__main__")
+        except ModuleNotFoundError as exc:
+            print(f"molecule 모듈을 불러올 수 없습니다: {exc}\n"
+                  "임베딩 단계는 시스템 Python 에서 `PYTHONPATH=src python -m geoguesshelper.molecule …` 로 실행하세요.")
+        return
 
     if args.cmd == "extract":
         from .linkresolver import extract

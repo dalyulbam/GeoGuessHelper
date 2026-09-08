@@ -45865,6 +45865,318 @@
    "uses": 1,
    "created": 1788000563.1512938,
    "updated": 1788000563.1515517
+  },
+  "atm_a5428264ed09": {
+   "id": "atm_a5428264ed09",
+   "layer": "geography",
+   "scope": "region",
+   "title": "North Atlantic island vs continental subarctic terrain discrimination",
+   "category": "landform",
+   "tags": [
+    "fjord",
+    "north-atlantic",
+    "subarctic",
+    "table-mountain",
+    "terrain-discrimination"
+   ],
+   "entities": [
+    "faroe-islands",
+    "iceland",
+    "scandinavia"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 65.3981027,
+   "lng": -20.9440449,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "ge9h53m",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_is_hvammstangi_65.3981_-20.944_260903_095326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788396826.632137,
+   "updated": 1788396826.6325066
+  },
+  "atm_88ae5884a999": {
+   "id": "atm_88ae5884a999",
+   "layer": "language",
+   "scope": "polity",
+   "title": "Faroese vs Icelandic orthographic and toponymic distinction",
+   "category": "toponymy",
+   "tags": [
+    "faroese",
+    "icelandic",
+    "north-atlantic",
+    "orthography",
+    "toponymy"
+   ],
+   "entities": [
+    "faroe-islands",
+    "iceland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 65.3981027,
+   "lng": -20.9440449,
+   "heading": null,
+   "radius_km": 2000,
+   "cell": "ge9h53m",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_is_hvammstangi_65.3981_-20.944_260903_095326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788396826.6684208,
+   "updated": 1788396826.6688664
+  },
+  "atm_4331cd4c61dd": {
+   "id": "atm_4331cd4c61dd",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Iceland's regional health authority (Heilbrigðisstofnun) boundaries as a locating clue",
+   "category": "civic-building",
+   "tags": [
+    "administrative-boundary",
+    "healthcare",
+    "iceland",
+    "regional-authority"
+   ],
+   "entities": [
+    "iceland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 65.3981027,
+   "lng": -20.9440449,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "ge9h53m",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_is_hvammstangi_65.3981_-20.944_260903_095326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788396826.7063224,
+   "updated": 1788396826.706467
+  },
+  "atm_ca05c73a7f07": {
+   "id": "atm_ca05c73a7f07",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Icelandic route numbering ranges by region",
+   "category": "infrastructure-built",
+   "tags": [
+    "iceland",
+    "regional-identification",
+    "ring-road",
+    "road-numbering"
+   ],
+   "entities": [
+    "iceland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 65.3981027,
+   "lng": -20.9440449,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "ge9h53m",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_is_hvammstangi_65.3981_-20.944_260903_095326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788396826.7301927,
+   "updated": 1788396826.7303393
+  },
+  "atm_273f3134faf4": {
+   "id": "atm_273f3134faf4",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Vatnsnes peninsula seal-watching tourism (Northwest Iceland)",
+   "category": "tourism-economy",
+   "tags": [
+    "northwest-iceland",
+    "seal-watching",
+    "vatnsnes",
+    "wildlife-tourism"
+   ],
+   "entities": [
+    "iceland",
+    "vatnsnes"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 65.3981027,
+   "lng": -20.9440449,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "ge9h53m",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_is_hvammstangi_65.3981_-20.944_260903_095326_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788396826.7523181,
+   "updated": 1788396826.7524633
+  },
+  "atm_e8b3ce9a64be": {
+   "id": "atm_e8b3ce9a64be",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Visual markers distinguishing Mashriq Arab countries by signage and materials",
+   "category": "other",
+   "tags": [
+    "building-material",
+    "country-identification",
+    "mashriq",
+    "mobile-prefix",
+    "signage"
+   ],
+   "entities": [
+    "egypt",
+    "jordan",
+    "lebanon",
+    "palestine",
+    "syria"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 32.2879819,
+   "lng": 35.8898646,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "sv9x8ty",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jo_jerash_32.288_35.8899_260903_095803_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788397102.81512,
+   "updated": 1788397102.8156164
+  },
+  "atm_074b88f4a88e": {
+   "id": "atm_074b88f4a88e",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Northern Jordan highland belt (Irbid–Jerash–Ajloun) vs southern/desert Jordan",
+   "category": "climate",
+   "tags": [
+    "aridity-gradient",
+    "biome-contrast",
+    "highlands",
+    "jordan",
+    "limestone",
+    "olive-terracing"
+   ],
+   "entities": [
+    "ajloun",
+    "aqaba",
+    "irbid",
+    "jerash",
+    "jordan",
+    "karak"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 32.2879819,
+   "lng": 35.8898646,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "sv9x8ty",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jo_jerash_32.288_35.8899_260903_095803_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788397102.8429596,
+   "updated": 1788397102.8430963
+  },
+  "atm_366a599b10cc": {
+   "id": "atm_366a599b10cc",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Jordanian incremental self-build housing and rooftop water tanks",
+   "category": "housing-typology",
+   "tags": [
+    "informal-construction",
+    "intermittent-utilities",
+    "levant",
+    "rebar",
+    "self-build-housing",
+    "water-tank"
+   ],
+   "entities": [
+    "jordan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 32.2879819,
+   "lng": 35.8898646,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "sv9x8ty",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jo_jerash_32.288_35.8899_260903_095803_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788397102.8754594,
+   "updated": 1788397102.8757389
+  },
+  "atm_39c6f8ae8e9e": {
+   "id": "atm_39c6f8ae8e9e",
+   "layer": "history",
+   "scope": "region",
+   "title": "Jerash Governorate and the Roman-era Decapolis city of Gerasa",
+   "category": "founding",
+   "tags": [
+    "archaeology",
+    "decapolis",
+    "gerasa",
+    "jerash",
+    "provincial-seat",
+    "roman-ruins"
+   ],
+   "entities": [
+    "decapolis",
+    "jerash",
+    "roman-empire"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 32.2879819,
+   "lng": 35.8898646,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "sv9x8ty",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jo_jerash_32.288_35.8899_260903_095803_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1788397102.9151535,
+   "updated": 1788397102.9153497
   }
  },
  "cells": {
@@ -45992,7 +46304,10 @@
    "atm_81f38865642b",
    "atm_73325db2b48d",
    "atm_a2124f73a376",
-   "atm_26f11c9f10d1"
+   "atm_26f11c9f10d1",
+   "atm_88ae5884a999",
+   "atm_4331cd4c61dd",
+   "atm_ca05c73a7f07"
   ],
   "ge2kt": [
    "atm_714f55d47cd5"
@@ -46636,6 +46951,18 @@
    "atm_41abb4a57c7a",
    "atm_3594786dc613",
    "atm_e5601aaeca59"
+  ],
+  "ge9": [
+   "atm_a5428264ed09",
+   "atm_273f3134faf4"
+  ],
+  "sv9": [
+   "atm_e8b3ce9a64be",
+   "atm_074b88f4a88e",
+   "atm_39c6f8ae8e9e"
+  ],
+  "sv": [
+   "atm_366a599b10cc"
   ]
  },
  "entities": {
@@ -46990,7 +47317,12 @@
    "atm_925176336489",
    "atm_73325db2b48d",
    "atm_a2124f73a376",
-   "atm_26f11c9f10d1"
+   "atm_26f11c9f10d1",
+   "atm_a5428264ed09",
+   "atm_88ae5884a999",
+   "atm_4331cd4c61dd",
+   "atm_ca05c73a7f07",
+   "atm_273f3134faf4"
   ],
   "icelandic-language": [
    "atm_e6f75e7898c3"
@@ -48510,7 +48842,8 @@
   "egypt": [
    "atm_bf39ad75c9fc",
    "atm_9f82416b4957",
-   "atm_3fc712b096be"
+   "atm_3fc712b096be",
+   "atm_e8b3ce9a64be"
   ],
   "peru": [
    "atm_bf39ad75c9fc",
@@ -49502,7 +49835,8 @@
    "atm_9a043a4cd035"
   ],
   "scandinavia": [
-   "atm_9a043a4cd035"
+   "atm_9a043a4cd035",
+   "atm_a5428264ed09"
   ],
   "cyclades": [
    "atm_fdfb75d2c5b0"
@@ -50304,7 +50638,9 @@
   ],
   "faroe-islands": [
    "atm_92f75e584a5b",
-   "atm_f4d0689cb5d2"
+   "atm_f4d0689cb5d2",
+   "atm_a5428264ed09",
+   "atm_88ae5884a999"
   ],
   "faroese-language": [
    "atm_92f75e584a5b"
@@ -56048,6 +56384,45 @@
   ],
   "yelabuga": [
    "atm_3594786dc613"
+  ],
+  "vatnsnes": [
+   "atm_273f3134faf4"
+  ],
+  "jordan": [
+   "atm_e8b3ce9a64be",
+   "atm_074b88f4a88e",
+   "atm_366a599b10cc"
+  ],
+  "lebanon": [
+   "atm_e8b3ce9a64be"
+  ],
+  "palestine": [
+   "atm_e8b3ce9a64be"
+  ],
+  "syria": [
+   "atm_e8b3ce9a64be"
+  ],
+  "ajloun": [
+   "atm_074b88f4a88e"
+  ],
+  "aqaba": [
+   "atm_074b88f4a88e"
+  ],
+  "irbid": [
+   "atm_074b88f4a88e"
+  ],
+  "jerash": [
+   "atm_074b88f4a88e",
+   "atm_39c6f8ae8e9e"
+  ],
+  "karak": [
+   "atm_074b88f4a88e"
+  ],
+  "decapolis": [
+   "atm_39c6f8ae8e9e"
+  ],
+  "roman-empire": [
+   "atm_39c6f8ae8e9e"
   ]
  },
  "tags": {
@@ -56950,7 +57325,8 @@
    "atm_af2a2617b586",
    "atm_bf39ad75c9fc",
    "atm_3fc712b096be",
-   "atm_b9e670bd45e8"
+   "atm_b9e670bd45e8",
+   "atm_366a599b10cc"
   ],
   "suburban": [
    "atm_af2a2617b586"
@@ -56983,7 +57359,9 @@
    "atm_ad6f64fbb564",
    "atm_81f38865642b",
    "atm_e0803fa5b650",
-   "atm_cdb0d471f078"
+   "atm_cdb0d471f078",
+   "atm_4331cd4c61dd",
+   "atm_ca05c73a7f07"
   ],
   "kopavogur": [
    "atm_c464359a13cf"
@@ -56999,7 +57377,8 @@
   ],
   "icelandic": [
    "atm_e6f75e7898c3",
-   "atm_73325db2b48d"
+   "atm_73325db2b48d",
+   "atm_88ae5884a999"
   ],
   "language": [
    "atm_e6f75e7898c3",
@@ -57020,7 +57399,8 @@
    "atm_92f75e584a5b",
    "atm_4b3b17e5270b",
    "atm_87a8877b3652",
-   "atm_bc282d8bf5a5"
+   "atm_bc282d8bf5a5",
+   "atm_88ae5884a999"
   ],
   "toponyms": [
    "atm_e6f75e7898c3",
@@ -57043,7 +57423,8 @@
   ],
   "subarctic": [
    "atm_ee8caa0687d3",
-   "atm_4dd0f4e3344f"
+   "atm_4dd0f4e3344f",
+   "atm_a5428264ed09"
   ],
   "treeless": [
    "atm_ee8caa0687d3",
@@ -57730,7 +58111,8 @@
    "atm_fa8ff513c430",
    "atm_f32a9d025eca",
    "atm_71255f910af9",
-   "atm_e5601aaeca59"
+   "atm_e5601aaeca59",
+   "atm_88ae5884a999"
   ],
   "catholic": [
    "atm_4c506c031137",
@@ -58125,7 +58507,8 @@
    "atm_1836cc39ec5e",
    "atm_c6a6064d3dec",
    "atm_769bef8463f0",
-   "atm_d51008e27081"
+   "atm_d51008e27081",
+   "atm_e8b3ce9a64be"
   ],
   "tavern": [
    "atm_080c7ca4a29f"
@@ -58153,7 +58536,8 @@
    "atm_928d871d477b"
   ],
   "archaeology": [
-   "atm_46789363d08f"
+   "atm_46789363d08f",
+   "atm_39c6f8ae8e9e"
   ],
   "early-christian": [
    "atm_46789363d08f"
@@ -58162,7 +58546,8 @@
    "atm_46789363d08f"
   ],
   "roman-ruins": [
-   "atm_46789363d08f"
+   "atm_46789363d08f",
+   "atm_39c6f8ae8e9e"
   ],
   "calypso": [
    "atm_fc3ea847867d"
@@ -58455,7 +58840,8 @@
    "atm_632fccf1df46",
    "atm_e53b24ec7dce",
    "atm_e67ad45cb772",
-   "atm_129ae2473775"
+   "atm_129ae2473775",
+   "atm_074b88f4a88e"
   ],
   "mono-economy": [
    "atm_c6796d5edf50"
@@ -58790,7 +59176,8 @@
    "atm_a249e0ca28e4",
    "atm_2731cc8cba42",
    "atm_70da774c5793",
-   "atm_e6a65ff46fe5"
+   "atm_e6a65ff46fe5",
+   "atm_a5428264ed09"
   ],
   "glacial-silt": [
    "atm_43a50564de5b"
@@ -59203,7 +59590,8 @@
    "atm_979160e118e7",
    "atm_2cdc40298a80",
    "atm_263fbcaac613",
-   "atm_d51008e27081"
+   "atm_d51008e27081",
+   "atm_ca05c73a7f07"
   ],
   "snaefellsnes": [
    "atm_da86790feea2"
@@ -62432,7 +62820,8 @@
    "atm_ff812a421048"
   ],
   "informal-construction": [
-   "atm_ff812a421048"
+   "atm_ff812a421048",
+   "atm_366a599b10cc"
   ],
   "self-build": [
    "atm_ff812a421048",
@@ -65051,7 +65440,8 @@
    "atm_16c50820ea0a"
   ],
   "faroese": [
-   "atm_92f75e584a5b"
+   "atm_92f75e584a5b",
+   "atm_88ae5884a999"
   ],
   "old-norse": [
    "atm_92f75e584a5b"
@@ -65152,7 +65542,8 @@
    "atm_fa4666575fc8"
   ],
   "highlands": [
-   "atm_877f06d37696"
+   "atm_877f06d37696",
+   "atm_074b88f4a88e"
   ],
   "kaqchikel": [
    "atm_877f06d37696"
@@ -66250,7 +66641,8 @@
    "atm_268a9d39e0a9"
   ],
   "country-identification": [
-   "atm_769bef8463f0"
+   "atm_769bef8463f0",
+   "atm_e8b3ce9a64be"
   ],
   "grocery-retail": [
    "atm_817a541c7533"
@@ -67689,7 +68081,8 @@
   ],
   "jordan": [
    "atm_5e6aab25783a",
-   "atm_9ff0ebf8c806"
+   "atm_9ff0ebf8c806",
+   "atm_074b88f4a88e"
   ],
   "kuwait": [
    "atm_71c857c45aee"
@@ -68555,7 +68948,8 @@
   ],
   "levant": [
    "atm_9ff0ebf8c806",
-   "atm_bdafd329eb3d"
+   "atm_bdafd329eb3d",
+   "atm_366a599b10cc"
   ],
   "crusaders": [
    "atm_475968421215"
@@ -69712,7 +70106,8 @@
    "atm_0f259f84fb29"
   ],
   "regional-identification": [
-   "atm_0f259f84fb29"
+   "atm_0f259f84fb29",
+   "atm_ca05c73a7f07"
   ],
   "terrain": [
    "atm_0f259f84fb29"
@@ -70026,6 +70421,79 @@
   ],
   "transliteration": [
    "atm_e5601aaeca59"
+  ],
+  "north-atlantic": [
+   "atm_a5428264ed09",
+   "atm_88ae5884a999"
+  ],
+  "table-mountain": [
+   "atm_a5428264ed09"
+  ],
+  "terrain-discrimination": [
+   "atm_a5428264ed09"
+  ],
+  "administrative-boundary": [
+   "atm_4331cd4c61dd"
+  ],
+  "healthcare": [
+   "atm_4331cd4c61dd"
+  ],
+  "regional-authority": [
+   "atm_4331cd4c61dd"
+  ],
+  "ring-road": [
+   "atm_ca05c73a7f07"
+  ],
+  "northwest-iceland": [
+   "atm_273f3134faf4"
+  ],
+  "seal-watching": [
+   "atm_273f3134faf4"
+  ],
+  "vatnsnes": [
+   "atm_273f3134faf4"
+  ],
+  "wildlife-tourism": [
+   "atm_273f3134faf4"
+  ],
+  "building-material": [
+   "atm_e8b3ce9a64be"
+  ],
+  "mashriq": [
+   "atm_e8b3ce9a64be"
+  ],
+  "mobile-prefix": [
+   "atm_e8b3ce9a64be"
+  ],
+  "aridity-gradient": [
+   "atm_074b88f4a88e"
+  ],
+  "biome-contrast": [
+   "atm_074b88f4a88e"
+  ],
+  "olive-terracing": [
+   "atm_074b88f4a88e"
+  ],
+  "intermittent-utilities": [
+   "atm_366a599b10cc"
+  ],
+  "self-build-housing": [
+   "atm_366a599b10cc"
+  ],
+  "water-tank": [
+   "atm_366a599b10cc"
+  ],
+  "decapolis": [
+   "atm_39c6f8ae8e9e"
+  ],
+  "gerasa": [
+   "atm_39c6f8ae8e9e"
+  ],
+  "jerash": [
+   "atm_39c6f8ae8e9e"
+  ],
+  "provincial-seat": [
+   "atm_39c6f8ae8e9e"
   ]
  },
  "reports": {
@@ -71194,7 +71662,76 @@
     "p2",
     "p3"
    ]
+  },
+  "report_is_hvammstangi_65.3981_-20.944_260903_095326_ko-en-fr.html": {
+   "place": "Hvammstangi, Northwestern Region (Norðurland vestra), Húnaþing vestra municipality, Iceland",
+   "lat": 65.3981027,
+   "lng": -20.9440449,
+   "cell": "ge9h5",
+   "atoms": [
+    "atm_273f3134faf4",
+    "atm_4331cd4c61dd",
+    "atm_88ae5884a999",
+    "atm_a5428264ed09",
+    "atm_ca05c73a7f07"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_jo_jerash_32.288_35.8899_260903_095803_ko-en-fr.html": {
+   "place": "Jerash (Wadi Al-Deir / Al-Rayyan area, west of city centre), Jerash Governorate, Jordan",
+   "lat": 32.2879819,
+   "lng": 35.8898646,
+   "cell": "sv9x8",
+   "atoms": [
+    "atm_074b88f4a88e",
+    "atm_366a599b10cc",
+    "atm_39c6f8ae8e9e",
+    "atm_e8b3ce9a64be"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
   }
  },
- "categories": {}
+ "categories": {
+  "landform": [
+   "atm_a5428264ed09"
+  ],
+  "toponymy": [
+   "atm_88ae5884a999"
+  ],
+  "civic-building": [
+   "atm_4331cd4c61dd"
+  ],
+  "infrastructure-built": [
+   "atm_ca05c73a7f07"
+  ],
+  "tourism-economy": [
+   "atm_273f3134faf4"
+  ],
+  "other": [
+   "atm_e8b3ce9a64be"
+  ],
+  "climate": [
+   "atm_074b88f4a88e"
+  ],
+  "housing-typology": [
+   "atm_366a599b10cc"
+  ],
+  "founding": [
+   "atm_39c6f8ae8e9e"
+  ]
+ }
 }

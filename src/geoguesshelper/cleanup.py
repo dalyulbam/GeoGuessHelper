@@ -109,7 +109,7 @@ def referenced_captures(settings: Settings) -> set[str]:
     d = settings.reports_dir
     if not d.exists():
         return ref
-    for p in d.rglob("*"):          # 국가 하위 폴더(docs/report/{iso}/)까지
+    for p in d.rglob("*"):          # 국가 하위 폴더(docs/report/country/{iso}/)까지
         if not p.is_file() or p.suffix.lower() not in (".html", ".json", ".bak"):
             continue
         try:
@@ -261,7 +261,7 @@ def scan(
 
     # 4) 보고서 부산물 — 재번역 백업과 스크립트 중간산물.
     c = add("report-aux", "보고서 부산물",
-            "docs/report/*.bak · *.script.json — 재생성 가능한 중간산물", True)
+            "docs/report/**/*.bak · *.script.json(국가 폴더 country/{iso2}/ 포함) — 재생성 가능한 중간산물", True)
     if settings.reports_dir.exists():
         for p in settings.reports_dir.rglob("*"):
             if p.suffix.lower() == ".bak" or p.name.endswith(".script.json"):
@@ -271,10 +271,11 @@ def scan(
 
     # 5) 오래된 보고서 HTML — keep_last 를 줬을 때만 후보가 된다(기본은 건드리지 않는다).
     c = add("report-html", "오래된 보고서",
-            "docs/report/*.html — keep_last 로 최신 N건만 남긴다", False)
+            "docs/report/**/report_*.html(국가 폴더 포함) — keep_last 로 최신 N건만 남긴다", False)
     if keep_last > 0 and settings.reports_dir.exists():
         htmls = sorted(
-            # report_*.html 만 — civilzation/ 같은 문서 폴더의 HTML 은 보고서가 아니다
+            # report_*.html 만 — 시장조사 같은 문서 HTML 은 보고서가 아니다. 아틀라스(docs/atlas/)·
+            # 문서 폴더(docs/civilization/)는 reports_dir 밖이라 스캔 자체가 닿지 않는다.
             (p for p in settings.reports_dir.rglob("report_*.html") if p.is_file()),
             key=lambda p: p.stat().st_mtime, reverse=True,
         )
