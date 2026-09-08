@@ -1,0 +1,9 @@
+# 엔티티 · portugal
+
+원자 1개 · 이 엔티티를 다룬 보고서 1건
+
+## 원자
+- [[atm_657115f2405b]] **Spain vs Portugal Atlantic island infrastructure cues** (geography/country)
+
+## 보고서
+- `baseline_job_1a2be2d9d7ff_blind`

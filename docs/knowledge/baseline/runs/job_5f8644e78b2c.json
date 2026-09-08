@@ -1,0 +1,1012 @@
+{
+ "job_id": "job_5f8644e78b2c",
+ "report_file": "report_jp_keihoku-shimoyuge-kyoto_35.1932_135.6345_260906_204347_ko-en-fr.html",
+ "label": "선택 장면 보고서 · zkbMo2Ub…nUhw",
+ "lang": "en",
+ "images": [
+  "capture_c8ac1c9d8910.jpg",
+  "capture_cef225d77a49.jpg",
+  "capture_d1cd446c9c7d.jpg",
+  "capture_a044d1a77933.jpg",
+  "capture_8fbd1abfb7ca.jpg",
+  "capture_8011997c1538.jpg"
+ ],
+ "blind_cut_px": [
+  960,
+  960,
+  960,
+  960,
+  960,
+  960
+ ],
+ "image_panos": {
+  "capture_c8ac1c9d8910.jpg": {
+   "pano_id": "RA5FuOYOnzrV9cKdV2SBdw",
+   "lat": 35.19272992733439,
+   "lng": 135.63430154925965,
+   "heading": 196.6447486174777,
+   "pitch": 3.3028890096094585
+  },
+  "capture_cef225d77a49.jpg": {
+   "pano_id": "94CpxArGXo3hV_FUZed9nA",
+   "lat": 35.19217724754601,
+   "lng": 135.6341152552025,
+   "heading": 190.8804616458508,
+   "pitch": 2.730555159186295
+  },
+  "capture_d1cd446c9c7d.jpg": {
+   "pano_id": "tX61HwnhuuIcAi5RZcJF_w",
+   "lat": 35.19140309052407,
+   "lng": 135.6339470646818,
+   "heading": 295.92188525971795,
+   "pitch": 1.6811381719479357
+  },
+  "capture_a044d1a77933.jpg": {
+   "pano_id": "CoYDij8BXo2Eq7sXjQPvbg",
+   "lat": 35.19102245957194,
+   "lng": 135.63423872992732,
+   "heading": 182.18936383582394,
+   "pitch": -1.82436608333866
+  },
+  "capture_8fbd1abfb7ca.jpg": {
+   "pano_id": "Ij2JUBLGR6Dn7TuP1d6ggw",
+   "lat": 35.19084921738364,
+   "lng": 135.6345794410603,
+   "heading": 149.03722277686634,
+   "pitch": 3.0609194666009216
+  },
+  "capture_8011997c1538.jpg": {
+   "pano_id": "qCZNWt9zpSSS3p13VfHD0Q",
+   "lat": 35.190229850954026,
+   "lng": 135.63466923515202,
+   "heading": 190.65539223353983,
+   "pitch": -2.8046755167950437
+  },
+  "capture_c585ba15a7e8.jpg": {
+   "pano_id": "C5daGZvGTE0GNHaG4PqZvA",
+   "lat": 35.18830246968528,
+   "lng": 135.63399632453655,
+   "heading": 180.3238843650796,
+   "pitch": -2.07188099045932
+  },
+  "capture_2d4668fba0f3.jpg": {
+   "pano_id": "vn822PL6cvS-HnejMID8hQ",
+   "lat": 35.188382522399,
+   "lng": 135.6340235148444,
+   "heading": 115.07614489102,
+   "pitch": 3.7642169590482695
+  },
+  "capture_bdb0ddf065e5.jpg": {
+   "pano_id": "rw8-Xg_UsIAAlnHAc4RlxA",
+   "lat": 35.187578290009235,
+   "lng": 135.63374562630676,
+   "heading": 162.83664442457302,
+   "pitch": 4.859577428596097
+  }
+ },
+ "truth": {
+  "lat": 35.19029723060085,
+  "lng": 135.63417963788572,
+  "iso": "JP",
+  "file_lat": 35.1932,
+  "file_lng": 135.6345,
+  "n_panos": 9
+ },
+ "created": 1788740804.4198472,
+ "blind": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Sasayama (Tamba-Sasayama) rural fringe",
+    "confidence": 0.34,
+    "coordinate_estimate": {
+     "lat": 35.06,
+     "lng": 135.22,
+     "radius_km": 45
+    },
+    "country": "Japan",
+    "country_iso": "JP",
+    "region_or_state": "Hyogo Prefecture (Tamba/Sasayama basin), inland Kinki"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.22,
+     "country": "Japan",
+     "country_iso": "JP"
+    },
+    {
+     "confidence": 0.18,
+     "country": "Japan",
+     "country_iso": "JP"
+    },
+    {
+     "confidence": 0.12,
+     "country": "Japan",
+     "country_iso": "JP"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Humid subtropical / warm temperate (Cfa) — evergreen broadleaf mixed with planted sugi-hinoki and moso bamboo on low hills",
+    "driving_side": "left",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "vernacular architecture",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Large irimoya farmhouse with dark grey kawara tile roof, deep eaves, ridge-end ogre tiles and clipped matsu garden pine — classic Japanese rural minka, not Korean or Chinese vernacular",
+     "supports": [
+      "Japan"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Slender concrete utility poles with stacked crossarms, pole-top transformers and orange-white striped roadside snow/edge marker poles — standard Japanese rural distribution hardware",
+     "supports": [
+      "Japan"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "agriculture",
+     "image_index": 3,
+     "level": "macro_region",
+     "observation": "Flooded, freshly puddled paddies in a narrow valley floor in full leaf-out — rice transplanting season (early-mid May), typical of western Honshu inland basins",
+     "supports": [
+      "Kinki/Chugoku inland"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "terrain",
+     "image_index": 2,
+     "level": "macro_region",
+     "observation": "Low rounded hills 150-350 m of mixed evergreen broadleaf, cedar plantation and yellow-flushing moso bamboo enclosing a small alluvial basin — Setouchi-side hill country, not the high steep ranges of Chubu",
+     "supports": [
+      "Kinki/Chugoku"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "roofing",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Predominantly dark grey-black glazed kawara with a few red-brown Sekishu-type tiles; no thick snow-country steel roofs, no heavy snow fences or eave heaters",
+     "supports": [
+      "low-snow western Honshu"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "boundary walls",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Tile-capped plaster garden walls with red-lacquer lattice panels and cut-stone plinths — affluent old farm households typical of the Tamba/Sasayama castle-town hinterland",
+     "supports": [
+      "Hyogo/Kyoto inland"
+     ],
+     "weight": "low"
+    },
+    {
+     "category": "small structures",
+     "image_index": 0,
+     "level": "district",
+     "observation": "Row of plastic-film greenhouse tunnels beside kitchen gardens and a bamboo-staked plot — mixed paddy plus vegetable smallholding economy",
+     "supports": [
+      "rural smallholder farming"
+     ],
+     "weight": "low"
+    },
+    {
+     "category": "road",
+     "image_index": 1,
+     "level": "district",
+     "observation": "Single-lane unmarked farm lane about 3 m wide with concrete block retaining walls and open U-shaped drainage channel, no centre line — hamlet-internal noson road",
+     "supports": [
+      "rural hamlet"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "signage absence",
+     "image_index": null,
+     "level": "admin_region",
+     "observation": "No shop signage, route markers or place-name plates anywhere in the six frames, which prevents a firm prefecture-level fix and caps confidence",
+     "supports": [
+      "low confidence at admin level"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "housing stock",
+     "image_index": 0,
+     "level": "cultural_sphere",
+     "observation": "1970s-80s two-storey stucco house with aluminium-frame balcony and wooden amado shutters beside older tiled minka — Yamato mainland Japanese building tradition, no Ryukyuan concrete flat roofs or shisa",
+     "supports": [
+      "mainland Yamato sphere"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.3,
+     "evidence": "No legible text captured; inference from architecture and infrastructure only",
+     "language": "Japanese",
+     "script": "Kanji/Kana (assumed, not observed)"
+    }
+   ],
+   "landmarks": [],
+   "narrowing": [
+    {
+     "candidates": [
+      "East Asia",
+      "Southeast Asia",
+      "Europe",
+      "North America"
+     ],
+     "conclusion": "East Asian humid-temperate rice country",
+     "confidence_after": 0.97,
+     "discriminator": "A European or North American village would show pitched asphalt/slate roofs, mown lawns and no bunded flooded fields; Southeast Asia would show palms, open-plan raised houses and year-round green rather than a spring transplanting flush.",
+     "level": "continent",
+     "observation": "Flooded bunded paddies immediately adjacent to tile-roofed timber houses, cedar/bamboo hillsides, dense overhead wiring",
+     "ruled_out": [
+      "Europe — no paddy agriculture in this form",
+      "North America — lot layout and roof form incompatible",
+      "Southeast Asia — temperate broadleaf/conifer forest, deciduous flush"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Japan",
+      "South Korea",
+      "Taiwan",
+      "eastern China"
+     ],
+     "conclusion": "Japan",
+     "confidence_after": 0.96,
+     "discriminator": "Korean rural houses use lighter, lower-pitched slate/steel roofs with no ridge-end oni-gawara and typically painted concrete-block walls; Taiwanese and Chinese villages show unpainted RC frames with tiled facades, red brick, and different pole hardware with drum-shaped transformers. Japanese-only signals here are the deep-eave irimoya kawara roof, the amado wooden shutters, clipped niwaki pines, and orange/white striped roadside delineator poles.",
+     "level": "country",
+     "observation": "Irimoya tiled minka with oni-gawara, bamboo-fence garden screens, orange-white striped delineator posts, concrete poles with multi-tier crossarms",
+     "ruled_out": [
+      "South Korea — roof profile and pole hardware differ",
+      "Taiwan/China — RC tile-clad houses and red brick absent"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Hokkaido",
+      "Tohoku/Hokuriku snow belt",
+      "Kanto/Chubu",
+      "Kinki-Chugoku inland",
+      "Kyushu",
+      "Ryukyu"
+     ],
+     "conclusion": "Warm, low-snow western/central Honshu hill basin",
+     "confidence_after": 0.72,
+     "discriminator": "Hokkaido and the Sea-of-Japan snow belt would show steep steel or half-hipped snow roofs, snow poles with reflective arrows on every pole, no clay kawara over wide areas, and roadside sprinkler (shosetsu) nozzles down the centre line. Ryukyu would show flat concrete roofs and water tanks. Kyushu volcanic areas would show reddish tephra soils and more red Sekishu-style roofs dominating rather than a minority.",
+     "level": "macro_region",
+     "observation": "Grey clay kawara nearly everywhere, shallow-eaved plaster walls, no snow poles, no roadside melting sprinklers, evergreen broadleaf with moso bamboo on hills",
+     "ruled_out": [
+      "Hokkaido — no snow-country roofing",
+      "Tohoku/Hokuriku — no snow poles or sprinkler lines despite tile roofs being rare there",
+      "Ryukyu — no concrete flat roofs"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Yamato mainland rural sphere",
+      "Ainu/Hokkaido settler sphere",
+      "Ryukyuan sphere"
+     ],
+     "conclusion": "Yamato mainland satoyama village sphere with old landed-farmer status markers",
+     "confidence_after": 0.85,
+     "discriminator": "A Ryukyuan village would show coral-block walls, shisa figures and fukugi windbreak trees; a Hokkaido settler village would show a grid of large rectangular fields, wide setbacks and no ancestral walled compounds. Here the compact clustered hamlet with walled compounds fronting shared irrigation channels is the classic Kinai/Sanyo satoyama pattern.",
+     "level": "cultural_sphere",
+     "observation": "Clustered hamlet on the valley edge, walled house compounds with lacquered lattice, niwaki pines, paddies pushed onto the flat floor below",
+     "ruled_out": [
+      "Ryukyuan sphere — no coral walls or fukugi",
+      "Hokkaido settler sphere — field geometry and settlement spacing wrong"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "Hyogo Tamba/Sasayama basin",
+      "Kyoto Nantan (Kameoka/Nantan)",
+      "Okayama-Hiroshima inland",
+      "Gifu/Shiga lake-side basins"
+     ],
+     "conclusion": "Most likely the Tamba-Sasayama / Nantan basin belt of inland Hyogo-Kyoto border country; Chugoku inland cannot be fully excluded",
+     "confidence_after": 0.34,
+     "discriminator": "Okayama/Hiroshima inland would show a much higher share of orange Sekishu-gawara roofs and granite (masa) light-coloured soils and stone walls; here the roofs are overwhelmingly dark grey Awaji/Ibushi tile over dark sedimentary Tamba-belt stone. Shiga/Gifu basins would show larger continuous paddy plains with wider ditches and mountain silhouettes over 700 m, whereas the enclosing ridges here are low rounded 150-300 m Tamba hills with heavy moso bamboo intrusion.",
+     "level": "admin_region",
+     "observation": "Dark ibushi-grey tile dominance, dark stone retaining walls, bamboo-invaded low hills, narrow flat-floored basin with small paddy blocks and greenhouse tunnels",
+     "ruled_out": [
+      "Okayama/Hiroshima inland — red tile and granite palette absent",
+      "Gifu/Shiga — basin too narrow and peaks too low"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "hamlet on basin floor",
+      "ridge-top settlement",
+      "riverside town"
+     ],
+     "conclusion": "Small linear hamlet along a lane on the toe of a wooded hill, facing its own irrigated paddy block; no shops or through traffic",
+     "confidence_after": 0.6,
+     "discriminator": "A riverside town would show a levee road, guardrail and a bridge with route markers; a ridge settlement would show terraced rather than flat paddies. Here the paddies are flat, bunded and served by a straight concrete channel, and the lane dead-ends into farm tracks.",
+     "level": "district",
+     "observation": "One-lane lane between block walls and a hedge, small drainage bridge with pipe railing, cluster of 20-30 houses backed onto forest",
+     "ruled_out": [
+      "riverside town — no levee or bridge signage",
+      "ridge settlement — no terracing"
+     ],
+     "weight": "low"
+    }
+   ],
+   "cultural_economic_read": "A depopulating but far from poor Japanese satoyama hamlet. The housing mix — restored large kawara-roofed minka with clipped garden pines and lacquered lattice walls next to plain 1970s-80s stucco two-storey homes — indicates old landholding farm families plus post-war rebuilds, with pickup/kei trucks and a small tractor parked at homes. Economy is part-time rice cultivation (paddies freshly puddled for May transplanting) supplemented by vegetable tunnels and probably off-farm commuting to a nearby valley town; a timber/sawmill yard is visible on the far side of the fields. No shops, buses or signage in frame, and several houses show weathered shutters and unkempt hedges, consistent with the aging rural demographics of inland western Honshu.",
+   "overall_confidence": 0.4,
+   "place_slug": "tamba-sasayama"
+  },
+  "cost_usd": 0.2299,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "Japan",
+   "country_iso": "JP",
+   "country_correct": true,
+   "region": "Hyogo Prefecture (Tamba/Sasayama basin), inland Kinki",
+   "city": "Sasayama (Tamba-Sasayama) rural fringe",
+   "confidence": 0.34,
+   "overall_confidence": 0.4,
+   "error_km": 40.36,
+   "reached_level": "district",
+   "n_steps": 6,
+   "n_steps_with_cut": 6,
+   "n_cues": 10,
+   "n_landmarks": 0,
+   "cue_categories": [
+    "agriculture",
+    "boundary walls",
+    "housing stock",
+    "infrastructure",
+    "road",
+    "roofing",
+    "signage absence",
+    "small structures",
+    "terrain",
+    "vernacular architecture"
+   ]
+  },
+  "atoms": [
+   "atm_595b46dd9dad",
+   "atm_8ed448618a1a",
+   "atm_507a054ac2f3",
+   "atm_09d13c38eea4",
+   "atm_e6493a33635c",
+   "atm_9f7bb3a18878",
+   "atm_9e72548dcc26",
+   "atm_ea9184850059",
+   "atm_40448a0ecbbf",
+   "atm_1c8fc0ae2828",
+   "atm_1827c3b83cbe",
+   "atm_eb2713acd17a",
+   "atm_98ed14758646",
+   "atm_ce2996d5c07d",
+   "atm_e96af76498e5"
+  ],
+  "ingest": {
+   "created": 15,
+   "merged": 0,
+   "cost_usd": 0.0726,
+   "passes": {
+    "p2": {
+     "created": 6,
+     "merged": 0,
+     "cost_usd": 0.0429,
+     "n": 6
+    },
+    "p1": {
+     "created": 9,
+     "merged": 0,
+     "cost_usd": 0.0297,
+     "n": 9
+    }
+   }
+  }
+ },
+ "aided": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Keihoku-Shimoyuge, Ukyo Ward, Kyoto City",
+    "confidence": 0.9,
+    "coordinate_estimate": {
+     "lat": 35.1265,
+     "lng": 135.6285,
+     "radius_km": 1.2
+    },
+    "country": "Japan",
+    "country_iso": "JP",
+    "region_or_state": "Kyoto Prefecture"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.05,
+     "country": "Japan",
+     "country_iso": "JP"
+    },
+    {
+     "confidence": 0.03,
+     "country": "Japan",
+     "country_iso": "JP"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Humid subtropical (Cfa) montane basin; dense evergreen conifer (sugi/hinoki) plantation forest",
+    "driving_side": "left",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Two-storey postwar Japanese house with shallow-pitch hipped roof, kawara tile ridge, sliding amado shutters and a concrete-block base wall with hollow-core decorative blocks — a classic Japanese rural housing type.",
+     "supports": [
+      "Japan"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Slim concrete utility poles with stacked cross-arms, pole-mounted transformers, and an orange/white striped rubber delineator post typical of Japanese narrow rural roads.",
+     "supports": [
+      "Japan"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "agriculture",
+     "image_index": 3,
+     "level": "macro_region",
+     "observation": "Flooded, freshly puddled rice paddies in a narrow river-valley floor with tight terraced field parcels — early-May transplanting season in a Honshu mountain basin.",
+     "supports": [
+      "Honshu mountain basin",
+      "Kinki"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "macro_region",
+     "observation": "Steep hillsides covered in uniform dark planted sugi/hinoki cedar-cypress rows right down to the village edge — intensive forestry district, not natural mixed broadleaf.",
+     "supports": [
+      "Kitayama forestry area, northern Kyoto"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "architecture",
+     "image_index": 4,
+     "level": "admin_region",
+     "observation": "Old farmhouse with steep, deeply overhanging dark tiled gable roof and decorative ridge finials, plus a shaped pine and clipped hedge garden — Tanba/Kitayama style minka of the Kyoto hinterland.",
+     "supports": [
+      "Kyoto Tanba uplands"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "architecture",
+     "image_index": 5,
+     "level": "district",
+     "observation": "Long roofed earthen boundary wall with red-lacquered wooden lattice and tiled coping fronting the lane — a temple/shrine or old landed household enclosure, consistent with a shrine-centred hamlet.",
+     "supports": [
+      "Kotohiragu shrine neighbourhood"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "industry",
+     "image_index": 5,
+     "level": "district",
+     "observation": "Stacked sawn timber and log piles visible at the far end of the lane near the main road — active local sawmill/timber trade.",
+     "supports": [
+      "Keihoku forestry town"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "infrastructure",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Single-lane concrete-edged farm lanes with no centre line and no guardrails, plus plastic greenhouses and deer/boar wire mesh fencing around every paddy — wildlife pressure typical of mountain-enclosed Kyoto villages.",
+     "supports": [
+      "mountain village"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "map_context",
+     "image_index": 0,
+     "level": "district",
+     "observation": "Map labels Kitakuwada High School, Fukutokuji Temple, Kotohiragu, Oyamazumi-jinja and the place name Keihoku-Shimoyuge-cho along Route 366/78 in a narrow forested valley.",
+     "supports": [
+      "Keihoku, Ukyo-ku, Kyoto"
+     ],
+     "weight": "high"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.95,
+     "evidence": "Japanese place labels on the map overlay (京北下弓削町, 福徳寺, 金刀比羅宮, 大山祇神社); no in-scene text legible.",
+     "language": "Japanese",
+     "script": "Kanji/Kana"
+    }
+   ],
+   "landmarks": [
+    {
+     "confidence": 0.5,
+     "image_index": 5,
+     "name": "Kotohiragu shrine precinct wall (probable)",
+     "type": "Shinto shrine enclosure"
+    },
+    {
+     "confidence": 0.4,
+     "image_index": 0,
+     "name": "Yuge valley agricultural terraces",
+     "type": "paddy landscape"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "East Asia",
+      "Southeast Asia",
+      "Europe"
+     ],
+     "conclusion": "East Asian humid-temperate rice culture",
+     "confidence_after": 0.97,
+     "discriminator": "A European village would show masonry gables, no wet paddies and buried or wooden-pole utilities; Southeast Asia would show unglazed corrugated roofing, palms and year-round tropical broadleaf rather than planted conifer.",
+     "level": "continent",
+     "observation": "Wet-rice paddies in narrow valley floors, tiled hip-and-gable roofs, dense conifer plantation slopes, overhead lines on slim concrete poles.",
+     "ruled_out": [
+      "Europe: no wet paddies or tiled minka roofs",
+      "Southeast Asia: no palms, temperate conifer plantations instead"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Japan",
+      "South Korea",
+      "China",
+      "Taiwan"
+     ],
+     "conclusion": "Japan",
+     "confidence_after": 0.96,
+     "discriminator": "Korean rural houses use flatter slab roofs or bright coloured metal panels with masonry walls; Chinese villages show brick/whitewash rows with red tile and rooftop water tanks; Taiwan shows RC boxes with rooftop tanks. None use amado shutters, hollow decorative concrete-block plinths, or orange/white delineator posts.",
+     "level": "country",
+     "observation": "Amado sliding storm shutters, hollow-core decorative concrete block plinth walls, kawara ridge tiles with ceramic end caps, red plastic fire-bucket box on a pole, orange striped delineator post.",
+     "ruled_out": [
+      "South Korea: different roof/fence vocabulary, no delineator or fire-box",
+      "China: no whitewashed brick courtyard walls or rooftop tanks",
+      "Taiwan: no RC boxes/water tanks, climate too temperate"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Hokkaido",
+      "Tohoku/Hokuriku snow country",
+      "Kanto",
+      "Kinki/Chubu inland",
+      "Kyushu"
+     ],
+     "conclusion": "Inland Honshu, non-snow-country west (Kinki/Tokai)",
+     "confidence_after": 0.85,
+     "discriminator": "Snow country (Hokuriku/Tohoku) would show steep metal roofs, snow-guard bars, deep eaves, roadside snow poles and sprinkler nozzles in the pavement; Hokkaido would have hip-roof metal siding houses and no clay kawara at all. Here roofs are shallow clay tile with modest eaves and there is no snow hardware.",
+     "level": "macro_region",
+     "observation": "Clay tile roofs with shallow pitch, no snow poles, no roof snow-guards, no road de-icing sprinklers; luxuriant evergreen hedges and bamboo.",
+     "ruled_out": [
+      "Hokkaido: no clay tile, would use metal roofing",
+      "Hokuriku/Tohoku: absence of snow-fall infrastructure",
+      "Kyushu: no sub-tropical planting, valley conifer forestry pattern differs"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Yamato lowland Kinki (Nara/Osaka plain)",
+      "Kyoto Tanba/Kitayama uplands",
+      "Shiga lakeside",
+      "Mie/Iga"
+     ],
+     "conclusion": "Kitayama–Tanba forestry sphere north of Kyoto city",
+     "confidence_after": 0.82,
+     "discriminator": "Nara/Osaka plain villages sit in wide open alluvial basins with continuous paddy sheets and dense suburban infill; Shiga would show a lake basin horizon and Omi-style white-plaster warehouses. Here the valley is only a few hundred metres wide, walled by uniformly planted cedar ridges — the hallmark Kitayama timber landscape.",
+     "level": "cultural_sphere",
+     "observation": "Extremely narrow flat valley floor squeezed by steep, wholly plantation-forested ridges; sawmill timber stacks; dark Tanba-type minka with heavy gables.",
+     "ruled_out": [
+      "Nara/Osaka plain: no broad basin",
+      "Shiga: no lake basin",
+      "Mie/Iga: different minka and no plantation monoculture ridges"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "Nantan City (Miyama/Sonobe)",
+      "Kyoto City Ukyo-ku Keihoku",
+      "Kyotamba"
+     ],
+     "conclusion": "Keihoku district, Ukyo Ward, Kyoto City — Shimoyuge hamlet",
+     "confidence_after": 0.9,
+     "discriminator": "Miyama would show thatched kayabuki roofs and no prefectural high school; Kyotamba lies on a broader plateau along Route 9 with different route numbering. The overlay's Kitakuwada High School, Fukutokuji, Kotohiragu and Oyamazumi-jinja cluster is uniquely the Yuge basin on Route 78/366 in Keihoku.",
+     "level": "metro_area",
+     "observation": "Map overlay names Keihoku-Shimoyuge-cho with Kitakuwada High School, Fukutokuji Temple and Kotohiragu shrine; Routes 78 and 366 meet along the valley.",
+     "ruled_out": [
+      "Miyama: thatched-roof village, no high school",
+      "Kyotamba: on Route 9 plateau, different landmark set"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "West-bank lanes below Kitakuwada HS",
+      "East side along Route 366 near Fukutokuji"
+     ],
+     "conclusion": "West-bank residential lanes of Shimoyuge, between the school and Kotohiragu shrine, roughly 200-400 m west of Route 366",
+     "confidence_after": 0.8,
+     "discriminator": "The Route 366 corridor east of the river carries shopfronts, painted centre lines and roadside signage; these captures show unmarked single-lane farm alleys with paddies immediately adjacent and no commercial frontage, matching the grid of small lanes west of the highway where the map pin sits.",
+     "level": "district",
+     "observation": "All frames are on narrow unmarked lanes flanked by hedges, paddies and private walls; the pin sits west of the yellow Route 366 line each time.",
+     "ruled_out": [
+      "East-side highway strip: no centre line or shops visible in any frame"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "cultural_economic_read": "A depopulating but well-maintained mountain-valley farming and forestry hamlet in the far-northern rural fringe of Kyoto City. Housing is owner-occupied postwar and older detached minka on generous plots with clipped garden pines and hedges — modest but comfortable middle-income rural wealth, no visible poverty and no visible tourism economy. Economy rests on small-scale rice cultivation (paddies fenced against deer and boar), a few plastic greenhouses for vegetables, and Kitayama cedar/cypress forestry with local sawn-timber stacking. Presence of a prefectural high school and several shrines/temples indicates a long-settled community that still functions as a service centre for surrounding hamlets, though the mothballed shutters and untended plots suggest ageing and outmigration toward Kyoto city 30-40 km south.",
+   "overall_confidence": 0.86,
+   "place_slug": "keihoku-shimoyuge"
+  },
+  "cost_usd": 0.2756,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "Japan",
+   "country_iso": "JP",
+   "country_correct": true,
+   "region": "Kyoto Prefecture",
+   "city": "Keihoku-Shimoyuge, Ukyo Ward, Kyoto City",
+   "confidence": 0.9,
+   "overall_confidence": 0.86,
+   "error_km": 7.11,
+   "reached_level": "district",
+   "n_steps": 6,
+   "n_steps_with_cut": 6,
+   "n_cues": 9,
+   "n_landmarks": 2,
+   "cue_categories": [
+    "agriculture",
+    "architecture",
+    "industry",
+    "infrastructure",
+    "map_context",
+    "vegetation"
+   ]
+  },
+  "atoms": [
+   "atm_fe4ccb43cd3c",
+   "atm_5abefb204d28",
+   "atm_f7c9410af07d",
+   "atm_07fa627a987f",
+   "atm_ba54d40fa3af",
+   "atm_69cf3e067eb1",
+   "atm_b401049cca34",
+   "atm_510dc24480ae",
+   "atm_dfc3c80b67e3",
+   "atm_608f8351fd90",
+   "atm_7e4d7df04b9d",
+   "atm_4bb8314680c3",
+   "atm_8dee7bcb05f0"
+  ],
+  "ingest": {
+   "created": 13,
+   "merged": 0,
+   "cost_usd": 0.0656,
+   "passes": {
+    "p2": {
+     "created": 4,
+     "merged": 0,
+     "cost_usd": 0.0357,
+     "n": 4
+    },
+    "p1": {
+     "created": 9,
+     "merged": 0,
+     "cost_usd": 0.0299,
+     "n": 9
+    }
+   }
+  }
+ },
+ "aided_prior": {
+  "lang": "en",
+  "metrics": {
+   "country": "Japan",
+   "country_iso": "JP",
+   "country_correct": true,
+   "region": "Kyoto Prefecture",
+   "city": "Keihoku Shimoyuge, Ukyo Ward, Kyoto City",
+   "confidence": 0.9,
+   "overall_confidence": 0.88,
+   "error_km": 10.3,
+   "reached_level": "district",
+   "n_steps": 6,
+   "n_steps_with_cut": 6,
+   "n_cues": 9,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "agriculture",
+    "architecture",
+    "built_environment",
+    "economy",
+    "infrastructure",
+    "landscape",
+    "roads",
+    "signage_map",
+    "vegetation"
+   ]
+  },
+  "best_guess": {
+   "city": "Keihoku Shimoyuge, Ukyo Ward, Kyoto City",
+   "confidence": 0.9,
+   "country": "Japan",
+   "country_iso": "JP",
+   "region_or_state": "Kyoto Prefecture",
+   "coordinate_estimate": {
+    "lat": 35.0977,
+    "lng": 135.6386,
+    "radius_km": 1.2
+   }
+  }
+ },
+ "cues": {
+  "unaided": [
+   {
+    "blind": {
+     "category": "agriculture",
+     "image_index": 3,
+     "level": "macro_region",
+     "observation": "Flooded, freshly puddled paddies in a narrow valley floor in full leaf-out — rice transplanting season (early-mid May), typical of western Honshu inland basins",
+     "supports": [
+      "Kinki/Chugoku inland"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "agriculture",
+     "image_index": 3,
+     "level": "macro_region",
+     "observation": "Flooded, freshly puddled rice paddies in a narrow river-valley floor with tight terraced field parcels — early-May transplanting season in a Honshu mountain basin.",
+     "supports": [
+      "Honshu mountain basin",
+      "Kinki"
+     ],
+     "weight": "medium"
+    },
+    "sim": 1.2
+   },
+   {
+    "blind": {
+     "category": "infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Slender concrete utility poles with stacked crossarms, pole-top transformers and orange-white striped roadside snow/edge marker poles — standard Japanese rural distribution hardware",
+     "supports": [
+      "Japan"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Slim concrete utility poles with stacked cross-arms, pole-mounted transformers, and an orange/white striped rubber delineator post typical of Japanese narrow rural roads.",
+     "supports": [
+      "Japan"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.07
+   },
+   {
+    "blind": {
+     "category": "boundary walls",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Tile-capped plaster garden walls with red-lacquer lattice panels and cut-stone plinths — affluent old farm households typical of the Tamba/Sasayama castle-town hinterland",
+     "supports": [
+      "Hyogo/Kyoto inland"
+     ],
+     "weight": "low"
+    },
+    "aided": {
+     "category": "architecture",
+     "image_index": 5,
+     "level": "district",
+     "observation": "Long roofed earthen boundary wall with red-lacquered wooden lattice and tiled coping fronting the lane — a temple/shrine or old landed household enclosure, consistent with a shrine-centred hamlet.",
+     "supports": [
+      "Kotohiragu shrine neighbourhood"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.49
+   },
+   {
+    "blind": {
+     "category": "vernacular architecture",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Large irimoya farmhouse with dark grey kawara tile roof, deep eaves, ridge-end ogre tiles and clipped matsu garden pine — classic Japanese rural minka, not Korean or Chinese vernacular",
+     "supports": [
+      "Japan"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "architecture",
+     "image_index": 4,
+     "level": "admin_region",
+     "observation": "Old farmhouse with steep, deeply overhanging dark tiled gable roof and decorative ridge finials, plus a shaped pine and clipped hedge garden — Tanba/Kitayama style minka of the Kyoto hinterland.",
+     "supports": [
+      "Kyoto Tanba uplands"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.48
+   }
+  ],
+  "aided_only": [
+   {
+    "category": "architecture",
+    "image_index": 0,
+    "level": "country",
+    "observation": "Two-storey postwar Japanese house with shallow-pitch hipped roof, kawara tile ridge, sliding amado shutters and a concrete-block base wall with hollow-core decorative blocks — a classic Japanese rural housing type.",
+    "supports": [
+     "Japan"
+    ],
+    "weight": "high"
+   },
+   {
+    "category": "vegetation",
+    "image_index": 2,
+    "level": "macro_region",
+    "observation": "Steep hillsides covered in uniform dark planted sugi/hinoki cedar-cypress rows right down to the village edge — intensive forestry district, not natural mixed broadleaf.",
+    "supports": [
+     "Kitayama forestry area, northern Kyoto"
+    ],
+    "weight": "high"
+   },
+   {
+    "category": "industry",
+    "image_index": 5,
+    "level": "district",
+    "observation": "Stacked sawn timber and log piles visible at the far end of the lane near the main road — active local sawmill/timber trade.",
+    "supports": [
+     "Keihoku forestry town"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "infrastructure",
+    "image_index": 2,
+    "level": "district",
+    "observation": "Single-lane concrete-edged farm lanes with no centre line and no guardrails, plus plastic greenhouses and deer/boar wire mesh fencing around every paddy — wildlife pressure typical of mountain-enclosed Kyoto villages.",
+    "supports": [
+     "mountain village"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "map_context",
+    "image_index": 0,
+    "level": "district",
+    "observation": "Map labels Kitakuwada High School, Fukutokuji Temple, Kotohiragu, Oyamazumi-jinja and the place name Keihoku-Shimoyuge-cho along Route 366/78 in a narrow forested valley.",
+    "supports": [
+     "Keihoku, Ukyo-ku, Kyoto"
+    ],
+    "weight": "high"
+   }
+  ],
+  "blind_only": [
+   {
+    "category": "terrain",
+    "image_index": 2,
+    "level": "macro_region",
+    "observation": "Low rounded hills 150-350 m of mixed evergreen broadleaf, cedar plantation and yellow-flushing moso bamboo enclosing a small alluvial basin — Setouchi-side hill country, not the high steep ranges of Chubu",
+    "supports": [
+     "Kinki/Chugoku"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "roofing",
+    "image_index": 5,
+    "level": "admin_region",
+    "observation": "Predominantly dark grey-black glazed kawara with a few red-brown Sekishu-type tiles; no thick snow-country steel roofs, no heavy snow fences or eave heaters",
+    "supports": [
+     "low-snow western Honshu"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "small structures",
+    "image_index": 0,
+    "level": "district",
+    "observation": "Row of plastic-film greenhouse tunnels beside kitchen gardens and a bamboo-staked plot — mixed paddy plus vegetable smallholding economy",
+    "supports": [
+     "rural smallholder farming"
+    ],
+    "weight": "low"
+   },
+   {
+    "category": "road",
+    "image_index": 1,
+    "level": "district",
+    "observation": "Single-lane unmarked farm lane about 3 m wide with concrete block retaining walls and open U-shaped drainage channel, no centre line — hamlet-internal noson road",
+    "supports": [
+     "rural hamlet"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "signage absence",
+    "image_index": null,
+    "level": "admin_region",
+    "observation": "No shop signage, route markers or place-name plates anywhere in the six frames, which prevents a firm prefecture-level fix and caps confidence",
+    "supports": [
+     "low confidence at admin level"
+    ],
+    "weight": "high"
+   },
+   {
+    "category": "housing stock",
+    "image_index": 0,
+    "level": "cultural_sphere",
+    "observation": "1970s-80s two-storey stucco house with aluminium-frame balcony and wooden amado shutters beside older tiled minka — Yamato mainland Japanese building tradition, no Ryukyuan concrete flat roofs or shisa",
+    "supports": [
+     "mainland Yamato sphere"
+    ],
+    "weight": "medium"
+   }
+  ]
+ },
+ "narrative": {
+  "blind_logic": "The blind chain builds purely from visual cues: paddy agriculture, tile roof style, absence of snow infrastructure, settlement clustering pattern, and stone/roof color palette. It progressively narrows from East Asia to Japan to a warm low-snow Honshu basin to a Kinai/Sanyo satoyama cultural pattern, finally landing on a probabilistic guess of \"Tamba-Sasayama/Nantan basin belt of inland Hyogo-Kyoto border country\" while explicitly noting Chugoku inland cannot be excluded. Confidence stays moderate (0.34) throughout since no textual or locational data is available.",
+  "aided_logic": "The aided chain follows identical reasoning through continent, country, and macro_region steps using the same visual discriminators (paddies, amado shutters, tile type, absence of snow gear). However, starting at cultural_sphere it shifts to describing valley shape/forestry to justify \"Kitayama-Tanba forestry sphere,\" then at metro_area it directly reads place names off the map overlay (Keihoku-Shimoyuge-cho, Kitakuwada High School, Fukutokuji Temple, Kotohiragu shrine, Route 78/366) to pinpoint the exact hamlet, and at district level it uses the pin's position relative to the route line to assign a precise 200-400m location. Confidence jumps to 0.9.",
+  "delta": "Both chains reason identically through continent/country/macro_region using genuine street-level visual evidence. The divergence begins at cultural_sphere, where the aided chain's landscape framing is still visually grounded but noticeably steers toward the Kyoto-adjacent Kitayama forestry zone (a much narrower target than the blind chain's Hyogo/Kyoto border guess). The real leak occurs at metro_area and district: the aided chain names specific named landmarks (Kitakuwada High School, Fukutokuji Temple, Kotohiragu shrine, Route 78/366) that are only knowable from reading the map overlay text, not from any street-view image content. These labels are then used as the sole discriminators to eliminate Miyama and Kyotamba and to fix the hamlet, and finally the pin's exact position relative to the route line is used to specify a 200-400m locale — none of which street-level imagery could support. This converts the last two narrowing steps from visual inference into map-label transcription, explaining the jump from 0.34 to 0.9 confidence.",
+  "map_dependent_steps": [
+   "metro_area: naming Keihoku-Shimoyuge-cho, Kitakuwada High School, Fukutokuji Temple, Kotohiragu shrine and Route 78/366 as the identifying landmark cluster",
+   "district: placing the location 200-400m west of Route 366 based on the pin's position relative to the mapped route line"
+  ],
+  "verdict": "map-leaked-answer",
+  "cost_usd": 0.0295,
+  "model": "claude-sonnet-5"
+ },
+ "cost_usd": 0.6732,
+ "status": "OK"
+}

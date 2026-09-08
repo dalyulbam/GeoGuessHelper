@@ -1,0 +1,1080 @@
+{
+ "job_id": "job_e1df2b6f7aeb",
+ "report_file": "report_vn_thuong-dinh-phu-binh_21.492_105.9098_260906_210105_ko-en-fr.html",
+ "label": "선택 장면 보고서 · VlJB8vGX…jXEA",
+ "created": 1788762424.6450107,
+ "lang": "en",
+ "images": [
+  "capture_f922dff80627.jpg",
+  "capture_13b01d4d7cb4.jpg",
+  "capture_48ecaf5a7f12.jpg",
+  "capture_fda7161e59c2.jpg",
+  "capture_8d50447e59c5.jpg",
+  "capture_c475c621c00d.jpg"
+ ],
+ "image_panos": {
+  "capture_f922dff80627.jpg": {
+   "pano_id": "VlJB8vGXB5IsGArVpJjXEA",
+   "lat": 21.4920323859001,
+   "lng": 105.90978241022655,
+   "heading": 141,
+   "pitch": 0
+  },
+  "capture_13b01d4d7cb4.jpg": {
+   "pano_id": "FyDtduwXe8RSWOT2WuLw0Q",
+   "lat": 21.49060380318124,
+   "lng": 105.91061725617259,
+   "heading": 143.10057477054625,
+   "pitch": -4.005476562475735
+  },
+  "capture_48ecaf5a7f12.jpg": {
+   "pano_id": "PogMyFUGQV4_GTZwTYpT8w",
+   "lat": 21.489828803695257,
+   "lng": 105.91088684543367,
+   "heading": 158.10215788302696,
+   "pitch": 2.707906540174605
+  },
+  "capture_fda7161e59c2.jpg": {
+   "pano_id": "eApRkqpZSxgaMMdAtD5kpw",
+   "lat": 21.489057996984833,
+   "lng": 105.9111506095023,
+   "heading": 128.84590518473476,
+   "pitch": 2.212242725268837
+  },
+  "capture_8d50447e59c5.jpg": {
+   "pano_id": "Z-5gdII0QG3qL8X69hd2kg",
+   "lat": 21.488241952389796,
+   "lng": 105.91147953089353,
+   "heading": 154.04955287367207,
+   "pitch": 1.3913209468724688
+  },
+  "capture_c475c621c00d.jpg": {
+   "pano_id": "v9mm5HLJq5BYrCGMrSn4Pg",
+   "lat": 21.4859924691972,
+   "lng": 105.9125669473073,
+   "heading": 58.68379577146978,
+   "pitch": 13.250079091563322
+  }
+ },
+ "truth": {
+  "lat": 21.487608027413486,
+  "lng": 105.9119446781629,
+  "iso": "VN",
+  "country": "Vietnam",
+  "region": "Thái Nguyên province",
+  "city": "Thượng Đình / Hanh market area, Phú Bình district",
+  "source": "aided_prior",
+  "file_lat": 21.492,
+  "file_lng": 105.9098,
+  "n_panos": 9
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Thuong Dinh / Diem Thuy, Phu Binh district",
+     "confidence": 0.85,
+     "coordinate_estimate": {
+      "lat": 21.4655,
+      "lng": 105.9285,
+      "radius_km": 6
+     },
+     "country": "Vietnam",
+     "country_iso": "VN",
+     "region_or_state": "Thai Nguyen province"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Humid subtropical / tropical monsoon lowland; wet-rice paddy with banana, areca, tropical broadleaf",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Blue banner in Vietnamese with full diacritic stack: 'NHAN BAO HIEM XA HOI MOT LAN SE BO LO CO HOI DUOC HUONG LUONG HUU' — Vietnam Social Security (BHXH) public-service campaign wording",
+      "supports": [
+       "Vietnam"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Shop signboard address line reads 'Hang Tai, Thuong Dinh, Phu Binh, Thai Nguyen' — commune, district and province explicitly on a storefront",
+      "supports": [
+       "Thai Nguyen province",
+       "Phu Binh district"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Animal-feed distributor sign address 'DC: Diem Thuy - Phu Binh - Thai Nguyen', confirming the Diem Thuy commune corridor next to Thuong Dinh",
+      "supports": [
+       "Diem Thuy",
+       "Phu Binh"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 2,
+      "level": "district",
+      "observation": "Blue directional sign at right shows 'PHU BINH' with a distance and 'UBND xa Thuong Dinh 200 m' style secondary line — typical Vietnamese commune-level guide sign",
+      "supports": [
+       "Phu Binh town nearby"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Tutoring centre sign 'TRUNG TAM VIET BAC' — 'Viet Bac' is the historical name of the northern mountain/midland region (Thai Nguyen, Bac Kan, Cao Bang, Lang Son, Tuyen Quang, Ha Giang)",
+      "supports": [
+       "Northern Vietnam midlands"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "country",
+      "observation": "White kilometre post with red rounded cap bearing route code and distance, plus W-beam guardrail on concrete-stub posts — standard Vietnamese provincial-road furniture",
+      "supports": [
+       "Vietnam"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "traffic",
+      "image_index": 1,
+      "level": "continent",
+      "observation": "Motorbikes dominate, all riding on the right-hand side, riders in helmets",
+      "supports": [
+       "right-hand traffic Southeast Asia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Ripening golden paddy in small bunded plots with hedgerow trees and low hills behind, not the flat endless delta or canal grid of the Mekong",
+      "supports": [
+       "Northern midlands, single-crop hill margin"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "macro_region",
+      "observation": "Narrow tube houses with heavily ornamented balustrades, pastel render and terracotta-tiled hipped roofs — northern Vietnamese village-town style",
+      "supports": [
+       "Red River basin / northern midlands"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "culture",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Rows of red festival banner-flags and national flags along the street, Communist-Party style decoration for a commemorative period",
+      "supports": [
+       "Vietnam"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "commerce",
+      "image_index": 3,
+      "level": "cultural_sphere",
+      "observation": "Brands 'Nhua Tien Phong' (Haiphong-based pipe maker) and 'Karofi' water filters — distribution network typical of northern Vietnam provinces",
+      "supports": [
+       "Northern Vietnam retail sphere"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "level": "district",
+      "observation": "Two-lane asphalt provincial road with continuous guardrail on the paddy side and roadside blue-clad industrial sheds — corridor typical of DT266/QL37 near the Diem Thuy industrial park",
+      "supports": [
+       "Phu Binh industrialising corridor"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "Lowland Kinh (Viet) commune on the fringe of Thai Nguyen's Phu Binh district: wet-rice smallholdings still worked right up to the road, but the strip is rapidly commercialising — plastic-pipe and sanitaryware dealers, water-filter brands, animal-feed distributors, tutoring centres, and blue steel-clad workshops that signal spillover from the Diem Thuy / Samsung-linked industrial zone. Housing shows new money: three-storey tube houses with ornate balustrades beside older single-storey tiled shops. Mobility is almost entirely motorbike; state presence is visible through social-insurance propaganda banners and party flag rows, a distinctly northern Vietnamese civic texture.",
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 2,
+      "name": "Thuong Dinh commune centre road junction with BHXH campaign banner",
+      "type": "village street node"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 4,
+      "name": "Small road bridge into Thuong Dinh market strip",
+      "type": "bridge"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "Latin script with Vietnamese diacritics: 'Nhua Tien Phong', 'Thiet bi ve sinh cao cap', 'Nha thuoc dong y gia truyen Truong Giang'",
+      "language": "Vietnamese",
+      "script": "Latin (Vietnamese quoc ngu)"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Southeast Asia",
+       "South Asia",
+       "East Asia",
+       "Latin America"
+      ],
+      "conclusion": "Mainland Southeast Asia, tropical monsoon lowland",
+      "confidence_after": 0.95,
+      "discriminator": "South Asia would show Devanagari/Bengali script and auto-rickshaws; Latin America would show Spanish/Portuguese signage and no paddy terraces of this bunded type.",
+      "level": "continent",
+      "observation": "Wet-rice paddy, banana clumps, universal motorbike traffic, Latin-script signage loaded with tone diacritics",
+      "ruled_out": [
+       "South Asia — no Indic script, no left-hand traffic",
+       "East Asia (CJK) — no Han/Kana/Hangul characters anywhere"
+      ],
+      "question": "Which continent/culture zone?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Vietnam",
+       "Thailand",
+       "Cambodia",
+       "Laos",
+       "Indonesia",
+       "Philippines"
+      ],
+      "conclusion": "Vietnam",
+      "confidence_after": 0.97,
+      "discriminator": "Thai/Lao/Khmer would use their own abugidas; Indonesian and Filipino use plain Latin without tone marks and would not carry 'Bao hiem xa hoi' state-insurance banners or red party pennant rows.",
+      "level": "country",
+      "observation": "Vietnamese quoc ngu with circumflex/horn/tone marks; state Social Security propaganda banner; rows of red pennant flags",
+      "ruled_out": [
+       "Thailand — Thai script absent",
+       "Cambodia/Laos — Khmer/Lao script absent",
+       "Indonesia/Philippines — no diacritics, no socialist-state banners"
+      ],
+      "question": "Which Southeast Asian country?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Mekong Delta",
+       "South Central Coast",
+       "Central Highlands",
+       "Red River Delta",
+       "Northern midlands (Viet Bac)"
+      ],
+      "conclusion": "Northern Vietnam, midland belt north of the Red River Delta",
+      "confidence_after": 0.9,
+      "discriminator": "Mekong Delta would show canals, ferries, stilt houses and coconut palms with no hills; Central Highlands would show red basalt soil and coffee/rubber; Central Coast would show sand and long low tile-roof compounds. Here the ground is grey-brown alluvium over low hills, houses are compact northern tube-houses with terracotta hipped roofs.",
+      "level": "macro_region",
+      "observation": "Low wooded hills on the skyline, small bunded paddies, banana and areca, northern-style ornate multi-storey tube houses; a tutoring centre named 'Viet Bac'",
+      "ruled_out": [
+       "Mekong Delta — no canals/water transport, terrain not flat-wet",
+       "Central Highlands — no red basalt soil or coffee",
+       "Central/South coast — architecture and vegetation mismatch"
+      ],
+      "question": "North, Centre or South Vietnam?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Kinh lowland sphere",
+       "Tay/Nung upland sphere",
+       "Hmong-Dao highland sphere"
+      ],
+      "conclusion": "Kinh (Viet) lowland commune, not an ethnic-minority upland settlement",
+      "confidence_after": 0.88,
+      "discriminator": "A Tay/Nung area would show stilted timber houses and bilingual/ethnic cultural signage; Hmong areas would show terraced hillside maize and market-day dress. Instead everything is standard Kinh brick tube-house commerce with Hanoi-style branding.",
+      "level": "cultural_sphere",
+      "observation": "All-Kinh signage, standard national-brand retail (Tien Phong plastics, Karofi), traditional-medicine pharmacy 'dong y gia truyen', no stilt houses",
+      "ruled_out": [
+       "Tay/Nung upland villages — no stilt architecture",
+       "Hmong/Dao highlands — no terraced hill farming or highland market dress"
+      ],
+      "question": "Kinh lowland or upland minority settlement?",
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Thai Nguyen",
+       "Bac Giang",
+       "Bac Ninh",
+       "Vinh Phuc",
+       "Phu Tho"
+      ],
+      "conclusion": "Thai Nguyen province",
+      "confidence_after": 0.93,
+      "discriminator": "A Bac Giang or Bac Ninh address block would read '... - Bac Giang' / '... - Bac Ninh'; the 'Viet Bac' regional naming also fits Thai Nguyen as the region's capital, not the delta provinces.",
+      "level": "admin_region",
+      "observation": "Storefront address lines printed on two separate signs end in 'Thai Nguyen'",
+      "ruled_out": [
+       "Bac Giang / Bac Ninh / Vinh Phuc / Phu Tho — provincial name on shop addresses contradicts them"
+      ],
+      "question": "Which northern midland province?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Phu Binh district",
+       "Pho Yen",
+       "Dong Hy",
+       "Thai Nguyen city"
+      ],
+      "conclusion": "Phu Binh district, southeastern Thai Nguyen",
+      "confidence_after": 0.9,
+      "discriminator": "Thai Nguyen city would show multi-lane urban boulevards, painted crossings and dense shophouse blocks; Pho Yen would signpost 'Pho Yen'. Here the guide sign and two shop addresses all name Phu Binh.",
+      "level": "metro_area",
+      "observation": "Blue guide sign 'PHU BINH' with distance; shop addresses 'Phu Binh, Thai Nguyen'",
+      "ruled_out": [
+       "Thai Nguyen city — rural paddy edge, single carriageway",
+       "Pho Yen / Dong Hy — district name on signs contradicts"
+      ],
+      "question": "Which district of Thai Nguyen?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Thuong Dinh commune",
+       "Diem Thuy commune",
+       "Phu Binh town (Huong Son)"
+      ],
+      "conclusion": "The Thuong Dinh–Diem Thuy road corridor, a few km from Phu Binh town centre",
+      "confidence_after": 0.82,
+      "discriminator": "Phu Binh town centre would have a market square, bank branches and no continuous paddy frontage; the two commune names appear on adjacent business addresses, so the capture straddles the boundary between them along the provincial road.",
+      "level": "district",
+      "observation": "One sign gives 'Hang Tai, Thuong Dinh', another 'Diem Thuy'; a guide sign points to the Thuong Dinh commune People's Committee ~200 m away",
+      "ruled_out": [
+       "Phu Binh town centre proper — scene is still rural/semi-rural with paddy up to the guardrail"
+      ],
+      "question": "Which commune along this road?",
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.85,
+    "place_slug": "phu-binh-thai-nguyen",
+    "relied_on_atoms": [],
+    "alternatives": [
+     {
+      "confidence": 0.07,
+      "country": "Vietnam",
+      "country_iso": "VN"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Vietnam",
+      "country_iso": "VN"
+     }
+    ]
+   },
+   "cost_usd": 0.2409,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4797,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Vietnam",
+    "country_iso": "VN",
+    "country_correct": true,
+    "region": "Thai Nguyen province",
+    "city": "Thuong Dinh / Diem Thuy, Phu Binh district",
+    "confidence": 0.85,
+    "overall_confidence": 0.85,
+    "error_km": 3.0,
+    "reached_level": "district",
+    "n_steps": 7,
+    "n_steps_with_cut": 7,
+    "n_cues": 12,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "commerce",
+     "culture",
+     "infrastructure",
+     "language",
+     "signage",
+     "traffic",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Thượng Đình / Điềm Thụy commune area, Phú Bình district",
+     "confidence": 0.83,
+     "coordinate_estimate": {
+      "lat": 21.487,
+      "lng": 105.939,
+      "radius_km": 6
+     },
+     "country": "Vietnam",
+     "country_iso": "VN",
+     "region_or_state": "Thái Nguyên province"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.07,
+      "country": "Vietnam",
+      "country_iso": "VN"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Laos",
+      "country_iso": "LA"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "humid subtropical / tropical monsoon, wet-rice lowland with hill fringe (trung du)",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Shop sign in Latin script with dense Vietnamese diacritics: 'NHỰA TIỀN PHONG', 'Thiết bị vệ sinh cao cấp' — Quốc Ngữ orthography with ư, ề, ị.",
+      "supports": [
+       "Vietnam"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage/administrative",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Address line on the shopfront reads a four-level Vietnamese address ending in a hamlet–commune–district–province chain, naming Thượng Đình commune, Phú Bình district, Thái Nguyên province.",
+      "supports": [
+       "Thái Nguyên province",
+       "Phú Bình district"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage/administrative",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Animal-feed distributor sign gives address 'Điềm Thụy – Phú Bình – Thái Nguyên', confirming the same district and the commune adjacent to the Điềm Thụy industrial park.",
+      "supports": [
+       "Phú Bình district",
+       "Điềm Thụy"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage/wayfinding",
+      "image_index": 2,
+      "level": "metro_area",
+      "observation": "Blue directional sign with an arrow indicating a district town at ~14 km and a commune People's Committee at ~200 m — typical rural provincial-road guide sign, not a national-highway green panel.",
+      "supports": [
+       "provincial road near commune centre"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "civic/political",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Blue banner strung over the road with the social-insurance (BHXH) logo warning against one-time social-insurance withdrawal; rows of red Vietnamese national flags and party pennants along the street.",
+      "supports": [
+       "Vietnam",
+       "commune civic centre"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Small white concrete kilometre/hectometre marker with a red-painted rounded cap beside the guardrail — standard Vietnamese road marker post.",
+      "supports": [
+       "Vietnam"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "level": "district",
+      "observation": "Long single-beam W-profile steel guardrail on short concrete-embedded posts along an embanked two-lane road with no painted shoulder line — Vietnamese provincial upgrade standard.",
+      "supports": [
+       "upgraded provincial road"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vegetation/agriculture",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Bunded paddy plots at ripening (golden) stage in small irregular pockets right up to the road embankment, with village tree lines and low relief behind — northern midlands paddy mosaic rather than vast delta canal grid.",
+      "supports": [
+       "northern midlands (trung du)"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 1,
+      "level": "macro_region",
+      "observation": "Banana clumps, longan/jackfruit trees and bamboo bundles carried on a motorbike; no coconut palm rows or mangrove — inland northern rather than coastal south.",
+      "supports": [
+       "inland north"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "cultural_sphere",
+      "observation": "Narrow-lot multi-storey concrete 'nhà ống' tube houses with balustraded balconies and decorative columns, ground floor as shop — Kinh (Viet) lowland vernacular, not stilted minority housing.",
+      "supports": [
+       "Kinh/Viet lowland sphere"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "economy",
+      "image_index": 3,
+      "level": "district",
+      "observation": "Shops sell plumbing/plastic piping, water filters (Karofi), gas stoves, safes, and animal feed — agricultural-input strip economy of a commune centre.",
+      "supports": [
+       "rural commune strip economy"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "economy",
+      "image_index": 2,
+      "level": "district",
+      "observation": "Tutoring centre sign 'TRUNG TÂM VIỆT BẮC' offering classes for grades 6–12 — 'Việt Bắc' branding is specific to the northern mountainous/midland region.",
+      "supports": [
+       "Việt Bắc / northern midlands"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "traffic",
+      "image_index": 1,
+      "level": "continent",
+      "observation": "Motorbikes dominate, riders wearing helmets, traffic keeps right.",
+      "supports": [
+       "Southeast Asia, right-hand traffic"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A commune-centre strip on an upgraded provincial road in Vietnam's northern midlands. Ripening paddy pockets and banana/orchard plots sit directly against a guardrailed embankment, while the built strip is thin: incremental concrete tube houses and corrugated-steel workshops selling piping, water filters, gas and livestock feed — classic agricultural-input retail rather than a dense town front. State presence is highly legible at the grassroots (social-insurance banner over the road, flag and pennant rows, commune People's Committee signposted 200 m away), matching Vietnam's single-party commune administration. The economy is mixed: wet-rice and orchard smallholdings coexisting with wage work, consistent with proximity to the Điềm Thụy/Yên Bình foreign-invested industrial zones in Phú Bình, where households keep farmland while commuting to factory jobs. Traditional-medicine clinics and private tutoring centres indicate a modest but cash-earning rural middle stratum.",
+    "languages_detected": [
+     {
+      "confidence": 0.98,
+      "evidence": "'NHỰA TIỀN PHONG', 'Thiết bị vệ sinh cao cấp', 'NHÀ THUỐC ĐÔNG Y GIA TRUYỀN', 'Nhận bảo hiểm xã hội một lần...' — Latin script with full Vietnamese tone/vowel diacritics",
+      "language": "Vietnamese",
+      "script": "Latin (Quốc Ngữ)"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 2,
+      "name": "Thượng Đình commune People's Committee (signposted 200 m ahead)",
+      "type": "civic building"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 4,
+      "name": "Trường Giang traditional-medicine clinic, Thượng Đình",
+      "type": "local business"
+     },
+     {
+      "confidence": 0.55,
+      "image_index": 4,
+      "name": "Road bridge over a small stream at the commune centre",
+      "type": "bridge"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which macro-region does this belong to — mainland Southeast Asia, South Asia, or East Asia?",
+      "candidates": [
+       "mainland Southeast Asia",
+       "South Asia",
+       "East Asia (China/Japan)"
+      ],
+      "observation": "Wet paddy at ripening stage, banana clumps, helmeted motorbike-dominant traffic on the right, low-rise concrete shophouses with corrugated steel awnings.",
+      "discriminator": "South Asia would show auto-rickshaws, Devanagari/Tamil script and left-hand traffic; East Asian China would show Han characters and concrete pole numbering plates, Japan would show left-hand traffic and kanji.",
+      "ruled_out": [
+       "South Asia — no Indic script, no rickshaws, traffic on the right",
+       "China/Japan — no Han characters or kanji anywhere on the many commercial signs"
+      ],
+      "conclusion": "Mainland Southeast Asia, right-hand traffic",
+      "confidence_after": 0.96,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Vietnam, Laos, Cambodia, Thailand or Malaysia?",
+      "candidates": [
+       "Vietnam",
+       "Laos",
+       "Cambodia",
+       "Thailand",
+       "Malaysia"
+      ],
+      "observation": "All signage is Latin script loaded with Vietnamese diacritics (ự, ề, ạ, ĐÔNG Y), plus a blue over-road banner from the state social-insurance agency and rows of red flags with a yellow star.",
+      "discriminator": "Laos and Thailand would use their own abugidas, Cambodia Khmer script; Malaysia would use undiacriticized Malay with mosque domes and stilted kampung houses (per the Malay-kampung pattern, which is absent here — no piloti, no wide-eaved timber gables).",
+      "ruled_out": [
+       "Laos/Thailand — no Lao or Thai script",
+       "Cambodia — no Khmer script",
+       "Malaysia/Indonesia — Malay lacks these tone diacritics; no stilted kampung vernacular, all houses are ground-founded concrete tube houses"
+      ],
+      "conclusion": "Vietnam",
+      "confidence_after": 0.98,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Northern Vietnam, North-Central coast, or the southern Mekong Delta?",
+      "candidates": [
+       "Red River Delta / northern midlands",
+       "North-Central coast",
+       "Mekong Delta / southeast"
+      ],
+      "observation": "Small irregular bunded paddy pockets bounded by tree-line villages with gentle relief and hill-fringe horizon; no canals, no dyke-top roads over water, no coconut rows; village terminology and 'Việt Bắc' branding on a tutoring sign.",
+      "discriminator": "The Mekong Delta would show canal-parallel roads, water hyacinth, coconut palms and hamlets named 'ấp'; the North-Central coast would show sandy soil, casuarina windbreaks and QL1A-style trunk traffic. Here the mosaic is trung-du: paddy in hollows plus orchard/hill vegetation.",
+      "ruled_out": [
+       "Mekong Delta — no canal network or 'ấp' hamlet naming; landscape is embanked road over dry-field mosaic",
+       "North-Central coast — no sand soils/casuarina, no coastal trunk corridor traffic"
+      ],
+      "conclusion": "Northern Vietnam, midland (trung du) fringe north of the Red River Delta",
+      "confidence_after": 0.9,
+      "weight": "high"
+     },
+     {
+      "level": "cultural_sphere",
+      "question": "Kinh lowland sphere or an upland ethnic-minority sphere (Tày/Nùng/H'Mông) of the northern highlands?",
+      "candidates": [
+       "Kinh (Viet) lowland",
+       "Tày/Nùng upland",
+       "H'Mông/Dao highland"
+      ],
+      "observation": "Dense multi-storey concrete tube houses with ornate balustrades, tiled red roofs, a communal-house style building with red-and-gold gable, and paddy on flat bottomland — all ground-founded.",
+      "discriminator": "A Tày/Nùng or H'Mông area would show stilt houses with raised floors and open under-floor space (the SE Asian stilt tradition), terraced hillside fields, and often bilingual/minority cultural halls. None of that appears.",
+      "ruled_out": [
+       "Tày/Nùng and H'Mông spheres — no stilt houses, no terraced slope agriculture, uniformly Kinh urban-style shophouse construction"
+      ],
+      "conclusion": "Kinh lowland commune in the midland belt",
+      "confidence_after": 0.88,
+      "weight": "medium"
+     },
+     {
+      "level": "admin_region",
+      "question": "Which northern province — Thái Nguyên, Bắc Giang, Vĩnh Phúc or Phú Thọ?",
+      "candidates": [
+       "Thái Nguyên",
+       "Bắc Giang",
+       "Vĩnh Phúc",
+       "Phú Thọ",
+       "Hà Nội outskirts"
+      ],
+      "observation": "Two independent business signs print their full postal address ending in the same district-and-province pair: one lists 'Thượng Đình, Phú Bình' and the other 'Điềm Thụy, Phú Bình', both with the same province; a tutoring centre uses the regional name 'Việt Bắc'.",
+      "discriminator": "Bắc Giang addresses would end in districts such as Việt Yên/Hiệp Hòa; Vĩnh Phúc in Bình Xuyên/Yên Lạc; Phú Thọ in Lâm Thao/Thanh Ba. The repeated 'Phú Bình' district on unrelated shopfronts is decisive and is a Thái Nguyên district.",
+      "ruled_out": [
+       "Bắc Giang, Vĩnh Phúc, Phú Thọ, Hà Nội — none contains a Phú Bình district paired with these communes"
+      ],
+      "conclusion": "Thái Nguyên province, Phú Bình district",
+      "confidence_after": 0.92,
+      "weight": "high"
+     },
+     {
+      "level": "district",
+      "question": "Within Phú Bình — the district town (Hương Sơn) or an outlying commune strip near the industrial zone?",
+      "candidates": [
+       "Hương Sơn district town",
+       "Thượng Đình / Điềm Thụy commune strip",
+       "remote eastern hill communes"
+      ],
+      "observation": "A guide sign points to the district town 14 km away, so this is not it; the strip is thin with paddy immediately behind the shop row, yet it has factory-scale blue steel-clad sheds, feed and plumbing wholesalers and a commune committee 200 m ahead.",
+      "discriminator": "The district town would show continuous shopfronts, traffic signals and an administrative complex rather than a 14 km distance sign; remote hill communes would lack industrial steel sheds and wholesale agricultural-input trade.",
+      "ruled_out": [
+       "Hương Sơn town — explicitly signed 14 km away",
+       "remote hill communes — presence of industrial sheds and wholesale trade indicates the industrial-park corridor"
+      ],
+      "conclusion": "Commune centre on the Thượng Đình–Điềm Thụy corridor, west-central Phú Bình near the Điềm Thụy industrial park",
+      "confidence_after": 0.83,
+      "weight": "medium"
+     }
+    ],
+    "cues_note": "n/a",
+    "overall_confidence": 0.83,
+    "place_slug": "phu-binh-thai-nguyen",
+    "relied_on_atoms": [
+     "atm_6a567f0a848c",
+     "atm_1c47fc832bdd",
+     "atm_a829b13225ed",
+     "atm_3e9eb9eb04a3",
+     "atm_9f241d0453c6",
+     "atm_128968f951fe",
+     "atm_c2c5ced5d1a1",
+     "atm_31b06bbe84f4"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1536,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2571,
+    "output": 5251,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Vietnam",
+    "country_iso": "VN",
+    "country_correct": true,
+    "region": "Thái Nguyên province",
+    "city": "Thượng Đình / Điềm Thụy commune area, Phú Bình district",
+    "confidence": 0.83,
+    "overall_confidence": 0.83,
+    "error_km": 2.8,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 13,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "civic/political",
+     "economy",
+     "infrastructure",
+     "language",
+     "signage/administrative",
+     "signage/wayfinding",
+     "traffic",
+     "vegetation",
+     "vegetation/agriculture"
+    ]
+   },
+   "known_offered": [
+    "atm_6a567f0a848c",
+    "atm_1c47fc832bdd",
+    "atm_a829b13225ed",
+    "atm_3e9eb9eb04a3",
+    "atm_9f241d0453c6",
+    "atm_2cdc40298a80",
+    "atm_c2c5ced5d1a1",
+    "atm_128968f951fe",
+    "atm_31b06bbe84f4"
+   ],
+   "relied_on": [
+    "atm_6a567f0a848c",
+    "atm_1c47fc832bdd",
+    "atm_a829b13225ed",
+    "atm_3e9eb9eb04a3",
+    "atm_9f241d0453c6",
+    "atm_128968f951fe",
+    "atm_c2c5ced5d1a1",
+    "atm_31b06bbe84f4"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "VN",
+   "country": "Vietnam",
+   "region": "Thái Nguyên province",
+   "city": "Thượng Đình / Điềm Thụy commune area, Phú Bình district",
+   "lat": 21.487,
+   "lng": 105.939,
+   "error_km": 2.8,
+   "reached_level": "district",
+   "confidence": 0.83,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 2.8,
+  "bucket": "<10"
+ },
+ "correction": {
+  "cost_usd": 0.22122875000000003,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5662,
+   "output": 3068,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "HIT: Vietnam / Thái Nguyên / Phú Bình (Thượng Đình) was confirmed within 2.8 km. The decisive evidence was directly readable: two unrelated shopfronts printed full four-level addresses ending in \"Thượng Đình – Phú Bình – Thái Nguyên\" and \"Điềm Thụy – Phú Bình – Thái Nguyên\", plus a state social-insurance (BHXH) over-road banner and a blue rural guide sign giving a district town at 14 km and a commune People's Committee at 200 m. Alternatives (Laos, and other northern provinces such as Bắc Giang/Vĩnh Phúc/Phú Thọ) were correctly excluded on script and on the district name printed on the signs.",
+  "misleading_cues": [
+   {
+    "image_index": 1,
+    "observation": "Blue steel-clad industrial sheds and feed/plumbing wholesalers suggested the Điềm Thụy industrial-park fringe specifically.",
+    "why_misleading": "Such sheds and agri-input wholesale are generic to any Vietnamese commune strip on a provincial/national road, so they pulled the point estimate a few km east toward Điềm Thụy instead of the Thượng Đình market strip."
+   },
+   {
+    "image_index": 5,
+    "observation": "The animal-feed sign's address 'Điềm Thụy – Phú Bình' was read as locating the camera in Điềm Thụy commune.",
+    "why_misleading": "Business addresses on rural Vietnamese shop signs often name the owner's home/registered commune, not the shop's street; it fixes the district reliably but not the commune."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Shopfront address block ending in a hamlet–commune–district–province chain with 'Thượng Đình, Phú Bình, Thái Nguyên'.",
+    "why_decisive": "Vietnamese shop signs routinely print the full four-level address, pinning province and district directly.",
+    "category": "signage-language",
+    "image_index": 3
+   },
+   {
+    "observation": "Blue rural guide sign with white arrow: district town at 14 km, commune People's Committee at 200 m.",
+    "why_decisive": "Small blue-panel guide signs with commune-committee distances are the Vietnamese provincial/rural standard and confirm a commune centre rather than a district town.",
+    "category": "road-signage",
+    "image_index": 2
+   },
+   {
+    "observation": "Over-road blue banner with the state social-insurance (BHXH) emblem and rows of red flags with a yellow star plus red party pennants.",
+    "why_decisive": "State-campaign banners plus flag rows are a Vietnamese commune signature, excluding Laos/Cambodia.",
+    "category": "politics-civic",
+    "image_index": 2
+   },
+   {
+    "observation": "Latin script saturated with Vietnamese diacritics (ự, ề, ạ, ĐÔNG Y) on every commercial sign.",
+    "why_decisive": "Quốc Ngữ orthography is unique to Vietnam within mainland SE Asia.",
+    "category": "script",
+    "image_index": 3
+   },
+   {
+    "observation": "Golden ripening bunded paddy in small irregular pockets right up to an embanked road, with tree-line villages and low hills behind; banana clumps, no coconut rows.",
+    "why_decisive": "Trung du (northern midland) mosaic, distinct from Mekong Delta canal grid or sandy coastal strips.",
+    "category": "agriculture",
+    "image_index": 0
+   },
+   {
+    "observation": "Narrow-lot multi-storey concrete tube houses (nhà ống) with balustraded balconies and red tile roofs, all ground-founded.",
+    "why_decisive": "Kinh lowland vernacular; excludes Tày/Nùng or H'Mông upland stilt-house spheres.",
+    "category": "housing-typology",
+    "image_index": 5
+   },
+   {
+    "observation": "White concrete marker post with red rounded cap beside a single-beam W-profile guardrail on short concrete-set posts.",
+    "why_decisive": "Vietnamese kilometre/hectometre marker and guardrail standard on upgraded provincial/national roads.",
+    "category": "bollard-guardrail",
+    "image_index": 0
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Vietnamese shop signs print full four-level addresses; Laos/Thailand signs do not use Latin diacritics",
+    "body": "In Vietnam commercial signs habitually end with a hamlet–commune–district–province chain in diacritic-heavy Latin script, which alone fixes the province. In Laos or Thailand you would instead see Lao or Thai abugida lettering and no Latin tone marks, and addresses rarely spelled out in a four-level Latin chain.",
+    "layer": "language",
+    "category": "signage-language",
+    "scope": "country",
+    "tags": [
+     "quoc-ngu",
+     "address-chain",
+     "script"
+    ],
+    "entities": [
+     "Vietnam",
+     "Laos"
+    ],
+    "looks_like": {
+     "country_iso": "LA",
+     "country": "Laos"
+    },
+    "actually": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "Thái Nguyên"
+    },
+    "confidence": 0.9
+   },
+   {
+    "title": "Kinh lowland tube houses vs upland minority stilt houses in northern Vietnam",
+    "body": "In the Kinh-settled midland belt you see ground-founded narrow-lot concrete nhà ống with balustraded balconies and shop ground floors. In a Tày/Nùng or H'Mông upland commune you would instead see raised timber floors with open under-house space and terraced hillside fields.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "region",
+    "tags": [
+     "nha-ong",
+     "stilt-house",
+     "kinh"
+    ],
+    "entities": [
+     "Northern midlands (trung du)",
+     "Northern highlands"
+    ],
+    "looks_like": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "Northern highlands"
+    },
+    "actually": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "Thái Nguyên midlands"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Trung du paddy pockets vs Mekong Delta canal grid",
+    "body": "In the northern midlands paddy appears as small irregular bunded pockets in hollows behind embanked roads, framed by bamboo/longan tree lines and low hills. In the Mekong Delta you would instead see canal-parallel roads, water hyacinth, coconut rows and hamlets labelled 'ấp'.",
+    "layer": "nature",
+    "category": "agriculture",
+    "scope": "region",
+    "tags": [
+     "paddy",
+     "trung-du",
+     "delta"
+    ],
+    "entities": [
+     "Northern midlands",
+     "Mekong Delta"
+    ],
+    "looks_like": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "Mekong Delta"
+    },
+    "actually": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "Thái Nguyên"
+    },
+    "confidence": 0.8
+   },
+   {
+    "title": "Commune-committee blue guide signs mark a commune strip, not a district town",
+    "body": "On Vietnamese provincial/national roads a small blue panel giving a People's Committee at a few hundred metres and the district town many kilometres away means you are on an outlying commune strip. In the district town itself you would instead see continuous shopfronts, traffic signals and a signed administrative complex without such a distance panel.",
+    "layer": "geography",
+    "category": "road-signage",
+    "scope": "region",
+    "tags": [
+     "guide-sign",
+     "commune",
+     "uy-ban"
+    ],
+    "entities": [
+     "Commune centre",
+     "District town"
+    ],
+    "looks_like": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "district town"
+    },
+    "actually": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "Thượng Đình commune"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Business address commune ≠ camera commune in rural Vietnam",
+    "body": "When two shop signs on the same strip name different communes, treat the shared district/province as solid but the commune as uncertain: Vietnamese traders often print their registered home commune. Anchor the commune instead on wayfinding signs or the local market/committee names, otherwise you drift a few kilometres along the corridor.",
+    "layer": "economy",
+    "category": "retail",
+    "scope": "region",
+    "tags": [
+     "address",
+     "commune",
+     "calibration"
+    ],
+    "entities": [
+     "Thượng Đình",
+     "Điềm Thụy"
+    ],
+    "looks_like": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "Điềm Thụy"
+    },
+    "actually": {
+     "country_iso": "VN",
+     "country": "Vietnam",
+     "region": "Thượng Đình"
+    },
+    "confidence": 0.7
+   }
+  ],
+  "misled_atoms": [
+   "atm_6a567f0a848c"
+  ],
+  "confirming_atoms": [
+   "atm_1c47fc832bdd",
+   "atm_a829b13225ed",
+   "atm_3e9eb9eb04a3",
+   "atm_c2c5ced5d1a1",
+   "atm_31b06bbe84f4",
+   "atm_128968f951fe",
+   "atm_9f241d0453c6"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_724d7e7a7c99",
+   "atm_fb8200fcf326",
+   "atm_dbf7cd33fdfa",
+   "atm_16179f1c9c92",
+   "atm_c4d0a832b76f"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_724d7e7a7c99",
+   "atm_fb8200fcf326",
+   "atm_dbf7cd33fdfa",
+   "atm_16179f1c9c92",
+   "atm_c4d0a832b76f"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_1c47fc832bdd",
+   "atm_a829b13225ed",
+   "atm_3e9eb9eb04a3",
+   "atm_c2c5ced5d1a1",
+   "atm_31b06bbe84f4",
+   "atm_128968f951fe",
+   "atm_9f241d0453c6"
+  ],
+  "misses": [
+   "atm_6a567f0a848c"
+  ],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.6157,
+ "status": "OK"
+}

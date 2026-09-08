@@ -1,0 +1,989 @@
+{
+ "job_id": "job_41090529fe0b",
+ "report_file": "report_bo_sucre_-19.0367_-65.2663_260906_203351_ko-en-fr.html",
+ "label": "선택 장면 보고서 · EsDBrGtU…4acg",
+ "created": 1788761428.4202948,
+ "lang": "en",
+ "images": [
+  "capture_f02c36bdfb69.jpg",
+  "capture_53e6dc3f76ae.jpg",
+  "capture_a441d5fc757f.jpg",
+  "capture_5ded4a34edc6.jpg",
+  "capture_ef478a28303b.jpg",
+  "capture_3d3a8af2fe6a.jpg"
+ ],
+ "image_panos": {
+  "capture_f02c36bdfb69.jpg": {
+   "pano_id": "EsDBrGtU_DaVJE53m74acg",
+   "lat": -19.036726146651187,
+   "lng": -65.2662526878471,
+   "heading": 93.77554742664434,
+   "pitch": -0.1730142008730553
+  },
+  "capture_53e6dc3f76ae.jpg": {
+   "pano_id": "E1yVEQ8GyLGSFIk4z66bDQ",
+   "lat": -19.03681427076003,
+   "lng": -65.26521812491248,
+   "heading": 80.57441566655943,
+   "pitch": 1.9780804927392666
+  },
+  "capture_a441d5fc757f.jpg": {
+   "pano_id": "QO31NvQj14HcybqXWnhRjg",
+   "lat": -19.03674681450396,
+   "lng": -65.26514819396341,
+   "heading": 74.85794077812984,
+   "pitch": -2.5866200997191555
+  },
+  "capture_5ded4a34edc6.jpg": {
+   "pano_id": "9erNHkv5OVXerBhy_kO3og",
+   "lat": -19.0362960980637,
+   "lng": -65.26481819615651,
+   "heading": 62.02191334763813,
+   "pitch": -3.0741495447141745
+  },
+  "capture_ef478a28303b.jpg": {
+   "pano_id": "l6KPRW6GrQMDRI1z3Tb0GA",
+   "lat": -19.03625093964411,
+   "lng": -65.26463467293848,
+   "heading": 103.42411590253823,
+   "pitch": 14.449637409489128
+  },
+  "capture_3d3a8af2fe6a.jpg": {
+   "pano_id": "TSJaLP3lUGJ6FTI0rD_J5w",
+   "lat": -19.03671172800923,
+   "lng": -65.26394442356236,
+   "heading": 119.3501961203006,
+   "pitch": 15.315751571080256
+  }
+ },
+ "truth": {
+  "lat": -19.036641667677905,
+  "lng": -65.26476554199279,
+  "iso": "BO",
+  "country": "Bolivia",
+  "region": "Chuquisaca Department",
+  "city": "Sucre",
+  "source": "aided_prior",
+  "file_lat": -19.0367,
+  "file_lng": -65.2663,
+  "n_panos": 7
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Sucre",
+     "region_or_state": "Chuquisaca Department",
+     "country": "Bolivia",
+     "country_iso": "BO",
+     "confidence": 0.62,
+     "coordinate_estimate": {
+      "lat": -19.055,
+      "lng": -65.27,
+      "radius_km": 8
+     }
+    },
+    "alternatives": [
+     {
+      "country": "Bolivia",
+      "country_iso": "BO",
+      "confidence": 0.3
+     },
+     {
+      "country": "Peru",
+      "country_iso": "PE",
+      "confidence": 0.05
+     }
+    ],
+    "coarse_filters": {
+     "hemisphere": "southern",
+     "driving_side": "right",
+     "approx_climate_biome": "semi-arid high-altitude Andean valley (dry winter, deciduous/thorny trees)"
+    },
+    "cues": [
+     {
+      "category": "signage_brand",
+      "observation": "ENTEL logo (blue oval with swoosh) painted directly on building corners, plus 'aqui entel' A-frame sign — ENTEL is Bolivia's state telecom, painted on walls exactly this way nationwide.",
+      "level": "country",
+      "weight": "high",
+      "supports": [
+       "Bolivia"
+      ],
+      "image_index": 1
+     },
+     {
+      "category": "signage_brand",
+      "observation": "Tigo Money yellow shop sign ('Agresivo Net') and Tigo wall paint — Tigo operates in Bolivia, Paraguay, Guatemala; combined with ENTEL it is decisively Bolivian.",
+      "level": "country",
+      "weight": "high",
+      "supports": [
+       "Bolivia"
+      ],
+      "image_index": 1
+     },
+     {
+      "category": "industrial_brand",
+      "observation": "Construction banner for CONCRETEC and FANCESA cement — FANCESA (Fábrica Nacional de Cemento S.A.) is headquartered in Sucre and dominates the Chuquisaca/Potosí market.",
+      "level": "admin_region",
+      "weight": "high",
+      "supports": [
+       "Sucre",
+       "Chuquisaca"
+      ],
+      "image_index": 4
+     },
+     {
+      "category": "phone_numbers",
+      "observation": "Landline numbers beginning '645xxxx' on the cement banner — Bolivian 7-digit format with area code 4 region... the 64/65 prefixes correspond to the Sucre/Chuquisaca-Potosí exchange block.",
+      "level": "admin_region",
+      "weight": "medium",
+      "supports": [
+       "Sucre"
+      ],
+      "image_index": 4
+     },
+     {
+      "category": "transport",
+      "observation": "Blue Nissan Civilian minibus marked line '6' with hand-painted lettering, typical Bolivian urban 'micro' fleet of imported Japanese right-hand-drive-converted minibuses.",
+      "level": "country",
+      "weight": "medium",
+      "supports": [
+       "Bolivia"
+      ],
+      "image_index": 3
+     },
+     {
+      "category": "architecture",
+      "observation": "Unplastered orange hollow-brick multi-storey houses with exposed rebar and shallow-pitch roofs, stacked on steep slopes — Andean Bolivian self-built urbanism.",
+      "level": "macro_region",
+      "weight": "medium",
+      "supports": [
+       "Bolivian highlands"
+      ],
+      "image_index": 5
+     },
+     {
+      "category": "architecture",
+      "observation": "Older colonial-era single-storey adobe row houses with whitewash and red clay tile roofs on narrow cobbled/concrete lanes — colonial valley city core rather than an altiplano new town.",
+      "level": "metro_area",
+      "weight": "medium",
+      "supports": [
+       "Sucre"
+      ],
+      "image_index": 2
+     },
+     {
+      "category": "vegetation",
+      "observation": "Leafy but partly leafless deciduous street trees, dry brown grass, strong dry-season sun with deep shadows — high valley at ~2700-2900 m, warmer/greener than La Paz/El Alto altiplano.",
+      "level": "admin_region",
+      "weight": "medium",
+      "supports": [
+       "Sucre",
+       "Cochabamba"
+      ],
+      "image_index": 0
+     },
+     {
+      "category": "people_dress",
+      "observation": "Woman in pleated skirt with shawl and light straw/felt hat — Andean chola dress; the tall stovepipe/white broad hat style fits Chuquisaca/Potosí rather than the bowler hat of La Paz.",
+      "level": "cultural_sphere",
+      "weight": "medium",
+      "supports": [
+       "Quechua highland sphere"
+      ],
+      "image_index": 2
+     },
+     {
+      "category": "infrastructure",
+      "observation": "Concrete utility poles with simple crossarms, tangled low-voltage drops, yellow-and-black striped bollards, whitewashed kerbs.",
+      "level": "country",
+      "weight": "low",
+      "supports": [
+       "Bolivia"
+      ],
+      "image_index": 3
+     },
+     {
+      "category": "road_markings",
+      "observation": "Vehicles drive on the right; no lane paint on concrete-slab residential streets; blue market stalls and tarps along a park edge.",
+      "level": "continent",
+      "weight": "low",
+      "supports": [
+       "South America"
+      ],
+      "image_index": 0
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which continent and hemisphere?",
+      "candidates": [
+       "South America",
+       "Central America",
+       "Africa",
+       "South Asia"
+      ],
+      "observation": "Spanish-language commercial signage, right-hand traffic, Andean-style hollow-brick self-build houses, dry-season deciduous trees under a very deep blue high-altitude sky.",
+      "discriminator": "Central American towns at this density would show Coca-Cola/Claro-dominated tin-roof commerce and lush humid vegetation; African or South Asian scenes would lack Spanish and would use different minibus stock and left-hand traffic in much of Africa/India.",
+      "ruled_out": [
+       "Africa — Spanish signage and Andean architecture absent there",
+       "South Asia — no Devanagari/other scripts, right-hand traffic with Spanish text",
+       "Central America — high-altitude dry Andean valley vegetation and 4-5 storey brick towers do not match"
+      ],
+      "conclusion": "Andean South America, southern hemisphere",
+      "confidence_after": 0.96,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Bolivia, Peru, or Ecuador?",
+      "candidates": [
+       "Bolivia",
+       "Peru",
+       "Ecuador",
+       "Argentina"
+      ],
+      "observation": "ENTEL blue-oval logos painted on two different building corners plus Tigo Money branding on a shop awning, and a CONCRETEC/FANCESA cement banner with a .com.bo web address.",
+      "discriminator": "Peru would show Movistar/Claro/Bitel wall paint and Cementos Pacasmayo or Yura branding; Ecuador would show CNT/Claro and Holcim; Argentina would have Personal/Movistar and no ENTEL-Tigo pairing. ENTEL+Tigo+FANCESA is uniquely Bolivian.",
+      "ruled_out": [
+       "Peru — no Movistar/Claro/Bitel paint, wrong cement brands",
+       "Ecuador — CNT branding absent, architecture and dress differ",
+       "Argentina — no Andean chola dress, different telecom and vehicle mix"
+      ],
+      "conclusion": "Bolivia",
+      "confidence_after": 0.95,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Altiplano/La Paz basin, temperate valleys, or eastern lowlands?",
+      "candidates": [
+       "La Paz / El Alto altiplano",
+       "Cochabamba-Sucre-Tarija valleys",
+       "Santa Cruz lowlands"
+      ],
+      "observation": "Leafy deciduous street trees, jacaranda-like canopy, whitewashed adobe with red tiles, but hilly terrain and thin bright light; no treeless altiplano flatness and no tropical palms or lowland galvanized-roof sprawl.",
+      "discriminator": "El Alto/La Paz would be essentially treeless with brick towers on bare ochre ground and aymara bowler hats; Santa Cruz would be flat, humid, palm-lined, with motorcycle-dominant traffic and no hillside stacking.",
+      "ruled_out": [
+       "La Paz/El Alto — street tree canopy and tiled colonial adobe are absent up there",
+       "Santa Cruz — no tropical vegetation, wrong climate and building materials"
+      ],
+      "conclusion": "Bolivian inter-Andean valley city (2500-2900 m)",
+      "confidence_after": 0.85,
+      "weight": "high"
+     },
+     {
+      "level": "admin_region",
+      "question": "Cochabamba, Chuquisaca (Sucre), Potosí, or Tarija?",
+      "candidates": [
+       "Cochabamba",
+       "Chuquisaca / Sucre",
+       "Potosí",
+       "Tarija"
+      ],
+      "observation": "Building-site banner advertises FANCESA cement together with CONCRETEC, and the contact numbers are 7-digit lines starting 645xxxx.",
+      "discriminator": "Cochabamba sites overwhelmingly advertise Cemento COBOCE (a local cooperative) and use 4-4xxxxxx numbers; Tarija uses El Puente/Warnes brands with 4-6xxxxx of a different block; Potosí city would sit above 4000 m with no leafy deciduous canopy and stark treeless slopes. FANCESA is the Sucre-based plant and its banners saturate Chuquisaca.",
+      "ruled_out": [
+       "Cochabamba — COBOCE branding would dominate instead of FANCESA",
+       "Tarija — different cement suppliers and a warmer, vineyard-valley streetscape",
+       "Potosí city — far too high and cold for this tree canopy"
+      ],
+      "conclusion": "Chuquisaca Department, Sucre metro area",
+      "confidence_after": 0.7,
+      "weight": "high"
+     },
+     {
+      "level": "district",
+      "question": "Historic colonial core or peripheral hillside barrio of Sucre?",
+      "candidates": [
+       "central historic core",
+       "peripheral hillside barrio"
+      ],
+      "observation": "Mixed fabric: one frame shows a wide avenue with a park, open-air market tarps and a mid-rise tower on the skyline, others show narrow steep lanes of raw brick 4-5 storey self-builds with unfinished facades and dirt spoil heaps.",
+      "discriminator": "Sucre's declared colonial core is uniformly whitewashed with strict two-storey height and tiled roofs and no exposed-brick towers or unpaved shoulders; what we see is the transitional ring around a neighbourhood market, i.e. outside the protected centre.",
+      "ruled_out": [
+       "central historic core (Plaza 25 de Mayo area) — exposed raw-brick multi-storey blocks and unmade ground would not be permitted there"
+      ],
+      "conclusion": "Peripheral market barrio on the sloping edge of Sucre (e.g. mercado-adjacent neighbourhood a few km from the core)",
+      "confidence_after": 0.55,
+      "weight": "medium"
+     }
+    ],
+    "languages_detected": [
+     {
+      "language": "Spanish",
+      "script": "Latin",
+      "confidence": 0.95,
+      "evidence": "'Agresivo Net', 'aqui entel', 'Esta obra se construye con la calidad de los productos...' on the cement banner"
+     }
+    ],
+    "landmarks": [
+     {
+      "name": "ENTEL wall advertisement (Bolivian state telecom)",
+      "type": "brand marker",
+      "confidence": 0.9,
+      "image_index": 1
+     },
+     {
+      "name": "FANCESA / CONCRETEC construction banner",
+      "type": "regional cement brand",
+      "confidence": 0.8,
+      "image_index": 4
+     },
+     {
+      "name": "Line 6 urban minibus (Nissan Civilian)",
+      "type": "local transit",
+      "confidence": 0.6,
+      "image_index": 3
+     },
+     {
+      "name": "Street market with blue tarpaulins along park edge",
+      "type": "informal market",
+      "confidence": 0.5,
+      "image_index": 0
+     }
+    ],
+    "cultural_economic_read": "A lower-middle-income Andean city neighbourhood: incremental self-built housing (hollow brick, exposed rebar for future floors) financed floor-by-floor, informal street commerce under tarps, phone-credit and mobile-money kiosks (ENTEL, Tigo Money) as the main retail service, and 1990s Japanese-import sedans plus small minibuses providing transport rather than a formal bus system. Quechua-speaking Andean population is indicated by traditional pollera-and-hat dress; the coexistence of whitewashed tile-roofed colonial adobe rows with raw-brick towers marks a colonial valley city under rapid informal densification, with cement supply and construction as visible local economic drivers.",
+    "place_slug": "sucre",
+    "overall_confidence": 0.62,
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2257,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4190,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Bolivia",
+    "country_iso": "BO",
+    "country_correct": true,
+    "region": "Chuquisaca Department",
+    "city": "Sucre",
+    "confidence": 0.62,
+    "overall_confidence": 0.62,
+    "error_km": 2.11,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 11,
+    "n_landmarks": 4,
+    "cue_categories": [
+     "architecture",
+     "industrial_brand",
+     "infrastructure",
+     "people_dress",
+     "phone_numbers",
+     "road_markings",
+     "signage_brand",
+     "transport",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Sucre",
+     "confidence": 0.72,
+     "coordinate_estimate": {
+      "lat": -19.0421,
+      "lng": -65.2665,
+      "radius_km": 4
+     },
+     "country": "Bolivia",
+     "country_iso": "BO",
+     "region_or_state": "Chuquisaca Department"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.13,
+      "country": "Bolivia",
+      "country_iso": "BO"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Peru",
+      "country_iso": "PE"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Argentina",
+      "country_iso": "AR"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Semi-arid inter-Andean valley, dry winter season (deciduous/leafless trees, bright hard sunlight, deep blue thin-atmosphere sky ~2,700-2,900 m)",
+     "driving_side": "right",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "signage/telecom",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Hand-painted ENTEL oval logo on a plastered wall together with a 'Tigo Money' agent sign ('Agresivo Net'). ENTEL + Tigo Money co-occurrence is a Bolivia-specific operator pair.",
+      "supports": [
+       "Bolivia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage/telecom",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Second hand-painted ENTEL oval on a corner house in a narrow hillside lane — the rural/peri-urban wall-painting practice typical of Bolivian ENTEL agents.",
+      "supports": [
+       "Bolivia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage/telecom",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Whole corner wall painted Tigo blue with the Tigo 'smile' mark, tagged with graffiti.",
+      "supports": [
+       "Bolivia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage/telecom",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Small red-and-white 'aqui entel' A-frame pavement sign with arrow at a shop door.",
+      "supports": [
+       "Bolivia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "industry/branding",
+      "image_index": 4,
+      "level": "admin_region",
+      "observation": "Construction-site banner reads CONCRETEC / FANCESA with a local 7-digit phone number starting 645 — FANCESA is the Sucre-headquartered national cement plant and 6-4xxxxx is the Sucre landline range.",
+      "supports": [
+       "Sucre",
+       "Chuquisaca"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "transit",
+      "image_index": 3,
+      "level": "metro_area",
+      "observation": "Blue Nissan Civilian micro-bus marked route '6' with a hand-painted script destination board — Bolivian city micro/trufi fleet, not a formal municipal bus system.",
+      "supports": [
+       "Bolivian valley city"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "transit",
+      "image_index": 5,
+      "level": "metro_area",
+      "observation": "Second white-and-blue micro also marked line '6' in a steep brick-built neighbourhood, confirming the same small-operator route network.",
+      "supports": [
+       "Same city as image 3"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Four- and five-storey self-built houses in exposed red brick with unrendered top floors and rebar stubs, on steep unlandscaped slopes — unregulated periphery, not the whitewashed UNESCO colonial core.",
+      "supports": [
+       "Peripheral district of a heritage Andean city"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Mixed street: low whitewashed/ochre single-storey colonial-era houses with red pantile roofs on the left, taller raw-brick infill and a modern tower behind — transition zone between old core and expansion.",
+      "supports": [
+       "Inner-periphery of Sucre"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation/climate",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Mature broadleaf shade trees (jacaranda/molle type) partly leafless, dry brown lawn in a strip park — temperate dry-winter inter-Andean valley, not treeless altiplano nor tropical lowland.",
+      "supports": [
+       "Bolivian valley belt (Sucre/Cochabamba/Tarija)"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 2,
+      "level": "district",
+      "observation": "Concrete-paved narrow lane with high kerbs and steep gradient, round concrete utility poles with overhead low-voltage drop wires and small wall-mounted meter boxes.",
+      "supports": [
+       "Andean hillside city"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "people/dress",
+      "image_index": 2,
+      "level": "cultural_sphere",
+      "observation": "Woman in pleated pollera skirt with wide-brimmed light hat and shawl — Quechua-speaking valley campesina dress rather than La Paz Aymara bowler-hat style.",
+      "supports": [
+       "Quechua valley sphere"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Fleet dominated by 1990s Japanese right-hand-drive-converted station wagons and sedans, driving on the right; plates rectangular and pale.",
+      "supports": [
+       "Bolivia"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 4,
+      "name": "FANCESA / CONCRETEC construction banner",
+      "type": "commercial branding of Sucre's national cement plant"
+     },
+     {
+      "confidence": 0.4,
+      "image_index": 0,
+      "name": "Landscaped median strip park with blue-tarpaulin market stalls",
+      "type": "urban park / informal street market"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "'Agresivo Net', 'Enviar y recibir dinero aqui', 'Esta obra se construye con la calidad de nuestros productos'",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "South America",
+       "Central America",
+       "South Asia",
+       "North Africa"
+      ],
+      "conclusion": "Andean South America",
+      "confidence_after": 0.93,
+      "discriminator": "Central American towns at this income level show single-storey block housing and no thin-air deep-blue sky; South Asia would show devanagari/other script and left-hand traffic; North Africa would show Arabic signage and flat-roof rendered housing without pantiles.",
+      "level": "continent",
+      "observation": "Spanish-language signage, right-hand traffic, Japanese used-car fleet, deep cobalt high-altitude sky, dry-season deciduous shade trees, steep terraced streets.",
+      "ruled_out": [
+       "South Asia — Latin script, right-hand driving",
+       "North Africa — Spanish signage, no Arabic",
+       "Central America — high-altitude light and 4-5 storey brick infill unusual"
+      ],
+      "question": "Which continent and broad climate zone?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Bolivia",
+       "Peru",
+       "Ecuador",
+       "Argentina",
+       "Chile"
+      ],
+      "conclusion": "Bolivia",
+      "confidence_after": 0.95,
+      "discriminator": "Peru would show Movistar/Claro/Bitel wall paint and 'Interbank/BCP' agents; Ecuador would show CNT/Claro and USD price tags; Argentina would show Personal/Claro/Movistar plus European-market cars and yellow-black Mercosur plates; Chile would show Entel Chile's orange branding (not this blue oval) and far more formal building finishes.",
+      "level": "country",
+      "observation": "ENTEL's blue oval hand-painted on two separate walls plus Tigo and 'Tigo Money' agent signage on the same streets.",
+      "ruled_out": [
+       "Peru — no Movistar/Claro presence at all",
+       "Ecuador — no CNT branding, no USD",
+       "Argentina/Chile — Tigo does not operate there"
+      ],
+      "question": "Which Andean/Southern Cone country do the telecom operators fix?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Altiplano (La Paz/El Alto/Oruro/Potosí)",
+       "Inter-Andean valleys (Cochabamba/Sucre/Tarija)",
+       "Eastern lowlands (Santa Cruz/Trinidad)"
+      ],
+      "conclusion": "Inter-Andean valley belt, ~2,300-2,900 m",
+      "confidence_after": 0.9,
+      "discriminator": "El Alto/Oruro would be treeless with adobe/brick blocks under a flat pale plain and no mature broadleaf canopy; Santa Cruz would be dead flat with palms, mango trees, humid haze and a motorcycle-dominated fleet with almost no hillside gradient.",
+      "level": "macro_region",
+      "observation": "Mature leafy shade trees lining the avenue, dry ochre eroded slopes behind, moderate winter (people in light jackets), steep but green-fringed urban relief.",
+      "ruled_out": [
+       "Altiplano — trees of this size do not grow there",
+       "Lowlands — no palms, terrain is steep"
+      ],
+      "question": "Which of Bolivia's three physiographic zones?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Cochabamba",
+       "Sucre",
+       "Tarija",
+       "Potosí"
+      ],
+      "conclusion": "Sucre, Chuquisaca",
+      "confidence_after": 0.75,
+      "discriminator": "Cochabamba construction hoardings carry COBOCE cement branding and its landlines start 4-xxxxxxx; Tarija uses 4-66/4-6 numbers and El Puente/ITACAMBA supply, and its skyline is lower and more villa-like; Potosí is higher, colder and treeless with reddish Cerro Rico backdrop. FANCESA plus a 645xxxx local number is the Sucre signature.",
+      "level": "admin_region",
+      "observation": "CONCRETEC/FANCESA banner with contact numbers 6451426 / 6453768 (Bolivian area code 4, Sucre 64x local range) on an incremental brick building.",
+      "ruled_out": [
+       "Cochabamba — COBOCE, not FANCESA, dominates hoardings there",
+       "Potosí — vegetation far too lush and warm",
+       "Tarija — different cement supplier and lower-rise, more rendered urban fabric"
+      ],
+      "question": "Which valley city?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "UNESCO colonial core (Plaza 25 de Mayo area)",
+       "Inner ring / market fringe",
+       "Steep self-built hillside periphery"
+      ],
+      "conclusion": "Peripheral/hillside expansion districts of Sucre, likely the north-northwest slopes (Alto Delicias / Villa Armonía / Barrio Petrolero type zones) with one frame on a wider inner-ring avenue beside a park and street market",
+      "confidence_after": 0.66,
+      "discriminator": "The heritage core would show uniformly whitewashed façades, red-tile eaves, wooden colonial balconies and no exposed brick or unfinished floors; here almost every building is raw brick with unrendered top storeys, rebar stubs and unpaved lot edges — the unregulated periphery instead.",
+      "level": "district",
+      "observation": "Frames 4 and 5 show dense 4-5 storey raw-brick self-built blocks on steep unpaved slopes; frame 0 shows an older low colonial-tile street facing a strip park with blue-tarp market stalls; frame 2 is a narrow concrete lane with adobe-plaster row houses.",
+      "ruled_out": [
+       "UNESCO 'Ciudad Blanca' core — no whitewash regulation visible, exposed brick everywhere"
+      ],
+      "question": "Heritage core or expanding periphery of Sucre?",
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "Lower-middle-income Andean city periphery in a Quechua-speaking inter-Andean valley. The economy visible here is informal-retail plus construction: mobile-money agents (Tigo Money) and ENTEL top-up shops occupying ground floors, a locally branded cement supply chain (FANCESA/CONCRETEC) feeding continuous incremental self-build, and privately operated micro-buses (line 6, Nissan Civilian) rather than a municipal transit authority. Households finance housing floor-by-floor, leaving upper storeys unrendered with protruding rebar. Vehicle stock is 1990s used Japanese imports. Traditional pollera-and-hat dress alongside modern shopfronts indicates a mixed mestizo/Quechua population, and a modern high-rise on the horizon shows capital concentrating in the formal centre while the slopes grow informally.",
+    "overall_confidence": 0.72,
+    "place_slug": "sucre",
+    "relied_on_atoms": [
+     "atm_03076a585d98",
+     "atm_0bd4cb8da21c",
+     "atm_e3b5fda161ae",
+     "atm_8ca08cd09c9c",
+     "atm_38c092e9501b"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1404,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2787,
+    "output": 4679,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Bolivia",
+    "country_iso": "BO",
+    "country_correct": true,
+    "region": "Chuquisaca Department",
+    "city": "Sucre",
+    "confidence": 0.72,
+    "overall_confidence": 0.72,
+    "error_km": 0.63,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 13,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "industry/branding",
+     "infrastructure",
+     "people/dress",
+     "signage/telecom",
+     "transit",
+     "vegetation/climate",
+     "vehicles"
+    ]
+   },
+   "known_offered": [
+    "atm_0bd4cb8da21c",
+    "atm_e3b5fda161ae",
+    "atm_8ca08cd09c9c",
+    "atm_03076a585d98",
+    "atm_38c092e9501b",
+    "atm_71255f910af9",
+    "atm_62c66acd242d",
+    "atm_edd60e50c814",
+    "atm_bf39ad75c9fc",
+    "atm_be2b79054b54"
+   ],
+   "relied_on": [
+    "atm_03076a585d98",
+    "atm_0bd4cb8da21c",
+    "atm_e3b5fda161ae",
+    "atm_8ca08cd09c9c",
+    "atm_38c092e9501b"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "BO",
+   "country": "Bolivia",
+   "region": "Chuquisaca Department",
+   "city": "Sucre",
+   "lat": -19.0421,
+   "lng": -65.2665,
+   "error_km": 0.63,
+   "reached_level": "district",
+   "confidence": 0.72,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 0.63,
+  "bucket": "<1"
+ },
+ "correction": {
+  "cost_usd": 0.21299875000000001,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5081,
+   "output": 2855,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Sucre, Chuquisaca (Bolivia) confirmed with 0.63 km error. The ENTEL blue-oval wall paintings plus Tigo/Tigo Money agent signage fixed Bolivia against Peru/Argentina/Chile; the FANCESA-CONCRETEC construction banner with a 645xxxx local number plus mature valley shade trees and steep raw-brick incremental hillside blocks fixed Sucre over Cochabamba, Potosí and the altiplano. The district call (unregulated northwestern hillside periphery rather than the whitewashed UNESCO core) was also correct.",
+  "misleading_cues": [
+   {
+    "observation": "Frame 0 shows low whitewashed/ochre houses with red pantile roofs and a modern tower, hinting at a heritage-core setting.",
+    "why_misleading": "Older tiled row houses survive along peripheral inner-ring avenues too, so pantiles alone can pull the guess toward the colonial core and away from the actual hillside periphery."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "category": "business-chain",
+    "image_index": 1,
+    "observation": "Hand-painted ENTEL blue oval on plaster together with an orange 'Tigo Money' agent board over an internet shop.",
+    "why_decisive": "The ENTEL + Tigo Money pairing is specific to Bolivia; Peru/Ecuador/Argentina/Chile show entirely different operator sets."
+   },
+   {
+    "category": "industry",
+    "image_index": 4,
+    "observation": "CONCRETEC / FANCESA construction hoarding with a 7-digit local number starting 645.",
+    "why_decisive": "FANCESA is the Sucre-based cement plant and dominates Chuquisaca sites; a 645xxxx local range points to Sucre rather than Cochabamba or Tarija."
+   },
+   {
+    "category": "vegetation-cue",
+    "image_index": 0,
+    "observation": "Mature broadleaf shade trees partly leafless over a dry brown strip park under a deep blue sky.",
+    "why_decisive": "Excludes treeless altiplano (El Alto/Oruro/Potosí) and humid palm-bearing lowlands, placing the scene in the inter-Andean valley belt."
+   },
+   {
+    "category": "housing-typology",
+    "image_index": 5,
+    "observation": "Four- to five-storey exposed red-brick self-built blocks with unrendered upper floors and rebar stubs on steep, partly unpaved slopes.",
+    "why_decisive": "Marks unregulated hillside expansion districts rather than the whitewash-regulated UNESCO core of Sucre."
+   },
+   {
+    "category": "vehicle-fleet",
+    "image_index": 3,
+    "observation": "Blue Nissan Civilian micro marked route '6' with a hand-painted destination board.",
+    "why_decisive": "Small-operator micro/trufi fleets in this body style are the standard Bolivian valley-city transit signature."
+   },
+   {
+    "category": "demography",
+    "image_index": 2,
+    "observation": "Woman in pleated pollera with wide-brimmed light hat and shawl in a narrow concrete lane.",
+    "why_decisive": "Valley (Quechua-sphere) pollera dress rather than La Paz Aymara bowler-hat style, consistent with Sucre."
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "ENTEL blue oval wall paint vs Peru's Movistar/Claro murals",
+    "body": "In Bolivia peri-urban walls carry a hand-painted blue ENTEL oval, often paired with orange 'Tigo Money' agent boards. In Peru you would instead see green Bitel, red Claro or turquoise Movistar wall paint with BCP/Interbank agent stickers, and no Tigo at all. The ENTEL+Tigo pair is effectively a Bolivia lock.",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "country",
+    "tags": [
+     "telecom",
+     "wall-advertising"
+    ],
+    "entities": [
+     "Bolivia",
+     "Peru"
+    ],
+    "looks_like": {
+     "country_iso": "PE",
+     "country": "Peru"
+    },
+    "actually": {
+     "country_iso": "BO",
+     "country": "Bolivia",
+     "region": "Chuquisaca"
+    },
+    "confidence": 0.88
+   },
+   {
+    "title": "FANCESA hoardings mark Chuquisaca; COBOCE marks Cochabamba",
+    "body": "Bolivian construction-site banners advertise the regional cement supplier: FANCESA (with CONCRETEC) around Sucre and Chuquisaca. In Cochabamba you would instead see COBOCE branding, and around La Paz/Oruro SOBOCE/Viacha. Reading the cement brand narrows a Bolivian valley city faster than architecture does.",
+    "layer": "economy",
+    "category": "industry",
+    "scope": "region",
+    "tags": [
+     "cement",
+     "hoarding"
+    ],
+    "entities": [
+     "Sucre",
+     "Cochabamba"
+    ],
+    "looks_like": {
+     "country_iso": "BO",
+     "country": "Bolivia",
+     "region": "Cochabamba"
+    },
+    "actually": {
+     "country_iso": "BO",
+     "country": "Bolivia",
+     "region": "Chuquisaca"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Valley canopy vs treeless altiplano in Bolivia",
+    "body": "Sucre-type inter-Andean valley streets show mature jacaranda/molle shade trees and grassy strip parks, dry-brown in winter but with real canopy. On the altiplano (El Alto, Oruro, Potosí) you would instead see no broadleaf canopy, only eucalyptus rows or bare ground, plus colder-weather dress and paler flat horizons.",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "region",
+    "tags": [
+     "altitude",
+     "dry-winter"
+    ],
+    "entities": [
+     "Sucre",
+     "Potosí"
+    ],
+    "looks_like": {
+     "country_iso": "BO",
+     "country": "Bolivia",
+     "region": "Potosí"
+    },
+    "actually": {
+     "country_iso": "BO",
+     "country": "Bolivia",
+     "region": "Chuquisaca"
+    },
+    "confidence": 0.8
+   },
+   {
+    "title": "Raw-brick hillside periphery vs whitewashed UNESCO core",
+    "body": "In Sucre's hillside expansion districts nearly every building is exposed red brick with unrendered top floors, rebar stubs and unpaved lot edges. In the UNESCO 'Ciudad Blanca' core you would instead see uniformly whitewashed façades, red-tile eaves and wooden colonial balconies with no bare brick. A single surviving pantiled row house on a peripheral avenue does not indicate the core.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "city",
+    "tags": [
+     "periphery",
+     "incremental-construction"
+    ],
+    "entities": [
+     "Sucre periphery",
+     "Sucre historic core"
+    ],
+    "looks_like": {
+     "country_iso": "BO",
+     "country": "Bolivia",
+     "region": "Sucre historic centre"
+    },
+    "actually": {
+     "country_iso": "BO",
+     "country": "Bolivia",
+     "region": "Sucre northwestern hillside"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Bolivian micro fleet vs Argentine formal city buses",
+    "body": "Bolivian valley cities run small Japanese Civilian/Coaster minibuses in operator liveries with hand-painted route numbers and destination boards. In Argentina you would instead see full-size colectivos with standardised line liveries, electronic destination signs and Mercosur yellow-and-black plates on European-market cars.",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "country",
+    "tags": [
+     "transit",
+     "micro"
+    ],
+    "entities": [
+     "Bolivia",
+     "Argentina"
+    ],
+    "looks_like": {
+     "country_iso": "AR",
+     "country": "Argentina"
+    },
+    "actually": {
+     "country_iso": "BO",
+     "country": "Bolivia"
+    },
+    "confidence": 0.8
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_03076a585d98",
+   "atm_0bd4cb8da21c",
+   "atm_e3b5fda161ae",
+   "atm_8ca08cd09c9c",
+   "atm_38c092e9501b"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_e4bdaab98801",
+   "atm_03f50dbbbf22",
+   "atm_f6ff80704d60",
+   "atm_a23775db5390",
+   "atm_cf43621783bd"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_e4bdaab98801",
+   "atm_03f50dbbbf22",
+   "atm_f6ff80704d60",
+   "atm_a23775db5390",
+   "atm_cf43621783bd"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_03076a585d98",
+   "atm_0bd4cb8da21c",
+   "atm_e3b5fda161ae",
+   "atm_8ca08cd09c9c",
+   "atm_38c092e9501b"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.5791,
+ "status": "OK"
+}

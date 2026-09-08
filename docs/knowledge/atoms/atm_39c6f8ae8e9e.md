@@ -3,6 +3,7 @@
   "body": "Jerash Governorate in northern Jordan is centered on the ancient Roman Decapolis city of Gerasa, one of the best-preserved Greco-Roman provincial cities in the Near East, featuring colonnaded streets, Hadrian's Arch, and a hippodrome. The modern governorate seat clusters civic institutions (driver licensing, cultural centre) near this archaeological core, while surrounding hill villages along numbered secondary routes (e.g., Route 166) remain agrarian, olive-terraced, and service-economy based.",
   "category": "founding",
   "cell": "sv9x8ty",
+  "confusions": [],
   "created": 1788397102.9151535,
   "entities": [
     "decapolis",
@@ -10,11 +11,15 @@
     "roman-empire"
   ],
   "heading": null,
+  "hits": 0,
   "id": "atm_39c6f8ae8e9e",
+  "kind": "fact",
   "lang": "en",
   "lat": 32.2879819,
   "layer": "history",
   "lng": 35.8898646,
+  "misses": 1,
+  "origin": null,
   "period_end": null,
   "period_start": null,
   "radius_km": 200,
@@ -24,6 +29,7 @@
   ],
   "scope": "region",
   "sources": [],
+  "status": "active",
   "tags": [
     "archaeology",
     "decapolis",
@@ -32,8 +38,9 @@
     "provincial-seat",
     "roman-ruins"
   ],
+  "tier": null,
   "title": "Jerash Governorate and the Roman-era Decapolis city of Gerasa",
-  "updated": 1788397102.9153497,
+  "updated": 1788761096.0948205,
   "uses": 1
 }
 ---

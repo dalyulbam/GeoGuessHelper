@@ -1,0 +1,999 @@
+{
+ "job_id": "job_959e71524c52",
+ "report_file": "report_is_hvammstangi_65.3981_-20.944_260903_095326_ko-en-fr.html",
+ "label": "선택 장면 보고서 · v7Bz2r-j…2NJA",
+ "created": 1788760740.4354856,
+ "lang": "en",
+ "images": [
+  "capture_6329cff67246.jpg",
+  "capture_b23b0cdc53ee.jpg",
+  "capture_c9cf6bee6b22.jpg",
+  "capture_a720da0e7cbb.jpg",
+  "capture_2ddedd205304.jpg",
+  "capture_67c928f79edd.jpg"
+ ],
+ "image_panos": {
+  "capture_6329cff67246.jpg": {
+   "pano_id": "v7Bz2r-jXPkPWpTzKL2NJA",
+   "lat": 65.39810267513323,
+   "lng": -20.944044853717237,
+   "heading": 295.7579931886175,
+   "pitch": -3.893953675236048
+  },
+  "capture_b23b0cdc53ee.jpg": {
+   "pano_id": "8G8BQie2XYl87dxJXYpHsQ",
+   "lat": 65.3985759350693,
+   "lng": -20.94511502689599,
+   "heading": 237.32773355420247,
+   "pitch": -5.527029463846617
+  },
+  "capture_c9cf6bee6b22.jpg": {
+   "pano_id": "EItMITjFeMydDArzmEHSig",
+   "lat": 65.39904679773588,
+   "lng": -20.9456960249359,
+   "heading": 265.00090390870986,
+   "pitch": -3.533421227299101
+  },
+  "capture_a720da0e7cbb.jpg": {
+   "pano_id": "ITaIM1R0b9_GOrQaTlv_pg",
+   "lat": 65.40152136617033,
+   "lng": -20.94692917764909,
+   "heading": 93.39325329448333,
+   "pitch": 8.114374898672196
+  },
+  "capture_2ddedd205304.jpg": {
+   "pano_id": "CAoSHENJQUJJaEJzRmZIUDg4blBVbTV0NnpBc1FiSmk.",
+   "lat": 65.3985465425026,
+   "lng": -20.945027604727475,
+   "heading": 150.41184266969927,
+   "pitch": 2.2778659783929953
+  },
+  "capture_67c928f79edd.jpg": {
+   "pano_id": "CAoSHENJQUJJaEJoNEl0UEw1dEpOYms1MkpQSTZrTU8.",
+   "lat": 65.39814589139665,
+   "lng": -20.944125527776304,
+   "heading": 81.15925609109867,
+   "pitch": 5.2065064423088785
+  }
+ },
+ "truth": {
+  "lat": 65.39898986800132,
+  "lng": -20.945156369283666,
+  "iso": "IS",
+  "country": "Iceland",
+  "region": "Northwestern Region (Norðurland vestra), Húnaþing vestra municipality",
+  "city": "Hvammstangi",
+  "source": "aided_prior",
+  "file_lat": 65.3981,
+  "file_lng": -20.944,
+  "n_panos": 6
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Hvammstangi",
+     "confidence": 0.86,
+     "coordinate_estimate": {
+      "lat": 65.3948,
+      "lng": -20.9435,
+      "radius_km": 1.5
+     },
+     "country": "Iceland",
+     "country_iso": "IS",
+     "region_or_state": "Northwestern Region (Norðurland vestra), Húnaþing vestra municipality"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.05,
+      "country": "Iceland",
+      "country_iso": "IS"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Faroe Islands",
+      "country_iso": "FO"
+     },
+     {
+      "confidence": 0.02,
+      "country": "Norway",
+      "country_iso": "NO"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Subpolar oceanic / tundra-edge; treeless grassy plateaus, only planted conifer/shrub windbreaks",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "observation": "Street name plate reads 'Norðurbraut' (double-exposed letters) using the Icelandic eth character 'ð' in a Latin-script Nordic language.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Iceland"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "observation": "Red hotel sign 'HÓTEL HVAMMSTANGI' with the Icelandic acute-accented Ó.",
+      "image_index": 0,
+      "level": "metro_area",
+      "supports": [
+       "Hvammstangi"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "observation": "Building sign 'HEILBRIGÐISSTOFNUN VESTURLANDS' — the West Iceland Healthcare Institution, whose service area includes Hvammstangi at the northwestern edge.",
+      "image_index": 2,
+      "level": "admin_region",
+      "supports": [
+       "Húnaþing vestra / boundary of Vesturland health district"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "observation": "Single-storey houses clad in corrugated metal with bright red/blue/green roofs and white trim, typical Icelandic small-town vernacular.",
+      "image_index": 5,
+      "level": "country",
+      "supports": [
+       "Iceland"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "observation": "Bare, smooth green plateau across the fjord with no natural forest; only planted spruce clumps and low willow/birch scrub.",
+      "image_index": 2,
+      "level": "macro_region",
+      "supports": [
+       "Iceland north coast"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "geography",
+      "observation": "Wide flat-calm fjord/inlet directly below the town with a low tabular plateau on the far side — matches Miðfjörður/Húnafjörður morphology rather than steep Westfjords cliffs.",
+      "image_index": 2,
+      "level": "admin_region",
+      "supports": [
+       "Húnaflói coast"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "observation": "Rainbow-painted pedestrian crossing, white plain church with slim spire, and a small blue-canopy fuel station — hallmark Icelandic village core layout.",
+      "image_index": 5,
+      "level": "district",
+      "supports": [
+       "Hvammstangi centre"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "observation": "Red fire hydrant on a gravel yard next to orange concrete-batching silos; power is delivered by low wooden/steel poles, no overhead tram or heavy distribution grid.",
+      "image_index": 3,
+      "level": "macro_region",
+      "supports": [
+       "small Icelandic service town"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vehicles",
+      "observation": "Modern compact crossovers (Kia Stonic, Toyota RAV4, Volvo) parked nose-in; right-hand traffic and European-shaped white plates.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Iceland",
+       "Nordic Europe"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage",
+      "observation": "Blue-and-white tent/camping pictogram sign at the junction and a tourist information board, indicating a stop on the main ring-road tourist circuit.",
+      "image_index": 1,
+      "level": "district",
+      "supports": [
+       "Hvammstangi service junction"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A high-income, low-density Nordic service town: municipal healthcare institution, small hotel, concrete-batching plant and machinery yard, tidy mown lawns and flower beds, tourist information board and camping signage. Economy reads as fishing/agriculture plus public administration and highway tourism; population in the few hundreds to ~600. Rainbow crosswalk signals mainstream Nordic progressive civic culture. Everything is Icelandic-language, monolingual signage with no bilingual minority text.",
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "'Norðurbraut' with eth, 'HÓTEL', 'HEILBRIGÐISSTOFNUN VESTURLANDS'",
+      "language": "Icelandic",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.8,
+      "image_index": 0,
+      "name": "Hótel Hvammstangi",
+      "type": "hotel"
+     },
+     {
+      "confidence": 0.75,
+      "image_index": 2,
+      "name": "Heilbrigðisstofnun Vesturlands health centre (Hvammstangi branch)",
+      "type": "public health facility"
+     },
+     {
+      "confidence": 0.6,
+      "image_index": 5,
+      "name": "Hvammstangakirkja",
+      "type": "church"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Nordic Europe",
+       "British Isles",
+       "North America",
+       "Alpine Europe"
+      ],
+      "conclusion": "North Atlantic / Nordic sphere, oceanic subpolar",
+      "confidence_after": 0.93,
+      "discriminator": "Scotland or Ireland would show hedgerows, stone walls and mature deciduous trees; interior North America would show timber-frame siding with gable dormers and yellow centre lines. Here the hills are utterly treeless smooth grass plateaus with only planted spruce, and traffic markings are white only.",
+      "level": "continent",
+      "observation": "Treeless rolling green plateaus, corrugated-metal houses, flat-calm fjord, cool overcast midsummer light with white-only road markings.",
+      "ruled_out": [
+       "North America: no yellow centre lines, no utility poles with drum transformers",
+       "British Isles: right-hand traffic, no hedgerow/stone-wall field pattern",
+       "Alpine Europe: no relief, no deep-eaved chalets"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Iceland",
+       "Faroe Islands",
+       "Norway",
+       "Greenland"
+      ],
+      "conclusion": "Iceland",
+      "confidence_after": 0.97,
+      "discriminator": "Faroese would read e.g. 'Norðurbrekka/-vegur' but Faroese towns are wedged in steep V-valleys with no wide flat plateaus and no concrete-batching plants of this size; Norwegian would use 'Nordre ... veien' without eth and would have visible spruce/pine forest; Greenlandic signage would be Kalaallisut. 'braut' as a street suffix plus 'HÓTEL' with acute accent is specifically Icelandic.",
+      "level": "country",
+      "observation": "Street plate 'Norðurbraut' with the letter ð, hotel sign 'HÓTEL ...', and 'HEILBRIGÐISSTOFNUN VESTURLANDS'.",
+      "ruled_out": [
+       "Faroe Islands: street suffix '-braut' and word 'heilbrigðisstofnun' are Icelandic, terrain too flat/broad",
+       "Norway: no eth in Norwegian orthography, and no natural conifer forest present",
+       "Greenland: no Kalaallisut signage, town too green and agricultural"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "South/Southwest Iceland",
+       "Westfjords",
+       "North Iceland (Húnaflói-Skagafjörður-Eyjafjörður)",
+       "East Iceland"
+      ],
+      "conclusion": "North/Northwest Iceland, a fjord-head town on Húnaflói",
+      "confidence_after": 0.88,
+      "discriminator": "South Iceland (Selfoss, Hvolsvöllur) sits on black-sand outwash plains with no fjord and dramatic volcanic backdrops; the Westfjords would show near-vertical basalt table-mountain walls dropping straight to the water; East Iceland fjords are narrow with steep scree slopes. Here the far shore is a low, uniformly grassed tabular ridge across a broad calm inlet — the classic Húnaflói/Miðfjörður profile.",
+      "level": "macro_region",
+      "observation": "Broad, shallow, calm fjord with a low flat-topped grassy ridge opposite; town on a gentle bench above the shore; agricultural grass everywhere, no glacier or black sand.",
+      "ruled_out": [
+       "South Iceland: sea inlet with facing plateau, not sandur coast",
+       "Westfjords: relief far too gentle",
+       "East Iceland: fjord too wide and shallow-sided"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Hvammstangi (Húnaþing vestra)",
+       "Blönduós (Húnabyggð)",
+       "Skagaströnd",
+       "Sauðárkrókur",
+       "Búðardalur"
+      ],
+      "conclusion": "Hvammstangi, Húnaþing vestra, Norðurland vestra",
+      "confidence_after": 0.86,
+      "discriminator": "Blönduós is split by the Blanda river with the Ring Road bridge and a distinctive modernist church; Sauðárkrókur is much larger with a grid of multi-storey blocks; Skagaströnd faces open sea, not a facing plateau. The decisive point is the health centre branded 'Heilbrigðisstofnun VESTURLANDS' — Blönduós and Sauðárkrókur belong to Heilbrigðisstofnun Norðurlands, whereas Hvammstangi's clinic is the northernmost outpost of the West Iceland institution. Combined with the hotel sign naming the town, this fixes it.",
+      "level": "metro_area",
+      "observation": "'HÓTEL HVAMMSTANGI' sign; health centre labelled as the West Iceland (Vesturland) institution despite the northern fjord setting; village of only a few hundred houses on a slope above the fjord.",
+      "ruled_out": [
+       "Blönduós: served by North Iceland health institution, has river through town",
+       "Sauðárkrókur: far larger, denser built form",
+       "Skagaströnd: no facing low plateau across a narrow fjord",
+       "Búðardalur: no fjord-head church/school cluster of this size"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Lower shore strip (harbour end)",
+       "Central Norðurbraut junction / upper bench",
+       "Industrial edge on the inland side"
+      ],
+      "conclusion": "The captures cluster around the Norðurbraut junction in the town centre, with one frame in the concrete-plant yard on the inland industrial fringe",
+      "confidence_after": 0.72,
+      "discriminator": "A harbour-side capture would show quays, trawlers, fish-processing sheds and stacked pallets; instead we see the hotel, a mown civic lawn with flower bed, tourist board, school/church and fuel station uphill, and separately an unpaved yard with cement silos and a backhoe — i.e. the central bench plus the industrial edge, not the pier.",
+      "level": "district",
+      "observation": "Hotel and street plate at a junction, civic lawn with flowerbed and info board looking down to the water, then a gravel yard with orange cement silos and Quonset shed with the town roofs beyond.",
+      "ruled_out": [
+       "Harbour/quay area: no docks, boats or fish-processing plant in any frame"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.84,
+    "place_slug": "hvammstangi",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.1136,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4079,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Iceland",
+    "country_iso": "IS",
+    "country_correct": true,
+    "region": "Northwestern Region (Norðurland vestra), Húnaþing vestra municipality",
+    "city": "Hvammstangi",
+    "confidence": 0.86,
+    "overall_confidence": 0.84,
+    "error_km": 0.47,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 10,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "geography",
+     "infrastructure",
+     "language",
+     "signage",
+     "vegetation",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Hvammstangi",
+     "confidence": 0.9,
+     "coordinate_estimate": {
+      "lat": 65.3956,
+      "lng": -20.9403,
+      "radius_km": 1.5
+     },
+     "country": "Iceland",
+     "country_iso": "IS",
+     "region_or_state": "Northwest Iceland (Húnaþing vestra, Norðurland vestra)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Subarctic oceanic; treeless grass heath with planted spruce shelterbelts and low willow scrub",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage/language",
+      "image_index": 0,
+      "level": "country",
+      "observation": "White street blade reads 'Norðurbraut' with the eth (ð) and the Icelandic road suffix -braut; a red sign on the dark timber building reads 'HÓTEL HVAMMSTANGI'.",
+      "supports": [
+       "Iceland",
+       "Hvammstangi"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "institutional branding",
+      "image_index": 2,
+      "level": "admin_region",
+      "observation": "Clinic facade sign 'HEILBRIGÐISSTOFNUN VESTURLANDS' (HVE) with the red-cross logo and a 'Lyfja' pharmacy logo at the right wing.",
+      "supports": [
+       "Húnaþing vestra",
+       "West Iceland health authority"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Low single-storey buildings clad in dark corrugated/vertical timber with shallow gable roofs and white-framed windows — standard small-town Icelandic construction.",
+      "supports": [
+       "Iceland"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "landform",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Broad, calm bay backed by a long flat-topped, treeless plateau ridge across the water — a wide shallow fjord, not a steep narrow basalt-cliff sound.",
+      "supports": [
+       "Iceland over Faroe Islands"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Sharply bounded dark spruce plantation block sitting on otherwise bare grass heath, plus clipped lawns and low willow scrub — Icelandic afforestation signature rather than continuous boreal forest.",
+      "supports": [
+       "Iceland over Norway"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road furniture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "White dashed centre line, right-hand traffic, tall slender grey lampposts with side-arm luminaires, blue pedestrian-crossing signs.",
+      "supports": [
+       "Northern Europe",
+       "right-hand traffic"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 3,
+      "level": "district",
+      "observation": "Orange concrete batching silos, a backhoe loader and an arched hangar-type shed on gravel — a small municipal works/industrial yard on the town edge; red fire hydrant.",
+      "supports": [
+       "small service town"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "townscape",
+      "image_index": 5,
+      "level": "district",
+      "observation": "White timber church with a slim steeple, a school with blue-trimmed facade, a small blue-canopy fuel station and a rainbow-painted crosswalk — a very small municipal centre.",
+      "supports": [
+       "Hvammstangi centre"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "tourism",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Camping-site pictogram sign on the pole and rental-type SUVs parked at a hotel: wildlife/road-trip tourism economy.",
+      "supports": [
+       "Vatnsnes seal-watching tourism"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "colour palette",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Bright red and green corrugated-metal roofs on pale-walled houses along a gently sloping street ending at the sea.",
+      "supports": [
+       "Iceland"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A very small, prosperous-but-thin Nordic service town: one hotel, one health centre with pharmacy, a school, a church, a fuel station and a municipal concrete/plant yard. Cars are recent compact SUVs (several look like tourist rentals), roads are paved and lit far beyond what the population needs — typical Icelandic rural infrastructure subsidised nationally. Economy reads as agriculture (sheep/horses on the surrounding heath), fisheries services on the bay, and seasonal wildlife tourism (seal-watching on the neighbouring peninsula) supporting the hotel and campsite.",
+    "landmarks": [
+     {
+      "confidence": 0.85,
+      "image_index": 0,
+      "name": "Hótel Hvammstangi",
+      "type": "hotel"
+     },
+     {
+      "confidence": 0.8,
+      "image_index": 2,
+      "name": "Heilbrigðisstofnun Vesturlands health centre",
+      "type": "clinic"
+     },
+     {
+      "confidence": 0.6,
+      "image_index": 5,
+      "name": "Hvammstangakirkja (village church)",
+      "type": "church"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "'Norðurbraut' street blade (eth + -braut suffix), 'HÓTEL HVAMMSTANGI', 'HEILBRIGÐISSTOFNUN VESTURLANDS'",
+      "language": "Icelandic",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Northern Europe",
+       "North America",
+       "Southern Hemisphere temperate"
+      ],
+      "conclusion": "Subarctic North Atlantic / Northern Europe",
+      "confidence_after": 0.96,
+      "discriminator": "North America at similar latitude would use yellow centre lines, wooden utility poles with transformers and different sign fonts; a southern-hemisphere temperate town would not show midnight-summer overcast light with a treeless heath plateau.",
+      "level": "continent",
+      "observation": "Right-hand traffic, white dashed centre line, no overhead utility wires, treeless grass heath, long low sunlight under heavy stratus.",
+      "ruled_out": [
+       "North America — yellow centre lines and overhead wood-pole distribution absent",
+       "Southern Hemisphere — vegetation and light regime are boreal/subarctic northern"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Iceland",
+       "Faroe Islands",
+       "Norway",
+       "Greenland (Danish)"
+      ],
+      "conclusion": "Iceland",
+      "confidence_after": 0.95,
+      "discriminator": "Faroese signage would use -vegur/-gøta and toponyms in -oy, with far steeper narrow basalt sound walls; Norwegian would read -veien/-gata and the shoreline would carry continuous natural boreal forest; Greenlandic signage would be Kalaallisut/Danish.",
+      "level": "country",
+      "observation": "Street name 'Norðurbraut' uses the Icelandic-specific road element -braut plus ð; the health authority sign reads 'Heilbrigðisstofnun', an Icelandic institution name; the bay is wide and shallow with a low flat-topped ridge opposite.",
+      "ruled_out": [
+       "Faroe Islands — wrong road-name morphology and far too gentle, wide fjord",
+       "Norway — no natural boreal forest; road-name element wrong",
+       "Greenland — language and paved lit street grid inconsistent"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "South/Southwest Iceland",
+       "West Iceland (Snæfellsnes/Borgarfjörður)",
+       "Northwest Iceland (Húnaflói)",
+       "East Iceland"
+      ],
+      "conclusion": "A north-facing bay in the northwest quadrant, not the south/southwest lava belt",
+      "confidence_after": 0.85,
+      "discriminator": "South/Southwest Iceland would show black lava fields (hraun), moss cover and volcanic cones; East Iceland has steep narrow fjords with high scree walls close to the water. Here the far shore is a low, long, uniformly grass-covered plateau with no lava and no steep fjord walls.",
+      "level": "macro_region",
+      "observation": "Across the water sits a continuous flat-topped grassy tableland of even height; foreground terrain is rolling green heath with no exposed lava.",
+      "ruled_out": [
+       "South/Southwest Iceland — no lava field or moss-covered hraun anywhere",
+       "East Iceland — fjord walls far too low and broad"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Húnaþing vestra (Hvammstangi)",
+       "Blönduós/Skagaströnd",
+       "Sauðárkrókur",
+       "Búðardalur"
+      ],
+      "conclusion": "Húnaþing vestra — the HVE catchment town on the Húnaflói coast",
+      "confidence_after": 0.88,
+      "discriminator": "Blönduós, Skagaströnd and Sauðárkrókur all fall under Heilbrigðisstofnun Norðurlands (HSN), so their clinic sign would read 'HSN'; Búðardalur sits on Hvammsfjörður facing a different, west-opening bay and lacks a hotel of this scale on a numbered braut.",
+      "level": "admin_region",
+      "observation": "The health centre is branded 'Heilbrigðisstofnun VESTURLANDS' (HVE) even though the town faces a north-opening bay — the known catchment anomaly for Húnaþing vestra.",
+      "ruled_out": [
+       "Blönduós / Skagaströnd / Sauðárkrókur — would be branded HSN (Norðurlands)",
+       "Búðardalur — wrong bay orientation and no HVE clinic of this footprint"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Hvammstangi village centre",
+       "Laugarbakki",
+       "Hvammstangi harbour area"
+      ],
+      "conclusion": "Hvammstangi town, along Norðurbraut on the slope above the harbour, close to the hotel and health centre",
+      "confidence_after": 0.9,
+      "discriminator": "Laugarbakki is an inland hamlet on the Miðfjarðará with no seafront, no hotel of this type and no clinic; the harbour area would show quays, fish-processing sheds and boats rather than lawn, church and school.",
+      "level": "district",
+      "observation": "Hotel sign naming the town, a street called Norðurbraut, church + school + fuel station within one frame, and the clinic sitting on a bluff directly above the water.",
+      "ruled_out": [
+       "Laugarbakki — inland, no seafront or clinic",
+       "Harbour quarter — frames show residential/lawn/civic fabric, not quays"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.88,
+    "place_slug": "hvammstangi",
+    "relied_on_atoms": [
+     "atm_88ae5884a999",
+     "atm_e857853e0979",
+     "atm_895143231e7c",
+     "atm_e6f75e7898c3",
+     "atm_4331cd4c61dd",
+     "atm_273f3134faf4",
+     "atm_a5428264ed09"
+    ],
+    "revised_from": null,
+    "alternatives": [
+     {
+      "confidence": 0.05,
+      "country": "Iceland",
+      "country_iso": "IS"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Faroe Islands",
+      "country_iso": "FO"
+     },
+     {
+      "confidence": 0.03,
+      "country": "Norway",
+      "country_iso": "NO"
+     }
+    ]
+   },
+   "cost_usd": 0.1229,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2458,
+    "output": 4044,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Iceland",
+    "country_iso": "IS",
+    "country_correct": true,
+    "region": "Northwest Iceland (Húnaþing vestra, Norðurland vestra)",
+    "city": "Hvammstangi",
+    "confidence": 0.9,
+    "overall_confidence": 0.88,
+    "error_km": 0.44,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 10,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "colour palette",
+     "infrastructure",
+     "institutional branding",
+     "landform",
+     "road furniture",
+     "signage/language",
+     "tourism",
+     "townscape",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_88ae5884a999",
+    "atm_e857853e0979",
+    "atm_a5428264ed09",
+    "atm_e6f75e7898c3",
+    "atm_26f11c9f10d1",
+    "atm_4331cd4c61dd",
+    "atm_ca05c73a7f07",
+    "atm_895143231e7c",
+    "atm_273f3134faf4",
+    "atm_ee8caa0687d3"
+   ],
+   "relied_on": [
+    "atm_88ae5884a999",
+    "atm_e857853e0979",
+    "atm_895143231e7c",
+    "atm_e6f75e7898c3",
+    "atm_4331cd4c61dd",
+    "atm_273f3134faf4",
+    "atm_a5428264ed09"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "IS",
+   "country": "Iceland",
+   "region": "Northwest Iceland (Húnaþing vestra, Norðurland vestra)",
+   "city": "Hvammstangi",
+   "lat": 65.3956,
+   "lng": -20.9403,
+   "error_km": 0.44,
+   "reached_level": "district",
+   "confidence": 0.9,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 0.44,
+  "bucket": "<1"
+ },
+ "correction": {
+  "cost_usd": 0.1060425,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 4749,
+   "output": 2920,
+   "cacheWrite": 0,
+   "cacheRead": 18595
+  },
+  "summary": "Hit at every level: Iceland / Húnaþing vestra / Hvammstangi, 0.44 km from truth. The decisive readable evidence was the Icelandic street blade with ð and the -braut road element, the \"HÓTEL HVAMMSTANGI\" sign naming the town outright, and the \"HEILBRIGÐISSTOFNUN VESTURLANDS\" (HVE) clinic branding, which pins the north-facing Húnaflói town whose clinic belongs to the West Iceland authority. Faroe Islands and Norway were correctly excluded on road-name morphology, the broad low flat-topped far shore instead of steep basalt sound walls, and planted spruce blocks on otherwise treeless heath instead of continuous boreal forest.",
+  "misleading_cues": [
+   {
+    "observation": "Dark-stained timber cladding with shallow gables and bright red/green corrugated roofs (img 0, 4, 5)",
+    "why_misleading": "This palette is shared with the Faroe Islands and coastal Norway and alone cannot separate the three; it invited the Faroese/Norwegian alternatives.",
+    "image_index": 4
+   },
+   {
+    "observation": "Rectangular dark conifer plantation next to the shore (img 1)",
+    "why_misleading": "Conifers on a North Atlantic shoreline can suggest mainland Scandinavia if not read as an isolated planted block on bare heath.",
+    "image_index": 1
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "White street blade with the Icelandic road element '-braut' and the letter ð",
+    "why_decisive": "-braut is Icelandic-specific; Faroese would use -vegur/-gøta, Norwegian -veien/-gata.",
+    "category": "toponymy",
+    "image_index": 0
+   },
+   {
+    "observation": "Red sign on the dark timber hotel reading 'HÓTEL HVAMMSTANGI'",
+    "why_decisive": "Names the town directly, fixing the city level.",
+    "category": "tourism-economy",
+    "image_index": 0
+   },
+   {
+    "observation": "Clinic facade sign 'HEILBRIGÐISSTOFNUN VESTURLANDS' with red-cross and pharmacy logo",
+    "why_decisive": "The West Iceland health authority on a north-facing bay is the Húnaþing vestra anomaly; neighbouring Húnaflói towns are branded HSN.",
+    "category": "civic-building",
+    "image_index": 2
+   },
+   {
+    "observation": "Far shore is a long, low, uniformly grass-covered flat-topped tableland across calm wide water",
+    "why_decisive": "Excludes the steep narrow basalt sounds of the Faroes and the deep scree-walled fjords of East Iceland.",
+    "category": "landform",
+    "image_index": 2
+   },
+   {
+    "observation": "Sharply bounded spruce block on otherwise treeless grass heath, low willow scrub elsewhere",
+    "why_decisive": "Icelandic afforestation signature rather than continuous natural boreal forest of Norway.",
+    "category": "vegetation",
+    "image_index": 1
+   },
+   {
+    "observation": "No overhead distribution wires, slim grey lampposts, white dashed centre line, right-hand traffic",
+    "why_decisive": "Rules out North America and matches Icelandic small-town underground-cable streetscape.",
+    "category": "infrastructure-built",
+    "image_index": 0
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Road-name element -braut marks Iceland, not the Faroes",
+    "body": "In Iceland street blades compound with -braut, -vegur, -gata, -holt and freely use ð/þ/æ. In the Faroe Islands you would instead see -vegur/-gøta and toponyms containing 'oy', with no -braut forms at all. Reading the suffix is faster and safer than judging the dark timber housing, which is common to both.",
+    "layer": "language",
+    "category": "toponymy",
+    "scope": "country",
+    "tags": [
+     "street-blade",
+     "suffix",
+     "nordic"
+    ],
+    "entities": [
+     "Iceland",
+     "Faroe Islands"
+    ],
+    "looks_like": {
+     "country_iso": "FO",
+     "country": "Faroe Islands"
+    },
+    "actually": {
+     "country_iso": "IS",
+     "country": "Iceland",
+     "region": "Norðurland vestra"
+    },
+    "confidence": 0.88
+   },
+   {
+    "title": "Wide shallow bay with low flat-topped tableland vs steep Faroese sound",
+    "body": "Icelandic north-coast bays such as Húnaflói show water several kilometres wide backed by a long, even, grass-covered flat-topped plateau of modest height. In the Faroes the opposing shore of any sound rises steeply and close by as terraced basalt cliffs with scree and hanging valleys. A gentle, uniform far skyline therefore argues Iceland.",
+    "layer": "nature",
+    "category": "landform",
+    "scope": "region",
+    "tags": [
+     "fjord",
+     "plateau",
+     "coast"
+    ],
+    "entities": [
+     "Iceland",
+     "Faroe Islands"
+    ],
+    "looks_like": {
+     "country_iso": "FO",
+     "country": "Faroe Islands"
+    },
+    "actually": {
+     "country_iso": "IS",
+     "country": "Iceland"
+    },
+    "confidence": 0.82
+   },
+   {
+    "title": "Planted spruce blocks on bare heath vs Norwegian continuous forest",
+    "body": "In Iceland conifers appear as small, sharply rectangular planted stands surrounded by open grass heath and low willow scrub. In Norway at the same latitude you would instead see continuous natural birch/spruce forest running to the waterline with hedgerowed farmland. Isolated dark conifer rectangles on otherwise treeless ground are an Icelandic afforestation marker.",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "country",
+    "tags": [
+     "afforestation",
+     "spruce",
+     "heath"
+    ],
+    "entities": [
+     "Iceland",
+     "Norway"
+    ],
+    "looks_like": {
+     "country_iso": "NO",
+     "country": "Norway"
+    },
+    "actually": {
+     "country_iso": "IS",
+     "country": "Iceland"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Read the Heilbrigðisstofnun acronym before assuming the nearest region",
+    "body": "Icelandic clinic signage names a regional health authority (HVE = Vesturlands, HSN = Norðurlands) whose boundaries ignore the obvious coastline. A 'Vesturlands' clinic standing above a north-opening bay points to Húnaþing vestra; towns further east on the same Húnaflói coast would instead be signed HSN. Use the acronym as a municipality-level fix, not the compass.",
+    "layer": "economy",
+    "category": "civic-building",
+    "scope": "region",
+    "tags": [
+     "health-authority",
+     "branding",
+     "administrative"
+    ],
+    "entities": [
+     "Húnaþing vestra",
+     "Blönduós / Skagaströnd / Sauðárkrókur"
+    ],
+    "looks_like": {
+     "country_iso": "IS",
+     "country": "Iceland",
+     "region": "Norðurland vestra (HSN towns)"
+    },
+    "actually": {
+     "country_iso": "IS",
+     "country": "Iceland",
+     "region": "Húnaþing vestra"
+    },
+    "confidence": 0.8
+   },
+   {
+    "title": "No lava, only rolling grass: north-west Iceland vs the southern volcanic belt",
+    "body": "In north-west Iceland the ground cover is unbroken rolling green grass and low scrub with cultivated lawns, and no exposed basalt rubble. In south and south-west Iceland you would instead see black moss-covered lava fields (hraun), tephra and volcanic cones close to the settlements. Absence of any lava texture in every frame pushes the guess to the north-west quadrant.",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "region",
+    "tags": [
+     "lava",
+     "hraun",
+     "regional-split"
+    ],
+    "entities": [
+     "Norðurland vestra",
+     "South Iceland"
+    ],
+    "looks_like": {
+     "country_iso": "IS",
+     "country": "Iceland",
+     "region": "South/Southwest Iceland"
+    },
+    "actually": {
+     "country_iso": "IS",
+     "country": "Iceland",
+     "region": "Norðurland vestra"
+    },
+    "confidence": 0.7
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_88ae5884a999",
+   "atm_e857853e0979",
+   "atm_895143231e7c",
+   "atm_e6f75e7898c3",
+   "atm_4331cd4c61dd",
+   "atm_a5428264ed09"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_4f5a928f1c77",
+   "atm_48f209c13e3a"
+  ],
+  "merged": [
+   "atm_88ae5884a999",
+   "atm_e857853e0979",
+   "atm_895143231e7c"
+  ],
+  "ordered": [
+   "atm_88ae5884a999",
+   "atm_4f5a928f1c77",
+   "atm_e857853e0979",
+   "atm_895143231e7c",
+   "atm_48f209c13e3a"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_88ae5884a999",
+   "atm_e857853e0979",
+   "atm_895143231e7c",
+   "atm_e6f75e7898c3",
+   "atm_4331cd4c61dd",
+   "atm_a5428264ed09"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.3425,
+ "status": "OK",
+ "induction": {
+  "prior_run": 1788760546.0350113,
+  "prior_atoms": [
+   "atm_e857853e0979",
+   "atm_895143231e7c",
+   "atm_efacbff46c0c",
+   "atm_88ae5884a999"
+  ],
+  "offered": [
+   "atm_e857853e0979",
+   "atm_895143231e7c",
+   "atm_88ae5884a999"
+  ],
+  "relied": [
+   "atm_e857853e0979",
+   "atm_895143231e7c",
+   "atm_88ae5884a999"
+  ],
+  "via": {
+   "atm_e857853e0979": [
+    "conf",
+    "ent",
+    "geo"
+   ],
+   "atm_895143231e7c": [
+    "ent",
+    "geo"
+   ],
+   "atm_88ae5884a999": [
+    "conf",
+    "ent",
+    "geo"
+   ]
+  }
+ }
+}

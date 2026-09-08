@@ -1,0 +1,3292 @@
+{
+ "created": 1788854764.9247038,
+ "params": {
+  "pct": 0.5,
+  "knn": 10,
+  "min_size": 4,
+  "merge": 0.5,
+  "merge_mode": "absorb",
+  "mutual": true
+ },
+ "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+ "threshold": 0.3350451937317848,
+ "n_atoms": 1373,
+ "n_edges": 2399,
+ "n_cliques_raw": 231,
+ "n_molecules": 128,
+ "truncated": false,
+ "stale_checked": true,
+ "stale_embeddings": 0,
+ "unverifiable_updated": 0,
+ "missing_atoms_in_npz": 0,
+ "unembedded_atoms": 0,
+ "covered_atoms": 362,
+ "distance_percentiles": {
+  "1": 0.3871,
+  "2": 0.4383,
+  "5": 0.5125,
+  "10": 0.5742,
+  "25": 0.6682,
+  "50": 0.7565
+ },
+ "distance_stats": {
+  "mean": 0.7419,
+  "std": 0.1256
+ },
+ "size_dist": {
+  "4": 93,
+  "5": 29,
+  "6": 6
+ },
+ "molecules": [
+  {
+   "id": "mol_ed00a1d7cd41",
+   "atoms": [
+    "atm_c15a316306e9",
+    "atm_c6a5b820a02e",
+    "atm_ea0ec7052315",
+    "atm_ea48ad47ac03",
+    "atm_fdc040c53c49"
+   ],
+   "n": 5,
+   "cohesion": 0.1444,
+   "diameter": 0.1779,
+   "merged_from": 4,
+   "periphery": [
+    "atm_049d721e0794",
+    "atm_af2ceca86cd2",
+    "atm_f33212788fd3"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Minor Yunnan/Yao-Tibetan chiefdoms and states, 12th-13th century",
+    "Southwest China tribal chiefdoms under Yuan-Ming rule (1215-1959)",
+    "Ming-era Chinese tusi chiefdoms (15th century)",
+    "Yunnan chiefdoms established under early Ming (1372-1382)",
+    "Late Qing-era ethnic chiefdoms (tusi) of Yunnan/Tibet borderlands"
+   ]
+  },
+  {
+   "id": "mol_42f6eb54f046",
+   "atoms": [
+    "atm_8e98a49bb299",
+    "atm_c6a5b820a02e",
+    "atm_ea0ec7052315",
+    "atm_f33212788fd3",
+    "atm_fdc040c53c49"
+   ],
+   "n": 5,
+   "cohesion": 0.153,
+   "diameter": 0.2265,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Tujia tusi chiefdoms of Hubei/Hunan (1355-1735)",
+    "Southwest China tribal chiefdoms under Yuan-Ming rule (1215-1959)",
+    "Ming-era Chinese tusi chiefdoms (15th century)",
+    "Yunnan native chieftaincies (tusi) established under Ming, 1382-1394",
+    "Late Qing-era ethnic chiefdoms (tusi) of Yunnan/Tibet borderlands"
+   ]
+  },
+  {
+   "id": "mol_f60c5b404af2",
+   "atoms": [
+    "atm_aa99688f77e4",
+    "atm_cdc5de4fdb0f",
+    "atm_de939bde137d",
+    "atm_e215e3f70c5d"
+   ],
+   "n": 4,
+   "cohesion": 0.1537,
+   "diameter": 0.1858,
+   "merged_from": 4,
+   "periphery": [
+    "atm_0711bdfb80e8",
+    "atm_0d7637188b76",
+    "atm_53b21fe6d42a",
+    "atm_a6423fba39d1"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Qin dynasty (221-207 BC)",
+    "Ancient Shu dynasties (2500–316 BC)",
+    "Xia dynasty (2070-1600 BC)",
+    "Chinese dynasties (Han to Qing)"
+   ]
+  },
+  {
+   "id": "mol_d439f8b4d9c5",
+   "atoms": [
+    "atm_25e4e15392f9",
+    "atm_4a068786774b",
+    "atm_bfab1b031c36",
+    "atm_e04e47f70fa0",
+    "atm_f43f7084ee7f"
+   ],
+   "n": 5,
+   "cohesion": 0.1554,
+   "diameter": 0.1763,
+   "merged_from": 4,
+   "periphery": [
+    "atm_044bad726c72",
+    "atm_049d721e0794",
+    "atm_89234b4e7e26"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Liu Song dynastic principalities (420-479)",
+    "Minor Three Kingdoms era states and Jin princely fiefs",
+    "Southern Qi dynastic principalities (479-502)",
+    "Pre-Qin dynastic fiefs / ancient Chinese states (21st century–3rd century BC)",
+    "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
+   ]
+  },
+  {
+   "id": "mol_8ead120f30b2",
+   "atoms": [
+    "atm_0711bdfb80e8",
+    "atm_0d7637188b76",
+    "atm_53b21fe6d42a",
+    "atm_9e8d04c55ac4",
+    "atm_a18e305e2bd1"
+   ],
+   "n": 5,
+   "cohesion": 0.1627,
+   "diameter": 0.2179,
+   "merged_from": 4,
+   "periphery": [
+    "atm_aa99688f77e4",
+    "atm_b3bb750f2919",
+    "atm_de939bde137d",
+    "atm_e869e9274104"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Xi dynasty and Shun dynasty (Ming-Qing transition rebel states)",
+    "Jin dynasty (266-420)",
+    "Qing dynasty (Great Qing), China",
+    "Ming dynasty (1368-1644) and Southern Ming (1644-1662)",
+    "Qing dynasty and Later Jin"
+   ]
+  },
+  {
+   "id": "mol_e288ddd2351f",
+   "atoms": [
+    "atm_7a086646074f",
+    "atm_9f5cf46a539a",
+    "atm_c15358d3e42a",
+    "atm_de27d76e98ed",
+    "atm_f644bdf4dd51"
+   ],
+   "n": 5,
+   "cohesion": 0.1631,
+   "diameter": 0.2421,
+   "merged_from": 2,
+   "periphery": [
+    "atm_80da3b6542c6"
+   ],
+   "layers": {
+    "economy": 5
+   },
+   "titles": [
+    "Post-coal deindustrialization and EU Just Transition Fund in Silesia",
+    "Global rust belt: deindustrialized coal and steel regions",
+    "Post-industrial decline of Upper Silesian coal towns",
+    "Post-1989 deindustrialization and coal-mine closures in Upper Silesia",
+    "Post-1989 deindustrialization of Upper Silesian coal/steel cities"
+   ]
+  },
+  {
+   "id": "mol_1b2ba7ee20d2",
+   "atoms": [
+    "atm_3785ba1997f0",
+    "atm_53b21fe6d42a",
+    "atm_9e8d04c55ac4",
+    "atm_e215e3f70c5d"
+   ],
+   "n": 4,
+   "cohesion": 0.1646,
+   "diameter": 0.1889,
+   "merged_from": 2,
+   "periphery": [
+    "atm_0d7637188b76"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Chinese dynasties, republics and warlord/soviet regimes (1368-1949)",
+    "Qing dynasty (Great Qing), China",
+    "Ming dynasty (1368-1644) and Southern Ming (1644-1662)",
+    "Chinese dynasties (Han to Qing)"
+   ]
+  },
+  {
+   "id": "mol_5a5795efb7af",
+   "atoms": [
+    "atm_1f83f03bfbf8",
+    "atm_20bb22d0b208",
+    "atm_b3d50615bd66",
+    "atm_fa327848d418"
+   ],
+   "n": 4,
+   "cohesion": 0.1705,
+   "diameter": 0.1986,
+   "merged_from": 3,
+   "periphery": [
+    "atm_3c11526e4887",
+    "atm_f3750a4dc101"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Xianbei tribal states: Duan, Tuoba, Yuwen, Longxi tribes",
+    "Eight States of Xirong (720-272 BC and undated)",
+    "Eight States of Xishan and other Chinese frontier tribal polities",
+    "Xianbei and steppe polities (AD 93-490)"
+   ]
+  },
+  {
+   "id": "mol_612e78651f92",
+   "atoms": [
+    "atm_01edea247fa5",
+    "atm_37da4e8f433a",
+    "atm_4e479dbead43",
+    "atm_f4afa21fa970"
+   ],
+   "n": 4,
+   "cohesion": 0.1718,
+   "diameter": 0.262,
+   "merged_from": 3,
+   "periphery": [
+    "atm_786e9b689833",
+    "atm_f4e97ad3a62e"
+   ],
+   "layers": {
+    "architecture": 3,
+    "history": 1
+   },
+   "titles": [
+    "Interwar municipal social housing movements across Europe",
+    "Red Vienna's social housing architects",
+    "'Red Vienna' (Rotes Wien) interwar municipal housing (Gemeindebau)",
+    "Key architects and politicians of Red Vienna"
+   ]
+  },
+  {
+   "id": "mol_630206bc62a3",
+   "atoms": [
+    "atm_044bad726c72",
+    "atm_25e4e15392f9",
+    "atm_4a068786774b",
+    "atm_ae4cc16dd141",
+    "atm_e04e47f70fa0"
+   ],
+   "n": 5,
+   "cohesion": 0.1732,
+   "diameter": 0.2011,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Dynastic principalities under the Han dynasty (205 BC-AD 221)",
+    "Liu Song dynastic principalities (420-479)",
+    "Minor Three Kingdoms era states and Jin princely fiefs",
+    "Minor Zhou-era vassal states of ancient China (Huaxia/Rong/Dongyi descent)",
+    "Pre-Qin dynastic fiefs / ancient Chinese states (21st century–3rd century BC)"
+   ]
+  },
+  {
+   "id": "mol_53e42b7d0bda",
+   "atoms": [
+    "atm_049d721e0794",
+    "atm_25e4e15392f9",
+    "atm_89234b4e7e26",
+    "atm_f43f7084ee7f"
+   ],
+   "n": 4,
+   "cohesion": 0.1736,
+   "diameter": 0.1872,
+   "merged_from": 2,
+   "periphery": [
+    "atm_044bad726c72"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Various short-lived Chinese regional regimes and Yuan appanages (1207-1382)",
+    "Liu Song dynastic principalities (420-479)",
+    "Dynastic principalities under Shu Han (AD 221-263)",
+    "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
+   ]
+  },
+  {
+   "id": "mol_3be8890fc402",
+   "atoms": [
+    "atm_58cd6820cb79",
+    "atm_9ef2324f8c3b",
+    "atm_a67a2d79524f",
+    "atm_a8fdb1812201"
+   ],
+   "n": 4,
+   "cohesion": 0.1737,
+   "diameter": 0.2255,
+   "merged_from": 2,
+   "periphery": [
+    "atm_20e87f8673c2",
+    "atm_4517a741e71f"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Wangchuck dynasty (Bhutan)",
+    "Rinpungpa dynasty of Tibet",
+    "Wangchuck dynasty of Bhutan (1907–present)",
+    "Phagmodrupa dynasty of Tibet (1354-1618)"
+   ]
+  },
+  {
+   "id": "mol_7d69270b7b65",
+   "atoms": [
+    "atm_0d7637188b76",
+    "atm_53b21fe6d42a",
+    "atm_a18e305e2bd1",
+    "atm_aa99688f77e4",
+    "atm_b3bb750f2919",
+    "atm_de939bde137d"
+   ],
+   "n": 6,
+   "cohesion": 0.1742,
+   "diameter": 0.2179,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 6
+   },
+   "titles": [
+    "Jin dynasty (266-420)",
+    "Qing dynasty (Great Qing), China",
+    "Qing dynasty and Later Jin",
+    "Qin dynasty (221-207 BC)",
+    "Tang dynasty and Wu Zhou interregnum (618-907)",
+    "Xia dynasty (2070-1600 BC)"
+   ]
+  },
+  {
+   "id": "mol_0f16b5b4fc04",
+   "atoms": [
+    "atm_53b21fe6d42a",
+    "atm_9e8d04c55ac4",
+    "atm_a18e305e2bd1",
+    "atm_b3bb750f2919",
+    "atm_e869e9274104"
+   ],
+   "n": 5,
+   "cohesion": 0.1761,
+   "diameter": 0.2145,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Qing dynasty (Great Qing), China",
+    "Ming dynasty (1368-1644) and Southern Ming (1644-1662)",
+    "Qing dynasty and Later Jin",
+    "Tang dynasty and Wu Zhou interregnum (618-907)",
+    "Kingdom of Tungning and Wu Zhou"
+   ]
+  },
+  {
+   "id": "mol_ea0bc5fb2c56",
+   "atoms": [
+    "atm_049d721e0794",
+    "atm_c6a5b820a02e",
+    "atm_e04e47f70fa0",
+    "atm_f43f7084ee7f"
+   ],
+   "n": 4,
+   "cohesion": 0.1769,
+   "diameter": 0.1942,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Various short-lived Chinese regional regimes and Yuan appanages (1207-1382)",
+    "Southwest China tribal chiefdoms under Yuan-Ming rule (1215-1959)",
+    "Pre-Qin dynastic fiefs / ancient Chinese states (21st century–3rd century BC)",
+    "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
+   ]
+  },
+  {
+   "id": "mol_30592d6cca44",
+   "atoms": [
+    "atm_0a0de3ea9ac9",
+    "atm_1d69be2f73b0",
+    "atm_ae4cc16dd141",
+    "atm_f3750a4dc101"
+   ],
+   "n": 4,
+   "cohesion": 0.1781,
+   "diameter": 0.2005,
+   "merged_from": 2,
+   "periphery": [
+    "atm_b3d50615bd66"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Ancient and early medieval polities of southwest China (Fu, Hua, Baizi, Jianning, Yuzhi)",
+    "Zhou-era vassal states of ancient China",
+    "Minor Zhou-era vassal states of ancient China (Huaxia/Rong/Dongyi descent)",
+    "Ancient Chinese peripheral polities: Beidi, Dongyi, Xirong tribes"
+   ]
+  },
+  {
+   "id": "mol_893e488552a3",
+   "atoms": [
+    "atm_049d721e0794",
+    "atm_25e4e15392f9",
+    "atm_3785ba1997f0",
+    "atm_e04e47f70fa0"
+   ],
+   "n": 4,
+   "cohesion": 0.1784,
+   "diameter": 0.1988,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Various short-lived Chinese regional regimes and Yuan appanages (1207-1382)",
+    "Liu Song dynastic principalities (420-479)",
+    "Chinese dynasties, republics and warlord/soviet regimes (1368-1949)",
+    "Pre-Qin dynastic fiefs / ancient Chinese states (21st century–3rd century BC)"
+   ]
+  },
+  {
+   "id": "mol_ebdd5b1c96e7",
+   "atoms": [
+    "atm_4320a76ed8fb",
+    "atm_6fc5a77d7760",
+    "atm_a64438386449",
+    "atm_db47f02242c9"
+   ],
+   "n": 4,
+   "cohesion": 0.1787,
+   "diameter": 0.255,
+   "merged_from": 3,
+   "periphery": [
+    "atm_ad0093de4697",
+    "atm_f84319433582",
+    "atm_fd0c7f79f1c7"
+   ],
+   "layers": {
+    "culture": 1,
+    "history": 3
+   },
+   "titles": [
+    "1945 expulsion and Polonization of former German eastern territories",
+    "Post-1945 Polonization of Recovered Territories signage",
+    "Poland's 'Recovered Territories' (Ziemie Odzyskane) post-1945 resettlement",
+    "Post-WWII forced population transfers and territorial reassignment in Central/Eastern Europe"
+   ]
+  },
+  {
+   "id": "mol_a2c90586f812",
+   "atoms": [
+    "atm_02178356679f",
+    "atm_045e268ca1ce",
+    "atm_19b1bdd556c5",
+    "atm_238b76fd3141",
+    "atm_35a25e757bca",
+    "atm_4fbc680d4671"
+   ],
+   "n": 6,
+   "cohesion": 0.1792,
+   "diameter": 0.285,
+   "merged_from": 7,
+   "periphery": [
+    "atm_22a2a817503c",
+    "atm_5a589c8ec7fd",
+    "atm_782949996ae7",
+    "atm_9064de413210",
+    "atm_e0803fa5b650"
+   ],
+   "layers": {
+    "culture": 1,
+    "economy": 5
+   },
+   "titles": [
+    "Overtourism backlash and Dubrovnik's visitor caps",
+    "Overtourism backlash and touristification limits",
+    "Anti-overtourism movements in Mediterranean tourist hotspots",
+    "Anti-overtourism regulation and short-term-rental caps",
+    "Anti-overtourism backlash and regulation in Dubrovnik",
+    "Overtourism backlash and the appeal of unglamorous transit towns"
+   ]
+  },
+  {
+   "id": "mol_11b9aa01246a",
+   "atoms": [
+    "atm_0501f243d9a6",
+    "atm_7da4497d86ef",
+    "atm_c9190de8a525",
+    "atm_dd39f30491d6"
+   ],
+   "n": 4,
+   "cohesion": 0.1831,
+   "diameter": 0.2113,
+   "merged_from": 2,
+   "periphery": [
+    "atm_5f98f9cb940c"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Dynasties of Anatolia, antiquity to Ottoman rise",
+    "Turkic and Kurdish beyliks and emirates of Anatolia (11th-15th c.)",
+    "Anatolian beyliks, empires and early 20th century states",
+    "Ottoman, Turkic and Central Asian khanates/empires"
+   ]
+  },
+  {
+   "id": "mol_4fce5b631eeb",
+   "atoms": [
+    "atm_0501f243d9a6",
+    "atm_2fe2cd533f5d",
+    "atm_a92c3898ca3b",
+    "atm_fe3e26b903e8"
+   ],
+   "n": 4,
+   "cohesion": 0.1849,
+   "diameter": 0.2482,
+   "merged_from": 2,
+   "periphery": [
+    "atm_8702d14a4344"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Dynasties of Anatolia, antiquity to Ottoman rise",
+    "Ancient Near East empires (Bronze/Iron Age)",
+    "Classical Mediterranean and Greek-successor empires",
+    "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
+   ]
+  },
+  {
+   "id": "mol_1e744f65c2ee",
+   "atoms": [
+    "atm_201d500a41a8",
+    "atm_26670bdff72a",
+    "atm_6f9fc96c5833",
+    "atm_a919b2d25025"
+   ],
+   "n": 4,
+   "cohesion": 0.1872,
+   "diameter": 0.3124,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "geography": 3
+   },
+   "titles": [
+    "Right-hand traffic and Napoleonic/American standardization",
+    "British colonial legacy of left-hand traffic",
+    "Left-hand traffic countries of the former British Empire",
+    "Left-hand traffic Commonwealth legacy pattern"
+   ]
+  },
+  {
+   "id": "mol_6933dde42c75",
+   "atoms": [
+    "atm_17a4695a5c1d",
+    "atm_42f3954a370e",
+    "atm_d4bbaacf7f1a",
+    "atm_f911e7627ebc"
+   ],
+   "n": 4,
+   "cohesion": 0.1873,
+   "diameter": 0.271,
+   "merged_from": 3,
+   "periphery": [
+    "atm_1056694d90e2",
+    "atm_881a50c8b7f8",
+    "atm_aee97ba6ad66"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Historic Italian republics, duchies and kingdoms (medieval-early modern)",
+    "Napoleonic abolition of historic European city-state republics",
+    "19th-20th century Italian states and unification-era states",
+    "Napoleonic-era and revolutionary Italian states"
+   ]
+  },
+  {
+   "id": "mol_50b962cae946",
+   "atoms": [
+    "atm_504b2c302a94",
+    "atm_59d740c202ba",
+    "atm_725dd80c295d",
+    "atm_bbf98e58dc78"
+   ],
+   "n": 4,
+   "cohesion": 0.1926,
+   "diameter": 0.2722,
+   "merged_from": 4,
+   "periphery": [
+    "atm_617800b70e54",
+    "atm_99ef85b51bdd",
+    "atm_9a78e996a5e2"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Pre-Columbian American empires",
+    "Peru pre-Columbian kingdoms and Inca Empire (c.900-1533)",
+    "Central American dynasties (Costa Rica, El Salvador, Hispaniola)",
+    "Pre-Columbian and Colonial American periods"
+   ]
+  },
+  {
+   "id": "mol_9ec771407037",
+   "atoms": [
+    "atm_5b7c1bd80188",
+    "atm_6a54c06dd8a1",
+    "atm_6babccae81e3",
+    "atm_7b1933188ec9",
+    "atm_e6659265ab19"
+   ],
+   "n": 5,
+   "cohesion": 0.1959,
+   "diameter": 0.2649,
+   "merged_from": 3,
+   "periphery": [
+    "atm_5ba16db13535",
+    "atm_c31c773544bb"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Brazil former states and rebellions (1627-1953)",
+    "Argentina former states (1810-1862)",
+    "Colombia former states (1450-1964)",
+    "Mexico former states and empires (c.700 BC-2023)",
+    "Caribbean former states (1706-1969)"
+   ]
+  },
+  {
+   "id": "mol_3e473480d538",
+   "atoms": [
+    "atm_4fa5301738b9",
+    "atm_af2ceca86cd2",
+    "atm_ea0ec7052315",
+    "atm_ea48ad47ac03"
+   ],
+   "n": 4,
+   "cohesion": 0.1963,
+   "diameter": 0.2438,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Mosuo and other chiefdoms of Yunnan established 1381",
+    "Duogan (Amdo/Kham Tibetan) chiefdoms under Ming (1374)",
+    "Ming-era Chinese tusi chiefdoms (15th century)",
+    "Yunnan chiefdoms established under early Ming (1372-1382)"
+   ]
+  },
+  {
+   "id": "mol_f813d0bfec27",
+   "atoms": [
+    "atm_20e87f8673c2",
+    "atm_4517a741e71f",
+    "atm_9ef2324f8c3b",
+    "atm_a8fdb1812201",
+    "atm_a98b759e0bfe",
+    "atm_e775eaaea5b3"
+   ],
+   "n": 6,
+   "cohesion": 0.1967,
+   "diameter": 0.2522,
+   "merged_from": 2,
+   "periphery": [
+    "atm_359a6a50cf97"
+   ],
+   "layers": {
+    "history": 6
+   },
+   "titles": [
+    "Tibetan Empire (618-842)",
+    "Sakya dynasty of Tibet (1253-1358)",
+    "Rinpungpa dynasty of Tibet",
+    "Phagmodrupa dynasty of Tibet (1354-1618)",
+    "Tibet, Manchuria, Mongolia, Taiwan, Tuva polities",
+    "Nepal dynasties and kingdoms"
+   ]
+  },
+  {
+   "id": "mol_69d1b430c85b",
+   "atoms": [
+    "atm_09be58f5b64b",
+    "atm_756611a99fa8",
+    "atm_b1f98038b3d6",
+    "atm_dd39f30491d6"
+   ],
+   "n": 4,
+   "cohesion": 0.1972,
+   "diameter": 0.2235,
+   "merged_from": 3,
+   "periphery": [
+    "atm_d570ca0b9a86",
+    "atm_e2a755121847"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Later Iranian dynasties and khanates (14th-20th c.)",
+    "Mongol Empire and successor khanates (1206-1705)",
+    "Central Asian khanates and 20th century successor states",
+    "Ottoman, Turkic and Central Asian khanates/empires"
+   ]
+  },
+  {
+   "id": "mol_0272434ea2db",
+   "atoms": [
+    "atm_36410c44e299",
+    "atm_40345729907e",
+    "atm_585940dbb92e",
+    "atm_f1f2aae7e0ab"
+   ],
+   "n": 4,
+   "cohesion": 0.2006,
+   "diameter": 0.2497,
+   "merged_from": 4,
+   "periphery": [
+    "atm_14600699a3e7",
+    "atm_63a220d3ccc8",
+    "atm_aa4716639ec8",
+    "atm_f0b127710ce5"
+   ],
+   "layers": {
+    "economy": 4
+   },
+   "titles": [
+    "Rural county-seat decline pattern across post-socialist and depopulating regions",
+    "Post-socialist rural depopulation and satellite-village pattern in Eastern Europe",
+    "Post-socialist rural periphery decline across Eastern Europe",
+    "Rural depopulation belts in Southern and Eastern Europe"
+   ]
+  },
+  {
+   "id": "mol_0df5563a8f32",
+   "atoms": [
+    "atm_0de705b1aa28",
+    "atm_3f3b472abc32",
+    "atm_811342082c50",
+    "atm_9b58a70e7561"
+   ],
+   "n": 4,
+   "cohesion": 0.2031,
+   "diameter": 0.2521,
+   "merged_from": 2,
+   "periphery": [
+    "atm_bd2899174a72"
+   ],
+   "layers": {
+    "architecture": 1,
+    "culture": 1,
+    "geography": 2
+   },
+   "titles": [
+    "National highway numbering and driving-side as geolocation cues",
+    "National highway-shield design as a road-network identity marker",
+    "National road-signage families as country identifiers",
+    "National and provincial highway-shield design as cartographic identifiers"
+   ]
+  },
+  {
+   "id": "mol_5ffa5b07b553",
+   "atoms": [
+    "atm_357b02fb5a04",
+    "atm_36640a3ec7ef",
+    "atm_469162f8669b",
+    "atm_53fafcf74cfd",
+    "atm_aad0b444279e"
+   ],
+   "n": 5,
+   "cohesion": 0.2032,
+   "diameter": 0.2612,
+   "merged_from": 2,
+   "periphery": [
+    "atm_1c98e3eeebd9"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Oceania island dynasties: Cocos, Easter Island, Fiji",
+    "Micronesian and other Pacific island dynasties",
+    "French Polynesia island kingdoms",
+    "Oceania - Polynesian and Pacific island kingdoms (c.450-1901)",
+    "Oceania - modern short-lived states and Hawaii transitional governments (1871-1988)"
+   ]
+  },
+  {
+   "id": "mol_eeeb7ff8434d",
+   "atoms": [
+    "atm_8180accfcd7c",
+    "atm_8d65adf62446",
+    "atm_aa81c19581e4",
+    "atm_e36d83d3428b"
+   ],
+   "n": 4,
+   "cohesion": 0.2033,
+   "diameter": 0.2285,
+   "merged_from": 2,
+   "periphery": [
+    "atm_534a1ac8ceb2",
+    "atm_85267ed54f12"
+   ],
+   "layers": {
+    "economy": 4
+   },
+   "titles": [
+    "Depopulation and decline in unregenerated post-industrial towns",
+    "Post-communist deindustrialization of Łódź",
+    "Łódź post-industrial regeneration with uneven redevelopment",
+    "Former textile/industrial cities undergoing service-sector regeneration"
+   ]
+  },
+  {
+   "id": "mol_843a41574b75",
+   "atoms": [
+    "atm_16c50820ea0a",
+    "atm_3f3b472abc32",
+    "atm_8d9e4ea3562c",
+    "atm_9b58a70e7561",
+    "atm_e5882c19fe5d"
+   ],
+   "n": 5,
+   "cohesion": 0.2043,
+   "diameter": 0.2928,
+   "merged_from": 2,
+   "periphery": [
+    "atm_bd2899174a72"
+   ],
+   "layers": {
+    "culture": 3,
+    "geography": 2
+   },
+   "titles": [
+    "US state highway shields with unique iconographic designs",
+    "National highway-shield design as a road-network identity marker",
+    "Canadian highway shield and utility-pole cues distinguishing Canada from US Pacific states",
+    "National and provincial highway-shield design as cartographic identifiers",
+    "BC provincial highway shield distinct from US state highway markers"
+   ]
+  },
+  {
+   "id": "mol_7139c35f8c7b",
+   "atoms": [
+    "atm_1d9a3444fe22",
+    "atm_38c092e9501b",
+    "atm_3fc712b096be",
+    "atm_4629ce3c8114",
+    "atm_bf39ad75c9fc"
+   ],
+   "n": 5,
+   "cohesion": 0.2044,
+   "diameter": 0.2985,
+   "merged_from": 3,
+   "periphery": [
+    "atm_3b756d7dfdab",
+    "atm_ef1de3b43459",
+    "atm_f7d40e3ac375"
+   ],
+   "layers": {
+    "architecture": 4,
+    "culture": 1
+   },
+   "titles": [
+    "Self-built progressive concrete-block housing in rural Mexico",
+    "Incremental self-built brick housing in lower-middle-income Andean peripheries",
+    "Rebar-topped unfinished house family in developing economies",
+    "Global self-built incremental concrete housing belt",
+    "Informal incremental construction with exposed rebar across the developing world"
+   ]
+  },
+  {
+   "id": "mol_0ceb668401fa",
+   "atoms": [
+    "atm_032ed9d098a5",
+    "atm_08f055f03832",
+    "atm_7da1bc1a1513",
+    "atm_a6817ed48e64",
+    "atm_cdf89f557919",
+    "atm_e7bd3821bb4a"
+   ],
+   "n": 6,
+   "cohesion": 0.205,
+   "diameter": 0.2805,
+   "merged_from": 2,
+   "periphery": [
+    "atm_88ce3ad43618"
+   ],
+   "layers": {
+    "history": 6
+   },
+   "titles": [
+    "Historical polities of Central Russia",
+    "Historical polities of the Volga basin",
+    "Historical polities of Southern Russia",
+    "Historical polities of the Russian Far East",
+    "Historical polities of the Russian North",
+    "North Caucasus and Circassia former polities (13th c.-2000)"
+   ]
+  },
+  {
+   "id": "mol_062ffd19e7c7",
+   "atoms": [
+    "atm_a92c3898ca3b",
+    "atm_add39bea674c",
+    "atm_d95f59094c48",
+    "atm_fe3e26b903e8"
+   ],
+   "n": 4,
+   "cohesion": 0.2057,
+   "diameter": 0.2487,
+   "merged_from": 2,
+   "periphery": [
+    "atm_5d0b3841d657"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Classical Mediterranean and Greek-successor empires",
+    "Medieval Greek despotates and Aegean lordships",
+    "Historical states of Greece",
+    "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
+   ]
+  },
+  {
+   "id": "mol_01de599d5e08",
+   "atoms": [
+    "atm_21a674b61681",
+    "atm_5ae0c54d030e",
+    "atm_8c2c15c66118",
+    "atm_f89611904567"
+   ],
+   "n": 4,
+   "cohesion": 0.2065,
+   "diameter": 0.2472,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Other regional dynasties of India/South Asia (AD 33-1952)",
+    "Indian subcontinent empires",
+    "Dynasties and khanates of Central Asia (3rd century BC–1917 AD)",
+    "Post-Mauryan north Indian dynasties (2nd century BC - AD 4th century)"
+   ]
+  },
+  {
+   "id": "mol_f5499d4ed620",
+   "atoms": [
+    "atm_5b7c1bd80188",
+    "atm_5ba16db13535",
+    "atm_6babccae81e3",
+    "atm_cc44b8c34785"
+   ],
+   "n": 4,
+   "cohesion": 0.2066,
+   "diameter": 0.2422,
+   "merged_from": 3,
+   "periphery": [
+    "atm_170bcbc0e9ef",
+    "atm_6a54c06dd8a1",
+    "atm_c31c773544bb"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Brazil former states and rebellions (1627-1953)",
+    "Central America former polities (1544-1925)",
+    "Colombia former states (1450-1964)",
+    "Bolivia former polities (1100-1839)"
+   ]
+  },
+  {
+   "id": "mol_769d621cc6a1",
+   "atoms": [
+    "atm_09be58f5b64b",
+    "atm_2b8c77f38d89",
+    "atm_559c153d01c0",
+    "atm_765a9da73835"
+   ],
+   "n": 4,
+   "cohesion": 0.2071,
+   "diameter": 0.2737,
+   "merged_from": 2,
+   "periphery": [
+    "atm_b1f98038b3d6"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Later Iranian dynasties and khanates (14th-20th c.)",
+    "Iranian (Persian) dynasties and 20th century states",
+    "Iranian empires (Parthian to Afsharid)",
+    "Afghanistan dynasties, emirates and republics"
+   ]
+  },
+  {
+   "id": "mol_5e724e9a6295",
+   "atoms": [
+    "atm_40345729907e",
+    "atm_91db08094e34",
+    "atm_aa4716639ec8",
+    "atm_f1f2aae7e0ab"
+   ],
+   "n": 4,
+   "cohesion": 0.2109,
+   "diameter": 0.2793,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 2,
+    "geography": 1,
+    "history": 1
+   },
+   "titles": [
+    "Post-socialist rural depopulation and satellite-village pattern in Eastern Europe",
+    "Southern and Eastern European demographic decline belt",
+    "Aging and shrinking towns across Southern and Eastern Europe",
+    "Rural depopulation belts in Southern and Eastern Europe"
+   ]
+  },
+  {
+   "id": "mol_095cb2bc5fd8",
+   "atoms": [
+    "atm_01edea247fa5",
+    "atm_1a59425e959b",
+    "atm_786e9b689833",
+    "atm_ec52e7b7a8fa",
+    "atm_fc90c4a62930"
+   ],
+   "n": 5,
+   "cohesion": 0.2111,
+   "diameter": 0.3043,
+   "merged_from": 2,
+   "periphery": [
+    "atm_b0a49d400a66"
+   ],
+   "layers": {
+    "architecture": 4,
+    "history": 1
+   },
+   "titles": [
+    "Interwar municipal social housing movements across Europe",
+    "Socialist-era prefab housing estate family",
+    "Interwar industrial workers' housing estates across Europe",
+    "Global family of socialist-era prefab housing estates",
+    "Global family of socialist prefabricated housing estates"
+   ]
+  },
+  {
+   "id": "mol_e455f7cea5f2",
+   "atoms": [
+    "atm_0237c9c3ebba",
+    "atm_3ccca4df5f74",
+    "atm_457873fe5f2f",
+    "atm_74796dd40908",
+    "atm_d68ec73d8f8d",
+    "atm_fac0ba79eb97"
+   ],
+   "n": 6,
+   "cohesion": 0.212,
+   "diameter": 0.2746,
+   "merged_from": 2,
+   "periphery": [
+    "atm_cccc95df9811",
+    "atm_e0433c9aef8a"
+   ],
+   "layers": {
+    "history": 6
+   },
+   "titles": [
+    "African empires and kingdoms",
+    "Central Africa kingdoms and colonial states",
+    "Eastern Africa (Swahili coast) sultanates and states",
+    "Western Africa kingdoms and empires",
+    "Southern African pre-colonial and Boer states",
+    "Western Africa 20th-century post-colonial short-lived states"
+   ]
+  },
+  {
+   "id": "mol_699d4a159ca1",
+   "atoms": [
+    "atm_172cfa49a08b",
+    "atm_219131217b15",
+    "atm_797357569b86",
+    "atm_f542fdf9a366"
+   ],
+   "n": 4,
+   "cohesion": 0.2123,
+   "diameter": 0.2496,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Croatian dynasties",
+    "Serbia ruling dynasties",
+    "Montenegro ruling dynasties",
+    "Dynasties of medieval Bosnia"
+   ]
+  },
+  {
+   "id": "mol_b9d43228e30f",
+   "atoms": [
+    "atm_852c15ced2b3",
+    "atm_b1f98038b3d6",
+    "atm_dd39f30491d6",
+    "atm_e2a755121847"
+   ],
+   "n": 4,
+   "cohesion": 0.2141,
+   "diameter": 0.2466,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Russia and Volga region states and dynasties",
+    "Central Asian khanates and 20th century successor states",
+    "Ottoman, Turkic and Central Asian khanates/empires",
+    "Dynasties/khanates of Azerbaijan"
+   ]
+  },
+  {
+   "id": "mol_1afba81c7269",
+   "atoms": [
+    "atm_032ed9d098a5",
+    "atm_7d656d3b4115",
+    "atm_852c15ced2b3",
+    "atm_a238115ff605"
+   ],
+   "n": 4,
+   "cohesion": 0.2146,
+   "diameter": 0.2595,
+   "merged_from": 2,
+   "periphery": [
+    "atm_8028c7121d75"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Historical polities of Central Russia",
+    "Ukraine ruling dynasties and states",
+    "Russia and Volga region states and dynasties",
+    "Historical states and republics of Ukraine"
+   ]
+  },
+  {
+   "id": "mol_b3a289b6b338",
+   "atoms": [
+    "atm_09be58f5b64b",
+    "atm_2b8c77f38d89",
+    "atm_b1f98038b3d6",
+    "atm_e2a755121847"
+   ],
+   "n": 4,
+   "cohesion": 0.2146,
+   "diameter": 0.2518,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Later Iranian dynasties and khanates (14th-20th c.)",
+    "Iranian (Persian) dynasties and 20th century states",
+    "Central Asian khanates and 20th century successor states",
+    "Dynasties/khanates of Azerbaijan"
+   ]
+  },
+  {
+   "id": "mol_a323643db557",
+   "atoms": [
+    "atm_0cdcb5f44842",
+    "atm_49b6b08fee5f",
+    "atm_8dea6efc26d9",
+    "atm_9d42b1e8cd15",
+    "atm_b4155eafc9ab"
+   ],
+   "n": 5,
+   "cohesion": 0.2152,
+   "diameter": 0.3128,
+   "merged_from": 3,
+   "periphery": [
+    "atm_d114d8bf82fb",
+    "atm_d3727eb4767a"
+   ],
+   "layers": {
+    "economy": 5
+   },
+   "titles": [
+    "Fishing-village-to-resort transitions along tropical coastlines",
+    "East coast Pahang/Terengganu fishing villages transitioning to backpacker tourism",
+    "Fishing-village-to-surf-tourism transitions worldwide",
+    "Icelandic fishing-village economy transitioning toward tourism",
+    "Fishing villages pivoting to tourism worldwide"
+   ]
+  },
+  {
+   "id": "mol_a4b86e555acf",
+   "atoms": [
+    "atm_504b2c302a94",
+    "atm_5ba16db13535",
+    "atm_725dd80c295d",
+    "atm_7b1933188ec9",
+    "atm_9a78e996a5e2"
+   ],
+   "n": 5,
+   "cohesion": 0.2165,
+   "diameter": 0.2816,
+   "merged_from": 2,
+   "periphery": [
+    "atm_99ef85b51bdd"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Pre-Columbian American empires",
+    "Central America former polities (1544-1925)",
+    "Central American dynasties (Costa Rica, El Salvador, Hispaniola)",
+    "Mexico former states and empires (c.700 BC-2023)",
+    "Mexican historical periods"
+   ]
+  },
+  {
+   "id": "mol_6e85f7974dbb",
+   "atoms": [
+    "atm_40cac0e4c7dd",
+    "atm_5e6aab25783a",
+    "atm_73bdc8bd6a98",
+    "atm_ae6ab4de9a82"
+   ],
+   "n": 4,
+   "cohesion": 0.2173,
+   "diameter": 0.2665,
+   "merged_from": 4,
+   "periphery": [
+    "atm_051e28444450",
+    "atm_71c857c45aee",
+    "atm_dd71a7564e2e"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Qatar ruling families",
+    "House of Khalifa (Bahrain)",
+    "House of Thani (Qatar)",
+    "United Arab Emirates ruling houses"
+   ]
+  },
+  {
+   "id": "mol_030fc195d30a",
+   "atoms": [
+    "atm_1a59425e959b",
+    "atm_45b4b6a01e83",
+    "atm_764d16790153",
+    "atm_ec52e7b7a8fa",
+    "atm_fc90c4a62930"
+   ],
+   "n": 5,
+   "cohesion": 0.218,
+   "diameter": 0.3179,
+   "merged_from": 3,
+   "periphery": [
+    "atm_019c308b2979",
+    "atm_8721acb94173",
+    "atm_b0a49d400a66"
+   ],
+   "layers": {
+    "architecture": 4,
+    "history": 1
+   },
+   "titles": [
+    "Socialist-era prefab housing estate family",
+    "Planners behind Soviet mass-housing standardization",
+    "Soviet urban form: panelka housing and trolleybus prospekts",
+    "Global family of socialist-era prefab housing estates",
+    "Global family of socialist prefabricated housing estates"
+   ]
+  },
+  {
+   "id": "mol_c72a0d18b4d5",
+   "atoms": [
+    "atm_45b4b6a01e83",
+    "atm_764d16790153",
+    "atm_8721acb94173",
+    "atm_c0ad2b5cf825",
+    "atm_fc90c4a62930"
+   ],
+   "n": 5,
+   "cohesion": 0.218,
+   "diameter": 0.3019,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 4,
+    "history": 1
+   },
+   "titles": [
+    "Planners behind Soviet mass-housing standardization",
+    "Soviet urban form: panelka housing and trolleybus prospekts",
+    "Nikita Khrushchev and the mass panel-housing program",
+    "Architects and planners of Eastern Bloc mass housing",
+    "Global family of socialist prefabricated housing estates"
+   ]
+  },
+  {
+   "id": "mol_52dd7a097716",
+   "atoms": [
+    "atm_8d14407a6b37",
+    "atm_939c67eaff4d",
+    "atm_c2dd9ee05b3d",
+    "atm_c7bad8b7d1b5"
+   ],
+   "n": 4,
+   "cohesion": 0.2185,
+   "diameter": 0.2686,
+   "merged_from": 2,
+   "periphery": [
+    "atm_349aa75a4bdc"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Scotland ruling houses",
+    "Sweden ruling houses",
+    "English dynasties (Norman to Windsor)",
+    "Danish dynasties"
+   ]
+  },
+  {
+   "id": "mol_7bade16fd9d5",
+   "atoms": [
+    "atm_585940dbb92e",
+    "atm_8180accfcd7c",
+    "atm_a437b6c478f6",
+    "atm_ad3db50d1df5"
+   ],
+   "n": 4,
+   "cohesion": 0.2187,
+   "diameter": 0.2971,
+   "merged_from": 3,
+   "periphery": [
+    "atm_8d65adf62446",
+    "atm_93d28ea9d736",
+    "atm_f644bdf4dd51"
+   ],
+   "layers": {
+    "economy": 4
+   },
+   "titles": [
+    "Post-socialist rural periphery decline across Eastern Europe",
+    "Depopulation and decline in unregenerated post-industrial towns",
+    "Post-1989 deindustrialization and monotown decline",
+    "Post-Soviet industrial decline and diversification struggles in Siberian cities"
+   ]
+  },
+  {
+   "id": "mol_e931834bbab5",
+   "atoms": [
+    "atm_0501f243d9a6",
+    "atm_8702d14a4344",
+    "atm_aa3a254f6c22",
+    "atm_fe3e26b903e8"
+   ],
+   "n": 4,
+   "cohesion": 0.2191,
+   "diameter": 0.279,
+   "merged_from": 2,
+   "periphery": [
+    "atm_6e100b1dd4b9"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Dynasties of Anatolia, antiquity to Ottoman rise",
+    "Roman and Byzantine imperial dynasties",
+    "Dynasties of Armenia",
+    "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
+   ]
+  },
+  {
+   "id": "mol_ab2fcb425f61",
+   "atoms": [
+    "atm_2293f2bdddc3",
+    "atm_399453199a88",
+    "atm_431d5baec140",
+    "atm_ca62fa29fa29"
+   ],
+   "n": 4,
+   "cohesion": 0.2193,
+   "diameter": 0.2971,
+   "merged_from": 3,
+   "periphery": [
+    "atm_020ef391a7c6",
+    "atm_d75f452353d9"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Ragusan patrician families and villa patronage",
+    "Ragusan patrician villa builders",
+    "Ragusan noble summer villas at Zaton bay",
+    "Ragusan (Dubrovnik Republic) littoral cultural sphere"
+   ]
+  },
+  {
+   "id": "mol_6de791431f16",
+   "atoms": [
+    "atm_148f1d2175ee",
+    "atm_2d7f42f52810",
+    "atm_5331d9309824",
+    "atm_63a50c8c26e7"
+   ],
+   "n": 4,
+   "cohesion": 0.2201,
+   "diameter": 0.2985,
+   "merged_from": 3,
+   "periphery": [
+    "atm_0c3d90f15260",
+    "atm_13f509999bc0"
+   ],
+   "layers": {
+    "economy": 1,
+    "history": 3
+   },
+   "titles": [
+    "Venice historic center depopulation",
+    "Dubrovnik municipality population decline trend",
+    "Dubrovnik Old Town depopulation from short-term rental conversion and cruise overcrowding",
+    "Global historic-core hollowing-out from tourism/short-term rental conversion"
+   ]
+  },
+  {
+   "id": "mol_e7186bf1357c",
+   "atoms": [
+    "atm_032ed9d098a5",
+    "atm_08f055f03832",
+    "atm_7da1bc1a1513",
+    "atm_852c15ced2b3",
+    "atm_88ce3ad43618"
+   ],
+   "n": 5,
+   "cohesion": 0.2207,
+   "diameter": 0.2766,
+   "merged_from": 2,
+   "periphery": [
+    "atm_a238115ff605"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Historical polities of Central Russia",
+    "Historical polities of the Volga basin",
+    "Historical polities of Southern Russia",
+    "Russia and Volga region states and dynasties",
+    "Russian states from Tsardom to Soviet Union"
+   ]
+  },
+  {
+   "id": "mol_3e7f3f6a9430",
+   "atoms": [
+    "atm_1f02156385ca",
+    "atm_4db6f48f473b",
+    "atm_5c6dd5af93f3",
+    "atm_7e67c8b59e9a"
+   ],
+   "n": 4,
+   "cohesion": 0.221,
+   "diameter": 0.2877,
+   "merged_from": 2,
+   "periphery": [
+    "atm_129ae2473775"
+   ],
+   "layers": {
+    "geography": 3,
+    "nature": 1
+   },
+   "titles": [
+    "Eastern Adriatic karst coast morphology",
+    "Dinaric-type karst escarpment coastlines worldwide",
+    "Mediterranean karst coastlines beyond the Adriatic",
+    "Dinaric karst coastal profile: abrupt limestone wall behind narrow littoral strip"
+   ]
+  },
+  {
+   "id": "mol_4aaa2014a440",
+   "atoms": [
+    "atm_170bcbc0e9ef",
+    "atm_6a54c06dd8a1",
+    "atm_6babccae81e3",
+    "atm_cc44b8c34785"
+   ],
+   "n": 4,
+   "cohesion": 0.2212,
+   "diameter": 0.2753,
+   "merged_from": 3,
+   "periphery": [
+    "atm_617800b70e54",
+    "atm_c31c773544bb",
+    "atm_f35c6b5a214b"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Paraguay former regimes (1931-1989)",
+    "Argentina former states (1810-1862)",
+    "Colombia former states (1450-1964)",
+    "Bolivia former polities (1100-1839)"
+   ]
+  },
+  {
+   "id": "mol_fd7603e86b22",
+   "atoms": [
+    "atm_247632c71cf3",
+    "atm_76c48c7f3fa6",
+    "atm_9fe8674af0bd",
+    "atm_ecdef88d27ab"
+   ],
+   "n": 4,
+   "cohesion": 0.2216,
+   "diameter": 0.3102,
+   "merged_from": 2,
+   "periphery": [
+    "atm_9f4aed214b1a"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Historical states of Croatia",
+    "Socialist Federal Republic of Yugoslavia (dissolved 1991-1992)",
+    "Historical states of Serbia and Yugoslavia",
+    "Historical states of Albania"
+   ]
+  },
+  {
+   "id": "mol_f56c48d85c79",
+   "atoms": [
+    "atm_0625509c4e13",
+    "atm_329f3ad24f9a",
+    "atm_419b94faedad",
+    "atm_8c11beb087d8"
+   ],
+   "n": 4,
+   "cohesion": 0.2218,
+   "diameter": 0.2492,
+   "merged_from": 3,
+   "periphery": [
+    "atm_1488e46f2dcc",
+    "atm_4c848bc30e60"
+   ],
+   "layers": {
+    "architecture": 1,
+    "economy": 3
+   },
+   "titles": [
+    "Post-2000 tourism investment layering on traditional Dalmatian villages",
+    "Post-war tourism-led reconstruction of the Dalmatian coast",
+    "Modern concrete tourist-driven construction displacing Dalmatian vernacular",
+    "Coastal tourism boom versus karst hinterland depopulation in Dalmatia"
+   ]
+  },
+  {
+   "id": "mol_eec89018a650",
+   "atoms": [
+    "atm_032ed9d098a5",
+    "atm_08f055f03832",
+    "atm_8028c7121d75",
+    "atm_88ce3ad43618",
+    "atm_cdf89f557919"
+   ],
+   "n": 5,
+   "cohesion": 0.2223,
+   "diameter": 0.291,
+   "merged_from": 2,
+   "periphery": [
+    "atm_a238115ff605"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Historical polities of Central Russia",
+    "Historical polities of the Volga basin",
+    "Former states of Crimea",
+    "Russian states from Tsardom to Soviet Union",
+    "Historical polities of the Russian North"
+   ]
+  },
+  {
+   "id": "mol_d70b4e414561",
+   "atoms": [
+    "atm_7ff4706a4ace",
+    "atm_c6438748e927",
+    "atm_e775eaaea5b3",
+    "atm_f36d41795fd9"
+   ],
+   "n": 4,
+   "cohesion": 0.2223,
+   "diameter": 0.27,
+   "merged_from": 2,
+   "periphery": [
+    "atm_a8fdb1812201"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Chakri dynasty (Thailand)",
+    "Thailand (Siam) dynasties",
+    "Nepal dynasties and kingdoms",
+    "Cambodian royal dynasties (1080–present)"
+   ]
+  },
+  {
+   "id": "mol_28672e4c2d6f",
+   "atoms": [
+    "atm_032ed9d098a5",
+    "atm_08f055f03832",
+    "atm_88ce3ad43618",
+    "atm_a238115ff605",
+    "atm_a6817ed48e64"
+   ],
+   "n": 5,
+   "cohesion": 0.2232,
+   "diameter": 0.2609,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Historical polities of Central Russia",
+    "Historical polities of the Volga basin",
+    "Russian states from Tsardom to Soviet Union",
+    "Historical states and republics of Ukraine",
+    "Historical polities of the Russian Far East"
+   ]
+  },
+  {
+   "id": "mol_c35f92a54575",
+   "atoms": [
+    "atm_02178356679f",
+    "atm_22a2a817503c",
+    "atm_238b76fd3141",
+    "atm_35a25e757bca",
+    "atm_5a589c8ec7fd",
+    "atm_9064de413210"
+   ],
+   "n": 6,
+   "cohesion": 0.2236,
+   "diameter": 0.3183,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "economy": 5
+   },
+   "titles": [
+    "Overtourism backlash and Dubrovnik's visitor caps",
+    "Policy-makers behind anti-overtourism regulation",
+    "Anti-overtourism regulation and short-term-rental caps",
+    "Anti-overtourism backlash and regulation in Dubrovnik",
+    "Anti-overdevelopment regulation and heritage-protection pushback on coasts",
+    "Municipal short-term rental caps as anti-depopulation policy response"
+   ]
+  },
+  {
+   "id": "mol_6f27dab8a70c",
+   "atoms": [
+    "atm_504b2c302a94",
+    "atm_617800b70e54",
+    "atm_725dd80c295d",
+    "atm_99ef85b51bdd"
+   ],
+   "n": 4,
+   "cohesion": 0.2246,
+   "diameter": 0.26,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Pre-Columbian American empires",
+    "South American dynasties: Bolivia, Chile, Venezuela",
+    "Central American dynasties (Costa Rica, El Salvador, Hispaniola)",
+    "Panama, Trinidad and Tobago, and U.S. indigenous dynasties"
+   ]
+  },
+  {
+   "id": "mol_176c331def48",
+   "atoms": [
+    "atm_4517a741e71f",
+    "atm_7ff4706a4ace",
+    "atm_a8fdb1812201",
+    "atm_e775eaaea5b3"
+   ],
+   "n": 4,
+   "cohesion": 0.2252,
+   "diameter": 0.2699,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Sakya dynasty of Tibet (1253-1358)",
+    "Chakri dynasty (Thailand)",
+    "Phagmodrupa dynasty of Tibet (1354-1618)",
+    "Nepal dynasties and kingdoms"
+   ]
+  },
+  {
+   "id": "mol_62868e710eea",
+   "atoms": [
+    "atm_08f055f03832",
+    "atm_7da1bc1a1513",
+    "atm_cdf89f557919",
+    "atm_f6d29ceff035"
+   ],
+   "n": 4,
+   "cohesion": 0.2259,
+   "diameter": 0.3131,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Historical polities of the Volga basin",
+    "Historical polities of Southern Russia",
+    "Historical polities of the Russian North",
+    "Historical polities of the Ural Mountains"
+   ]
+  },
+  {
+   "id": "mol_028406365ca8",
+   "atoms": [
+    "atm_59574d3e0cdb",
+    "atm_8a0170f2319b",
+    "atm_9e35ecc6159d",
+    "atm_d1552342082f",
+    "atm_e887947ecd67"
+   ],
+   "n": 5,
+   "cohesion": 0.2261,
+   "diameter": 0.3043,
+   "merged_from": 2,
+   "periphery": [
+    "atm_ed9d09b8ce1a"
+   ],
+   "layers": {
+    "architecture": 2,
+    "history": 3
+   },
+   "titles": [
+    "Mediterranean coastal villa traditions of maritime republics",
+    "Maritime city-state littoral hinterlands",
+    "Venetian Renaissance urban planning across the Adriatic",
+    "Elite countryside villa culture of maritime republics",
+    "Roman villae maritimae layered beneath Adriatic and Mediterranean coastal towns"
+   ]
+  },
+  {
+   "id": "mol_6280d9c4879f",
+   "atoms": [
+    "atm_3b4caddc25e6",
+    "atm_7f1b78158b4f",
+    "atm_b2fe9975ad3d",
+    "atm_edfd7ad1c77f"
+   ],
+   "n": 4,
+   "cohesion": 0.2262,
+   "diameter": 0.2812,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "Czechoslovakism and the suppressed dual-language convergence",
+    "Slovak vs Czech orthographic discriminators (LEKÁREŇ vs lékárna)",
+    "Ľudovít Štúr and codification of standard Slovak",
+    "Post-1993 Slovak-Czech linguistic divergence after Czechoslovak split"
+   ]
+  },
+  {
+   "id": "mol_e22feccd7c95",
+   "atoms": [
+    "atm_76c48c7f3fa6",
+    "atm_9f4aed214b1a",
+    "atm_9fe8674af0bd",
+    "atm_df8bd3c05cf5"
+   ],
+   "n": 4,
+   "cohesion": 0.2262,
+   "diameter": 0.2923,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Socialist Federal Republic of Yugoslavia (dissolved 1991-1992)",
+    "Republic of Kosova (1991-1999)",
+    "Historical states of Serbia and Yugoslavia",
+    "Serbia and Montenegro (dissolved 2006)"
+   ]
+  },
+  {
+   "id": "mol_d178695d4ab4",
+   "atoms": [
+    "atm_212df8165601",
+    "atm_247632c71cf3",
+    "atm_91b50d1ce69f",
+    "atm_9fe8674af0bd"
+   ],
+   "n": 4,
+   "cohesion": 0.2295,
+   "diameter": 0.3049,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Czech and Slovak historical states",
+    "Historical states of Croatia",
+    "Kingdom of Hungary and successor states",
+    "Historical states of Serbia and Yugoslavia"
+   ]
+  },
+  {
+   "id": "mol_8afa5898df1c",
+   "atoms": [
+    "atm_756611a99fa8",
+    "atm_b1f98038b3d6",
+    "atm_d570ca0b9a86",
+    "atm_df3105d13839"
+   ],
+   "n": 4,
+   "cohesion": 0.2297,
+   "diameter": 0.291,
+   "merged_from": 2,
+   "periphery": [
+    "atm_2b194559c7ce",
+    "atm_5d361d5d8830"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Mongol Empire and successor khanates (1206-1705)",
+    "Central Asian khanates and 20th century successor states",
+    "Mongolian Plateau steppe polities (330 BCE–1924)",
+    "Siberia steppe and Ob-Ugric polities"
+   ]
+  },
+  {
+   "id": "mol_18152eec3f06",
+   "atoms": [
+    "atm_045e268ca1ce",
+    "atm_4fbc680d4671",
+    "atm_782949996ae7",
+    "atm_e0803fa5b650",
+    "atm_e3a6a253be44"
+   ],
+   "n": 5,
+   "cohesion": 0.2317,
+   "diameter": 0.3061,
+   "merged_from": 2,
+   "periphery": [
+    "atm_238b76fd3141"
+   ],
+   "layers": {
+    "economy": 5
+   },
+   "titles": [
+    "Overtourism backlash and touristification limits",
+    "Overtourism backlash and the appeal of unglamorous transit towns",
+    "Overtourism convergence versus niche diversification",
+    "Overtourism backlash in small Icelandic and Nordic towns",
+    "Overtourism and diversification pushback in island economies"
+   ]
+  },
+  {
+   "id": "mol_71f5859d1a05",
+   "atoms": [
+    "atm_52f830b17ac5",
+    "atm_5d981c49eb79",
+    "atm_67097f4cbca4",
+    "atm_f8b6f3e82ec4"
+   ],
+   "n": 4,
+   "cohesion": 0.2333,
+   "diameter": 0.3182,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 4
+   },
+   "titles": [
+    "Mediterranean and Adriatic coastal overdevelopment booms",
+    "Adriatic tourism development planners and hoteliers",
+    "Albanian coastal tourism boom and seasonal economy",
+    "Croatian Adriatic tourism development figures"
+   ]
+  },
+  {
+   "id": "mol_51351223e538",
+   "atoms": [
+    "atm_5b7c1bd80188",
+    "atm_5ba16db13535",
+    "atm_71e1ad60030a",
+    "atm_7b1933188ec9"
+   ],
+   "n": 4,
+   "cohesion": 0.2342,
+   "diameter": 0.2702,
+   "merged_from": 2,
+   "periphery": [
+    "atm_725dd80c295d"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Brazil former states and rebellions (1627-1953)",
+    "Central America former polities (1544-1925)",
+    "Federal Republic of Central America (1821-1841)",
+    "Mexico former states and empires (c.700 BC-2023)"
+   ]
+  },
+  {
+   "id": "mol_bf8bd5948366",
+   "atoms": [
+    "atm_14600699a3e7",
+    "atm_36410c44e299",
+    "atm_40345729907e",
+    "atm_f0b127710ce5"
+   ],
+   "n": 4,
+   "cohesion": 0.2356,
+   "diameter": 0.2912,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 4
+   },
+   "titles": [
+    "Post-Soviet rural depopulation and agro-forestry economy in Vidzeme/Gulbene",
+    "Rural county-seat decline pattern across post-socialist and depopulating regions",
+    "Post-socialist rural depopulation and satellite-village pattern in Eastern Europe",
+    "Bulgarian rural depopulation pattern: satellite villages serving nearby cities"
+   ]
+  },
+  {
+   "id": "mol_5cf9b0cb1e69",
+   "atoms": [
+    "atm_019c308b2979",
+    "atm_1a59425e959b",
+    "atm_c370d530dba1",
+    "atm_ec52e7b7a8fa"
+   ],
+   "n": 4,
+   "cohesion": 0.2361,
+   "diameter": 0.3256,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 1,
+    "economy": 1,
+    "history": 2
+   },
+   "titles": [
+    "Socialist-era single-industry satellite housing estates (panelák sídliská) in Czechoslovakia",
+    "Socialist-era prefab housing estate family",
+    "Socialist-era planned housing estates on Dalmatian coastal hillsides",
+    "Global family of socialist-era prefab housing estates"
+   ]
+  },
+  {
+   "id": "mol_fa9840f948ea",
+   "atoms": [
+    "atm_617800b70e54",
+    "atm_6a54c06dd8a1",
+    "atm_c31c773544bb",
+    "atm_cc44b8c34785"
+   ],
+   "n": 4,
+   "cohesion": 0.2379,
+   "diameter": 0.2829,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "South American dynasties: Bolivia, Chile, Venezuela",
+    "Argentina former states (1810-1862)",
+    "Venezuelan independence-era republics (1810-1831)",
+    "Bolivia former polities (1100-1839)"
+   ]
+  },
+  {
+   "id": "mol_846e895e2267",
+   "atoms": [
+    "atm_4a4fd31e7db5",
+    "atm_534a1ac8ceb2",
+    "atm_85267ed54f12",
+    "atm_e36d83d3428b"
+   ],
+   "n": 4,
+   "cohesion": 0.2398,
+   "diameter": 0.2855,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 2,
+    "history": 2
+   },
+   "titles": [
+    "19th-century textile boomtowns of the industrial revolution",
+    "Łódź's 19th-century textile industrialist dynasties",
+    "Łódź as a 19th-century textile industrial boomtown",
+    "Former textile/industrial cities undergoing service-sector regeneration"
+   ]
+  },
+  {
+   "id": "mol_930692a8b5f8",
+   "atoms": [
+    "atm_019c308b2979",
+    "atm_b0a49d400a66",
+    "atm_e70740d7190f",
+    "atm_ec52e7b7a8fa"
+   ],
+   "n": 4,
+   "cohesion": 0.2408,
+   "diameter": 0.3001,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 1,
+    "culture": 1,
+    "history": 2
+   },
+   "titles": [
+    "Socialist-era single-industry satellite housing estates (panelák sídliská) in Czechoslovakia",
+    "Post-socialist critique and renovation of panel housing estates",
+    "Post-socialist heritage and renewal reactions to panel estates",
+    "Global family of socialist-era prefab housing estates"
+   ]
+  },
+  {
+   "id": "mol_b1bcff8a493f",
+   "atoms": [
+    "atm_4546211f9594",
+    "atm_4be145d2170c",
+    "atm_c6438748e927",
+    "atm_f36d41795fd9"
+   ],
+   "n": 4,
+   "cohesion": 0.2408,
+   "diameter": 0.2869,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Myanmar (Burma) dynasties and kingdoms",
+    "Korean and other East/Southeast Asian kingdoms",
+    "Thailand (Siam) dynasties",
+    "Cambodian royal dynasties (1080–present)"
+   ]
+  },
+  {
+   "id": "mol_8dc4088e58e9",
+   "atoms": [
+    "atm_49a1e6e97bd2",
+    "atm_5b7c1bd80188",
+    "atm_6a54c06dd8a1",
+    "atm_c31c773544bb"
+   ],
+   "n": 4,
+   "cohesion": 0.2415,
+   "diameter": 0.2934,
+   "merged_from": 2,
+   "periphery": [
+    "atm_71e1ad60030a"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Empire of Brazil (1822-1889)",
+    "Brazil former states and rebellions (1627-1953)",
+    "Argentina former states (1810-1862)",
+    "Venezuelan independence-era republics (1810-1831)"
+   ]
+  },
+  {
+   "id": "mol_e55f7dc507db",
+   "atoms": [
+    "atm_13f509999bc0",
+    "atm_5d77688926e3",
+    "atm_91db08094e34",
+    "atm_aa4716639ec8"
+   ],
+   "n": 4,
+   "cohesion": 0.2415,
+   "diameter": 0.3202,
+   "merged_from": 2,
+   "periphery": [
+    "atm_2d7f42f52810"
+   ],
+   "layers": {
+    "geography": 1,
+    "history": 3
+   },
+   "titles": [
+    "Croatia's rapid national demographic aging and youth outmigration",
+    "Italy's regional demographic aging, north-Italy extreme cases",
+    "Southern and Eastern European demographic decline belt",
+    "Aging and shrinking towns across Southern and Eastern Europe"
+   ]
+  },
+  {
+   "id": "mol_40a472db629d",
+   "atoms": [
+    "atm_349aa75a4bdc",
+    "atm_434147d14b23",
+    "atm_56d45d691c99",
+    "atm_c2dd9ee05b3d",
+    "atm_f2dfa98dfc1d"
+   ],
+   "n": 5,
+   "cohesion": 0.2423,
+   "diameter": 0.3301,
+   "merged_from": 2,
+   "periphery": [
+    "atm_c7bad8b7d1b5"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "German royal/imperial dynasties",
+    "English dynasties (early to Anglo-Saxon)",
+    "Saxon dynasties",
+    "English dynasties (Norman to Windsor)",
+    "Barbarian successor-state dynasties of early medieval Europe"
+   ]
+  },
+  {
+   "id": "mol_c57787b4cfc1",
+   "atoms": [
+    "atm_0f9412a53ebb",
+    "atm_3ccca4df5f74",
+    "atm_74796dd40908",
+    "atm_fac0ba79eb97"
+   ],
+   "n": 4,
+   "cohesion": 0.2424,
+   "diameter": 0.3003,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Non-sovereign dynasties by continent",
+    "Central Africa kingdoms and colonial states",
+    "Western Africa kingdoms and empires",
+    "Western Africa 20th-century post-colonial short-lived states"
+   ]
+  },
+  {
+   "id": "mol_9f3d7af465c4",
+   "atoms": [
+    "atm_3ccca4df5f74",
+    "atm_74796dd40908",
+    "atm_da8f02625c33",
+    "atm_e0433c9aef8a",
+    "atm_f9964f016ef2"
+   ],
+   "n": 5,
+   "cohesion": 0.2431,
+   "diameter": 0.2988,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Central Africa kingdoms and colonial states",
+    "Western Africa kingdoms and empires",
+    "Madagascar historical kingdoms",
+    "Southern Africa historical kingdoms",
+    "African Great Lakes kingdoms"
+   ]
+  },
+  {
+   "id": "mol_2b7a575b0d99",
+   "atoms": [
+    "atm_6a54c06dd8a1",
+    "atm_6babccae81e3",
+    "atm_c31c773544bb",
+    "atm_e6659265ab19",
+    "atm_f35c6b5a214b"
+   ],
+   "n": 5,
+   "cohesion": 0.2433,
+   "diameter": 0.3146,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Argentina former states (1810-1862)",
+    "Colombia former states (1450-1964)",
+    "Venezuelan independence-era republics (1810-1831)",
+    "Caribbean former states (1706-1969)",
+    "Peruvian breakaway states (1821-1900)"
+   ]
+  },
+  {
+   "id": "mol_b53aa987e2cd",
+   "atoms": [
+    "atm_0cdcb5f44842",
+    "atm_49b6b08fee5f",
+    "atm_8dea6efc26d9",
+    "atm_a60aa4ae835e",
+    "atm_d3727eb4767a"
+   ],
+   "n": 5,
+   "cohesion": 0.2433,
+   "diameter": 0.3197,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 5
+   },
+   "titles": [
+    "Fishing-village-to-resort transitions along tropical coastlines",
+    "East coast Pahang/Terengganu fishing villages transitioning to backpacker tourism",
+    "Fishing-village-to-surf-tourism transitions worldwide",
+    "Decline of traditional Malay fishing amid coastal tourism growth",
+    "Global artisanal fishing communities near industrial/tourism hubs"
+   ]
+  },
+  {
+   "id": "mol_faa546d6f876",
+   "atoms": [
+    "atm_08a5788cfe1e",
+    "atm_13f509999bc0",
+    "atm_91db08094e34",
+    "atm_ea096b05bb43"
+   ],
+   "n": 4,
+   "cohesion": 0.2446,
+   "diameter": 0.3134,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 2,
+    "history": 2
+   },
+   "titles": [
+    "Eastern European post-socialist emigration wave",
+    "Croatia's rapid national demographic aging and youth outmigration",
+    "Southern and Eastern European demographic decline belt",
+    "Albanian youth emigration and aging population"
+   ]
+  },
+  {
+   "id": "mol_dc4655e3e5be",
+   "atoms": [
+    "atm_129d4a19ac88",
+    "atm_18f21fa2e6eb",
+    "atm_6d1197a3fa15",
+    "atm_81203c6e0b37"
+   ],
+   "n": 4,
+   "cohesion": 0.2478,
+   "diameter": 0.3116,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Legacy of Spanish colonial municipal codes in the Philippines",
+    "Post-independence municipal re-creation in the Philippines",
+    "Colonial-era municipal amalgamation policies",
+    "Early-20th-century Philippine municipal consolidation under Executive Order 64 (1904)"
+   ]
+  },
+  {
+   "id": "mol_0fa558e91b28",
+   "atoms": [
+    "atm_13f509999bc0",
+    "atm_2d7f42f52810",
+    "atm_57714df5d867",
+    "atm_91db08094e34"
+   ],
+   "n": 4,
+   "cohesion": 0.2509,
+   "diameter": 0.3326,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 2,
+    "history": 2
+   },
+   "titles": [
+    "Croatia's rapid national demographic aging and youth outmigration",
+    "Dubrovnik municipality population decline trend",
+    "Croatian coastal and Zagreb population magnets offsetting hinterland decline",
+    "Southern and Eastern European demographic decline belt"
+   ]
+  },
+  {
+   "id": "mol_d3d84fca5c9f",
+   "atoms": [
+    "atm_504b2c302a94",
+    "atm_99ef85b51bdd",
+    "atm_a36ae7f0bdbe",
+    "atm_bbf98e58dc78"
+   ],
+   "n": 4,
+   "cohesion": 0.2518,
+   "diameter": 0.3033,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Pre-Columbian American empires",
+    "Panama, Trinidad and Tobago, and U.S. indigenous dynasties",
+    "Americas modern empires and disputed modern states",
+    "Pre-Columbian and Colonial American periods"
+   ]
+  },
+  {
+   "id": "mol_fc8126b1ca3f",
+   "atoms": [
+    "atm_1cf9913c8381",
+    "atm_45b4b6a01e83",
+    "atm_764d16790153",
+    "atm_8721acb94173",
+    "atm_d146af6844dc"
+   ],
+   "n": 5,
+   "cohesion": 0.2519,
+   "diameter": 0.3319,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 5
+   },
+   "titles": [
+    "Post-Soviet renovation and demolition programs replacing panelki",
+    "Planners behind Soviet mass-housing standardization",
+    "Soviet urban form: panelka housing and trolleybus prospekts",
+    "Nikita Khrushchev and the mass panel-housing program",
+    "Soviet mikroraion urban-fringe pattern: panel high-rises abutting unpaved private-house lanes"
+   ]
+  },
+  {
+   "id": "mol_748428370e37",
+   "atoms": [
+    "atm_64a34928a5c3",
+    "atm_811342082c50",
+    "atm_d77af7df6d03",
+    "atm_d943fb448339"
+   ],
+   "n": 4,
+   "cohesion": 0.2526,
+   "diameter": 0.3264,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 4
+   },
+   "titles": [
+    "EU-wide harmonized road signage under the Vienna Convention",
+    "National road-signage families as country identifiers",
+    "Vienna Convention harmonization versus persistent national signage variants",
+    "Non-standard national road-sign systems outside the Vienna Convention"
+   ]
+  },
+  {
+   "id": "mol_81db3b1861ff",
+   "atoms": [
+    "atm_5d981c49eb79",
+    "atm_c6796d5edf50",
+    "atm_f10c40951ca6",
+    "atm_feccf0569915"
+   ],
+   "n": 4,
+   "cohesion": 0.2544,
+   "diameter": 0.3346,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 2,
+    "economy": 2
+   },
+   "titles": [
+    "Adriatic tourism development planners and hoteliers",
+    "Mono-cultural tourism economy: private housing converted to rental apartments",
+    "Yugoslav-era slab-block resort hotels displacing villa aesthetics",
+    "Yugoslav-era coastal tourism planners"
+   ]
+  },
+  {
+   "id": "mol_c8be2e67c52f",
+   "atoms": [
+    "atm_1281f5fa3d76",
+    "atm_3d0e81322e1d",
+    "atm_a730bfa14785",
+    "atm_b9d0390869b7"
+   ],
+   "n": 4,
+   "cohesion": 0.2544,
+   "diameter": 0.3143,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 4
+   },
+   "titles": [
+    "Post-WWII slum clearance and tower-block replacement of terraces",
+    "Global 19th-century terraced/rowhouse working-class housing family",
+    "Victorian terraced housing typology in England",
+    "Victorian-era speculative builders and housing reformers"
+   ]
+  },
+  {
+   "id": "mol_50b1b91d6012",
+   "atoms": [
+    "atm_3fc712b096be",
+    "atm_af2a2617b586",
+    "atm_b9e670bd45e8",
+    "atm_bf39ad75c9fc"
+   ],
+   "n": 4,
+   "cohesion": 0.255,
+   "diameter": 0.3187,
+   "merged_from": 2,
+   "periphery": [
+    "atm_1d9a3444fe22"
+   ],
+   "layers": {
+    "architecture": 4
+   },
+   "titles": [
+    "Rebar-topped unfinished house family in developing economies",
+    "Albanian unfinished concrete-block housing",
+    "Greek unfinished rooftop housing (Athens suburbs)",
+    "Informal incremental construction with exposed rebar across the developing world"
+   ]
+  },
+  {
+   "id": "mol_60009110e8f9",
+   "atoms": [
+    "atm_3fb234b540b2",
+    "atm_5251a86ba37c",
+    "atm_5c44ba60abaa",
+    "atm_bd294a967894",
+    "atm_c5e197941608"
+   ],
+   "n": 5,
+   "cohesion": 0.2554,
+   "diameter": 0.3187,
+   "merged_from": 3,
+   "periphery": [
+    "atm_0b13748cb731",
+    "atm_8dcbffe35680"
+   ],
+   "layers": {
+    "culture": 2,
+    "economy": 3
+   },
+   "titles": [
+    "Working port districts separate from historic tourist cores",
+    "Tourist-emptied historic cores vs. functioning port/working districts",
+    "Marina-hinterland split pattern in Mediterranean and coastal tourist cities",
+    "Functionally zoned Mediterranean port-resort municipalities",
+    "Tourism-core / industrial-satellite metropolitan split"
+   ]
+  },
+  {
+   "id": "mol_19751f14a230",
+   "atoms": [
+    "atm_2480ce1ef18a",
+    "atm_931c0da62f9c",
+    "atm_9a486159e361",
+    "atm_e972c3d2ffab"
+   ],
+   "n": 4,
+   "cohesion": 0.2561,
+   "diameter": 0.3192,
+   "merged_from": 3,
+   "periphery": [
+    "atm_e5601aaeca59",
+    "atm_f32a9d025eca"
+   ],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "National toponymic suffix systems as script/language identifiers",
+    "Toponym suffixes as linguistic-region markers worldwide",
+    "Turkish toponymic lexicon markers (Camii, Bulvarı, Sokak, Caddesi)",
+    "Bulgarian Cyrillic administrative and toponymic lexicon markers"
+   ]
+  },
+  {
+   "id": "mol_8950e24b3511",
+   "atoms": [
+    "atm_24f93f86a20d",
+    "atm_5550ff4942ef",
+    "atm_57b210c8d833",
+    "atm_d17226bbf6bf"
+   ],
+   "n": 4,
+   "cohesion": 0.2564,
+   "diameter": 0.3098,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 2,
+    "economy": 1,
+    "history": 1
+   },
+   "titles": [
+    "Bedroom-suburb vs. tourist-district contrast within greater Dubrovnik",
+    "Gruž's functional shift: elite summer retreat to industrial base to residential/service district",
+    "Gruž as Dubrovnik's working port/ferry-cruise gateway district",
+    "Gruž retains genuine year-round residential character unlike Old Town"
+   ]
+  },
+  {
+   "id": "mol_67ba864cc038",
+   "atoms": [
+    "atm_1f7c52fa2190",
+    "atm_2142c38119f1",
+    "atm_a58facd06de0",
+    "atm_c6a6064d3dec"
+   ],
+   "n": 4,
+   "cohesion": 0.2566,
+   "diameter": 0.2879,
+   "merged_from": 5,
+   "periphery": [
+    "atm_1ae19d25aa2d",
+    "atm_aaefed17cab0",
+    "atm_e433d79a595f",
+    "atm_fe3149f63023"
+   ],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "Cyrillic glosses on Croatian-Herzegovinian borderland signage",
+    "Croatian Cyrillic-Latin script tension in border regions",
+    "South Slavic diglossia markers: Serbian Cyrillic vs Croatian Latin",
+    "Serbia's bilingual Latin-Cyrillic signage practice"
+   ]
+  },
+  {
+   "id": "mol_d35565113e2a",
+   "atoms": [
+    "atm_35ff70ea7db7",
+    "atm_4668689bcc6e",
+    "atm_5ae0b4619855",
+    "atm_a54d90c20b3e"
+   ],
+   "n": 4,
+   "cohesion": 0.257,
+   "diameter": 0.3235,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "geography": 4
+   },
+   "titles": [
+    "Argentine telephone area code 351 (Córdoba)",
+    "Mobile-number portability erodes geographic area-code meaning",
+    "National telephone area-code geography as a locator pattern",
+    "Mexican telephone area codes as sub-national geolocation markers"
+   ]
+  },
+  {
+   "id": "mol_2ed0b1a9b942",
+   "atoms": [
+    "atm_a428599cb5b8",
+    "atm_bf8e8dbefc4f",
+    "atm_c9ada06321c4",
+    "atm_f2d21cb67c7b"
+   ],
+   "n": 4,
+   "cohesion": 0.2578,
+   "diameter": 0.277,
+   "merged_from": 2,
+   "periphery": [
+    "atm_dd71a7564e2e"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "South Arabian Protectorate sheikhdoms and sultanates (18th century–1967)",
+    "Sudanese dynasties and sultanates",
+    "Egypt, Sudan and Libya historical states",
+    "Yemen dynasties and states"
+   ]
+  },
+  {
+   "id": "mol_2f4506fde9b8",
+   "atoms": [
+    "atm_219131217b15",
+    "atm_7d656d3b4115",
+    "atm_ab0d2c977afc",
+    "atm_d5bcbae8b5ca"
+   ],
+   "n": 4,
+   "cohesion": 0.2593,
+   "diameter": 0.2746,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Serbia ruling dynasties",
+    "Ukraine ruling dynasties and states",
+    "Medieval and early modern European empires/states",
+    "Dynasties of Bulgaria and the Odrysian Kingdom"
+   ]
+  },
+  {
+   "id": "mol_0fc6e9ae3b8e",
+   "atoms": [
+    "atm_2109c072bc2d",
+    "atm_427e564cfa66",
+    "atm_dfd645ef05c0",
+    "atm_f1e627fbac6a"
+   ],
+   "n": 4,
+   "cohesion": 0.2614,
+   "diameter": 0.2896,
+   "merged_from": 2,
+   "periphery": [
+    "atm_cba815c32e45"
+   ],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "Devanagari + English bilingual signage marks Hindi Belt cities",
+    "Devanagari standardization and Hindi language policy architects",
+    "English-medium and Anglicized signage push against regional-language mandates",
+    "Marathi in Devanagari script in Maharashtra"
+   ]
+  },
+  {
+   "id": "mol_6595a8a559ae",
+   "atoms": [
+    "atm_70f0ec5e8b9e",
+    "atm_bd2899174a72",
+    "atm_d83deb4b95ed",
+    "atm_fa72e793a49c"
+   ],
+   "n": 4,
+   "cohesion": 0.264,
+   "diameter": 0.3066,
+   "merged_from": 2,
+   "periphery": [
+    "atm_635d3f4d1fe8"
+   ],
+   "layers": {
+    "economy": 1,
+    "geography": 3
+   },
+   "titles": [
+    "National highway signage and marking standardization systems",
+    "National highway systems resisting regional standardization",
+    "CA (Central American) highway route numbering and signage system",
+    "Shared supranational highway numbering systems"
+   ]
+  },
+  {
+   "id": "mol_dc9e2ae38e5d",
+   "atoms": [
+    "atm_1cd2aa06b732",
+    "atm_5bd08234dae3",
+    "atm_78de1e5521ab",
+    "atm_cd600d8705f5"
+   ],
+   "n": 4,
+   "cohesion": 0.2663,
+   "diameter": 0.3193,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 1,
+    "nature": 3
+   },
+   "titles": [
+    "Egg harvesting and coastal development as turtle population threats",
+    "Malaysian sea turtle conservation pioneers",
+    "Global leatherback and sea turtle nesting conservation sites",
+    "Leatherback turtle nesting sites on Peninsular Malaysia's east coast"
+   ]
+  },
+  {
+   "id": "mol_a3408ab6f77e",
+   "atoms": [
+    "atm_0cdcb5f44842",
+    "atm_4c848bc30e60",
+    "atm_8dea6efc26d9",
+    "atm_d114d8bf82fb"
+   ],
+   "n": 4,
+   "cohesion": 0.2671,
+   "diameter": 0.3242,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "economy": 3
+   },
+   "titles": [
+    "Fishing-village-to-resort transitions along tropical coastlines",
+    "Global pattern of tourism-driven village transformation",
+    "Fishing-village-to-surf-tourism transitions worldwide",
+    "Global hippie-trail beach towns"
+   ]
+  },
+  {
+   "id": "mol_3964bc5f35d1",
+   "atoms": [
+    "atm_48f209c13e3a",
+    "atm_925176336489",
+    "atm_ee8caa0687d3",
+    "atm_f4d0689cb5d2"
+   ],
+   "n": 4,
+   "cohesion": 0.2679,
+   "diameter": 0.3192,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "geography": 1,
+    "nature": 3
+   },
+   "titles": [
+    "No lava, only rolling grass: north-west Iceland vs the southern volcanic belt",
+    "Non-volcanic Icelandic terrain contrasts with Snæfellsnes's volcanic zone",
+    "Icelandic subarctic treeless landscape and lava fields",
+    "Volcanic treeless landscapes of the North Atlantic and beyond"
+   ]
+  },
+  {
+   "id": "mol_dfb63e6e441d",
+   "atoms": [
+    "atm_1c93c98df68c",
+    "atm_c9ada06321c4",
+    "atm_db682447a8c8",
+    "atm_f52139b8313e"
+   ],
+   "n": 4,
+   "cohesion": 0.2685,
+   "diameter": 0.3261,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Morocco pre-colonial states and dynasties",
+    "Egypt, Sudan and Libya historical states",
+    "Ancient and medieval Tunisian polities",
+    "Algeria and Tunisia (Central Maghreb) historical states"
+   ]
+  },
+  {
+   "id": "mol_ea5e3adcb879",
+   "atoms": [
+    "atm_0237c9c3ebba",
+    "atm_bf8e8dbefc4f",
+    "atm_cccc95df9811",
+    "atm_e0433c9aef8a"
+   ],
+   "n": 4,
+   "cohesion": 0.269,
+   "diameter": 0.308,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "African empires and kingdoms",
+    "Sudanese dynasties and sultanates",
+    "Horn of Africa sultanates and kingdoms",
+    "Southern Africa historical kingdoms"
+   ]
+  },
+  {
+   "id": "mol_0c44e33cf586",
+   "atoms": [
+    "atm_0a2c31470dc0",
+    "atm_bf8e8dbefc4f",
+    "atm_dd71a7564e2e",
+    "atm_f2d21cb67c7b"
+   ],
+   "n": 4,
+   "cohesion": 0.2725,
+   "diameter": 0.3036,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Dynasties/polities ruling Bahrain (550 BC–present)",
+    "Sudanese dynasties and sultanates",
+    "Oman dynasties",
+    "Yemen dynasties and states"
+   ]
+  },
+  {
+   "id": "mol_a4612ab7cc38",
+   "atoms": [
+    "atm_1c93c98df68c",
+    "atm_457873fe5f2f",
+    "atm_c9ada06321c4",
+    "atm_cccc95df9811"
+   ],
+   "n": 4,
+   "cohesion": 0.2736,
+   "diameter": 0.3261,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Morocco pre-colonial states and dynasties",
+    "Eastern Africa (Swahili coast) sultanates and states",
+    "Egypt, Sudan and Libya historical states",
+    "Horn of Africa sultanates and kingdoms"
+   ]
+  },
+  {
+   "id": "mol_588a3c6a3c1a",
+   "atoms": [
+    "atm_419b94faedad",
+    "atm_7195f0711f76",
+    "atm_f10c40951ca6",
+    "atm_feccf0569915"
+   ],
+   "n": 4,
+   "cohesion": 0.2746,
+   "diameter": 0.3278,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 3,
+    "culture": 1
+   },
+   "titles": [
+    "Modern concrete tourist-driven construction displacing Dalmatian vernacular",
+    "Heritage preservation vs. functional conversion of historic villas",
+    "Yugoslav-era slab-block resort hotels displacing villa aesthetics",
+    "Yugoslav-era coastal tourism planners"
+   ]
+  },
+  {
+   "id": "mol_7d30df291be9",
+   "atoms": [
+    "atm_1f7c52fa2190",
+    "atm_29b9d2dea9c4",
+    "atm_a58facd06de0",
+    "atm_e433d79a595f"
+   ],
+   "n": 4,
+   "cohesion": 0.2748,
+   "diameter": 0.3047,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "geography": 1,
+    "language": 2
+   },
+   "titles": [
+    "Cyrillic glosses on Croatian-Herzegovinian borderland signage",
+    "Croatian coastal road/place lexicon: Jadranska Magistrala, Plaža, Spilja",
+    "South Slavic diglossia markers: Serbian Cyrillic vs Croatian Latin",
+    "Slovenian and Bosnian road signage overlap with Croatian conventions"
+   ]
+  },
+  {
+   "id": "mol_f3654f4a68a4",
+   "atoms": [
+    "atm_10f4a4478224",
+    "atm_635d3f4d1fe8",
+    "atm_70f0ec5e8b9e",
+    "atm_9b58a70e7561",
+    "atm_bd2899174a72"
+   ],
+   "n": 5,
+   "cohesion": 0.2779,
+   "diameter": 0.3292,
+   "merged_from": 2,
+   "periphery": [
+    "atm_3f3b472abc32"
+   ],
+   "layers": {
+    "culture": 2,
+    "economy": 2,
+    "geography": 1
+   },
+   "titles": [
+    "Standardization of North American highway signage",
+    "Mexican federal highway marking and signage scheme",
+    "National highway signage and marking standardization systems",
+    "National and provincial highway-shield design as cartographic identifiers",
+    "National highway systems resisting regional standardization"
+   ]
+  },
+  {
+   "id": "mol_58072fa944e7",
+   "atoms": [
+    "atm_8a0170f2319b",
+    "atm_b050477b82a7",
+    "atm_e887947ecd67",
+    "atm_ed9d09b8ce1a"
+   ],
+   "n": 4,
+   "cohesion": 0.2782,
+   "diameter": 0.3257,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Maritime city-state littoral hinterlands",
+    "Slavic settlement disruption and abandonment of Roman coastal sites",
+    "Roman villae maritimae layered beneath Adriatic and Mediterranean coastal towns",
+    "Decline of piracy and shift to open coastal settlement"
+   ]
+  },
+  {
+   "id": "mol_872247d8b1e1",
+   "atoms": [
+    "atm_399453199a88",
+    "atm_483358c79995",
+    "atm_ca62fa29fa29",
+    "atm_d75f452353d9"
+   ],
+   "n": 4,
+   "cohesion": 0.2791,
+   "diameter": 0.3336,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Ragusan patrician villa builders",
+    "End of the Republic of Ragusa, 1808–1814",
+    "Ragusan (Dubrovnik Republic) littoral cultural sphere",
+    "Ragusan patrician oligarchy and diplomacy"
+   ]
+  },
+  {
+   "id": "mol_1d6ca4da95c6",
+   "atoms": [
+    "atm_173d2666b831",
+    "atm_b71ca9914bc6",
+    "atm_d1552342082f",
+    "atm_e887947ecd67"
+   ],
+   "n": 4,
+   "cohesion": 0.2811,
+   "diameter": 0.3291,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Medieval feudal island dynasties of the Adriatic and Mediterranean",
+    "Italian lake noble dynasties shaping regional identity",
+    "Elite countryside villa culture of maritime republics",
+    "Roman villae maritimae layered beneath Adriatic and Mediterranean coastal towns"
+   ]
+  },
+  {
+   "id": "mol_fbffae2b40cb",
+   "atoms": [
+    "atm_1f7c52fa2190",
+    "atm_c6a6064d3dec",
+    "atm_e972c3d2ffab",
+    "atm_fe3149f63023"
+   ],
+   "n": 4,
+   "cohesion": 0.2816,
+   "diameter": 0.322,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "Cyrillic glosses on Croatian-Herzegovinian borderland signage",
+    "Serbia's bilingual Latin-Cyrillic signage practice",
+    "Bulgarian Cyrillic administrative and toponymic lexicon markers",
+    "Cyrillic-script administrative lexicon variation across Slavic states"
+   ]
+  },
+  {
+   "id": "mol_c28365b8149c",
+   "atoms": [
+    "atm_672cd87996ab",
+    "atm_87059bc2df36",
+    "atm_b4521f74ff37",
+    "atm_fb9cdb121df3"
+   ],
+   "n": 4,
+   "cohesion": 0.2833,
+   "diameter": 0.3219,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 1,
+    "geography": 3
+   },
+   "titles": [
+    "Secondary 'second cities' as regional capitals",
+    "Córdoba, Argentina — capital and second city",
+    "Córdoba economy: automotive, services and tech",
+    "Buenos Aires primacy versus Argentina's interior"
+   ]
+  },
+  {
+   "id": "mol_3e915c5da5fd",
+   "atoms": [
+    "atm_4320a76ed8fb",
+    "atm_6440cea04765",
+    "atm_a64438386449",
+    "atm_ad0093de4697",
+    "atm_fd0c7f79f1c7"
+   ],
+   "n": 5,
+   "cohesion": 0.285,
+   "diameter": 0.3309,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "1945 expulsion and Polonization of former German eastern territories",
+    "Greater German Reich (Nazi Germany)",
+    "Poland's 'Recovered Territories' (Ziemie Odzyskane) post-1945 resettlement",
+    "German expellee heritage organizations and Heimatvertriebene memory culture",
+    "Interwar land reform and nationalization of Baltic-German estates"
+   ]
+  },
+  {
+   "id": "mol_2c7bfeda97f1",
+   "atoms": [
+    "atm_072819aec72c",
+    "atm_4c506c031137",
+    "atm_54a887a29bb7",
+    "atm_ec228de3a806"
+   ],
+   "n": 4,
+   "cohesion": 0.2875,
+   "diameter": 0.3283,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "geography": 1,
+    "history": 2
+   },
+   "titles": [
+    "Livonian Order and Polish-Lithuanian influence shaping Latvian regional divides",
+    "Latvia's four historic regions distinguished by terrain and religion",
+    "Baltic-German manorial network across Estonia, Latvia and beyond",
+    "Post-Soviet homogenization pressure on Latvia's regional distinctiveness"
+   ]
+  },
+  {
+   "id": "mol_f7f07c987986",
+   "atoms": [
+    "atm_73bdc8bd6a98",
+    "atm_ae6ab4de9a82",
+    "atm_dc6f04f6a1d0",
+    "atm_dd71a7564e2e"
+   ],
+   "n": 4,
+   "cohesion": 0.2898,
+   "diameter": 0.3292,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "House of Thani (Qatar)",
+    "United Arab Emirates ruling houses",
+    "Nasrid dynasty rulers of the Emirate of Granada",
+    "Oman dynasties"
+   ]
+  },
+  {
+   "id": "mol_22682e64bc68",
+   "atoms": [
+    "atm_2b6553ea8e6b",
+    "atm_4b3b17e5270b",
+    "atm_92f75e584a5b",
+    "atm_e6f75e7898c3"
+   ],
+   "n": 4,
+   "cohesion": 0.2905,
+   "diameter": 0.3275,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "Ivar Aasen and the creation of Nynorsk",
+    "Norwegian Bokmål vs Nynorsk and Danish orthographic splits",
+    "North Germanic languages retaining archaic letters",
+    "Icelandic language and orthography"
+   ]
+  },
+  {
+   "id": "mol_92c2e73ad8ea",
+   "atoms": [
+    "atm_2480ce1ef18a",
+    "atm_4f6928e8ab4d",
+    "atm_9a486159e361",
+    "atm_af77a40342bd"
+   ],
+   "n": 4,
+   "cohesion": 0.2951,
+   "diameter": 0.333,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "language": 3
+   },
+   "titles": [
+    "National toponymic suffix systems as script/language identifiers",
+    "Republican-era secular street naming alongside Ottoman/Islamic landmarks in Turkish cities",
+    "Turkish toponymic lexicon markers (Camii, Bulvarı, Sokak, Caddesi)",
+    "Ottoman Arabic-script toponymy replaced by Turkish Latin alphabet reform"
+   ]
+  },
+  {
+   "id": "mol_bbd73e771b62",
+   "atoms": [
+    "atm_0f5685ec7286",
+    "atm_1d9a3444fe22",
+    "atm_3b756d7dfdab",
+    "atm_962517d94a40"
+   ],
+   "n": 4,
+   "cohesion": 0.3019,
+   "diameter": 0.3198,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 4
+   },
+   "titles": [
+    "Mexican urban infrastructure visual markers",
+    "Self-built progressive concrete-block housing in rural Mexico",
+    "Spanish suburban 'urbanización' garden-wall style",
+    "Formal utility grids and gated developments as contrast to informal infrastructure"
+   ]
+  }
+ ]
+}

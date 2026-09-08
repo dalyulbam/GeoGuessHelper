@@ -1,0 +1,1064 @@
+{
+ "job_id": "job_cab0458cd29c",
+ "report_file": "report_fi_turku_60.4575_22.2881_260906_205820_ko-en-fr.html",
+ "label": "선택 장면 보고서 · 2lCOoIZN…srCA",
+ "lang": "en",
+ "images": [
+  "capture_db9ff79a1871.jpg",
+  "capture_0498598844f5.jpg",
+  "capture_359652004456.jpg",
+  "capture_60f5fe779694.jpg",
+  "capture_4530bcb2957e.jpg",
+  "capture_6c40cc70b40f.jpg"
+ ],
+ "blind_cut_px": [
+  960,
+  960,
+  960,
+  960,
+  960,
+  960
+ ],
+ "image_panos": {
+  "capture_db9ff79a1871.jpg": {
+   "pano_id": "2lCOoIZNiMxBOoBHy2srCA",
+   "lat": 60.45754430267063,
+   "lng": 22.288130590643192,
+   "heading": 256.15369905180165,
+   "pitch": 7.125431020601852
+  },
+  "capture_0498598844f5.jpg": {
+   "pano_id": "kh9f4M1ZHDyfD-Y3OIu2uQ",
+   "lat": 60.4562386319573,
+   "lng": 22.28769662984521,
+   "heading": 238.38326687077344,
+   "pitch": 9.887305544439926
+  },
+  "capture_359652004456.jpg": {
+   "pano_id": "pCrnksW1AU2SqQHMa7xLTw",
+   "lat": 60.45575395086801,
+   "lng": 22.28623153615259,
+   "heading": 277.0395573259265,
+   "pitch": 15.627427880377667
+  },
+  "capture_60f5fe779694.jpg": {
+   "pano_id": "TvlKL6jr_qDtYottN0jwJA",
+   "lat": 60.455695244142056,
+   "lng": 22.282863181704016,
+   "heading": 220.12575838829835,
+   "pitch": 4.712618152609764
+  },
+  "capture_4530bcb2957e.jpg": {
+   "pano_id": "R_uAdYvriQBLv4VAPQ9yYw",
+   "lat": 60.45492763084766,
+   "lng": 22.282030260114446,
+   "heading": 215.68915402309412,
+   "pitch": 15.628245124631036
+  },
+  "capture_6c40cc70b40f.jpg": {
+   "pano_id": "kYpLToVGJArQHi5bmsi3NQ",
+   "lat": 60.45438208127138,
+   "lng": 22.28159580382798,
+   "heading": 159.1645108719879,
+   "pitch": -4.6571613443018265
+  },
+  "capture_c1a95db1646e.jpg": {
+   "pano_id": "AYmKd5KGwVMchuUZidtSFA",
+   "lat": 60.45363199404467,
+   "lng": 22.28091921004514,
+   "heading": 108.93526824525169,
+   "pitch": 8.925170583752816
+  },
+  "capture_3f445b10099e.jpg": {
+   "pano_id": "AYmKd5KGwVMchuUZidtSFA",
+   "lat": 60.45363199404467,
+   "lng": 22.28091921004514,
+   "heading": 164.71418210359948,
+   "pitch": 11.80664138784013
+  },
+  "capture_9a608249e40e.jpg": {
+   "pano_id": "_Pfin-XC_HTQpjy-n_qAiQ",
+   "lat": 60.45305114985319,
+   "lng": 22.280404114462666,
+   "heading": 185.7686181730293,
+   "pitch": 5.736745699523269
+  },
+  "capture_44f8c80c61ab.jpg": {
+   "pano_id": "UZ-aEpS6RYLOvu8tHwibRA",
+   "lat": 60.45209579096877,
+   "lng": 22.279529977078962,
+   "heading": 173.80271936420593,
+   "pitch": 18.79856642131395
+  },
+  "capture_c1c5feab01a4.jpg": {
+   "pano_id": "djCKUokDm0pPUaVJyQ0iKg",
+   "lat": 60.45141609878574,
+   "lng": 22.2779558605652,
+   "heading": 201.49573068374525,
+   "pitch": 8.763151375038547
+  }
+ },
+ "truth": {
+  "lat": 60.454397169950376,
+  "lng": 22.282570579498596,
+  "iso": "FI",
+  "file_lat": 60.4575,
+  "file_lng": 22.2881,
+  "n_panos": 11
+ },
+ "created": 1788741190.640669,
+ "blind": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Turku",
+    "confidence": 0.66,
+    "coordinate_estimate": {
+     "lat": 60.4525,
+     "lng": 22.28,
+     "radius_km": 3
+    },
+    "country": "Finland",
+    "country_iso": "FI",
+    "region_or_state": "Southwest Finland (Varsinais-Suomi)"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.16,
+     "country": "Finland",
+     "country_iso": "FI"
+    },
+    {
+     "confidence": 0.08,
+     "country": "Sweden",
+     "country_iso": "SE"
+    },
+    {
+     "confidence": 0.04,
+     "country": "Estonia",
+     "country_iso": "EE"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Hemiboreal / southern boreal, birch-dominated mixed forest with early autumn colour in one capture",
+    "driving_side": "right",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "language",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Company decal on the silo reads 'AL-LIIKENNE OY' with a mobile number starting 0400 — 'Oy' is the Finnish limited-company suffix and 0400 is the classic Finnish mobile prefix.",
+     "supports": [
+      "Finland"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "language",
+     "image_index": 5,
+     "level": "country",
+     "observation": "Blue parking sign is bilingual Finnish/Swedish: 'AUTOMAATTI / AUTOMAT' — bilingual signage is legally required only in bilingual Finnish municipalities.",
+     "supports": [
+      "Finland",
+      "bilingual municipality"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 5,
+     "level": "country",
+     "observation": "Blue square pedestrian-crossing sign with the walking figure and Nordic proportions, plus grey aluminium sign posts typical of Finnish municipal street furniture.",
+     "supports": [
+      "Nordic country"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Yellow-bordered orange-filled triangular warning sign (pedestrian crossing warning) — the yellow/orange fill is a Finland/Sweden/Iceland marker, not the white-fill EU standard.",
+     "supports": [
+      "Finland",
+      "Sweden"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "architecture",
+     "image_index": 1,
+     "level": "metro_area",
+     "observation": "White rendered modernist building with green-tile banding, stepped clerestory volumes and rough granite plinth, set in a lawn park — reads as an Alvar Aalto-school campus building.",
+     "supports": [
+      "Finnish university campus"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "commerce",
+     "image_index": 2,
+     "level": "metro_area",
+     "observation": "Window graphic reads 'unica' with a green fork-plant logo — Unica is the student restaurant company operating exclusively on the University of Turku / Åbo Akademi campuses.",
+     "supports": [
+      "Turku"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "geology",
+     "image_index": 3,
+     "level": "admin_region",
+     "observation": "Mossy exposed granite/gneiss bedrock cutting directly beside the pavement on a short steep urban hill, with a rustic wooden-post W-beam guardrail.",
+     "supports": [
+      "Finnish coastal bedrock terrain"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "architecture",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Two-storey wooden apartment houses with horizontal board cladding, white corner boards, decorated gable and glazed stair bay — classic Turku/Port Arthur-type wooden townscape rather than a stone-block city centre.",
+     "supports": [
+      "Turku older wooden quarter"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 0,
+     "level": "continent",
+     "observation": "Birch-dominated stand turning yellow/orange in a low sun angle — southern boreal autumn.",
+     "supports": [
+      "Fennoscandia"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "infrastructure",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Elevated steel salt/aggregate silo on braced legs at a depot yard, typical of Nordic winter-maintenance contractors.",
+     "supports": [
+      "cold-winter maintenance regime"
+     ],
+     "weight": "low"
+    }
+   ],
+   "cultural_economic_read": "A mid-sized, prosperous Nordic university city: publicly maintained gravel campus paths and lawns, Aalto-school institutional modernism next to 1960s-70s concrete faculty blocks, an intact 19th-century wooden residential quarter preserved rather than cleared, and tolerated tagging on a low-rent ground-floor commercial frontage. Small contracting firms (Oy) with mobile numbers, municipal parking automats, bilingual Finnish/Swedish administration — a bilingual coastal municipality with a student-service economy (Unica) rather than a heavy-industry town.",
+   "landmarks": [
+    {
+     "confidence": 0.5,
+     "image_index": 1,
+     "name": "University of Turku campus (Aalto-influenced faculty building)",
+     "type": "campus building"
+    },
+    {
+     "confidence": 0.7,
+     "image_index": 2,
+     "name": "Unica student restaurant, university campus",
+     "type": "student canteen signage"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.95,
+     "evidence": "'AL-LIIKENNE OY', 'AUTOMAATTI'",
+     "language": "Finnish",
+     "script": "Latin"
+    },
+    {
+     "confidence": 0.85,
+     "evidence": "'AUTOMAT' as the second line of the parking sign",
+     "language": "Swedish",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Northern Europe",
+      "Central Europe",
+      "North America",
+      "Baltics"
+     ],
+     "conclusion": "Northern Europe, Fennoscandian/Baltic sphere",
+     "confidence_after": 0.9,
+     "discriminator": "Central Europe would show plastered terraced streetfronts and no exposed glaciated bedrock; North America would show wide setbacks, wooden utility poles with transformers and different sign shapes.",
+     "level": "continent",
+     "observation": "Birch-and-aspen mixed forest, glacially scoured mossy granite outcrops at street level, low sun, painted timber housing, right-hand traffic.",
+     "ruled_out": [
+      "Central Europe — no bedrock outcrops in urban street cuts, different housing stock",
+      "North America — European sign geometry and narrow street sections"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "Finland",
+      "Sweden",
+      "Estonia",
+      "Norway"
+     ],
+     "conclusion": "Finland",
+     "confidence_after": 0.97,
+     "discriminator": "Sweden would use 'AB' for companies and 'Biljettautomat' monolingually; Estonia would use 'OÜ/AS' and no Swedish; Norway uses 'AS' and white-fill warning signs.",
+     "level": "country",
+     "observation": "'OY' company suffix, Finnish '0400' mobile prefix, and a bilingual Finnish-over-Swedish parking sign ('AUTOMAATTI / AUTOMAT').",
+     "ruled_out": [
+      "Sweden — Swedish would be the top/only line and 'AB' would replace 'Oy'",
+      "Estonia — no Swedish co-official signage, different company suffix",
+      "Norway — white-fill warning triangles, 'AS' suffix"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Coastal bilingual Finland (Uusimaa, Varsinais-Suomi, Ostrobothnia)",
+      "Monolingual interior Finland (Tampere, Jyväskylä, Kuopio, Oulu)"
+     ],
+     "conclusion": "A bilingual coastal municipality on the south/southwest shore",
+     "confidence_after": 0.9,
+     "discriminator": "In Tampere, Jyväskylä or Kuopio the parking sign would be Finnish-only ('MAKSUAUTOMAATTI'); Swedish appears on municipal signs only where Swedish is co-official.",
+     "level": "macro_region",
+     "observation": "Municipal parking sign carries a Swedish second line, i.e. the municipality is officially bilingual.",
+     "ruled_out": [
+      "Interior monolingual Finnish cities — would not post Swedish on municipal parking signs"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Helsinki metro",
+      "Turku",
+      "Vaasa",
+      "Porvoo/Kotka"
+     ],
+     "conclusion": "Turku (Åbo)",
+     "confidence_after": 0.78,
+     "discriminator": "In Helsinki the student-restaurant operator would be UniCafe/HYY, in Vaasa it would be a small local operator; Unica operates only for Turun yliopisto / Åbo Akademi. Vaasa/Porvoo also lack a hillside multi-faculty campus of this scale, and Helsinki's Kumpula/Viikki campuses do not sit on this kind of steep bedrock ridge with wooden quarters immediately below.",
+     "level": "metro_area",
+     "observation": "'unica' branded window on a 1970s faculty block; adjacent white Aalto-idiom campus building on a lawn ridge; steep bedrock-cut street dropping into a low stone-and-render town centre.",
+     "ruled_out": [
+      "Helsinki — student catering would be branded UniCafe",
+      "Vaasa — no comparable hill campus, different operator",
+      "Porvoo/Kotka — no university campus of this type"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Turku university hill (Yliopistonmäki/Kupittaa)",
+      "Turku Port Arthur / Martti wooden quarters",
+      "Turku outskirts depot yard"
+     ],
+     "conclusion": "Turku, on and just below the university/hospital hill east of the Aura river, with the wooden-house and depot frames in the same city",
+     "confidence_after": 0.66,
+     "discriminator": "A pure suburb would lack both the campus block and the dense wooden two-storey street wall; a pure historic quarter would not show the concrete faculty tower and Unica canteen. The mix of Aalto-school campus, adjacent hospital-scale slab block, and a wooden street sloping toward a domed silhouette fits the Yliopistonmäki–Kerttuli–Martti belt.",
+     "level": "district",
+     "observation": "Campus frames sit on a wooded ridge with a large institutional slab block behind; the wooden-house street slopes toward a distant dome/tower; the silo frame is an outlying yard.",
+     "ruled_out": [
+      "Purely peripheral suburb — campus and dense wooden streetscape both present",
+      "Old town core west of the river — buildings here are timber, not the stone empire-style core"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "overall_confidence": 0.68,
+   "place_slug": "turku"
+  },
+  "cost_usd": 0.2144,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "Finland",
+   "country_iso": "FI",
+   "country_correct": true,
+   "region": "Southwest Finland (Varsinais-Suomi)",
+   "city": "Turku",
+   "confidence": 0.66,
+   "overall_confidence": 0.68,
+   "error_km": 0.25,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 2,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "geology",
+    "infrastructure",
+    "language",
+    "signage",
+    "vegetation"
+   ]
+  },
+  "atoms": [
+   "atm_5858623b487c",
+   "atm_33b56f8338e9",
+   "atm_f1bfe154be60",
+   "atm_55c619a2fd7c",
+   "atm_f10b1ed3277f",
+   "atm_fe84b8e08af6",
+   "atm_3e618af0fb76",
+   "atm_4d9407145355",
+   "atm_7e2820c6616b",
+   "atm_31c9cb601191",
+   "atm_fbd568bc4194",
+   "atm_7f05e696dca7",
+   "atm_94781f625372",
+   "atm_b1e39f97b1ae",
+   "atm_fe5cb80f595c",
+   "atm_16658dd9369b",
+   "atm_2e471e3e4e9a"
+  ],
+  "ingest": {
+   "created": 17,
+   "merged": 0,
+   "cost_usd": 0.0716,
+   "passes": {
+    "p2": {
+     "created": 6,
+     "merged": 0,
+     "cost_usd": 0.0389,
+     "n": 6
+    },
+    "p1": {
+     "created": 11,
+     "merged": 0,
+     "cost_usd": 0.0327,
+     "n": 11
+    }
+   }
+  }
+ },
+ "aided": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Turku",
+    "confidence": 0.93,
+    "coordinate_estimate": {
+     "lat": 60.4525,
+     "lng": 22.2865,
+     "radius_km": 1.0
+    },
+    "country": "Finland",
+    "country_iso": "FI",
+    "region_or_state": "Southwest Finland (Varsinais-Suomi) — Turku University / Kasarmialue quarter"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.04,
+     "country": "Finland",
+     "country_iso": "FI"
+    },
+    {
+     "confidence": 0.02,
+     "country": "Sweden",
+     "country_iso": "SE"
+    },
+    {
+     "confidence": 0.01,
+     "country": "Estonia",
+     "country_iso": "EE"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Humid continental / boreal transition; birch-dominated mixed forest, granite bedrock outcrops, autumn yellow foliage in one capture",
+    "driving_side": "right",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "language",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Company sign on the grey silo reads 'AL-Liikenne Oy' — 'Liikenne' (traffic/transport) and the company suffix 'Oy' (osakeyhtiö) are exclusively Finnish corporate markers, not Swedish 'AB' or Estonian 'OÜ'.",
+     "supports": [
+      "Finland"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "language",
+     "image_index": 5,
+     "level": "country",
+     "observation": "Blue parking sign is bilingual 'AUTOMAATTI / AUTOMAT' — Finnish above, Swedish below, the standard order in a Finnish-majority bilingual municipality.",
+     "supports": [
+      "Finland",
+      "Finnish-majority bilingual city"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Yellow-bordered orange triangular warning sign with a black pedestrian-crossing pictogram — the Nordic yellow-ground triangle used in Finland and Sweden, ruling out EU-standard white-ground triangles further south.",
+     "supports": [
+      "Finland",
+      "Sweden"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Pure birch stand turning yellow with a few maples, no spruce dominance — southern boreal / hemiboreal coastal belt rather than northern Finland's pine-spruce taiga.",
+     "supports": [
+      "Southern coastal Finland"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "geology",
+     "image_index": 3,
+     "level": "macro_region",
+     "observation": "Moss-covered exposed granite/gneiss rock cutting right at street level with a wooden-post W-beam guardrail — classic Fennoscandian shield bedrock urban topography.",
+     "supports": [
+      "Finland"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "architecture",
+     "image_index": 1,
+     "level": "district",
+     "observation": "White modernist faceted concrete/tile-banded building set in a lawn park with globe-topped steel lamp posts — typical late-20th-century Finnish university campus building.",
+     "supports": [
+      "Turku University campus"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "branding",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Window bearing the green 'unica' logo with a fork-plant mark — Unica is the student restaurant operator of the Turku universities specifically, not the Helsinki (UniCafe) or Tampere (Juvenes) operators.",
+     "supports": [
+      "Turku"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "architecture",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Two-storey beige wooden apartment houses with white trim, decorative gable and pilaster boards, on a hill street; a domed neoclassical building visible at the crest — Turku's Vanha Suurtori/observatory hill (Vartiovuori) side of the old wooden quarter.",
+     "supports": [
+      "Turku old town hill area"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "urban_fabric",
+     "image_index": 5,
+     "level": "district",
+     "observation": "1960s-70s render-and-brick apartment block on pilotis, heavy tagging, hedge and bike leaning against pole — inner-city student housing belt.",
+     "supports": [
+      "Turku, Henrikinkatu area"
+     ],
+     "weight": "low"
+    },
+    {
+     "category": "map_context",
+     "image_index": 0,
+     "level": "metro_area",
+     "observation": "Minimap toponyms Aura river district names: Kasarmialue, Publicum, Posankka, Nummenpakka, Turun linja-autoasema, Turun yliopisto — all Turku-specific.",
+     "supports": [
+      "Turku"
+     ],
+     "weight": "high"
+    }
+   ],
+   "landmarks": [
+    {
+     "confidence": 0.5,
+     "image_index": 1,
+     "name": "University of Turku campus building (Publicum/Educarium block area)",
+     "type": "university building"
+    },
+    {
+     "confidence": 0.7,
+     "image_index": 2,
+     "name": "Unica student restaurant, University of Turku",
+     "type": "campus catering facility"
+    },
+    {
+     "confidence": 0.4,
+     "image_index": 4,
+     "name": "Vartiovuori observatory hill seen down the street",
+     "type": "historic building"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.95,
+     "evidence": "'AL-Liikenne Oy'; 'AUTOMAATTI'",
+     "language": "Finnish",
+     "script": "Latin"
+    },
+    {
+     "confidence": 0.8,
+     "evidence": "'AUTOMAT' as the second line of the parking sign",
+     "language": "Swedish",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Nordic Europe",
+      "Baltic states",
+      "Central Europe",
+      "North America"
+     ],
+     "conclusion": "Fennoscandian / Baltic Sea region",
+     "confidence_after": 0.9,
+     "discriminator": "Central Europe would show white-ground warning triangles and stucco terraces; North America would show wooden utility poles with crossarms, yellow diamond signs and no bilingual plates.",
+     "level": "continent",
+     "observation": "Yellow-ground triangular warning sign, birch-dominated forest, exposed glaciated granite, right-hand traffic, drab modernist concrete.",
+     "ruled_out": [
+      "Central Europe — warning triangles there are white-ground with red border",
+      "North America — sign shapes, guardrail and vegetation mismatch"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "Finland",
+      "Sweden",
+      "Estonia",
+      "Norway"
+     ],
+     "conclusion": "Finland",
+     "confidence_after": 0.97,
+     "discriminator": "Sweden would show 'AB' company suffixes and monolingual Swedish signs; Estonia would use 'OÜ'/'AS' and no Swedish second line; Norway would show 'AS' and Bokmål text.",
+     "level": "country",
+     "observation": "'AL-Liikenne Oy' on the silo; bilingual 'AUTOMAATTI / AUTOMAT' parking sign.",
+     "ruled_out": [
+      "Sweden — company suffix would be AB and Finnish would not appear at all",
+      "Estonia — no Swedish co-official signage, different company suffix",
+      "Norway — no Finnish-Swedish bilingual pairs"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Åland/Ostrobothnia (Swedish-majority)",
+      "Southern Finnish-majority bilingual coast",
+      "Monolingual Finnish interior/north"
+     ],
+     "conclusion": "Bilingual coastal municipality with Finnish as majority language",
+     "confidence_after": 0.9,
+     "discriminator": "In Åland or Swedish-majority Ostrobothnia the sign would read 'AUTOMAT / AUTOMAATTI' (Swedish first) or Swedish only; in monolingual interior Finland there would be no Swedish line at all.",
+     "level": "cultural_sphere",
+     "observation": "Finnish is printed above Swedish on the official parking sign, and the Finnish line is the primary one.",
+     "ruled_out": [
+      "Åland and Swedish-majority Ostrobothnia — language order would be reversed",
+      "Interior/northern Finland — signs would be monolingual Finnish"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Helsinki/Uusimaa",
+      "Turku/Varsinais-Suomi",
+      "Vaasa",
+      "Kotka/Porvoo"
+     ],
+     "conclusion": "Turku, Southwest Finland",
+     "confidence_after": 0.94,
+     "discriminator": "Helsinki campuses are served by 'UniCafe' (HYY) and Tampere by 'Juvenes'; the 'unica' brand exists only for the Turku higher-education institutions. Vaasa would additionally push Swedish signage forward.",
+     "level": "admin_region",
+     "observation": "Campus building carries the 'unica' student-restaurant logo, and a modernist campus complex plus a heavily bilingual downtown fabric surrounds it.",
+     "ruled_out": [
+      "Helsinki — student catering would be branded UniCafe",
+      "Tampere — Juvenes branding, and Tampere is not bilingual",
+      "Vaasa — much smaller campus, Swedish-first signage"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Turku city centre west of the Aura",
+      "Turku university hill east of the Aura (Kasarmialue/Yliopistonmäki)",
+      "Turku suburbs (Nummi, Itäharju)"
+     ],
+     "conclusion": "The university hill quarter east of the Aura river: Kasarmialue / Henrikinkatu-Vesilinnantie block",
+     "confidence_after": 0.88,
+     "discriminator": "The west-bank centre would show dense 5-6 storey stone commercial frontage and the market square; the suburbs (Nummi) would show detached single-family houses with no institutional buildings. Here we get campus slabs, wooden 19th-century houses on a rock hill, and a rock cutting street climbing away from the river — the Yliopistonmäki/Vartiovuori terrain.",
+     "level": "district",
+     "observation": "Sequence mixes a construction silo in birch woods, a lawned campus with white modernist block, a beige 1970s campus building with Unica, a rocky lane with guardrail, wooden houses on a slope, and a graffiti-covered student block near a crossing.",
+     "ruled_out": [
+      "West-bank city centre — no dense stone commercial street or market square appears",
+      "Outer suburbs — institutional campus buildings and old wooden town houses are absent there"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "overall_confidence": 0.9,
+   "place_slug": "turku",
+   "cultural_economic_read": "A prosperous Nordic mid-sized university city. Public investment is visible in maintained campus grounds, globe streetlights, paved footpath networks and bilingual regulatory signage — Finnish first, Swedish second, marking a historically Swedish-influenced but now Finnish-majority coastal town. The economy read is education- and services-driven (university buildings, Unica student catering, hospital markers nearby on the map) with light construction activity (transport company silo, roadworks sign). Graffiti on a 1970s block and modest wooden housing stock indicate an affordable student neighbourhood rather than deprivation; car ownership is moderate with prominent bicycle use, typical of a Finnish university district."
+  },
+  "cost_usd": 0.2701,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "Finland",
+   "country_iso": "FI",
+   "country_correct": true,
+   "region": "Southwest Finland (Varsinais-Suomi) — Turku University / Kasarmialue quarter",
+   "city": "Turku",
+   "confidence": 0.93,
+   "overall_confidence": 0.9,
+   "error_km": 0.3,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "branding",
+    "geology",
+    "language",
+    "map_context",
+    "signage",
+    "urban_fabric",
+    "vegetation"
+   ]
+  },
+  "atoms": [
+   "atm_0cee76290c85",
+   "atm_ed0c493bd396",
+   "atm_230338cca43d",
+   "atm_65ae8c41082b",
+   "atm_91ae73ff4837",
+   "atm_5f0efc563610",
+   "atm_380443fe78e0",
+   "atm_21a099361f93",
+   "atm_9dbfd378ca82",
+   "atm_33a086c448c0",
+   "atm_485c2d6fdc8b",
+   "atm_66b0777fc853",
+   "atm_3658ba918b70",
+   "atm_2a3b83cfa4b2",
+   "atm_dda2b6a44d6d",
+   "atm_909c8f7afa07"
+  ],
+  "ingest": {
+   "created": 16,
+   "merged": 1,
+   "cost_usd": 0.0686,
+   "passes": {
+    "p2": {
+     "created": 5,
+     "merged": 1,
+     "cost_usd": 0.0338,
+     "n": 6
+    },
+    "p1": {
+     "created": 11,
+     "merged": 0,
+     "cost_usd": 0.0348,
+     "n": 11
+    }
+   }
+  }
+ },
+ "aided_prior": {
+  "lang": "en",
+  "metrics": {
+   "country": "Finland",
+   "country_iso": "FI",
+   "country_correct": true,
+   "region": "Southwest Finland (Varsinais-Suomi)",
+   "city": "Turku",
+   "confidence": 0.93,
+   "overall_confidence": 0.9,
+   "error_km": 0.24,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "geology",
+    "map_toponyms",
+    "road_furniture",
+    "signage_brand",
+    "signage_language",
+    "urban_texture",
+    "vegetation_climate"
+   ]
+  },
+  "best_guess": {
+   "city": "Turku",
+   "confidence": 0.93,
+   "coordinate_estimate": {
+    "lat": 60.4535,
+    "lng": 22.2865,
+    "radius_km": 1.2
+   },
+   "country": "Finland",
+   "country_iso": "FI",
+   "region_or_state": "Southwest Finland (Varsinais-Suomi)"
+  }
+ },
+ "cues": {
+  "unaided": [
+   {
+    "blind": {
+     "category": "language",
+     "image_index": 5,
+     "level": "country",
+     "observation": "Blue parking sign is bilingual Finnish/Swedish: 'AUTOMAATTI / AUTOMAT' — bilingual signage is legally required only in bilingual Finnish municipalities.",
+     "supports": [
+      "Finland",
+      "bilingual municipality"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "language",
+     "image_index": 5,
+     "level": "country",
+     "observation": "Blue parking sign is bilingual 'AUTOMAATTI / AUTOMAT' — Finnish above, Swedish below, the standard order in a Finnish-majority bilingual municipality.",
+     "supports": [
+      "Finland",
+      "Finnish-majority bilingual city"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.15
+   },
+   {
+    "blind": {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Yellow-bordered orange-filled triangular warning sign (pedestrian crossing warning) — the yellow/orange fill is a Finland/Sweden/Iceland marker, not the white-fill EU standard.",
+     "supports": [
+      "Finland",
+      "Sweden"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Yellow-bordered orange triangular warning sign with a black pedestrian-crossing pictogram — the Nordic yellow-ground triangle used in Finland and Sweden, ruling out EU-standard white-ground triangles further south.",
+     "supports": [
+      "Finland",
+      "Sweden"
+     ],
+     "weight": "medium"
+    },
+    "sim": 1.02
+   },
+   {
+    "blind": {
+     "category": "geology",
+     "image_index": 3,
+     "level": "admin_region",
+     "observation": "Mossy exposed granite/gneiss bedrock cutting directly beside the pavement on a short steep urban hill, with a rustic wooden-post W-beam guardrail.",
+     "supports": [
+      "Finnish coastal bedrock terrain"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "geology",
+     "image_index": 3,
+     "level": "macro_region",
+     "observation": "Moss-covered exposed granite/gneiss rock cutting right at street level with a wooden-post W-beam guardrail — classic Fennoscandian shield bedrock urban topography.",
+     "supports": [
+      "Finland"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.99
+   },
+   {
+    "blind": {
+     "category": "language",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Company decal on the silo reads 'AL-LIIKENNE OY' with a mobile number starting 0400 — 'Oy' is the Finnish limited-company suffix and 0400 is the classic Finnish mobile prefix.",
+     "supports": [
+      "Finland"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "language",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Company sign on the grey silo reads 'AL-Liikenne Oy' — 'Liikenne' (traffic/transport) and the company suffix 'Oy' (osakeyhtiö) are exclusively Finnish corporate markers, not Swedish 'AB' or Estonian 'OÜ'.",
+     "supports": [
+      "Finland"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.78
+   },
+   {
+    "blind": {
+     "category": "vegetation",
+     "image_index": 0,
+     "level": "continent",
+     "observation": "Birch-dominated stand turning yellow/orange in a low sun angle — southern boreal autumn.",
+     "supports": [
+      "Fennoscandia"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "vegetation",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Pure birch stand turning yellow with a few maples, no spruce dominance — southern boreal / hemiboreal coastal belt rather than northern Finland's pine-spruce taiga.",
+     "supports": [
+      "Southern coastal Finland"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.74
+   },
+   {
+    "blind": {
+     "category": "architecture",
+     "image_index": 1,
+     "level": "metro_area",
+     "observation": "White rendered modernist building with green-tile banding, stepped clerestory volumes and rough granite plinth, set in a lawn park — reads as an Alvar Aalto-school campus building.",
+     "supports": [
+      "Finnish university campus"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "architecture",
+     "image_index": 1,
+     "level": "district",
+     "observation": "White modernist faceted concrete/tile-banded building set in a lawn park with globe-topped steel lamp posts — typical late-20th-century Finnish university campus building.",
+     "supports": [
+      "Turku University campus"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.7
+   },
+   {
+    "blind": {
+     "category": "commerce",
+     "image_index": 2,
+     "level": "metro_area",
+     "observation": "Window graphic reads 'unica' with a green fork-plant logo — Unica is the student restaurant company operating exclusively on the University of Turku / Åbo Akademi campuses.",
+     "supports": [
+      "Turku"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "branding",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Window bearing the green 'unica' logo with a fork-plant mark — Unica is the student restaurant operator of the Turku universities specifically, not the Helsinki (UniCafe) or Tampere (Juvenes) operators.",
+     "supports": [
+      "Turku"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.68
+   },
+   {
+    "blind": {
+     "category": "architecture",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Two-storey wooden apartment houses with horizontal board cladding, white corner boards, decorated gable and glazed stair bay — classic Turku/Port Arthur-type wooden townscape rather than a stone-block city centre.",
+     "supports": [
+      "Turku older wooden quarter"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "architecture",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Two-storey beige wooden apartment houses with white trim, decorative gable and pilaster boards, on a hill street; a domed neoclassical building visible at the crest — Turku's Vanha Suurtori/observatory hill (Vartiovuori) side of the old wooden quarter.",
+     "supports": [
+      "Turku old town hill area"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.48
+   }
+  ],
+  "aided_only": [
+   {
+    "category": "urban_fabric",
+    "image_index": 5,
+    "level": "district",
+    "observation": "1960s-70s render-and-brick apartment block on pilotis, heavy tagging, hedge and bike leaning against pole — inner-city student housing belt.",
+    "supports": [
+     "Turku, Henrikinkatu area"
+    ],
+    "weight": "low"
+   },
+   {
+    "category": "map_context",
+    "image_index": 0,
+    "level": "metro_area",
+    "observation": "Minimap toponyms Aura river district names: Kasarmialue, Publicum, Posankka, Nummenpakka, Turun linja-autoasema, Turun yliopisto — all Turku-specific.",
+    "supports": [
+     "Turku"
+    ],
+    "weight": "high"
+   }
+  ],
+  "blind_only": [
+   {
+    "category": "signage",
+    "image_index": 5,
+    "level": "country",
+    "observation": "Blue square pedestrian-crossing sign with the walking figure and Nordic proportions, plus grey aluminium sign posts typical of Finnish municipal street furniture.",
+    "supports": [
+     "Nordic country"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "infrastructure",
+    "image_index": 0,
+    "level": "macro_region",
+    "observation": "Elevated steel salt/aggregate silo on braced legs at a depot yard, typical of Nordic winter-maintenance contractors.",
+    "supports": [
+     "cold-winter maintenance regime"
+    ],
+    "weight": "low"
+   }
+  ]
+ },
+ "narrative": {
+  "blind_logic": "The blind chain relies purely on street-level cues: forest and bedrock morphology to reach Fennoscandia, then Finnish company suffixes and bilingual signage to reach Finland, then the Swedish-line-present sign to argue for a bilingual coastal municipality, then the Unica branding and Aalto-style campus architecture to pin Turku, and finally streetscape morphology (bedrock ridge, wooden houses, campus slab) to localize to the university/hospital hill east of the Aura river.",
+  "aided_logic": "The aided chain follows an almost identical evidentiary path — same warning-sign shape, same 'AL-Liikenne Oy' and bilingual parking sign, same Unica branding — reaching the same conclusions at continent, country, and cultural-sphere levels through matching discriminators. At the admin_region and district levels it becomes noticeably more specific and confident (naming Kasarmialue, Henrikinkatu-Vesilinnantie block, Yliopistonmäki/Vartiovuori) and raises confidence from 0.66 to 0.93, despite the described visual evidence at these stages being the same generic campus/wooden-house/rock-cutting imagery as the blind run.",
+  "delta": "Both chains use nearly identical discriminators for continent, country, and macro/cultural-sphere levels — the map added no new falsifiable evidence there. The divergence appears at admin_region/district: the aided chain names a specific quarter (Kasarmialue/Henrikinkatu-Vesilinnantie) and sharply increases confidence, without citing any street-level cue not already present in the blind chain. This suggests the fine-grained naming and confidence boost were anchored to the map marker rather than derived independently from the imagery.",
+  "verdict": "map-helped",
+  "map_dependent_steps": [
+   "admin_region: 'Turku, Southwest Finland' with confident named campus",
+   "district: precise naming of 'Kasarmialue / Henrikinkatu-Vesilinnantie block' and 'Yliopistonmäki/Vartiovuori terrain' as exact quarter"
+  ],
+  "cost_usd": 0.0226,
+  "model": "claude-sonnet-5"
+ },
+ "cost_usd": 0.6473,
+ "status": "OK"
+}

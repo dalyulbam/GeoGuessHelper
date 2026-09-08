@@ -11,3 +11,8 @@
 
 ## 보고서
 - `report_jo_jerash_32.288_35.8899_260903_095803_ko-en-fr.html`
+- [[atm_72dbfd6dce2b]] **Jordan vs Syria: mobile prefixes and facade material on shop signs** (culture/country)
+- [[atm_403102c39f78]] **Jordan vs West Bank: prefixes, iconography and Street View coverage** (culture/country)
+- [[atm_875df0438462]] **Jerash valley slopes vs Ajloun ridges: pure olive terrace vs pine mix** (nature/region)
+- [[atm_04c54e42050d]] **Absence of ruins does not exclude the governorate seat in hilly Jordan** (geography/region)
+- [[atm_32e258afc8c1]] **Jordanian incremental stone self-build vs Egyptian red brick** (architecture/country)

@@ -1,0 +1,1088 @@
+{
+ "job_id": "job_950227aac52b",
+ "report_file": "report_it_fornovo-di-taro_44.6943_10.0983_260906_205248_ko-en-fr.html",
+ "label": "선택 장면 보고서 · UjotVXSN…G4lw",
+ "lang": "en",
+ "images": [
+  "capture_a8c575e22695.jpg",
+  "capture_f7a468a76586.jpg",
+  "capture_e204c2f9a3e8.jpg",
+  "capture_87bceb388af5.jpg",
+  "capture_9b340da6e831.jpg",
+  "capture_a6a6fe37d75a.jpg"
+ ],
+ "blind_cut_px": [
+  960,
+  960,
+  960,
+  960,
+  960,
+  960
+ ],
+ "image_panos": {
+  "capture_a8c575e22695.jpg": {
+   "pano_id": "wbrkpKWkqNvR_1fspMIx_g",
+   "lat": 44.695095957334736,
+   "lng": 10.094643028219656,
+   "heading": 82.0633304999437,
+   "pitch": -0.7791138399707762
+  },
+  "capture_f7a468a76586.jpg": {
+   "pano_id": "9cE5bcfC15ZJPvxmtGxLyg",
+   "lat": 44.69461645874019,
+   "lng": 10.095504893887618,
+   "heading": 113.08173715638236,
+   "pitch": 6.856915713860673
+  },
+  "capture_e204c2f9a3e8.jpg": {
+   "pano_id": "YwC1Wsid2s61-HuWmXnIEA",
+   "lat": 44.694113169804744,
+   "lng": 10.096477641695099,
+   "heading": 130.3896477077831,
+   "pitch": 1.9209560380908357
+  },
+  "capture_87bceb388af5.jpg": {
+   "pano_id": "oSGhsymiXKUFMBGdCXZzIA",
+   "lat": 44.693216614347314,
+   "lng": 10.098101005497993,
+   "heading": 127.89272628048877,
+   "pitch": 8.02779003051866
+  },
+  "capture_9b340da6e831.jpg": {
+   "pano_id": "oSGhsymiXKUFMBGdCXZzIA",
+   "lat": 44.693216614347314,
+   "lng": 10.098101005497993,
+   "heading": 106.42524353327038,
+   "pitch": 0.5406913127052491
+  },
+  "capture_a6a6fe37d75a.jpg": {
+   "pano_id": "nYinsmYT189VklFg3Yvbbw",
+   "lat": 44.69237370822368,
+   "lng": 10.099268450422969,
+   "heading": 140.2925422849805,
+   "pitch": 4.3579062607033165
+  },
+  "capture_df576abf348e.jpg": {
+   "pano_id": "4hgEkkh5x_UR1_y3UOYyNw",
+   "lat": 44.69167908799297,
+   "lng": 10.099535264170603,
+   "heading": 161.59734506518217,
+   "pitch": 11.779956257487882
+  },
+  "capture_90b2f9507532.jpg": {
+   "pano_id": "tndOOCrQgATpDThc2GpuvQ",
+   "lat": 44.69108298506314,
+   "lng": 10.099039668552738,
+   "heading": 179.012898916109,
+   "pitch": 12.340393448228596
+  },
+  "capture_7946d98c7d3d.jpg": {
+   "pano_id": "_i2cnkMHNwbG1_1rhxn0dQ",
+   "lat": 44.689383822104,
+   "lng": 10.09732949444202,
+   "heading": 136.64114295549163,
+   "pitch": 7.38373862873209
+  }
+ },
+ "truth": {
+  "lat": 44.6927531575509,
+  "lng": 10.097555605820743,
+  "iso": "IT",
+  "file_lat": 44.6943,
+  "file_lng": 10.0983,
+  "n_panos": 9
+ },
+ "created": 1788741063.6938643,
+ "blind": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Fornovo di Taro",
+    "confidence": 0.93,
+    "coordinate_estimate": {
+     "lat": 44.6926,
+     "lng": 10.0989,
+     "radius_km": 1.5
+    },
+    "country": "Italy",
+    "country_iso": "IT",
+    "region_or_state": "Emilia-Romagna (Province of Parma)"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.04,
+     "country": "Italy",
+     "country_iso": "IT"
+    },
+    {
+     "confidence": 0.02,
+     "country": "San Marino",
+     "country_iso": "SM"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Humid subtropical / sub-Mediterranean Apennine foothills, deciduous woodland and dry summer grass",
+    "driving_side": "right",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "signage",
+     "image_index": 2,
+     "level": "district",
+     "observation": "White town-entry sign reading 'FORNOVO DI TARO' with a municipal coat of arms — Italian standard 'segnale di inizio centro abitato'.",
+     "supports": [
+      "Fornovo di Taro, Province of Parma"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "language",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Italian-language direction signs: 'Impianti sportivi', 'Calcio Tennis Piscina', 'biblioteca comunale', 'stazione ecologica', 'carrelli elevatori', 'GOMMISTA 24 ORE'.",
+     "supports": [
+      "Italy"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 4,
+     "level": "admin_region",
+     "observation": "Brown tourist sign 'Parco Fluviale Regionale del Taro' and a 'Via Francigena' pilgrim-route marker — the Taro river park is a regional park of Emilia-Romagna in Parma province, and the Via Francigena crosses the Apennines exactly at Fornovo.",
+     "supports": [
+      "Province of Parma",
+      "Taro valley"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 4,
+     "level": "admin_region",
+     "observation": "Business board 'LA TEGOLAIA – DIVISIONE EMILIA' explicitly names the Emilia sub-region.",
+     "supports": [
+      "Emilia (western Emilia-Romagna)"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "commerce",
+     "image_index": 3,
+     "level": "district",
+     "observation": "Bar/trattoria/locanda sign 'AL PONTE' with 'ROOMS' and Artcafé branding, plus a supermarket sign 'IN'S mercato' (a discount chain concentrated in northern Italy).",
+     "supports": [
+      "Northern Italy",
+      "roadside bridge-head hamlet"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "geomorphology",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Wide braided gravel riverbed with very low late-summer flow, seen from a long road bridge — typical Apennine torrent (Taro) discharging toward the Po plain.",
+     "supports": [
+      "Apennine foothill river valley"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "industry",
+     "image_index": 0,
+     "level": "metro_area",
+     "observation": "Barrel-vaulted sheet-metal industrial sheds and a sign for 'elevatori' (MORA carrelli elevatori) on the riverbank — small-firm mechanical/food-machinery district typical of the Parma 'food valley' supply chain.",
+     "supports": [
+      "Parma province industrial belt"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vehicles",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Curtain-side semitrailer of 'Transmec Group' (Campogalliano, Modena-based Italian logistics operator) on a Kögel trailer; traffic drives on the right.",
+     "supports": [
+      "Italy",
+      "Emilia-Romagna logistics"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "road_furniture",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Italian bridge fit-out: single-arm galvanised lamp posts with flat cobra heads set on the parapet, low-profile steel W-beam guardrail with concrete kerb, narrow two-lane carriageway with white edge lines only.",
+     "supports": [
+      "Italy"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "architecture",
+     "image_index": 5,
+     "level": "district",
+     "observation": "Hillside town of 3-5 storey post-war apartment blocks in ochre/pink render with shallow-pitch pantile roofs, plus a railway line and catenary gantry below the bridge — Fornovo is a rail junction (Parma–La Spezia / Fornovo–Fidenza lines).",
+     "supports": [
+      "Fornovo di Taro railway junction"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "macro_region",
+     "observation": "Mixed deciduous woodland with early-autumn reddening, mown hay hills and scattered conifers — northern Apennine foothills, not Mediterranean maquis of the south.",
+     "supports": [
+      "Northern Italy"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "cultural_economic_read": "A prosperous small provincial town of the western Emilian Apennine foothills: light-industrial sheds (forklifts, food-industry machinery, tyre and welding shops) crowded along the Taro floodplain, mid-century apartment blocks stacked on the hillside, a rail junction and a busy state road carrying heavy international freight. Signage mixes municipal services (library, sports facilities, recycling centre) with tourism branding for the regional river park and the Via Francigena pilgrim route — a typical Emilia-Romagna mix of manufacturing SMEs and heritage-based tourism.",
+   "landmarks": [
+    {
+     "confidence": 0.9,
+     "image_index": 2,
+     "name": "Fornovo di Taro town-entry sign",
+     "type": "municipal boundary sign"
+    },
+    {
+     "confidence": 0.85,
+     "image_index": 1,
+     "name": "Road bridge over the Taro river",
+     "type": "bridge"
+    },
+    {
+     "confidence": 0.7,
+     "image_index": 4,
+     "name": "Parco Fluviale Regionale del Taro signpost / Via Francigena marker",
+     "type": "regional park and pilgrim route signage"
+    },
+    {
+     "confidence": 0.6,
+     "image_index": 3,
+     "name": "Al Ponte bar-trattoria-locanda",
+     "type": "roadside inn"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.97,
+     "evidence": "'Impianti sportivi', 'biblioteca comunale', 'stazione ecologica', 'carrelli elevatori', 'FORNOVO DI TARO', 'TRATTORIA LOCANDA'",
+     "language": "Italian",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Southern Europe",
+      "Central Europe",
+      "Latin America",
+      "Balkans"
+     ],
+     "conclusion": "Southern Europe, Romance-speaking, right-hand traffic",
+     "confidence_after": 0.96,
+     "discriminator": "Latin America would show different vehicle fleet and yellow-heavy plate/road markings; Central Europe would show German/Slavic wording and steeper roofs with deep eaves; the Balkans would show Cyrillic or Slavic Latin orthography.",
+     "level": "continent",
+     "observation": "Italian-language signage, shallow-pitch pantile roofs, EU-format white rectangular plates, right-hand driving.",
+     "ruled_out": [
+      "Latin America: European trailer brand Kögel, EU plate proportions",
+      "Central Europe: no German/Slavic text",
+      "Balkans: no Cyrillic or Slavic diacritics"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Italy",
+      "Switzerland (Ticino)",
+      "San Marino"
+     ],
+     "conclusion": "Italy",
+     "confidence_after": 0.97,
+     "discriminator": "Ticino would show Swiss cantonal signage typography, blue motorway green/blue split and immaculate concrete guardrails plus Swiss white-on-blue place signs; San Marino uses its own crest-heavy signage and is a tiny enclave without a braided Apennine torrent of this size.",
+     "level": "country",
+     "observation": "Standard Italian white 'centro abitato' entry sign with municipal crest, Italian brown regional-park sign, MORA/Transmec Italian firms, Italian guardrail and lamp standards.",
+     "ruled_out": [
+      "Switzerland: no Swiss sign typography or cantonal marks; roadside is visibly scruffier",
+      "San Marino: named Italian comune sign present"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Po plain / Emilia",
+      "Tuscany",
+      "Marche",
+      "Piedmont/Liguria"
+     ],
+     "conclusion": "Northern Apennine foothills on the Emilian (Po-facing) side",
+     "confidence_after": 0.9,
+     "discriminator": "Tuscany would show cypress rows, stone farmhouses and Sienese ochre stonework rather than 1960s render blocks; Marche would sit on Adriatic-facing clay badlands with pale marl; Piedmont hills would show vineyard terracing and Piedmontese toponymy.",
+     "level": "macro_region",
+     "observation": "Broad braided gravel torrent bed, low green marl-clay hills with hay meadows, dense small-shed industrial estate right on the floodplain, town of post-war render apartment blocks.",
+     "ruled_out": [
+      "Tuscany: no cypress/stone vernacular",
+      "Marche: sign text names Emilia and the Taro",
+      "Piedmont: no vineyard landscape"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "Emilia-Romagna",
+      "Lombardy"
+     ],
+     "conclusion": "Emilia-Romagna, Emilian (not Romagnol) half",
+     "confidence_after": 0.92,
+     "discriminator": "Romagna would reference the Rubicone/Savio/Marecchia basins and Adriatic tourism; Lombardy south of the Po lacks Apennine torrents of this braided character at this latitude and would name Pavia/Piacenza-Lombard toponyms.",
+     "level": "cultural_sphere",
+     "observation": "Sign 'LA TEGOLAIA – DIVISIONE EMILIA' and 'Parco Fluviale Regionale del Taro'; food-machinery and forklift firms typical of the Parma industrial cluster.",
+     "ruled_out": [
+      "Romagna: wrong river basin named",
+      "Lombardy: Taro is wholly an Emilian river"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Province of Parma",
+      "Province of Piacenza",
+      "Province of Reggio Emilia"
+     ],
+     "conclusion": "Province of Parma, Taro valley",
+     "confidence_after": 0.93,
+     "discriminator": "Piacenza's Apennine torrents are the Trebbia/Nure/Arda; Reggio's are the Enza/Secchia — a regional river park named after the Taro exists only in Parma province.",
+     "level": "admin_region",
+     "observation": "'Parco Fluviale Regionale del Taro' brown sign plus the Via Francigena marker at the classic Apennine crossing point.",
+     "ruled_out": [
+      "Piacenza: wrong river",
+      "Reggio Emilia: wrong river"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Fornovo di Taro",
+      "Collecchio",
+      "Medesano",
+      "Solignano"
+     ],
+     "conclusion": "Fornovo di Taro town, at the SS62 della Cisa bridge over the Taro on the north-eastern edge of the built-up area",
+     "confidence_after": 0.93,
+     "discriminator": "Collecchio and Medesano sit on flat plain terraces without a hillside amphitheatre of apartment blocks and without a rail junction under the bridge; Solignano is a much smaller, deeper-valley village with no multi-storey 1960s blocks or industrial estate of this scale.",
+     "level": "district",
+     "observation": "Explicit entry sign 'FORNOVO DI TARO'; bridge over the Taro with an electrified railway and catenary gantry beneath; hillside terraced apartment blocks; riverside industrial estate reached from the bridge head.",
+     "ruled_out": [
+      "Collecchio: no hillside town profile",
+      "Medesano: sign names Fornovo",
+      "Solignano: settlement far too large here"
+     ],
+     "weight": "high"
+    }
+   ],
+   "overall_confidence": 0.91,
+   "place_slug": "fornovo-di-taro"
+  },
+  "cost_usd": 0.2286,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "Italy",
+   "country_iso": "IT",
+   "country_correct": true,
+   "region": "Emilia-Romagna (Province of Parma)",
+   "city": "Fornovo di Taro",
+   "confidence": 0.93,
+   "overall_confidence": 0.91,
+   "error_km": 0.11,
+   "reached_level": "district",
+   "n_steps": 6,
+   "n_steps_with_cut": 6,
+   "n_cues": 11,
+   "n_landmarks": 4,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "geomorphology",
+    "industry",
+    "language",
+    "road_furniture",
+    "signage",
+    "vegetation",
+    "vehicles"
+   ]
+  },
+  "atoms": [
+   "atm_11daed1badc9",
+   "atm_9ff649a1c3e6",
+   "atm_88962bc03b9e",
+   "atm_1e966fd9e942",
+   "atm_32b3e5bf4107",
+   "atm_bc0aeec257a2",
+   "atm_53362c8b573e",
+   "atm_04a9697b5c64",
+   "atm_a99e40bf809d",
+   "atm_3a9a71af27c1",
+   "atm_921c08c0346c",
+   "atm_632935d3db21",
+   "atm_44fbbe024250",
+   "atm_da3b0e5e0aba",
+   "atm_97b9e9af8db3",
+   "atm_627f83101bf7",
+   "atm_3656e8246b18"
+  ],
+  "ingest": {
+   "created": 17,
+   "merged": 0,
+   "cost_usd": 0.0724,
+   "passes": {
+    "p2": {
+     "created": 6,
+     "merged": 0,
+     "cost_usd": 0.0361,
+     "n": 6
+    },
+    "p1": {
+     "created": 11,
+     "merged": 0,
+     "cost_usd": 0.0363,
+     "n": 11
+    }
+   }
+  }
+ },
+ "aided": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Fornovo di Taro",
+    "confidence": 0.93,
+    "coordinate_estimate": {
+     "lat": 44.6935,
+     "lng": 10.0995,
+     "radius_km": 1.5
+    },
+    "country": "Italy",
+    "country_iso": "IT",
+    "region_or_state": "Emilia-Romagna (Province of Parma)"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.03,
+     "country": "Italy",
+     "country_iso": "IT"
+    },
+    {
+     "confidence": 0.02,
+     "country": "San Marino",
+     "country_iso": "SM"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Humid subtropical / temperate sub-Apennine hills, dry late-summer aspect",
+    "driving_side": "right",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "signage",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Standard Italian white town-entry sign with municipal coat of arms reading 'FORNOVO DI TARO'",
+     "supports": [
+      "Italy",
+      "Fornovo di Taro"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "language",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Italian-only directional signs: 'Impianti sportivi', 'Calcio Tennis Piscina', 'biblioteca comunale', 'stazione ecologica', 'GOMMISTA 24 ORE', 'carrelli elevatori'",
+     "supports": [
+      "Italy"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Brown tourist sign 'Via Francigena' and 'Parco Fluviale Regionale del Taro' — the Francigena pilgrim route crosses the Taro exactly at Fornovo",
+     "supports": [
+      "Fornovo di Taro",
+      "Parma province"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "road_infrastructure",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Two-lane bridge with Italian-style corrugated W-beam guardrail plus tall galvanized lamp columns with rounded cobra heads; right-hand traffic",
+     "supports": [
+      "Italy"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "geomorphology",
+     "image_index": 0,
+     "level": "admin_region",
+     "observation": "Wide braided gravel riverbed with very low late-summer flow, typical of Apennine torrents like the Taro",
+     "supports": [
+      "Emilia-Romagna Apennine foothills"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "industry",
+     "image_index": 0,
+     "level": "metro_area",
+     "observation": "Barrel-vaulted light-industrial sheds and a small hydro/weir structure on the river bank, plus 'elevatori' lettering — matching Fornovo's industrial estate (Mora carrelli elevatori)",
+     "supports": [
+      "Fornovo di Taro industrial zone"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "commerce",
+     "image_index": 1,
+     "level": "macro_region",
+     "observation": "Kögel curtain-side trailer branded 'Transmec Group', a logistics firm based in Campogalliano, Modena (Emilia-Romagna)",
+     "supports": [
+      "Northern Italy",
+      "Emilia-Romagna"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "architecture",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Pastel-rendered 3-5 storey postwar apartment blocks with shallow-pitch pantile roofs and roller shutters, electrified railway line beside the road — Padan/Emilian valley town fabric",
+     "supports": [
+      "Emilia-Romagna"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "business_signage",
+     "image_index": 3,
+     "level": "district",
+     "observation": "'AL PONTE BAR TRATTORIA LOCANDA ... ROOMS' sign, an inn named for the adjacent bridge over the Taro",
+     "supports": [
+      "Fornovo di Taro"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "macro_region",
+     "observation": "Mixed deciduous hillside with cultivated stubble fields and scattered hilltop hamlets — sub-Apennine, not Alpine and not Mediterranean maquis",
+     "supports": [
+      "Northern Apennine foothills"
+     ],
+     "weight": "low"
+    }
+   ],
+   "landmarks": [
+    {
+     "confidence": 0.9,
+     "image_index": 0,
+     "name": "Taro River braided bed and weir",
+     "type": "river"
+    },
+    {
+     "confidence": 0.95,
+     "image_index": 2,
+     "name": "Fornovo di Taro town entry sign",
+     "type": "municipal sign"
+    },
+    {
+     "confidence": 0.7,
+     "image_index": 4,
+     "name": "Via Francigena route marker / Parco Fluviale Regionale del Taro",
+     "type": "cultural route / regional park"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.97,
+     "evidence": "'Impianti sportivi', 'biblioteca comunale', 'stazione ecologica', 'carrelli elevatori', 'TRATTORIA LOCANDA'",
+     "language": "Italian",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Europe",
+      "Latin America",
+      "North Africa"
+     ],
+     "conclusion": "Southern/Mediterranean Europe",
+     "confidence_after": 0.95,
+     "discriminator": "Latin America would show Spanish/Portuguese wording and different guardrail and utility-pole types; North Africa would carry Arabic bilingual signage and palm-dominated roadside vegetation.",
+     "level": "continent",
+     "observation": "Italian-language road signs, EU-style white place-name board with communal coat of arms, right-hand traffic, deciduous temperate hillsides.",
+     "ruled_out": [
+      "Latin America — no Spanish/Portuguese text",
+      "North Africa — no Arabic script, no palms"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Italy",
+      "San Marino",
+      "Switzerland (Ticino)",
+      "Malta"
+     ],
+     "conclusion": "Italy",
+     "confidence_after": 0.97,
+     "discriminator": "Ticino would show Swiss white-on-blue autostrada shields, hexagonal community signs and immaculate white edge lines; San Marino uses its own crest-bearing signage and is a tiny territory; Malta drives on the left.",
+     "level": "country",
+     "observation": "Italian white rectangular 'inizio centro abitato' sign with the municipal blazon, plus SS/SP road classes and Italian tourist brown 'Via Francigena' plate.",
+     "ruled_out": [
+      "Switzerland/Ticino — no Swiss sign geometry or numbering",
+      "San Marino — different signage crest, no coastal Adriatic hill relief",
+      "Malta — right-hand traffic here"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Po Valley/Emilia",
+      "Tuscany",
+      "Piedmont/Langhe",
+      "Marche"
+     ],
+     "conclusion": "Northern Apennine foothills of Emilia (Parma side)",
+     "confidence_after": 0.88,
+     "discriminator": "Tuscan valleys show cypress rows and stone farmhouses with darker tuff/travertine tones; Langhe would be terraced vineyard monoculture on marl ridges; Marche torrents are narrower and drain east to the Adriatic. Here a very broad, white-gravel braided torrent bed flanked by an industrial estate is characteristic of the Taro/Ceno system draining north to the Po.",
+     "level": "macro_region",
+     "observation": "Enormously wide pale gravel riverbed nearly dry in late summer, low forested hills with stubble fields, dense light-industry along the valley floor.",
+     "ruled_out": [
+      "Tuscany — no cypress/stone-farm signature",
+      "Piedmont Langhe — no vineyard terracing",
+      "Marche — river morphology and settlement pattern differ"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "Parma province",
+      "Piacenza province",
+      "Reggio Emilia province"
+     ],
+     "conclusion": "Province of Parma, lower Taro valley",
+     "confidence_after": 0.9,
+     "discriminator": "Piacenza's equivalent valley is the Trebbia/Nure with different toponyms; Reggio's is the Secchia/Enza. The brown Regional Park sign specifically names 'Parco Fluviale Regionale del Taro', a Parma-province park, and the Via Francigena's Apennine crossing at the Taro sits in Parma territory.",
+     "level": "admin_region",
+     "observation": "Signage naming the Taro river park and Via Francigena, plus regional logistics/food-machinery firms ('VALFOR — macchine per l'industria alimentare') typical of the Parma food-machinery cluster.",
+     "ruled_out": [
+      "Piacenza — wrong river basin",
+      "Reggio Emilia — wrong river basin and no Taro references"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Fornovo di Taro",
+      "Collecchio",
+      "Medesano",
+      "Solignano"
+     ],
+     "conclusion": "Fornovo di Taro, at the SS62 bridge over the Taro",
+     "confidence_after": 0.93,
+     "discriminator": "Collecchio lies on the flat plain edge with no such steep hill amphitheatre; Medesano is set back from the river; Solignano is far smaller with no multi-storey apartment blocks or industrial estate. Fornovo uniquely combines the long river bridge, the rail station on the Parma–La Spezia (Pontremolese) line seen alongside the road, and a dense 4-5 storey town core against the hillside.",
+     "level": "district",
+     "observation": "Town-entry board explicitly reading 'FORNOVO DI TARO'; electrified single/double-track railway running under the road with a pedestrian truss footbridge; 'Al Ponte' inn at the bridge head.",
+     "ruled_out": [
+      "Collecchio — plain setting, no bridge/hill combination",
+      "Medesano — not on the river crossing",
+      "Solignano — settlement too small"
+     ],
+     "weight": "high"
+    }
+   ],
+   "cultural_economic_read": "A prosperous small Emilian valley town of roughly 6,000 people functioning as a valley gateway: the flat gravel terraces of the Taro host a compact industrial/logistics estate (food-processing machinery, forklifts, tyre services, rental firms) typical of the Parma agro-industrial supply chain, while the residential core climbs the hillside in tidy postwar and 1970s-80s apartment blocks. Infrastructure is well maintained (crash barriers, LED-era street lighting, dual road/rail corridor toward La Spezia and the Cisa pass), and tourism is secondary but present via the Via Francigena pilgrim route and the Taro river regional park. Mainstream Italian mainland culture, no minority-language signage, middle-income northern Italian standard of living.",
+   "overall_confidence": 0.92,
+   "place_slug": "fornovo-di-taro"
+  },
+  "cost_usd": 0.2629,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "Italy",
+   "country_iso": "IT",
+   "country_correct": true,
+   "region": "Emilia-Romagna (Province of Parma)",
+   "city": "Fornovo di Taro",
+   "confidence": 0.93,
+   "overall_confidence": 0.92,
+   "error_km": 0.17,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "business_signage",
+    "commerce",
+    "geomorphology",
+    "industry",
+    "language",
+    "road_infrastructure",
+    "signage",
+    "vegetation"
+   ]
+  },
+  "atoms": [
+   "atm_8e06fb770087",
+   "atm_873d66a2fd8a",
+   "atm_d0fe3afbaeb3",
+   "atm_a232a1faddbb",
+   "atm_f74be1a8388d",
+   "atm_5906c221f78b",
+   "atm_15e6b514f3ac",
+   "atm_ddd4b5526ad0",
+   "atm_403b5713f17b",
+   "atm_5ae4b2b4c52a",
+   "atm_21db7b4f3c80",
+   "atm_979edc0aa637",
+   "atm_ee55d4f8f848",
+   "atm_99efae10621e",
+   "atm_60703eb15be5"
+  ],
+  "ingest": {
+   "created": 15,
+   "merged": 0,
+   "cost_usd": 0.0636,
+   "passes": {
+    "p2": {
+     "created": 5,
+     "merged": 0,
+     "cost_usd": 0.0332,
+     "n": 5
+    },
+    "p1": {
+     "created": 10,
+     "merged": 0,
+     "cost_usd": 0.0304,
+     "n": 10
+    }
+   }
+  }
+ },
+ "aided_prior": {
+  "lang": "en",
+  "metrics": {
+   "country": "Italy",
+   "country_iso": "IT",
+   "country_correct": true,
+   "region": "Emilia-Romagna (Province of Parma)",
+   "city": "Fornovo di Taro",
+   "confidence": 0.95,
+   "overall_confidence": 0.93,
+   "error_km": 0.11,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "hydrology",
+    "industry",
+    "infrastructure",
+    "language",
+    "signage",
+    "vegetation"
+   ]
+  },
+  "best_guess": {
+   "city": "Fornovo di Taro",
+   "confidence": 0.95,
+   "coordinate_estimate": {
+    "lat": 44.6935,
+    "lng": 10.0985,
+    "radius_km": 1
+   },
+   "country": "Italy",
+   "country_iso": "IT",
+   "region_or_state": "Emilia-Romagna (Province of Parma)"
+  }
+ },
+ "cues": {
+  "unaided": [
+   {
+    "blind": {
+     "category": "language",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Italian-language direction signs: 'Impianti sportivi', 'Calcio Tennis Piscina', 'biblioteca comunale', 'stazione ecologica', 'carrelli elevatori', 'GOMMISTA 24 ORE'.",
+     "supports": [
+      "Italy"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "language",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Italian-only directional signs: 'Impianti sportivi', 'Calcio Tennis Piscina', 'biblioteca comunale', 'stazione ecologica', 'GOMMISTA 24 ORE', 'carrelli elevatori'",
+     "supports": [
+      "Italy"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.96
+   },
+   {
+    "blind": {
+     "category": "signage",
+     "image_index": 2,
+     "level": "district",
+     "observation": "White town-entry sign reading 'FORNOVO DI TARO' with a municipal coat of arms — Italian standard 'segnale di inizio centro abitato'.",
+     "supports": [
+      "Fornovo di Taro, Province of Parma"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "signage",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Standard Italian white town-entry sign with municipal coat of arms reading 'FORNOVO DI TARO'",
+     "supports": [
+      "Italy",
+      "Fornovo di Taro"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.68
+   },
+   {
+    "blind": {
+     "category": "signage",
+     "image_index": 4,
+     "level": "admin_region",
+     "observation": "Brown tourist sign 'Parco Fluviale Regionale del Taro' and a 'Via Francigena' pilgrim-route marker — the Taro river park is a regional park of Emilia-Romagna in Parma province, and the Via Francigena crosses the Apennines exactly at Fornovo.",
+     "supports": [
+      "Province of Parma",
+      "Taro valley"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "signage",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Brown tourist sign 'Via Francigena' and 'Parco Fluviale Regionale del Taro' — the Francigena pilgrim route crosses the Taro exactly at Fornovo",
+     "supports": [
+      "Fornovo di Taro",
+      "Parma province"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.41
+   },
+   {
+    "blind": {
+     "category": "geomorphology",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Wide braided gravel riverbed with very low late-summer flow, seen from a long road bridge — typical Apennine torrent (Taro) discharging toward the Po plain.",
+     "supports": [
+      "Apennine foothill river valley"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "geomorphology",
+     "image_index": 0,
+     "level": "admin_region",
+     "observation": "Wide braided gravel riverbed with very low late-summer flow, typical of Apennine torrents like the Taro",
+     "supports": [
+      "Emilia-Romagna Apennine foothills"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.31
+   },
+   {
+    "blind": {
+     "category": "vehicles",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Curtain-side semitrailer of 'Transmec Group' (Campogalliano, Modena-based Italian logistics operator) on a Kögel trailer; traffic drives on the right.",
+     "supports": [
+      "Italy",
+      "Emilia-Romagna logistics"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "commerce",
+     "image_index": 1,
+     "level": "macro_region",
+     "observation": "Kögel curtain-side trailer branded 'Transmec Group', a logistics firm based in Campogalliano, Modena (Emilia-Romagna)",
+     "supports": [
+      "Northern Italy",
+      "Emilia-Romagna"
+     ],
+     "weight": "medium"
+    },
+    "sim": 1.0
+   },
+   {
+    "blind": {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "macro_region",
+     "observation": "Mixed deciduous woodland with early-autumn reddening, mown hay hills and scattered conifers — northern Apennine foothills, not Mediterranean maquis of the south.",
+     "supports": [
+      "Northern Italy"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "macro_region",
+     "observation": "Mixed deciduous hillside with cultivated stubble fields and scattered hilltop hamlets — sub-Apennine, not Alpine and not Mediterranean maquis",
+     "supports": [
+      "Northern Apennine foothills"
+     ],
+     "weight": "low"
+    },
+    "sim": 0.82
+   },
+   {
+    "blind": {
+     "category": "architecture",
+     "image_index": 5,
+     "level": "district",
+     "observation": "Hillside town of 3-5 storey post-war apartment blocks in ochre/pink render with shallow-pitch pantile roofs, plus a railway line and catenary gantry below the bridge — Fornovo is a rail junction (Parma–La Spezia / Fornovo–Fidenza lines).",
+     "supports": [
+      "Fornovo di Taro railway junction"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "architecture",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Pastel-rendered 3-5 storey postwar apartment blocks with shallow-pitch pantile roofs and roller shutters, electrified railway line beside the road — Padan/Emilian valley town fabric",
+     "supports": [
+      "Emilia-Romagna"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.75
+   },
+   {
+    "blind": {
+     "category": "industry",
+     "image_index": 0,
+     "level": "metro_area",
+     "observation": "Barrel-vaulted sheet-metal industrial sheds and a sign for 'elevatori' (MORA carrelli elevatori) on the riverbank — small-firm mechanical/food-machinery district typical of the Parma 'food valley' supply chain.",
+     "supports": [
+      "Parma province industrial belt"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "industry",
+     "image_index": 0,
+     "level": "metro_area",
+     "observation": "Barrel-vaulted light-industrial sheds and a small hydro/weir structure on the river bank, plus 'elevatori' lettering — matching Fornovo's industrial estate (Mora carrelli elevatori)",
+     "supports": [
+      "Fornovo di Taro industrial zone"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.7
+   },
+   {
+    "blind": {
+     "category": "commerce",
+     "image_index": 3,
+     "level": "district",
+     "observation": "Bar/trattoria/locanda sign 'AL PONTE' with 'ROOMS' and Artcafé branding, plus a supermarket sign 'IN'S mercato' (a discount chain concentrated in northern Italy).",
+     "supports": [
+      "Northern Italy",
+      "roadside bridge-head hamlet"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "business_signage",
+     "image_index": 3,
+     "level": "district",
+     "observation": "'AL PONTE BAR TRATTORIA LOCANDA ... ROOMS' sign, an inn named for the adjacent bridge over the Taro",
+     "supports": [
+      "Fornovo di Taro"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.55
+   },
+   {
+    "blind": {
+     "category": "road_furniture",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Italian bridge fit-out: single-arm galvanised lamp posts with flat cobra heads set on the parapet, low-profile steel W-beam guardrail with concrete kerb, narrow two-lane carriageway with white edge lines only.",
+     "supports": [
+      "Italy"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "road_infrastructure",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Two-lane bridge with Italian-style corrugated W-beam guardrail plus tall galvanized lamp columns with rounded cobra heads; right-hand traffic",
+     "supports": [
+      "Italy"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.54
+   }
+  ],
+  "aided_only": [],
+  "blind_only": [
+   {
+    "category": "signage",
+    "image_index": 4,
+    "level": "admin_region",
+    "observation": "Business board 'LA TEGOLAIA – DIVISIONE EMILIA' explicitly names the Emilia sub-region.",
+    "supports": [
+     "Emilia (western Emilia-Romagna)"
+    ],
+    "weight": "medium"
+   }
+  ]
+ },
+ "narrative": {
+  "blind_logic": "The blind chain relies entirely on street-level cues: Italian signage, EU plate formats, and specific place-name boards ('FORNOVO DI TARO', 'Parco Fluviale Regionale del Taro') to progressively narrow from continent to district. It cross-checks river-basin naming, industrial firm names (MORA/Transmec), and settlement morphology (hillside apartment blocks, bridge/rail combo) against neighboring candidate towns to reach Fornovo di Taro with 0.93 confidence, all discriminators grounded in visible signage and landscape features.",
+  "aided_logic": "The aided chain reaches an identical conclusion (Fornovo di Taro, Parma, 0.93 conf) using nearly the same observations — Italian signage, river morphology, Via Francigena marker, and the explicit 'FORNOVO DI TARO' entry sign — with only cosmetic differences in wording (e.g., citing 'VALFOR' instead of 'MORA/Transmec') and a merged macro/admin step. No step explicitly cites the map marker or coordinates as the deciding factor; the reasoning still leans on the same street-level signage and landscape logic.",
+  "delta": "The two chains are structurally and evidentially near-identical, differing mainly in phrasing and one merged step. Both rely on the same sign texts (Fornovo di Taro entry sign, Taro river park sign, Via Francigena marker) for the fine-grained district-level call. There is no new discriminator in the aided chain that could only come from viewing the map panel — the marker's presence did not introduce any additional geographic evidence, just re-confirmed the same textual identification already available blind.",
+  "map_dependent_steps": [],
+  "verdict": "blind-sufficient",
+  "cost_usd": 0.0217,
+  "model": "claude-sonnet-5"
+ },
+ "cost_usd": 0.6492,
+ "status": "OK"
+}

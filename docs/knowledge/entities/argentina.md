@@ -1,6 +1,6 @@
 # 엔티티 · argentina
 
-원자 5개 · 이 엔티티를 다룬 보고서 3건
+원자 6개 · 이 엔티티를 다룬 보고서 4건
 
 ## 원자
 - [[atm_35ff70ea7db7]] **Argentine telephone area code 351 (Córdoba)** (geography/region)
@@ -8,8 +8,10 @@
 - [[atm_530209fff20e]] **Argentine provincial route shield and rural infrastructure conventions** (geography/country)
 - [[atm_9af3c124876b]] **Yacyretá dam reservoir and Paraná River flooding at Encarnación** (history/region)
 - [[atm_bb85705ffd68]] **Torcuato Di Tella and Argentine industrial development** (economy/country)
+- [[atm_cf43621783bd]] **Bolivian micro fleet vs Argentine formal city buses** (economy/country)
 
 ## 보고서
 - `report_ar_cordoba_-31.4102_-64.2349_260810_014939_ko-en-fr.html`
 - `report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html`
+- `report_bo_sucre_-19.0367_-65.2663_260906_203351_ko-en-fr.html`
 - `report_py_encarnacion_-27.3074_-55.8638_260829_092750_ko-en-fr.html`

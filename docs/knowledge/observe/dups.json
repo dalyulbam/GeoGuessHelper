@@ -1,0 +1,467 @@
+{
+ "tau": 0.1,
+ "built": 1788854785.242656,
+ "n_pairs": 21,
+ "counts_at": {
+  "0.10": 21,
+  "0.12": 43,
+  "0.15": 103
+ },
+ "pairs": [
+  {
+   "a": "atm_58cd6820cb79",
+   "b": "atm_a67a2d79524f",
+   "d": 0.043,
+   "title_a": "Wangchuck dynasty (Bhutan)",
+   "title_b": "Wangchuck dynasty of Bhutan (1907–present)",
+   "origin_a": "wiki",
+   "origin_b": "wiki",
+   "layer_a": "history",
+   "layer_b": "history",
+   "same_report": false
+  },
+  {
+   "a": "atm_26670bdff72a",
+   "b": "atm_a919b2d25025",
+   "d": 0.0652,
+   "title_a": "British colonial legacy of left-hand traffic",
+   "title_b": "Left-hand traffic Commonwealth legacy pattern",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "geography",
+   "layer_b": "culture",
+   "same_report": false
+  },
+  {
+   "a": "atm_45b4b6a01e83",
+   "b": "atm_8721acb94173",
+   "d": 0.0741,
+   "title_a": "Planners behind Soviet mass-housing standardization",
+   "title_b": "Nikita Khrushchev and the mass panel-housing program",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "architecture",
+   "layer_b": "architecture",
+   "same_report": false
+  },
+  {
+   "a": "atm_302c63ec2d88",
+   "b": "atm_84831e5db897",
+   "d": 0.0749,
+   "title_a": "Fridtjof Nansen and Norwegian polar exploration legacy",
+   "title_b": "Fridtjof Nansen and Norwegian polar exploration",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "economy",
+   "layer_b": "history",
+   "same_report": false
+  },
+  {
+   "a": "atm_9b677b227d5a",
+   "b": "atm_a191131041bb",
+   "d": 0.0761,
+   "title_a": "Luxembourg ruling houses",
+   "title_b": "Luxembourg dynasties",
+   "origin_a": "wiki",
+   "origin_b": "wiki",
+   "layer_a": "history",
+   "layer_b": "history",
+   "same_report": false
+  },
+  {
+   "a": "atm_0edf76520ed3",
+   "b": "atm_810f8747fdde",
+   "d": 0.077,
+   "title_a": "Historic Gaelic Irish kingdoms",
+   "title_b": "Medieval and early modern Irish kingdoms and lordships",
+   "origin_a": "wiki",
+   "origin_b": "wiki",
+   "layer_a": "history",
+   "layer_b": "history",
+   "same_report": false
+  },
+  {
+   "a": "atm_c15358d3e42a",
+   "b": "atm_de27d76e98ed",
+   "d": 0.0774,
+   "title_a": "Post-industrial decline of Upper Silesian coal towns",
+   "title_b": "Post-1989 deindustrialization and coal-mine closures in Upper Silesia",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "economy",
+   "layer_b": "economy",
+   "same_report": false
+  },
+  {
+   "a": "atm_17a4695a5c1d",
+   "b": "atm_d4bbaacf7f1a",
+   "d": 0.0786,
+   "title_a": "Historic Italian republics, duchies and kingdoms (medieval-early modern)",
+   "title_b": "19th-20th century Italian states and unification-era states",
+   "origin_a": "wiki",
+   "origin_b": "wiki",
+   "layer_a": "history",
+   "layer_b": "history",
+   "same_report": false
+  },
+  {
+   "a": "atm_02178356679f",
+   "b": "atm_35a25e757bca",
+   "d": 0.0791,
+   "title_a": "Overtourism backlash and Dubrovnik's visitor caps",
+   "title_b": "Anti-overtourism backlash and regulation in Dubrovnik",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "economy",
+   "layer_b": "culture",
+   "same_report": false
+  },
+  {
+   "a": "atm_589cb10f4203",
+   "b": "atm_e642c5062954",
+   "d": 0.0824,
+   "title_a": "Rainbow pedestrian crossings as Nordic civic inclusivity marker",
+   "title_b": "Rainbow crosswalks as municipal civic marker in Iceland",
+   "origin_a": "report",
+   "origin_b": "report",
+   "layer_a": "culture",
+   "layer_b": "culture",
+   "same_report": false
+  },
+  {
+   "a": "atm_3b4caddc25e6",
+   "b": "atm_edfd7ad1c77f",
+   "d": 0.0841,
+   "title_a": "Czechoslovakism and the suppressed dual-language convergence",
+   "title_b": "Post-1993 Slovak-Czech linguistic divergence after Czechoslovak split",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "language",
+   "layer_b": "language",
+   "same_report": false
+  },
+  {
+   "a": "atm_4d13feb25fdd",
+   "b": "atm_ba9c8744e74b",
+   "d": 0.0875,
+   "title_a": "Icelandic rural village public-goods provision pattern",
+   "title_b": "Icelandic rural service village public infrastructure standard",
+   "origin_a": "report",
+   "origin_b": "report",
+   "layer_a": "culture",
+   "layer_b": "culture",
+   "same_report": false
+  },
+  {
+   "a": "atm_26670bdff72a",
+   "b": "atm_6f9fc96c5833",
+   "d": 0.0878,
+   "title_a": "British colonial legacy of left-hand traffic",
+   "title_b": "Left-hand traffic countries of the former British Empire",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "geography",
+   "layer_b": "geography",
+   "same_report": false
+  },
+  {
+   "a": "atm_c625d0700e21",
+   "b": "atm_eb00b0aaecce",
+   "d": 0.0883,
+   "title_a": "Guangxi aboriginal prefectures under early Ming (1369-1928)",
+   "title_b": "Guangxi and Guizhou aboriginal prefectures and chiefdoms, 14th century",
+   "origin_a": "wiki",
+   "origin_b": "wiki",
+   "layer_a": "history",
+   "layer_b": "history",
+   "same_report": false
+  },
+  {
+   "a": "atm_766d932ca0da",
+   "b": "atm_89b807a21016",
+   "d": 0.0887,
+   "title_a": "Redbrick and civic universities as reaction to Oxbridge exclusivity",
+   "title_b": "Redbrick and modern universities as reaction to Oxbridge exclusivity",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "history",
+   "layer_b": "culture",
+   "same_report": false
+  },
+  {
+   "a": "atm_37da4e8f433a",
+   "b": "atm_f4afa21fa970",
+   "d": 0.0905,
+   "title_a": "Red Vienna's social housing architects",
+   "title_b": "Key architects and politicians of Red Vienna",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "history",
+   "layer_b": "architecture",
+   "same_report": false
+  },
+  {
+   "a": "atm_687e4fb20c84",
+   "b": "atm_e7a4a8ee0935",
+   "d": 0.091,
+   "title_a": "1999 İzmit earthquake exposed heavy-industry concentration risk",
+   "title_b": "İzmit's 1999 earthquake and industrial-zone vulnerability",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "economy",
+   "layer_b": "economy",
+   "same_report": false
+  },
+  {
+   "a": "atm_1a59425e959b",
+   "b": "atm_ec52e7b7a8fa",
+   "d": 0.0925,
+   "title_a": "Socialist-era prefab housing estate family",
+   "title_b": "Global family of socialist-era prefab housing estates",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "architecture",
+   "layer_b": "history",
+   "same_report": false
+  },
+  {
+   "a": "atm_2e7a14e50f55",
+   "b": "atm_8cf354495661",
+   "d": 0.0931,
+   "title_a": "Aurangzeb and the later Mughal emperors",
+   "title_b": "Aurangzeb and the Mughal Deccan campaigns",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "history",
+   "layer_b": "history",
+   "same_report": false
+  },
+  {
+   "a": "atm_ec52e7b7a8fa",
+   "b": "atm_fc90c4a62930",
+   "d": 0.0931,
+   "title_a": "Global family of socialist-era prefab housing estates",
+   "title_b": "Global family of socialist prefabricated housing estates",
+   "origin_a": "expansion",
+   "origin_b": "expansion",
+   "layer_a": "history",
+   "layer_b": "architecture",
+   "same_report": false
+  },
+  {
+   "a": "atm_c15358d3e42a",
+   "b": "atm_f644bdf4dd51",
+   "d": 0.0969,
+   "title_a": "Post-industrial decline of Upper Silesian coal towns",
+   "title_b": "Post-1989 deindustrialization of Upper Silesian coal/steel cities",
+   "origin_a": "expansion",
+   "origin_b": "report",
+   "layer_a": "economy",
+   "layer_b": "economy",
+   "same_report": false
+  }
+ ],
+ "groups": [
+  {
+   "atoms": [
+    "atm_58cd6820cb79",
+    "atm_a67a2d79524f"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.043,
+   "d_max": 0.043
+  },
+  {
+   "atoms": [
+    "atm_26670bdff72a",
+    "atm_6f9fc96c5833",
+    "atm_a919b2d25025"
+   ],
+   "n": 3,
+   "direct_pairs": 2,
+   "transitive_only": true,
+   "d_min": 0.0652,
+   "d_max": 0.0878
+  },
+  {
+   "atoms": [
+    "atm_45b4b6a01e83",
+    "atm_8721acb94173"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0741,
+   "d_max": 0.0741
+  },
+  {
+   "atoms": [
+    "atm_302c63ec2d88",
+    "atm_84831e5db897"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0749,
+   "d_max": 0.0749
+  },
+  {
+   "atoms": [
+    "atm_9b677b227d5a",
+    "atm_a191131041bb"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0761,
+   "d_max": 0.0761
+  },
+  {
+   "atoms": [
+    "atm_0edf76520ed3",
+    "atm_810f8747fdde"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.077,
+   "d_max": 0.077
+  },
+  {
+   "atoms": [
+    "atm_c15358d3e42a",
+    "atm_de27d76e98ed",
+    "atm_f644bdf4dd51"
+   ],
+   "n": 3,
+   "direct_pairs": 2,
+   "transitive_only": true,
+   "d_min": 0.0774,
+   "d_max": 0.0969
+  },
+  {
+   "atoms": [
+    "atm_17a4695a5c1d",
+    "atm_d4bbaacf7f1a"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0786,
+   "d_max": 0.0786
+  },
+  {
+   "atoms": [
+    "atm_02178356679f",
+    "atm_35a25e757bca"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0791,
+   "d_max": 0.0791
+  },
+  {
+   "atoms": [
+    "atm_589cb10f4203",
+    "atm_e642c5062954"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0824,
+   "d_max": 0.0824
+  },
+  {
+   "atoms": [
+    "atm_3b4caddc25e6",
+    "atm_edfd7ad1c77f"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0841,
+   "d_max": 0.0841
+  },
+  {
+   "atoms": [
+    "atm_4d13feb25fdd",
+    "atm_ba9c8744e74b"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0875,
+   "d_max": 0.0875
+  },
+  {
+   "atoms": [
+    "atm_c625d0700e21",
+    "atm_eb00b0aaecce"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0883,
+   "d_max": 0.0883
+  },
+  {
+   "atoms": [
+    "atm_766d932ca0da",
+    "atm_89b807a21016"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0887,
+   "d_max": 0.0887
+  },
+  {
+   "atoms": [
+    "atm_37da4e8f433a",
+    "atm_f4afa21fa970"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0905,
+   "d_max": 0.0905
+  },
+  {
+   "atoms": [
+    "atm_687e4fb20c84",
+    "atm_e7a4a8ee0935"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.091,
+   "d_max": 0.091
+  },
+  {
+   "atoms": [
+    "atm_1a59425e959b",
+    "atm_ec52e7b7a8fa",
+    "atm_fc90c4a62930"
+   ],
+   "n": 3,
+   "direct_pairs": 2,
+   "transitive_only": true,
+   "d_min": 0.0925,
+   "d_max": 0.0931
+  },
+  {
+   "atoms": [
+    "atm_2e7a14e50f55",
+    "atm_8cf354495661"
+   ],
+   "n": 2,
+   "direct_pairs": 1,
+   "transitive_only": false,
+   "d_min": 0.0931,
+   "d_max": 0.0931
+  }
+ ]
+}

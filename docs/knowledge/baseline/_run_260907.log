@@ -1,0 +1,152 @@
+[baseline] 대상 잡 13건 (lang=en, ingest=True)
+  [job_da4b902eaf1e] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 15 신규 · 2 병합 · $0.067
+    aided: 원자 16 신규 · 0 병합 · $0.066
+    blind  → Jordan · district · err 1.54 km · cues 12
+    aided  → Jordan · district · err 2.5 km · cues 10
+  [job_f374e57f1b56] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 14 신규 · 1 병합 · $0.066
+    aided: 원자 16 신규 · 0 병합 · $0.070
+    blind  → United Arab Emirates · district · err 0.81 km · cues 10
+    aided  → United Arab Emirates · district · err 0.89 km · cues 11
+  [job_b2b72f38b424] 분석 5장 × 2모드 (blind cut=960px)
+    blind: 원자 16 신규 · 0 병합 · $0.066
+    aided: 원자 14 신규 · 1 병합 · $0.064
+    blind  → Botswana · district · err 1.24 km · cues 10
+    aided  → Botswana · district · err 2.51 km · cues 11
+  [job_41090529fe0b] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 15 신규 · 2 병합 · $0.071
+    aided: 원자 15 신규 · 1 병합 · $0.068
+    blind  → Bolivia · district · err 1.08 km · cues 11
+    aided  → Bolivia · district · err 1.47 km · cues 9
+  [job_72caf482d49b] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 16 신규 · 1 병합 · $0.070
+    aided: 원자 15 신규 · 1 병합 · $0.070
+    blind  → South Africa · district · err 0.98 km · cues 11
+    aided  → South Africa · district · err 0.64 km · cues 11
+  [job_5f8644e78b2c] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 15 신규 · 0 병합 · $0.073
+    aided: 원자 13 신규 · 0 병합 · $0.066
+    blind  → Japan · district · err 40.36 km · cues 10
+    aided  → Japan · district · err 7.11 km · cues 9
+  [job_1a2be2d9d7ff] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 17 신규 · 0 병합 · $0.069
+    aided: 원자 14 신규 · 0 병합 · $0.063
+    blind  → Spain · district · err 46.07 km · cues 10
+    aided  → Spain · district · err 0.51 km · cues 8
+  [job_950227aac52b] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 17 신규 · 0 병합 · $0.072
+    aided: 원자 15 신규 · 0 병합 · $0.064
+    blind  → Italy · district · err 0.11 km · cues 11
+    aided  → Italy · district · err 0.17 km · cues 10
+  [job_cab0458cd29c] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 17 신규 · 0 병합 · $0.072
+    aided: 원자 16 신규 · 1 병합 · $0.069
+    blind  → Finland · district · err 0.25 km · cues 10
+    aided  → Finland · district · err 0.3 km · cues 10
+  [job_e1df2b6f7aeb] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 15 신규 · 1 병합 · $0.062
+    aided: 원자 15 신규 · 1 병합 · $0.066
+    blind  → Vietnam · district · err 3.46 km · cues 10
+    aided  → Vietnam · district · err 3.71 km · cues 11
+  [job_8740554c450d] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 14 신규 · 1 병합 · $0.068
+    aided: 원자 17 신규 · 0 병합 · $0.069
+    blind  → Germany · district · err 4.94 km · cues 11
+    aided  → Germany · district · err 0.07 km · cues 10
+  [job_81dd4684ad63] 분석 6장 × 2모드 (blind cut=960px)
+    blind: 원자 15 신규 · 0 병합 · $0.065
+    aided: 원자 16 신규 · 0 병합 · $0.072
+    blind  → Czechia · district · err 7.66 km · cues 10
+    aided  → Czechia · district · err 11.93 km · cues 10
+  [job_773111a6092d] 분석 5장 × 2모드 (blind cut=960px)
+    blind: 원자 13 신규 · 0 병합 · $0.061
+    aided: 원자 15 신규 · 0 병합 · $0.064
+    blind  → Kazakhstan · admin_region · err 102.12 km · cues 9
+    aided  → Kazakhstan · district · err 101.74 km · cues 10
+[baseline] 완료 13/13 · $8.439
+[baseline] tiers: {'unaided': 191, 'aided': 22, 'blind-only': 24}
+[baseline] 문서 14건 + README.md + tiers.json → D:\26y\GeoGuessHelper\docs\knowledge\baseline
+{
+  "done": [
+    {
+      "job_id": "job_da4b902eaf1e",
+      "status": "OK",
+      "cost_usd": 0.6573,
+      "message": null
+    },
+    {
+      "job_id": "job_f374e57f1b56",
+      "status": "OK",
+      "cost_usd": 0.6558,
+      "message": null
+    },
+    {
+      "job_id": "job_b2b72f38b424",
+      "status": "OK",
+      "cost_usd": 0.6175,
+      "message": null
+    },
+    {
+      "job_id": "job_41090529fe0b",
+      "status": "OK",
+      "cost_usd": 0.6656,
+      "message": null
+    },
+    {
+      "job_id": "job_72caf482d49b",
+      "status": "OK",
+      "cost_usd": 0.6596,
+      "message": null
+    },
+    {
+      "job_id": "job_5f8644e78b2c",
+      "status": "OK",
+      "cost_usd": 0.6732,
+      "message": null
+    },
+    {
+      "job_id": "job_1a2be2d9d7ff",
+      "status": "OK",
+      "cost_usd": 0.6566,
+      "message": null
+    },
+    {
+      "job_id": "job_950227aac52b",
+      "status": "OK",
+      "cost_usd": 0.6492,
+      "message": null
+    },
+    {
+      "job_id": "job_cab0458cd29c",
+      "status": "OK",
+      "cost_usd": 0.6473,
+      "message": null
+    },
+    {
+      "job_id": "job_e1df2b6f7aeb",
+      "status": "OK",
+      "cost_usd": 0.6391,
+      "message": null
+    },
+    {
+      "job_id": "job_8740554c450d",
+      "status": "OK",
+      "cost_usd": 0.659,
+      "message": null
+    },
+    {
+      "job_id": "job_81dd4684ad63",
+      "status": "OK",
+      "cost_usd": 0.6577,
+      "message": null
+    },
+    {
+      "job_id": "job_773111a6092d",
+      "status": "OK",
+      "cost_usd": 0.6009,
+      "message": null
+    }
+  ],
+  "cost_usd": 8.4388
+}

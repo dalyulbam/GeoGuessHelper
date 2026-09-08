@@ -1,6 +1,6 @@
 # 엔티티 · norway
 
-원자 14개 · 이 엔티티를 다룬 보고서 1건
+원자 15개 · 이 엔티티를 다룬 보고서 5건
 
 ## 원자
 - [[atm_0439d48bd32a]] **Norwegian road-name suffix -vegen vs -veien as a north/south dialect marker** (language/region)
@@ -17,6 +17,11 @@
 - [[atm_bd48449bc42a]] **Lifeline ferry services to depopulated islands worldwide** (economy/global)
 - [[atm_d63c438c5214]] **Norwegian retail chain signage as a country discriminator** (language/country)
 - [[atm_dfa20e6bf23f]] **Fjord-corridor hydro and industrial development pressure** (geography/global)
+- [[atm_e857853e0979]] **Planted spruce shelterbelts on treeless heath mark Iceland, not Norway** (nature/country)
 
 ## 보고서
+- `report_is_hvammstangi_65.3981_-20.944_260903_095326_ko-en-fr.html`
+- `report_is_hvammstangi_65.399_-20.9452_260907_155911_en.html`
+- `report_is_hvammstangi_65.399_-20.9452_260907_162051_en.html`
+- `report_is_hvammstangi_65.399_-20.9452_260907_162408_en.html`
 - `report_no_tromso_69.6711_18.9671_260817_041314_ko.html`
