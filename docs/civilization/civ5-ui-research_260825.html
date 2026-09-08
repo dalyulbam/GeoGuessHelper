@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>문명 5 인터페이스 해부 — 아트데코 UI의 구조와 알타이야 이식 설계 (260825)</title>
+<style>
+  :root{
+    /* 실측 팔레트 — 스크린샷 픽셀 영역 중앙값 샘플링 (본문 §3) */
+    --teal-deep:#0e3733;   /* 헤더 밴드 */
+    --teal-tab:#0c3d39;    /* 탭 띠 */
+    --teal-mid:#133632;    /* 모달 헤더 */
+    --panel-dark:#05090c;  /* 모달 본체 */
+    --panel-dark2:#031716; /* 내비 컬럼 */
+    --tooltip:#171d1b;     /* 툴팁 바탕 */
+    --gold:#d4b982;        /* 금 트림(밝음) */
+    --gold-deep:#c8a45a;   /* 금 트림(진함) */
+    --brass:#d5d5af;       /* 낡은 황동/크림 프레임 */
+    --cream:#f5edd0;       /* 본문 크림 텍스트 */
+    --cream-bright:#fffec1;/* 버튼 라벨 */
+    --ribbon:#3e5a44;      /* 상태 리본 */
+    --accent-science:#7ec8ff; --accent-gold:#ffd75e; --accent-culture:#ff5ecb;
+    --accent-food:#9be564; --accent-faith:#e8e0c6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#0a1412;color:var(--cream);
+       font-family:'Segoe UI','Malgun Gothic',sans-serif;line-height:1.65;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
+  header.hero{border:2px solid var(--gold-deep);border-radius:14px 14px 6px 6px;overflow:hidden;
+       background:linear-gradient(180deg,var(--teal-deep),var(--panel-dark2));margin-bottom:28px}
+  header.hero .band{background:var(--teal-mid);border-bottom:1px solid var(--gold-deep);
+       padding:14px 24px;text-align:center}
+  header.hero h1{margin:0;font-size:21px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-bright)}
+  header.hero .sub{padding:16px 24px 20px;color:#cfe0d6;font-size:14px}
+  h2{margin:44px 0 10px;padding:8px 16px;background:var(--teal-deep);border:1px solid var(--gold-deep);
+     border-radius:10px 10px 3px 3px;color:var(--cream-bright);font-size:16px;letter-spacing:.12em}
+  h3{margin:26px 0 8px;color:var(--gold);font-size:15px;letter-spacing:.04em}
+  p{margin:8px 0}
+  .note{border-left:3px solid var(--gold-deep);background:var(--tooltip);padding:10px 14px;border-radius:0 8px 8px 0;
+        color:#dfe7d9;font-size:13.5px;margin:12px 0}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px;background:var(--panel-dark)}
+  th{background:var(--teal-tab);color:var(--cream-bright);letter-spacing:.06em;font-weight:600}
+  th,td{border:1px solid #2b4a44;padding:7px 10px;text-align:left;vertical-align:top}
+  td b{color:var(--gold)}
+  code{background:#12211e;border:1px solid #2b4a44;border-radius:4px;padding:1px 5px;font-size:12.5px;color:#bfe3d6}
+  a{color:#8fd8c6}
+  figure{margin:16px 0;border:1px solid var(--gold-deep);border-radius:10px;overflow:hidden;background:#000}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{padding:8px 12px;background:var(--teal-deep);font-size:12.5px;color:#d9e6dd;border-top:1px solid var(--gold-deep)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:800px){.cols{grid-template-columns:1fr}}
+  .chip{display:inline-block;border:1px solid var(--gold-deep);border-radius:20px;padding:1px 10px;
+        font-size:12px;margin:2px;background:var(--teal-deep);color:var(--cream-bright)}
+  .sw{display:inline-block;width:14px;height:14px;border:1px solid #666;border-radius:3px;vertical-align:-2px;margin-right:6px}
+  ul{margin:6px 0 6px 4px;padding-left:18px}
+  li{margin:3px 0}
+  .demo-btn{display:inline-block;background:linear-gradient(180deg,#16453e,#0b2b27);border:1px solid var(--gold);
+        border-radius:16px;color:var(--cream-bright);padding:4px 22px;letter-spacing:.08em;font-size:13px}
+  .demo-ribbon{display:inline-block;background:linear-gradient(180deg,#4c6a51,#31473a);border:1px solid var(--brass);
+        border-radius:4px;color:#eef3df;padding:3px 18px;letter-spacing:.2em;font-size:12px;text-transform:uppercase}
+</style>
+</head>
+<body><div class="wrap">
+
+<header class="hero">
+  <div class="band"><h1>문명 5 인터페이스 해부</h1></div>
+  <div class="sub">
+    아트데코 UI 의 재료·팔레트·컴포넌트 문법을 스크린샷 실물로 조사하고, 지식 아틀라스
+    <b>알타이야(altaiya)</b> 프런트엔드에 이식하기 위한 설계 근거를 만든다.
+    <br>2026-08-25 · GeoguessHelper 프로젝트 · 조사: 웹 크롤링(스크린샷 48장 확보, 13장 정밀 판독) + 모딩 문서 + 아트디렉터 인터뷰
+  </div>
+</header>
+
+<h2>1. 조사 방법</h2>
+<p>세 경로로 모았다.</p>
+<table>
+<tr><th>경로</th><th>실제로 한 것</th><th>산출</th></tr>
+<tr><td><b>크롤링</b></td><td>Game UI Database 의 Civilization V 항목(스크린샷 48장, 1920×1080 원본)을 수집하고 화면 분류 라벨과 짝지음. 그중 13장을 내려받아 픽셀 단위로 판독, 팔레트를 실측</td><td>화면 유형 17종 목록, 컴포넌트 도감(§4), 팔레트(§3)</td></tr>
+<tr><td><b>문서</b></td><td>아트디렉터 Dorian Newcomb 인터뷰(Game Informer 2010), CivFanatics 모딩 위키(Lua/XML UI 구조), Enhanced UI 모드 문서(바닐라 UI 의 정보 격차 목록)</td><td>디자인 의도(§2), UI 아키텍처(§5)</td></tr>
+<tr><td><b>영상</b></td><td>유튜브 인터페이스 가이드 재생목록을 링크로 확보(§6). 직접 플레이는 이 환경에 게임이 없어 불가 — 대신 스크린샷 13장을 화면 상태별(턴 0 / 중반 / 전투 / 모달)로 골라 정적 판독으로 보완</td><td>화면 흐름의 맥락</td></tr>
+</table>
+
+<h2>2. 디자인 언어 — 왜 아트데코인가</h2>
+<p>아트디렉터 Dorian Newcomb 의 설명: 뉴욕 미드타운·록펠러 센터 일대의 아트데코 건축에서 출발했고,
+인터페이스 아티스트 Russ Vaccaro 가 <i>Grim Fandango</i>(아트데코+망자의 날)의 기억을 보탰다.
+핵심 문장 셋:</p>
+<ul>
+<li><b>재료</b> — "광택 알루미늄/크롬 룩, 베벨 엣지, 그리고 원(circle)" 이 인터페이스의 뼈대. Newcomb: "모든 것이 원형이고 둥글기를 원했다".</li>
+<li><b>일러스트</b> — 유닛·건물·불가사의·기술 아이콘은 <b>1920–1950 년 전시 선전 포스터와 여행 포스터</b>를 본떴다. 아이콘이 장식이 아니라 "포스터 한 장"이다.</li>
+<li><b>태도</b> — "멍청한 사람용 게임을 만들지 않는다. 똑똑한 사람이 똑똑하다고 느끼게 한다" — 장식은 화려하되 정보 전달은 색 코딩과 명확한 피드백으로.</li>
+</ul>
+<div class="note">관찰 종합: 문명 5 의 UI 는 <b>"어두운 청록 유리 + 금속 테두리 + 크림 글자"</b> 라는 3층 구조가 모든
+컴포넌트에서 반복된다. 장식(금 필리그리, 크레스트)은 <b>프레임에만</b> 붙고, 내용 영역은 철저히 어둡고 평평하다 —
+그래서 화려한데도 읽기 쉽다. 이것이 알타이야에 가져갈 첫 번째 원칙이다.</div>
+
+<h2>3. 팔레트·타이포그래피 (실측)</h2>
+<p>스크린샷의 균일 영역에서 14×8 픽셀 중앙값으로 샘플링했다.</p>
+<table>
+<tr><th>용도</th><th>실측값</th><th>어디서</th></tr>
+<tr><td><span class="sw" style="background:#0e3733"></span><b>딥 티일</b> — 헤더 밴드·타이틀 바</td><td><code>#0e3733</code> ~ <code>#133632</code></td><td>사회정책 모달 헤더, 테크 팝업 헤더</td></tr>
+<tr><td><span class="sw" style="background:#0c3d39"></span><b>티일 탭</b> — 탭 띠·내비</td><td><code>#0c3d39</code>, <code>#215a54</code></td><td>시빌로피디아 상단 탭 띠</td></tr>
+<tr><td><span class="sw" style="background:#05090c"></span><b>패널 암부</b> — 모달 본체</td><td><code>#020403</code> ~ <code>#05090c</code> ~ <code>#171d1b</code></td><td>피디아 본문·테크 팝업·툴팁</td></tr>
+<tr><td><span class="sw" style="background:#d4b982"></span><b>금 트림</b></td><td><code>#d4b982</code> (밝음) · <code>#c8a45a</code> (진함)</td><td>모달 테두리·필리그리</td></tr>
+<tr><td><span class="sw" style="background:#d5d5af"></span><b>낡은 황동</b> — 미니맵 프레임</td><td><code>#d5d5af</code></td><td>미니맵 모서리 장식</td></tr>
+<tr><td><span class="sw" style="background:#fffec1"></span><b>크림 라벨</b></td><td><code>#f9ffbe</code> ~ <code>#fffec1</code>, 본문 <code>#f5edd0</code> 대</td><td>버튼 라벨·헤더 소대문자</td></tr>
+<tr><td><span class="sw" style="background:#3e5a44"></span><b>상태 리본 녹청</b></td><td><code>#3e5a44</code> ~ <code>#778e72</code></td><td>"A UNIT NEEDS ORDERS" 리본</td></tr>
+<tr><td>자원 색 코딩</td><td>과학 <span class="sw" style="background:#7ec8ff"></span>하늘 · 골드 <span class="sw" style="background:#ffd75e"></span>노랑 · 문화 <span class="sw" style="background:#ff5ecb"></span>마젠타 · 식량 <span class="sw" style="background:#9be564"></span>연두 · 행복 노랑 스마일</td><td>상단 바 전역 — 숫자 자체에 색을 입힘</td></tr>
+</table>
+<p><b>타이포그래피</b>: 게임 전체가 <b>Tw Cent MT</b>(Twentieth Century — 1930년대 기하학적 산세리프, 아트데코 시대 서체) 하나로 통일.
+<code>assets/UI/Fonts</code> 에 크기별 비트맵(TwCenMT16/22/24…)로 내장. 헤더는 <b>자간을 넓힌 대문자</b>(SOCIAL POLICIES, NEXT TURN),
+본문은 동일 서체의 소문자 혼용 — 서체 하나 + 자간·대문자 변주만으로 위계를 만든다.</p>
+<p>맛보기: <span class="demo-btn">Adopt</span> <span class="demo-ribbon">Next Turn</span></p>
+
+<h2>4. 컴포넌트 도감 — 직접 판독한 13장</h2>
+
+<h3>4.1 인게임 HUD — 상시 표시 레이어</h3>
+<figure><img src="img/hud-turn0.jpg" alt="턴 0 HUD"><figcaption>턴 0 HUD. ① 상단 바(우측: Turn·연도·HELP·MENU) ② 좌상단 금 필리그리 모서리 장식 ③ 우상단 원형 코너 버튼 4개 ④ 좌하 유닛 패널(SETTLER) ⑤ 우하 미니맵+상태 리본 ⑥ 지형 툴팁(우중앙)</figcaption></figure>
+<figure><img src="img/hud-midgame.jpg" alt="중반 HUD"><figcaption>중반 HUD. 상단 바가 자원 수지로 채워지고(색 코딩 숫자), 좌상단에 연구 트래커(원형 초상+진행 링+획득물 아이콘), 중앙 상단에 전투 텍스트 피드, 도시 배너(JAKARTA), 우하 리본이 "ADOPT POLICY" 상태로 바뀜. 좌측 세로줄은 오버레이 토글 스택.</figcaption></figure>
+<table>
+<tr><th>컴포넌트</th><th>관찰된 문법</th></tr>
+<tr><td><b>상단 바</b> (TopPanel)</td><td>화면 최상단 전폭, 높이 ~28px, 완전 불투명 검정. 좌측에 자원 아이콘+색 숫자(과학 파랑 "+6", 골드 노랑 "33 (+2)", 행복 스마일, 황금기 "94/500", 문화 마젠타 "33/30 (+4)"…), 우측에 <code>Turn: 14 3440 BC | HELP | MENU</code>. 장식 없음 — 순수 정보 띠.</td></tr>
+<tr><td><b>코너 버튼</b> (DiploCorner)</td><td>우상단 원형 버튼 4개: 황동 링 + 어두운 내부 + 백색 아이콘(사회정책·외교·과학승리·추가정보). 원은 이 게임 버튼의 기본형.</td></tr>
+<tr><td><b>연구 트래커</b></td><td>좌상단. 큰 원형 메달리온(기술 일러스트+청색 진행 링) + 우측으로 뻗는 티일 밴드에 "Writing (9)" — 이름(남은 턴). 그 아래 검은 소패널에 이 기술이 열어줄 것들의 원형 아이콘 나열. <b>원+밴드 결합</b>은 문명5 헤더의 표준 문법.</td></tr>
+<tr><td><b>유닛 패널</b> (UnitPanel)</td><td>좌하단. 티일 그라데이션 헤더 바("ARCHER" + 좌우 화살표 = 유닛 순환), 아래로 원형 유닛 초상(황동 링), 행 단위 스탯(Movement 2/2 », Strength 5 🛡, Ranged Attack 7). 액션 버튼(요새화·경계 등)은 좌측 세로 스택의 정사각 버튼들.</td></tr>
+<tr><td><b>미니맵 패널</b> (MiniMapPanel)</td><td>우하단. 황동 프레임+모서리 장식, 내부는 양피지 톤 지도. 프레임 좌측에 작은 원형 토글(전략뷰·격자·자원 표시). <b>지도 위임이 아니라 액자</b> — 프레임이 강하게 존재.</td></tr>
+<tr><td><b>상태 리본</b> (ActionInfoPanel)</td><td>미니맵 바로 위 가로 리본. 상태 머신의 현재 행동 요구를 대문자로: <code>A UNIT NEEDS ORDERS</code> → <code>CHOOSE RESEARCH</code> → <code>ADOPT POLICY</code> → <code>NEXT TURN</code>. 클릭하면 해당 행동으로 점프. <b>"지금 뭘 해야 하는가"가 항상 한 곳에</b> 있다.</td></tr>
+<tr><td><b>알림 스택</b> (NotificationPanel)</td><td>우측 가장자리에 원형 메달리온이 수직으로 쌓임(황금기·정책·조우…). 각 항목은 아이콘+툴팁, 클릭 시 해당 사건으로 카메라 이동. 종류별 색 링.</td></tr>
+<tr><td><b>도시 배너</b> (CityBanner)</td><td>지도 위 부유. 티일 반투명 캡슐: 좌측 사각 배지에 인구수, 중앙 ★+도시명, 우측 원형 초상, 캡슐 위에 방패(방어력 10). 성장·생산 진행은 캡슐 테두리의 가는 게이지로.</td></tr>
+<tr><td><b>툴팁 / 타일 플레이트</b></td><td>암부(<code>#171d1b</code>) 사각, 금 헤어라인 테두리. 키워드에 색(지형명 연두, 산출 아이콘 인라인). 우하단 고정형 타일 정보 플레이트("Encampment / Plains, River / 🍏1 🔨1")도 동일 문법.</td></tr>
+<tr><td><b>전투 피드</b></td><td>화면 상단 중앙에 흰 텍스트 한 줄("Your Warrior (25 damage) attacked an enemy Brute (25 damage)!") — 패널 없이 텍스트만. 로그는 쌓지 않고 최신 한 줄.</td></tr>
+</table>
+
+<h3>4.2 연구 선택 — 리스트형 패널</h3>
+<figure><img src="img/hud-research-chooser.jpg" alt="연구 선택"><figcaption>연구 완료 직후. 좌측에 "Open Technology Tree" 버튼 + 후보 기술 4개가 <b>초록 알약 리스트</b>로 — 각 항목: 원형 기술 메달리온 + 이름(남은 턴) + 이 기술이 여는 것들의 소형 아이콘 줄. 우하 리본은 CHOOSE RESEARCH.</figcaption></figure>
+<figure><img src="img/tech-popup.jpg" alt="연구 완료 팝업"><figcaption>기술 획득 모달. 상단 크레스트: 금 방사 장식 + 원형 메달리온(도자기 일러스트) — 모달 프레임 위로 돌출. 인용구(성경 이사야) + 해금 내용(키워드 Granary/Shrine 는 연두 링크색) + Continue 버튼.</figcaption></figure>
+
+<h3>4.3 모달 프레임 — 이 게임의 대표 문법</h3>
+<figure><img src="img/social-policies.jpg" alt="사회정책"><figcaption>사회정책 화면. 상부 라운드+금 이중 테두리 모달, 티일 헤더 밴드(SOCIAL POLICIES), 탭 행, 정책 계열별 카드 — 각 카드는 티일 헤더 탭(TRADITION…) + 아트데코 포스터 일러스트 + Adopt 버튼. 채택한 계열은 밝고, 미채택은 어둡다(상태를 명도로).</figcaption></figure>
+<figure><img src="img/social-policies-tooltip.jpg" alt="사회정책 툴팁"><figcaption>동일 화면의 정책 노드 툴팁: 제목 연두 + 본문 크림 + 인라인 아이콘. 노드는 육각/원형 아이콘 버튼이고 트리 연결선은 가는 금선.</figcaption></figure>
+<table>
+<tr><th>모달 해부</th><th>관찰</th></tr>
+<tr><td><b>프레임</b></td><td>상부 모서리 큰 라운드(≈18px), 하부는 작음 — "위가 둥근 방패" 실루엣. 금 이중 테두리(외곽 진한 금 + 내부 헤어라인). 좌우 중앙에 황동 꽃장식(피벗처럼).</td></tr>
+<tr><td><b>크레스트</b></td><td>프레임 상변 중앙 위로 돌출하는 금 장식 + 원형 문장(팔각 별). Military Overview·Culture Overview·Diplomacy Overview 전부 동일 — <b>모달의 "왕관"</b>.</td></tr>
+<tr><td><b>헤더 밴드</b></td><td>티일(<code>#133632</code>) 띠에 자간 넓은 제목. 그 아래 탭 행(Your Culture / Swap Great Works / … )은 밝은 밑줄로 활성 표시.</td></tr>
+<tr><td><b>본체</b></td><td>거의 검정. 표는 얇은 티일 행 구분선 + 정렬 아이콘 컬럼 헤더. 스크롤바는 금 트랙+티일 썸.</td></tr>
+<tr><td><b>버튼</b></td><td>티일 그라데이션 알약 + 금 헤어라인 + 크림 라벨(Close, Adopt, Thank You, Continue). 호버 시 밝아짐. 파괴적/전쟁 행동도 같은 스타일(DECLARE WAR) — 색으로 위협하지 않고 위치로 구분.</td></tr>
+<tr><td><b>배경 처리</b></td><td>모달 뒤 게임 화면은 어둡게+탈채도. 모달 밖 HUD 는 그대로 보임 — 맥락 유지.</td></tr>
+</table>
+<figure><img src="img/military-overview.jpg" alt="군사 개요"><figcaption>군사 개요 — 표 문법의 표본: 좌측 요약 컬럼(레이블: 값 우정렬) + 우측 유닛 표(상태는 신호등 원), 하단에 위인 진행 게이지(황동 캡슐 + 원형 메달리온).</figcaption></figure>
+<figure><img src="img/military-overview-advisor.jpg" alt="어드바이저"><figcaption>튜토리얼 어드바이저: 우상단 도킹 패널 — 초상(포스터풍 일러스트) + 설명 + "다시 알리지 않기" 라디오 + Thank You 버튼. 도움말도 같은 프레임 문법.</figcaption></figure>
+<figure><img src="img/diplo-overview.jpg" alt="외교 개요"><figcaption>외교 개요 모달 + 우측에 열린 채 남는 외교 리본 패널(문명 목록: 초상 원 + 이름 + 상태 + 점수). 모달과 사이드 패널이 동시에 존재해도 프레임 문법이 같아 혼란이 없다.</figcaption></figure>
+
+<h3>4.4 외교 장면 — UI 가 사라지는 화면</h3>
+<figure><img src="img/diplo-leader.jpg" alt="정상 회담"><figcaption>지도자 화면: 전면 3D 지도자 + 배경 무대. UI 는 최소 — 하단 이름 플레이트(문장+이름+기분 NEUTRAL 우측 정렬)와 우하단 세로 버튼 스택(DECLARE WAR / Trade / Demand / Discuss / Goodbye)뿐.</figcaption></figure>
+<figure><img src="img/diplo-discuss.jpg" alt="논의 선택지"><figcaption>Discuss 진입 시: 화면 중앙 하단에 선택지 알약이 세로로 — 대화는 <b>가운데 정렬 알약 스택</b>, 시스템 행동은 <b>우하단 스택</b>으로 위치 구분.</figcaption></figure>
+
+<h3>4.5 시빌로피디아 — 백과 문법</h3>
+<figure><img src="img/civilopedia.jpg" alt="시빌로피디아"><figcaption>시빌로피디아. 상단: 티일 물결 장식 타이틀 띠 + 섹션별 원형 아이콘 탭 행 + 검색창. 좌측: 항목 내비 리스트(행 구분선). 본문: 페이지 헤더 플레이트(양날개 장식), 원형 삽화 메달리온, 인용구 박스(금 헤어라인 라운드), 본문 박스. 전부 한 서체.</figcaption></figure>
+
+<h3>4.6 화면 유형 총람 (Game UI Database 48장 라벨링)</h3>
+<p><span class="chip">Title Screen</span><span class="chip">Mode &amp; Screen Select ×2</span><span class="chip">Load/Save</span><span class="chip">Settings ×2</span><span class="chip">Custom Game Rules ×2</span><span class="chip">Pre-Game &amp; Lobby</span><span class="chip">Pause</span><span class="chip">HUD ×4</span><span class="chip">Maintenance &amp; Management ×7</span><span class="chip">Skill Tree(사회정책) ×2</span><span class="chip">Codex(시빌로피디아) ×3</span><span class="chip">Dialogue &amp; Speech ×2</span><span class="chip">Modal: Info/Tutorial ×4</span><span class="chip">Notification/Combat Log ×2</span><span class="chip">Progress Unlocked</span><span class="chip">Overview &amp; Stats</span><span class="chip">Leaderboards</span><span class="chip">News/Updates</span></p>
+
+<h2>5. UI 아키텍처 — 어떻게 만들어졌나</h2>
+<ul>
+<li><b>Lua + XML 쌍</b> — 화면마다 <code>TopPanel.lua/.xml</code>, <code>UnitPanel</code>, <code>NotificationPanel</code>, <code>CityView</code>, <code>DiploCorner</code>, <code>MiniMapPanel</code>, <code>TechTree</code> … XML 이 레이아웃(컨트롤 트리), Lua 가 로직. 경로 주소로 접근(<code>/InGame/TopPanel/TopPanelInfoStack</code>).</li>
+<li><b>컨트롤 어휘</b> — 컨테이너(Box·Grid·ScrollPanel·Stack·WorldAnchor), 버튼(Button·CheckBox·GridButton·RadioButton), 표시(Bar·Meter·Image·Label·Slider), 특수(PullDown·ToolTipType). <code>WorldAnchor</code> 가 도시 배너처럼 <b>지도 좌표에 UI 를 못박는</b> 컨트롤.</li>
+<li><b>모드가 증명한 약점</b> — Enhanced UI(EUI)가 고친 목록이 곧 바닐라의 정보 격차: 상단 바에 남은 턴 미표시, 유닛 이동력 소수점 미표시, 도시 배너에 성장 잠금·요청 사치재 미표시, 알림 미묶음, 외교에 클릭 과다. <b>교훈: 장식 문법은 유지한 채 "한 화면에 더 많은 상태"를 보여주는 방향이 개선이었다</b> — 알타이야도 처음부터 정보 밀도를 우선한다.</li>
+</ul>
+
+<h2>6. 링크 대장 — 출처와 참고 자료</h2>
+<table>
+<tr><th>분류</th><th>링크</th></tr>
+<tr><td rowspan="3">스크린샷</td><td><a href="https://www.gameuidatabase.com/gameData.php?id=622">Game UI Database — Civilization V</a> (48장 원본 출처, 이 보고서 img/ 는 여기서 축소 인용)</td></tr>
+<tr><td><a href="https://interfaceingame.com/">Interface In Game</a> (게임 UI 스크린샷 컬렉션 — Civ VI 항목 보유)</td></tr>
+<tr><td><a href="https://well-of-souls.com/civ/civ5_technologies.html">Arioch's Analyst — 기술 트리</a> (트리 전도: <code>vexing_332techs_original.jpg</code>)</td></tr>
+<tr><td rowspan="3">디자인 의도</td><td><a href="https://gameinformer.com/games/civilization_v/b/pc/archive/2010/08/06/interview-civ-v-art-director-dorian-newcomb.aspx">Game Informer — 아트디렉터 Dorian Newcomb 인터뷰</a> (아트데코·알루미늄·원·포스터 아이콘)</td></tr>
+<tr><td><a href="https://forums.civfanatics.com/threads/civ-v-art-director-explains-art-deco-look.374390/">CivFanatics — 인터뷰 스레드</a></td></tr>
+<tr><td><a href="https://www.artstation.com/artwork/Vdv9rX">ArtStation — Civ5 UI 아이콘 모드 아트(Tomasz Bełzowski)</a> · <a href="http://foxrocket.com/civ5iconsart.html">Russell Vaccaro 아이콘 원화</a></td></tr>
+<tr><td rowspan="3">UI 구조</td><td><a href="https://modiki.civfanatics.com/index.php?title=Lua_and_UI_Reference">Civ5 모딩 위키 — Lua and UI Reference</a> (컨트롤 어휘)</td></tr>
+<tr><td><a href="https://forums.civfanatics.com/threads/creating-ui-mods-with-lua-xml.399743/">CivFanatics — Lua/XML UI 모드 만들기</a></td></tr>
+<tr><td><a href="https://forums.civfanatics.com/resources/civ5-enhanced-user-interface.24303/">Enhanced User Interface (EUI)</a> — 바닐라 UI 정보 격차 목록</td></tr>
+<tr><td rowspan="2">영상</td><td><a href="https://www.youtube.com/playlist?list=PLnnmT-gIqpEwhlmymB8FClvcIfR64GSHR">JumboPixel — Civ V Tutorials, Tips and Guides (재생목록)</a></td></tr>
+<tr><td><a href="https://www.youtube.com/watch?v=B7yYQG3jjmY">Civ 5 improved EUI 소개 영상</a> · <a href="https://www.youtube.com/watch?v=PogmoDvQPmA">EUI 설치 가이드</a></td></tr>
+<tr><td>서체</td><td><a href="https://fontsgeek.com/fonts/tw-cent-mt">Tw Cent MT</a> — 게임 내장 UI 서체 (<code>assets/UI/Fonts</code>)</td></tr>
+</table>
+<div class="note">저작권 — img/ 의 13장은 Firaxis/2K 의 게임 화면을 연구·설계 참고 목적으로 축소 인용한 것(원본은 Game UI Database).
+로컬 저장소 밖 재배포 금지.</div>
+
+<h2>7. 알타이야 이식 설계</h2>
+<p>기획 v2(knowledge-atlas_260816)의 "문명5 화면 4개 대응"을 이번 실측으로 구체화한다.</p>
+<table>
+<tr><th>Civ5 컴포넌트</th><th>알타이야 대응</th><th>이식 규칙</th></tr>
+<tr><td>상단 바(TopPanel)</td><td>헤더 → <b>상시 상태 바</b></td><td>전폭 불투명 검정 띠. 좌측에 저장소 수지(원자·행위자·관계·사료권 수를 색 코딩 숫자로), 우측에 현재 뷰·시대 필터 상태</td></tr>
+<tr><td>상태 리본(ADOPT POLICY…)</td><td>미니맵 위 <b>행동 리본</b></td><td>선택 상태에 따라 "행위자를 선택" → "관계 N개 표시 중" → "시대: 오스만기" 대문자 리본</td></tr>
+<tr><td>도시 배너(WorldAnchor)</td><td>지도 위 <b>행위자 배너</b></td><td>티일 반투명 캡슐 + 좌측 배지(연결수=중심성) + 이름. 선택 시 금 링</td></tr>
+<tr><td>모달 프레임+크레스트</td><td>외교 화면·행위자 카드</td><td>상부 라운드 + 금 이중 테두리 + 티일 헤더 밴드 + 상단 크레스트(팔각 별 문장)</td></tr>
+<tr><td>알림 스택</td><td>우측 <b>사료권 메달리온</b></td><td>원형 아이콘 수직 스택 — 클릭 시 그 사료권으로 지도 이동</td></tr>
+<tr><td>시빌로피디아</td><td>백과 뷰(엔티티 카드)</td><td>좌 내비 리스트 + 페이지 헤더 플레이트 + 원형 삽화 메달리온 문법</td></tr>
+<tr><td>미니맵 액자</td><td>미니맵/범례 패널</td><td>황동 프레임 + 양피지 톤</td></tr>
+<tr><td>Tw Cent MT</td><td>제목·라벨 서체</td><td>웹 대체: 기하학적 산세리프(Futura 계열 폰트 스택) + 자간 넓은 대문자. 본문 한글은 시스템 고딕 유지</td></tr>
+</table>
+<h3>뷰포트 안정 원칙 — "텔레포트 금지"</h3>
+<ul>
+<li>클릭·필터·시대 전환에서 지도 뷰포트를 <b>절대 임의 리셋하지 않는다</b>. 이동이 필요한 상호작용(사료권 메달리온 클릭 등)만 <b>애니메이션 팬</b>으로, 나머지는 현재 시점 유지.</li>
+<li>줌·팬 상태를 상태 머신에 보존 — 데이터 리로드·테마 토글이 시점을 건드리지 않는다.</li>
+<li>모달을 열어도 지도는 뒤에 그대로(어둡게만) — Civ5 의 맥락 유지 문법.</li>
+</ul>
+
+</div></body>
+</html>

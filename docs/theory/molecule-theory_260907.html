@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessHelper — 원자·분자·추론 계층: 근접 그래프에서 개념을 가추하는 이론 (260907)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft);text-decoration:none}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul,.card ol{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+td b{color:var(--ink)}
+.tscroll{overflow-x:auto}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre .c{color:#7f978f} pre .k{color:#7fd6b6}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.def{background:#fff;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 18px;margin:12px 0;font-size:14.5px;color:var(--ink-2);box-shadow:var(--shadow)}
+.def b{color:var(--ink)}
+.def .lbl{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--accent-deep);text-transform:uppercase;margin-right:8px}
+.principle{background:linear-gradient(135deg,#0e1a17,#1c3a33);color:#cdeee2;border-radius:var(--radius);padding:20px 22px;font-size:14.5px;margin-top:16px;box-shadow:var(--shadow)}
+.principle b{color:#fff}
+.formula{font-family:'Cambria Math','Times New Roman',serif;font-size:15.5px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin:8px 0;color:var(--ink)}
+.flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--ink-2);margin-top:8px}
+.flow .box{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 12px}
+.flow .box.claim{border-style:dashed;border-color:var(--warn)}
+.flow .arr{color:var(--accent);font-weight:800}
+ul.plain{padding-left:18px;font-size:14px;color:var(--ink-2)} ul.plain li{margin:4px 0}
+ol.plain{padding-left:20px;font-size:14px;color:var(--ink-2)} ol.plain li{margin:4px 0}
+svg text{font-family:inherit}
+footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>GeoGuessHelper · 이론</div>
+  <nav class="topnav">
+    <a href="#idea">아이디어</a><a href="#formal">형식화</a><a href="#semantics">의미론</a><a href="#tiers">추론 계층</a>
+    <a href="#upgrade">개선</a><a href="#algo">알고리즘</a><a href="#status">지위·검증</a><a href="#limits">한계</a><a href="#next">다음</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">지식 이론 · 2026-09-07 · 선행: atom-density(260829) · atom-dialogue(260906) · 실행: docs/knowledge/molecule/, docs/knowledge/baseline/</div>
+  <h1>원자가 서로 가까운 이유는 그 사이에 없는 것이 있기 때문이다 —<br>근접 그래프에서 개념을 가추하는 분자(molecule) 이론</h1>
+  <p>사용자의 제안: 원자마다 임베딩 벡터를 두고, 서로 가까운 원자들이 <b>모든 쌍에서</b> 가까우면 그 묶음을 하나의 개념으로 보아
+  <b>분자(molecule)</b>라 부르고 이름을 붙이자. [프랑수아 1세, 설계·건축, 이탈리아]가 모이면 '다빈치'가 나타난다. 다빈치가 나중에 원자로
+  발견되면 그 연결을 기록한다. 이 문서는 그 제안을 <b>단체 복합체(simplicial complex)·형식 개념 분석·가추 논리</b>의 언어로 형식화하고,
+  어디가 이미 옳고 어디를 고치면 더 강해지는지를 밝힌다. 결론부터: 사용자가 그린 "A–B, B–C, A–C 가깝고 A–D 멂 ⇒ {A,B,C}" 규칙은
+  정확히 <b>Vietoris–Rips 복합체의 극대 단체</b>이고, '다빈치'를 붙이는 행위는 <b>Peirce 의 가추(abduction)</b>다 — 그래서 분자는 사실이 아니라
+  <b>가설 등급</b>이며, 가설이 원자로 환원(reification)될 때 검증 가능한 예측을 낳는다.</p>
+  <div class="meta">
+    <span class="chip ac">분자 = 극대 클리크 = 극대 단체</span>
+    <span class="chip ac">이름 붙이기 = 가추(abduction)</span>
+    <span class="chip ok">상태: hypothesis — 사실·주장과 분리</span>
+    <span class="chip wn">전역 ε 대신 지속성(persistence)으로 안정도</span>
+    <span class="chip wn">교집합형 vs 허브형 — 두 종류의 분자</span>
+  </div>
+</div></header>
+
+<!-- ============================================================ -->
+<section class="section" id="idea"><div class="wrap">
+  <div class="eyebrow">아이디어</div>
+  <h2 class="sec">사용자의 제안을 명제로 분해하면</h2>
+  <div class="grid g2">
+    <div class="card"><h3><span class="ic">①</span>거리</h3><p>모든 원자에 임베딩 벡터를 두고 쌍별 거리를 구한다. "가깝다"의 기준은 전체 거리 분포의 <b>하위 x%</b>이고, x 는 그때그때 조절한다.</p></div>
+    <div class="card"><h3><span class="ic">②</span>결합 규칙</h3><p>A–B, B–C, C–D 가 가깝고 A–C 도 가깝지만 A–D 가 멀면 <b>{A,B,C}만</b> 분자다. 즉 분자 안의 <b>모든 쌍</b>이 가까워야 하고, 한 쌍이라도 멀면 그 원자는 들어오지 못한다.</p></div>
+    <div class="card"><h3><span class="ic">③</span>시점성</h3><p>원자는 계속 늘고 바뀌므로 분자는 <b>시점별로 다르다</b>. 분자는 원자와 다른 이름(molecule)으로 따로 둔다(<code>docs/knowledge/molecule/</code>).</p></div>
+    <div class="card"><h3><span class="ic">④</span>명명과 문서</h3><p>분자마다 그룹을 부르는 <b>이름</b>과 그 지식의 <b>특징</b>, 관련된 것들을 <b>검색</b>해 문서를 쓴다. [프랑수아 1세, 설계·건축, 이탈리아] → '다빈치'.</p></div>
+    <div class="card"><h3><span class="ic">⑤</span>환원(reification)</h3><p>'다빈치'도 원자가 될 수 있지만 <b>그 전에 유추된 것</b>이라 분자로 둔다. 나중에 원자로 발견되면 <b>원자–분자 연결</b>을 기록한다.</p></div>
+    <div class="card"><h3><span class="ic">⑥</span>설명 원리</h3><p>"x 라는 단일 개념이 주변의 a, b, c 라는 <b>외부 다수 개념의 교집합 또는 연관개념</b>으로 설명 가능하다."</p></div>
+  </div>
+  <div class="principle"><b>이 문서의 주장.</b> ②는 그래프 이론의 <b>극대 클리크</b>이자 위상수학의 <b>극대 단체</b>다(§2). ⑥의 "교집합 또는 연관"은 서로 다른 두 구조 —
+  <b>교집합형(공통 내연)</b>과 <b>허브형(공통 이웃)</b> — 이고 둘의 검증 방법이 다르다(§3). ④의 명명은 연역도 귀납도 아닌 <b>가추</b>라서 분자는 반드시 가설 등급이어야 하며(§6),
+  ⑤의 환원은 가설이 <b>예측을 낳고 시험받는</b> 유일한 순간이다. ①의 "하위 x%"는 임계값 하나가 아니라 <b>필트레이션</b>으로 두면 파라미터가 데이터에서 나온다(§4).
+  그리고 오늘 blind/aided 실험이 만든 <b>추론 계층(unaided/aided)</b>은 이 이론의 맨 아래층 — 지각(perception)이 어디까지 닿는가 — 을 채운다(§4·§5).</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="formal"><div class="wrap">
+  <div class="eyebrow">형식화</div>
+  <h2 class="sec">근접 그래프 · 클리크 · 단체 복합체</h2>
+  <p class="sec-desc">사용자가 그림으로 그린 규칙을 그대로 수학으로 옮기면 알려진 대상이 나온다. 그 대상의 이름을 알면 그 대상이 가진 정리와 알고리즘을 다 쓸 수 있다.</p>
+
+  <div class="def"><span class="lbl">정의 1 · 원자와 임베딩</span> 시점 <i>t</i> 의 원자 집합을 <b>A<sub>t</sub></b>, 임베딩을 <b>φ : A<sub>t</sub> → S<sup>d−1</sup></b>(단위 구면; 정규화된 문장 벡터)라 한다.
+  거리는 코사인 거리 <b>d(a,b) = 1 − ⟨φ(a), φ(b)⟩</b>. 텍스트 = 제목 + 본문 + 태그 + 엔티티(레이어·범주 접두).</div>
+
+  <div class="def"><span class="lbl">정의 2 · ε-근접 그래프</span> 임계 ε 에 대해 <b>G<sub>ε</sub> = (A<sub>t</sub>, E<sub>ε</sub>)</b>, <b>E<sub>ε</sub> = { {a,b} : d(a,b) ≤ ε }</b>.
+  사용자의 "평균거리에서 하위 x%"는 <b>ε = Q<sub>x</sub>(d)</b>, 즉 전 쌍 거리의 x-백분위수다.</div>
+
+  <div class="def"><span class="lbl">정의 3 · 분자</span> <b>M ⊆ A<sub>t</sub></b> 가 분자라 함은 (i) |M| ≥ 3, (ii) <b>∀ a,b ∈ M : d(a,b) ≤ ε</b>(상호 근접), (iii) 극대(M 에 어떤 원자를 더해도 (ii)가 깨짐).
+  즉 <b>분자 = G<sub>ε</sub> 의 극대 클리크(maximal clique), 크기 ≥ 3</b>.</div>
+
+  <div class="callout"><b>사용자의 예를 검증한다.</b> A–B, B–C, C–D, A–C 가깝고 A–D 멂. {A,B,C}는 세 쌍이 모두 가까우니 클리크다. D 를 넣으려면 A–D 도 가까워야 하는데 멀다 → (ii) 위반 → D 배제. {B,C,D}가 클리크인지는 B–D 에 달렸는데 진술에 없다 — 가깝다면 {B,C,D}도 별개의 분자가 되고(C 는 두 분자에 속한다), 멀다면 C–D 는 분자를 이루지 못하는 외로운 변(edge)이다. <b>둘 중 어느 경우에도 {A,B,C,D}는 분자가 아니다.</b> 사용자의 직관이 극대 클리크 정의와 정확히 일치한다.</div>
+
+  <h3 class="sub">2.1 이것은 위상수학에서 이미 이름이 있다 — Vietoris–Rips 복합체</h3>
+  <p style="font-size:14.5px;color:var(--ink-2)">점집합 X 와 ε 에 대해 <b>VR<sub>ε</sub>(X)</b> 는 "모든 쌍이 ε 이내인 부분집합"을 단체(simplex)로 갖는 복합체다. 크기 k 의 클리크는 (k−1)-단체: 변(2)·삼각형(3)·사면체(4)…. 그러므로</p>
+  <div class="formula">분자(크기 k) = VR<sub>ε</sub>(A<sub>t</sub>) 의 극대 (k−1)-단체 &nbsp;&nbsp;·&nbsp;&nbsp; 분자 원장 = VR<sub>ε</sub>(A<sub>t</sub>) 의 극대 단체 목록</div>
+  <p style="font-size:14.5px;color:var(--ink-2)">사용자의 그림에서 {A,B,C}는 <b>채워진 삼각형</b>이고 C–D 는 <b>변만 있는 선</b>이다. "채워짐"이 개념의 존재를 뜻한다는 것이 이 이론의 핵심 은유이자 형식이다.</p>
+
+  <div style="margin-top:14px">
+  <svg viewBox="0 0 720 220" width="100%" style="max-width:720px;display:block" role="img" aria-label="A B C 삼각형과 D">
+    <defs><marker id="m" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><circle cx="3" cy="3" r="2" fill="#657a73"/></marker></defs>
+    <polygon points="90,170 230,40 300,170" fill="hsl(168 58% 95%)" stroke="hsl(168 74% 37%)" stroke-width="2"/>
+    <line x1="300" y1="170" x2="470" y2="120" stroke="#9a6b00" stroke-width="2" stroke-dasharray="6 5"/>
+    <line x1="90" y1="170" x2="470" y2="120" stroke="#b3261e" stroke-width="1.5" stroke-dasharray="2 6" opacity=".7"/>
+    <g font-size="14" font-weight="700" fill="#0e1a17">
+      <circle cx="90" cy="170" r="14" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="85" y="175">A</text>
+      <circle cx="230" cy="40" r="14" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="225" y="45">B</text>
+      <circle cx="300" cy="170" r="14" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="295" y="175">C</text>
+      <circle cx="470" cy="120" r="14" fill="#fff" stroke="#9a6b00" stroke-width="1.5"/><text x="465" y="125">D</text>
+    </g>
+    <g font-size="12.5" fill="#2f4a43">
+      <text x="150" y="130">채워진 2-단체 = 분자 {A,B,C}</text>
+      <text x="360" y="128" fill="#9a6b00">C–D ≤ ε (변만)</text>
+      <text x="230" y="205" fill="#b3261e">A–D &gt; ε → D 배제</text>
+    </g>
+    <g font-size="13" fill="#0e1a17">
+      <text x="530" y="60" font-weight="700">x = ?</text>
+      <text x="530" y="82" font-size="12.5" fill="#2f4a43">삼각형을 "설명"하는</text>
+      <text x="530" y="100" font-size="12.5" fill="#2f4a43">부재하는 노드(§3.2)</text>
+      <circle cx="600" cy="150" r="14" fill="none" stroke="#657a73" stroke-width="1.5" stroke-dasharray="3 3"/><text x="595" y="155" fill="#657a73">x</text>
+    </g>
+  </svg></div>
+
+  <h3 class="sub">2.2 시점성 — 필트레이션과 내용 주소</h3>
+  <div class="def"><span class="lbl">정의 4 · 필트레이션</span> ε 를 0 에서 키우면 <b>VR<sub>ε</sub> ⊆ VR<sub>ε'</sub> (ε ≤ ε')</b> — 단체는 태어나기만 하고 죽지 않는다(그러나 <b>극대</b> 단체는 더 큰 단체에 흡수되며 극대성을 잃는다). 분자 M 이 극대 단체로 존재하는 ε 의 구간 <b>[ε<sub>birth</sub>(M), ε<sub>absorb</sub>(M))</b> 의 길이를 <b>지속성(persistence)</b>이라 한다.</div>
+  <div class="def"><span class="lbl">정의 5 · 분자 식별자</span> <b>id(M) = "mol_" + sha1(sort(ids(M)))[:12]</b>. 같은 원자 구성이면 시점·ε 와 무관하게 같은 분자다. 스냅샷은 <b>(t, ε 또는 x, k, knn)</b> 튜플과 그때의 극대 단체 목록이다. A<sub>t</sub> 가 바뀌면 분자가 태어나고(새 원자가 삼각형을 닫음), 죽고(멤버 소멸), 합쳐지고(두 삼각형이 사면체로), 갈라진다(멤버 갱신으로 변이 끊김) — 이 <b>계보 이벤트</b>가 시점성의 실체다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="semantics"><div class="wrap">
+  <div class="eyebrow">의미론</div>
+  <h2 class="sec">왜 상호 근접이 "개념"인가 — 두 종류의 분자와 가추</h2>
+  <p class="sec-desc">사용자는 "교집합 <b>또는</b> 연관개념"이라 했다. 이 '또는'은 실제로 서로 다른 두 구조다. 구조가 다르면 이름을 붙이는 논리도, 검증하는 방법도 다르다.</p>
+
+  <h3 class="sub">3.1 교집합형 분자 — 형식 개념 분석(FCA)의 개념</h3>
+  <p style="font-size:14.5px;color:var(--ink-2)">Wille 의 형식 개념 분석에서 <b>개념 = (외연 G, 내연 M)</b> 의 갈루아 쌍이다: G 는 M 의 모든 속성을 가진 대상 전부, M 은 G 의 모든 대상이 공유하는 속성 전부. 임베딩 근접은 "속성을 공유한다"의 연속 근사이므로, <b>분자 = 외연</b>, <b>이름 = 내연을 한 단어로 부른 것</b>이다. 예: [노르웨이 노란 중앙선, 노르웨이 방향표지 노란 배경, 노르웨이 목재 집] → 내연 "노르웨이 도로·건축 시각 어휘" → 이름 <b>"노르웨이 메타"</b>. 이런 분자의 이름은 <b>상위 범주(genus)</b>이고, 검증은 <b>내연 열거</b>로 한다 — 멤버 전부가 실제로 공유하는 속성을 적어 낼 수 있으면 통과.</p>
+
+  <h3 class="sub">3.2 허브형 분자 — 부재하는 노드와 가추</h3>
+  <p style="font-size:14.5px;color:var(--ink-2)">사용자의 예 [프랑수아 1세, 설계·건축, 이탈리아] → '다빈치'는 교집합이 아니다. 프랑수아 1세와 이탈리아 건축은 공유 속성이 거의 없다. 셋이 가까운 이유는 <b>셋 모두와 강하게 연결된 하나의 노드(다빈치)가 그래프에 없기 때문</b>이다 — 그 노드가 있었다면 셋은 <b>별(star)</b>로 연결됐을 텐데, 없으니 그 그림자가 <b>삼각형</b>으로 남았다. 확률 그래프 모형에서 이것은 <b>잠재 변수(latent variable)</b>다: 관측 변수 a,b,c 가 서로 상관되지만 x 를 조건으로 하면 독립이 되는 구조. 논리학에서 이 추론은 Peirce 의 <b>가추(abduction)</b>다.</p>
+  <div class="formula">규칙: x 이면 a, b, c &nbsp;&nbsp;·&nbsp;&nbsp; 관찰: a, b, c 가 함께 있다 &nbsp;&nbsp;⇒&nbsp;&nbsp; 가설: x &nbsp;&nbsp;(진리 보존 아님 — 가장 좋은 설명의 선택)</div>
+  <p style="font-size:14.5px;color:var(--ink-2)">가추는 연역처럼 필연적이지 않고 귀납처럼 사례를 일반화하는 것도 아니다. "만약 x 가 참이라면 a,b,c 가 당연해진다"는 <b>설명력</b>으로 x 를 도입한다. 그래서 (1) 같은 삼각형에 여러 x 가 후보로 설 수 있고(다빈치 / 르네상스 / 앙부아즈 성), (2) x 는 시험받아야 한다. <b>분자 문서의 <code>status: "hypothesis"</code> 는 장식이 아니라 이 논리적 지위의 표기다.</b></p>
+
+  <div class="grid g2">
+    <div class="card"><h3><span class="ic">∩</span>교집합형 (내연 명명)</h3>
+      <ul><li>이름 = 공유 속성의 상위 범주</li><li>검증 = 내연 열거(멤버 전부가 가진 속성 ≥ 2개)</li><li>환원되면 상위 원자(scope 넓음)로 나타남</li><li>임베딩이 잘 잡는다 — 같은 어휘장</li></ul></div>
+    <div class="card"><h3><span class="ic">✦</span>허브형 (잠재 노드 명명)</h3>
+      <ul><li>이름 = 멤버를 모두 설명하는 부재 개체</li><li>검증 = <b>별 조건</b>: x 를 임베딩했을 때 ∀m∈M d(x,m) &lt; max<sub>m,m'</sub> d(m,m') — x 가 삼각형 안쪽에 있어야 한다(§6)</li><li>환원되면 멤버 각각과 <code>refs</code> 로 연결되는 <b>허브 원자</b></li><li>임베딩이 놓치기 쉽다 — 멤버 간 어휘 공유가 적어 거리가 멀 수 있음 → §4(h)</li></ul></div>
+  </div>
+  <div class="callout warn"><b>구분법.</b> 분자의 내부 거리가 고르게 짧고(직경 ≈ 평균) 멤버 제목에 공통 명사가 있으면 교집합형이 유력하다. 내부 거리가 고르지만 공통 명사가 없고, 이름 후보를 임베딩하면 그것이 중심(centroid)에 멤버들보다 더 가깝다면 허브형이다. 명명 도구는 두 유형을 모두 내게 하고(<code>why_these_cohere</code>), 사후 검증(§6)이 어느 쪽인지 가른다.</div>
+
+  <h3 class="sub">3.3 부정 증거 — D 가 배제된 것도 지식이다</h3>
+  <p style="font-size:14.5px;color:var(--ink-2)">"{A,B,C}는 x 지만 D 는 아니다"는 그 자체로 <b>x 의 경계</b>를 말한다. 논리 형식으로는 <b>x(A)∧x(B)∧x(C)∧¬x(D)</b>, 즉 어제 기획서(atom-dialogue §3)의 <b>반사실적 판별자</b>("핀란드였다면 대신 …")와 같은 꼴이다. 분자 문서에 "가장 가까웠지만 들어오지 못한 원자"(near-miss, 최소 한 쌍이 ε 를 넘긴 것)를 기록하면, 그 분자의 개념이 <b>어디서 끝나는지</b>가 드러난다. 이것이 판별자 원자를 만드는 새로운 원천이 된다.</p>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="tiers"><div class="wrap">
+  <div class="eyebrow">추론 계층</div>
+  <h2 class="sec">지각에서 가추까지 — 원자에 인식론적 층을 매긴다</h2>
+  <p class="sec-desc">오늘의 blind/aided 실험(docs/knowledge/baseline/)은 "이 사실은 로드뷰만 보고 나온 것인가, 지도(보조 지식)가 있어야 나온 것인가"를 원자 단위로 가른다. 이 계층은 분자 이론의 바닥층이다 — 분자가 어떤 종류의 지식 위에 서 있는지를 말해 준다.</p>
+  <div class="tscroll"><table>
+    <tr><th>층</th><th>정의</th><th>산출 방법</th><th>등급</th><th>예(아이슬란드 Hvammstangi 1건 실측)</th></tr>
+    <tr><td><b>L0 지각 · unaided</b></td><td>로드뷰 패널만 보고도 추론된 사실</td><td>blind 저장소와 aided 저장소 양쪽에서 짝이 맞는 원자(제목·본문·태그·범주 유사도 ≥ 0.40, 전역 탐욕 매칭)</td><td>사실(vision)</td><td>'HÓTEL HVAMMSTANGI' 간판, ð 가 든 거리 표지, 콘크리트 배처 플랜트, 무지개 횡단보도 … 14건</td></tr>
+    <tr><td><b>L1 보조 · aided</b></td><td>하단 지도(보조 지식)가 있어야만 나온 사실</td><td>aided 저장소에만 있는 원자</td><td>사실(vision) — 단 <b>지도 유래 표시</b></td><td>"Map inset showing Route 711 through town" — 정답 지도에서 읽은 것. 2건</td></tr>
+    <tr><td><b>L1' 억제 · blind-only</b></td><td>지도가 없을 때만 나온 관찰(지도가 주의를 빼앗아 사라짐)</td><td>blind 저장소에만 있는 원자</td><td>사실(vision)</td><td>흰 교회와 N1 주유소 캐노피, 골함석 토속 주택 2건</td></tr>
+    <tr><td><b>L2 문헌 · web</b></td><td>웹 리서치·위키에서 온 사실(P3·wiki·expansion)</td><td><code>sources</code> 에 http URL</td><td>사실(web)</td><td>기존 저장소 608건</td></tr>
+    <tr><td><b>L3 가추 · molecule</b></td><td>L0–L2 원자들의 상호 근접에서 명명된 잠재 개념</td><td>극대 단체 + 명명(§6)</td><td><b>가설</b></td><td>docs/knowledge/molecule/mol_*.md (§7 실측)</td></tr>
+    <tr><td><b>L4 주장 · claim</b></td><td>사람이 대화에서 서명한 판별자</td><td>atom-dialogue §5 관문</td><td><b>주장</b> → 승인 후 사실</td><td>(미구현)</td></tr>
+  </table></div>
+  <div class="callout"><b>분자의 지각 의존도.</b> 분자 M 의 멤버 중 L1(aided) 비율을 <b>지도 의존도</b>로 기록하면, "이 개념은 정답을 보지 않고도 성립하는가"가 수치가 된다. GeoGuessr 판별에 쓸 수 있는 분자는 지도 의존도가 낮은 것뿐이다.</div>
+  <div class="callout warn"><b>실측 — 14건, 2026-09-07 (docs/knowledge/baseline/README.md).</b> 국가 적중 blind 14/14 · aided 14/14. 좌표 오차 중앙값 blind 1.54 km · aided 1.47 km(거의 같음), 평균 15.07 vs 9.57 km — 차이는 <b>꼬리</b>에서 난다(스페인 46→0.5, 일본 40→7, 카자흐스탄 102→102, 독일 4.9→0.07). 도달 level: blind 13/14 district. 감사 판정 14건: <code>map-leaked-answer</code> 8 · <code>map-helped</code> 4 · <code>blind-sufficient</code> 2.
+  원자 계층: <b>unaided 191 · aided 22 · blind-only 24</b> (aided 9%). aided 22건 중 5건은 문자 그대로 지도 라벨이다("Map inset showing Route 711", "Map overlay naming FV-2 road", "Map labels for QL37 corridor", "Map panel with Munich district place names", "Map label for Beyneu settlement") — <b>정답 누출이 원자로 굳어지는 경로</b>가 실재한다. 나머지 aided 는 지도가 장소를 알려준 뒤 모델이 <b>기억에서 꺼낸</b> 장소 사실(투르쿠의 스웨덴 유산, 기타야마 임업, 카나리아 도로 코드)이다 — 관찰이 아니라 회상이며, 그래서 aided 층은 "지각"이 아니라 "지식 인출"의 층이다.
+  해석: 국가·지역 판별은 로드뷰만으로 이미 충분하고(간판·상호·행정 브랜딩이 지명을 직접 준다), 지도는 <b>마지막 1 km 와 실패 사례의 구제</b>에만 기여한다. 따라서 (i) 지도 라벨 유래 cue 는 P1 재료에서 제외해야 하고, (ii) "판별자가 도움이 됐다"는 주장은 blind 모드의 꼬리(오차 &gt; 10 km 건수)로 측정해야 한다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="upgrade"><div class="wrap">
+  <div class="eyebrow">개선</div>
+  <h2 class="sec">아이디어를 더 강하게 만드는 아홉 가지</h2>
+  <div class="grid g2">
+    <div class="card"><h3><span class="ic">(a)</span>전역 ε 의 밀도 편향 → 국소 척도</h3>
+      <p>원자 밀도가 지역마다 다르다(아이슬란드·크로아티아 수백 vs 카자흐스탄 수 건). 전역 x-백분위 하나면 밀집 지역은 거대 클리크로 뭉치고 희소 지역은 분자가 안 생긴다. <b>상호 k-NN 그래프</b>(둘이 서로의 상위 k 이웃) 또는 각 점의 k 번째 이웃 거리로 정규화한 <b>국소 ε<sub>a</sub></b> 를 전역 ε 과 교집합한다. 현재 구현(pct ∩ knn)이 이 절충이다.</p></div>
+    <div class="card"><h3><span class="ic">(b)</span>임계 하나 → 지속성 점수</h3>
+      <p>"그때그때 조절"을 필트레이션으로 바꾼다: 여러 ε 에서 극대 단체를 구해 각 분자의 <b>생존 구간 길이</b>를 안정도로 기록한다. 넓은 구간에서 살아남는 분자가 진짜 개념이고, 한 ε 에서만 보이는 분자는 노이즈다. 파라미터가 사람의 손을 떠나 데이터로 간다.</p></div>
+    <div class="card"><h3><span class="ic">(c)</span>클리크의 취약성은 그대로 두되 병합만</h3>
+      <p>클리크는 한 변만 끊겨도 깨진다. 준클리크·k-코어로 완화하면 "A–D 가 멀면 D 배제"라는 사용자의 원칙(직경 조건)이 무너진다. 그래서 <b>직경 ≤ ε 은 원칙으로 유지</b>하고, 거의 같은 멤버의 클리크(자카드 ≥ 0.75)만 하나로 본다. 클리크 퍼콜레이션(공유 2개면 병합)은 D 를 끌어들이므로 쓰지 않는다.</p></div>
+    <div class="card"><h3><span class="ic">(d)</span>명명의 시험 — 가추는 시험받아야 한다</h3>
+      <p>이름 x 를 <b>같은 임베딩 공간</b>에 넣고 세 가지를 잰다: ① 중심성 — d(x, centroid(M)) 이 멤버 평균보다 작은가, ② 별 조건 — ∀m d(x,m) &lt; diameter(M) 인가(허브형), ③ 외부 근거 — 웹 검색 인용이 있는가. ①②를 통과하면 <b>개념명</b>, ③만 있으면 <b>라벨</b>, 다 실패하면 <b>미명명</b>으로 남긴다.</p></div>
+    <div class="card"><h3><span class="ic">(e)</span>환원(reification)은 예측이다</h3>
+      <p>'다빈치'가 원자로 들어오면 (i) 멤버들과의 거리가 멤버 간 거리보다 짧아야 하고(별 조건의 사후 검증), (ii) 새 원자의 <code>refs</code> 가 멤버를 가리켜야 한다 — <code>refs</code> 의 세 번째 용도(expansion 계보·공동 인용·<b>분자 환원</b>). 예측이 틀리면(다빈치 원자가 삼각형 밖에 있으면) 그 분자의 이름은 폐기된다. 환원이 곧 시험이다.</p></div>
+    <div class="card"><h3><span class="ic">(f)</span>거대분자 — 개념 위계</h3>
+      <p>분자 중심(centroid) 벡터로 2차 근접 그래프를 만들면 분자의 분자가 나온다 — FCA 의 개념 격자에 해당한다. 그러나 가설 위의 가설이라 <b>깊이 2 까지만</b> 허용하고 문서에 계층 깊이를 명시한다.</p></div>
+    <div class="card"><h3><span class="ic">(g)</span>near-miss 를 판별자로</h3>
+      <p>분자마다 "가장 가까웠지만 한 쌍 때문에 배제된 원자" D 를 기록한다. "{A,B,C}는 x, D 는 아님"은 반사실적 판별자와 동형(§3.3)이라, 대화 base 의 <code>propose_atom(kind=discriminator)</code> 재료가 된다.</p></div>
+    <div class="card"><h3><span class="ic">(h)</span>임베딩의 지명 편향 → 탈지명화 병행</h3>
+      <p>다국어 문장 임베딩은 표면 어휘에 민감해 같은 지명이 반복되는 원자가 뭉친다 — 그러면 분자가 "개념"이 아니라 "국가 폴더"가 된다. <b>엔티티·지명을 마스킹한 텍스트</b>로 두 번째 임베딩을 만들어 병행하고, 두 공간에서 모두 가까운 쌍만 개념적 근접으로 본다. 첫 실행 결과가 국가별로 뭉치면 이 장치를 켠다(§7).</p></div>
+    <div class="card"><h3><span class="ic">(i)</span>분자에 지각 의존도·등급 합성</h3>
+      <p>멤버의 층(§4)을 집계해 분자마다 <code>tier_mix</code>(L0/L1/L2 비율)와 <code>derivation_mix</code>(web/vision)를 붙인다. 상용 아틀라스 모드는 web 유래 멤버만으로 재계산한 분자만 쓴다(시장조사 §3-3, atom-dialogue §8).</p></div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="algo"><div class="wrap">
+  <div class="eyebrow">알고리즘</div>
+  <h2 class="sec">의사코드와 파라미터</h2>
+<pre><span class="c"># 1. 임베딩 (시스템 Python, GPU) — 증분: updated 가 같으면 재사용</span>
+V = normalize(embed([layer+category+title+body+tags+entities for a in atoms]))
+
+<span class="c"># 2. 거리와 임계 — 전역 백분위 ∩ 상위 k 이웃</span>
+D = 1 - V @ V.T
+eps = percentile(D[upper], pct)                 <span class="c"># 사용자의 "하위 x%"</span>
+E = {(a,b) : D[a,b] &lt;= eps and b in kNN(a,k) and a in kNN(b,k)}   <span class="c"># 상호 k-NN 교집합</span>
+
+<span class="c"># 3. 분자 = 극대 클리크(= VR_eps 의 극대 단체), 크기 ≥ 3 ; 직경 조건은 정의상 만족</span>
+M = [c for c in maximal_cliques(G(E)) if len(c) &gt;= 3]
+M = merge_if_jaccard(M, 0.75)                   <span class="c"># 거의 같은 클리크만 병합 — 퍼콜레이션 아님</span>
+for m in M: m.id = "mol_" + sha1(sorted(m))[:12]; m.cohesion = mean(D[m]); m.diameter = max(D[m])
+           m.near_miss = argmin_{d ∉ m} max_{a∈m} D[a,d]      <span class="c"># (g) 배제된 최근접</span>
+
+<span class="c"># 4. 지속성 (b) — 여러 eps 에서 반복해 생존 구간 기록</span>
+for pct in [1, 2, 3, 5]: snapshot(pct) ; persistence[m.id] = [pct_birth, pct_absorb)
+
+<span class="c"># 5. 명명 = 가추 (LLM, 닫힌 세계 + 웹 검색 ≤ 2) → status: hypothesis</span>
+doc = llm(molecule_doc, members=m, tools=[web_search])   <span class="c"># name, why_these_cohere, related, missing_atoms</span>
+
+<span class="c"># 6. 시험 (d) — 이름을 같은 공간에 넣어 중심성·별 조건 확인</span>
+x = embed(doc.name); grade = "concept" if d(x,centroid) &lt; mean_d and all(d(x,m) &lt; diameter) else "label"
+
+<span class="c"># 7. 환원 (e) — 이름이 원자로 존재/등장하면 연결 기록 + 별 조건 사후 검증</span>
+for a in atoms: if slug(a) == doc.slug or slug in a.entities: link(m, a); verify_star(a, m)</pre>
+  <div class="tscroll"><table>
+    <tr><th>파라미터</th><th>의미</th><th>기본</th><th>조절 신호</th></tr>
+    <tr><td><code>pct</code></td><td>전 쌍 거리의 하위 백분위 → ε</td><td>2.0</td><td>분자 수 30~150, 최대 클리크 크기 ≤ 12 가 되게. 여러 값으로 스냅샷을 남겨 (b) 지속성을 잰다</td></tr>
+    <tr><td><code>knn</code></td><td>상호 k 이웃 제한(밀도 폭주 방지)</td><td>10</td><td>밀집 국가 폴더가 거대 클리크로 뭉치면 낮춘다</td></tr>
+    <tr><td><code>min_size</code></td><td>분자 최소 크기</td><td>3</td><td>사용자 정의(삼각형). 2 는 변이지 개념이 아니다</td></tr>
+    <tr><td><code>merge</code></td><td>클리크 병합 자카드</td><td>0.75</td><td>0 = 병합 없음. 퍼콜레이션(공유 2)은 쓰지 않는다</td></tr>
+    <tr><td><code>limit</code>·비용 상한</td><td>명명 호출 수 · 총 USD</td><td>60 · $8</td><td>응집(cohesion) 강한 순으로</td></tr>
+  </table></div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="status"><div class="wrap">
+  <div class="eyebrow">지위 · 검증</div>
+  <h2 class="sec">세 등급과 승격 규칙 — 사실 · 가설 · 주장</h2>
+  <div class="flow">
+    <span class="box">원자 <b>사실</b> (web / vision) — 출처·이미지 index 있음</span><span class="arr">→</span>
+    <span class="box claim">분자 <b>가설</b> — 가추, status: hypothesis</span><span class="arr">→</span>
+    <span class="box claim">대화 <b>주장</b> — 사람 서명, basis 필수</span><span class="arr">→</span>
+    <span class="box">승격된 <b>사실</b> — 규범 출처 ≥1 AND (증거 일치 ∨ 승인)</span>
+  </div>
+  <div class="tscroll"><table>
+    <tr><th>등급</th><th>누가 만들었나</th><th>어디에</th><th>회상(recall)에 들어가나</th><th>승격 조건</th></tr>
+    <tr><td><b>사실 (fact)</b></td><td>파이프라인(문서·이미지에서 추출)</td><td><code>atoms/</code></td><td>예</td><td>—</td></tr>
+    <tr><td><b>가설 (hypothesis)</b></td><td>분자 명명(가추)</td><td><code>molecule/</code></td><td><b>아니오</b> — 원자가 아니므로 <code>recall()</code> 밖. 프롬프트에는 "가설" 라벨로만 선택 노출</td><td>(d) 시험 통과 + (e) 환원 원자 발견 시 원자–분자 링크. 분자 자체는 승격되지 않는다 — 대신 <b>환원 원자</b>가 사실로 들어온다</td></tr>
+    <tr><td><b>주장 (claim)</b></td><td>사람(대화)</td><td><code>claims/</code>(예정)</td><td>아니오</td><td>atom-dialogue §5 다섯 관문</td></tr>
+  </table></div>
+  <div class="callout danger"><b>왜 분자를 회상에 넣지 않는가.</b> 가추는 설명력으로 선택된 가설이고, 임베딩 근접은 어휘 공유의 근사다. 분자 이름이 <code>recall()</code> 을 타고 다음 보고서 프롬프트의 "확립된 사실"로 들어가면, 260829 추크 사례(전역 원자가 모든 장소의 근거가 됨)의 가설판이 된다. 분자는 <b>탐색 도구</b>다 — 무엇을 조사할지(missing_atoms), 어떤 판별자를 만들지(near-miss), 어떤 원자가 허브인지(환원)를 가리킨다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="limits"><div class="wrap">
+  <div class="eyebrow">한계</div>
+  <h2 class="sec">이 이론이 틀릴 수 있는 지점</h2>
+  <ul class="plain">
+    <li><b>임베딩 거리 ≠ 논리적 연관.</b> 문장 임베딩은 어휘·주제 유사도를 잡는다. "프랑수아 1세"와 "이탈리아 건축"은 어휘가 안 겹쳐 멀 수 있다 — 허브형 분자는 임베딩만으로는 <b>발견되지 않을</b> 가능성이 크다. 허브형은 오히려 <b>관계 그래프</b>(extract.py 의 행위자 관계, 공동 인용 refs)에서 공통 이웃으로 찾는 것이 맞고, 임베딩 클리크는 교집합형에 강하다. 두 그래프를 합쳐야 사용자의 '다빈치' 예가 실제로 나온다.</li>
+    <li><b>클리크 폭발.</b> 밀집 영역에서 극대 클리크 수는 지수적으로 늘 수 있다. 상호 k-NN 제한과 pct 조절이 방어선이고, 그래도 넘치면 k-클리크 열거를 크기 ≤ 12 로 자른다.</li>
+    <li><b>이름 환각.</b> LLM 은 어떤 삼각형에도 그럴듯한 이름을 붙인다. (d)의 기하학적 시험과 웹 근거 없이는 이름을 "개념"이라 부르지 않는다.</li>
+    <li><b>표본 편향.</b> 원자 1,290개는 40개국 184장 캡처와 확장 패스에서 왔다. 분자는 <b>우리가 어디를 찍었는가</b>를 반영할 뿐 세계의 개념 구조가 아니다. 분자 문서는 반드시 멤버 수·국가 수·기간을 적는다.</li>
+    <li><b>시점성의 비용.</b> 스냅샷마다 명명을 다시 하면 비용이 선형으로 는다. 내용 주소 id 로 같은 구성은 재명명하지 않고, 바뀐 분자만 다시 명명한다.</li>
+    <li><b>지각 계층의 표본 크기.</b> blind/aided 는 14건 실험이다. 계층 판정(0.40 매칭)은 첫 건으로 보정한 값이라 다른 언어·다른 규모의 원자에서는 재보정이 필요하다.</li>
+  </ul>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="next"><div class="wrap">
+  <div class="eyebrow">다음</div>
+  <h2 class="sec">실행과 검증 순서</h2>
+  <ol class="plain">
+    <li><b>1차 스냅샷 확인</b>(docs/knowledge/molecule/) — 분자가 국가 폴더로 뭉치는지 본다. 뭉치면 (h) 탈지명화 임베딩을 켜고 두 공간의 교집합으로 재계산.</li>
+    <li><b>(d) 시험 구현</b> — 이름을 임베딩해 중심성·별 조건을 계산하고 문서에 <code>grade: concept|label|unnamed</code> 기록.</li>
+    <li><b>(b) 지속성</b> — pct 1/2/3/5 스냅샷을 자동으로 남기고 분자별 생존 구간을 index 에.</li>
+    <li><b>(g) near-miss</b> 를 분자 문서에 추가하고, 대화 base(atom-dialogue) 의 판별자 제안 재료로 연결.</li>
+    <li><b>허브형 발견용 관계 그래프</b> — extract.py 관계 + 공동 인용 refs 에서 공통 이웃 삼각형을 찾아 임베딩 클리크와 비교. '다빈치' 유형은 여기서 나온다.</li>
+    <li><b>(i) 등급 합성</b> — baseline 의 tier 와 derivation 을 분자에 집계. 상용 모드는 web-only 재계산.</li>
+  </ol>
+  <div class="callout warn"><b>1차 스냅샷 실측 — 2026-09-07 (docs/knowledge/molecule/README.md).</b> 원자 1,297개 · mpnet 768d(GPU) · 쌍 840,456 · 거리 평균 0.739, p1 0.380 · p5 0.506 · p50 0.754.
+  기획 기본값(전역 pct 2%, 한쪽 kNN 10, 최소 3)은 <b>분자 2,530개</b>를 냈다 — §5(a)의 밀도 편향과 §7의 클리크 폭발이 예측대로 나타났다. 채택값: <b>상호 kNN 10 ∩ pct 0.5%(ε = 0.328) · 최소 크기 4 · 겹침(자카드 ≥ 0.5)은 병합이 아니라 흡수</b> → 분자 120개(4:89 · 5:25 · 6:6), 원자 343개 포함, 직경 &gt; ε 위반 0(사용자의 배제 규칙 100% 유지). 62개 명명(sonnet, $4.00, 실패 0), 원자–분자 링크 19건, 미명명 58.
+  세 가지 예측이 맞았다: ① <b>가장 응집된 분자는 가장 정보량이 낮은 원자군</b>이었다 — 명명 62개 중 history 35개가 위키 유래 '왕조·정치체 목록' 원자(§7 표본 편향; 개선안: 목록형 원자 제외 또는 정보량 가중). ② <b>허브형 '다빈치' 사례가 <code>missing_atoms</code> 로 나타났다</b> — 토사(土司) 5개 원자 분자가 "토사 제도 개설·改土歸流"를, 좌·우측통행 분자가 "Sweden 1967 Dagen H"를 빠진 중심 개념으로 냈다(§3.2). ③ <b>이름은 검색 근거 없이 붙었다</b> — web_search 도구를 줬으나 62건 모두 0회 사용 → 모든 이름이 멤버 원자만으로 가추된 가설이며, §6의 "회상 밖" 규칙이 왜 필요한지 실증했다. 부수 실측: sonnet-5 도구 입력의 21% 가 XML 파라미터 누출로 깨져 복구 코드가 필요했다(baseline 감사 서술에서도 재현).
+  다음 스냅샷에서 할 것: (h) 탈지명화 임베딩 병행 여부는 국가별 뭉침보다 <b>목록형 원자 뭉침</b>이 먼저 보이므로 우선순위를 바꾼다 — 목록형 제외 → 지속성(b) → 명명 시험(d) 순.</div>
+  <div class="callout"><b>한 문장으로.</b> 사용자의 제안은 "가까운 것들의 극대 집합을 개념이라 부르자"였고, 이 문서는 그것이 <b>단체 복합체의 극대 단체를 가추로 명명하는 일</b>임을 보였다. 그 사실이 바꾸는 것은 셋이다 — 분자는 가설이다(회상 밖), 이름은 시험받아야 한다(중심성·별 조건·환원), 임계값은 하나가 아니라 필트레이션이다(지속성).</div>
+</div></section>
+
+<footer><div class="wrap">
+  GeoGuessHelper 프로젝트 · 2026-09-07 · 참고 개념: Vietoris–Rips 복합체·지속 호몰로지(Edelsbrunner–Harer), 형식 개념 분석(Wille 1982), 가추(Peirce), 잠재 변수 모형, 클리크 퍼콜레이션(Palla et al. 2005) · 구현: <code>src/geoguesshelper/molecule.py</code>, <code>src/geoguesshelper/baseline.py</code>
+</div></footer>
+
+</body>
+</html>
