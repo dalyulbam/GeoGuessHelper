@@ -1,6 +1,6 @@
 # 자동 정정 루프 — 정정 원장
 
-생성 2026-09-07 16:26 · 잡 15건(최신 기록, 그중 OK 15) · 실행 16회(corrections.jsonl) · 이번 기록 비용 $8.482 · 누적 실행 비용 $9.028 · 기획: docs/plan/impl-spec_260907.md §3
+생성 2026-09-10 13:14 · 잡 18건(최신 기록, 그중 OK 15) · 실행 19회(corrections.jsonl) · 이번 기록 비용 $9.407 · 누적 실행 비용 $9.953 · 기획: docs/plan/impl-spec_260907.md §3
 
 같은 캡처를 지도 없이(blind) 다시 판단하고(회상 원자가 있으면 2패스), 실측 pano 좌표·aided 분석과 대조해 "X 는 사실 X2 였다"는 정정을 만들어 kind=discriminator 원자로 적재한다. 사람 승인은 없다 — 회상돼 쓰인 원자는 confirming/misled 로 채점되어 hits/misses 가 오르내리고, 오답만 뒷받침한 원자는 retracted(회상 제외)된다.
 
@@ -18,7 +18,7 @@
 | 판별자 원자 — 이번 기록에서 신규 / 병합 | 66 / 7 |
 | 저장소의 kind=discriminator 원자(누적) | 70 |
 | 철회된 원자 — 이번 기록 / 저장소 현재 status=retracted | 0 / 0 |
-| 총비용(최신 기록 합) | $8.482 |
+| 총비용(최신 기록 합) | $9.407 |
 
 ## 잡별
 
@@ -39,6 +39,9 @@
 | 09-07 15:32 | `report_cz_zelec-u-tabora_49.318_14.6477_260906_223536_ko-en-fr.html` | CZ · Želeč (Želeč u Tábora) | CZ · Želeč (near Tábor) | hit | hit | hit | 5.27 | 10/5 | 4 (4+0) | $0.582 | OK |
 | 09-07 15:35 | `report_kz_beyneu_46.3143_54.4042_260906_223930_ko-en-fr.html` | KZ · Beyneu | KZ · Beyneu | hit | hit | hit | 101.74 | 10/5 | 5 (5+0) | $0.563 | OK |
 | 09-07 16:24 | `report_is_hvammstangi_65.399_-20.9452_260907_162408_en.html` | IS · Hvammstangi | IS · Hvammstangi | hit | hit | hit | 0.42 | 10/9 | 5 (1+4) | $0.571 | OK |
+| 09-10 12:50 | `report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html` | NG · Ogoja | NG · Ogoja | hit | hit | hit | 0.89 | — | 5 (0+0) | $0.431 | PARTIAL |
+| 09-10 13:11 | `report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html` | CO · Cumaral | CO · Cumaral | hit | hit | hit | 0.24 | 1/1 | 5 (0+0) | $0.493 | PARTIAL |
+| 09-10 13:14 | `report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html` | NG · Ogoja | — · — | — | — | — | — | — | 0 (0+0) | $0.000 | API_ERROR |
 
 ## 이번 기록의 판별자 원자
 
@@ -130,6 +133,18 @@
   - `atm_895143231e7c` (병합) [economy/civic-building/region] IS>IS **Read the Heilbrigðisstofnun acronym: HVE on a north-facing bay means Húnaþing vestra**
   - `atm_e857853e0979` (병합) [nature/vegetation/country] NO>IS **Planted spruce blocks on bare heath vs Norway's continuous forest**
   - `atm_74079b0c8ba5` [architecture/religious-building/country] FO>IS **Icelandic village core: white spire, rainbow crosswalk, blue-canopy fuel station**
+- **job_7974038fd53d** (NG) — Full hit: Nigeria / Cross River North / Ogoja pinned within 0.9 km. The decisive chain was the Nigerian Pidgin billboard slogan plus the named senatorial campaign board, which fixes the northern Cross River senatorial district; the alternatives Ghana, Cameroon and the Igbo heartland were correctly e
+  - [language/dialect/country] CM>NG **Nigerian Pidgin billboard copy vs Krio or Cameroonian Pidgin**
+  - [culture/politics-civic/region] GH>NG **Senatorial-district campaign boards localise Nigerian panos to one district**
+  - [language/toponymy/region] NG>NG **Non-Igbo personal names in an English-only Nigerian south-east streetscape**
+  - [economy/infrastructure-built/region] NG>NG **Solar countdown traffic signals mark Nigerian LGA headquarters towns**
+  - [economy/business-chain/country] GH>NG **Independent Nigerian fuel marketers vs Ghanaian chain branding**
+- **job_5fed61e7bed8** (CO) — HIT: Colombia / Meta / Cumaral confirmed to within 0.24 km. The decisive chain was the Spanish "SAS" legal suffix plus peso-magnitude pricing ($21.999 with dot thousands separator), the green "Calle 10" blade of the Colombian Calle/Carrera grid, and the pharmacy banner's own branch label reading "Cu
+  - [economy/listed-company/country] VE>CO **SAS suffix marks Colombia, not Venezuela or Ecuador**
+  - [language/road-signage/country] EC>CO **Green Calle/Carrera blades vs other Latin street signage**
+  - [geography/urban-form/region] CO>CO **Llanos piedmont town fabric vs Amazonian frontier town**
+  - [economy/finance/country] EC>CO **Peso magnitude with dot separators rules out dollarized Ecuador**
+  - [culture/demography/region] CO>CO **Indigenous brand names hint at macro-region inside Colombia**
 
 ## 유도 확인 (redo)
 
@@ -161,6 +176,9 @@
 | 09-07 15:32 | job_81dd4684ad63 | CZ | CZ | hit | 5.27 | 10/5 |  | 4 | 5/0 | $0.582 |
 | 09-07 15:35 | job_773111a6092d | KZ | KZ | hit | 101.74 | 10/5 |  | 5 | 5/0 | $0.563 |
 | 09-07 16:24 | job_0d8cef6d063b | IS | IS | hit | 0.42 | 10/9 |  | 5 | 9/0 | $0.571 |
+| 09-10 12:50 | job_7974038fd53d | NG | NG | hit | 0.89 | 0/0 |  | 5 | 0/0 | $0.431 |
+| 09-10 13:11 | job_5fed61e7bed8 | CO | CO | hit | 0.24 | 1/1 |  | 5 | 0/0 | $0.493 |
+| 09-10 13:14 | job_737cae606637 | NG | None | None | — | 0/0 |  | 0 | 0/0 | $0.000 |
 
 ## 파일
 
