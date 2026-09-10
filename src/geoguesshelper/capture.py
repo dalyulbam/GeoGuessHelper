@@ -9,9 +9,11 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import io
 import math
 import re
+import time
 import uuid
 
 from . import streetview
@@ -312,6 +314,40 @@ async def capture_static(pose: dict, settings: Settings) -> dict:
 # ZERO_RESULTS/NOT_FOUND(진짜 커버리지 없음)는 브라우저로도 안 되므로 폴백 안 함.
 _FALLBACKABLE = {"REQUEST_DENIED", "NO_KEY", "META_ERROR", "FETCH_ERROR", "OVER_QUERY_LIMIT"}
 
+# 이 사유들은 **지점이 아니라 키/프로젝트** 문제다 — 다음 지점에서 다시 시도해도 똑같이 막힌다.
+# (실측: 프로젝트에 Street View Static API 가 미활성이면 매 캡처가 0.52초를 거부 응답에 버리고
+#  결국 브라우저 렌더로 넘어갔다.)  그래서 한 번 겪으면 기억해 두고 auto 모드에서 건너뛴다.
+_STATIC_KEY_LEVEL = {"REQUEST_DENIED", "NO_KEY"}
+# TTL 을 두는 이유 — 사용자가 콘솔에서 API 를 켰을 때 서버 재시작 없이 스스로 회복해야 한다.
+_STATIC_DENY_TTL_S = 600.0
+_static_denied: dict[str, tuple[float, str]] = {}
+
+
+def _static_key_id(settings: Settings) -> str:
+    """키 값 자체는 절대 남기지 않는다 — 지문만. 키를 바꾸면 기억도 자동으로 갈린다."""
+    k = settings.effective_static_key or ""
+    return hashlib.sha256(k.encode("utf-8")).hexdigest()[:12] if k else "-"
+
+
+def _static_denied_reason(settings: Settings) -> str | None:
+    kid = _static_key_id(settings)
+    ent = _static_denied.get(kid)
+    if not ent:
+        return None
+    ts, why = ent
+    if time.monotonic() - ts > _STATIC_DENY_TTL_S:
+        _static_denied.pop(kid, None)
+        return None
+    return why
+
+
+def _note_static_status(settings: Settings, status: str) -> None:
+    kid = _static_key_id(settings)
+    if status in _STATIC_KEY_LEVEL:
+        _static_denied[kid] = (time.monotonic(), status)
+    elif status:
+        _static_denied.pop(kid, None)   # 한 번이라도 통했으면 기억을 지운다
+
 
 def _playwright_ready(settings: Settings) -> bool:
     """브라우저 렌더를 시도할 수 있는가 — 키가 있고 playwright 가 설치돼 있는가."""
@@ -424,7 +460,21 @@ async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict
             return pw
         # 브라우저 렌더가 실패해도 캡처를 포기하지 않는다 — Static(120° 상한)으로 계속.
 
+    # 이 키로 이미 REQUEST_DENIED/NO_KEY 를 겪었다면 Static 을 다시 두드리지 않는다.
+    # 어차피 같은 거부가 돌아오고, 그 왕복이 캡처마다 0.5초씩 쌓인다.
+    denied = _static_denied_reason(settings)
+    if denied and not tried_pw and _playwright_ready(settings):
+        pw = await render_playwright(pose, settings)
+        if pw.get("status") == "OK":
+            pw["fallback_from"] = denied
+            pw["static_skipped"] = True     # 화면에 "왜 브라우저로 갔는지" 그대로 표시된다
+            return pw
+        tried_pw = True
+        # 브라우저까지 실패했다 — 기억이 틀렸을 수 있으니 Static 을 실제로 한 번 확인한다.
+        _static_denied.pop(_static_key_id(settings), None)
+
     res = await capture_static(pose, settings)
+    _note_static_status(settings, str(res.get("status") or ""))
     if res.get("status") == "OK":
         return res
     if not tried_pw and res.get("status") in _FALLBACKABLE:

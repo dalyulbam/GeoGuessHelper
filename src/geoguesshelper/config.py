@@ -40,6 +40,16 @@ class Settings:
     capture_format: str = "jpeg"     # "jpeg" | "png"
     capture_quality: int = 85
 
+    # ── 브라우저 렌더 타이밍 ──────────────────────────────────────
+    # 예전에는 브라우저 안에서 2600ms 를 **무조건** 기다렸다(타일이 이미 다 와도 2.6초 소모).
+    # 이제 JS 는 최소 대기만 하고, 파이썬이 타일 응답이 멎었는지로 정착을 판정한다.
+    render_settle_ms: int = 250        # JS 측 최소 대기(파노 setPano 직후 페인트 여유)
+    render_quiet_ms: int = 350         # 타일 응답이 이만큼 조용하면 정착으로 본다
+    render_settle_max_ms: int = 3000   # 타일이 계속 흘러도 여기서 끊는다(예전 고정값 상한)
+    # 헤드리스 Chromium 을 프로세스 수명 동안 재사용한다. 캡처마다 close 하면 Windows +
+    # 실시간 백신 환경에서 close 하나가 16~66초씩 걸렸다(실측). 끄면 예전처럼 매번 띄우고 닫는다.
+    render_reuse_browser: bool = True
+
     # ── 모델 라우팅 ───────────────────────────────────────────────
     # 한 모델로 전부 돌리지 않는다. 일의 성격에 맞는 모델을 쓴다:
     #   opus   — 이미지를 보고 해석·추론하는 일 (비전, 판별 사슬)
@@ -250,6 +260,11 @@ def load_settings() -> Settings:
     _env_int(s, "GEOHELPER_CAPTURE_CONCURRENCY", "capture_concurrency", lo=1, hi=4)
     _env_int(s, "GEOHELPER_WEB_SEARCH_MAX", "web_search_max_uses", lo=0, hi=10)
     _env_int(s, "GEOHELPER_CAPTURE_QUALITY", "capture_quality", lo=40, hi=100)
+    _env_int(s, "GEOHELPER_RENDER_SETTLE_MS", "render_settle_ms", lo=0, hi=10000)
+    _env_int(s, "GEOHELPER_RENDER_QUIET_MS", "render_quiet_ms", lo=50, hi=5000)
+    _env_int(s, "GEOHELPER_RENDER_SETTLE_MAX_MS", "render_settle_max_ms", lo=200, hi=20000)
+    if os.environ.get("GEOHELPER_RENDER_REUSE_BROWSER", "").strip().lower() in ("0", "false", "no", "off"):
+        s.render_reuse_browser = False
     if os.environ.get("GEOHELPER_CAPTURE_FORMAT", "").strip().lower() in ("png", "jpeg", "jpg"):
         fmt = os.environ["GEOHELPER_CAPTURE_FORMAT"].strip().lower()
         s.capture_format = "jpeg" if fmt in ("jpeg", "jpg") else "png"
