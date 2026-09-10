@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessHelper — 그래프이론 기초: 이 프로젝트가 쓰는 대상의 정의·숫자 예시·역사·계산법 (260909)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:3px;font-size:12.5px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 9px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft);text-decoration:none}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.26;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:80ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:76ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:15.5px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start;justify-content:space-between}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:13.8px;color:var(--ink-2)}
+.card ul,.card ol{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+td b{color:var(--ink)}
+.tscroll{overflow-x:auto}
+code{font-family:var(--mono);font-size:12.5px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre .c{color:#7f978f}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout b{color:var(--ink)}
+.def{background:#fff;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 18px;margin:12px 0;font-size:14px;color:var(--ink-2);box-shadow:var(--shadow)}
+.def b{color:var(--ink)}
+.def .lbl{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--accent-deep);text-transform:uppercase;margin-right:8px}
+.formula{font-family:'Cambria Math','Times New Roman',serif;font-size:15.5px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin:8px 0;color:var(--ink)}
+.principle{background:linear-gradient(135deg,#0e1a17,#1c3a33);color:#cdeee2;border-radius:var(--radius);padding:20px 22px;font-size:14.5px;margin-top:16px;box-shadow:var(--shadow)}
+.principle b{color:#fff}
+.badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.04em;padding:2px 8px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
+.badge.adopt{background:var(--ok-soft);color:var(--ok)}
+.badge.consider{background:var(--warn-soft);color:var(--warn)}
+.badge.reject{background:#eee;color:var(--muted)}
+.badge.na{background:var(--accent-soft);color:var(--accent-deep)}
+.src{font-size:11.5px;color:var(--muted);word-break:break-all;margin-top:8px}
+.num{font-size:14px;color:var(--ink-2);margin:6px 0 4px}
+.num b{color:var(--ink)}
+ul.plain{padding-left:18px;font-size:14px;color:var(--ink-2)} ul.plain li{margin:4px 0}
+ol.plain{padding-left:20px;font-size:14px;color:var(--ink-2)} ol.plain li{margin:4px 0}
+footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>GeoGuessHelper · 이론</div>
+  <nav class="topnav">
+    <a href="#why">왜 그래프</a><a href="#core">핵심 대상 8</a><a href="#candidates">후보 4</a><a href="#families">개념군</a>
+    <a href="#history">발전 단계</a><a href="#compute">계산법</a><a href="#craft">원칙·용어</a><a href="#checklist">자가 점검</a>
+    <a href="#review">검토 이력</a><a href="#next">다음</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">지식 이론 · 2026-09-09 · 선행: graph-theory-survey(260908) · molecule-theory(260907) · atom-observatory(260907) · 글쓰기 원칙: writting-style/writing-craft(260909) · 검토 예정: codex(2차) → fable(3차)</div>
+  <h1>이 프로젝트가 그래프이론을 쓰는 이유와 그 이론의 바닥 — 핵심 대상 8개의 정의·손계산·수식·출처, 발전 단계, 코드 계산법</h1>
+  <p><b>질문 하나.</b> molecule-theory 는 극대 클리크 하나를 깊게, graph-theory-survey 는 21개 기법을 한 문단씩 다뤘다. 그 사이 — "이 프로젝트가 실제로
+  쓰는 그래프 대상은 정확히 무엇이고, 작은 예에서 숫자로 어떻게 계산되며, 어디서 왔는가" — 를 세우는 문서가 없었다. 결론부터: 이 프로젝트의 원자는
+  <b>벡터</b>(768차원 임베딩)이고 분자는 <b>집합</b>(원자 묶음)인데, 벡터에서 집합으로 가는 길에 <b>이 프로젝트가 놓은</b> 형식이 <b>그래프 — 쌍(pair)의 관계</b> — 다
+  (다른 형식도 가능하나 이 문서는 이 프로젝트가 실제로 고른 것만 말한다).
+  그래서 molecule.py 는 ε-근접 그래프의 극대 클리크를, observe.py 는 상호 kNN 그래프 위의 연결요소·공통 이웃·이분 매칭을 쓴다. 이 문서는 그 대상
+  <b>8개</b>를 정의 → 장난감 그래프 손계산 → 수식 → 출처의 4단으로 세우고(§2), 채택되지 않은 후보 <b>4개</b>는 정의와 예시 하나로 가볍게(§3), 나머지
+  역사는 표 한 줄씩(§5)으로 비중을 <b>셋</b>으로 나눴다. 숫자는 세 종류다 — <b>장난감 예시</b>(<code>tests/graph_theory_toy_check.py</code> 48건 실행),
+  <b>프로젝트 실측</b>(선행 문서에서 절 이름과 함께 인용), <b>문헌 연도</b>(WebSearch 24회로 24건 확인 + survey 인용 3건 재사용 = 27건, 1차가 원문 URL 을 못 찾은 5건은 "미확인"이라 적었고
+  2차 codex 검토가 그중 4건의 URL 을 찾아 채웠다 — §5). 이 문서는
+  <b>1차 fable</b> 작성본에 <b>2차 codex</b> 검토를 반영했으며 fable 3차 칸은 비워 두었다(§검토 이력).</p>
+  <div class="meta">
+    <span class="chip ac">핵심 대상 8 · 후보 4 · 개념군 6</span>
+    <span class="chip ok">장난감 검사 48/48 · 문헌 27건(URL 26 · 미확인 1)</span>
+    <span class="chip wn">후보 4 는 정의+예시 하나만</span>
+    <span class="chip dn">코드 줄 번호는 260909 시점</span>
+    <span class="chip ac">검토 2/3 단 완료</span>
+  </div>
+</div></header>
+
+<!-- ============================================================ -->
+<section class="section" id="why"><div class="wrap">
+  <div class="eyebrow">1 · 왜 그래프이론인가</div>
+  <h2 class="sec">쓰인 자리마다 메운 결손이 있다 — survey §현황·§판정표를 근거로</h2>
+  <p class="sec-desc">"그래프이론을 쓴다"는 선택이 아니라 결과였다. 아래 표의 "메운 결손" 열은 graph-theory-survey_260908 §현황(inventory) 표의
+  "안 쓰는 것" 열과 §판정표를 그대로 옮긴 것이고, 이 문서의 절 번호는 그 결손을 메운 대상의 정의가 있는 곳이다.</p>
+  <div class="tscroll"><table>
+    <tr><th>코드</th><th>그래프 대상</th><th>메운 결손(survey 원문)</th><th>survey 판정</th><th>이 문서</th></tr>
+    <tr><td><code>molecule.py _graph_for</code> + <code>nx.find_cliques</code></td><td>ε-근접 그래프 ∩ 상호 kNN → <b>극대 클리크</b></td><td>"모든 쌍이 가까워야 한다"(molecule-theory 정의 3)를 그대로 만족하는 대상은 극대 클리크뿐 — 밀도 클러스터링·커뮤니티 탐지는 체이닝으로 D 를 끌어들인다(survey §각도1 HDBSCAN 보류·Louvain 기각 사유)</td><td>기존(선행 문서)</td><td>§2.3 · §2.4 · §2.6</td></tr>
+    <tr><td><code>molecule.py</code> 자카드 union-find</td><td>클리크 간 자카드 ≥ merge → <b>연결요소</b></td><td>"거의 같은 멤버의 클리크만 하나로 본다 — 퍼콜레이션은 쓰지 않는다"(molecule-theory (c))</td><td>기존</td><td>§2.2 · §2.5</td></tr>
+    <tr><td><code>observe.py _knn</code></td><td><b>상호 k-NN 그래프</b>(k=15) + 이웃 순위</td><td>"이웃 그래프는 만들지만 그 위에서 아무 지표도 안 잰다"(survey §현황 2행) → 아래 세 구현의 재료</td><td>기존 · 재료</td><td>§2.6</td></tr>
+    <tr><td><code>observe.py _continue_matches</code></td><td>이분 그래프의 <b>최소 비용 완전 매칭</b>(헝가리안)</td><td>"순서의존적 그리디였다 — 두 new 분자가 같은 old 분자를 놓고 경쟁하면 하나가 next 를 잃는 반례"(survey §현황 3행·§각도2)</td><td><span class="badge adopt">adopt · 구현함</span></td><td>§2.8</td></tr>
+    <tr><td><code>observe.py _dup_groups</code></td><td>근중복 쌍 그래프의 <b>연결요소</b>(union-find)</td><td>"전이적 그룹화 — A~B, B~C 가 별개 쌍으로만 보였다"(survey §현황 4행)</td><td><span class="badge adopt">adopt · 일부 구현함</span></td><td>§2.2</td></tr>
+    <tr><td><code>observe.py _link_candidates</code></td><td><b>공통 이웃 · Adamic-Adar</b> 링크 예측</td><td>"자동 후보 제시 — 링크 예측이 전혀 없었다"(survey §현황 5행) + molecule-theory §3.2 허브형(부재 노드)</td><td><span class="badge adopt">adopt · 구현함</span></td><td>§2.7</td></tr>
+    <tr><td>(미구현)</td><td>모듈성 · k-core/k-truss · 지속성 · PageRank</td><td>survey §판정표: k-truss reject(1차 실측) · PPR consider · Leiden adopt(미구현) · 지속성은 molecule-theory (b)·observe <code>--sweep</code></td><td>consider / reject / 일부</td><td>§3</td></tr>
+  </table></div>
+  <div class="callout"><b>숫자의 세 등급(이 문서 전체에 적용).</b> ① <b>장난감 실측</b> — 5~8 노드 예시를 <code>tests/graph_theory_toy_check.py</code> 로 돌린 값
+  (numpy 2.3.5 · networkx 3.6.1 · scipy 1.17.0, 48건 PASS). 이 문서 밖에서는 뜻이 없다. ② <b>프로젝트 실측</b> — molecule-theory §다음 1차 스냅샷
+  (원자 1,297 · 쌍 840,456 · ε 0.328 · 분자 120)과 survey §구현함(원자 1,373 · 엣지 2,399 · P 24,783 · 0.2s)에서 인용. 두 날짜의 원자 수가 다른 것은
+  스냅샷이 다르기 때문이며 이 문서는 어느 쪽도 고치지 않는다. ③ <b>문헌 연도</b> — §5 표에 확인 범위와 URL. 이 밖의 숫자(예: 메모리 15 MB)는 "계산 추정"이라 적었다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="core"><div class="wrap">
+  <div class="eyebrow">2 · 핵심 대상 8 <span class="badge adopt">정의 · 손계산 · 수식 · 출처</span></div>
+  <h2 class="sec">정의마다 장난감 그래프 하나, 만족하는 예 하나, 만족하지 않는 예 하나</h2>
+  <p class="sec-desc">장난감 그래프는 셋이다. <b>G<sub>1</sub></b>(6 노드, §2.1~2.4·§3)은 molecule-theory 의 A·B·C·D 예에 E·F 를 더한 것, <b>수직선 6점</b>(§2.6·§3)은
+  거리가 정수라 백분위를 손으로 셀 수 있는 것, <b>허브 그래프 H</b>(§2.7)는 목록형 원자(모두와 이웃인 허브)를 흉내 낸 것이다. 모든 숫자는 검사 스크립트가 낸다.</p>
+
+  <h3 class="sub">2.1 그래프 · 차수 · 인접행렬</h3>
+  <div class="def"><span class="lbl">정의 1 · 그래프</span> <b>G = (V, E)</b>, V 는 노드(원자) 집합, E ⊆ {{a,b} : a≠b} 는 무향 엣지(쌍) 집합. 노드 v 의 <b>차수 deg(v)</b> 는 v 와 인접한 노드 수.
+  <b>인접행렬 A</b> 는 A[i,j] = 1 (i–j 엣지) / 0, 대칭이고 대각은 0. 악수 정리: <b>Σ<sub>v</sub> deg(v) = 2|E|</b>.</div>
+  <div style="margin:10px 0 4px">
+  <svg viewBox="0 0 620 200" width="100%" style="max-width:620px;display:block" role="img" aria-label="장난감 그래프 G1: 삼각형 ABC, 경로 C-D-E, 고립 F">
+    <polygon points="70,150 140,40 210,150" fill="hsl(168 58% 95%)" stroke="hsl(168 74% 37%)" stroke-width="2"/>
+    <line x1="210" y1="150" x2="320" y2="110" stroke="#2f4a43" stroke-width="2"/>
+    <line x1="320" y1="110" x2="430" y2="150" stroke="#2f4a43" stroke-width="2"/>
+    <line x1="70" y1="150" x2="320" y2="110" stroke="#b3261e" stroke-width="1.5" stroke-dasharray="2 6" opacity=".7"/>
+    <g font-size="14" font-weight="700" fill="#0e1a17">
+      <circle cx="70" cy="150" r="14" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="65" y="155">A</text>
+      <circle cx="140" cy="40" r="14" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="135" y="45">B</text>
+      <circle cx="210" cy="150" r="14" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="205" y="155">C</text>
+      <circle cx="320" cy="110" r="14" fill="#fff" stroke="#9a6b00" stroke-width="1.5"/><text x="315" y="115">D</text>
+      <circle cx="430" cy="150" r="14" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="425" y="155">E</text>
+      <circle cx="560" cy="70" r="14" fill="#fff" stroke="#657a73" stroke-width="1.5" stroke-dasharray="3 3"/><text x="555" y="75" fill="#657a73">F</text>
+    </g>
+    <g font-size="12" fill="#2f4a43">
+      <text x="52" y="182">deg 2</text><text x="122" y="22">deg 2</text><text x="192" y="182">deg 3</text><text x="302" y="92">deg 2</text><text x="412" y="182">deg 1</text><text x="542" y="52">deg 0</text>
+      <text x="110" y="128">채워진 삼각형 = 분자 {A,B,C}</text>
+      <text x="150" y="112" fill="#b3261e">A–D 없음 → D 배제</text>
+      <text x="470" y="120" fill="#657a73">F: 연결요소 {F} — 유일 단서</text>
+    </g>
+  </svg></div>
+  <p class="num"><b>G<sub>1</sub> = (V, E)</b>, V = {A,B,C,D,E,F}, E = {AB, AC, BC, CD, DE} (|E| = 5). 차수: A 2 · B 2 · C 3 · D 2 · E 1 · F 0 → 합 10 = 2·5 ✓(악수 정리).
+  <b>만족하지 않는 예:</b> 차수 합이 홀수인 그래프는 존재하지 않는다 — 어떤 엣지도 두 끝점의 차수를 하나씩 올리기 때문.</p>
+<pre>A =  A B C D E F        (A²)[i,i] = deg(i) → 대각 [2 2 3 2 1 0]
+  A  0 1 1 0 0 0        (A²)[A,B] = 1  → A–C–B, 길이 2 경로 하나
+  B  1 0 1 0 0 0        trace(A³)/6 = 6/6 = <b>1</b> → 삼각형 하나({A,B,C})
+  C  1 1 0 1 0 0
+  D  0 0 1 0 1 0        <span class="c"># 프로젝트 실측 대조: survey §구현함 원자 1,373 · §각도1 엣지 2,399·평균 차수 3.49</span>
+  E  0 0 0 1 0 0        <span class="c">#   → 악수 정리로 2·2,399/1,373 = 3.495 — 두 자리에서 따로 적힌 수치가 서로 맞는다</span>
+  F  0 0 0 0 0 0</pre>
+  <div class="formula">deg(v) = |{u : {u,v} ∈ E}| &nbsp;·&nbsp; Σ<sub>v∈V</sub> deg(v) = 2|E| &nbsp;·&nbsp; (A<sup>k</sup>)[i,j] = i→j 길이 k 보행 수 &nbsp;·&nbsp; 삼각형 수 = tr(A³)/6</div>
+  <div class="src">출처: Euler 1736(§5 #1) — 차수의 홀짝으로 경로 존재를 판정한 첫 논문 · 인접행렬·보행 수: 표준 교과 사실(별도 문헌 인용 없음) · 검사: <code>graph_theory_toy_check.py</code> "차수"~"trace(A³)/6"</div>
+
+  <h3 class="sub">2.2 경로 · 연결요소 · union-find</h3>
+  <div class="def"><span class="lbl">정의 2 · 경로와 연결요소</span> a 에서 b 로의 <b>경로</b>는 인접한 노드의 열 a = v<sub>0</sub>, v<sub>1</sub>, …, v<sub>k</sub> = b. "경로가 있다"는 V 위의 동치관계이고
+  그 <b>동치류가 연결요소(connected component)</b>다. <b>union-find</b>는 각 노드의 대표(parent)를 두고 <code>find(x)</code>(대표까지 올라가며 경로 압축)와
+  <code>union(a,b)</code>(두 대표를 잇기)로 동치류를 점진적으로 만든다 — 엣지를 하나씩 넣어도 요소가 유지된다.</div>
+  <p class="num"><b>G<sub>1</sub></b>의 연결요소는 둘: {A,B,C,D,E} 와 {F}. A 에서 E 로는 A–C–D–E 가 경로다. <b>만족하지 않는 예:</b> F 에서 F 자신을 뺀 다른 어떤 노드로도 경로가 없다 — 차수 0 노드는 홀로 한 요소다
+  (survey §각도3 "구조적 고립 = 유일 단서"의 정의적 근거).</p>
+  <p class="num"><b>근중복 묶음(observe.py <code>_dup_groups</code>)의 손계산.</b> 거리 &lt; τ 인 쌍이 (a1,a2 · 0.08), (a2,a3 · 0.09), (a5,a6 · 0.07) 셋이라 하자. 노드는 쌍의 끝점, 엣지는 쌍이다.</p>
+<pre>union(a1,a2): parent = {a1→a2, a2→a2}
+union(a2,a3): parent = {a1→a2, a2→a3, a3→a3}          <span class="c"># find(a1) = a2 → a3 (경로 압축 후 a1→a3)</span>
+union(a5,a6): parent = {…, a5→a6, a6→a6}
+groups = {a3: [a1,a2,a3], a6: [a5,a6]}                  <span class="c"># 3쌍 → 2묶음</span>
+{a1,a2,a3} 은 <b>transitive_only</b> — a1–a3 은 직접 쌍이 아니다(τ 밖)   <span class="c"># 프로젝트 실측: 21쌍 → 18묶음, 그중 3묶음이 전이로만(survey §구현함)</span></pre>
+  <div class="formula">a ~ b ⇔ a 에서 b 로의 경로 존재 &nbsp;·&nbsp; 연결요소 = V/~ &nbsp;·&nbsp; union-find 비용: m 회 연산에 O(m·α(m,n)), α 는 역 아커만 함수(실용상 ≤ 4)</div>
+  <div class="src">출처: Galler–Fischer 1964(§5 #7) 최초 · Tarjan 1975(§5 #9) α(m,n) 상계 · 구현: <code>observe.py _dup_groups</code> L507(find 경로 압축 L514~519) · <code>molecule.py</code> L352~ 클리크 병합에도 같은 구조 · 검사: "묶음", "transitive_only"</div>
+
+  <h3 class="sub">2.3 클리크 · 극대 클리크</h3>
+  <div class="def"><span class="lbl">정의 3 · 클리크</span> <b>K ⊆ V</b> 가 클리크라 함은 K 의 <b>모든 쌍</b>이 인접함. K 가 <b>극대(maximal)</b>라 함은 어떤 노드를 더해도 클리크가 아님.
+  <b>최대(maximum)</b> 클리크는 크기가 가장 큰 것 — 극대와 다르다. 분자 = 크기 ≥ min_size 인 극대 클리크(molecule-theory 정의 3, 이 문서는 그 정의를 그대로 쓴다).</div>
+  <p class="num"><b>G<sub>1</sub></b>의 극대 클리크는 넷: {A,B,C}, {C,D}, {D,E}, {F} (<code>networkx.find_cliques</code> 출력을 정렬). min_size 3 이면 <b>{A,B,C} 하나</b>가 분자.
+  <b>만족하지 않는 예 둘:</b> {A,B} 는 클리크지만 C 를 더할 수 있으니 극대가 아니다. {A,B,C,D} 는 A–D·B–D 가 없어 클리크가 아니다 — D 는 C 와만 인접한
+  <b>near-miss</b>(molecule-theory §3.3, atom-observatory Q11 "분자 D 가 빠진 이유"). molecule-theory 의 검증 콜아웃("둘 중 어느 경우에도 {A,B,C,D}는 분자가 아니다")이 여기서 숫자로 확인된다.</p>
+  <div class="formula">K 클리크 ⇔ ∀ a,b ∈ K, a≠b : {a,b} ∈ E &nbsp;·&nbsp; 극대 ⇔ ∀ v ∉ K : K ∪ {v} 는 클리크 아님 &nbsp;·&nbsp; 분자 = {K 극대 : |K| ≥ min_size}</div>
+  <div class="src">출처: Bron–Kerbosch 1973(§5 #8) — 열거 알고리즘, networkx <code>find_cliques</code> 가 피벗 변형 구현 · 극대 클리크 수는 최악의 경우 지수적: survey §구현함 "20-파트 완전 다부 그래프에서 3<sup>20</sup> 재현"(codex 감사) → <code>molecule.py</code> MAX_CLIQUES 200,000 · MAX_CLIQUE_SECONDS 60(L277~278) · 검사: "극대 클리크", "min_size 3", "{A,B,C,D} 는 클리크 아님"</div>
+
+  <h3 class="sub">2.4 단체 복합체 · Vietoris–Rips 복합체</h3>
+  <div class="def"><span class="lbl">정의 4 · 단체 복합체</span> 유한집합 V 위의 <b>단체 복합체 K</b> 는 V 의 부분집합들의 모임으로, <b>부분집합에 닫혀</b> 있다(σ ∈ K, τ ⊆ σ ⇒ τ ∈ K).
+  원소 σ 를 |σ|−1 차원 <b>단체(simplex)</b>라 한다(점 0, 변 1, 삼각형 2, 사면체 3). 점집합 X 와 ε 에 대해 <b>Vietoris–Rips 복합체 VR<sub>ε</sub>(X)</b> 는 "모든 쌍이 ε 이내인 부분집합
+  전부"다 — 즉 ε-근접 그래프 G<sub>ε</sub> 의 클리크 전부를 단체로 갖는 <b>클리크 복합체</b>. 그러므로 <b>VR<sub>ε</sub> 의 극대 단체 = G<sub>ε</sub> 의 극대 클리크</b>(molecule-theory §2.1).</div>
+  <p class="num"><b>G<sub>1</sub></b>을 클리크 복합체로 보면 0-단체 6(노드), 1-단체 5(엣지), 2-단체 1({A,B,C}). <b>오일러 표수</b> χ = 6 − 5 + 1 = <b>2</b>, 그리고 χ = β<sub>0</sub> − β<sub>1</sub>
+  (β<sub>0</sub> = 연결요소 수 2, β<sub>1</sub> = 독립 구멍 수)이므로 β<sub>1</sub> = 0 — 삼각형이 <b>채워져</b> 구멍이 없다. <b>만족하지 않는 예:</b> 같은 다섯 엣지를 그래프(1-복합체)로만 보면
+  χ = 6 − 5 = 1, β<sub>1</sub> = 1 — A–B–C 가 <b>구멍</b>으로 남는다. molecule-theory 의 은유("채워짐이 개념의 존재")가 β<sub>1</sub> 하나의 차이다. 부분집합 닫힘의 반례: {A,B,C} 가 있는데 {A,B} 가 없는 모임은 복합체가 아니다.</p>
+  <div class="formula">VR<sub>ε</sub>(X) = { σ ⊆ X : ∀ a,b ∈ σ, d(a,b) ≤ ε } &nbsp;·&nbsp; χ(K) = Σ<sub>k</sub> (−1)<sup>k</sup>·(k-단체 수) = Σ<sub>k</sub> (−1)<sup>k</sup> β<sub>k</sub></div>
+  <div class="src">출처: Vietoris 1927(§5 #3) 원 구성 · Rips(미출판, 1970~80년대) → Gromov 1987(§5 #12)이 쌍곡군 연구에 사용 · "Vietoris–Rips" 명칭과 역사: Adamaszek–Adams, Pacific J. Math. 290(1) 2017 §1 <a href="https://msp.org/pjm/2017/290-1/pjm-v290-n1-p01-s.pdf" target="_blank" rel="noopener">msp.org/pjm/2017/290-1/…</a> · 검사: "오일러 표수"</div>
+
+  <h3 class="sub">2.5 코사인 거리 · 자카드 유사도</h3>
+  <div class="def"><span class="lbl">정의 5 · 두 거리</span> 벡터 u, v 의 <b>코사인 유사도</b>는 cos(u,v) = ⟨u,v⟩ / (‖u‖‖v‖), <b>코사인 거리</b>는 d = 1 − cos ∈ [0, 2]. 단위벡터로 정규화하면
+  d = 1 − ⟨û,v̂⟩ = ‖û − v̂‖²/2 — 그래서 코드는 정규화 뒤 행렬곱 하나로 전 쌍 거리를 얻는다(정의 1, molecule-theory). 집합 A, B 의 <b>자카드 유사도</b>는 J = |A∩B| / |A∪B| ∈ [0, 1].</div>
+  <p class="num"><b>3차원 예.</b> u = (1,2,2), v = (2,1,2), w = (2,−2,1) — 셋 다 ‖·‖ = 3. ⟨u,v⟩ = 2+2+4 = 8 → cos 8/9 → <b>d(u,v) = 1/9 = 0.1111</b>.
+  ⟨u,w⟩ = 2−4+2 = 0 → 직교 → <b>d(u,w) = 1.0</b>(만족하지 않는 예: "가깝다"의 반대). ⟨v,w⟩ = 4−2+2 = 4 → d(v,w) = 5/9 = 0.5556.
+  항등식 확인: ‖û−v̂‖²/2 = 0.1111 ✓. 프로젝트 실측 분포(molecule-theory §다음): 평균 0.739 · p1 0.380 · p5 0.506 · p50 0.754 — 이 예의 0.111 은 실제 원자 쌍에서는 근중복(τ 0.10 근방) 수준이다.</p>
+<pre>V = [[.333 .667 .667],        D = 1 − V·Vᵀ = [[0     .1111 1.    ],
+     [.667 .333 .667],                          [.1111 0     .5556],
+     [.667 −.667 .333]]                         [1.    .5556 0    ]]</pre>
+  <p class="num"><b>자카드 예.</b> M<sub>1</sub> = {a,b,c,d}, M<sub>2</sub> = {b,c,d,e}, M<sub>3</sub> = {a,b,x,y,z}. J(M<sub>1</sub>,M<sub>2</sub>) = 3/5 = <b>0.6 ≥ 0.5 → continue</b>(계보) / 흡수(클리크).
+  J(M<sub>1</sub>,M<sub>3</sub>) = 2/7 = 0.2857 &lt; 0.5 → 다른 분자(만족하지 않는 예). J(M<sub>2</sub>,M<sub>3</sub>) = 1/8 = 0.125. 프로젝트 임계: 계보 continue ≥ 0.5(<code>observe.py _jacc</code>·<code>_continue_matches</code>), 클리크 흡수 ≥ 0.5(molecule-theory §다음 채택값; 기획값은 0.75 였다).</p>
+  <div class="formula">d(u,v) = 1 − ⟨u,v⟩/(‖u‖‖v‖) &nbsp;·&nbsp; 정규화 후 D = 1 − V Vᵀ &nbsp;·&nbsp; J(A,B) = |A∩B| / |A∪B|</div>
+  <div class="src">출처: 코사인 — Salton·Wong·Yang 1975(§5 #10) 벡터 공간 모형 · 자카드 — Jaccard 1912(§5 #2; 원 논문은 1907 프랑스어) · 구현: <code>molecule.py _distances</code> L219~226, <code>observe.py</code> L380 · 검사: "u·v=8"~"J(M2,M3)"</div>
+
+  <h3 class="sub">2.6 상호 k-NN 그래프 · 백분위 임계 ε = Q<sub>x</sub>(d)</h3>
+  <div class="def"><span class="lbl">정의 6 · 두 개의 게이트</span> N<sub>k</sub>(a) 를 a 의 k 최근접 노드 집합이라 하면 <b>상호 kNN 엣지</b> {a,b} 는 b ∈ N<sub>k</sub>(a) <b>이고</b> a ∈ N<sub>k</sub>(b) 일 때만 있다.
+  <b>백분위 임계</b> ε = Q<sub>x</sub>(d) 는 전 쌍 거리의 x-백분위수(numpy 기본 선형 보간: 정렬 위치 (m−1)·x/100). 분자 그래프는 둘의 <b>교집합</b>: {a,b} ∈ E ⇔ 상호 kNN ∧ d(a,b) ≤ ε (molecule-theory 정의 2·(a)).</div>
+  <div style="margin:8px 0 4px">
+  <svg viewBox="0 0 640 130" width="100%" style="max-width:640px;display:block" role="img" aria-label="수직선 위 6점과 상호 kNN 엣지">
+    <line x1="30" y1="95" x2="610" y2="95" stroke="#e3ece9" stroke-width="2"/>
+    <path d="M40 95 Q67 55 94 95" fill="none" stroke="hsl(168 74% 37%)" stroke-width="2"/>
+    <path d="M94 95 Q121 55 148 95" fill="none" stroke="hsl(168 74% 37%)" stroke-width="2"/>
+    <path d="M40 95 Q94 25 148 95" fill="none" stroke="hsl(168 74% 37%)" stroke-width="2"/>
+    <path d="M310 95 Q337 55 364 95" fill="none" stroke="hsl(168 74% 37%)" stroke-width="2"/>
+    <path d="M148 95 Q229 30 310 95" fill="none" stroke="#9a6b00" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <path d="M364 95 Q472 20 580 95" fill="none" stroke="#b3261e" stroke-width="1.5" stroke-dasharray="2 5"/>
+    <g font-size="13" font-weight="700" fill="#0e1a17">
+      <circle cx="40" cy="95" r="12" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="35" y="100">A</text>
+      <circle cx="94" cy="95" r="12" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="89" y="100">B</text>
+      <circle cx="148" cy="95" r="12" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="143" y="100">C</text>
+      <circle cx="310" cy="95" r="12" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="305" y="100">D</text>
+      <circle cx="364" cy="95" r="12" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="359" y="100">E</text>
+      <circle cx="580" cy="95" r="12" fill="#fff" stroke="#657a73" stroke-width="1.5" stroke-dasharray="3 3"/><text x="575" y="100" fill="#657a73">F</text>
+    </g>
+    <g font-size="11.5" fill="#2f4a43">
+      <text x="36" y="122">0</text><text x="90" y="122">1</text><text x="144" y="122">2</text><text x="306" y="122">5</text><text x="360" y="122">6</text><text x="574" y="122">10</text>
+      <text x="60" y="22" fill="hsl(168 78% 27%)">상호 kNN(k=2): AB · BC · AC · DE</text>
+      <text x="190" y="52" fill="#9a6b00">C–D: D 만 C 를 이웃으로 봄(한쪽)</text>
+      <text x="420" y="48" fill="#b3261e">E–F: F 만 E 를 봄 → F 고립</text>
+    </g>
+  </svg></div>
+  <p class="num"><b>수직선 6점.</b> A 0 · B 1 · C 2 · D 5 · E 6 · F 10, 거리는 차이의 절댓값. 쌍 15개의 거리를 정렬하면 [1,1,1,2,3,4,4,4,5,5,5,6,8,9,10].
+  <b>Q<sub>20</sub></b>: 위치 (15−1)·0.2 = 2.8 → 1 + 0.8·(2−1) = <b>1.8</b>. <b>Q<sub>30</sub></b>: 위치 4.2 → 3 + 0.2·(4−3) = <b>3.2</b>. k = 2 이웃 목록: A[B,C] · B[A,C] · C[B,A] · D[E,C] · E[D,C] · F[E,D].
+  상호인 쌍은 <b>AB · AC · BC · DE</b> 넷. <b>만족하지 않는 예:</b> C–D 는 D 의 목록에 C 가 있지만 C 의 목록에 D 가 없다(한쪽 kNN) — survey §각도2 실측 "상위 200 중 130 이 거의 이웃(한쪽 kNN15)"이 바로 이 종류의 쌍이다. F 는 상호 이웃 0 → 고립.</p>
+  <p class="num"><b>교집합이 분자를 정한다(Q10 슬라이더의 원리).</b> pct 20(ε 1.8): 상호 kNN 넷 중 d ≤ 1.8 인 것은 AB·BC·DE — <b>AC(=2)가 탈락해 삼각형이 없다</b>.
+  pct 30(ε 3.2): AB·AC·BC·DE 전부 통과 → <b>분자 {A,B,C} 탄생</b>. D 는 어느 pct 에서도 못 들어온다 — C–D 가 상호가 아니라서(ε 이 아니라 kNN 게이트가 막는다).
+  프로젝트 실측(molecule-theory §다음): 전역 pct 2 + 한쪽 kNN 10 → 분자 2,530개(밀도 편향), 채택 <b>상호 kNN 10 ∩ pct 0.5(ε 0.328)</b> → 120개. observe.py 는 pct → ε 변환용 분위표 201개(0.5% 간격)를 저장한다.</p>
+  <div class="formula">E = { {a,b} : b ∈ N<sub>k</sub>(a) ∧ a ∈ N<sub>k</sub>(b) ∧ d(a,b) ≤ Q<sub>x</sub>(d) } &nbsp;·&nbsp; Q<sub>x</sub> 선형 보간: s[⌊p⌋] + (p−⌊p⌋)(s[⌈p⌉] − s[⌊p⌋]), p = (m−1)x/100</div>
+  <div class="src">출처: 상호 kNN 자체는 표준 구성(별도 원 논문 인용 없음 — 미확인) · 백분위 정의: numpy <code>percentile</code> 기본 method="linear" · 구현: <code>molecule.py _graph_for</code> L241~264 · <code>observe.py _knn</code> L385~398, 분위표 L937 · 검사: "Q20 = 1.8"~"pct 30"</div>
+
+  <h3 class="sub">2.7 공통 이웃 · Adamic–Adar 지수</h3>
+  <div class="def"><span class="lbl">정의 7 · 링크 예측 점수</span> 인접하지 않은 두 노드 x, y 에 대해 <b>공통 이웃 수</b> CN(x,y) = |N(x) ∩ N(y)|, <b>Adamic–Adar 지수</b>
+  AA(x,y) = Σ<sub>z ∈ N(x)∩N(y)</sub> 1 / log deg(z) (자연로그; networkx 도 같다). 공통 이웃이 저차수일수록 무겁다 — 모두와 이웃인 허브는 "둘이 특별히 가깝다"는 증거가 약하기 때문.</div>
+  <div style="margin:8px 0 4px">
+  <svg viewBox="0 0 620 200" width="100%" style="max-width:620px;display:block" role="img" aria-label="허브 그래프 H: h 가 x y p q r 와, p 가 x y 와 인접">
+    <g stroke="#2f4a43" stroke-width="2">
+      <line x1="310" y1="100" x2="150" y2="50"/><line x1="310" y1="100" x2="150" y2="150"/><line x1="310" y1="100" x2="230" y2="100"/>
+      <line x1="310" y1="100" x2="470" y2="50"/><line x1="310" y1="100" x2="470" y2="150"/>
+      <line x1="230" y1="100" x2="150" y2="50"/><line x1="230" y1="100" x2="150" y2="150"/>
+    </g>
+    <line x1="150" y1="50" x2="150" y2="150" stroke="hsl(168 74% 37%)" stroke-width="2" stroke-dasharray="6 5"/>
+    <g font-size="13" font-weight="700" fill="#0e1a17">
+      <circle cx="310" cy="100" r="16" fill="#fbf3dd" stroke="#9a6b00" stroke-width="1.5"/><text x="305" y="105">h</text>
+      <circle cx="230" cy="100" r="13" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="226" y="105">p</text>
+      <circle cx="150" cy="50" r="13" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="146" y="55">x</text>
+      <circle cx="150" cy="150" r="13" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="146" y="155">y</text>
+      <circle cx="470" cy="50" r="13" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="466" y="55">q</text>
+      <circle cx="470" cy="150" r="13" fill="#fff" stroke="#0e1a17" stroke-width="1.5"/><text x="466" y="155">r</text>
+    </g>
+    <g font-size="12" fill="#2f4a43">
+      <text x="300" y="132" fill="#9a6b00">h: deg 5 — 목록형 원자의 모형</text>
+      <text x="215" y="84">p: deg 3</text>
+      <text x="40" y="104" fill="hsl(168 78% 27%)">x–y 후보</text>
+      <text x="40" y="120" fill="hsl(168 78% 27%)">AA = 1.53</text>
+      <text x="490" y="104">q–r: AA 0.62</text>
+      <text x="490" y="120">(h 하나뿐)</text>
+    </g>
+  </svg></div>
+  <p class="num"><b>허브 그래프 H.</b> 엣지 7개: h–x, h–y, h–p, h–q, h–r, p–x, p–y. 차수: h 5 · p 3 · x 2 · y 2 · q 1 · r 1. ln 2 = 0.6931, ln 3 = 1.0986, ln 5 = 1.6094.
+  <b>AA(x,y)</b>: 공통 이웃 {h, p} → 1/ln 5 + 1/ln 3 = 0.6213 + 0.9102 ≈ <b>1.5316</b>(반올림 전 값의 정확한 합, CN 2). <b>AA(q,r)</b>: 공통 이웃 {h} → <b>0.6213</b>(CN 1). AA(x,q) = AA(p,q) = 0.6213.
+  저차수 p 하나가 허브 h 보다 무겁다(0.91 &gt; 0.62) — 그래서 x–y 가 1위. <b>만족하지 않는 예:</b> x–h 는 이미 인접이라 후보가 아니다(코드의 <code>direct</code> 집합). 차수 1 노드(q, r)는 두 노드의 공통 이웃이 될 수 없고 1/ln 1 은 정의되지 않는다 — 코드가 <code>deg &lt; 2</code> 를 건너뛰는 이유.</p>
+  <p class="num"><b>프로젝트에서의 뜻.</b> 허브 h 는 목록형 위키 원자(모두와 이웃)의 모형이다. AA 의 log 할인은 이론상 h 의 기여를 줄이지만 survey §각도2 실측에서는 그래도 목록형이
+  상위를 지배해(76/200), 3차에서 공통 이웃의 목록형 비율(<code>list_like_cn_share</code>)로 과반이면 제외했다. <code>bridges</code> 는 같은 점수에 거리 d 를 곱한다(멀지만 공통 이웃이 잇는 쌍 = 허브형 후보).</p>
+  <div class="formula">CN(x,y) = |N(x) ∩ N(y)| &nbsp;·&nbsp; AA(x,y) = Σ<sub>z∈N(x)∩N(y)</sub> 1 / ln deg(z) &nbsp;·&nbsp; bridge(x,y) = AA(x,y) · d(x,y) &nbsp;(d ≥ Q<sub>1.0</sub>, CN ≥ 5, 목록형 제외)</div>
+  <div class="src">출처: Adamic–Adar 2003(§5 #19) · Zhou–Lü–Zhang 2009(§5 #24) — 6개 실제망에서 국소 지표 비교(survey 인용) · 구현: <code>observe.py _link_candidates</code> L544, 누적 L581~592 · 검사: "AA(x,y)", "AA(q,r)", "x–h"</div>
+
+  <h3 class="sub">2.8 이분 매칭 · 헝가리안 알고리즘(선형 할당)</h3>
+  <div class="def"><span class="lbl">정의 8 · 할당 문제</span> 두 집합 new = {B<sub>i</sub>}, old = {A<sub>j</sub>} 와 비용 C[i,j] 가 있을 때, <b>매칭</b>은 끝점을 공유하지 않는 (B<sub>i</sub>, A<sub>j</sub>) 쌍의 집합.
+  <b>선형 할당</b>은 Σ C[i,σ(i)] 를 최소로 하는 일대일 σ 를 찾는 것. 헝가리안 알고리즘은 이를 O(n³)에 정확히 푼다(그리디는 순서에 따라 틀릴 수 있다). 계보에서는 C = 1 − J(자카드), 후보(J ≥ 0.5)가 아닌 칸은 벌점 NO_MATCH.</div>
+  <p class="num"><b>3×3 예(행 new B<sub>1..3</sub>, 열 old A<sub>1..3</sub>).</b> 자카드 J: B<sub>1</sub> = [0.70, 0.65, —], B<sub>2</sub> = [0.60, —, —], B<sub>3</sub> = [—, —, 0.55] ("—"는 &lt; 0.5). NO_MATCH = 1 + max(3,3) = 4.</p>
+<pre>cost = 1−J        A1    A2    A3          행 축소(행 최솟값 뺌)      열 축소(열 최솟값 뺌)
+        B1      0.30  0.35  4.00     →   0     0.05  3.70     →   <b>0</b>     <b>0</b>     3.70
+        B2      0.40  4.00  4.00     →   0     3.60  3.60     →   <b>0</b>     3.55  3.60
+        B3      4.00  4.00  0.45     →   3.55  3.55  0        →   3.55  3.50  <b>0</b>
+독립된 0 배정: B2→A1(B2 행의 유일한 0) · B1→A2 · B3→A3 → 비용 0.40+0.35+0.45 = <b>1.20</b>, ΣJ = <b>1.80</b>, 매칭 <b>3</b>
+그리디(B1 부터, 매칭된 old 제거): B1→A1(0.70) · B2 는 남은 후보 없음 · B3→A3(0.55) → 매칭 <b>2</b>, ΣJ 1.25   <span class="c"># B2 가 born, A2 가 dissolved 로 오판</span></pre>
+  <p class="num"><b>벌점이 작으면 최적해가 흔들린다(만족하지 않는 예).</b> NO_MATCH = 0.3 이면 세 배정을 전부 벌점 칸에 두는 것(0.90)과 한 쌍만 진짜로 잡고 나머지 둘을 벌점 칸에 두는 것(0.30+2×0.30=0.90)이
+  정확한 십진 산술로 <b>동률</b>이다 — 유효 매칭 0 과 1 이 함께 최적해가 되어 어느 쪽이 뽑힐지 정해지지 않는다. 이 3×3 행렬에서 완전 매칭(1.20)이 <b>유일한</b> 최적해가 되는 경계는
+  NO_MATCH &gt; 0.45(다른 배정 조합과 직접 비교해 나온 값) — 이 구체적 예는 0.45 만 넘어도 이미 복원된다.
+  문서가 쓰는 <code>NO_MATCH &gt; 0.5·min(|new|,|old|) = 1.5</code> 는 <b>어떤 3×3 비용행렬에서도</b> 매칭 수 최대화를 보장하는 일반 충분조건이지 이 예의 필요조건이 아니다 —
+  일반 충분조건을 이 예의 실제 문턱으로 착각하면 안 된다. 프로젝트 실측 반례(survey §각도2·observe.py docstring): 고정 10 은 22개 사슬에서
+  "21 매칭 + 강제 1"(10.14)이 "22 완전 매칭"(10.92)보다 싸져 continue 하나를 버렸다 → 벌점을 1 + max(|new|,|old|) 로 바꿨다(3차).</p>
+  <div class="formula">min<sub>σ</sub> Σ<sub>i</sub> C[i,σ(i)] &nbsp;·&nbsp; C[i,j] = 1 − J(B<sub>i</sub>,A<sub>j</sub>) if J ≥ 0.5 else NO_MATCH &nbsp;·&nbsp; NO_MATCH = 1 + max(|new|,|old|) &gt; 0.5·min(|new|,|old|)</div>
+  <div class="src">출처: Kuhn 1955(§5 #4) · Munkres 1957(§5 #5) 다항시간 증명 · Jonker–Volgenant 1987(§5 #13) 최단 증가경로 변형 · Crouse 2016(§5 #25) — scipy <code>linear_sum_assignment</code> 가 인용하는 구현 · 구현: <code>observe.py _continue_matches</code> L645, NO_MATCH L667 · 검사: "NO_MATCH=1+max", "그리디", "행 축소", "NO_MATCH=0.3", "NO_MATCH=1.5"</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="candidates"><div class="wrap">
+  <div class="eyebrow">3 · 후보 4 <span class="badge consider">정의 + 예시 하나</span></div>
+  <h2 class="sec">채택되지 않았거나 일부만 쓰인 것 — 깊게 다루지 않는 이유가 판정에 있다</h2>
+  <p class="sec-desc">survey 가 reject/consider 로 판정했거나(모듈성·k-truss·PageRank) molecule-theory (b)로 예고만 된 것(지속성)이다. 비중을 §2 의 절반 이하로 둔다 —
+  정의 하나, 장난감 숫자 하나, 왜 여기서 멈추는지 한 줄. 재검토 조건은 survey §기각을 따른다.</p>
+  <div class="grid g2">
+    <div class="card"><h3>모듈성 Q · Louvain/Leiden <span class="badge reject">Louvain reject · Leiden adopt(미구현)</span></h3>
+      <p><b>정의.</b> 분할 {c} 에 대해 Q = Σ<sub>c</sub> [ L<sub>c</sub>/m − (d<sub>c</sub>/2m)² ] — L<sub>c</sub> 는 c 안의 엣지 수, d<sub>c</sub> 는 c 의 차수 합, m 은 전체 엣지 수. "무작위였다면 기대되는 내부 엣지"보다 얼마나 많은가.</p>
+      <p><b>예.</b> 두 삼각형 {A,B,C}, {D,E,F} 를 C–D 로 이은 그래프(m = 7, d<sub>c</sub> = 7 씩): Q = 2·(3/7 − (7/14)²) = 2·(0.4286 − 0.25) = <b>0.3571</b>. 전부 한 커뮤니티면 0, {AB}{CD}{EF} 면 0.0816. Louvain 도 같은 두 삼각형을 낸다.</p>
+      <p><b>왜 멈추나.</b> 모듈성 최적화는 "모든 쌍 가까움"을 요구하지 않아 D 를 끌어들이고(molecule-theory (c)), Louvain 은 비연결 커뮤니티를 낼 수 있다(Traag 2019 — survey §각도1). 해상도 한계도 있다.</p>
+      <div class="src">Newman–Girvan 2004(§5 #20) · Blondel 2008(§5 #22) · Traag 2019(§5 #26) · 검사: "두 삼각형+다리"</div></div>
+    <div class="card"><h3>k-core · k-truss <span class="badge reject">reject(1차 실측)</span></h3>
+      <p><b>정의.</b> <b>k-core</b>: 모든 노드의 차수가 ≥ k 인 극대 부분그래프(차수 &lt; k 노드를 반복 제거). <b>k-truss</b>: 모든 엣지가 ≥ k−2 개 삼각형에 속하는 극대 부분그래프.</p>
+      <p><b>예(G<sub>1</sub>).</b> core number: A,B,C = 2 · D,E = 1 · F = 0 (E 제거 → D 차수 1 제거 → {A,B,C} 만 2-core). 3-truss 엣지 = {AB, AC, BC} = 삼각형 = <b>3-클리크 멤버십과 같다</b>.</p>
+      <p><b>왜 멈추나.</b> 장난감에서 보이는 "truss = 클리크 멤버십"이 프로젝트 실측에서도 그대로였다 — k ≥ 4 truss 가 클리크·periphery 밖 원자 0(survey §각도1). 얹을 등급이 없다.</p>
+      <div class="src">Seidman 1983(§5 #11) · Cohen 2008(§5 #23, URL 미확인) · 검사: "core number", "3-truss"</div></div>
+    <div class="card"><h3>필트레이션 · 지속성 <span class="badge consider">일부(observe --sweep)</span></h3>
+      <p><b>정의.</b> ε 를 키우면 VR<sub>ε</sub> ⊆ VR<sub>ε'</sub> — 단체는 태어나기만 한다(필트레이션). 극대 단체 M 이 극대로 있는 구간 [ε<sub>birth</sub>, ε<sub>absorb</sub>) 의 길이가 molecule-theory 정의 4 의 <b>지속성</b>이다 —
+      <b>특정 단체 하나의 극대 지위 생존 구간</b>을 잰다. (TDA 의 지속 호몰로지는 이와 <b>다른 대상</b>이다 — 필트레이션 전 구간에서 호몰로지 생성자(연결요소·구멍 등, 특정 단체가 아니라 전역 위상 불변량)의
+      탄생·소멸 쌍을 추적해 바코드로 낸다. 이 프로젝트는 그 기계장치를 쓰지 않고 이름만 빌린 <b>단순화된 용법</b>이다 — 하나는 개별 단체의 생존, 하나는 전역 β<sub>k</sub> 의 변화이니 같은 계산이 아니다, §7 용어 사전.)</p>
+      <p><b>예(수직선 6점, kNN 없이 ε 만).</b> ε 1: 극대 클리크 {AB}{BC}{DE}{F}. ε 2: <b>{A,B,C} 탄생</b>. ε 3: +{C,D}. ε 5: {A,B,C,D} 가 극대 → {A,B,C} 극대성 상실. 지속 구간 <b>[2, 5)</b> = pct <b>[21.4, 57.1)</b>.</p>
+      <p><b>어디까지 쓰나.</b> observe.py 는 SWEEP_PCTS (0.25, 0.5, 1, 2, 3) 에서 분자 생존을 <code>lineage.sweep</code> 에 남긴다(atom-observatory "지속성 막대"). 호몰로지 계산(Ripser 류)은 도입하지 않았다.</p>
+      <div class="src">Edelsbrunner–Letscher–Zomorodian 2002(§5 #18) · Zomorodian–Carlsson 2005(§5 #21) · 구현: <code>observe.py</code> L41, L495 · 검사: "순수 ε 필트레이션", "ε=5 에서"</div></div>
+    <div class="card"><h3>(Personalized) PageRank <span class="badge consider">consider</span></h3>
+      <p><b>정의.</b> 랜덤워크 정상분포: PR(v) = (1−α)/n + α·Σ<sub>u→v</sub> PR(u)/deg(u), α = 0.85. <b>개인화</b>는 (1−α) 질량을 균등이 아니라 시드 분포에 준다.</p>
+      <p><b>예(별 그래프 h–a, h–b, h–c).</b> 대칭이라 잎 p, 허브 q 두 미지수: q = 0.0375 + 2.55p, p = 0.0375 + 0.2833q → <b>q = 0.4797, p = 0.1734</b>(3p+q = 1 ✓). 시드 a 의 PPR: a 0.2802 · h 0.4595 · b,c 0.1302 — 시드와 가까운 쪽으로 질량이 옮겨간다.</p>
+      <p><b>왜 멈추나.</b> refs 그래프가 성겨 랭킹 차이가 안 난다 — Adamic-Adar 후보가 refs 를 조밀화한 뒤 재검토(survey §미룸). 확률 계열(§4)의 대표로만 둔다.</p>
+      <div class="src">Page·Brin·Motwani·Winograd 1998/1999(§5 #15) · 검사: "별 그래프 PR", "PPR(seed=a)"</div></div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="families"><div class="wrap">
+  <div class="eyebrow">4 · 관련 개념군</div>
+  <h2 class="sec">여섯 갈래 — 이 프로젝트의 어느 기법이 어느 수학의 자식인가</h2>
+  <div class="tscroll"><table>
+    <tr><th>분야</th><th>핵심 개념</th><th>이 프로젝트의 기법</th><th>상태</th><th>이 문서</th></tr>
+    <tr><td><b>조합론 · 고전 그래프이론</b></td><td>차수·경로·연결요소, 클리크 열거(Bron–Kerbosch), 악수 정리</td><td>극대 클리크(분자), 연결요소(dups groups·클리크 병합)</td><td>기존 · 구현</td><td>§2.1~2.3</td></tr>
+    <tr><td><b>위상수학 · TDA</b></td><td>단체 복합체, Vietoris–Rips, 필트레이션, 오일러 표수, 지속 호몰로지</td><td>분자 = VR<sub>ε</sub> 의 극대 단체, --sweep 지속성</td><td>기존 · 일부</td><td>§2.4 · §3</td></tr>
+    <tr><td><b>선형대수 · 스펙트럼 그래프이론</b></td><td>인접행렬, 보행 수 A<sup>k</sup>, 고유벡터 중심성, PageRank 의 고유벡터 해석</td><td>D = 1 − V Vᵀ(거리행렬), eigenvector centrality(consider)</td><td>기존(거리) · consider(중심성)</td><td>§2.1 · §2.5 · §6</td></tr>
+    <tr><td><b>최적화</b></td><td>할당 문제, 최소 비용 완전 매칭, LP 쌍대성(행·열 축소가 쌍대 변수)</td><td>헝가리안 continue 매칭</td><td>구현</td><td>§2.8</td></tr>
+    <tr><td><b>확률 · 통계</b></td><td>랜덤 그래프(Erdős–Rényi) 귀무모형, 모듈성의 기대 엣지, 잠재변수 모형, 랜덤워크</td><td>허브형 분자 = 잠재변수(molecule-theory §3.2), PPR(consider), 모듈성(reject)</td><td>가설 · consider · reject</td><td>§3</td></tr>
+    <tr><td><b>정보검색 · 집합론</b></td><td>벡터 공간 모형·코사인, 집합 유사도(자카드), 링크 예측의 국소 지표</td><td>코사인 거리, 자카드 병합·계보, Adamic-Adar</td><td>기존 · 구현</td><td>§2.5 · §2.7</td></tr>
+  </table></div>
+  <div class="callout"><b>왜 "여섯"인가.</b> 요청은 다섯 갈래(조합론·위상·선형대수·최적화·확률)였고, 코사인·자카드·Adamic-Adar 는 그 다섯 어디에도 깔끔히 들어가지 않아 정보검색·집합론을 여섯째로 뒀다. 이 분류는 이 문서의 편의이지 표준 분류가 아니다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="history"><div class="wrap">
+  <div class="eyebrow">5 · 발전 단계</div>
+  <h2 class="sec">1736 → 2024 — 27건, 확인한 것과 못 한 것</h2>
+  <p class="sec-desc">연도·인물·서지는 WebSearch(2026-09-09, 24회)로 확인했고 survey 가 이미 URL 을 단 3건은 재사용했다. "확인" 열이 "서지·URL" 이면 출판사·DOI·arXiv 페이지를 찾은 것,
+  "원문 URL 미확인" 이면 서지는 2차 출처로 확인했으나 원문 페이지를 못 찾은 것이다. 원문을 열어 구절을 대조한 항목은 <b>없다</b> — 이 문서의 인용은 전부 서지 수준이다.</p>
+  <div class="tscroll"><table>
+    <tr><th>#</th><th>연도</th><th>인물 · 논문</th><th>무엇이 생겼나</th><th>이 프로젝트에서</th><th>URL</th><th>확인</th></tr>
+    <tr><td>1</td><td>1736</td><td>Euler, <i>Solutio problematis ad geometriam situs pertinentis</i>, Comm. Acad. Sci. Petrop. 8 (1735 발표·1741 인쇄)</td><td>쾨니히스베르크 다리 — 차수의 홀짝으로 경로 존재 판정. 그래프이론·위상수학의 첫 논문</td><td>§2.1 차수</td><td class="src"><a href="https://scholarlycommons.pacific.edu/euler-works/53/" target="_blank" rel="noopener">scholarlycommons.pacific.edu/euler-works/53/</a></td><td>서지·URL</td></tr>
+    <tr><td>2</td><td>1907/1912</td><td>Jaccard, <i>The distribution of the flora in the alpine zone</i>, New Phytologist 11(2):37–50</td><td>집합 유사도 |A∩B|/|A∪B|</td><td>§2.5 자카드</td><td class="src"><a href="https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-8137.1912.tb05611.x" target="_blank" rel="noopener">nph.onlinelibrary.wiley.com/…/j.1469-8137.1912.tb05611.x</a></td><td>서지·URL</td></tr>
+    <tr><td>3</td><td>1927</td><td>Vietoris, <i>Über den höheren Zusammenhang kompakter Räume…</i>, Math. Ann. 97:454–472</td><td>거리공간의 호몰로지를 위한 복합체 구성(오늘의 VR 복합체)</td><td>§2.4</td><td class="src"><a href="https://link.springer.com/article/10.1007/BF01447877" target="_blank" rel="noopener">link.springer.com/article/10.1007/BF01447877</a></td><td>URL(2차 codex 확인)</td></tr>
+    <tr><td>4</td><td>1955</td><td>Kuhn, <i>The Hungarian method for the assignment problem</i>, Naval Res. Logist. Q. 2(1–2):83–97</td><td>할당 문제의 다항시간 해법(Kőnig·Egerváry 의 아이디어에서)</td><td>§2.8</td><td class="src"><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nav.3800020109" target="_blank" rel="noopener">onlinelibrary.wiley.com/doi/abs/10.1002/nav.3800020109</a></td><td>서지·URL</td></tr>
+    <tr><td>5</td><td>1957</td><td>Munkres, <i>Algorithms for the assignment and transportation problems</i>, J. SIAM 5(1):32–38</td><td>헝가리안이 강다항시간임을 보임(Kuhn–Munkres)</td><td>§2.8</td><td class="src"><a href="https://epubs.siam.org/doi/10.1137/0105003" target="_blank" rel="noopener">epubs.siam.org/doi/10.1137/0105003</a></td><td>URL(2차 codex 확인)</td></tr>
+    <tr><td>6</td><td>1959</td><td>Erdős–Rényi, <i>On random graphs I</i>, Publ. Math. Debrecen 6:290–297</td><td>랜덤 그래프 G(n,M) — 모듈성 등 귀무모형의 뿌리</td><td>§3 모듈성·§4 확률</td><td class="src"><a href="https://www.renyi.hu/~p_erdos/1959-11.pdf" target="_blank" rel="noopener">renyi.hu/~p_erdos/1959-11.pdf</a></td><td>URL(2차 codex 확인, 원문 PDF)</td></tr>
+    <tr><td>7</td><td>1964</td><td>Galler–Fischer, <i>An improved equivalence algorithm</i>, CACM 7(5):301–303</td><td>union-find 자료구조</td><td>§2.2</td><td class="src"><a href="https://dl.acm.org/doi/10.1145/364099.364331" target="_blank" rel="noopener">dl.acm.org/doi/10.1145/364099.364331</a></td><td>서지·URL</td></tr>
+    <tr><td>8</td><td>1973</td><td>Bron–Kerbosch, <i>Algorithm 457: finding all cliques of an undirected graph</i>, CACM 16(9):575–577</td><td>극대 클리크 열거(networkx find_cliques 의 조상)</td><td>§2.3</td><td class="src"><a href="https://dl.acm.org/doi/10.1145/362342.362367" target="_blank" rel="noopener">dl.acm.org/doi/10.1145/362342.362367</a></td><td>서지·URL</td></tr>
+    <tr><td>9</td><td>1975</td><td>Tarjan, <i>Efficiency of a good but not linear set union algorithm</i>, JACM 22(2):215–225</td><td>union-find 의 α(m,n) 상계</td><td>§2.2</td><td class="src"><a href="https://dl.acm.org/doi/10.1145/321879.321884" target="_blank" rel="noopener">dl.acm.org/doi/10.1145/321879.321884</a></td><td>서지·URL</td></tr>
+    <tr><td>10</td><td>1975</td><td>Salton–Wong–Yang, <i>A vector space model for automatic indexing</i>, CACM 18(11):613–620</td><td>문서 = 벡터, 유사도 = 코사인</td><td>§2.5</td><td class="src"><a href="https://dl.acm.org/doi/10.1145/361219.361220" target="_blank" rel="noopener">dl.acm.org/doi/10.1145/361219.361220</a></td><td>서지·URL</td></tr>
+    <tr><td>11</td><td>1983</td><td>Seidman, <i>Network structure and minimum degree</i>, Social Networks 5:269–287</td><td>k-core</td><td>§3</td><td class="src"><a href="https://www.sciencedirect.com/science/article/abs/pii/037887338390028X" target="_blank" rel="noopener">sciencedirect.com/…/037887338390028X</a></td><td>서지·URL</td></tr>
+    <tr><td>12</td><td>1987</td><td>Gromov, <i>Hyperbolic groups</i>, Essays in Group Theory(Springer) — Rips 의 미출판 구성을 사용</td><td>"Rips 복합체" — 쌍곡군 연구 도구</td><td>§2.4</td><td class="src"><a href="https://www.ihes.fr/~gromov/infinitegroups/149/" target="_blank" rel="noopener">ihes.fr/~gromov/infinitegroups/149/</a>(2차 codex 확인) · 명칭 계보: <a href="https://msp.org/pjm/2017/290-1/pjm-v290-n1-p01-s.pdf" target="_blank" rel="noopener">Adamaszek–Adams 2017 §1</a></td><td>URL(2차 codex 확인)</td></tr>
+    <tr><td>13</td><td>1987</td><td>Jonker–Volgenant, <i>A shortest augmenting path algorithm for dense and sparse linear assignment problems</i>, Computing 38:325–340</td><td>LAPJV — 실용 할당 알고리즘</td><td>§2.8</td><td class="src"><a href="https://dl.acm.org/doi/10.1007/BF02278710" target="_blank" rel="noopener">dl.acm.org/doi/10.1007/BF02278710</a></td><td>서지·URL</td></tr>
+    <tr><td>14</td><td>1998</td><td>Watts–Strogatz, <i>Collective dynamics of 'small-world' networks</i>, Nature 393:440–442</td><td>복잡계 네트워크 — 군집계수·짧은 경로</td><td>역사 참고(미사용)</td><td class="src"><a href="https://www.nature.com/articles/30918" target="_blank" rel="noopener">nature.com/articles/30918</a></td><td>서지·URL</td></tr>
+    <tr><td>15</td><td>1998/1999</td><td>Page–Brin–Motwani–Winograd, <i>The PageRank citation ranking</i>, Stanford InfoLab TR 1999-66(1998-01 공개)</td><td>랜덤워크 정상분포로 노드 순위</td><td>§3 PPR</td><td class="src"><a href="https://www.semanticscholar.org/paper/eb82d3035849cd23578096462ba419b53198a556" target="_blank" rel="noopener">semanticscholar.org/paper/eb82d3…</a> · ilpubs.stanford.edu:8090/422/ (검색 결과 인용, 직접 열지 않음)</td><td>서지·URL(2차)</td></tr>
+    <tr><td>16</td><td>1999</td><td>Barabási–Albert, <i>Emergence of scaling in random networks</i>, Science 286:509–512</td><td>척도 없는 망·선호적 연결 — 허브의 이론</td><td>역사 참고(허브형 분자의 배경)</td><td class="src"><a href="https://www.science.org/doi/10.1126/science.286.5439.509" target="_blank" rel="noopener">science.org/doi/10.1126/science.286.5439.509</a></td><td>서지·URL</td></tr>
+    <tr><td>17</td><td>2002</td><td>Girvan–Newman, <i>Community structure in social and biological networks</i>, PNAS 99(12):7821–7826</td><td>커뮤니티 탐지(엣지 매개중심성 제거)</td><td>§3 배경</td><td class="src"><a href="https://www.pnas.org/doi/10.1073/pnas.122653799" target="_blank" rel="noopener">pnas.org/doi/10.1073/pnas.122653799</a></td><td>서지·URL</td></tr>
+    <tr><td>18</td><td>2002</td><td>Edelsbrunner–Letscher–Zomorodian, <i>Topological persistence and simplification</i>, Discrete Comput. Geom. 28:511–533</td><td>지속성 — 필트레이션에서 특징 vs 노이즈</td><td>§3 지속성</td><td class="src"><a href="https://link.springer.com/article/10.1007/s00454-002-2885-2" target="_blank" rel="noopener">link.springer.com/article/10.1007/s00454-002-2885-2</a></td><td>서지·URL</td></tr>
+    <tr><td>19</td><td>2003</td><td>Adamic–Adar, <i>Friends and neighbors on the Web</i>, Social Networks 25(3):211–230</td><td>1/log deg 가중 공통 이웃 지수</td><td>§2.7</td><td class="src"><a href="https://www.semanticscholar.org/paper/8dc9d11e3fc229a1b70bb00de72dc15d55848174" target="_blank" rel="noopener">semanticscholar.org/paper/8dc9d1…</a></td><td>서지·URL(2차)</td></tr>
+    <tr><td>20</td><td>2004</td><td>Newman–Girvan, <i>Finding and evaluating community structure in networks</i>, Phys. Rev. E 69:026113</td><td>모듈성 Q</td><td>§3 모듈성</td><td class="src"><a href="https://link.aps.org/doi/10.1103/PhysRevE.69.026113" target="_blank" rel="noopener">link.aps.org/doi/10.1103/PhysRevE.69.026113</a></td><td>서지·URL</td></tr>
+    <tr><td>21</td><td>2005</td><td>Zomorodian–Carlsson, <i>Computing persistent homology</i>, Discrete Comput. Geom. 33:249–274</td><td>지속 호몰로지 계산 알고리즘</td><td>§3 지속성(미도입)</td><td class="src"><a href="https://link.springer.com/article/10.1007/s00454-004-1146-y" target="_blank" rel="noopener">link.springer.com/article/10.1007/s00454-004-1146-y</a></td><td>서지·URL</td></tr>
+    <tr><td>22</td><td>2008</td><td>Blondel–Guillaume–Lambiotte–Lefebvre, <i>Fast unfolding of communities in large networks</i>, J. Stat. Mech. P10008</td><td>Louvain</td><td>§3 (reject)</td><td class="src"><a href="https://iopscience.iop.org/article/10.1088/1742-5468/2008/10/P10008" target="_blank" rel="noopener">iopscience.iop.org/…/P10008</a></td><td>서지·URL</td></tr>
+    <tr><td>23</td><td>2008</td><td>Cohen, <i>Trusses: cohesive subgraphs for social network analysis</i>, NSA 기술보고서</td><td>k-truss</td><td>§3 (reject)</td><td class="src">2차 출처로만 확인 — 원문 URL 미확인</td><td>원문 URL 미확인</td></tr>
+    <tr><td>24</td><td>2009</td><td>Zhou–Lü–Zhang, <i>Predicting missing links via local information</i>, Eur. Phys. J. B 71:623–630</td><td>국소 링크 예측 지표 비교</td><td>§2.7</td><td class="src"><a href="https://arxiv.org/abs/0901.0553" target="_blank" rel="noopener">arxiv.org/abs/0901.0553</a></td><td>survey 인용 재사용</td></tr>
+    <tr><td>25</td><td>2016</td><td>Crouse, <i>On implementing 2D rectangular assignment algorithms</i>, IEEE Trans. Aerosp. Electron. Syst. 52(4):1679–1696</td><td>scipy linear_sum_assignment 의 구현 근거</td><td>§2.8</td><td class="src"><a href="https://ieeexplore.ieee.org/document/7738348/" target="_blank" rel="noopener">ieeexplore.ieee.org/document/7738348/</a></td><td>서지·URL</td></tr>
+    <tr><td>26</td><td>2019</td><td>Traag–Waltman–van Eck, <i>From Louvain to Leiden</i>, Sci. Rep. 9:5233</td><td>Leiden — 연결 보장 커뮤니티</td><td>§3 (adopt·미구현)</td><td class="src"><a href="https://arxiv.org/abs/1810.08473" target="_blank" rel="noopener">arxiv.org/abs/1810.08473</a></td><td>survey 인용 재사용</td></tr>
+    <tr><td>27</td><td>2024</td><td>Edge et al.(Microsoft), <i>From local to global: a graph RAG approach</i></td><td>LLM 추출 그래프 + 계층적 Leiden 요약</td><td>survey §각도1 adopt(미구현)</td><td class="src"><a href="https://arxiv.org/html/2404.16130v1" target="_blank" rel="noopener">arxiv.org/html/2404.16130v1</a></td><td>survey 인용 재사용</td></tr>
+  </table></div>
+  <div class="callout warn"><b>미확인 1건(#23)과 찾지 않은 것.</b> 1차가 미확인으로 남긴 5건 중 4건(#3 Vietoris·#5 Munkres·#6 Erdős–Rényi·#12 Gromov)은 2차 codex 검토가 원문 URL 을 찾아 채웠다.
+  #23 Cohen 2008 은 저자의 후속 논문에서 URL 후보를 찾았으나 원문 접근을 확인하지 못해 "원문 URL 미확인"으로 남긴다.
+  찾지 않은 것: 극대 클리크 수의 지수 상계(Moon–Moser 1965 로 알려짐 — 검색하지 않아 본문에서 인용하지 않고 프로젝트 실측 3<sup>20</sup> 만 썼다), 상호 kNN 그래프의 원 논문(§2.6 "미확인"), Kőnig 1931·Egerváry 1931(헝가리안 명칭의 유래 — Kuhn 논문 초록의 언급만).</div>
+  <h3 class="sub">단계로 묶으면</h3>
+  <div class="tscroll"><table>
+    <tr><th>단계</th><th>기간</th><th>#</th><th>한 줄</th></tr>
+    <tr><td>① 고전 그래프 · 집합 유사도</td><td>1736–1912</td><td>1, 2</td><td>차수와 경로, 집합의 겹침 — 이 문서 §2.1·2.2·2.5 의 바닥</td></tr>
+    <tr><td>② 위상 · 조합 알고리즘</td><td>1927–1975</td><td>3, 7, 8, 9, 10</td><td>복합체·union-find·클리크 열거·벡터 공간 모형 — 분자의 정의와 계산 도구</td></tr>
+    <tr><td>③ 최적화</td><td>1955–2016</td><td>4, 5, 13, 25</td><td>할당 문제 60년 — Kuhn 에서 scipy 까지</td></tr>
+    <tr><td>④ 복잡계 네트워크</td><td>1959–1999</td><td>6, 14, 16</td><td>랜덤 그래프·소세계·척도 없음 — 이 프로젝트가 직접 쓰진 않으나 허브·귀무모형의 언어</td></tr>
+    <tr><td>⑤ 커뮤니티 탐지 · 조밀 부분그래프</td><td>1983–2019</td><td>11, 17, 20, 22, 23, 26</td><td>k-core → 모듈성 → Louvain → Leiden — 전부 클리크의 "완화"라서 이 프로젝트는 판정에서 걸렀다</td></tr>
+    <tr><td>⑥ 링크 예측 · 랭킹</td><td>1998–2009</td><td>15, 19, 24</td><td>PageRank·Adamic-Adar — refs 자동 후보의 근거</td></tr>
+    <tr><td>⑦ 위상 데이터 분석</td><td>2002–2005</td><td>18, 21</td><td>지속성 — "임계 하나가 아니라 필트레이션"(molecule-theory (b))</td></tr>
+    <tr><td>⑧ LLM 시대 그래프</td><td>2024</td><td>27</td><td>GraphRAG — 추출 그래프 + Leiden, survey 의 가장 최근 adopt</td></tr>
+  </table></div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="compute"><div class="wrap">
+  <div class="eyebrow">6 · 수식 계산법</div>
+  <h2 class="sec">손계산과 코드는 같은 식을 다르게 푼다 — 파이프라인에서 실제로 도는 방식</h2>
+  <p class="sec-desc">§2 의 손계산은 정의를 확인하는 것이고, 코드는 원자 1,300~1,400개에서 같은 식을 벡터화·희소화해 푼다. 줄 번호는 2026-09-09 시점의 <code>src/geoguesshelper/</code>.
+  복잡도 중 "실측"은 survey §구현함 인용, "계산 추정"은 실행하지 않은 산술이다.</p>
+  <div class="tscroll"><table>
+    <tr><th>수식(§)</th><th>코드</th><th>계산 방식</th><th>비용</th><th>실측 / 추정</th></tr>
+    <tr><td>D = 1 − V Vᵀ (§2.5)</td><td><code>molecule.py _distances</code> L219 · <code>observe.py</code> L380</td><td>정규화 벡터의 행렬곱 한 번 → float64 승격 → 대각 0 → clip [0,2]. 쌍별 루프 없음</td><td>O(n²·d) 시간, n² 밀집 행렬 메모리</td><td>실측: n 1,297 → 쌍 840,456(molecule-theory) · 계산 추정: n 1,373 이면 1,373²×8 B ≈ 15 MB</td></tr>
+    <tr><td>ε = Q<sub>x</sub>(d) (§2.6)</td><td><code>_graph_for</code> L247~249 · <code>observe.py</code> L937~938</td><td>상삼각 <code>D[triu_indices]</code> 를 뽑아 <code>np.percentile</code>(선형 보간). observe 는 0~100% 를 0.5% 간격 201개로 한 번에</td><td>O(m log m), m = n(n−1)/2</td><td>실측: pct 0.5 → ε 0.328 · p1 0.380 · p5 0.506(molecule-theory)</td></tr>
+    <tr><td>상호 kNN (§2.6)</td><td><code>_graph_for</code> L252~257 · <code>observe.py _knn</code> L385~398</td><td><code>np.argpartition(Dm, k, axis=1)[:, :k]</code> — 행마다 k 개만 부분 선택(정렬 아님), 불리언 마스크 → <code>mask &amp; mask.T</code> 가 상호 조건. observe 는 k 개만 <code>argsort</code> 해 순위(rank)까지</td><td>O(n²) 선택 + O(n·k log k) 정렬</td><td>실측: 상호 kNN10 ∩ pct 0.5 엣지 2,399 · kNN15 엣지 수는 survey 미기재</td></tr>
+    <tr><td>극대 클리크 (§2.3)</td><td><code>molecule.py</code> L303 <code>nx.find_cliques(G)</code></td><td>Bron–Kerbosch(피벗) 제너레이터를 돌며 크기 ≥ min_size 만 수집. 열거 수·시간 상한(MAX_CLIQUES 200,000 · 60 s)을 "넘길 때" 중단하고 <code>truncated</code> 표시</td><td>최악 지수적(출력 크기에 비례)</td><td>실측: 상한 도입 후 정상 규모에서 128/128 클리크 일치, 회귀 없음(survey §구현함)</td></tr>
+    <tr><td>자카드 병합 union-find (§2.2·2.5)</td><td><code>molecule.py</code> L352~ · <code>observe.py _dup_groups</code> L507</td><td>클리크 쌍 전부(O(c²))가 아니라 <b>노드를 공유하는 클리크끼리만</b>(<code>by_node</code>) 자카드를 재고, find 는 경로 압축</td><td>O(Σ<sub>v</sub> C(#클리크(v), 2)) + α(m,n)</td><td>실측: dups 21쌍 → 18묶음(survey §구현함)</td></tr>
+    <tr><td>Adamic-Adar (§2.7)</td><td><code>observe.py _link_candidates</code> L581~592</td><td>후보 쌍(O(n²))을 돌지 않고 <b>각 노드 z 를 공통 이웃으로 보고 그 이웃끼리만</b> 짝지어 1/ln deg(z) 를 누적(dict). 직접 인접 쌍은 <code>direct</code> 로 제외. 끝에 후보 P 개 정렬</td><td>Σ<sub>z</sub> C(deg z, 2) + O(P log P)</td><td>실측: P 24,783 · 0.2 s · candidates 200 · bridges 100(survey §구현함)</td></tr>
+    <tr><td>헝가리안 (§2.8)</td><td><code>observe.py _continue_matches</code> L663~676</td><td>|new|×|old| 비용 행렬을 NO_MATCH 로 채우고 J ≥ 0.5 칸만 1−J 로 덮은 뒤 <code>scipy.optimize.linear_sum_assignment</code>(Crouse 2016 의 JV 계열). 벌점 칸에 떨어진 배정은 버린다. scipy 없으면 그리디(1:1 유지)</td><td>O(n³)</td><td>실측: 22개 사슬 반례·경쟁 반례 PASS(tests/graph_fixes_check.py, survey §구현함) · 행렬 크기(분자 ~120×120)의 실행 시간은 미기재</td></tr>
+  </table></div>
+<pre><span class="c"># 파이프라인이 실제로 쓰는 numpy 관용구 — 위 표의 행 1·2·3 (molecule.py L224, L247~258 / observe.py L380~398 요약)</span>
+D = (1.0 - (V @ V.T)).astype("float64"); np.fill_diagonal(D, 0.0); D = np.clip(D, 0.0, 2.0)
+upper = D[np.triu_indices(n, 1)]; thr = float(np.percentile(upper, pct))
+Dm = D.copy(); np.fill_diagonal(Dm, np.inf)
+nn = np.argpartition(Dm, k, axis=1)[:, :k]                       <span class="c"># 행마다 k 개 — 정렬 없이 선택</span>
+knn_mask = np.zeros((n, n), bool); knn_mask[np.repeat(np.arange(n), k), nn.ravel()] = True
+mask = (knn_mask &amp; knn_mask.T) &amp; (D &lt;= thr)                       <span class="c"># 상호 ∧ 임계 — 정의 6 그대로</span>
+G = nx.Graph(); G.add_edges_from(zip(*np.nonzero(np.triu(mask, 1))))
+cliques = [c for c in nx.find_cliques(G) if len(c) &gt;= min_size]  <span class="c"># 정의 3</span></pre>
+  <div class="callout"><b>손계산이 코드와 갈리는 지점 셋.</b> ① 손계산은 삼각형 수를 tr(A³)/6 로 세지만 코드는 A³ 를 만들지 않는다 — <code>find_cliques</code> 가 주는 것은 <b>극대</b> 클리크 목록이지
+  삼각형 개수가 아니다(크기 4 인 극대 클리크 하나는 그 안에 C(4,3)=4 개의 삼각형을 품는다). 이 프로젝트에서 두 값이 같았던 것은 §2.1 예제(가장 큰 클리크가 삼각형 그 자체)의 우연이며,
+  일반적으로는 극대 클리크마다 C(k,3) 을 더해야 삼각형 총수가 나온다.
+  ② 손계산의 kNN 은 목록을 눈으로 읽지만 코드는 <code>argpartition</code> 이라 k 개 안의 순서가 보장되지 않는다 — 순위가 필요한 observe 는 그 k 개만 다시 정렬한다(L393).
+  ③ 손계산의 헝가리안은 행·열 축소로 끝났지만, 이는 축소 후 각 행·열에 독립된 0 이 하나씩 남는 특수한 행렬이었기 때문이다 — 일반 행렬은 그 뒤 최소 선 덮기·증가경로가 더 필요하다.
+  scipy 는 애초에 그 고전 선 덮기 절차를 그대로 돌지 않는다 — 수정 Jonker–Volgenant 알고리즘(§2.8 출처, Crouse 2016)으로 최단 증가경로를 직접 구성한다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="craft"><div class="wrap">
+  <div class="eyebrow">7 · 글쓰기 원칙 적용 · 용어</div>
+  <h2 class="sec">writing-craft_260909 의 원칙을 이 문서가 어떻게 썼나</h2>
+  <div class="callout ok"><b>이 문서는 writing-craft_260909 의 원칙 2·7·1·6·10·9 를 다음과 같이 적용했다.</b>
+  <b>2(정의→예시→수식→출처)</b>: §2 의 여덟 절이 전부 <code>.def</code> → 숫자 문단(만족 예 + "만족하지 않는 예") → <code>.formula</code> → <code>.src</code> 순서다.
+  <b>7(수식마다 숫자)</b>: 수식 블록(<code>.formula</code>) 8개와 §3 카드의 정의 문장 4개마다 같은 절에 검사 스크립트가 낸 숫자가 있고, 각 <code>.src</code> 끝에 검사 항목 이름을 적었다.
+  <b>1(관측/추정 분리)</b>: §1 콜아웃에서 숫자를 세 등급으로 갈랐고, 계산 추정(15 MB)·미확인(URL 5건, 상호 kNN 원 논문)·미기재(kNN15 엣지 수, 헝가리안 실행 시간)를 그 단어로 적었다.
+  <b>6(출처 추적)</b>: §5 표 27행에 URL 또는 "원문 URL 미확인"을 두고 "확인" 열로 확인 범위를 갈랐다 — 원문 구절 대조는 0건임을 §5 머리에 밝혔다.
+  <b>10(장식 수치 금지)</b>: 프로젝트 수치는 전부 선행 문서의 절 이름과 함께 인용했고, 두 날짜의 원자 수(1,297·1,373)가 다른 것을 고치지 않고 이유를 적었다.
+  <b>9(용어 충돌)</b>: 아래 사전 — 특히 "지속성"의 두 뜻과 "극대/최대"를 도입 자리에서 갈랐다. 원칙 4(합계는 표를 세어)는 hero 의 8·4·6·27·26·5·48 이 §2·§3·§4·§5·검사 출력을 센 값이다(URL 26 은 2차 codex 가 문헌 4건을 확인한 뒤의 값).</div>
+  <h3 class="sub">용어 사전 — 이 문서가 새로 고정한 것(writing-craft §언어 표에 더할 행)</h3>
+  <div class="tscroll"><table>
+    <tr><th>용어</th><th>뜻(이 문서)</th><th>충돌 여부 · 처리</th></tr>
+    <tr><td>극대(maximal) / 최대(maximum)</td><td>더할 수 없음 / 크기가 가장 큼</td><td>한국어 번역이 자주 섞인다 — 분자는 <b>극대</b>. 정의 3 에서 병기</td></tr>
+    <tr><td>지속성(persistence)</td><td>극대 단체가 극대로 살아 있는 ε 구간 길이(molecule-theory 정의 4)</td><td><span class="badge consider">부분 충돌</span> TDA 의 지속 호몰로지는 β<sub>k</sub> 의 탄생·소멸 — 이 프로젝트 용법은 그 단순화임을 §3 카드에 명시</td></tr>
+    <tr><td>단체(simplex) · 단체 복합체</td><td>모든 쌍이 인접한 부분집합 · 부분집합에 닫힌 모임</td><td>"simplex method"(선형계획)와 동음 — 이 문서는 위상 뜻만. §4 최적화 행에서 simplex 를 쓰지 않았다</td></tr>
+    <tr><td>상호 kNN(mutual)</td><td>양쪽 목록에 서로 있는 쌍</td><td>코드 <code>mutual</code>·survey "상호 kNN"·atom-observatory "상호 여부" 일치 — 충돌 없음</td></tr>
+    <tr><td>백분위 임계 ε = Q<sub>x</sub>(d)</td><td>전 쌍 거리의 x-백분위(선형 보간)</td><td>pct 는 "하위 x%"의 x — molecule-theory 정의 2 와 같다. 보간 방식은 이 문서가 처음 명시</td></tr>
+    <tr><td>공통 이웃 · 링크 예측</td><td>N(x)∩N(y) · 안 이어진 쌍의 점수화</td><td>refs 의 "링크"(사람 승인)와 다르다 — 후보(candidate)와 링크를 구분해 씀</td></tr>
+    <tr><td>할당 · 이분 매칭</td><td>일대일 σ 를 고르는 최적화</td><td>"매칭"이 문자열 매칭으로 읽힐 수 있어 "이분 매칭"·"할당"으로 씀</td></tr>
+    <tr><td>벌점(NO_MATCH)</td><td>후보 아닌 칸의 비용</td><td>코드 변수명 그대로. "패널티"와 혼용하지 않음</td></tr>
+    <tr><td>근중복 묶음(group)</td><td>거리 &lt; τ 쌍 그래프의 연결요소</td><td>dups.json <code>groups</code> 와 일치. "클러스터"라 부르지 않음(밀도 클러스터링과 혼동)</td></tr>
+  </table></div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="checklist"><div class="wrap">
+  <div class="eyebrow">8 · 자가 점검</div>
+  <h2 class="sec">writing-craft §자가 점검 체크리스트 10줄 — 이 문서(1차)의 답</h2>
+  <p class="sec-desc">writing-craft_260909 §자가 점검 표를 그대로 복사해 오른쪽 열만 채웠다("신규 docs/theory 보고서는 발행 전에 이 표를 복사해 오른쪽 열만 다시 채운다").</p>
+  <div class="tscroll"><table>
+    <tr><th>#</th><th>점검 문장</th><th>이 문서(1차)</th><th>근거</th></tr>
+    <tr><td>1</td><td>수치·판정이 든 문장마다 실측/관측되지 않음/미확인/계산 추정/가설/판정 불가 중 하나가 읽히는가</td><td><span class="badge adopt">통과</span></td><td>§1 콜아웃 세 등급 · "계산 추정" 1건(15 MB) · "미확인" 6건(URL 5 + 상호 kNN 원 논문) · "찾지 않은 것" 3건(Moon–Moser · Kőnig · Egerváry, §5 콜아웃) · "미기재" 2건</td></tr>
+    <tr><td>2</td><td>정의(.def)마다 두 화면 안에 사례 1 + 반례 1 이 있는가</td><td><span class="badge adopt">통과</span></td><td>정의 1~8 전부 "만족하지 않는 예" 문장 있음(홀수 차수합·F 고립·{A,B,C,D}·빈 삼각형·직교 벡터·한쪽 kNN·인접 쌍·작은 벌점)</td></tr>
+    <tr><td>3</td><td>hero·요약의 단정문이 본문 원자료보다 넓지 않은가(강도 단어·주어 범위)</td><td><span class="badge adopt">통과</span></td><td>장난감 수치는 "이 문서 밖에서는 뜻이 없다"로 범위 한정 · 프로젝트 수치는 스냅샷 날짜 병기</td></tr>
+    <tr><td>4</td><td>머리글·칩·제목의 합계가 판정표를 센 값과 같은가(합계 정의 포함)</td><td><span class="badge adopt">통과</span></td><td>핵심 8 = §2 소절 수 · 후보 4 = §3 카드 수 · 개념군 6 = §4 행 수 · 문헌 27 = §5 행 수, URL 26 = 27 − 미확인 1(2차 codex 가 4건 채움) · 검사 48 = 스크립트 출력</td></tr>
+    <tr><td>5</td><td>기각 항목마다 "왜"와 "무엇이 바뀌면 다시"가 있는가</td><td><span class="badge na">해당 없음</span></td><td>이 문서는 판정하지 않는다 — §3 의 "왜 멈추나"는 survey 판정의 인용이고 재검토 조건은 survey §기각으로 위임</td></tr>
+    <tr><td>6</td><td>인용마다 저자·연도·제목·전체 URL 중 셋 이상, 아니면 "미확인"인가</td><td><span class="badge adopt">통과</span></td><td>27/27 저자·연도·제목 · URL 26(2차 codex 가 4건 보강) · 미확인 1(#23) 표기 · 2차 출처는 "(2차)" 표기</td></tr>
+    <tr><td>7</td><td>수식·의사코드 블록마다 숫자 문장이 있는가</td><td><span class="badge adopt">통과</span></td><td>.formula 8 + pre 5 전부 같은 절에 검사 스크립트 수치(§3 카드 4개는 정의 문장 옆 숫자) · §6 pre 는 표의 실측 열이 그 역할 — 개수는 태그를 세어 쓴 값</td></tr>
+    <tr><td>8</td><td>검토 표에 단계·누가·검증 수단·바뀐 건수·기각된 지적이 있는가</td><td><span class="badge consider">부분</span></td><td>1차만 채움 — 2·3차 행은 비어 있고 비어 있음을 표시</td></tr>
+    <tr><td>9</td><td>새 용어를 도입 전에 검색 1회·grep 1회 했고 사전 표에 행이 있는가</td><td><span class="badge adopt">통과</span></td><td>§7 사전 9행 · grep: 선행 3문서에서 "상호 kNN"·"지속성"·"periphery" 용법 대조 · 검색: 지속성의 TDA 뜻(§5 #18·#21)</td></tr>
+    <tr><td>10</td><td>모든 숫자가 파일·스크립트·문헌 중 하나로 되짚어지는가</td><td><span class="badge adopt">통과</span></td><td>장난감 → tests/graph_theory_toy_check.py · 프로젝트 → 선행 문서 절 이름 · 문헌 → §5 URL · 코드 줄 번호 → 260909 시점 명시</td></tr>
+  </table></div>
+  <div class="callout ok"><b>1차 자가 판정.</b> 통과 8 · 부분 1(#8) · 해당 없음 1(#5). 부분 1건은 2차 검토가 있어야 닫힌다. writing-craft 1차(통과 6·부분 2·해당 없음 2)보다 #2·#7 이 "통과"로 바뀐 것은 이 문서가 정의와 수식을 실제로 가진 첫 문서이기 때문 — 그 두 줄이 이 문서를 위해 만들어진 줄이었다.</div>
+</div></section>
+
+<section class="section" id="review"><div class="wrap">
+  <div class="eyebrow">검토 이력 · 3단</div>
+  <h2 class="sec">1차 fable → 2차 codex(완료) → 3차 fable(예정)</h2>
+  <div class="tscroll"><table>
+    <tr><th>단계</th><th>누가</th><th>한 일 · 검증 수단</th><th>바뀐 것</th></tr>
+    <tr><td><b>1차</b></td><td>fable(Claude)</td><td>선행 4문서 전문 대조 · 코드 대조(<code>molecule.py</code>·<code>observe.py</code> 줄 번호) · WebSearch 24회(문헌 27건 중 24건 직접, 3건 survey 재사용) · 장난감 계산을 <code>tests/graph_theory_toy_check.py</code> 48건으로 실행(numpy 2.3.5 · networkx 3.6.1 · scipy 1.17.0)</td>
+      <td>초안. 검사 48/48 PASS · 미확인 5건 표기 · survey 에 §이론 기반 절 추가(별도 편집, survey §검토 이력 참조) · 선행 문서의 수치 불일치(survey adopt 7/8, 원자 1,297/1,373)는 고치지 않음</td></tr>
+    <tr><td><b>2차</b></td><td>codex(gpt-6-astra)</td><td>반박 태도로 손계산 문단을 직접 재계산(정확한 실수 연산) · §compute 의 "우연"·"scipy 선 덮기" 서술 검증 · survey adopt 합계를 §판정표에서 직접 세어 확인 · 미확인 문헌 5건 중 4건(Vietoris·Munkres·Erdős–Rényi·Gromov)의 원문 경로 재검색. 읽기 전용 세션이라 파일 수정은 Claude Sonnet 5 가 반영</td>
+      <td>AA(x,y) 반올림 1.5315→<b>1.5316</b>(반올림 전 정확한 합의 반올림) · 평균 차수 3.494→<b>3.495</b> · 헝가리안 §2.8: NO_MATCH=0.3 은 "유효 매칭 0"이 아니라 <b>0/1 동률</b>임을 지적 + 일반 충분조건(1.5)과 이 예의 실제 문턱(0.45)을 구분 · §compute ③: "우연" → 축소 후 독립된 0 이 남는 구조로 재서술, scipy 는 "선 덮기 그대로"가 아니라 <b>수정 Jonker–Volgenant</b>임을 정정 · hero "그래프가 유일한 형식" → 프로젝트 범위로 한정 · "F 는 어느 노드로도" → "F 자신을 뺀" · 지속 호몰로지 서술에 바코드·생성자 설명 보강 · §5 미확인 5건 중 4건에 원문 URL 채움. survey adopt 합계 정답 <b>5</b> 확정(그쪽 §검토 이력에 반영).</td></tr>
+    <tr><td><b>2차 추가</b>(260909)</td><td>codex(gpt-6-astra)</td><td>쓰기 권한(<code>--write --cwd</code>) 시도했으나 환경이 여전히 read-only 강제 — 손계산 재검증만(수정은 Claude Sonnet 5 가 반영). §2.1 차수·trace(A³)/6, §2.4 오일러 표수, §2.6 Q20/Q30, §3 모듈성·PageRank 를 독립 재계산해 전부 일치 확인</td>
+      <td>§3 지속성 카드: 이 프로젝트의 "지속성"(단체 하나의 극대 생존 구간)과 TDA 지속 호몰로지(β<sub>k</sub> 생성자의 탄생·소멸)가 <b>서로 다른 대상</b>임을 더 명확히 구분 · §compute ①: "클리크 열거가 삼각형을 부산물로 준다"는 부정확 — <code>find_cliques</code> 는 극대 클리크만 주고, 크기 k 극대 클리크는 C(k,3) 개 삼각형을 품으므로 §2.1 예제(가장 큰 클리크=삼각형 자체)에서만 개수가 우연히 같았음을 정정.</td></tr>
+    <tr><td><b>3차</b></td><td>—</td><td>(예정) 2차 지적을 스크립트·원문과 대조해 추가 채택/기각 · 체크리스트 #8 닫기</td><td>—</td></tr>
+  </table></div>
+</div></section>
+
+<section class="section" id="next"><div class="wrap">
+  <div class="eyebrow">다음</div>
+  <h2 class="sec">순서</h2>
+  <ol class="plain">
+    <li><b>2차 codex 검토 — 완료</b>(§검토 이력 2차 행). §2.8 의 "3×3 은 축소만으로 풀린 우연"은 우연이 아니라 독립된 0 구조로 재서술했다 — 4×4 반례 확장은 3차로 넘긴다.</li>
+    <li><b>미확인 문헌</b> — 2차가 4건(Vietoris·Munkres·Erdős–Rényi·Gromov)의 URL 을 채웠다. 남은 것: Cohen 2008(§23, 저자 후속 논문에서 URL 후보는 찾았으나 원문 미확인).</li>
+    <li><b>molecule-theory footer 서지 보강</b>(writing-craft §다음 3) — 이 문서 §5 의 #3·#12·#18·#21 을 그쪽 <code>.src</code> 로 옮기면 Edelsbrunner–Harer 를 제외한 항목은 닫힌다.</li>
+    <li><b>검사 스크립트를 회귀에 포함</b> — <code>graph_fixes_check.py</code> 와 함께 돌리는 절차에 <code>graph_theory_toy_check.py</code> 를 넣을지 결정(문서 수치의 단일 진실 원천).</li>
+    <li><b>atom-observatory Q10 미리보기가 §2.6 의 교집합 규칙을 그대로 쓰는지</b> — 뷰어의 <code>max(ri,rj) &lt; knn ∧ d ≤ ε</code> 재현 조건과 이 문서 정의 6 을 대조(observe.py README L1181 의 재현 규칙).</li>
+  </ol>
+  <div class="callout ok"><b>한 문장으로.</b> 벡터(원자)에서 집합(분자)으로 가는 길은 쌍의 관계, 곧 그래프뿐이고 — 이 프로젝트가 쓰는 그래프 대상 8개는 전부 6노드 안에서 손으로 계산되며, 그 손계산이 코드의 벡터화·희소화된 계산과 같은 답을 낸다는 것을 48개 검사가 고정한다.</div>
+</div></section>
+
+<footer><div class="wrap">
+  GeoGuessHelper 프로젝트 · 2026-09-09 · 작성 fable(Claude) · 검토 codex(gpt-6-astra) — 손계산 반올림 2건 정정 · 헝가리안 문턱 서술 정정 · scipy 알고리즘 서술 정정 · 문헌 URL 4건 보강 · 과잉 단정 2건 완화(2차 결과는 Claude Sonnet 5 가 반영) ·
+  선행: graph-theory-survey(260908)·molecule-theory(260907)·atom-observatory(260907) · 글쓰기 원칙: writting-style/writing-craft(260909) ·
+  검사: <code>tests/graph_theory_toy_check.py</code> · 코드: <code>src/geoguesshelper/molecule.py</code>, <code>src/geoguesshelper/observe.py</code>
+</div></footer>
+
+</body>
+</html>

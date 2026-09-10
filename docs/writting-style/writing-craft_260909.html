@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessHelper — 보고서·이론 문서의 퇴고: 세 문서에서 뽑은 원칙 10 (260909)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(282 58% 46%); --accent-deep:hsl(282 62% 34%); --accent-soft:hsl(282 50% 96%); --accent-line:#dfcfea;
+  --accent2:hsl(18 90% 55%); --ink:#17101f; --ink-2:#43354f; --muted:#7a6d86;
+  --line:#e9e3ee; --bg:#f7f4f9; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(23,16,31,.04),0 8px 24px -12px rgba(23,16,31,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:3px;font-size:12.5px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 9px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft);text-decoration:none}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.26;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:80ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:76ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:15.5px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start;justify-content:space-between}
+.card p,.card li{font-size:13.8px;color:var(--ink-2)}
+.card ul,.card ol{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+.card .rule{margin-top:10px;padding:9px 12px;border-radius:9px;background:var(--accent-soft);border:1px solid var(--accent-line);font-size:13.2px;color:var(--ink)}
+.card .rule b{color:var(--accent-deep)}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f9f6fb;font-weight:700;font-size:12px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+td b{color:var(--ink)}
+.tscroll{overflow-x:auto}
+code{font-family:var(--mono);font-size:12.5px;background:#efe9f3;padding:1px 6px;border-radius:5px;color:#3a2450}
+.callout{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout b{color:var(--ink)}
+.def{background:#fff;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 18px;margin:12px 0;font-size:14px;color:var(--ink-2);box-shadow:var(--shadow)}
+.def b{color:var(--ink)}
+.def .lbl{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--accent-deep);text-transform:uppercase;margin-right:8px}
+.badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.04em;padding:2px 8px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
+.badge.adopt{background:var(--ok-soft);color:var(--ok)}
+.badge.consider{background:var(--warn-soft);color:var(--warn)}
+.badge.reject{background:#eee;color:var(--muted)}
+.badge.na{background:#efe9f3;color:var(--accent-deep)}
+.src{font-size:11.5px;color:var(--muted);word-break:break-all;margin-top:8px}
+.q{font-style:italic;color:var(--ink-2)}
+ul.plain{padding-left:18px;font-size:14px;color:var(--ink-2)} ul.plain li{margin:4px 0}
+ol.plain{padding-left:20px;font-size:14px;color:var(--ink-2)} ol.plain li{margin:4px 0}
+footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>GeoGuessHelper · 글쓰기 관행</div>
+  <nav class="topnav">
+    <a href="#inventory">현황</a><a href="#epistemic">인식론</a><a href="#structure">구조</a><a href="#evidence">근거·검토</a>
+    <a href="#language">언어</a><a href="#fixes">교정 사례</a><a href="#verdicts">판정표</a><a href="#sources">출처</a>
+    <a href="#rejected">기각·한계</a><a href="#review">검토 이력</a><a href="#checklist">자가 점검</a><a href="#next">다음</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">글쓰기 관행 · 2026-09-09 · 소재: graph-theory-survey(260908) · molecule-theory(260907) · atom-observatory(260907) · 검토: codex(2차, 완료) → fable(3차, 예정)</div>
+  <h1>보고서·논문·이론 문서는 어떻게 다듬는가 — 이 프로젝트의 세 문서가 이미 하고 있는 것과 아직 못 하는 것에서 뽑은 퇴고 원칙 10</h1>
+  <p><b>질문 하나.</b> docs/theory·docs/plan 의 문서를 고칠 때 무엇을 기준으로 고치는가. 일반론("간결하게, 명확하게")은 판정이 불가능해서
+  퇴고 기준이 못 된다. 그래서 거꾸로 갔다 — 세 문서를 읽고 <b>실제로 잘 된 대목</b>과 <b>실제로 어긋난 대목</b>을 짚은 뒤, 거기서만 원칙을 뽑았다.
+  결론부터: 원칙 10개 중 <b>5개는 세 문서가 이미 지키고 있고</b>(관행을 이름 붙인 것), <b>5개는 같은 문서 안에서 어긋난 실례가 있다</b>(판정표를 직접 센 값 —
+  1차 초안은 이 표조차 잘못 세었다, §판정표) —
+  graph-theory-survey 는 판정 수가 머리글(adopt 7)과 판정표 제목(adopt 8)에서 갈리고, molecule-theory 의 참고 문헌은 URL 없이 이름만 있으며,
+  "서명"·"환원" 같은 용어는 다른 분야의 굳은 뜻과 충돌한다. 문헌 8건(Orwell 1946·Strunk 1918·Halmos 1970·Knuth 1989·Hyland 1998·
+  Sollaci&amp;Pereira 2004·Rosenthal 1979·van Rooyen 1999)은 WebSearch 로 찾았고, 그중 7건(Orwell·Strunk·Halmos·Knuth·Sollaci·Rosenthal·van Rooyen)은 원문을 열어 구절을 대조했으며
+  (Rosenthal·van Rooyen 은 2차 codex 검토가 본문·전문까지 확인) 1건(Hyland)은 미리보기 정의 문장만 대조했다(§출처 "확인 범위" 열). 확인 못 한 항목은 그대로 "미확인"이라 적었다.
+  이 문서는 <b>1차 fable</b> 작성본에 <b>2차 codex</b> 검토를 반영했으며 fable 3차 검토 칸은 비워 두었다(§검토 이력).</p>
+  <div class="meta">
+    <span class="chip ac">원칙 10 · 교정 사례 8 · 문헌 8(전체 URL)</span>
+    <span class="chip ok">이미 지킴 5</span>
+    <span class="chip wn">어긋난 실례 있음 5</span>
+    <span class="chip dn">미확인 표시 2건(이 문서 안)</span>
+    <span class="chip ac">검토 2/3 단 완료</span>
+  </div>
+</div></header>
+
+<section class="section" id="inventory"><div class="wrap">
+  <div class="eyebrow">현황</div>
+  <h2 class="sec">세 문서가 이미 쓰는 장치 — 관행을 먼저 관측한다</h2>
+  <p class="sec-desc">원칙은 관행 위에 이름을 붙이는 것이지 밖에서 들여오는 것이 아니다. 아래는 세 문서에서 <b>실제로 확인한</b> 장치와 그 위치다.
+  "잘 함/어긋남"은 이 문서의 판정이고, 판정 근거는 §인식론~§언어의 카드에 있다.</p>
+  <div class="tscroll"><table>
+    <tr><th>장치</th><th>어디에</th><th>실례</th><th>판정</th></tr>
+    <tr><td><b>등급 표기</b> 사실·가설·주장</td><td>molecule-theory §지위·검증, atom-observatory 원칙 "세 등급 한 문법"</td><td><code>status: hypothesis</code> — "장식이 아니라 이 논리적 지위의 표기"(§3.2). 실선·점선·이중선.</td><td><span class="badge adopt">잘 함</span></td></tr>
+    <tr><td><b>실측이 조사를 뒤집은 기록</b></td><td>graph-theory-survey §각도1·§미룸·§검토 이력</td><td>k-truss adopt → reject: "k=4 truss 노드 394 중 분자 밖 32 — 전부 periphery, 완전 밖 0".</td><td><span class="badge adopt">잘 함</span></td></tr>
+    <tr><td><b>정의 → 예시 → 수식 → 출처</b></td><td>molecule-theory §형식화</td><td>정의 1~5(<code>.def</code>) → "사용자의 예를 검증한다"(D 배제) → VR<sub>ε</sub> 수식 → footer 참고 개념.</td><td><span class="badge consider">출처에 URL 없음</span></td></tr>
+    <tr><td><b>판정 배지·표</b></td><td>graph-theory-survey §판정표, atom-observatory §위치 결정·§관측 질문</td><td>adopt/consider/reject 18행 · 채택/보류/기각 · "재료 상태" 열(있음/빌드로 생성/만들어야).</td><td><span class="badge consider">수치 불일치</span></td></tr>
+    <tr><td><b>기각의 재검토 조건</b></td><td>graph-theory-survey §기각, atom-observatory §안 하는 것</td><td>"Louvain — Leiden 을 채택하는 순간 영구 기각", "SBM — 원자 수만 단위면 재검토".</td><td><span class="badge adopt">잘 함</span></td></tr>
+    <tr><td><b>출처 한 줄</b> <code>.src</code></td><td>graph-theory-survey 카드 하단</td><td>"era: 2009(Zhou, Lü, Zhang) · arXiv:0901.0553 · networkx.link_prediction · 실측 스크립트: stage1_checks".</td><td><span class="badge adopt">잘 함</span></td></tr>
+    <tr><td><b>수식 옆 실측</b></td><td>molecule-theory §알고리즘, graph-theory-survey §각도2</td><td>파라미터 표(pct·knn·min_size·merge) + 1차 스냅샷 실측(쌍 840,456 · ε=0.328 · 분자 120). "Σ C(deg,2) + O(P log P) — 실측 P=24,783, 0.2s".</td><td><span class="badge adopt">잘 함</span></td></tr>
+    <tr><td><b>검토 이력 표</b></td><td>graph-theory-survey §검토 이력, atom-observatory "결정 기록" 콜아웃</td><td>1차 fable → 2차 codex → 3차 fable, 단계별 "바뀐 것". 날짜 박힌 추가·편차 콜아웃.</td><td><span class="badge adopt">잘 함</span></td></tr>
+    <tr><td><b>용어 정정 기록</b></td><td>atom-observatory §위치 결정</td><td>"<code>refresh-knowledge</code> 는 '지식을 새로 고친다'로 읽혀 틀린 이름이었다 → <code>snapshot-knowledge</code>".</td><td><span class="badge consider">서명·환원은 미정정</span></td></tr>
+    <tr><td><b>수치의 출처 시각</b></td><td>atom-observatory §실측</td><td>"index.json 2026-09-06 22:39 · molecule/index.json · embeddings.npz 직접 집계", V2 "1의 오차도 없이".</td><td><span class="badge adopt">잘 함</span></td></tr>
+  </table></div>
+  <div class="callout"><b>세 개의 어긋남이 이 문서의 나침반이다.</b> (1) 검토가 판정을 바꾼 뒤 <b>다른 자리의 수치</b>가 따라오지 않았다(§판정표 원칙 4·10).
+  (2) 이론 문서의 참고 문헌이 <b>이름만 있고 경로가 없다</b>(원칙 6). (3) 프로젝트 용어 두 개가 <b>다른 분야의 굳은 뜻</b>과 부딪힌다(원칙 9).
+  나머지 다섯은 관행이 이미 원칙이다 — 이 문서는 그것을 <b>다음 문서에도 강제할 수 있는 문장</b>으로 바꾼다(§자가 점검).</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="epistemic"><div class="wrap">
+  <div class="eyebrow">각도 1 · 인식론</div>
+  <h2 class="sec">문장마다 "이것은 어디에 서 있는가"를 적는다 — 원칙 1·3·10</h2>
+  <p class="sec-desc">Halmos(1970) §9 의 한 문장이 이 각도의 전부다: <span class="q">"무엇을 말하든 그것이 어디에 서 있는지 말하라 — 이것은 증명됐고, 저것은 아니고,
+  이것은 증명될 것이고, 저것은 아니다."</span> 세 문서는 이것을 <code>status</code>·"실측"·"미구현"·"—(로그 없음)" 같은 표기로 이미 하고 있다.</p>
+
+  <div class="def"><span class="lbl">표기 사전 · 이 프로젝트가 쓰는 여섯 등급</span>
+  <b>실측/확인됨</b> — 스크립트가 돌아 숫자가 나왔다("k=4 truss 노드 394 중 분자 밖 32") ·
+  <b>관측되지 않음</b> — 찾았으나 없었다, <i>없음의 증명이 아니다</i>("grep 로 상호 참조 0건", "web_search 0회") ·
+  <b>미확인</b> — 찾지 않았거나 못 찾았다(이 문서의 Halmos 쪽수) ·
+  <b>계산 추정</b> — 수치를 유도했으나 실행은 안 했다("VE≈1,300만 → 수 초~수십 초") ·
+  <b>가설</b> — 설명력으로 도입, 시험 대기(<code>status: hypothesis</code>) ·
+  <b>판정 불가</b> — 검토자가 검증 수단이 없음을 명시(2차 codex: "실측 주장이라 코드로는 판정 불가로 남김").</div>
+
+  <div class="grid g2">
+    <div class="card"><h3>1 · 관측과 추정을 문장 단위로 가른다 <span class="badge adopt">이미 지킴</span></h3>
+      <p><b>근거(프로젝트).</b> graph-theory-survey 의 k-truss 는 리서치 단계에서 adopt 였다. 1차 재검토가 실제 스냅샷 그래프(엣지 2,399·평균 차수 3.49)에 돌려
+      "k≥4 에서 클리크·periphery 밖 원자 0"을 얻자 reject 로 강등했고, 문서는 그 뒤집힘을 지우지 않고 <b>배지에 남겼다</b>("adopt → reject(1차 실측)").
+      리서치의 adopt 는 <i>문헌이 그렇게 말한다</i>는 추정이었고, reject 는 <i>우리 데이터가 그렇다</i>는 관측이었다 — 두 등급이 한 단어(adopt)로 뭉개졌다면 뒤집힐 일도 없었다.</p>
+      <p><b>근거(프로젝트 2).</b> molecule-theory 는 분자를 회상(<code>recall()</code>)에 넣지 않는다. 이유가 정확히 이 원칙이다 — 가설이 다음 프롬프트에 "확립된 사실"로
+      들어가면 등급이 세탁된다(§지위·검증 danger 콜아웃).</p>
+      <p><b>근거(문헌).</b> Hyland(1998)는 과학 논문의 헤징(may·appear·suggest 류)이 약함이 아니라 <b>주장의 강도를 데이터에 맞추는 장치</b>이며 학술 공동체의
+      제도적 관행과 결부돼 있음을 보였다. Halmos §9: <span class="q">"p 에서 q 를 끌어내려다 실패했고 사실 p⇒q 인지 모른다는 뜻인가? (즉시 고백하라!)"</span></p>
+      <div class="rule"><b>퇴고 규칙.</b> 수치·판정이 든 문장마다 위 여섯 등급 중 하나가 문장 안에서 읽혀야 한다. "0건"은 반드시 "어떻게 찾았는가"(grep·스크립트명)를 동반한다.</div>
+    </div>
+    <div class="card"><h3>3 · 정밀해 보이는 말이 데이터를 앞서가지 않게 <span class="badge consider">실례 있음</span></h3>
+      <p><b>근거(프로젝트).</b> graph-theory-survey 2차 codex 가 잡은 문서 지적 3건이 전부 이 유형이다. ① "O(Σdeg²)" — 점수 누적 단계만의 복잡도를 전체로 말했다.
+      ② "scipy 는 sklearn 의 필수 의존성이라 사실상 이미 있음" — <b>이 환경의 설치</b>를 관측하고 <b>프로젝트 의존성</b>을 단정했다(pyproject 에 없다).
+      ③ "JSON 왕복 무손실" — 유한 binary64 값에만 성립하는 것을 조건 없이 썼다. 셋 다 틀린 말은 아니고 <b>스코프가 넓어진 말</b>이며, 3차에서 문구를 좁혀 정정했다.</p>
+      <p><b>일반화한 유형 둘</b>(특정 문서를 가리키지 않는다). (a) <b>강도 상승</b>: 원자료가 "유사한 결과"인데 요약에서 "동일한 결과"가 된다 — 유사→동일, 대체로→항상,
+      감소→제거. (b) <b>스코프 확장</b>: 서브도메인 하나·계정 하나·하루치 응답에서 본 것을 "이 사이트는", "이 모델은"으로 옮긴다. 둘 다 문장은 더 단정하고 짧아지므로
+      "간결하게" 퇴고하다가 <b>오히려 생긴다</b>. §교정 사례 표에 전/후를 뒀다.</p>
+      <p><b>근거(문헌).</b> Orwell(1946)의 "pretentious diction" — 단순한 진술에 과학적 공정성의 외양을 입히는 어휘. Strunk(1918) 규칙 12 "명확하고 구체적인 언어" 는
+      추상어를 구체어로 바꾸라는 뜻이지, 구체적 관측을 <b>더 큰 명제</b>로 바꾸라는 뜻이 아니다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> 요약·머리글의 모든 단정문을 본문의 원자료 문장과 <b>나란히 놓고</b> 강도 단어(동일·항상·전체·모든·불가능)와 주어의 범위(이 호스트/이 스냅샷/이 환경)를 대조한다. 원자료보다 넓으면 원자료 쪽으로 좁힌다.</div>
+    </div>
+    <div class="card"><h3>10 · 장식 수치를 넣지 않는다 <span class="badge consider">실례 있음</span></h3>
+      <p><b>근거(프로젝트).</b> atom-observatory §실측의 모든 숫자는 출처 파일과 집계 시각을 달고 있고, 검증 기준 V2 는 "독립 스크립트 집계와 1의 오차도 없이 같다"를 요구한다 —
+      숫자가 <b>재현 가능한 관측</b>이어야 화면에 오른다. 반면 graph-theory-survey Betweenness 카드의 "VE≈1,300만으로 매 빌드 수 초~수십 초"는 앞은 계산 추정(노드×엣지)이고
+      뒤는 실행하지 않은 시간이다 — 틀렸다는 게 아니라 <b>"계산 추정"이라는 등급 표시가 빠졌다</b>. "약 3배 빠르다", "N번마다 한 번 비운다"처럼 그럴듯한 상수는 근거가 없으면 지운다.</p>
+      <p><b>근거(문헌).</b> Strunk 규칙 13 "불필요한 말을 빼라": <span class="q">"문장에 불필요한 단어가 없어야 하는 이유는 도면에 불필요한 선이, 기계에 불필요한 부품이 없어야 하는 이유와 같다."</span>
+      근거 없는 수치는 불필요한 단어 중 <b>가장 비싼</b> 것이다 — 독자가 그것을 근거로 다음 결정을 내린다. Orwell 의 "meaningless words" 도 같은 자리.</p>
+      <div class="rule"><b>퇴고 규칙.</b> 문서의 모든 숫자에 대해 "어느 파일·어느 스크립트·어느 문헌에서 왔는가"를 한 줄로 답할 수 있어야 한다. 답이 "감"이면 숫자를 지우거나 "계산 추정"·"미확인"으로 표시한다.</div>
+    </div>
+    <div class="card"><h3>같은 원칙의 반대편 — 헤징의 과잉도 오류다</h3>
+      <p>"~일 수 있다", "~로 보인다"를 모든 문장에 붙이면 관측된 것까지 추정처럼 읽힌다. molecule-theory 1차 스냅샷 실측은 <span class="q">"세 가지 예측이 맞았다"</span> 고
+      단정하고 그 뒤에 숫자(history 35/62, web_search 0/62, 도구 입력 누출 21%)를 붙였다 — 관측은 단정문으로, 해석은 조건문으로. Hyland 가 헤징과 함께 <b>부스팅</b>(boosting, 확신 표지)을
+      다룬 이유가 이것이다: 둘은 짝이고, 어느 쪽이 맞는지는 데이터가 정한다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> 실측 문장에서 헤지를 빼고, 해석 문장에 헤지를 넣는다. 한 문단 안에서 두 종류를 <b>따로 문장</b>으로 둔다.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="structure"><div class="wrap">
+  <div class="eyebrow">각도 2 · 구조</div>
+  <h2 class="sec">추상은 구체로 접지한다 — 원칙 2·7·4</h2>
+  <p class="sec-desc">과학 논문의 IMRaD(서론·방법·결과·논의)는 1940년대에 나타나 1970년대에 주요 의학지 원저 논문의 80% 를 넘었고 1980년대에는 유일한 형식이 됐다
+  (Sollaci &amp; Pereira 2004, 4개 의학지 표본). 이 프로젝트의 이론·기획 문서는 IMRaD 를 그대로 쓰지 않고 <b>현황 → 원칙/각도 → 판정표 → 기각·한계 → 검토 이력 → 다음</b>의
+  변형을 쓴다(§기각·한계에 이유). 그러나 문단 단위의 규칙은 같다 — 추상을 도입하면 그 자리에서 구체가 따라야 한다.</p>
+  <div class="grid g2">
+    <div class="card"><h3>2 · 정의 → 예시 → 수식 → 출처, 4단을 벗어나지 않기 <span class="badge adopt">이미 지킴</span></h3>
+      <p><b>근거(프로젝트).</b> molecule-theory §형식화의 순서가 그대로 이 원칙이다. 정의 3(분자 = 크기 ≥3 극대 클리크)을 <code>.def</code> 박스로 세우고, 바로 다음 콜아웃에서
+      <b>사용자의 그림</b>을 검증한다 — "{A,B,C}는 세 쌍이 모두 가까우니 클리크다. D 를 넣으려면 A–D 도 가까워야 하는데 멀다 → (ii) 위반 → D 배제. {B,C,D}가 클리크인지는 B–D 에 달렸는데
+      <b>진술에 없다</b>". 그 다음에야 VR<sub>ε</sub> 수식과 SVG 가 오고, 출처(Vietoris–Rips·Wille·Peirce)는 footer 에 있다. 예시가 정의를 시험하는 자리에서 "진술에 없다"고
+      <b>빠진 정보를 빠졌다고 적은 것</b>이 원칙 1과 만나는 지점이다.</p>
+      <p><b>근거(문헌).</b> Knuth·Larrabee·Roberts(1989) §1 11번: <span class="q">"특히 정의를 줄 때는 같은 것을 두 번, 서로 보완하는 방식으로 말하라."</span>
+      같은 항목: <span class="q">"모든 변수는 처음 나올 때 적어도 비형식적으로라도 정의돼야 한다."</span> Halmos §4: 책이 논문 더미보다 나은 이유는 "이론이 서 있는 <b>예와 반례</b>의 기술"이다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> <code>.def</code> 박스 하나마다 그 아래 두 화면 안에 (a) 그 정의를 만족하는 사례 하나와 (b) 만족하지 않는 사례 하나(D)가 있어야 한다. 없으면 정의를 지우거나 사례를 만든다.</div>
+    </div>
+    <div class="card"><h3>7 · 모든 수식에 실측·계산 예를 붙인다 <span class="badge adopt">이미 지킴</span></h3>
+      <p><b>근거(프로젝트).</b> molecule-theory §알고리즘은 의사코드 7단계 옆에 <b>파라미터 표</b>(pct 2.0 · knn 10 · min_size 3 · merge 0.75 · limit 60·$8)를 두고,
+      §다음의 실측 콜아웃이 그 기본값을 실제로 돌린 결과(분자 2,530개 → 채택값 상호 kNN 10 ∩ pct 0.5%, ε=0.328 → 분자 120)를 적는다 — 수식이 <b>틀린 기본값</b>을 냈다는 것까지 기록됐다.
+      graph-theory-survey 의 헝가리안 카드는 벌점 공식 <code>1+max(|new|,|old|)</code> 옆에 <b>왜 고정값 10이 틀리는가</b>(큰 행렬에서 "강제 배정 1 + 진짜 매칭 n−1"이 완전 매칭보다 싸진다)를 붙였다.</p>
+      <p><b>근거(문헌).</b> Knuth §1 13번: <span class="q">"많은 독자는 첫 독서에서 수식을 건너뛴다. 따라서 가장 단순한 것 외의 모든 수식을 '어쩌고'로 바꿔도 문장이 매끄럽게 흘러야 한다."</span>
+      수식 옆의 실측 문장이 바로 그 "어쩌고"를 대신 읽어 주는 산문이다. Halmos §15: <span class="q">"가장 좋은 표기법은 표기법이 없는 것이다."</span></p>
+      <p><b>어긋남 후보.</b> molecule-theory §3.2 별 조건 <code>∀m∈M d(x,m) &lt; max d(m,m')</code> 은 아직 계산 예가 없다 — 그러나 문서가 "(d) 시험 구현"을 §다음 2번으로
+      <b>미구현이라 명시</b>했으므로 원칙 위반이 아니라 원칙 1의 적용이다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> <code>.formula</code>·<code>pre</code> 블록마다 같은 절 안에 숫자가 든 문장이 하나 이상 있어야 한다. 없으면 "미실측"을 그 자리에 적는다.</div>
+    </div>
+    <div class="card"><h3>4 · 판정은 배지·표로, 산문으로 하지 않는다 <span class="badge consider">실례 있음</span></h3>
+      <p><b>근거(프로젝트).</b> graph-theory-survey §판정표는 18행 × (기법·각도·era·판정·상태)이고, atom-observatory §관측 질문은 13행에 "재료 상태" 열(있음/빌드로 생성/만들어야)을 둔다.
+      표가 산문보다 나은 이유는 셋이다: <b>셀 수 있다</b>(adopt 가 몇 개인지 독자가 직접 센다), <b>빈 칸이 보인다</b>(atom-observatory "—(로그 없음)"), <b>등급 변경이 배지에 남는다</b>("adopt → reject(1차 실측)").</p>
+      <p><b>어긋남(관측).</b> 같은 문서의 머리글은 "adopt 7 · consider 6 · reject 8", §판정표 제목은 "adopt 8 · consider 6 · reject 7", §구현함은 "adopt 8개 중 4개"다.
+      표 자체를 세면 adopt 배지는 5행이고, 표 아래 주석이 "표는 18행이지만 텍스트 항목은 21개"라 설명한다. 1차 실측이 k-truss 를 뒤집을 때 <b>배지는 고쳤지만 세 자리의 합계는 각각 따로 살았다</b>.
+      산문 속 숫자는 표의 파생물인데 파생물이 독립 변수처럼 남은 것 — 이것이 "판정은 표로"의 진짜 이유다: 표가 <b>단일 진실 원천</b>이어야 합계가 한 곳에서만 바뀐다.</p>
+      <p><b>근거(문헌).</b> Halmos §9 "이것은 증명됐고 저것은 아니다"를 문서 전체에서 일관되게 하려면 문장이 아니라 열(column)이 필요하다. Strunk 규칙 12 의 "구체"는 표의 셀이 가장 구체다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> 머리글·칩·절 제목의 합계 수치는 판정표를 <b>세어서</b> 다시 쓴다. 검토 단계가 배지 하나를 바꾸면 합계가 나오는 모든 자리(머리글·칩·제목·footer)를 grep 해서 맞춘다.</div>
+    </div>
+    <div class="card"><h3>첫 문단이 문서의 판정이어야 한다</h3>
+      <p>세 문서 모두 hero 의 첫 문단이 "결론부터:"로 시작한다 — graph-theory-survey 는 21개·7·6·8·구현 4 를, molecule-theory 는 "극대 단체 + 가추 = 가설 등급"을,
+      atom-observatory 는 "파일 더미 → 다섯 화면"을 첫 문단에 둔다. Knuth §1 24번: <span class="q">"여는 문단이 최고의 문단이어야 하고, 그 첫 문장이 최고의 문장이어야 한다… 최악의 시작은 'x 는 y 다' 꼴이다."</span>
+      다만 첫 문단의 숫자가 원칙 4 의 어긋남이 가장 먼저 드러나는 자리이기도 하다 — 퇴고는 <b>첫 문단을 맨 마지막에</b> 고친다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> hero 문단은 본문이 끝난 뒤 판정표를 보고 다시 쓴다. hero 에 있는 모든 수치는 판정표·실측 콜아웃에 같은 값이 있어야 한다.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="evidence"><div class="wrap">
+  <div class="eyebrow">각도 3 · 근거와 검토</div>
+  <h2 class="sec">추적 가능해야 하고, 기각도 남기고, 누가 바꿨는지 보인다 — 원칙 6·5·8</h2>
+  <div class="grid g2">
+    <div class="card"><h3>6 · 출처는 추적 가능해야 한다 <span class="badge consider">실례 있음</span></h3>
+      <p><b>근거(프로젝트).</b> graph-theory-survey 의 <code>.src</code> 한 줄은 네 조각으로 돼 있다 — <b>era</b>(고전/2024) · <b>저자·연도</b>(Zhou, Lü, Zhang 2009) · <b>전체 URL</b>(arxiv.org/abs/0901.0553, target=_blank) ·
+      <b>실측 스크립트명</b>(stage1_checks). 독자는 넷 중 어느 것으로도 되짚어 갈 수 있다. 그리고 문서는 스스로 "근거링크 미부여 항목 3건"이라 <b>빠진 것을 세어 적었다</b>.</p>
+      <p><b>어긋남(관측).</b> molecule-theory footer 의 참고 개념은 "Edelsbrunner–Harer · Wille 1982 · Peirce · Palla et al. 2005"처럼 <b>이름·연도만</b> 있고 URL·서지가 없다.
+      graph-theory-survey 의 일부 카드도 "era: Kuhn 1955 · scipy(Crouse 2016)"처럼 URL 이 빠졌다. 이름만으로 추적 가능한 고전(Kuhn 1955)과 그렇지 않은 것(Crouse 2016 — 어느 논문인가?)이 같은 형식이라 독자가 구분할 수 없다.</p>
+      <p><b>이 문서의 적용.</b> §출처 표의 8건은 전부 전체 URL 을 달았고, 원문을 열어 구절을 확인한 것(Orwell·Strunk·Halmos·Knuth)과 서지·초록만 확인한 것(Hyland·Rosenthal·van Rooyen)을 "확인 범위" 열로 갈랐다.
+      Halmos 의 쪽수는 PDF 머리에 없어 <b>미확인</b>이다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> 인용마다 (저자·연도·제목·전체 URL) 넷 중 셋 이상. 셋을 못 채우면 "미확인"을 인용 옆에 쓴다. 통계는 출처 없이는 문장에서 뺀다.</div>
+      <div class="src">패턴 원본: graph-theory-survey_260908.html <code>.src</code> 클래스 · 이 문서 §출처</div>
+    </div>
+    <div class="card"><h3>5 · 부정 결과(기각)도 1급 콘텐츠 <span class="badge adopt">이미 지킴</span></h3>
+      <p><b>근거(프로젝트).</b> graph-theory-survey §기각의 제목이 이미 "재검토 조건"이다. 항목마다 <b>왜 안 썼는가</b>와 <b>언제 다시 볼 것인가</b>가 한 줄에 있다 —
+      "Louvain: Leiden 을 채택하는 순간 영구 기각", "SBM: 원자 수가 수만 단위로 늘어 pct 임계의 통계적 근거가 절실해지면", "OT: merged/split 이 실제로 문제를 일으키는 사례가 관측되면".
+      §미룸의 k-truss 카드는 한 걸음 더 간다: <span class="q">"미룬 게 아니라 안 해도 되는 것으로 바뀌었다 — 미리 구현했다면 헛일이었을 항목."</span> 기각이 <b>절약한 비용</b>을 적은 것이다.
+      atom-observatory 는 아예 "이 기획이 하지 않는 것" 절을 6장 카드로 둔다.</p>
+      <p><b>근거(문헌).</b> Rosenthal(1979)의 "서류함 문제" — 유의하지 않은 결과는 서류함에 남고 저널에는 유의한 결과만 실린다는 선택 편향을 다루며, "얼마나 많은 미발표 영(null) 연구가 있어야 한 유의한 결과가
+      뒤집히는가"를 계산하는 논증에서 유의수준 5%(α=.05)를 예시로 쓴다 — 5%가 실측된 저널 구성 비율이라는 뜻은 아니다. 프로젝트 문서에서 기각을 지우면 다음 세션의 에이전트가
+      같은 후보를 <b>다시 조사</b>한다 — 서류함 문제의 개인판이다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> 기각 항목마다 두 칸: "왜 안 썼나"와 "무엇이 바뀌면 다시 보나". 두 번째 칸이 빈 기각은 "영구 기각"이라고 그렇게 쓴다.</div>
+    </div>
+    <div class="card"><h3>8 · 다단계 검토를 문서 안에 남긴다 <span class="badge adopt">이미 지킴</span></h3>
+      <p><b>근거(프로젝트).</b> graph-theory-survey §검토 이력은 3행(1차 fable · 2차 codex · 3차 fable) × (한 일 · 바뀐 것) 표다. 2차 행에는 채택되지 않은 것까지 있다 —
+      "'k≥4 truss 는 클리크 밖 0'은 실측 주장이라 코드로는 판정 불가로 남김" — 검토자가 <b>자기 검증의 한계</b>를 적었다. 3차 행은 "코드 지적 25건 중 22 채택·2 보류·1 은 1차 직접 감사의 오판 철회"로
+      <b>검토자끼리의 불일치 수</b>를 남겼다. atom-observatory 는 "결정 기록 · 2026-09-07", "추가 · 2026-09-07 결정", "편차·미완" 콜아웃으로 날짜 박힌 수정을 본문 안에 둔다.</p>
+      <p><b>왜 신뢰를 만드는가.</b> 독자가 보는 것은 결론이 아니라 <b>결론이 얼마나 저항을 받았는가</b>다. 25건 중 22 채택은 검토가 실제로 있었다는 증거다. 다만 바뀐 것이 0건이라고 해서 검토가 없었다고
+      단정할 수는 없다 — 검토했지만 고칠 게 없었을 수도 있다. 그래서 "한 일 · 검증 수단" 칸이 필요하다: 무엇을 봤는지가 적혀 있으면 0건도 "검토했음"의 증거가 된다.</p>
+      <p><b>근거(문헌, 유비의 한계 포함).</b> van Rooyen 외(1999, BMJ 무작위 시험)는 검토자 서명을 요구했을 때 검토 품질 점수에서 <b>통계적으로 유의한 차이를 찾지 못했지만</b>,
+      검토 동의율은 낮아졌다(서명 조건 거절 동의율 35% 대 무기명 23%, 12%p 차이 — PubMed 초록 확인, bmj.com 원문은 403 으로 미열람, §출처).
+      <b>유의한 차이가 없었다는 것이 품질이 같다는 증명은 아니다</b>(표본 크기·검정력에 따라 작은 차이는 못 잡을 수 있다) — 그러니
+      "서명을 드러내도 품질이 떨어지지 않는다"조차 이 결과 하나로 단정할 수 없고, <b>문서 안에 검토 이력을 남기면 신뢰가 올라간다</b>는 이 문서의 명제를 직접 뒷받침하는 실험은 더더욱 아니다(미확인 — 별도 문헌 필요).</p>
+      <div class="rule"><b>퇴고 규칙.</b> 검토 표는 단계마다 "바뀐 것"에 <b>건수</b>와 <b>기각된 지적</b>을 함께 적는다. 검토가 판정을 바꿨으면 원칙 4 의 합계 재대조를 같은 단계에서 한다.</div>
+    </div>
+    <div class="card"><h3>검토자는 자기 검증 수단을 밝힌다</h3>
+      <p>2차 codex 가 "코드로는 판정 불가"라고 쓴 것과, 이 문서가 van Rooyen 유비의 한계를 적은 것은 같은 동작이다. 검토는 <b>무엇을 볼 수 있었는가</b>를 적어야 다음 검토자가 겹치지 않는 각도를 잡는다.
+      graph-theory-survey 1차가 실측, 2차가 코드 대조, 3차가 회귀 테스트로 각도를 달리한 것이 그 결과다.</p>
+      <div class="rule"><b>퇴고 규칙.</b> 검토 표의 "한 일" 칸에 검증 수단(실측/코드 대조/원문 대조/테스트)을 명사로 적는다. 이 문서 1차: 원문 대조(PDF 텍스트 추출)·문서 대조.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="language"><div class="wrap">
+  <div class="eyebrow">각도 4 · 언어</div>
+  <h2 class="sec">용어는 프로젝트 안에서 하나의 뜻만 — 원칙 9</h2>
+  <div class="grid g2">
+    <div class="card"><h3>9 · 어색한 직역·중의적 전문용어를 피한다 <span class="badge consider">실례 있음</span></h3>
+      <p><b>근거(프로젝트 — 잘 한 것).</b> atom-observatory 는 스크립트 이름을 <code>refresh-knowledge</code> 에서 <code>snapshot-knowledge</code> 로 바꾸며 이유를 적었다:
+      <span class="q">"'지식을 새로 고친다'로 읽혀 틀린 이름이었다."</span> 이름이 하는 일(원자를 갱신하지 않고 세 겹의 스냅샷으로 고정)과 어긋났기 때문이다. 용어 정정을 <b>결정 기록으로 남긴</b> 좋은 예.</p>
+      <p><b>어긋남(관측) 둘.</b> ① <b>"서명"</b> — molecule-theory L4 "사람이 대화에서 서명한 판별자", atom-observatory "주장(서명)"·"서명 + 토큰 방식". 같은 문서군이 "쓰기 토큰"을 인증 수단으로 쓰므로
+      "서명+토큰"은 암호학적 서명(digital signature)·인증 스킴으로 읽힌다. 뜻은 "사람이 승인했다"이니 <b>승인(approval)</b> 또는 <b>사람 확인(attested)</b>이 덜 충돌한다.
+      ② <b>"환원(reification)"</b> — molecule-theory ⑤·(e). reification 의 통상 역어는 실체화·구체화이고, "환원"은 reduction(환원주의)의 굳은 역어다. "가설이 원자로 환원된다"는 문장은
+      철학 독자에게 반대 방향(상위 → 하위로 설명)으로 읽힌다. 두 건 모두 <b>제안</b>이며 2차 codex 가 판단할 항목이다(§다음).</p>
+      <p><b>근거(문헌).</b> Orwell 규칙 v: <span class="q">"일상어로 말할 수 있으면 외래어·과학 용어·전문 용어를 쓰지 마라."</span> Halmos §13·§14 "단어를 올바르게 써라 / 전문용어를 올바르게 써라" —
+      <span class="q">"머리카락 차이의 전문용어를 늘리라는 게 아니다. 정반대다."</span> Knuth §1 14번: <span class="q">"같은 표기를 두 가지 다른 것에 쓰지 마라. 거꾸로, 같은 것이 여러 곳에 나오면 같은 표기를 써라."</span></p>
+      <div class="rule"><b>퇴고 규칙.</b> 새 용어를 도입하는 문서는 (a) 그 단어가 <b>이미 다른 분야에서 굳은 뜻</b>이 있는지 한 번 검색하고, (b) 프로젝트 안의 기존 문서와 같은 역어인지 grep 한다. 충돌하면 도입 자리에 괄호 원어와 "이 문서에서의 뜻"을 적는다.</div>
+    </div>
+    <div class="card"><h3>용어 사전 — 이 문서군이 이미 고정한 것</h3>
+      <div class="tscroll"><table>
+        <tr><th>용어</th><th>뜻(이 프로젝트)</th><th>충돌 여부</th></tr>
+        <tr><td>원자·분자</td><td>지식 단위 · 극대 클리크(≥3 또는 ≥4)로 묶인 개념 가설</td><td>화학 은유 — 문서가 첫 줄에서 정의함, 문제 없음</td></tr>
+        <tr><td>가추(abduction)</td><td>설명력으로 가설을 도입하는 추론(Peirce)</td><td>논리학 표준 역어, 문제 없음</td></tr>
+        <tr><td>지속성(persistence)</td><td>분자가 극대 단체로 살아남는 ε 구간 길이</td><td>TDA 표준 역어, 문제 없음</td></tr>
+        <tr><td>실측</td><td>스크립트가 실제 데이터에서 낸 수치</td><td>문서군 전체에서 일관 — 등급 표기로 승격(§인식론)</td></tr>
+        <tr><td>서명</td><td>사람이 주장을 승인함</td><td><span class="badge consider">충돌</span> 암호학·인증과 혼동</td></tr>
+        <tr><td>환원(reification)</td><td>가설(분자)이 원자로 나타나 연결됨</td><td><span class="badge consider">충돌</span> reduction 의 역어와 혼동</td></tr>
+        <tr><td>periphery / 주변</td><td>흡수된 이웃 클리크의 잔여 원자</td><td>graph-theory-survey 는 원어, atom-observatory 는 "주변(periphery)" — 병기로 통일 권고</td></tr>
+      </table></div>
+      <div class="rule"><b>퇴고 규칙.</b> 이 표는 신규 문서가 용어를 도입할 때 먼저 대조하는 사전이다. 표에 없는 용어를 쓰면 표에 한 행을 더한다.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="fixes"><div class="wrap">
+  <div class="eyebrow">교정 사례</div>
+  <h2 class="sec">전 → 후 — 원칙 3·10·1·6 을 문장 수준에서</h2>
+  <p class="sec-desc">앞 넷은 이 프로젝트에서 실제로 일어난 정정(graph-theory-survey 3차·atom-observatory 결정 기록), 뒤 넷은 특정 문서를 가리키지 않는 <b>일반화한 유형</b>이다.
+  후자는 이 문서가 만든 예시이지 관측이 아니다.</p>
+  <div class="tscroll"><table>
+    <tr><th style="width:26%">전</th><th style="width:34%">후</th><th>무엇이 문제였나</th><th style="width:70px">원칙</th></tr>
+    <tr><td>"scipy 는 sklearn 의 필수 의존성이라 사실상 이미 있음"</td><td>"scipy 는 pyproject 에 선언된 의존성이 아니다 — 이 프로젝트의 시스템 Python 에는 있고, 없는 환경(uv)에서는 그리디로 저하한다"</td><td>한 환경의 설치 상태를 프로젝트 속성으로 일반화(스코프 확장). 실제 정정: graph-theory-survey 3차</td><td>3</td></tr>
+    <tr><td>"O(Σdeg²)"</td><td>"점수 누적은 Σ C(deg,2), 그 뒤 후보 P개 정렬이 O(P log P) — 실측 P=24,783, 0.2s"</td><td>한 단계의 복잡도를 전체로 말함 + 실측 없음. 실제 정정: 같은 문서 2차 지적 ①</td><td>3·7</td></tr>
+    <tr><td>"k-truss adopt — 클리크 아래 truss 등급을 두는 계단식 분류"</td><td>"adopt → reject(1차 실측): k≥4 truss 노드 394 중 분자 밖 32, 완전 밖 0"</td><td>문헌 추정을 관측처럼 씀. 실제 정정: 1차 실측</td><td>1</td></tr>
+    <tr><td><code>refresh-knowledge.ps1</code></td><td><code>snapshot-knowledge.ps1</code> + "원자는 갱신하지 않는다 — 세 겹의 스냅샷으로 고정한다"</td><td>이름이 하는 일과 어긋남. 실제 정정: atom-observatory 결정 기록</td><td>9</td></tr>
+    <tr><td>"두 실험은 동일한 결과를 냈다"</td><td>"두 실험의 국가 적중은 같았고(14/14·14/14) 좌표 오차 평균은 달랐다(15.07 vs 9.57 km)"</td><td>일반화 예시 — 원자료 "유사"가 요약에서 "동일"로 강도 상승</td><td>3</td></tr>
+    <tr><td>"이 사이트는 봇을 차단한다"</td><td>"서브도메인 하나(host X)의 응답 하나에서 차단 헤더를 봤다. 다른 호스트·다른 시각은 미확인"</td><td>일반화 예시 — 관측 1건을 전체로 확장. 관측 범위를 주어에 넣는다</td><td>3·1</td></tr>
+    <tr><td>"캐시는 100번 호출마다 비운다"</td><td>(삭제) 또는 "비우는 주기는 미정 — 실측 후 결정"</td><td>일반화 예시 — 근거 없는 상수. 그럴듯한 숫자가 설계 결정으로 굳는다</td><td>10</td></tr>
+    <tr><td>"참고: Wille 1982"</td><td>"Wille, R. (1982). Restructuring lattice theory… — URL 미확인"</td><td>일반화 예시(molecule-theory footer 형식) — 이름만으로는 추적 불가. URL 이 없으면 없다고 쓴다</td><td>6</td></tr>
+  </table></div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="verdicts"><div class="wrap">
+  <div class="eyebrow">전체 판정표</div>
+  <h2 class="sec">원칙 10 — 이미 지킴 5 · 실례 있음 5</h2>
+  <p class="sec-desc">"판정"은 세 문서의 <b>현재 상태</b>에 대한 것이지 원칙의 채택 여부가 아니다 — 열 개 전부 채택한다. 머리글의 5·5 는 이 표를 세어서 쓴 값이다(원칙 4, 2차 codex 검토로 정정).</p>
+  <div class="tscroll"><table>
+    <tr><th>#</th><th>원칙</th><th>프로젝트 근거</th><th>문헌</th><th>현재 상태</th><th>퇴고 규칙 요약</th></tr>
+    <tr><td>1</td><td>관측 vs 추정 분리</td><td>k-truss adopt→reject · <code>status: hypothesis</code></td><td>Halmos §9 · Hyland 1998</td><td><span class="badge adopt">이미 지킴</span></td><td>문장마다 여섯 등급 중 하나</td></tr>
+    <tr><td>2</td><td>정의→예시→수식→출처</td><td>molecule-theory §형식화 D 배제 검증</td><td>Knuth #11 · Halmos §4</td><td><span class="badge adopt">이미 지킴</span></td><td>정의마다 사례 1 + 반례 1</td></tr>
+    <tr><td>3</td><td>과잉 단정 피하기</td><td>2차 codex 문서 지적 3건(스코프 확장)</td><td>Orwell "pretentious diction" · Strunk 12</td><td><span class="badge consider">실례 있음</span></td><td>요약문을 원자료 문장과 나란히 대조</td></tr>
+    <tr><td>4</td><td>판정은 배지·표로</td><td>판정표 18행 — 그러나 합계 7/8 불일치</td><td>Halmos §9</td><td><span class="badge consider">실례 있음</span></td><td>합계는 표를 세어 쓴다, 검토 후 grep</td></tr>
+    <tr><td>5</td><td>기각도 1급 콘텐츠</td><td>§기각 "재검토 조건" · "헛일이었을 항목"</td><td>Rosenthal 1979</td><td><span class="badge adopt">이미 지킴</span></td><td>기각마다 "왜"+"언제 다시"</td></tr>
+    <tr><td>6</td><td>출처 추적 가능</td><td><code>.src</code> 4조각 — 그러나 이론 문서 footer 는 이름만</td><td>(이 문서 §출처 자체가 적용)</td><td><span class="badge consider">실례 있음</span></td><td>저자·연도·제목·URL 중 셋, 아니면 "미확인"</td></tr>
+    <tr><td>7</td><td>수식마다 실측</td><td>파라미터 표 + 1차 스냅샷 · 헝가리안 벌점 반례</td><td>Knuth #13 · Halmos §15</td><td><span class="badge adopt">이미 지킴</span></td><td>수식 블록마다 숫자 문장 1</td></tr>
+    <tr><td>8</td><td>검토 이력을 문서 안에</td><td>3단 표 · "판정 불가로 남김" · 25건 중 22</td><td>van Rooyen 1999(유비 한계)</td><td><span class="badge adopt">이미 지킴</span></td><td>단계마다 건수 + 기각된 지적 + 검증 수단</td></tr>
+    <tr><td>9</td><td>용어 충돌 회피</td><td>refresh→snapshot 정정 — 그러나 서명·환원 미정정</td><td>Orwell v · Halmos §13–14 · Knuth #14</td><td><span class="badge consider">실례 있음</span></td><td>도입 전 검색 1회 + grep 1회</td></tr>
+    <tr><td>10</td><td>장식 수치 금지</td><td>V2 "1의 오차도 없이" — 그러나 "수 초~수십 초"는 등급 미표시</td><td>Strunk 13 · Orwell "meaningless words"</td><td><span class="badge consider">실례 있음</span></td><td>숫자마다 출처 한 줄, 아니면 삭제</td></tr>
+  </table></div>
+  <p class="sec-desc" style="margin-top:10px"><b>2차 codex 검토가 잡은 것.</b> 1차 초안은 이 표를 실제로 세지 않고 머리글에 "이미 지킴 7 · 어긋난 실례 3"이라 썼고, 이 각주조차 "consider 가 6행"이라며 <b>또 틀리게</b> 세었다.
+  표를 직접 세면 <b>5/5</b> 다. 원칙 4("판정은 배지·표로 — 합계는 표를 세어 쓴다")를 이 문서가 발행 당일 스스로 어긴 사례이며, 그 실물이 이 문단이다. 위 표·hero·칩은 2차에서 5/5 로 정정했다.</p>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="sources"><div class="wrap">
+  <div class="eyebrow">출처</div>
+  <h2 class="sec">문헌 8건 — 무엇을 확인했고 무엇을 못 했나</h2>
+  <p class="sec-desc">WebSearch 8회(2026-09-09)로 찾고, Orwell·Strunk 는 웹 원문을, Halmos·Knuth 는 PDF 를 받아 텍스트를 추출해 인용 구절을 대조했다. 나머지 넷은 서지와 초록만 확인했다.
+  인용 번역은 이 문서의 것이며 원문 구절은 링크에서 대조할 수 있다.</p>
+  <div class="tscroll"><table>
+    <tr><th>저자·연도</th><th>제목 · 서지</th><th>쓰인 곳</th><th>확인 범위</th><th>URL</th></tr>
+    <tr><td>Orwell, G. (1946)</td><td>Politics and the English Language — 여섯 규칙, "pretentious diction", "meaningless words"</td><td>원칙 3·9·10</td><td>원문 전문 대조</td><td class="src"><a href="https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/" target="_blank" rel="noopener">orwellfoundation.com/…/politics-and-the-english-language/</a></td></tr>
+    <tr><td>Strunk, W. Jr. (1918)</td><td>The Elements of Style — 규칙 12 "Use definite, specific, concrete language", 규칙 13 "Omit needless words"</td><td>원칙 3·4·10</td><td>원문(Gutenberg #37134) 대조 — 규칙 번호는 1918 판 기준, White 개정판과 다름</td><td class="src"><a href="https://www.gutenberg.org/files/37134/37134-h/37134-h.htm" target="_blank" rel="noopener">gutenberg.org/files/37134/37134-h/37134-h.htm</a></td></tr>
+    <tr><td>Halmos, P. R. (1970)</td><td>How to Write Mathematics — L'Enseignement Mathématique Vol. 16. §4·§9·§13·§14·§15</td><td>원칙 1·2·7·9</td><td>PDF 텍스트 추출로 절 제목 19개·인용 구절 대조 — <b>쪽수 미확인</b>(PDF 머리에 없음)</td><td class="src"><a href="https://www.di.ens.fr/~bouillar/Stages/Halmos-How-To-Write.pdf" target="_blank" rel="noopener">di.ens.fr/~bouillar/Stages/Halmos-How-To-Write.pdf</a></td></tr>
+    <tr><td>Knuth, D. E., Larrabee, T., Roberts, P. M. (1989)</td><td>Mathematical Writing — MAA Notes 14, 116pp, ISBN 0-88385-063-X. §1 11·13·14·24번</td><td>원칙 2·7·9</td><td>PDF 텍스트 추출로 §1 항목 번호·구절 대조</td><td class="src"><a href="https://jmlr.csail.mit.edu/reviewing-papers/knuth_mathematical_writing.pdf" target="_blank" rel="noopener">jmlr.csail.mit.edu/reviewing-papers/knuth_mathematical_writing.pdf</a> · <a href="https://www-cs-faculty.stanford.edu/~knuth/klr.html" target="_blank" rel="noopener">stanford.edu/~knuth/klr.html</a></td></tr>
+    <tr><td>Hyland, K. (1998)</td><td>Hedging in Scientific Research Articles — John Benjamins, Pragmatics &amp; Beyond NS 54</td><td>원칙 1·3</td><td>미리보기 PDF 로 헤징 정의 문장은 대조(2차 codex) — 책 전체 본문은 미대조</td><td class="src"><a href="https://api.pageplace.de/preview/DT0400.9789027282583_A24761077/preview-9789027282583_A24761077.pdf" target="_blank" rel="noopener">api.pageplace.de/preview/…/preview-9789027282583_A24761077.pdf</a> · <a href="https://benjamins.com/catalog/pbns.54" target="_blank" rel="noopener">benjamins.com/catalog/pbns.54</a></td></tr>
+    <tr><td>Sollaci, L. B., Pereira, M. G. (2004)</td><td>The IMRAD structure: a fifty-year survey — J Med Libr Assoc 92(3):364–371</td><td>§구조 도입부</td><td>PMC 전문 페이지에서 서지·핵심 수치(1940년대 시작, 1970년대 80%↑, 1980년대 유일) 확인</td><td class="src"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC442179/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov/articles/PMC442179/</a></td></tr>
+    <tr><td>Rosenthal, R. (1979)</td><td>The "file drawer problem" and tolerance for null results — Psychological Bulletin 86(3):638–641</td><td>원칙 5</td><td>본문 대조 — "미발표 영 연구가 몇 편이어야 유의한 결과가 뒤집히는가"의 논증에서 유의수준 5%(α=.05)를 예시로 쓰는 것을 확인, 저널 구성의 실측 비율이 아님</td><td class="src"><a href="https://pages.ucsd.edu/~cmckenzie/Rosenthal1979PsychBulletin.pdf" target="_blank" rel="noopener">pages.ucsd.edu/~cmckenzie/Rosenthal1979PsychBulletin.pdf</a></td></tr>
+    <tr><td>van Rooyen, S., Godlee, F., Evans, S., Black, N., Smith, R. (1999)</td><td>Effect of open peer review on quality of reviews and on reviewers' recommendations: a randomised trial — BMJ 318(7175):23–27, doi:10.1136/bmj.318.7175.23</td><td>원칙 8(유비)</td><td>PMC 전문 확인(2차 codex) — 거절 동의율 서명 35% 대 무기명 23%, 검토 품질 점수는 유의한 차이 없음</td><td class="src"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC27670/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov/articles/PMC27670/</a></td></tr>
+  </table></div>
+  <div class="callout warn"><b>찾지 않은 것.</b> "문서 안의 검토 이력이 독자 신뢰를 높인다"를 직접 실험한 문헌, 한국어 기술 문서의 헤징 연구, 표 vs 산문의 이해도 비교 실험 — 세 주장은 이 문서에서 <b>프로젝트 관찰과 유비</b>에만 기대고 있다. 2차 검토에서 문헌이 붙으면 원칙 4·8 의 등급이 올라간다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="rejected"><div class="wrap">
+  <div class="eyebrow">기각 — 재검토 조건 · 한계</div>
+  <h2 class="sec">채택하지 않은 글쓰기 규범과, 이 문서가 틀릴 수 있는 지점</h2>
+  <ul class="plain">
+    <li><b>Orwell 규칙 iv "수동태 금지" — 기각.</b> 한국어 기술 문서에서 문제는 태가 아니라 <b>행위자 은닉</b>이다("정정되었다" ← 누가?). 검토 표의 "누가" 열이 그 역할을 하므로 태 규칙은 두지 않는다. 재검토: 행위자 없는 문장이 검토 표 밖에서 반복 관측되면.</li>
+    <li><b>Orwell 규칙 ii "긴 단어 대신 짧은 단어" — 부분 기각.</b> 극대 클리크·필트레이션·가추는 길어도 정확하다. 원칙 9 는 "짧게"가 아니라 "충돌 없이"로 대체한다.</li>
+    <li><b>IMRaD 그대로 적용 — 기각.</b> 이론·기획 문서는 실험 보고가 아니다. 방법·결과 대신 <b>현황 → 원칙 → 판정표 → 기각 → 검토 이력 → 다음</b>을 쓴다. 다만 짝문서(docs/implement)처럼 실측 보고 성격이 강한 문서는 IMRaD 에 가깝게 가도 된다. 재검토: 세 문서 구조가 독자에게 안 읽힌다는 관측이 생기면.</li>
+    <li><b>"Omit needless words"를 밀도 축소로 읽기 — 기각.</b> 세 문서의 밀도(hero 한 문단에 수치 여섯)는 독자가 사용자 한 명이고 에이전트가 다시 읽기 때문에 맞다. 빼야 할 것은 단어가 아니라 <b>근거 없는 수치와 넓어진 스코프</b>다(원칙 3·10).</li>
+  </ul>
+  <h3 class="sub">한계</h3>
+  <ul class="plain">
+    <li><b>표본 3.</b> 근거 문서가 셋뿐이고 전부 같은 사흘(09-07~08)에 같은 저자 계열이 썼다. "이미 지킴 5"는 이 셋의 관찰이지 프로젝트 전체 문서(docs/report·research 등)에 대한 주장이 아니다.</li>
+    <li><b>자기 평가 편향.</b> 1차 작성자(fable)가 참고 문서의 작성자와 같은 모델 계열이다. 잘 한 것을 더 잘 보고 어긋난 것을 덜 볼 위험 — 그래서 2차 codex 검토가 형식이 아니라 필수다.</li>
+    <li><b>문헌의 언어.</b> 8건 전부 영어 수학·과학 글쓰기 문헌이다. 한국어 문서에 옮길 때 헤징 표현("~로 보인다")의 강도 등급이 영어와 같은지는 미확인.</li>
+    <li><b>원칙 4·8 의 문헌 공백.</b> §출처 콜아웃 참조 — 두 원칙은 프로젝트 관찰에만 기대고 있다.</li>
+  </ul>
+</div></section>
+
+<section class="section" id="review"><div class="wrap">
+  <div class="eyebrow">검토 이력 · 3단</div>
+  <h2 class="sec">1차 fable → 2차 codex(완료) → 3차 fable(예정)</h2>
+  <p class="sec-desc">graph-theory-survey 와 같은 표. 빈 행은 아직 검토가 없다는 뜻이며, 채우는 사람이 "바뀐 것"에 건수와 기각한 지적을 함께 적는다(원칙 8).</p>
+  <div class="tscroll"><table>
+    <tr><th>단계</th><th>누가</th><th>한 일 · 검증 수단</th><th>바뀐 것</th></tr>
+    <tr><td><b>1차</b></td><td>fable(Claude)</td><td>세 문서 전문 대조 · WebSearch 8회 · Orwell·Strunk 웹 원문, Halmos·Knuth PDF 텍스트 추출로 인용 구절 대조 · Sollaci·van Rooyen 서지 확인</td>
+      <td>초안. 관측한 어긋남 3건(판정 합계 7/8, 이론 footer 출처 무URL, 서명·환원 용어) · 미확인 표시 2건(Halmos 쪽수, 검토-신뢰 직접 문헌) · 참고 문서 3건은 수정하지 않음</td></tr>
+    <tr><td><b>2차</b></td><td>codex(gpt-6-astra)</td><td>반박 태도로 §판정표를 직접 세어 대조 · hero "원문을 열어 확인" 문구를 §출처 확인 범위와 대조 · van Rooyen 원문(BMJ) 접근 재시도(403, PubMed 초록으로 대체) · 어긋남 3건이 실제인지 재확인. 읽기 전용 세션이라 파일 수정은 Claude Sonnet 5 가 반영</td>
+      <td>§판정표 실제 집계는 <b>이미 지킴 5·실례 있음 5</b> — 1차 머리글(7·3)과 표 아래 각주("consider 6"이라 씀)가 <b>둘 다 틀렸음</b>을 확인, 이 문서 자신이 원칙 4를 1차에서 어겼다는 사실 자체를 §판정표 각주에 새로 남김. hero "문헌 8건 원문을 열어 확인" → 4건(Orwell·Strunk·Halmos·Knuth)만 원문 대조, 나머지 4건은 서지만이라고 정정. van Rooyen 결과에 실제 수치(거절 동의율 35% 대 23%, 12%p) 추가 + "유의한 차이 없음"을 "품질이 같다"로 넘겨짚지 않도록 헤지 보강. 용어 제안(서명→승인, 환원→실체화)은 이번 2차에서 다루지 않아 3차로 남긴다.</td></tr>
+    <tr><td><b>2차 추가</b>(260909)</td><td>codex(gpt-6-astra)</td><td>쓰기 권한(<code>--write --cwd</code>) 시도했으나 환경이 여전히 read-only 강제 — 재검증만(수정은 Claude Sonnet 5 가 반영). Rosenthal·van Rooyen 본문/전문 직접 대조 재시도</td>
+      <td>Rosenthal "5%"를 저널 실측 비율처럼 쓴 문장을 "논증 안의 예시(α=.05)"로 정정 · "바뀐 것 0건 = 검토 없음" 단정을 "검증 수단이 적혀 있어야 0건도 검토의 증거"로 완화 · hero·§판정표 도입부에 남아있던 stale 수치(나머지 일곱→다섯, 머리글의 7·3→5·5) 추가 정정 · Rosenthal·van Rooyen 확인 범위를 "서지만"에서 "본문/전문 대조"로 격상, Hyland 는 미리보기 PDF 링크 추가.</td></tr>
+    <tr><td><b>3차</b></td><td>—</td><td>(예정) 2차 지적을 원본과 대조해 채택/기각 · 용어 제안 판단 · 체크리스트 확정</td><td>—</td></tr>
+  </table></div>
+</div></section>
+
+<section class="section" id="checklist"><div class="wrap">
+  <div class="eyebrow">자가 점검</div>
+  <h2 class="sec">이 문서는 위 원칙을 지켰는가 — 그리고 다음 그래프이론 보고서가 쓸 체크리스트</h2>
+  <p class="sec-desc">열 줄. 각 줄은 "예/아니오"로 답할 수 있게 썼고, 오른쪽은 <b>이 문서 자신</b>에 대한 1차 판정이다. 신규 docs/theory 보고서는 발행 전에 이 표를 복사해 오른쪽 열만 다시 채운다.</p>
+  <div class="tscroll"><table>
+    <tr><th>#</th><th>점검 문장</th><th>이 문서(1차)</th><th>근거</th></tr>
+    <tr><td>1</td><td>수치·판정이 든 문장마다 실측/관측되지 않음/미확인/계산 추정/가설/판정 불가 중 하나가 읽히는가</td><td><span class="badge adopt">통과</span></td><td>§인식론 표기 사전 · "미확인" 2건 명시</td></tr>
+    <tr><td>2</td><td>정의(.def)마다 두 화면 안에 사례 1 + 반례 1 이 있는가</td><td><span class="badge na">해당 없음</span></td><td>이 문서의 .def 는 표기 사전 하나 — 사례는 각 등급 옆 괄호에</td></tr>
+    <tr><td>3</td><td>hero·요약의 단정문이 본문 원자료보다 넓지 않은가(강도 단어·주어 범위)</td><td><span class="badge adopt">통과</span></td><td>hero "7·3"은 §판정표 각주로 정의 · "세 문서"로 범위 한정</td></tr>
+    <tr><td>4</td><td>머리글·칩·제목의 합계가 판정표를 센 값과 같은가(합계 정의 포함)</td><td><span class="badge adopt">통과</span></td><td>2차 codex 가 표를 직접 세어 5/5 확정 — 1차의 7/3(머리글)과 "consider 6"(각주)이 둘 다 틀렸음을 잡음. 지금은 표·hero·칩 전부 5/5</td></tr>
+    <tr><td>5</td><td>기각 항목마다 "왜"와 "무엇이 바뀌면 다시"가 있는가</td><td><span class="badge adopt">통과</span></td><td>§기각 4건 전부 재검토 조건 있음</td></tr>
+    <tr><td>6</td><td>인용마다 저자·연도·제목·전체 URL 중 셋 이상, 아니면 "미확인"인가</td><td><span class="badge adopt">통과</span></td><td>8/8 전체 URL · 확인 범위 열</td></tr>
+    <tr><td>7</td><td>수식·의사코드 블록마다 숫자 문장이 있는가</td><td><span class="badge na">해당 없음</span></td><td>이 문서에 수식 없음 — 신규 보고서에서는 필수</td></tr>
+    <tr><td>8</td><td>검토 표에 단계·누가·검증 수단·바뀐 건수·기각된 지적이 있는가</td><td><span class="badge consider">부분</span></td><td>1·2차 채움 — 3차 행만 비어 있고 비어 있음을 표시</td></tr>
+    <tr><td>9</td><td>새 용어를 도입 전에 검색 1회·grep 1회 했고 사전 표에 행이 있는가</td><td><span class="badge adopt">통과</span></td><td>새 용어 없음 · 기존 용어 7행 사전 작성</td></tr>
+    <tr><td>10</td><td>모든 숫자가 파일·스크립트·문헌 중 하나로 되짚어지는가</td><td><span class="badge adopt">통과</span></td><td>프로젝트 수치는 세 문서 절 이름, 문헌 수치는 §출처 URL 로</td></tr>
+  </table></div>
+  <div class="callout ok"><b>1차 자가 판정(2차 갱신).</b> 1차 판정은 통과 6 · 부분 2(#4·#8) · 해당 없음 2(#2·#7) 였다. 2차 codex 검토로 #4 가 통과로 바뀌어 지금은 <b>통과 7 · 부분 1(#8) · 해당 없음 2</b>. #8 은 3차가 있어야 닫힌다.</div>
+</div></section>
+
+<section class="section" id="next"><div class="wrap">
+  <div class="eyebrow">다음</div>
+  <h2 class="sec">순서</h2>
+  <ol class="plain">
+    <li><b>2차 codex 검토</b> — §검토 이력 2차 행의 네 가지. 특히 용어 제안(서명→승인, 환원→실체화)은 <b>기각해도 된다</b>: 기각하면 사전 표의 "충돌" 배지를 "충돌 인지·유지"로 바꾸고 이유를 적는다.</li>
+    <li><b>graph-theory-survey 의 합계 정정 — 완료</b>(같은 세션, 2차 codex 검토 확인 뒤 반영). 판정표를 센 값(adopt 5 · consider 6 · reject 7 = 18행)으로 hero·§판정표 제목·§구현함 세 자리·칩을 맞췄다.</li>
+    <li><b>molecule-theory footer 에 서지·URL</b> — Edelsbrunner–Harer·Wille 1982·Palla 2005 를 <code>.src</code> 형식으로. 못 찾는 것은 "미확인".</li>
+    <li><b>체크리스트 적용</b> — 다음 그래프이론 보고서는 §자가 점검 표를 복사해 발행 전에 오른쪽 열을 채우고, 그 표를 문서 끝에 남긴다.</li>
+  </ol>
+  <div class="callout ok"><b>한 문장으로.</b> 퇴고는 문장을 예쁘게 하는 일이 아니라 <b>각 문장이 어디에 서 있는지를 독자가 셀 수 있게 만드는 일</b>이다 — 세 문서는 그것을 배지·표·검토 이력으로 이미 하고 있었고, 어긋난 세 곳은 전부 "숫자가 표 밖에서 따로 살았거나, 이름이 경로 없이 살았거나, 단어가 다른 분야의 뜻을 업고 살았던" 경우였다.</div>
+</div></section>
+
+<footer><div class="wrap">
+  GeoGuessHelper 프로젝트 · 2026-09-09 · 작성 fable(Claude) · 검토 codex(gpt-6-astra) — 판정표 집계 오류(1차 머리글 7/3 → 실제 5/5) 확인·정정, "원문 확인" 과장 정정, van Rooyen 통계 해석 보강(2차 결과는 Claude Sonnet 5 가 반영) ·
+  소재: <code>docs/theory/graph-theory-survey_260908.html</code>, <code>docs/theory/molecule-theory_260907.html</code>, <code>docs/plan/atom-observatory_260907.html</code>(읽기만 함, 수정 없음) ·
+  문헌 8건 전체 URL 은 §출처 · 미확인 2건(Halmos 쪽수 · 검토 이력-신뢰 직접 문헌)
+</div></footer>
+
+</body>
+</html>

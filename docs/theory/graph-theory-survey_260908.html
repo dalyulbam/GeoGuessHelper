@@ -85,7 +85,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
   <nav class="topnav">
     <a href="#inventory">현황</a><a href="#angle1">커뮤니티</a><a href="#angle2">중심성·매칭</a>
     <a href="#angle3">시간·임베딩</a><a href="#verdicts">판정표</a><a href="#adopted">구현함</a>
-    <a href="#deferred">미룸</a><a href="#rejected">기각</a><a href="#review">검토 이력</a><a href="#next">다음</a>
+    <a href="#deferred">미룸</a><a href="#rejected">기각</a><a href="#review">검토 이력</a><a href="#next">다음</a><a href="#foundations">이론 기반</a>
   </nav>
 </div></div>
 
@@ -95,15 +95,15 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
   <p><b>질문 둘.</b> ① 지금(극대 클리크·상호 kNN·자카드 계보)이 쓰지 않는 그래프이론 중 이 프로젝트에 실제로 맞는 것이 있는가.
   ② 최근(2019~2026) 그래프이론 연구 성과가 여기 적용될 수 있는가. 세 각도(커뮤니티 탐지, 중심성·연결예측·매칭, 시간적 그래프·
   지식그래프 임베딩)로 나눠 각각 WebSearch 로 실제 문헌·라이브러리 문서를 찾아 조사했다(에이전트 3개, 실측 검증). 결론부터:
-  <b>21개 기법을 검토해 adopt 7 · consider 6 · reject 8</b>로 갈랐고(1차 재검토에서 k-truss 가 실측으로 adopt→reject), adopt 중
-  <b>4개는 실제로 구현</b>했다(짝문서 §구현 참조). 기각은 전부 "안 써도 된다"가 아니라 근거가 있다 — Louvain 은 프로젝트가 이미
+  <b>21개 기법을 검토해 adopt 5 · consider 6 · reject 7</b>(판정표 18행 기준)로 갈랐고(1차 재검토에서 k-truss 가 실측으로 adopt→reject), adopt 5개 중
+  <b>3개는 실제로 구현(1개는 일부)</b>했고 부수 방어 조치 1건을 더했다(짝문서 §구현 참조). 기각은 전부 "안 써도 된다"가 아니라 근거가 있다 — Louvain 은 프로젝트가 이미
   기각한 클리크 퍼콜레이션과 <b>같은 종류의 결함</b>(비연결 커뮤니티)을 갖고, k-truss 는 이 그래프 밀도에서 클리크 위로 접힌다.
   이 문서는 <b>1차 fable → 2차 codex → 3차 fable</b> 세 번의 검토를 거쳤다(§검토 이력).</p>
   <div class="meta">
     <span class="chip ac">21개 기법 · 3개 각도 · 실제 인용 다수</span>
-    <span class="chip ok">adopt 7 · 구현 4</span>
+    <span class="chip ok">adopt 5 · 구현 3(+부수 1)</span>
     <span class="chip wn">consider 6</span>
-    <span class="chip dn">reject 8</span>
+    <span class="chip dn">reject 7</span>
     <span class="chip ac">검토 3단(fable·codex·fable)</span>
   </div>
 </div></header>
@@ -281,7 +281,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
 <!-- ============================================================ -->
 <section class="section" id="verdicts"><div class="wrap">
   <div class="eyebrow">전체 판정표</div>
-  <h2 class="sec">21개 기법 — adopt 8 · consider 6 · reject 7</h2>
+  <h2 class="sec">21개 기법(판정표 18행) — adopt 5 · consider 6 · reject 7</h2>
   <div class="tscroll"><table>
     <tr><th>기법</th><th>각도</th><th>era</th><th>판정</th><th>상태</th></tr>
     <tr><td>k-core / k-truss</td><td>커뮤니티</td><td>고전(1983/2008)</td><td><span class="badge reject">reject</span>(1차 실측으로 adopt 에서 강등)</td><td>k≥4 truss 는 클리크·periphery 밖 원자 0 — 이 밀도에선 얹을 등급이 없다</td></tr>
@@ -309,7 +309,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
 <!-- ============================================================ -->
 <section class="section" id="adopted"><div class="wrap">
   <div class="eyebrow">이번 세션에 구현함</div>
-  <h2 class="sec">adopt 8개 중 4개를 실제로 코드에 넣었다</h2>
+  <h2 class="sec">adopt 5개 중 3개를 코드에 넣고(1개는 일부), 부수 방어 조치 1건을 더했다</h2>
   <p class="sec-desc">구현 상세·file:line·테스트 결과는 짝문서 <a href="../implement/codex-audit-and-fixes_260908.html">codex-audit-and-fixes_260908</a>
   §구현 참조. 여기서는 "어느 리서치 발견이 어느 구현으로 갔는가"만 정리한다.</p>
   <div class="tscroll"><table>
@@ -356,6 +356,12 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
       <td>이 문서에 대한 지적 3건: ① "O(Σdeg²)"는 점수 누적 단계만이고 후보 정렬 O(P log P)가 더해진다 ② "scipy 는 sklearn 의 필수 의존성이라 사실상 이미 있음"은 이 환경의 설치를 전제한 말(pyproject 에 선언된 의존성이 아니다) ③ JSON 왕복 주장은 유한 binary64 값에 한정. 코드에 대한 지적은 짝문서 §findings #21~#45(헝가리안 벌점 부족 반례, float32/float64 판정 불일치, truncated 미전파, PARTIAL 증거 중복 가산 등). "k≥4 truss 는 클리크 밖 0"은 실측 주장이라 코드로는 판정 불가로 남김.</td></tr>
     <tr><td><b>3차</b></td><td>fable(Claude)</td><td>2차 지적을 코드로 대조해 채택/기각, 최종 수정·재검증</td>
       <td>문서 지적 3건 전부 채택해 문구 정정(§angle2·§adopted). 코드 지적 25건 중 22 채택·2 보류·1 은 1차 직접 감사의 오판 철회. 헝가리안은 NO_MATCH 를 1+max(|new|,|old|) 로(매칭 수 최대화 우선), 거리 행렬을 float64 로 통일하고 분자 스냅샷을 재빌드(128 분자·2,399 엣지 그대로, 이전 스냅샷과 persist 128), bridges 에 공통 이웃의 목록형 비율을 붙여 과반이면 제외(실측 100쌍 전부 0%). 경계 조건은 <code>tests/graph_fixes_check.py</code> 23건으로 고정.</td></tr>
+    <tr><td><b>추가</b>(260909)</td><td>fable(Claude)</td><td>§이론 기반 절 추가 — 문서 대조(atom-observatory §관측 질문 원문 인용) · 기초 문서 <a href="graph-theory-foundations_260909.html">graph-theory-foundations_260909</a> 작성 · 1차 작성만</td>
+      <td>새 절 1(§foundations) · topnav 링크 1 · 이 행. 기존 문구는 바꾸지 않음 — hero "adopt 7" · §판정표 "adopt 8" · §구현함 "adopt 8개 중 4개"의 합계 불일치는 writing-craft_260909 §판정표가 관측했고, 정정은 codex 2차 몫으로 남긴다.</td></tr>
+    <tr><td><b>추가 검토</b>(260909)</td><td>codex(gpt-6-astra)</td><td>hero·§판정표·§구현함의 adopt 합계를 §판정표 18행에서 직접 세어 대조(읽기 전용 세션이라 수정은 Claude Sonnet 5 가 반영) · §foundations 의 "카드마다 정의 없이"·"3×3 재현" 두 문구 검증</td>
+      <td>adopt 합계 정답 확정: <b>5</b>(consider 6 · reject 7 = 18행). hero·§판정표 제목·§구현함 제목·칩 4곳을 5 로 통일. "카드마다 정의 없이" → "형식적 정의 없이"(기존 카드도 산문 정의는 있음). "3×3 행렬로 재현된다" → "같은 원리를 별도 예로 보여준다"(재현이 아님).</td></tr>
+    <tr><td><b>추가 검토 2회</b>(260909)</td><td>codex(gpt-6-astra)</td><td>쓰기 권한(<code>--write --cwd</code>) 부여를 시도했으나 환경 정책이 여전히 read-only 를 강제 — 재검증만 수행(수정은 Claude Sonnet 5 가 반영)</td>
+      <td>§구현함 "adopt 5개 중 4개 구현"이 부정확함을 지적 — 실제로는 adopt 3개(1개는 일부)만 구현이고 4번째 행은 부수 방어 조치(클리크 상한)로, adopt 판정과 무관. hero·칩·§구현함 제목을 "3개 구현(1개 일부) + 부수 1건"으로 정정.</td></tr>
   </table></div>
   <div class="callout ok"><b>조사 문서 관점에서 3단이 준 것.</b> 1차 실측이 adopt 하나(k-truss)를 뒤집었고, 2차가 "구현했다"고 적은 알고리즘의 수학적 결함(벌점)을 반례로 잡았으며, 3차가 그 반례를 회귀 테스트로 만들었다. 조사→구현→검증이 한 문서 안에서 닫힌다.</div>
 </div></section>
@@ -374,9 +380,39 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
   구현했고, 나머지는 "안 맞아서"가 아니라 "먼저 필요한 것이 있어서" 순서대로 미뤘다 — 그 순서 자체가 이 문서의 결론이다.</div>
 </div></section>
 
+<!-- ============================================================ -->
+<section class="section" id="foundations"><div class="wrap">
+  <div class="eyebrow">이론 기반 · 260909 추가</div>
+  <h2 class="sec">정의·역사·계산은 별도 문서에 — 이 서베이가 기법마다 한 문단만 쓰는 이유</h2>
+  <p class="sec-desc">이 문서의 목적은 <b>무엇을 쓸지 판정</b>하는 것이다(§판정표) — 각 기법이 <b>어떻게 정의되고 어떻게 계산되는지</b>를 가르치는 것이
+  아니다. 그래서 카드마다 형식적 정의(<code>.def</code>) 없이 산문 속 짧은 설명과 "왜 맞다 / 왜 보류"·실측만 적었고, 정의·숫자 예시·역사·계산법은 260909 에 별도 문서로 세웠다.
+  두 문서의 분업: 여기서는 <b>판정</b>, 저기서는 <b>정의와 손계산</b>.</p>
+  <div class="callout"><b>기초 문서.</b> <a href="graph-theory-foundations_260909.html">graph-theory-foundations_260909</a> — 이 서베이의 adopt·기존 기법
+  (극대 클리크 · 상호 kNN · 연결요소 · Adamic-Adar · 헝가리안)과 후보(모듈성 · k-core/k-truss · 지속성 · PageRank)의 정의를 5~8 노드 장난감
+  그래프의 손계산과 함께 세우고(전부 <code>tests/graph_theory_toy_check.py</code> 로 고정), 오일러(1736)부터 GraphRAG(2024)까지의 발전 단계를
+  전체 URL 로 표에 두며, 이 수식들이 <code>molecule.py</code>·<code>observe.py</code> 에서 실제로 어떻게 계산되는지(벡터화 거리행렬 · argpartition ·
+  Σ C(deg,2)+O(P log P) · linear_sum_assignment)를 정리한다. 이 문서 §각도2 헝가리안 카드의 벌점 반례(22개 사슬)와 같은 원리 — 벌점이 작으면 유효 매칭이 준다 —
+  를 그쪽 §2.8 이 3×3 행렬의 별도 예로 보여준다(같은 사례의 재현은 아니다).</div>
+  <h3 class="sub">adopt·기존 기법 ↔ atom-observatory 관측 질문</h3>
+  <p class="sec-desc">atom-observatory_260907 §관측 질문 표의 Q 번호와 문구를 그대로 옮겼다. "연결"은 이 기법의 산출물이 그 질문의 <b>재료</b>가 된다는 뜻이다.</p>
+  <div class="tscroll"><table>
+    <tr><th>이 서베이의 기법(판정)</th><th>산출물</th><th>atom-observatory 관측 질문(원문 인용)</th><th>화면</th></tr>
+    <tr><td><b>헝가리안 알고리즘</b>(adopt · 구현함)</td><td><code>lineage.json</code> continue — 전역 1:1 매칭, <code>continue_method</code></td><td><b>Q3</b> "분자가 지난 스냅샷과 비교해 무엇이 생기고·살고·사라졌나"</td><td>④ 서가 계보</td></tr>
+    <tr><td><b>상호 k-NN 그래프</b>(기존 · 재료)</td><td><code>neighbors.json</code> knn[id] — k=15, 거리·상호 여부·순위</td><td><b>Q9</b> "원자 하나의 가장 가까운 이웃 10개는 무엇이고 거리는 얼마인가"</td><td>② 상세 서랍</td></tr>
+    <tr><td><b>백분위 임계 ε=Q<sub>x</sub>(d) ∩ 상호 kNN 엣지</b>(기존) + <b>지속성 sweep</b>(molecule-theory (b))</td><td><code>neighbors.json</code> quantiles(201)·mutual_edges · <code>lineage.sweep</code></td><td><b>Q10</b> "임계(pct)를 움직이면 어느 원자가 붙고 어느 분자가 깨지는가"</td><td>③ 임베딩 지도</td></tr>
+    <tr><td><b>극대 클리크의 periphery</b>(기존) — 근사-클리크(k-truss) 기각의 이유가 여기 있다</td><td>분자 <code>periphery</code> + 멤버와의 거리 벡터</td><td><b>Q11</b> "분자 D 가 빠진 이유 — 어느 쌍이 얼마나 멀었나(near-miss)"</td><td>④ 상세</td></tr>
+    <tr><td><b>연결요소(union-find)</b>(adopt · 일부 구현함)</td><td><code>dups.json</code> groups — 전이 묶음</td><td><b>Q5</b> "병합을 빠져나간 근중복 쌍은 무엇인가"</td><td>⑤ 작업대</td></tr>
+    <tr><td><b>Common Neighbors / Adamic-Adar</b>(adopt · 구현함)</td><td><code>link_candidates.json</code> candidates · bridges</td><td>직접 대응하는 Q 없음 — §다음 1·3 "작업대 노출"이 새 질문이 된다. 간접: <b>Q12</b> "분자가 예측한 "빠진 원자"가 나중에 실제로 들어왔나"</td><td>⑤ 작업대 · ④ 감시</td></tr>
+  </table></div>
+  <p class="sec-desc" style="margin-top:10px">Q 문구는 atom-observatory §관측 질문 표(13행)에서 그대로 인용했다. Q3 은 그 표에서 "스냅샷 1개", Q5·Q9·Q10·Q11 은
+  "빌드로 생성" 상태였고, 이 서베이의 구현(§구현함)은 그 재료 중 lineage continue 와 dups groups 를 바꿨다. 이 절은 260909 1차(fable)가 <b>추가만</b> 한 것이며
+  §판정표·§구현함의 기존 문구는 손대지 않았다.</p>
+</div></section>
+
 <footer><div class="wrap">
   GeoGuessHelper 프로젝트 · 2026-09-08 · 리서치 3개 각도(WebSearch 실사용, 21개 기법·다수 실제 인용) + codex 코드 감사 종합.
-  구현: <code>src/geoguesshelper/observe.py</code>, <code>src/geoguesshelper/molecule.py</code> · 짝문서: <code>docs/implement/codex-audit-and-fixes_260908.html</code>
+  구현: <code>src/geoguesshelper/observe.py</code>, <code>src/geoguesshelper/molecule.py</code> · 짝문서: <code>docs/implement/codex-audit-and-fixes_260908.html</code> ·
+  260909 추가: §이론 기반 절(fable) + adopt 합계 정정 5(codex gpt-6-astra 검토 확인, Claude Sonnet 5 반영)
 </div></footer>
 
 </body>
