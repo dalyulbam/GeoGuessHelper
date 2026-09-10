@@ -51728,6 +51728,175 @@
    "confusions": [
     "FO>IS"
    ]
+  },
+  "atm_b0c0a8fcab45": {
+   "id": "atm_b0c0a8fcab45",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Nigerian Pidgin and regional fuel-brand cues distinguish anglophone West African countries",
+   "category": "business-chain",
+   "tags": [
+    "fuel-retail",
+    "nigeria",
+    "pidgin-english",
+    "signage",
+    "west-africa"
+   ],
+   "entities": [
+    "cameroon",
+    "ghana",
+    "nigeria"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.6599164,
+   "lng": 8.8026394,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "s1nmbk3",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789013490.8498917,
+   "updated": 1789013490.8501472,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_c9e4132840cf": {
+   "id": "atm_c9e4132840cf",
+   "layer": "language",
+   "scope": "region",
+   "title": "Ethnic naming patterns in southern Nigerian toponyms signal sub-regional identity",
+   "category": "toponymy",
+   "tags": [
+    "ethnicity",
+    "igbo",
+    "minority-languages",
+    "nigeria",
+    "toponymy",
+    "yoruba"
+   ],
+   "entities": [
+    "cross-river-state",
+    "igbo",
+    "nigeria",
+    "yoruba"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.6599164,
+   "lng": 8.8026394,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "s1nmbk3",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789013490.8833787,
+   "updated": 1789013490.883548,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_52d9e7fe3865": {
+   "id": "atm_52d9e7fe3865",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Guinea savanna–rainforest transition zone of Nigeria's Middle Belt/South-South border",
+   "category": "climate",
+   "tags": [
+    "climate-transition",
+    "cross-river-state",
+    "guinea-savanna",
+    "laterite",
+    "middle-belt",
+    "oil-palm"
+   ],
+   "entities": [
+    "cross-river-state",
+    "nigeria"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.6599164,
+   "lng": 8.8026394,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "s1nmbk3",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789013490.9073498,
+   "updated": 1789013490.9075048,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_643367ff9498": {
+   "id": "atm_643367ff9498",
+   "layer": "culture",
+   "scope": "city",
+   "title": "Provincial Nigerian market-town core: roundabout, motor park, mission institutions",
+   "category": "urban-form",
+   "tags": [
+    "market-town",
+    "mission",
+    "motor-park",
+    "nigeria",
+    "roundabout",
+    "urban-core"
+   ],
+   "entities": [
+    "nigeria"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.6599164,
+   "lng": 8.8026394,
+   "heading": null,
+   "radius_km": 25,
+   "cell": "s1nmbk3",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789013490.9302726,
+   "updated": 1789013490.9304242,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
   }
  },
  "cells": {
@@ -52795,6 +52964,14 @@
   ],
   "u6xzg": [
    "atm_a1ebb65130d5"
+  ],
+  "s1n": [
+   "atm_b0c0a8fcab45",
+   "atm_c9e4132840cf",
+   "atm_52d9e7fe3865"
+  ],
+  "s1nmb": [
+   "atm_643367ff9498"
   ]
  },
  "entities": {
@@ -62933,6 +63110,28 @@
   ],
   "hunafloi": [
    "atm_b3a8761917a2"
+  ],
+  "cameroon": [
+   "atm_b0c0a8fcab45"
+  ],
+  "ghana": [
+   "atm_b0c0a8fcab45"
+  ],
+  "nigeria": [
+   "atm_b0c0a8fcab45",
+   "atm_c9e4132840cf",
+   "atm_52d9e7fe3865",
+   "atm_643367ff9498"
+  ],
+  "cross-river-state": [
+   "atm_c9e4132840cf",
+   "atm_52d9e7fe3865"
+  ],
+  "igbo": [
+   "atm_c9e4132840cf"
+  ],
+  "yoruba": [
+   "atm_c9e4132840cf"
   ]
  },
  "tags": {
@@ -64661,7 +64860,8 @@
    "atm_3e9eb9eb04a3",
    "atm_91b249335f9f",
    "atm_04c54e42050d",
-   "atm_a4c8bfdf483f"
+   "atm_a4c8bfdf483f",
+   "atm_c9e4132840cf"
   ],
   "catholic": [
    "atm_4c506c031137",
@@ -65070,7 +65270,8 @@
    "atm_895143231e7c",
    "atm_e605fa30bf62",
    "atm_b6439b6999a1",
-   "atm_98d192cb04cf"
+   "atm_98d192cb04cf",
+   "atm_b0c0a8fcab45"
   ],
   "tavern": [
    "atm_080c7ca4a29f"
@@ -66541,7 +66742,8 @@
    "atm_01813ad314d3"
   ],
   "market-town": [
-   "atm_1b9b30221a10"
+   "atm_1b9b30221a10",
+   "atm_643367ff9498"
   ],
   "medieval-urban-law": [
    "atm_1b9b30221a10",
@@ -72593,7 +72795,8 @@
    "atm_f33212788fd3"
   ],
   "climate-transition": [
-   "atm_fa3ae8f3354e"
+   "atm_fa3ae8f3354e",
+   "atm_52d9e7fe3865"
   ],
   "lowland-corridor": [
    "atm_fa3ae8f3354e"
@@ -76041,7 +76244,8 @@
    "atm_0237c9c3ebba",
    "atm_74796dd40908",
    "atm_fac0ba79eb97",
-   "atm_e59c7f2b8d16"
+   "atm_e59c7f2b8d16",
+   "atm_b0c0a8fcab45"
   ],
   "andes": [
    "atm_504b2c302a94",
@@ -76102,7 +76306,10 @@
    "atm_e59c7f2b8d16"
   ],
   "nigeria": [
-   "atm_74796dd40908"
+   "atm_74796dd40908",
+   "atm_b0c0a8fcab45",
+   "atm_c9e4132840cf",
+   "atm_643367ff9498"
   ],
   "senegal": [
    "atm_74796dd40908",
@@ -78530,6 +78737,51 @@
   ],
   "village-core": [
    "atm_74079b0c8ba5"
+  ],
+  "fuel-retail": [
+   "atm_b0c0a8fcab45"
+  ],
+  "pidgin-english": [
+   "atm_b0c0a8fcab45"
+  ],
+  "ethnicity": [
+   "atm_c9e4132840cf"
+  ],
+  "igbo": [
+   "atm_c9e4132840cf"
+  ],
+  "minority-languages": [
+   "atm_c9e4132840cf"
+  ],
+  "yoruba": [
+   "atm_c9e4132840cf"
+  ],
+  "cross-river-state": [
+   "atm_52d9e7fe3865"
+  ],
+  "guinea-savanna": [
+   "atm_52d9e7fe3865"
+  ],
+  "laterite": [
+   "atm_52d9e7fe3865"
+  ],
+  "middle-belt": [
+   "atm_52d9e7fe3865"
+  ],
+  "oil-palm": [
+   "atm_52d9e7fe3865"
+  ],
+  "mission": [
+   "atm_643367ff9498"
+  ],
+  "motor-park": [
+   "atm_643367ff9498"
+  ],
+  "roundabout": [
+   "atm_643367ff9498"
+  ],
+  "urban-core": [
+   "atm_643367ff9498"
   ]
  },
  "reports": {
@@ -80009,6 +80261,26 @@
    "passes": [
     "p2"
    ]
+  },
+  "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html": {
+   "place": "Ogoja, Cross River State, Nigeria",
+   "lat": 6.6599164,
+   "lng": 8.8026394,
+   "cell": "s1nmb",
+   "atoms": [
+    "atm_52d9e7fe3865",
+    "atm_643367ff9498",
+    "atm_b0c0a8fcab45",
+    "atm_c9e4132840cf"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
   }
  },
  "categories": {
@@ -80030,7 +80302,8 @@
   ],
   "toponymy": [
    "atm_88ae5884a999",
-   "atm_a4c8bfdf483f"
+   "atm_a4c8bfdf483f",
+   "atm_c9e4132840cf"
   ],
   "civic-building": [
    "atm_4331cd4c61dd",
@@ -80057,7 +80330,8 @@
    "atm_e8b3ce9a64be"
   ],
   "climate": [
-   "atm_074b88f4a88e"
+   "atm_074b88f4a88e",
+   "atm_52d9e7fe3865"
   ],
   "housing-typology": [
    "atm_366a599b10cc",
@@ -80081,7 +80355,8 @@
    "atm_b6439b6999a1",
    "atm_e4bdaab98801",
    "atm_96d1691571d2",
-   "atm_3a306a118800"
+   "atm_3a306a118800",
+   "atm_b0c0a8fcab45"
   ],
   "settlement-pattern": [
    "atm_2ecb8ee81d38",
@@ -80167,7 +80442,8 @@
    "atm_d0b59aaa3c23",
    "atm_e5c689a80f57",
    "atm_b333b74897e9",
-   "atm_46082e3a6ba5"
+   "atm_46082e3a6ba5",
+   "atm_643367ff9498"
   ],
   "agriculture": [
    "atm_38455d899c95",
