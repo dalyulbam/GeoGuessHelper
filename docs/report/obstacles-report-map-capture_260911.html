@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보고서 생성·구글맵 로드·화면 캡처를 방해한 것들 — 전수 정리 (260911)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --env:#4a3f9a; --env-soft:#ece9fb; --design:#3b5f78; --design-soft:#e6eef5;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--warn),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--warn);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px;text-wrap:balance}
+.hero .lede{color:var(--ink-2);font-size:16px;max-width:78ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.chip.ev{background:var(--env-soft);border-color:#cfc8f0;color:var(--env)}
+.chip.ds{background:var(--design-soft);border-color:#c3d4e2;color:var(--design)}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+h2{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:74ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+p{max-width:80ch}
+p+p{margin-top:10px}
+.mt{margin-top:14px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat .n{font-size:28px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat .l{font-size:12.5px;color:var(--muted);font-weight:600}
+.tblwrap{overflow-x:auto;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13.2px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12.5px;color:var(--ink-2);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.id{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--muted)}
+td.st{white-space:nowrap}
+.st span{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.02em}
+.st .ok{background:var(--ok-soft);color:var(--ok)}
+.st .mit{background:var(--warn-soft);color:var(--warn)}
+.st .open{background:var(--danger-soft);color:var(--danger)}
+.st .env{background:var(--env-soft);color:var(--env)}
+.st .des{background:var(--design-soft);color:var(--design)}
+code{font-family:var(--mono);font-size:12.3px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.62;margin-top:10px}
+pre b{color:#ffd479;font-weight:700}
+pre .c{color:#7f978f} pre .r{color:#ff9a8f} pre .g{color:#8fe0a8}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+footer{padding:34px 0 60px;color:var(--muted);font-size:13px}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:22px;position:relative;margin:7px 0;font-size:14px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.next li::before{content:"→";color:var(--accent)}
+ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:14px}
+.timeline>div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12.5px;color:var(--ink-2)}
+.timeline>div b{display:block;font-size:12px;color:var(--accent-deep);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.hash{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.dim{color:var(--muted)}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);margin:6px 0 14px}
+.verdict{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-left:5px solid var(--warn);
+  border-radius:12px;padding:16px 18px;margin-top:14px;box-shadow:var(--shadow)}
+.verdict .vt{flex:0 0 auto;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+.verdict .vb{font-size:14.5px;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>GeoGuessHelper · 운영 보고서</div>
+  <nav class="topnav">
+    <a href="#s0">한눈에</a><a href="#s1">범위·방법</a><a href="#s2">공통 인프라</a>
+    <a href="#s3">구글맵 로드</a><a href="#s4">화면 캡처</a><a href="#s5">보고서 생성</a>
+    <a href="#s6">남은 것</a><a href="#s7">되풀이된 패턴</a><a href="#s8">검토 이력</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">260911 · v0.5.1 · HEAD 9fbc59b 기준</div>
+  <h1>보고서 생성·구글맵 로드·화면 캡처를 방해한 것들 — 전수 정리</h1>
+  <p class="lede">2026-07-08 기획부터 2026-09-10 캡처 지연 수리까지, 커밋 65건·오류 기록 7건·구현 기록 2건·코드 주석에
+  남은 <b>방해 요소 87건</b>을 한 자리에 모았다. 한 건마다 <b>무엇이 막았나 → 증거(실측·출처) → 조치 → 지금 상태</b>를 적고,
+  상태는 HEAD 코드에 대고 다시 확인했다. 이 문서의 목적은 회고가 아니라 <b>아직 남은 9건과 사용자 조치 3건</b>을 정확히 짚는 것이다.</p>
+  <div class="meta">
+    <span class="chip ac">방해 요소 87건</span>
+    <span class="chip ok">해결 52</span>
+    <span class="chip wn">완화 17</span>
+    <span class="chip dn">미해결 9</span>
+    <span class="chip ev">환경(사용자 조치) 3</span>
+    <span class="chip ds">설계 제약 6</span>
+  </div>
+  <div class="callout warn" style="max-width:90ch"><b>2차 검토를 거친 판본이다.</b> 초판(1차)은 “해결 56”이라고 적었다.
+  Codex 적대 검토가 87건의 지적을 냈고, 3차로 코드에 직접 대조한 결과 <b>43건 중 기각 0 · 채택 34 · 부분 채택 9</b> —
+  “해결”이라고 적은 것 6건이 실제로는 조건부였다(M-1·M-5·C-25·R-8·R-19·R-20). 상세는 <a href="#s8">§8 검토 이력</a>.</div>
+</header>
+
+<!-- ───────────────────────── §0 ───────────────────────── -->
+<section id="s0">
+  <h2>0. 한눈에</h2>
+  <p class="sec-desc">세 파이프라인을 막은 것은 대부분 코드 결함이었고 코드로 고쳤다. 그러나 <b>가장 오래, 가장 넓게</b> 발목을 잡은 것은
+  코드가 아니라 <b>이 PC 의 백신(Avast)</b>과 <b>구글 프로젝트의 API 미활성</b>이었다 — 그 둘은 지금도 남아 있다.</p>
+
+  <div class="grid g4">
+    <div class="stat"><div class="n">10</div><div class="l">공통 인프라 — 셋 모두를 막은 것</div></div>
+    <div class="stat"><div class="n">19</div><div class="l">구글맵 로드 — 브라우저 뷰어</div></div>
+    <div class="stat"><div class="n">32</div><div class="l">화면 캡처 — 서버 재렌더</div></div>
+    <div class="stat"><div class="n">26</div><div class="l">보고서 생성 — 분석·리서치·번역·렌더</div></div>
+  </div>
+
+  <h3 class="sub">지금도 실제로 발목을 잡는 것 — 이 순서로 손대면 된다</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>#</th><th>무엇</th><th>영향</th><th>누가</th><th>비용</th></tr></thead>
+    <tbody>
+      <tr><td class="id">C-2</td><td>Street View Static API 가 프로젝트에 <b>미활성</b> (<code>REQUEST_DENIED</code>)</td><td>모든 캡처가 브라우저 렌더로 폴백 → 정상 4~5초. 켜면 0.5~2초</td><td>사용자 (Cloud Console)</td><td>5분</td></tr>
+      <tr><td class="id">C-20</td><td>캡처에 <b>데드라인이 없다</b> — 서버 <code>await</code> 무한(<code>server.py:679</code>), 클라이언트 <code>fetch</code> 무타임아웃(<code>app.js:379</code>), 렌더는 <b>단일 워커 스레드</b>로 직렬화</td><td>한 건이 막히면 뒤의 모든 캡처가 표시 없이 멈춤(실측 236.8초). 세마포어를 올려도 안 풀린다 — 워커가 하나다</td><td>코드</td><td>30분</td></tr>
+      <tr><td class="id">I-5</td><td>Avast 실시간 보호가 Chromium <b>종료를 16~66초</b> 잡는다</td><td>풀링으로 캡처 경로에선 제거. 프로세스 종료 시 1회는 남음</td><td>환경 (예외 등록)</td><td>5분</td></tr>
+      <tr><td class="id">I-2</td><td>Avast TLS 가로채기 → 인증서 검증 실패 → <code>verify=False</code> 폴백</td><td>Anthropic·Google 연결이 검증 없이 나간다(보안)</td><td>환경 (HTTPS 스캐닝 해제 또는 CA 신뢰)</td><td>10분</td></tr>
+      <tr><td class="id">C-21</td><td>캡처의 남은 4초 — 하단 지도 <code>tilesloaded</code> 대기(7초 폴백)가 임계경로</td><td>Static <b>이 선택되는 캡처에 한해</b> 사라진다. 와이드 화각·명시적 playwright·보고서 지도는 그대로</td><td>코드</td><td>1시간</td></tr>
+      <tr><td class="id">I-10</td><td>Claude <b>Connection error</b> → 정정 잡 <code>API_ERROR</code>. 다음 <code>run()</code> 에서 대상이 되긴 하지만 <b>재개가 아니라 처음부터</b> 전체 재실행</td><td>09-10 실제 발생 1건($0). SDK 재시도 2회를 다 쓰고도 실패한 것 — 그 뒤 백오프가 없다</td><td>코드</td><td>20분</td></tr>
+      <tr><td class="id">C-22</td><td><code>%TEMP%</code> 에 지워지지 못한 Playwright 프로필 <b>47개</b></td><td>디스크 잔여. I-5 의 흔적</td><td>환경/도구</td><td>5분</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">시간축 — 무엇이 언제 막혔고 언제 풀렸나</h3>
+  <div class="timeline">
+    <div><b>07-08</b>기획. 캔버스 tainted → 서버 재렌더 설계(C-1)</div>
+    <div><b>08-10 v0.2.0</b>SSL 자가 종료(I-1)·404 회귀(R-1)·1181초 리서치(R-3)·파일명 충돌(R-2)·동시성(I-8)</div>
+    <div><b>08-10 v0.2.3</b>제3자 파노 429 발견(M-3). 계측 결함으로 두 번 오진(M-4)</div>
+    <div><b>08-10~12 v0.2.4~0.3.1</b>검은 로드뷰 여섯 번 “완료” — 여섯 번 다 빗나감</div>
+    <div><b>08-12 v0.3.4</b>진짜 원인: 사진구체 id 는 protobuf 봉투였다(M-2)</div>
+    <div><b>08-12 v0.3.3~0.3.6</b>번역 131초 조용한 영어(R-5)·라벨 31개 누락(R-7)</div>
+    <div><b>08-13 v0.4.2</b>얼어붙은 거울 — 6장 동일 캡처(C-9)</div>
+    <div><b>08-14 v0.5.0</b>4:3 에 갇힌 캔버스(C-6)·밤 배치 번역 재시도(R-6)</div>
+    <div><b>08-29 v0.5.1</b>국가 폴더(R-15)·예산 초과 백필(R-4)</div>
+    <div><b>09-10</b>캡처 지연: 렌더 4.6초 vs 벽시계 52.9초 — 정리 단계 47초(I-5, C-18)</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── §1 ───────────────────────── -->
+<section id="s1">
+  <h2>1. 범위와 방법</h2>
+  <p class="sec-desc">“방해 요소”는 <b>세 파이프라인 중 하나라도 실제로 실패·지연·오답을 만든 것</b>으로 한정했다. 아틀라스(altaiya)·지식 원자·그래프이론은 그 셋을 막았을 때만 넣었다.</p>
+  <div class="grid g3">
+    <div class="card"><h3>출처</h3><ul>
+      <li>커밋 65건 전문 (<span class="hash">fc5f2b5 … 9fbc59b</span>) — 대부분 실측 수치와 원인을 본문에 적어 두었다</li>
+      <li>오류 기록 7건 <code>docs/error/</code> — ssl·404·제3자 파노·6회 오진·얼어붙은 거울·4:3·한국어 누락</li>
+      <li>구현 기록 <code>docs/implement/methodology_260810</code>·<code>third-party-pano-recovery_260810</code>·<code>codex-audit-and-fixes_260908</code></li>
+      <li>코드 주석 — “실측·예전에는·틀렸다” 로 표시된 360곳(33개 파일)</li>
+      <li>이번 세션 실측(260910) — 캡처 단계별 시간, 빈 브라우저 종료 시간, 백신 상태, 임시 프로필 잔여</li>
+    </ul></div>
+    <div class="card"><h3>상태 판정 규칙</h3><ul>
+      <li><b>해결</b> — 고친 코드가 HEAD 에 있고, 그 코드가 지금도 그 결함을 막는다고 확인</li>
+      <li><b>완화</b> — 증상은 줄었지만 원인이 남았거나 잔여 조건이 있다</li>
+      <li><b>미해결</b> — 코드로 고쳐야 하는데 아직 안 고쳤다</li>
+      <li><b>환경</b> — 코드 밖(백신·구글 콘솔·브라우저 확장)에서 손대야 없어진다</li>
+      <li><b>설계</b> — 의도적으로 받아들인 제약. 없앨 대상이 아니라 알고 쓸 대상</li>
+    </ul></div>
+    <div class="card"><h3>넣지 않은 것</h3><ul>
+      <li>altaiya 뷰어의 <code>.overlay[hidden]</code> 류 UI 결함 — 세 파이프라인과 무관</li>
+      <li>그래프이론 수정(헝가리안·union-find) — 지식 계층, 260908 보고서에 있음</li>
+      <li>보고서 <b>내용</b>의 품질(판별 사슬 약함) — “생성을 막은 것”이 아니라 “생성된 것의 질”</li>
+      <li>비용 — 방해가 아니라 대가. 다만 실패로 새는 비용은 각 항목에 적었다</li>
+    </ul></div>
+  </div>
+  <div class="legend">
+    <span class="st"><span class="ok">해결</span></span>
+    <span class="st"><span class="mit">완화</span></span>
+    <span class="st"><span class="open">미해결</span></span>
+    <span class="st"><span class="env">환경</span></span>
+    <span class="st"><span class="des">설계</span></span>
+    <span class="dim">— 표의 마지막 열</span>
+  </div>
+</section>
+
+<!-- ───────────────────────── §2 ───────────────────────── -->
+<section id="s2">
+  <h2>2. 공통 인프라 — 셋 모두를 막은 것 (10건)</h2>
+  <p class="sec-desc">한 파이프라인만 고쳐서는 안 풀리던 것들. 절반이 <b>이 PC 의 Avast</b> 한 곳에서 나왔다 — 키로그 주입·TLS 가로채기·웹실드·프로필 잠금, 네 가지 다른 얼굴로.</p>
+  <div class="tblwrap"><table>
+    <thead><tr><th>ID</th><th>무엇이 막았나</th><th>증거 · 출처</th><th>조치</th><th>상태</th></tr></thead>
+    <tbody>
+      <tr><td class="id">I-1</td><td><b>서버가 배너도 못 찍고 죽었다.</b> Avast 가 프로세스 환경에 <code>SSLKEYLOGFILE=\\.\aswMonFltProxy\…</code> 를 주입 → CPython 이 그 경로를 <code>fopen()</code> 해 OpenSSL 에 넘김 → 정적 링크 빌드(uv)에 <code>OPENSSL_Applink</code> 부재 → <code>ExitProcess(1)</code></td><td>종료 코드 1(자가 종료). 변수 하나 지우면 즉시 통과. 변경 이전 커밋도 동일하게 죽음(worktree 격리) — <code>docs/error/ssl-openssl-applink-exit_260810</code></td><td><code>tls.neutralize_keylog()</code> 를 <b><code>ssl.create_default_context()</code> 이전</b>에 호출(<code>tls.py:65</code>·<code>server.py:1120</code>, <span class="hash">b8f36d1</span>) — <code>ssl</code> 모듈 import 자체는 무해하고 문제는 컨텍스트 생성 시점이다. 배너에 제거 사실 표시. 근본(HTTPS 스캐닝 해제)은 사용자 몫</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">I-2</td><td><b>TLS 검증이 꺼진 채 돈다.</b> 세 겹이다 — ① certifi 번들에 사내 루트 없음 ② Windows 저장소에는 있지만 그 CA 의 <b>Basic Constraints 가 non-critical</b> 이라 OpenSSL 이 거부(<code>uv --native-tls</code>·curl 은 통과) ③ truststore 는 import 단계에서 막힘 → <code>verify=False</code> 폴백</td><td><code>tls.py:3-7</code> 머리 주석이 세 겹을 그대로 적는다. 시작 배너 “TLS 검증 : 끔 (사내 프록시 감지)”. 이번 세션 <code>urllib</code> 직접 프로브도 <code>CERTIFICATE_VERIFY_FAILED</code>. uv 도 <code>UV_NATIVE_TLS=1</code> 필요</td><td>설계된 폴백(<code>tls.py</code>). Anthropic·Google 연결이 검증 없이 나간다. <b>CA 를 Windows 저장소에 넣는 것만으로는 ②가 남아 안 풀릴 수 있다</b> — 사실상 HTTPS 스캐닝 해제가 유일한 근본 해결</td><td class="st"><span class="env">환경</span></td></tr>
+      <tr><td class="id">I-3</td><td><b>구글 요청 하나가 실패하면 Anthropic 연결의 검증까지 영구히 꺼졌다.</b> 런타임 인증서 오류 시 전역 <code>_mode</code> 를 뒤집었고 배너는 계속 “켬”</td><td><code>tls.py:19</code> 주석 · 감사 32건 중 하나(<span class="hash">b8f36d1</span>)</td><td>오류를 낸 <b>호스트만</b> 다운그레이드. Anthropic 클라이언트는 시작 프로브 판정만 따른다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">I-4</td><td><b>Python ssl 로 위키피디아를 못 받는다</b> — I-1 과 <b>같은</b> <code>SSLKEYLOGFILE</code>→applink 부재 연쇄</td><td><span class="hash">80b0f29</span> “fetch 는 curl 서브프로세스”. <b>단 그 커밋과 <code>wiki.py</code> 주석은 원인을 “경로의 서드파티 OpenSSL DLL”이라 적는데, 원 오류 기록은 로드된 OpenSSL DLL 이 0개였다며 그 가설을 폐기했다</b></td><td>curl 우회. 원인은 안 없앴고, <b>코드 주석이 폐기된 진단을 아직 담고 있다</b>(정정 대상)</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">I-5</td><td><b>Chromium 을 닫는 데 16~66초.</b> 렌더 4.60초·벽시계 52.90초 — 차이 47초 전부 <code>browser.close()</code>. 백신 실시간 스캔이 <code>%TEMP%</code> 임시 프로필 삭제를 붙잡는 것으로 <b>추정</b></td><td>260910 실측: 페이지를 하나도 열지 않은 빈 브라우저 종료 15.98 / 65.55 / 0.16초. Defender 는 수동 모드, Avast 활성(productState 266240). 임시 프로필 47개 잔존. <b>인과는 아직 확정이 아니다 — Avast 비활성 대조군도, 파일 잠금 추적도 없다</b></td><td>브라우저를 프로세스 수명 동안 재사용(<code>_BrowserPool</code>, <span class="hash">ea43ad5</span>). 캡처마다 → 종료 시 1회. 종료는 2초 상한으로 시도하고 못 닫아도 안 붙잡는다</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">I-6</td><td><b>새 서버 + 캐시된 옛 app.js.</b> index.html 이 <code>?v=</code> 없이 정적 파일을 참조 → 라우트를 옮기면 옛 JS 가 사라진 경로에 POST</td><td>“보고서 실패: Not Found” — 그 접두사가 새 코드에 없어 옛 JS 확정. <code>docs/error/report-404-not-found_260810</code>. 버전 문자열이 네 곳(0.1.0/0.1.0/0.2.0/0.5.0)으로 갈려 있었음</td><td><code>__version__</code> 단일 출처 + 서빙 시 <code>?v=</code> 자동 주입(<span class="hash">7fa11f3</span>) · index.html <code>no-store</code> + 화면 우하단 버전 배지(<span class="hash">96f852f</span>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">I-7</td><td><b>포트가 옮겨가면 JS 키가 죽는다.</b> 기본 8799 가 사용 중이면 다음 빈 포트로 자동 이동(<code>_find_free_port</code>)인데, JS 키의 HTTP 리퍼러 제한은 포트까지 본다</td><td><code>server.py:1090</code>. <b><code>.env.example:8</code> 은 “헤드리스 캡처까지 쓰면 8080/8000 도 추가”라고 지시하는데 그 지시는 지금 무효다</b> — <code>render_google.py:546</code> 의 로컬 서버는 <b>매번 포트 0 으로 임의 바인드</b>한다. 포트별 등록으로는 원리적으로 못 따라간다</td><td>1순위 처방은 <b>리퍼러를 <code>http://localhost:*</code> 한 줄(포트 와일드카드)로 등록</b>하는 것. 옛 서버가 살아 있어 새 서버가 8802 로 밀린 뒤 curl 이 옛 서버를 때린 거짓 음성 사례도 있었다(recovery §7)</td><td class="st"><span class="des">설계</span></td></tr>
+      <tr><td class="id">I-8</td><td><b>탭 N개 → Chromium N개 → 스레드풀 20슬롯 고갈 → 21번째부터 영원히 대기.</b> 동시성 제어가 프론트의 탭별 불리언뿐이라 새로고침·두 번째 창이면 통째로 우회</td><td><code>jobs.py</code> 머리 주석 · <span class="hash">b8f36d1</span></td><td>서버 작업 큐(순차·멱등·취소·백프레셔·SSE) + 캡처 세마포어(<code>capture_concurrency=1</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">I-9</td><td><b>실패의 흔적이 사라진다.</b> 260813 밤 배치 9건의 번역 실패가 429 였는지 스트림 마감이었는지 “서버 재시작으로 로그가 남아 있지 않아” 단정 못 함</td><td><code>docs/error/report-missing-korean_260814</code> §3. 지금은 <code>docs/jobs/jobs.jsonl</code> 1개가 있고 인메모리 이력은 200건 상한(<code>jobs.py:132</code>)</td><td>jsonl 은 남는다. 다만 gitignore 라 저장소에는 없고, 이력 상한을 넘으면 메모리에서 밀려난다</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">I-10</td><td><b>Claude 연결 오류가 잡을 통째로 죽인다.</b> <code>Connection error</code> → 정정 잡 <code>API_ERROR</code>. 다음 <code>run()</code> 에서 <b>대상이 되기는 한다</b>(<code>correction.py:988</code> 은 OK 만 제외) — 그러나 <code>PARTIAL</code> 전용인 <b>재개</b> 경로(<code>_resumable</code>, <code>correction.py:687</code>)를 못 타므로 blind 2패스·정정 호출을 <b>처음부터 다시</b> 돌려 비용을 또 쓴다</td><td>260910 <code>corr_job_737cae606637</code> — “Claude 호출 실패: Connection error.” $0. SDK <code>max_retries=2</code>(<code>llm.py:112</code>)와 <code>_correction_call</code> 의 자체 1회 재시도(<code>correction.py:484-509</code>)는 정정 잡에도 적용된다 — <b>그것을 다 쓰고도 실패한 것</b></td><td>없음. 필요한 것은 재시도의 부재가 아니라 <b>연결 오류 뒤 백오프 + 판단 결과 재사용</b>이다</td><td class="st"><span class="open">미해결</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><b>Avast 한 곳에서 네 가지 얼굴.</b> I-1(키로그 주입 → 기동 불가), I-2(TLS 가로채기 → 검증 끔), M-5(웹실드 → googleusercontent 차단 의심), I-5(실시간 스캔 → 종료 지연). 앱은 넷 다 우회했지만, 원인은 하나도 안 없어졌다. HTTPS 스캐닝 해제 한 번이 I-1·I-2 를, 예외 등록(<code>%TEMP%</code>·<code>ms-playwright</code>)이 I-5·C-22 를 없앤다.</div>
+</section>
+
+<!-- ───────────────────────── §3 ───────────────────────── -->
+<section id="s3">
+  <h2>3. 구글맵 로드 — 브라우저 뷰어 (18건)</h2>
+  <p class="sec-desc">“검은 로드뷰” 하나에 <b>세 개의 다른 원인</b>이 숨어 있었다 — ⓐ 타일 429, ⓑ SDK 가 모르는 사진구체, ⓒ 엉뚱한 파노를 들고 있는 상태. 같은 증상을 같은 원인으로 설명하려다 여섯 번 빗나갔다(<code>docs/error/six-times-wrong-diagnosis_260812</code>).</p>
+  <div class="tblwrap"><table>
+    <thead><tr><th>ID</th><th>무엇이 막았나</th><th>증거 · 출처</th><th>조치</th><th>상태</th></tr></thead>
+    <tbody>
+      <tr><td class="id">M-1</td><td><b>키/리퍼러가 틀리면 아무 말 없이 25초를 기다렸다.</b> InvalidKey/RefererNotAllowed 는 <code>gm_authFailure</code> 콜백으로 온다 — 스크립트 자체는 <b>200 으로 정상 로드</b>되므로 <code>onerror</code> 로는 못 잡는다</td><td><code>gm_authFailure</code> 는 <code>render_google.py:48·177·203</code>(전부 헤드리스 HTML 템플릿) <b>세 곳뿐</b>이고 <code>app.js</code> 에는 0건. <code>app.js:337</code> 은 <code>s.onerror</code> 하나다</td><td><b>헤드리스 렌더만 해결</b> — 콜백에서 즉시 실패. <b>라이브 webui 는 여전히 미해결</b>: 잘못된 키·리퍼러로 열면 화면이 조용히 비고 안내가 뜨지 않는다</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">M-2</td><td><b>사진구체(CIHM…/CIAB…)가 ZERO_RESULTS.</b> “SDK 미제공”으로 규정하고 세 판을 그 전제 위에 쌓았다. 실제로는 <b>인코딩이 다를 뿐</b> — 좌표 조회가 준 CAoS… 를 디코드하니 원래 id 가 protobuf 봉투 안에 그대로</td><td><code>base64decode("CAoSFkNJSE0…") == b"\x08\n\x12\x16" + b"CIHM0ogKEICAgIDqvbDfZw"</code>. 세 파노 전부 ZERO_RESULTS → OK. 신고 링크 밝기 검정 → 129.1 (<span class="hash">289be07</span> v0.3.4)</td><td><code>linkresolver.wrap_pano_id()</code>, <code>pano_alt</code> 재시도. 실효는 <b>SDK 가 그 파노를 인식·조회하게 된 것</b>(ZERO_RESULTS 제거). “진짜 구글 파노라 조작이 네이티브”는 <b>v0.3.4 당시</b> 이야기다 — v0.4.0(<span class="hash">e19ad27</span>) 이후 제3자 파노는 조건 없이 자체 구체 뷰어로 뜨므로 드래그·줌은 우리 구현이다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-3</td><td><b>제3자 파노 타일이 HTTP 429.</b> 공식은 <code>streetviewpixels-pa</code>(키 기반), 제3자는 <code>lh3.googleusercontent.com/gpms-cs-s/&lt;토큰&gt;</code>(키 없음, IP 단위 제한). 짧은 시간에 몰아 부르면 검정</td><td>“같은 링크가 사람마다 다르게 보인다”가 첫 단서. 타일 429 인 그 순간 같은 토큰의 photo 형식은 200·1280×800·밝기 118.9 (<span class="hash">4cb5fd1</span>)</td><td>429 요청 URL 에서 토큰을 줍고 photo 형식으로 재요청(v0.2.3) → 결국 제3자는 <b>판정 없이 항상</b> 자체 구체 뷰어 + 서버 프록시(v0.4.0 <span class="hash">e19ad27</span>). 제한 자체는 우리 IP 사정</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">M-4</td><td><b>계측이 나를 두 번 속였다.</b> 응답 리스너가 <code>streetviewpixels|cbk|panoid</code> 만 매칭하고 <code>content-type=image</code> 만 세서 “제3자는 타일 요청 0건” → “라이선스 API 로는 불가” → <b>“제3자면 공식 파노로 전환”</b>이라는 잘못된 수정. 요청하지 않은 장소를 조용히 분석하는, 이 도구 최악의 버그</td><td>필터를 걷어내자 lh3 429 ×1·×8 / 공식 200 ×16 (<span class="hash">86900f0</span>). 워크플로 반박 → 재측정에도 같은 결함 → 3차에서야 진실. <code>methodology_260810</code> 사례 5</td><td>수정 철회. 미리 재단하지 않고 요청 파노를 렌더, 픽셀로 검정 판정, 429 면 <code>TILES_RATE_LIMITED</code>, 그때만 1회 공식 재시도 + <code>substituted=True</code>·실제 렌더 좌표 반환</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-5</td><td><b>사용자 브라우저에서만 이미지가 안 뜬다.</b> 서버 fetch 217KB OK, 헤드리스 <code>&lt;img&gt;</code> 200 OK — 그런데 화면은 검정. 광고 차단 확장이나 백신 웹실드가 <code>googleusercontent.com</code> 을 막으면 페이지 코드로는 손쓸 수 없다</td><td><span class="hash">6a6536c</span> v0.2.6 · <code>server.py:720</code> 주석 “이 PC 는 이미 Avast 가 TLS 에 개입한 전력”</td><td>같은 출처 프록시 <code>GET /api/pano-image</code>(SSRF 허용목록·클램프·바이트 예산 캐시 96MB). 그 층이 <b>구조적으로</b> 사라지는 것은 확실하다 — 다만 <b>사용자 환경에서 실제 범인이 확장이었는지 백신이었는지는 끝내 확인 못 했다</b>(<span class="hash">e19ad27</span> “정직한 한계”). 같은 증상의 다른 원인은 M-11</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">M-6</td><td><b>캔버스 읽기가 실제 GPU 에서 늘 검다.</b> WebGL <code>preserveDrawingBuffer=false</code> 기본 → 합성 뒤 읽으면 화면과 무관하게 0. 헤드리스(SwiftShader)에서만 제대로 읽혀 “재현됐다”고 착각. 공식 파노 전부를 “검다”고 오판해 파노마다 10초짜리 헤드리스 토큰 조회가 헛돌았다</td><td>같은 화면: 헤드리스 캔버스 117.2 / 헤디드 캔버스 0.0 / 헤디드 스크린샷 126.4 (<span class="hash">bf9c5a3</span> v0.2.4)</td><td>저작권으로 제3자일 때만 감시(v0.2.4) → 감지 자체 폐기(v0.4.0). <code>sphere.js:93</code> 은 <code>preserveDrawingBuffer:true</code>. 스위트 기본은 headed(<code>viewer_matrix.py</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-7</td><td><b>페이지 안에서는 타일 요청을 볼 수 없다.</b> Maps JS 가 타일을 워커에서 받아 문서 타임라인의 PerformanceObserver 에 0건. <b>합성 경로도 함께 막혀 있었다</b> — <code>StreetViewPanoramaData.tiles</code> 에 <code>getTileUrl</code> 도 토큰 문자열도 없어 클라이언트가 타일 URL 을 만들 수 없다</td><td><code>perfCount=0</code> vs Playwright(CDP) 1건 429 (recovery §6.1). tiles 키 열거 결과 <code>['centerHeading','originHeading','originPitch','tileSize','worldSize']</code> — <code>getTileUrl</code> 없음 (recovery §2). <b>이 프로젝트에서 “없다”가 진짜 부재였던 유일한 사례다</b></td><td>합성이 막혔으니 관측으로 — 토큰은 서버가 CDP 로 조회(<code>/api/pano-photo</code>, 콜드 9.4초/캐시 0.13초). 실패 판정은 픽셀로 하되 <b>서버 캡처에 한정</b>(<code>render_google.py</code> <code>_top_is_black</code>, 밝기 8.0 미만) — 라이브 뷰어는 픽셀 판정을 폐기하고 저작권으로 분류만 한다(<code>app.js:793-808</code>)</td><td class="st"><span class="des">설계</span></td></tr>
+      <tr><td class="id">M-8</td><td><b>오버레이 생명주기를 두 번 틀렸다.</b> v0.2.3 너무 일찍 지움(진행 중 조회 결과 소실) → <b>v0.2.4 가 정반대로 두 결함을 함께</b> 냈다: 영원히 안 지움(<code>if (photoPinned) return</code>) + 고정 각도라 회전 안 됨. 원인 하나: 표시할 조건은 세심히, 걷어낼 조건은 흩뜨려 놓음</td><td>스크린샷 3장이 픽셀 단위 동일 · 밝기만 쟀다면 “84.6 정상”으로 통과했을 것(실제로 v0.2.4 검증이 그렇게 통과). <b><span class="hash">0ecbc22</span> 는 v0.2.5 — 결함 버전이 아니라 둘을 고친 수정 버전이다</b></td><td>상태를 플래그가 아니라 <b>파노 정체성</b>에 묶는다 — <code>onPanoChanged()</code> 단일 판단 지점, 살아 있는 pov, <code>clearFallback()</code> 이 오버레이·뷰어·타이머를 같은 자리에서 정리</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-9</td><td><b>저작권 칩이 한 번도 안 떴다.</b> <code>getLocation()</code> 의 StreetViewLocation 에는 copyright 가 없다 — <code>getPanorama()</code> 의 StreetViewPanoramaData 에 있다. 판정 입력이 늘 빈 문자열</td><td><span class="hash">4cb5fd1</span> · recovery “덤으로 잡은 버그”</td><td>getPanorama 로 파노당 1회 조회·캐시(<code>app.js:733</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-10</td><td><b><code>pano_changed</code> 는 한 파노를 여는 동안에도 여러 번 튄다.</b> 매 이벤트마다 상태를 비워, 10초짜리 서버 토큰 조회가 돌아올 자리가 없어졌다 — 부품은 전부 정상인데 조립하면 실패</td><td>recovery §8 “자동 흐름만 실패한다”</td><td>비동기 결과에 요청 시점의 파노 ID 를 함께 들고 다닌다(<code>watchedPano !== id</code> 면 버림). 늦게 온 이미지가 엉뚱한 장소를 덮는 일이 구조적으로 불가능</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-11</td><td><b>죽은 분기 — 우회 장치가 v0.3.1 이후 내내 한 번도 실행되지 않았다.</b> <code>fetchCopyright</code> 가 재진입 방지로 <code>""</code> 를 동기 대입 → <code>cp === undefined</code> 절대 거짓 → <code>!cp</code> 항상 참 → <code>startTileWatch</code> 미호출. 화면에는 “타일이 제한되면 자동 전환합니다” 안내만</td><td>사용자: “playwright 실증도 아예 안 한 것 같은데 어떻게 계속 확신하는가?” 내 헤디드 측정에 <code>blocked:False</code>·<code>/api/pano:[]</code> 증거가 있었는데 읽지 못함 (<span class="hash">e19ad27</span>)</td><td>감지 함수(<code>tilesMissing</code>·<code>startTileWatch</code>) 제거, 분류로 전환(M-3). <b>단 경쟁 조건이 남았다</b> — 저작권 조회가 800ms 를 넘기거나 실패하면 recheck 가 포기하고, 조회 완료 콜백은 <code>reportViewerState</code> 만 부른다. 첫 방문에서 자체 뷰어 전환이 누락될 수 있고 재방문·수동 새로고침으로만 회복된다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-12</td><td><b><code>pano_kind</code> 오분류.</b> 22자 패턴을 접두사보다 먼저 검사해 <code>CIHM0ogKEICAgIDaqcr9Gw</code>(22자, 끝이 w)가 official</td><td><span class="hash">d92653b</span>. 진짜 반례는 <b>업체·전문 기여자 파노도 같은 22자 official 형식을 받는다</b>는 것(<span class="hash">ad39f90</span>) — 저작권 문자열만이 판별자다. (<code>ApCZpYJ184e4gUYfXHl65g</code> 는 형식·저작권이 <b>일치</b>하는 사례로, 카드와 뷰어가 서로 다른 파노를 보고 있었음을 드러낸 건이지 분류기의 반례가 아니다)</td><td>접두사 우선 — <span class="hash">d92653b</span> 가 CAoS/CIHM(+AF1Qip), <b>CIAB 추가는 후속 <span class="hash">289be07</span></b>. 그리고 ID 형식을 판정에 쓰지 않는다(C-12)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-13</td><td>생성자에 <code>position</code> 과 <code>pano</code> 를 동시에 주어 암묵적 위치 조회가 <code>setPano</code> 와 경쟁</td><td><span class="hash">bf9c5a3</span></td><td>ID 를 알면 position 을 주지 않는다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-14</td><td><b>사진구체 각도 규약 3건이 lh3 와 다르다.</b> pitch 는 <code>-pi</code> 가 아래가 양수 · heading 은 <code>-ya</code> 가 사진구체 자체 좌표계(같은 링크에서 h=36.84 vs ya=18.84, 18.0° 차) · <code>-fo</code> 는 수평. 내가 만든 뷰어를 내가 만든 URL 과 대조해 “일치 1.29”라 했는데 둘 다 같은 부호 오류</td><td>정답(구글 <code>!6s</code> 썸네일) 대비 평균차 37.24 → 1.33 (<span class="hash">5d09661</span> v0.3.1)</td><td><code>ya_offset</code>·부호 반전·수평 변환. <b>교정은 sphere.js 와 서버 캡처(<code>capture.py</code> <code>photo_url_for</code>) 양쪽에 들어갔고</b>, sphere.js 는 v0.4.0 이후 제3자 파노의 <b>주 경로</b>다 — “대비책에만 필요했다”는 1차 서술은 틀렸다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-15</td><td>WebGL <code>contextlost</code> 미처리(검은 캔버스가 입력만 삼킴) · <code>destroy()</code> 순서로 고아 캔버스 · 핀치 줌이 포즈에 미반영 · 마지막 탭 닫아도 캔버스 잔존</td><td>멀티에이전트 검토 지적 중 확인분 (<span class="hash">5d09661</span>)</td><td>전부 수정. 탭 4회 여닫이 후 캔버스 0개</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-16</td><td>등장방형 텍스처에 밉맵을 쓰면 경도 이음매에서 밉 레벨이 튀어 세로줄</td><td><code>sphere.js:202</code></td><td>밉맵 미사용</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-17</td><td><b>“또 추출이 안 된다”가 재현되지 않는다.</b> 같은 링크를 다시 누르면 화면이 그대로라 추출 실패로 보였다</td><td><span class="hash">96f852f</span> v0.3.2 — 파싱·표시·드래그 전부 정상, 정답 대비 1.40. <b>원인은 끝내 확정되지 않았다</b> — 커밋도 “재현되지 않는다”고 적고 더 추측하지 않았다. 재입력이 그렇게 보였을 가능성은 <b>추정</b>이다</td><td>“이미 열려 있는 링크입니다 — 그 탭으로 이동했습니다” 명시 + 버전 배지 + <code>index.html</code> <code>no-store</code>(I-6) — 추측 대신 <b>다음 스크린샷 한 장으로 드러나게</b> 만든 것이 이 판의 실질이다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">M-18</td><td><b>EU consent / 쿠키 동의 화면.</b> google.com/maps 헤드리스 1차 측정은 세 케이스가 전부 밝기 248.3 — 결론이 아니라 동의 페이지를 찍은 것. 기획서도 “EU/UA 미설정 시 consent.google.com 이 뜰 수 있다”고 적음</td><td><code>methodology_260810</code> 사례 5 · 기획 260708 §링크 해석</td><td>Maps JS API 경로는 이 화면을 안 탄다. google.com/maps 직접 렌더는 채택하지 않았다(ToS)</td><td class="st"><span class="env">환경</span></td></tr>
+      <tr><td class="id">M-19</td><td><b>반복 계측이 환경을 태웠다.</b> 헤드리스를 연달아 띄우자 Maps JS 가 아예 로드되지 않는 구간에 들어갔다 — 로드뷰뿐 아니라 하단 지도까지 빈 화면. 잔여 Chromium 프로세스로 <code>MemoryError</code> 까지 났다</td><td>recovery §10 “측정이 대상을 오염시킨다”. 그 구간 측정은 <b>전부 무효</b>였고, 라우트 개입을 뺀 대조군(gpms 15건·200)을 다시 돌려서야 내 코드가 아님을 갈랐다</td><td>잔여 정리 → 쿨다운 → 한 번에 한 실행. 260910 의 브라우저 풀 재사용(<span class="hash">ea43ad5</span>)이 잔여 프로세스를 구조적으로 줄였다. <b>계측 부하 자체를 막는 코드 장치는 없다</b></td><td class="st"><span class="mit">완화</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ───────────────────────── §4 ───────────────────────── -->
+<section id="s4">
+  <h2>4. 화면 캡처 — 서버 재렌더 (30건)</h2>
+  <p class="sec-desc">캡처는 화면을 찍는 것이 아니라 <b>서버가 다시 그리는 것</b>이다(C-1). 그래서 방해 요소도 두 겹이다 — 화면과 <b>같은 장면</b>을 그리는가(포즈·프레임), 그리고 <b>제때</b> 그리는가(경로·시간).</p>
+
+  <h3 class="sub">4.1 같은 장면을 그리는가 — 포즈·프레임·출처</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>ID</th><th>무엇이 막았나</th><th>증거 · 출처</th><th>조치</th><th>상태</th></tr></thead>
+    <tbody>
+      <tr><td class="id">C-1</td><td><b>화면 캔버스를 그대로 가져올 수 없다.</b> 셋이 겹친다 — ① 제3자 타일은 교차출처라 캔버스를 tainted 시켜 <code>getImageData</code> 가 SecurityError ② <b>공식 파노는 CORS 가 열려 읽히지만</b> <code>preserveDrawingBuffer=false</code> 라 합성 후 읽으면 항상 검다(M-6) ③ html2canvas 는 DOM 만 재그려 지도 영역이 빈다</td><td>기획 260708 §“보고 있는 그 장면”. <b><code>capture.py:3</code> 주석은 아직 ①만 적고 있어 정정 대상이다</b> — ②는 후속 실측(<span class="hash">bf9c5a3</span>)이 밝혔다</td><td>캡처 전량 서버 재렌더(Static 합성 B / Playwright A). 세 이유 중 하나만 무너져도 결론은 그대로다. 이 제약이 아래 모든 “화면과 다르다” 계열의 뿌리다</td><td class="st"><span class="des">설계</span></td></tr>
+      <tr><td class="id">C-4</td><td><b>lh3 <code>-fo</code> 는 수평 FOV 인데 수직값(<code>75y</code>)을 그대로 넣어 캡처가 화면보다 좁게 잘렸다</b></td><td>그 링크는 75y 인데 같은 URL 의 fo 가 100; 수직 75°·비율 1.5 → 수평 98.0° (<span class="hash">0da57a1</span> v0.3.0). 변환 후 실측 fo=98.03</td><td><code>hfov_deg()</code> 변환 (<code>capture.py:72</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-5</td><td><b>같은 실수를 Static 경로에서 반복.</b> Street View Static API 의 <code>fov</code> 도 수평인데 수직 75 를 그대로 → 필요한 것의 59%(75°)만 담김. v0.3.x 는 photo_url 경로만 고치고 Static 은 의심하지 않았다</td><td><code>docs/error/capture-canvas-crop_260814</code> §2 표 · <span class="hash">ab79e45</span> v0.5.0</td><td>수직→수평 변환값을 보낸다. <b>단</b> “Static fov=수평”은 공식 문서 서술이지 이 저장소의 실측이 아니다 — 아직 못 박지 않았다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-6</td><td><b>640×480(4:3) 고정 캔버스.</b> 화면 패널은 “창 너비−384px × 뷰어 높이 56%”로 와이드 모니터에서 2.67:1. 세 렌더 경로(photo_url·static·playwright) 전부 화면 크기를 몰랐다 → 화면 좌우 36° 어치가 캡처에 없음 — 가장자리 표지판이 보고서에 안 실림</td><td>사용자 질문 “또 여기서 조금 잘리나?” 의 “또”. 스위트는 중심 좌표·바이트 차이만 재서 통과. 수평 127.9° 필요 vs 91.3°/75° (<span class="hash">ab79e45</span>). <b>화면 스크린샷 ↔ 캡처 파일의 픽셀 대조는 그때도 지금도 안 돌렸다</b></td><td><code>paneSize()</code> 가 <code>#pano</code> 실측을 포즈에 동봉, <code>streetview.view_aspect()</code> 단일 판정점. Static 120° 상한을 넘으면 브라우저 렌더 우선 + <code>fov_capped</code> 표시. <b>단 상한이 셋 더 있다</b> — <code>view_aspect</code> 자체가 0.4~3.5 로 자르고, playwright 는 높이 480 고정 + 폭 320~1600 클램프라 <b>종횡비 0.667~3.333 밖은 화면 비율이 보존되지 않으며</b>, photo 경로에는 수평 150° 상한이 따로 있다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-7</td><td>lh3 <code>-pi</code> 는 아래가 양수, <code>pose.pitch</code> 는 위가 양수 → 화면과 캡처가 지평선 기준으로 뒤집힘</td><td>pi +60 이 등장방형 천저와 일치; 지도 tilt 103.37(=+13.37) vs lh3 pi=−13.3658 (<span class="hash">5d09661</span>)</td><td><code>-pose.pitch</code> 전송 (<code>capture.py:67</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-8</td><td><b>손으로 고른 키 목록이 새 필드를 조용히 떨궜다.</b> <code>newTab</code>·<code>syncFromPano</code> 가 키를 하나하나 나열 → <code>ya_offset</code> 탈락 → 서버는 17.9995 를 주는데 화면은 18° 돌아간 채</td><td><span class="hash">5d09661</span></td><td><code>Object.assign</code> 으로 링크의 사실을 통째로</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-9</td><td><b>얼어붙은 거울.</b> 사진구체 링크에서 날것 CIHM… 로 무장하고 화면엔 감싼 CAoS… 를 띄워 <code>syncArmed</code> 가 영원히 false → 탭 포즈가 링크 값에 동결 → 이동해도 캡처는 링크 원본을 재촬영</td><td>앨범 8장 중 6장이 <b>같은 sha256</b>(353,330B), 나머지도 화면과 15km 다른 해안. 스위트 6/6 ✔ 였던 그 시각에 사용자는 같은 사진 여섯 장을 받고 있었다 (<code>capture-frozen-scene_260813</code>)</td><td>무장은 SDK 가 돌려준 id 로 + “화면이 직전과 달라졌다”면 통과(영원 미무장 원천 차단). <b><code>livePose()</code> — 캡처는 거울이 아니라 표시 상태를 읽는다.</b> 같은 장면 2장째에 화면이 알림</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-10</td><td><b>구체 뷰어가 자기 출처를 적지 않았다.</b> <code>t.current.photo_url</code> 이 여전히 링크의 <code>!6s</code> → 화면을 바꿔도 캡처는 이전 장면의 URL 을 현재 각도로 겨눠 그럴듯하게 찍음</td><td>같은 문서 §4. C-9 만 고치면 캡처가 통째로 실패, C-10 만 고치면 효과 없음 — 둘을 같이</td><td><code>noteSphereSource()</code> 가 파노 id·토큰·좌표를 포즈에 기록. <code>samePano()</code> 가 두 이름을 동일시</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-11</td><td><b>조용한 대체.</b> “제3자면 근처 공식 파노로 전환”하고 <b>요청 좌표를 그대로 반환</b> → 분석기가 다른 거리를 보면서 요청 좌표라고 믿음</td><td>M-4 의 파생 피해 (<span class="hash">86900f0</span>)</td><td>429/검정일 때만 1회, <code>substituted=True</code> + 실제 렌더된 pano·lat·lng·copyright 반환, 화면 경고 “분석 대상이 원래 위치와 다릅니다”</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-12</td><td><code>photo_url</code> 경로를 <code>is_usergenerated(pano)</code> 로 게이트 — ID 형식은 판별자가 아니다</td><td>풀라 신고: 카드는 official, 뷰어는 © Geogrupa Pula — 사용자가 <b>카드가 가리키는 파노와 다른 파노</b>를 보고 있었는데 화면 어디에도 안 드러남 (<span class="hash">ad39f90</span>)</td><td>게이트 제거(<code>!6s</code> 가 있다는 것 자체가 근거) + 뷰어 실제 상태(<code>viewer-state</code>) 표시</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-25</td><td>더블클릭으로 중복 캡처 · 캡처 버튼 잠금이 <code>renderPose → updateActionButtons</code> 로 곧바로 풀림</td><td><span class="hash">b8f36d1</span> · frozen-scene “부수적으로”. <b>잔여</b>: <code>tabBusy()</code> 는 서버 <b>잡</b>의 상태만 보는데 캡처는 잡이 아니라 단순 <code>fetch</code> 라, 캡처 대기 중 <code>tabBusy</code> 는 <code>null</code> 이다</td><td>포즈를 먼저 굳히고 잠근다(<code>app.js:1256-1257</code>). <b>단 요청 중 상태를 따로 보관하지 않는다</b> — 캡처를 기다리는 동안 구체 뷰어를 돌리면 <code>onSphereView→renderPose→updateActionButtons</code> 가 돌아 버튼이 다시 켜진다(구글 파노 경로는 <code>renderPose</code> 를 안 불러 무사)</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">C-28</td><td><b>미세 차이가 아니라 부호 결함이다.</b> WebGL 없어 <code>&lt;img&gt;</code> 폴백으로 떨어지는 경로는 fov 변환이 한 단계 생략될 뿐 아니라 <b>pitch 부호가 반대</b>다 — 화면 폴백(<code>app.js:1041</code>→<code>server.py</code>)은 양의 pitch 를 그대로 <code>pi</code> 로 보내는데 서버 캡처(<code>capture.py:70</code>)는 부호를 뒤집는다</td><td>frozen-scene §8 · canvas-crop §7 “이번에도 그대로”. 실측하지 않았다 — <b>pitch≠0 이면 화면과 캡처가 상하 반대를 겨눈다</b>는 것이 코드 독해상 귀결이다</td><td>없음. C-7 과 같은 축 오류가 한 경로에만 안 들어간 것이므로 수리는 작다</td><td class="st"><span class="open">미해결</span></td></tr>
+      <tr><td class="id">C-27</td><td><b>스위트가 화각을 재지 않는다.</b> <code>viewer_matrix.py</code> ⑥ 은 바이트 차이와 좌표 80m 만 본다. 실제 GPU(headed) 실행도 v0.4.2 이후 헤드리스 6/6 이 전부</td><td>canvas-crop §4 “중심이 맞는 산출물은 검사를 통과하고, 가장자리가 틀린 산출물은 아무도 신고하지 않는다”</td><td>없음. 화면 <code>#pano</code> 스크린샷 ↔ 캡처 상단 구조 유사도가 다음 후보</td><td class="st"><span class="open">미해결</span></td></tr>
+      <tr><td class="id">C-30</td><td>제3자 파노 우회 화면의 부드러움 — <b>현재 기본 경로는 등장방형 텍스처 + WebGL 로컬 투영(sphere.js)이라 시점을 돌려도 재요청이 없고 캔버스가 직접 입력을 받는다.</b> “정지 이미지 · 200ms 디바운스 재요청”은 sphere.js 미로드·WebGL 미지원·컨텍스트 손실 때의 <code>&lt;img&gt;</code> 오버레이 폴백에만 남는다</td><td>recovery “남은 한계”는 <b>v0.2.5 시점</b>의 것이다 — <span class="hash">0da57a1</span>(v0.3.0)이 구체 뷰어를 만들었고 <span class="hash">e19ad27</span>(v0.4.0)이 그것을 주 경로로 올렸다</td><td>받아들인 제약은 <b>폴백 경로에 한정</b>. 그 경로에서는 아래 파노가 입력을 받으므로 조작 자체는 된다</td><td class="st"><span class="des">설계</span></td></tr>
+      <tr><td class="id">C-31</td><td><b>멀티탭 상태 누수.</b> <code>syncFromPano</code> 의 fov 가 전역 <code>currentPose</code>(= 다른 탭의 값)를 참조해 두 번째 탭의 캡처가 <b>남의 화각</b>으로 찍혔다. 탭을 전환하면 포즈 카드가 링크 원본(<code>t.extracted</code>)을 그려 <b>캡처가 찍을 것과 다른 값</b>을 보여 줬다</td><td><code>capture-frozen-scene_260813</code> §6 “부수적으로 같이 바로잡은 것”</td><td>그 탭 자신의 <code>t.current</code> 로 단일화(<code>app.js:189-190·1094-1106</code>). 다른 파노로 옮기면 <code>pano_kind</code> 배지도 뗀다 — 그 라벨은 링크의 파노를 분류한 값이라 이동 후에는 사실이 아니다</td><td class="st"><span class="ok">해결</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">4.2 제때 그리는가 — 경로·키·시간</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>ID</th><th>무엇이 막았나</th><th>증거 · 출처</th><th>조치</th><th>상태</th></tr></thead>
+    <tbody>
+      <tr><td class="id">C-2</td><td><b>Street View Static API 가 프로젝트에 미활성.</b> 구글: “This API is not activated on your API project”. auto 모드가 매 캡처마다 Static 을 두드려 0.52초를 거부 응답에 버리고 브라우저로 폴백 — <b>단 “모든 캡처”는 아니다</b>: <code>photo_url</code>(<code>!6s</code>)이 있으면 그 길이 먼저이고, 수평 화각 &gt;120° 이면 활성 여부와 무관하게 playwright 가 먼저다</td><td>260910 실측 <code>capture_static</code> 0.52초 REQUEST_DENIED — 이는 <b>거부 응답 왕복 1회</b>의 값이다. <code>capture.py:211</code> 의 안내 문구가 그대로 뜸</td><td>키 지문별로 거부를 기억해 600초간 건너뜀(<span class="hash">ea43ad5</span>). <b>근본은 콘솔에서 Street View Static + Maps Static 활성화.</b> 켜면 metadata 1회 + 이미지 2회 왕복이라 <b>추정</b> 0.5~2초 — 이 숫자는 실측이 아니다</td><td class="st"><span class="env">환경</span></td></tr>
+      <tr><td class="id">C-3</td><td><b>리퍼러 제한 키는 서버 GET 에서 403.</b> HTTP 리퍼러 제한은 브라우저 요청만 검사한다. JS 키 하나로 Static/Metadata 를 부르면 막힘</td><td>README “왜 키가 두 개인가” · <code>config.py:138</code> · recovery 권고</td><td>서버용 <code>GOOGLE_MAPS_STATIC_KEY</code>(IP 제한) 분리. 비우면 JS 키로 폴백 → 403 → 브라우저 렌더</td><td class="st"><span class="des">설계</span></td></tr>
+      <tr><td class="id">C-13</td><td><b>고정 포트 TOCTOU.</b> 헤드리스용 로컬 서버가 8080/8000 을 “비었는지 확인 뒤 바인드” → 동시 렌더가 같은 포트를 고르고, Windows SO_REUSEADDR 가 둘 다 허용해 조용히 포트를 뺏거나 <code>WinError 10013</code></td><td><code>render_google.py:520-533</code> 클래스 독스트링(TOCTOU 설명은 523-527) · <span class="hash">b8f36d1</span></td><td>포트 0 → OS 가 원자적으로 할당(<code>render_google.py:545-546</code>). 호스트명은 <code>localhost</code> 유지(리퍼러 제한이 127.0.0.1 을 다른 호스트로 봄)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-14</td><td>로컬 서버가 <code>captures/</code> 디렉터리 전체를 목록까지 붙여 공개 — 같은 PC 의 다른 프로세스가 모든 캡처 열람 가능</td><td><code>render_google.py:528-529</code></td><td>이번 렌더의 임시 파일 1개 외 전부 404 — 디렉터리 목록도 거부(<code>_make_handler</code>, <code>render_google.py:546</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-15</td><td><b>API 키가 평문으로 든 <code>.rv_*.html</code> 이 남는다.</b> <code>server.start()</code> 가 try 밖이라 던지면 finally 의 삭제가 안 돌았고, 예외가 FastAPI 까지 올라감. 실측 2개 잔존</td><td><code>render_google.py:696-698</code> 주석 · <code>cleanup.py:13</code> · <span class="hash">ab79e45</span></td><td>try 안으로 + <code>geoguesshelper clean</code> 이 이 범주만은 보존 기간 무시하고 언제나 후보</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-16</td><td>캡처 예외가 <code>text/plain</code> 500 으로 나가 프론트 <code>.json()</code> 파싱에서 터짐</td><td><code>server.py:681</code> 주석</td><td>JSON <code>{"status":"CAPTURE_ERROR"}</code> 로 변환</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-17</td><td><b>Chromium 종료 16~66초</b> (= I-5 의 캡처 쪽 얼굴). 캡처마다 launch/close 하던 구조라 정상 5초가 53초·237초로</td><td>260910 실측 3건 · 임시 프로필 47개</td><td>브라우저·컨텍스트 재사용, 전용 데몬 워커 스레드(동기 Playwright 는 만든 스레드에 묶임). 연속 4회 5.85/4.68/4.67/3.69초, launches=1</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">C-18</td><td><b>브라우저 안 고정 대기 <code>SETTLE=2600ms</code></b> — 타일이 이미 다 와도 2.6초를 무조건 소모</td><td>260910 단계 분해: 렌더 4.60초 중 <code>ready대기</code> 2.64초</td><td>이미 세던 타일 카운터가 350ms 멎으면 정착(<code>_wait_tiles_quiet</code>). 실측 0.38초. 느린 회선은 3초까지 더 기다림</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-19</td><td>새 프로필마다 Maps JS 를 콜드로 재다운로드 — 28건 468KB, 1.65초</td><td>같은 실측 <code>performance.getEntriesByType('resource')</code></td><td>컨텍스트 재사용으로 HTTP 캐시 유지 → 0.71초</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">C-20</td><td><b>데드라인이 없다.</b> <code>/api/capture</code> 가 <code>await capture_mod.capture(...)</code> 를 무한 대기, 클라이언트 <code>api()</code> 의 <code>fetch</code> 에 <code>AbortSignal</code> 없음, <code>_CAPTURE_SEM=1</code> 이라 한 건이 막히면 뒤가 전부 줄을 섬. auto 는 최악의 경우 <code>render_sync</code> 를 2회(각 goto 25초 + ready 28초) — 2~4분이 정상 동작 범위 안. 그동안 화면은 “캡처 중…” 한 줄</td><td><code>app.js:379</code>(<code>fetch</code> 무옵션) · <b><code>server.py:679</code></b>(558행은 <code>scene_report_job</code> — 1차 인용 오류) · <b><code>config.py:84</code></b>(74행은 <code>thinking_mode</code> — 1차 인용 오류). 260910 실측 1회 236.78초(재현 안 됨)</td><td>없음. 필요한 것: <code>capture_timeout_s</code> + <code>asyncio.wait_for</code> → <code>CAPTURE_TIMEOUT</code> JSON, 클라이언트 <code>AbortSignal.timeout</code> + 경과 초·취소 버튼. <b>세마포어 증설은 답이 아니다</b> — 렌더는 <code>_RenderWorker</code> 의 <b>단일 데몬 스레드</b>(<code>render_google.py:245·292·383</code>)로 직렬화되고 <code>to_thread</code> 안 동기 작업은 <code>await</code> 취소로 안 멈춘다. <b>워커 측 타임아웃·재기동</b>이 함께 있어야 한다(Static 합성 경로는 워커를 안 타므로 예외)</td><td class="st"><span class="open">미해결</span></td></tr>
+      <tr><td class="id">C-21</td><td><b>남은 4초대.</b> <code>__ready</code> 가 하단 지도(hybrid 위성)의 <code>tilesloaded</code> 를 기다린다(7초 폴백). Maps JS 부트 + <code>getPanorama</code> + 이 지도가 임계경로</td><td><code>render_google.py:78-79</code> · 260910 재사용 후에도 4.2~4.7초</td><td>없음. Static 이 <b>실제로 선택되는 캡처</b>(mode=auto · <code>photo_url</code> 없음 · 수평 화각 ≤120°)에 한해 이 경로를 안 탄다 — 명시적 playwright 모드·와이드 화각 auto·보고서 위치 지도(R-14)는 활성화 후에도 그대로 <code>tilesloaded</code> 를 기다린다. 근본 수리는 지도를 임계경로에서 빼는 것</td><td class="st"><span class="open">미해결</span></td></tr>
+      <tr><td class="id">C-22</td><td><code>%TEMP%\playwright_chromiumdev_profile-*</code> 47개 잔존 — I-5 가 삭제를 방해한 흔적</td><td>260910 <code>Get-ChildItem</code></td><td>없음. <code>cleanup.py</code> 범주 추가 또는 수동 삭제</td><td class="st"><span class="open">미해결</span></td></tr>
+      <tr><td class="id">C-23</td><td><b>만들기만 하고 지우지 않았다.</b> <code>captures/</code> 379개 196.6MB 중 306개(162.7MB)가 어떤 보고서도 참조하지 않음 — 보고서가 base64 임베드하는 순간 원본은 불필요한데 지우는 코드가 없었다</td><td>v0.4.2 실측(보고서 13건) · <span class="hash">ab79e45</span></td><td><code>cleanup.py</code> + <code>geoguesshelper clean</code>. 안전 규칙: <b>허용 디렉터리(captures·reports·jobs·src·tests)만</b> · <code>docs/knowledge/</code> 불가침 · git 추적 건너뜀 · 유예(900초)·큐 참조 건너뜀 · 기본 모의 실행. <b>“루트 밖 금지”는 1차 서술의 착오다 — 그런 검사는 없다</b>(C-32)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-32</td><td><b>정리 허용목록에 루트 포함 검사가 없다.</b> <code>captures_dir</code>·<code>reports_dir</code>·<code>jobs_dir</code> 는 프로젝트 루트 안인지 확인 없이 허용목록에 들어간다. <code>GEOHELPER_CAPTURES</code> 로 프로젝트 밖 경로를 주면 그 아래 미참조 이미지가 <b>기본 삭제 후보</b>가 된다</td><td><code>cleanup.py:182-189</code> — 검사는 <code>protected_dir</code>(지식 저장소) 하나뿐. <code>config.py:255-256</code> 은 환경변수 경로를 검증 없이 받는다. 외부 경로는 git 저장소가 아니라 “추적 중 건너뜀” 방어도 빈 집합이 되고, <code>POST /api/cleanup</code> 이 <code>apply</code> 로 바로 실행 가능</td><td>없음. 남은 방어는 유예 900초와 보존 기간뿐. 허용목록 구성 시 <code>project_root()</code> 포함 여부를 검사하면 된다</td><td class="st"><span class="open">미해결</span></td></tr>
+      <tr><td class="id">C-24</td><td>PNG 2.5~2.7MB 캡처가 언어마다 재업로드되고 보고서에 base64 로 박혀 파일이 13MB</td><td><span class="hash">b8f36d1</span> · <code>config.py:37</code></td><td>JPEG q85(0.43MB). 해상도 유지라 토큰 수 동일</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-26</td><td><b>0.15초 만에 <code>null</code>.</b> <code>/api/pano-photo</code> 가 브라우저를 띄워야 하는데 즉답 — <code>except Exception</code> 이 NameError(<code>render_google</code> 미임포트)·AttributeError(<code>render_settle_ms</code> 부재)를 먹고 None 을 캐시. “토큰을 못 찾는 파노”처럼 정상적으로 실패</td><td>recovery §7 “불가능한 소요 시간은 버그 신고다”</td><td>지연 import + <b>호출부</b>에 로그(<code>server.py:713</code>). <b>잔여</b>: 실제로 삼키는 <code>photo_token_for</code> 내부의 <code>except</code>(<code>render_google.py:445</code>)는 아직 무로그로 <code>None</code> 을 돌려주고, 그 <code>None</code> 이 <code>_photo_tokens</code> 에 <b>만료 없이</b> 캐시된다(C-29)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">C-29</td><td>lh3 gpms 토큰의 <b>수명을 측정하지 않았다</b> — 장시간 세션에서 만료되면 이미지가 안 뜰 수 있고 재조회 로직이 없다</td><td>recovery “남은 한계” · <code>server.py:686</code> <code>_photo_tokens</code> 는 만료 없는 dict</td><td>없음</td><td class="st"><span class="open">미해결</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><b>캡처 시간의 해부(260910).</b> Static 거부 0.5 → 브라우저 기동 0.13~0.74 → Maps JS 1.65 → 고정 대기 2.60 → 스크린샷 0.10 → <b>종료 0.16 / 15.98 / 65.55</b>. 렌더는 늘 빨랐고 정리가 폭발했다. 풀링·정착 판정·거부 기억(ea43ad5) 뒤 4초대가 남는데, 그 4초는 C-21 이고 C-2 를 켜면 사라진다.</div>
+</section>
+
+<!-- ───────────────────────── §5 ───────────────────────── -->
+<section id="s5">
+  <h2>5. 보고서 생성 — 분석·리서치·번역·렌더 (24건)</h2>
+  <p class="sec-desc">이쪽의 병은 하나로 요약된다 — <b>조용한 폴백</b>. 실패했는데 그럴듯한 값을 돌려주면 그 위의 모든 것이 정상처럼 흐르고, 로그에도 화면에도 흔적이 없다. 번역에서만 두 번(R-5, R-6) 같은 병을 앓았다.</p>
+  <div class="tblwrap"><table>
+    <thead><tr><th>ID</th><th>무엇이 막았나</th><th>증거 · 출처</th><th>조치</th><th>상태</th></tr></thead>
+    <tbody>
+      <tr><td class="id">R-1</td><td><b>“보고서 실패: Not Found”.</b> 작업 큐를 도입하며 <code>/api/report</code>·<code>/api/scene-report</code> 를 지웠다 — docstring 엔 “호환 래퍼로 남긴다”고 써 놓고 구현 안 함 — 그리고 캐시된 옛 app.js 가 사라진 경로에 POST(I-6)</td><td>“캡처 6장”이 <code>max_analyze_images=6</code> 과 같아 엉뚱한 곳을 팔 뻔. 라우트 덤프로 즉시 특정 (<code>docs/error/report-404-not-found_260810</code>)</td><td>구 경로를 큐 경유 동기 래퍼(<code>_run_sync</code>)로 복원. 공개 API 경로는 지우지 말고 위임</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-2</td><td><b>보고서가 사라진다.</b> ① 같은 초·같은 좌표(4자리≈11m)의 두 보고서가 같은 파일명 → <code>write_text</code> 가 존재 확인 없이 덮어씀 ② truncate 후 기록이라 그 사이 GET 이 빈/잘린 HTML 을 200 으로 ③ <code>country_iso</code> 가 비고 국가명이 비ASCII(대한민국)면 슬러그가 통째로 <code>location</code></td><td>스레드 5개 동시 쓰기 재현 — 예전엔 1개만 남음 (<code>methodology</code> 사례 3) · <code>report.py:108·127</code></td><td><code>O_CREAT|O_EXCL</code> 선점(-2,-3…) + 임시 파일 후 <code>os.replace</code> + 국가명 해시. <b>각주</b>: 선점은 최종 경로에 <b>빈 파일을 먼저 만든다</b>(<code>report.py:143→147</code>). 그 창은 마이크로초이고 파일명은 쓰기 완료 뒤에야 공개되므로 실사용 노출은 없지만, <code>os.replace</code> 가 실패하면 0바이트 파일이 남는다(<code>finally</code> 는 tmp 만 정리)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-3</td><td><b>1181초짜리 보고서.</b> 리서치 단일 호출 418.7초, 22분 넘게 안 끝남. <code>httpx.Timeout(600)</code> 은 <b>청크 간격</b>이지 총 소요가 아니다 — 서버측 web_search 가 도는 동안 keepalive 가 계속 와서 영영 안 걸림. 취소도 단계 경계에서만 봐서 못 멈춤. <code>concurrency=1</code> 이라 뒤 3건이 통째로 막힘</td><td>TCP 연결 생성 시각 = 작업 시작 시각, CPU 46초/22분(대기), 재연결 없음(SDK 재시도 아님). 서버 시작 00:18 vs llm.py 수정 01:02 → 핫리로드 없음(모델 교체 가설 폐기) — 내가 스트리밍 전환하며 만든 구멍</td><td>스트림 이벤트를 직접 돌며 벽시계 상한·취소 확인(<code>llm.py:222</code>). 리서치 4샤드 병렬. 단계별 마감(<code>config.py:95-104</code>). <b>잔여 리스크</b>: 검사는 <b>이벤트를 받은 시점에만</b> 돈다 — 스트림 진입이나 이벤트 공백 구간에는 독립 타이머가 없고 httpx read 600초(+<code>max_retries=2</code>)가 유일한 백스톱이라 단계 마감(90~100초)을 훨씬 넘길 수 있다. 비스트리밍 경로(<code>llm.py:219</code>)는 검사 자체가 없다(현재 호출자 없음)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-4</td><td><b>300초 예산 초과 → 지식 적재 생략.</b> 나베레즈니예첼니 305초·엔카르나시온 309초 2건이 HTML 만 남김. 예산 초과 시 선택적 단계를 건너뛰는 설계인데 <b>건너뛴 사실이 어디에도 표시되지 않았다</b></td><td><span class="hash">33fb18e</span> · <span class="hash">9bb62b8</span> “침묵 손실 셋”</td><td><code>geoguesshelper ingest --apply</code> 백필 + <code>result.knowledge.skipped</code> 표식. <b>남음:</b> 잡 로그 자체가 없는 27건은 영구 결손(<span class="hash">54c4aed</span>)</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">R-5</td><td><b>한국어 탭이 통째로 영어.</b> 139개 문자열·21,123자를 한 호출에 → 131.2초, 마감 60초 → 타임아웃 → <code>except Exception: return dict(texts)</code> 원문 반환 → 서버는 <code>if isinstance(res, Exception): continue</code> 로 예외마저 삼킴 → 로그 <code>errors:[]</code></td><td>6개 보고서의 <b>한국어 탭이 전면 영어</b>. 신고보다 넓었다 (<span class="hash">9a4b199</span> v0.3.3). “다섯 번째 조용한 폴백”. <b>1차 서술 정정</b>: “6건 전부 불어 절도 영어”는 과장이었고 후속 기록(<code>260812</code> §6)이 <b>실제 1건</b>으로 정정했다 — 다만 <code>aria-label</code> 은 6건 전부 영어였다</td><td>30개·6000자 덩이로 나눠 동시 전송(131.2초·0/139 → 40.7초·131/139). 실제 번역 건수를 검사. 세 곳에서 말한다 — 로그·진행 메시지·보고서 상단 경고. <b>단 상단 경고는 번역률 50% 미만일 때만 뜬다</b>(<code>report.py:916</code>) — 일부 실패는 로그·진행 메시지에만 남는다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-6</td><td><b>병상일지만 고친 수리.</b> v0.3.3 은 실패를 <b>알리게</b> 했지 <b>다시 시도</b>하지 않았다. 260813 밤 21:22~23:22 두 시간에 9건을 연달아 돌리자 일시 오류(429 또는 스트림 마감)가 아홉 번 반복 — 로그의 경고를 볼 사람이 없는 시간대라 알림 채널이 곧 침묵</td><td>크로아티아 폴더 전수 스캔: 9건 전부 ko 미번역 114~153개/건, 신고 파일은 서술 9,180자 전부 영어, 1건은 fr 까지(<code>docs/error/report-missing-korean_260814</code>). 수리 $1.168</td><td>실패 청크만 3초 뒤 <b>순차</b> 1회 재시도(<code>translate.py:222</code>) + <code>retranslate</code> CLI. <b>남음:</b> 라틴 문자 언어는 이환을 자동 감지 못 함(fr 은 표지어 밀도로 찾음) · 재시도 1회/3초 고정 · 실패한 채 저장된 보고서에 탭 배지 없음</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">R-7</td><td><b>라벨 57개 중 31개(54%)가 fr·ja·zh·es·de 에 없었다.</b> <code>report_strings()</code> 가 en 을 바탕에 깔고 덮는 구조라 빠져도 조용히 영어 — 판별 사슬 제목·지도 축척 이름·지식 절·종합 보고서 전체</td><td>6개 보고서 4관점 검토 45건 → 적대적 재검증 23건 확인 (<span class="hash">d9df986</span> v0.3.5)</td><td>155개 채움 + import 시점 <code>_assert_label_parity()</code></td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-8</td><td>서술(스크립트)이 기준 언어 탭에만 — 한국어 독자가 보고서에서 <b>가장 긴 산문</b>(9천~1만4천 자)을 아예 못 봄</td><td>같은 커밋</td><td><code>translate_script()</code> 동시 실행 — <b>단 <code>not over_budget()</code> 일 때만</b>(<code>server.py:342</code>). 예산(<code>job_budget_s</code> 기본 300초)을 이미 넘겼으면 번역을 건너뛰고 기준 언어 탭에만 실으므로, 원래 증상이 그대로 재발한다</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">R-9</td><td>“크로아티아” 바로 아래 “대안: 크로아티아 3%” — 대안에 본답 포함 6/6</td><td><code>report.py:579</code></td><td>본답과 같은 나라는 제외, 없으면 줄 감춤</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-10</td><td><code>[[atm_xxxx]]</code> 토큰이 본문에 그대로 — 링크화가 스크립트 섹션에만 걸림(한 보고서에 15개)</td><td><span class="hash">e343d2d</span> v0.3.6</td><td><code>_linkify_atoms</code> 모듈 수준으로</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-11</td><td><b>인쇄하면 이미지가 통째로 사라진다.</b> 캡처·지도가 전부 <code>background-image</code> → 브라우저 기본값(배경 안 찍기)에서 근거 사진이 한 장도 안 나옴</td><td>같은 커밋</td><td><code>@media print</code> — <code>print-color-adjust:exact</code>, 페이지 잘림 방지 (<code>report.py:706</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-12</td><td><b>한 칸 표기가 문서 전체를 죽였다.</b> <code>cues[].weight</code> 가 숫자로 오면 <code>(v or "").lower()</code> 가 AttributeError → 보고서 생성 통째로 실패</td><td><code>report.py:35</code> · <span class="hash">9a4b199</span></td><td>정규화(0.7 → high)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-13</td><td>같은 크로아티아가 <code>report_hr_…</code> 과 <code>report_hrv_…</code>, 히어로도 (HR)/(HRV) → 정렬·정체성 분열. 앞 두 글자 자르기는 불가(CHN→CH 가 CHE→CH 와 충돌)</td><td><span class="hash">9a4b199</span> · <span class="hash">d9df986</span></td><td>스키마에 alpha-2 명시 + alpha-3 → 표로 접기</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-14</td><td>보고서 위치 지도(4단 축척)의 Static Maps 가 리퍼러 키로 403 → 브라우저 렌더 폴백. 폴백은 캡처와 같은 헤드리스라 I-5 를 그대로 물려받았다</td><td><code>report.py:300</code> · <code>config.py:138</code></td><td>폴백 자체는 설계. 260910 부터 같은 브라우저 풀을 공유(<code>render_locator_maps</code> 4셀 5.55초, launches=1). 서버용 키를 두면 폴백을 안 탄다</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">R-15</td><td>보고서가 60건을 넘자 한 폴더가 읽히지 않았다</td><td><span class="hash">8a96310</span></td><td><span class="hash">8a96310</span> = <code>docs/report/{iso2}/</code> + <code>find_report()</code>. <code>country/</code> 한 단계 하강은 <b>260907 의 후속 변경</b>(<span class="hash">4b98281</span>)이다. basename 은 정체성, 폴더는 정리 규칙</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-16</td><td>원자 링크 접두 <code>../knowledge</code> 가 박혀 있어 폴더를 한 단계만 옮겨도 링크가 통째로 깨짐 — 국가 폴더 HTML 68건·2,397개</td><td><code>report.py:80</code>. <b>귀속을 둘로 쪼갠다</b> — <span class="hash">d9b6d47</span> 는 <code>../knowledge</code>→<code>../../knowledge</code> 하드코딩 수정 + 기존 54건 제자리 수정이고, 실측 68건·2,397개와 동적 치환은 후속 <span class="hash">4b98281</span> 이다</td><td><code>__KROOT__</code> 표식만 남기고 파일을 쓰기 직전 <code>_resolve_kroot()</code> 로 치환(<span class="hash">4b98281</span>)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-17</td><td><b>언어마다 비전 분석과 웹 검색을 전부 다시 돌렸다</b> — 3개 언어면 분석 3회·검색 15회, 그리고 언어별 결과가 <b>서로 다른 도시</b>를 주장해 한 파일 안에서 대상이 바뀜</td><td><code>translate.py:3</code> · <span class="hash">b8f36d1</span></td><td>기준 언어 1회 조사 + 문자열만 번역(harvest/splice). 로직 값은 전송조차 안 되어 번역이 훼손 불가</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-18</td><td>프롬프트 캐싱이 한 번도 안 먹었다 — 언어 지시문이 system 에 있어 언어마다 접두사가 달라짐</td><td><span class="hash">b8f36d1</span></td><td>언어 지시를 이미지 뒤로, 마지막 이미지에 <code>cache_control</code></td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-19</td><td>갤러리에 분석되지 않은 캡처가 실림 — 보지 않은 사진이 근거로 제시됨(<code>max_analyze_images</code> 초과분)</td><td><span class="hash">b8f36d1</span> · 404 기록 §“6은 우연”</td><td>분석된 파일만 (<code>report._analyzed_files</code>) — <b>단 <code>result.images</code> 가 있을 때만</b>. 없으면 <code>files</code> 전체를 돌려주고 숨긴 건수도 0 이라 경고조차 안 뜬다. 클라이언트가 분석을 재사용시키는 경로에서 실제로 <code>images</code> 가 빈다(<code>server.py:135-136</code> 재포장, 499-503 에 e2e 실측 기록) — 그때는 예전 동작으로 조용히 되돌아간다</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">R-20</td><td>스크립트 단계 SKIP 이 침묵 폴백 — 이유가 어디에도 안 남음</td><td><span class="hash">9bb62b8</span> · <code>server.py:296</code></td><td><b>스크립트가 실행된 뒤 SKIP 을 반환한 경우에 한해</b> <code>errors·progress·result.script</code> 에 기록. 예산 초과·<code>script_first=off</code> 로 <b>애초에 실행하지 않은</b> 경우는 <code>script_skip</code> 이 <code>None</code> 이라 여전히 무기록이다(<code>server.py:272</code>)</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">R-21</td><td>회상이 시기/전역 원자에 무조건 geo=0.6 → 추크 보고서에 이탈리아·폴란드 원자가 “확립된 사실”로</td><td><span class="hash">9bb62b8</span> 260829 회귀</td><td>무조건 가산을 없앴다. <b>다만 범위별로 다르다</b> — 지리·엔티티 접점이 없는 <b>지역(prec&gt;0) 원자</b>는 태그만으로 못 들어오지만, 시기/전역 원자는 <code>tag_s≥0.2</code> 만으로 <code>geo=0.6</code> 을 받아 통과한다</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-22</td><td><b>도구 호출이 문자열 값 안으로 샌다</b> — <code>caution</code> 안에 <code>strata</code> 가 통째로. 큰 군집 하나가 통째로 사라짐. 정정 루프도 같은 실패 모드(깨진 도구 입력)</td><td><span class="hash">67da6f7</span> · <code>correction.py:427·476</code> “parse_rescued”</td><td>복구기 + 재시도(아틀라스 3회, 정정 1회). 근본은 모델 쪽</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">R-23</td><td>보고서 잡 뒤 정정 자동 등록 시 <code>primaryAnalysis.images</code> 가 없으면 조용히 건너뜀</td><td>e2e 실측 260907 (<code>server.py:501</code>)</td><td><code>payload.files</code>·<code>panos</code> 에서 보충</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-24</td><td>프랑스어는 라틴 문자라 복구 도구가 ‘이미 번역됨’을 판별 못 해 <b>전량 재전송</b> — 결과는 옳지만 비용이 든다(stikovica — fr 362건 발견 → 164건 번역, ko 153건과 <b>합쳐</b> $0.5009)</td><td><span class="hash">e343d2d</span> 알려진 한계 · missing-korean §5·§7</td><td>없음. 언어 판별 휴리스틱(불용어 프로필)이 후보</td><td class="st"><span class="open">미해결</span></td></tr>
+      <tr><td class="id">R-25</td><td><b>사후 복구가 짧은 것만 못 고쳤다.</b> <code>retranslate._worth</code> 가 ‘8자 이상·낱말 2개 이상’을 요구해 판별 사슬의 후보 칩(<code>Europe</code>·<code>Croatia</code>·<code>Serbia</code>)이 복구 대상에서 통째로 빠졌다 — 복구를 돌린 뒤에도 그 칩만 영어로 남았다</td><td><span class="hash">d9df986</span>(1차 지적) · <span class="hash">e343d2d</span>(실제 수정)</td><td>낱말 하나여도 보내고 무엇을 원문으로 둘지는 모델이 판단(<code>retranslate.py:72-79</code>). 모델 id·파일명 같은 코드성 토큰만 제외. 기존 6건 재복구($4.08) — 상표는 실제로 보존됐다(Studenac Market·Konzum·ŽAJAC)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-26</td><td><b>모델 계열마다 thinking 규약이 달라 한 설정을 전 모델에 못 쓴다.</b> Fable 5 계열에 <code>disabled</code> 를 보내면 400 이고, 반대로 thinking 을 끈 Opus 5 는 <code>tool_use</code> 블록 대신 본문 텍스트로 도구를 호출해 강제 <code>tool_choice</code> 구조화 출력이 깨질 수 있다</td><td><code>config.py:58-73</code> 주석 · <code>llm.py</code> 모델별 명시 지정. <b>실제로 400 이나 구조화 실패가 났다는 기록은 없다</b> — 코드가 먼저 막아 둔 제약이다</td><td>모델별로 <code>thinking_mode</code> 를 명시(<code>adaptive</code> 기본). 모델을 바꾸면 이 표를 다시 봐야 한다</td><td class="st"><span class="des">설계</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ───────────────────────── §6 ───────────────────────── -->
+<section id="s6">
+  <h2>6. 아직 남아 있는 것 — 숨기지 않는다</h2>
+  <p class="sec-desc">미해결 9건·환경 3건·완화 17건 중 잔여가 실제로 작동을 방해하는 것만 추렸다. 우선순위는 “지금 사용자가 겪는 빈도 × 고치는 비용”이다.</p>
+  <div class="grid g2">
+    <div class="card"><h3>사용자가 할 일 (코드로 못 없앤다)</h3><ul>
+      <li><b>C-2</b> Google Cloud Console → <b>Street View Static API</b>·<b>Maps Static API</b> 활성화. 키에 리퍼러 제한이 있으면 서버용 키를 <code>GOOGLE_MAPS_STATIC_KEY</code> 로 분리(C-3). Static 이 실제로 선택되는 캡처에 한해 4~5초 → 추정 0.5~2초이고 그 경우 C-21 도 함께 사라진다</li>
+      <li><b>I-5·C-22</b> Avast 예외에 <code>%LOCALAPPDATA%\Temp</code>(또는 <code>playwright*</code>)·<code>%LOCALAPPDATA%\ms-playwright</code> 등록. 잔여 프로필 47개 삭제. <b>그 전에 Avast 를 끄고 종료 시간을 1회 재측정</b>하면 I-5 의 인과가 확정된다 — 지금은 추정이다</li>
+      <li><b>I-1·I-2</b> Avast → 웹 실드 → <b>HTTPS 스캐닝 해제</b>. 키로그 주입이 사라지고 TLS 검증이 “켬”으로 돌아온다. <b>CA 를 신뢰 저장소에 넣는 것만으로는 부족할 수 있다</b> — 그 CA 의 Basic Constraints 를 OpenSSL 이 거부하기 때문(I-2)</li>
+      <li><b>I-7</b> JS 키 리퍼러를 <b><code>http://localhost:*</code> 한 줄</b>로 등록. 헤드리스 로컬 서버가 매번 임의 포트를 쓰므로 포트별 등록으로는 원리적으로 못 따라간다 — <code>.env.example:8</code> 의 “8080/8000 추가” 지시는 <b>무효이며 고쳐야 한다</b></li>
+    </ul></div>
+    <div class="card"><h3>코드로 할 일 (권장 순서)</h3><ul>
+      <li><b>C-20</b> 캡처 데드라인 — <code>capture_timeout_s</code>(60) + <code>asyncio.wait_for</code>, 클라이언트 <code>AbortSignal.timeout</code>, 경과 초·취소 버튼. <b>여기에 워커 측 타임아웃·재기동이 반드시 함께 가야 한다</b>(세마포어 증설은 무효). 1시간</li>
+      <li><b>C-28</b> <code>&lt;img&gt;</code> 폴백의 pitch 부호를 서버 캡처와 맞춘다 — 미세 차이가 아니라 상하 반대다. 20분</li>
+      <li><b>C-32</b> <code>cleanup</code> 허용목록에 <code>project_root()</code> 포함 검사 — 외부 캡처 경로가 삭제 후보가 되는 것을 막는다. 20분</li>
+      <li><b>M-1</b> 라이브 <code>app.js</code> 에 <code>gm_authFailure</code> 설치 — 잘못된 키·리퍼러에서 화면이 조용히 비는 것을 없앤다. 20분</li>
+      <li><b>I-10</b> 정정 잡 연결 오류에 지수 백오프 + 판단 결과 재사용(지금은 처음부터 전체 재실행이라 비용이 두 배). 30분</li>
+      <li><b>C-25</b> 캡처 요청 중 상태를 <code>tabBusy</code> 가 알게 한다(구체 조작이 버튼을 되살리는 경로 차단). 20분</li>
+      <li><b>C-21</b> Static 을 안 켤 거라면 하단 지도를 <code>render_sync</code> 임계경로에서 빼기. 1시간</li>
+      <li><b>R-8·R-20</b> 예산 초과 시 조용히 생략되는 두 경로 — 서술 번역과 스크립트 생략 사유를 반드시 남긴다. 1시간</li>
+      <li><b>R-19</b> <code>_analyzed_files</code> 의 폴백을 “전체 싣기”에서 “경고와 함께 전체”로. 20분</li>
+      <li><b>R-6</b> 번역 — 라틴 문자 이환 감지(불용어 프로필), 재시도 지수 백오프, 실패 탭 배지. 2시간</li>
+      <li><b>C-27</b> <code>viewer_matrix</code> 에 화각 항목 + headed 실행을 CI 관례로. 반나절</li>
+      <li><b>C-5</b> Static <code>fov</code> 축을 실측으로 못 박기. <b>C-26·C-29</b> 토큰 캐시에 만료·로그. <b>I-4·C-1</b> 폐기된 진단이 남은 코드 주석 정정</li>
+    </ul></div>
+  </div>
+  <div class="verdict"><div class="vt">판정</div><div class="vb">코드 결함은 거의 다 잡혔지만 <b>2차 검토 전까지는 그 “거의”가 실제보다 후하게 적혀 있었다</b> — “해결” 6건이 조건부였다. 지금 세 파이프라인의 속도와 안정성을 결정하는 것은 <b>콘솔의 체크박스 두 개(C-2)와 백신 설정(I-1·I-2·I-5)</b>이고, 그다음이 <b>캡처 데드라인(C-20)</b>이다. 그 뒤로는 예산 초과·폴백 경로에서 조용히 생략되는 것들(R-8·R-19·R-20)이 남는다.</div></div>
+</section>
+
+<!-- ───────────────────────── §7 ───────────────────────── -->
+<section id="s7">
+  <h2>7. 되풀이된 패턴 — 87건을 여섯 개로 접으면</h2>
+  <p class="sec-desc">같은 병이 자리만 바꿔 재발했다. 새 결함을 만나면 먼저 이 여섯에 대 보는 것이 빠르다.</p>
+  <div class="grid g3">
+    <div class="card"><h3>① 조용한 폴백 — 7회</h3><p>실패했는데 그럴듯한 값을 돌려준다. v0.2.3 너무 일찍 지움 · v0.2.4 영원히 안 지움 · v0.2.5 고정 이미지 · v0.2.6 브라우저에서만 막힘 · 번역 원문 반환(R-5) · pano-photo <code>except</code>(C-26) · 스크립트 SKIP(R-20) · 예산 초과 적재 생략(R-4).</p><p class="mt"><b>처방:</b> 실패를 구조화해 반환하고, 반환값이 아니라 효과(실제 번역 건수)를 검사하고, 독자에게도 말한다.</p></div>
+    <div class="card"><h3>② 부정 결과를 사실로 — 4회</h3><p>“0건/없음”을 세상의 사실로 읽었다. 호스트 필터(M-4) · 워커 타임라인(M-7) · 포트/경로(I-7) · ZERO_RESULTS(M-2). 계측기가 한 종류만 볼 수 있었을 뿐이다.</p><p class="mt"><b>예외 하나:</b> <code>getTileUrl</code> 부재(M-7)만은 <b>진짜 부재</b>였다 — 객체 키를 그대로 열거해 확인했고, 그 참된 음성이 “합성이 막혔으니 관측으로”라는 다음 가설의 형태를 정해 줬다.</p><p class="mt"><b>처방:</b> 부재를 주장하기 전에 같은 계측기로 존재를 잡아 보여라(대조군). 필터를 걷어내고 다시 잰다.</p></div>
+    <div class="card"><h3>③ 내가 만든 것과 대조 — 2회</h3><p>구형 뷰어를 우리 서버 URL 과 대조해 “일치 1.29” — 둘 다 같은 부호 오류(M-14). 거울(currentPose)로 거울을 검사(C-9).</p><p class="mt"><b>처방:</b> 대조 대상은 내가 만든 것이 아니어야 한다. 정답은 구글이 준 <code>!6s</code>, 화면의 표시 상태.</p></div>
+    <div class="card"><h3>④ 축·규약 혼동 — 4회</h3><p>수직/수평 FOV 를 두 경로에서(C-4, C-5) · pitch 부호(C-7) · heading 좌표계(M-14). 중심이 맞으니 캡처는 늘 그럴듯했고, 틀린 것은 가장자리 — 단서가 가장 자주 걸치는 곳.</p><p class="mt"><b>처방:</b> 렌더 표면을 추가하면 <code>view_aspect()</code> 를 지나는지부터. 규약은 문서가 아니라 실측으로.</p></div>
+    <div class="card"><h3>⑤ 한 값이 두 곳에 — 3회</h3><p><code>syncWantPano</code> 전역 vs 클로저 지역(C-9) · 손으로 나열한 키 목록(C-8) · 버전 문자열 네 곳(I-6). 한 곳만 고치면 조용히 어긋난다.</p><p class="mt"><b>처방:</b> 단일 출처. <code>Object.assign</code>, <code>__version__</code>, SDK 가 돌려준 id.</p></div>
+    <div class="card"><h3>⑥ 환경이 코드처럼 보임 — Avast 4회</h3><p>키로그 주입(I-1) · TLS 가로채기(I-2) · 웹실드 차단(M-5) · 프로필 잠금(I-5). 매번 “내 변경 탓인가”부터 의심했고, 매번 아니었다.</p><p class="mt"><b>처방:</b> worktree 로 변경 이전 커밋을 1분 안에 돌려 본다. 종료 코드를 읽는다. 프로세스 밖(TCP·CPU·mtime)을 본다.</p></div>
+  </div>
+  <div class="callout ok"><b>가장 값싸고 가장 많이 일한 장치</b> — 화면 우하단 버전 배지 + <code>index.html no-store</code>(I-6). 신고 스크린샷 한 장으로 “무슨 코드가 도는가”가 결정된다. 사진구체 봉투(M-2)를 찾은 날, 첫 가설(버전 문제)을 즉시 지운 것이 이것이었다.</div>
+</section>
+
+<!-- ───────────────────────── §8 ───────────────────────── -->
+<section id="s8">
+  <h2>8. 검토 이력</h2>
+  <p class="sec-desc">조사·감사 문서는 1차 작성 → 2차 codex 반박 → 3차 판정으로 굳힌다. 이 절은 그 기록이다.</p>
+  <div class="tblwrap"><table>
+    <thead><tr><th>차수</th><th>누가</th><th>무엇을</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td>1차</td><td>Claude (Fable 5.1)</td><td>커밋 65건·오류 기록 7건·구현 기록 2건·코드 주석 360곳·260910 실측에서 82건 추출, HEAD 대조로 상태 판정</td><td>이 문서의 초판</td></tr>
+      <tr><td>2차</td><td>Codex Astra</td><td>적대적 검토 — 각 건의 파일·행·커밋 인용이 맞는가, 상태 판정이 HEAD 와 일치하는가, 히스토리에 있는데 빠진 방해 요소가 있는가, 과장·오독. 소스 41개 파일을 직접 읽음</td><td><b>87건</b> — 확인 44 · <b>반박 27</b> · 나이트픽 11 · <b>누락 5</b></td></tr>
+      <tr><td>3차</td><td>Claude (Opus 5)</td><td>반박·나이트픽·누락 <b>43건</b>을 10갈래로 나눠 각각 코드를 직접 열어 채택/기각 판정(에이전트 10 · 도구 호출 230)</td><td><b>기각 0 · 채택 34 · 부분 채택 9</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">2차가 잡아낸 것 — 1차가 실제로 틀린 지점</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>종류</th><th>건수</th><th>무엇</th></tr></thead>
+    <tbody>
+      <tr><td><b>상태 과대평가</b></td><td>6</td><td>“해결”이라 적었지만 조건부였다 — M-1(헤드리스만) · M-5(원인 미확정) · C-25(요청 중 재활성) · R-8(예산 초과 시 생략) · R-19(images 없으면 전체) · R-20(미실행 시 무기록). 전부 <b>완화</b>로 내렸다</td></tr>
+      <tr><td><b>인용 오류</b></td><td>7</td><td><code>server.py:558</code>→679 · <code>config.py:74</code>→84 · <code>render_google.py:335</code>→520 · <code>:668</code>→696 · CIAB 접두 귀속 <span class="hash">d92653b</span>→<span class="hash">289be07</span> · 국가 폴더 <span class="hash">8a96310</span> 는 <code>country/</code> 가 아님 · 동적 치환은 <span class="hash">d9b6d47</span> 가 아니라 <span class="hash">4b98281</span></td></tr>
+      <tr><td><b>인과 과장</b></td><td>6</td><td>I-5 Avast 인과(대조군 없음) · I-4 폐기된 DLL 가설 재사용 · C-2 “모든 캡처”·“0.5~2초” · C-21 “경로가 사라진다” · M-17 재현 실패건을 원인 확정으로 · R-5 “6건 전부 불어 영어”(실제 1건)</td></tr>
+      <tr><td><b>시점 혼동</b></td><td>4</td><td>M-2 네이티브 조작(v0.3.4 한정) · M-8 v0.2.5 는 수정 버전 · M-14 “대비책에만” · C-30 v0.2.5 한계를 현재 설계로</td></tr>
+      <tr><td><b>안전 보장 오기</b></td><td>2</td><td>C-23 “루트 밖 금지”라는 검사는 없다(→ C-32 신설) · C-1 “캔버스를 읽을 수 없다”는 공식 파노에 대해 부정확</td></tr>
+      <tr><td><b>누락</b></td><td>5</td><td>신규 3건(M-19 계측 오염 · R-25 짧은 칩 복구 누락 · C-31 멀티탭 상태 누수) + 기존 행에 흡수 2건(M-7 <code>getTileUrl</code> 부재 · R-26 thinking 규약)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><b>3차에서 기각한 것은 0건이다.</b> 다만 9건은 <b>부분</b> 채택했다 — Codex 의 코드 독해는 맞지만 결론이 과했던 경우다. 예: R-2 “빈 파일이 200 으로 나가는 창이 남는다”는 코드상 사실이나 그 창은 마이크로초이고 파일명이 아직 공개되기 전이라 실사용 노출은 없다(<code>os.replace</code> 실패 시 0바이트가 남는 것은 진짜 잔여). R-3 “못 끊는다”도 httpx read 600초라는 느슨한 백스톱을 빠뜨린 서술이었다. 그래서 두 건은 ‘해결’을 유지하고 각주만 달았다.</div>
+  <div class="callout"><b>이 절이 이 문서에서 가장 값진 부분이다.</b> 1차는 “HEAD 코드에 대고 다시 확인했다”고 썼지만, 실제로는 <b>커밋 메시지가 말하는 것</b>을 코드가 그렇게 한다고 믿은 자리가 여럿이었다. 커밋은 “고쳤다”고 적고 코드는 “조건이 맞으면 고쳤다”였다 — <a href="#s7">§7 ①의 조용한 폴백</a>이 문서 서술에서 한 번 더 반복된 셈이다.</div>
+</section>
+
+<footer>
+  GeoGuessHelper · 260911 · <code>docs/report/obstacles-report-map-capture_260911.html</code> ·
+  관련: <a href="../error/six-times-wrong-diagnosis_260812.html">six-times-wrong-diagnosis_260812</a> ·
+  <a href="../error/capture-frozen-scene_260813.html">capture-frozen-scene_260813</a> ·
+  <a href="../error/capture-canvas-crop_260814.html">capture-canvas-crop_260814</a> ·
+  <a href="../error/report-missing-korean_260814.html">report-missing-korean_260814</a> ·
+  <a href="../error/ssl-openssl-applink-exit_260810.html">ssl-openssl-applink-exit_260810</a> ·
+  <a href="../error/report-404-not-found_260810.html">report-404-not-found_260810</a> ·
+  <a href="../implement/methodology_260810.html">methodology_260810</a> ·
+  <a href="../implement/third-party-pano-recovery_260810.html">third-party-pano-recovery_260810</a>
+  <div class="small mt">주의: <code>.gitignore</code> 의 <code>docs/report/*</code> 규칙 때문에 이 파일은 기본으로 추적되지 않는다(지점 보고서와 같은 폴더). 저장소에 남기려면 <code>git add -f</code> 가 필요하다.</div>
+</footer>
+</div>
+</body>
+</html>
