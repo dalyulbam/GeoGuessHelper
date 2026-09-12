@@ -7,6 +7,11 @@ import json
 
 
 def main() -> None:
+    # 이 PC 의 WMI 조회는 멈춘다 — anthropic SDK 가 텔레메트리 헤더를 채우려고 부르는
+    # platform.system() 이 그 자리다. platform.uname() 캐시가 차기 전에 먼저 끈다.
+    from .winquirks import neutralize_wmi
+
+    neutralize_wmi()
     ap = argparse.ArgumentParser(
         prog="geoguesshelper",
         description="지오게서 구글 로드뷰 2분할 뷰어 · 캡처 · 분석",
