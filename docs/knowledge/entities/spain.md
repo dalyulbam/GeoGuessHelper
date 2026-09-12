@@ -1,6 +1,6 @@
 # 엔티티 · spain
 
-원자 16개 · 이 엔티티를 다룬 보고서 1건
+원자 17개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_0e03ac7cf71d]] **Spain's state industrial-estate planning institutes** (economy/country)
@@ -12,6 +12,7 @@
 - [[atm_86c1b5091ece]] **Coastal-highway naming as national identity marker in the Mediterranean** (language/global)
 - [[atm_a8965343eeda]] **Spanish DGT road signage conventions** (culture/country)
 - [[atm_aa4716639ec8]] **Aging and shrinking towns across Southern and Eastern Europe** (geography/global)
+- [[atm_ad6ef340394d]] **Spanish 'Salida' vs Portuguese/French/Italian exit signage terms** (language/country)
 - [[atm_d09f20285662]] **Secular seismic engineering response contrasted with religious commemoration** (culture/country)
 - [[atm_d63bb6e17e2f]] **Period of rule dating conventions** (history/global)
 - [[atm_dad10402d915]] **Counter-urbanization and rural revival movements** (economy/global)
@@ -22,3 +23,4 @@
 
 ## 보고서
 - `report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html`
+- `report_es_madrid-ifema_38.5714_-7.9135_260904_162146_ko.html`

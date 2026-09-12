@@ -1,6 +1,7 @@
 ---
 {
   "body": "Romania lost roughly 17% of its population between the end of communism and the 2021 census (about 130,000/year average national decline), driven by low birth rates and emigration. The impact is uneven: counties like Teleorman, Olt, Brăila, Tulcea and Hunedoara each lost over 25% of population, while economically stronger counties such as Brașov and Sibiu, anchored by manufacturing/FDI and tourism, fared comparatively better.",
+  "category": "demography",
   "cell": "u845wjw",
   "created": 1787964400.800572,
   "entities": [
@@ -8,6 +9,7 @@
     "romania",
     "sibiu-county"
   ],
+  "heading": null,
   "id": "atm_63a220d3ccc8",
   "lang": "en",
   "lat": 45.6461945,
@@ -41,7 +43,7 @@
     "romania"
   ],
   "title": "Romania's post-1989 demographic decline and regional variance",
-  "updated": 1787964400.8006656,
+  "updated": 1788505996.6510127,
   "uses": 1
 }
 ---

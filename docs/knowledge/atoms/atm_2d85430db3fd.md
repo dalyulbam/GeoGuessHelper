@@ -1,6 +1,7 @@
 ---
 {
   "body": "On steep karstic coasts with drowned river valleys (rias), a single-pylon cable-stayed bridge spanning the ria mouth (e.g. Franjo Tuđman Bridge over Rijeka Dubrovačka) is a common modern infrastructure solution and a distinctive visual landmark, contrasting with concrete arch bridges used at other estuary crossings such as Šibenik. The viewing aspect of such a bridge (framed against open sea vs. framed against an inland settlement) is a reliable discriminator for which side of the bay an observer stands on.",
+  "category": "infrastructure-built",
   "cell": "srsfeq5",
   "created": 1786630709.689241,
   "entities": [
@@ -8,6 +9,7 @@
     "dubrovnik",
     "franjo-tudman-bridge"
   ],
+  "heading": null,
   "id": "atm_2d85430db3fd",
   "lang": "en",
   "lat": 42.6607928,
@@ -42,7 +44,7 @@
     "ria"
   ],
   "title": "Single-pylon cable-stayed bridges as ria-mouth landmarks on karst coasts",
-  "updated": 1786630709.6895452,
+  "updated": 1788505986.0626864,
   "uses": 1
 }
 ---

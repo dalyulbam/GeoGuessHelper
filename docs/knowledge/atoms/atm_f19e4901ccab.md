@@ -1,11 +1,13 @@
 ---
 {
   "body": "Malaysia drives on the left and uses the Jalur Gemilang flag: red-and-white stripes with a crescent moon and 14-point star on a blue canton. These features, combined with Malay-language Latin-script signage (no Chinese or Tamil), distinguish Malaysia from neighboring Indonesia (red-white bicolor, right-hand traffic), Thailand (Thai script, tricolor flag), and Brunei (yellow-based flag with Jawi script).",
+  "category": "flag-emblem",
   "cell": "w29x2w0",
   "created": 1786642943.7673845,
   "entities": [
     "malaysia"
   ],
+  "heading": null,
   "id": "atm_f19e4901ccab",
   "lang": "en",
   "lat": 4.1205809,
@@ -40,7 +42,7 @@
     "traffic-side"
   ],
   "title": "Malaysia's left-hand traffic and Jalur Gemilang flag as country markers",
-  "updated": 1786672732.1605625,
+  "updated": 1788506030.9286613,
   "uses": 2
 }
 ---

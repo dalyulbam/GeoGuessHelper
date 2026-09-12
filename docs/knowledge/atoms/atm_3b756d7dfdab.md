@@ -1,11 +1,13 @@
 ---
 {
   "body": "Spanish suburban residential streets, especially self-built hillside developments ('urbanizaciones') from the mid-to-late 20th century, typically feature low brick-pillar garden walls topped with pierced/perforated concrete lattice blocks, concrete-slab sidewalks, and overhead low-voltage wiring on poles that is later buried once the area is formally annexed to the municipal grid.",
+  "category": "housing-typology",
   "cell": "sp3ebxf",
   "created": 1787964154.8501372,
   "entities": [
     "spain"
   ],
+  "heading": null,
   "id": "atm_3b756d7dfdab",
   "lang": "en",
   "lat": 41.4835407,
@@ -39,7 +41,7 @@
     "urbanizacion"
   ],
   "title": "Spanish suburban 'urbanización' garden-wall style",
-  "updated": 1787964154.8502216,
+  "updated": 1788505986.6069503,
   "uses": 1
 }
 ---

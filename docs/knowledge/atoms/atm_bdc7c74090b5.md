@@ -1,12 +1,14 @@
 ---
 {
   "body": "Pag island's karst pastures, dusted with salt spray carried by the bura wind and aromatic maquis herbs, support an indigenous Pag sheep breed whose milk and meat yield two protected regional products: Paški sir (Pag cheese) and Pag lamb. The island's grazing capacity supports roughly 30,000 sheep, and lamb is produced by feeding lambs only their mothers' milk for a pale, lean, delicate meat. Salt-and-herb-influenced pastoral products of this kind are a recurring economic niche on wind-scoured Adriatic karst islands.",
+  "category": "agriculture",
   "cell": "srfth7t",
   "created": 1786468820.1786344,
   "entities": [
     "pag-island",
     "pag-sheep"
   ],
+  "heading": null,
   "id": "atm_bdc7c74090b5",
   "lang": "en",
   "lat": 44.4930714,
@@ -41,7 +43,7 @@
     "sheep-farming"
   ],
   "title": "Pag Island: sheep grazing, Paški sir cheese and lamb branding",
-  "updated": 1786468820.178933,
+  "updated": 1788506020.5896418,
   "uses": 1
 }
 ---

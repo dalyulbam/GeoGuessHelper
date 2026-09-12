@@ -1,6 +1,7 @@
 ---
 {
   "body": "Along the boundary between the Ilocos lowlands and the Cordillera, two distinct cultural spheres coexist: the Ilocano-speaking lowland/foothill sphere (irrigated paddy, hollow-block housing, Catholic town centers) and indigenous highland groups (e.g. the Bago/Bagbag-o people in southern Ilocos Sur, or Bontoc/Ifugao/Kalinga further north) who maintain distinct customary practices, upland settlement patterns, and are increasingly incorporated into ecotourism (e.g. 'tribe houses' at heritage parks) as a cultural draw distinct from Spanish colonial heritage tourism.",
+  "category": "settlement-pattern",
   "cell": "wej9x8g",
   "created": 1786494761.635634,
   "entities": [
@@ -8,6 +9,7 @@
     "cordillera-mountains",
     "ilocos-sur"
   ],
+  "heading": null,
   "id": "atm_ba840123ebab",
   "lang": "en",
   "lat": 17.1430598,
@@ -42,7 +44,7 @@
     "indigenous-culture"
   ],
   "title": "Ilocano lowland vs. indigenous highland cultural spheres in the Ilocos-Cordillera borderland",
-  "updated": 1786494761.6358707,
+  "updated": 1788506020.4649436,
   "uses": 1
 }
 ---

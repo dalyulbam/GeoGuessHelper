@@ -1,12 +1,14 @@
 ---
 {
   "body": "In the Caldenal region of La Pampa, cattle are raised extensively within native caldén woodland (monte pampeano) without cultivation or agrochemical inputs, at low stocking densities (roughly 8-10 hectares per animal). Small rural towns in this zone depend on periodic livestock consignment auctions ('remates feria') for weaned calves as their primary economic engine, rather than crop farming, distinguishing this belt from the grain/oilseed-dominated humid Pampas further east.",
+  "category": "agriculture",
   "cell": "6993z1r",
   "created": 1787960915.9496672,
   "entities": [
     "caldenal",
     "la-pampa-province"
   ],
+  "heading": null,
   "id": "atm_903cbb9320fc",
   "lang": "en",
   "lat": -36.2479652,
@@ -40,7 +42,7 @@
     "monte-pampeano"
   ],
   "title": "Extensive caldén-woodland cattle ranching as regional economic base",
-  "updated": 1787960915.949954,
+  "updated": 1788506009.0084188,
   "uses": 1
 }
 ---

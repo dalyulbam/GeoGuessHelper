@@ -1,9 +1,11 @@
 ---
 {
   "body": "Toyama Bay is prized for distinctive seafood including firefly squid (hotaru-ika), white shrimp (shiro-ebi), and yellowtail (buri), which feature heavily in local cuisine alongside rice from the surrounding plains. This Sea-of-Japan seafood culture is a shared identity across Toyama's coastal communities.",
+  "category": "cuisine",
   "cell": "xn92tyx",
   "created": 1786291329.069739,
   "entities": [],
+  "heading": null,
   "id": "atm_5685afe3cc0c",
   "lang": "en",
   "lat": 36.6874326,
@@ -38,7 +40,7 @@
     "yellowtail"
   ],
   "title": "Toyama Bay seafood and Hokuriku regional diet",
-  "updated": 1786291329.0700603,
+  "updated": 1788505995.917343,
   "uses": 1
 }
 ---

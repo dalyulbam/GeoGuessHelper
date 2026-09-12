@@ -1,11 +1,13 @@
 ---
 {
   "body": "The United Kingdom drives on the left, with vehicles displaying yellow rear number plates. Street markings include double yellow no-parking lines and 20 mph speed roundels, and municipal waste uses green wheelie bins. These conventions reliably identify UK locations.",
+  "category": "road-marking",
   "cell": "gcpn77e",
   "created": 1786294430.631094,
   "entities": [
     "united-kingdom"
   ],
+  "heading": null,
   "id": "atm_8af183b8f49b",
   "lang": "en",
   "lat": 51.7430428,
@@ -40,7 +42,7 @@
     "yellow-plates"
   ],
   "title": "Standard UK road and vehicle conventions",
-  "updated": 1786294430.6313303,
+  "updated": 1788506008.5896206,
   "uses": 1
 }
 ---

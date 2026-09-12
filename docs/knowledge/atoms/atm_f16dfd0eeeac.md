@@ -1,6 +1,7 @@
 ---
 {
   "body": "Floridsdorf (21st district, north of the Danube) is Vienna's largest district by area, historically industrial and railway-worker housing, now around 160,000+ residents with expanding public housing. Brigittenau (20th district, between the Danube Canal and the Danube) has one of Vienna's highest population densities (~30,000-35,000 in a small area), built up with dense late-19th-century Gründerzeit tenement housing (Zinshaus) for workers. Both districts have historically lower income levels, higher immigrant shares (Turkish, ex-Yugoslav, more recently Afghan/Syrian), and lower rents than central Vienna, functioning as entry-point districts for immigrant and young populations.",
+  "category": "housing-typology",
   "cell": "u2edmpb",
   "created": 1786673950.6728475,
   "entities": [
@@ -8,6 +9,7 @@
     "floridsdorf",
     "vienna"
   ],
+  "heading": null,
   "id": "atm_f16dfd0eeeac",
   "lang": "en",
   "lat": 48.2517596,
@@ -42,7 +44,7 @@
     "working-class"
   ],
   "title": "Floridsdorf and Brigittenau as working-class/immigrant districts of Vienna",
-  "updated": 1786673950.6733298,
+  "updated": 1788506030.8971446,
   "uses": 1
 }
 ---

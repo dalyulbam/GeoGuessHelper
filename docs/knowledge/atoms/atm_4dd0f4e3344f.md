@@ -1,6 +1,7 @@
 ---
 {
   "body": "In North Norway above the Arctic Circle (Troms, Finnmark), the treeline sits remarkably low, around 200-300m elevation, with birch-dominated subarctic forest giving way quickly to bare, often snow-streaked alpine ridges even in mid-summer (July). This contrasts with southern Norway (Vestland/Oslo region), where coniferous forest extends to much higher altitudes and summer snow is rare at comparable latitudes-equivalent terrain.",
+  "category": "vegetation-cue",
   "cell": "ukmkre5",
   "created": 1786907616.7445734,
   "entities": [
@@ -8,6 +9,7 @@
     "norway",
     "troms"
   ],
+  "heading": null,
   "id": "atm_4dd0f4e3344f",
   "lang": "en",
   "lat": 69.671104,
@@ -41,7 +43,7 @@
     "troms"
   ],
   "title": "Low treeline and alpine ridges in Arctic Norway (Troms/Finnmark)",
-  "updated": 1786907616.7451732,
+  "updated": 1788505995.3068469,
   "uses": 1
 }
 ---

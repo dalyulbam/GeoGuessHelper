@@ -1,12 +1,14 @@
 ---
 {
   "body": "Albania's Adriatic and Ionian coast has experienced a rapid tourism boom centered on sun-and-sea holidays, driving heavy real-estate and hospitality construction. The economy is highly seasonal with summer employment swings, and rapid, sometimes poorly regulated coastal development raises overdevelopment and infrastructure concerns.",
+  "category": "tourism-economy",
   "cell": "srjy70q",
   "created": 1786294651.4168162,
   "entities": [
     "albania",
     "albanian-riviera"
   ],
+  "heading": null,
   "id": "atm_67097f4cbca4",
   "lang": "en",
   "lat": 40.4752774,
@@ -41,7 +43,7 @@
     "tourism"
   ],
   "title": "Albanian coastal tourism boom and seasonal economy",
-  "updated": 1786294651.4170668,
+  "updated": 1788505996.6980836,
   "uses": 1
 }
 ---

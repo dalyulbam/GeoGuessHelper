@@ -1,6 +1,7 @@
 ---
 {
   "body": "The bura (bora) is a violent, cold, gusty katabatic wind that descends from the Dinaric/Velebit mountains onto the northern Adriatic coast, especially strong in the Senj-Velebit channel area, considered the strongest and most frequent bura location on the entire Adriatic. Over centuries it has scoured hillsides bare of trees and soil, limiting agriculture to stony grazing and discouraging large-scale coastal resort development compared to more sheltered stretches of Dalmatia further south.",
+  "category": "climate",
   "cell": "srfxgpc",
   "created": 1786468233.3278975,
   "entities": [
@@ -8,6 +9,7 @@
     "senj",
     "velebit"
   ],
+  "heading": null,
   "id": "atm_eea7bee4a533",
   "lang": "en",
   "lat": 44.9988302,
@@ -43,7 +45,7 @@
     "velebit"
   ],
   "title": "Bura wind of the Velebit/Kvarner littoral",
-  "updated": 1786468233.3284602,
+  "updated": 1788506030.743101,
   "uses": 1
 }
 ---

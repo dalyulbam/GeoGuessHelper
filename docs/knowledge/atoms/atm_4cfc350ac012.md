@@ -1,6 +1,7 @@
 ---
 {
   "body": "Near Vlorë lie the Karaburun Peninsula and Sazan Island, a former military zone now protected as Albania's Karaburun-Sazan marine national park. The nearby Narta Lagoon hosts birdlife including flamingos and traditional salt pans, and the Llogara Pass and National Park lie just to the south on the Riviera.",
+  "category": "protected-area",
   "cell": "srjy70q",
   "created": 1786294651.419816,
   "entities": [
@@ -9,6 +10,7 @@
     "narta-lagoon",
     "vlore"
   ],
+  "heading": null,
   "id": "atm_4cfc350ac012",
   "lang": "en",
   "lat": 40.4752774,
@@ -44,7 +46,7 @@
     "vlore"
   ],
   "title": "Karaburun-Sazan marine park and Narta Lagoon",
-  "updated": 1786294651.4199903,
+  "updated": 1788505995.2629452,
   "uses": 1
 }
 ---

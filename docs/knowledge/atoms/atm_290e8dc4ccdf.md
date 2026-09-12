@@ -1,12 +1,14 @@
 ---
 {
   "body": "Some small Gulf-coast Campeche settlements, such as Sabancuy, were established as Spanish presidios in the early 18th century (Sabancuy in 1717), predating the founding of larger regional towns like Ciudad del Carmen, giving them an older colonial-era pedigree despite their smaller present-day size.",
+  "category": "founding",
   "cell": "9gqfsnv",
   "created": 1786570065.7837338,
   "entities": [
     "ciudad-del-carmen",
     "sabancuy"
   ],
+  "heading": null,
   "id": "atm_290e8dc4ccdf",
   "lang": "en",
   "lat": 18.7580553,
@@ -40,7 +42,7 @@
     "spanish-colonial-era"
   ],
   "title": "Early Spanish presidio settlements on the Campeche Gulf coast",
-  "updated": 1786570065.7838423,
+  "updated": 1788505985.9387188,
   "uses": 1
 }
 ---

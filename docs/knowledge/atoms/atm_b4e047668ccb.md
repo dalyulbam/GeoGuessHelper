@@ -1,6 +1,7 @@
 ---
 {
   "body": "Tromso (pop. ~78,000, North Norway's largest city) combines a high-latitude university (UiT The Arctic University of Norway, ~16,000 students), a university hospital, and Norway's largest whitefish/cod processing port (~85,000 tonnes/year, ~12% of national cod processing), located ~350km from Barents Sea fishing grounds. It hosts multiple Arctic international bodies (Arctic Council Secretariat, Arctic Frontiers, Norwegian Polar Institute) and benefits from Arctic-zone tax incentives (reduced payroll/social security tax), driving above-average regional economic growth despite housing costs ~23% above the national average.",
+  "category": "tourism-economy",
   "cell": "ukmkre5",
   "created": 1786907616.7667298,
   "entities": [
@@ -8,6 +9,7 @@
     "tromso",
     "uit-arctic-university"
   ],
+  "heading": null,
   "id": "atm_b4e047668ccb",
   "lang": "en",
   "lat": 69.671104,
@@ -42,7 +44,7 @@
     "university-city"
   ],
   "title": "Tromso as Arctic research, fisheries, and international-institution hub",
-  "updated": 1786907616.7668288,
+  "updated": 1788506020.3525808,
   "uses": 1
 }
 ---

@@ -1,6 +1,7 @@
 ---
 {
   "body": "Oxford and Cambridge are Britain's two ancient elite universities, jointly termed 'Oxbridge,' competing academically and in the annual Boat Race. Both use a collegiate structure and dominate British higher-education prestige. Oxford's literary heritage includes J.R.R. Tolkien, C.S. Lewis (both Inklings) and Lewis Carroll, a mathematics don at Christ Church.",
+  "category": "education",
   "cell": "gcpn77e",
   "created": 1786294430.6267984,
   "entities": [
@@ -8,6 +9,7 @@
     "oxbridge",
     "oxford"
   ],
+  "heading": null,
   "id": "atm_ae4c5a7357ff",
   "lang": "en",
   "lat": 51.7430428,
@@ -43,7 +45,7 @@
     "oxford"
   ],
   "title": "Oxbridge rivalry and the ancient English universities",
-  "updated": 1786294430.627008,
+  "updated": 1788506020.2101572,
   "uses": 1
 }
 ---

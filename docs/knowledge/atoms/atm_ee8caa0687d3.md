@@ -1,12 +1,14 @@
 ---
 {
   "body": "Iceland has a subarctic oceanic climate producing cool summers, mild wet winters and frequent overcast skies. Native vegetation is low shrub and grassland with almost no tall forest; planted spruce and pine are the main tree cover. Extensive basaltic lava fields (hraun), such as Gálgahraun near Reykjavík, dominate the terrain and are often preserved as nature reserves with walking trails.",
+  "category": "vegetation",
   "cell": "ge2kts4",
   "created": 1786294863.1924107,
   "entities": [
     "iceland",
     "icelandic-nature"
   ],
+  "heading": null,
   "id": "atm_ee8caa0687d3",
   "lang": "en",
   "lat": 64.0944624,
@@ -43,7 +45,7 @@
     "volcanic"
   ],
   "title": "Icelandic subarctic treeless landscape and lava fields",
-  "updated": 1786673692.8065841,
+  "updated": 1788506030.7116005,
   "uses": 2
 }
 ---

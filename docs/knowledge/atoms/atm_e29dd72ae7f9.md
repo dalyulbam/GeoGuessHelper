@@ -1,11 +1,13 @@
 ---
 {
   "body": "Poland uses right-hand driving, white lane markings, circular red-bordered speed limit signs, and EU-standard blue rectangular pedestrian/cyclist signage, plus white rectangular EU-format license plates — consistent with broader EU/Central European road signage conventions rather than distinguishing Poland specifically from other EU member states.",
+  "category": "road-signage",
   "cell": "u3jy6rm",
   "created": 1786642690.2837303,
   "entities": [
     "poland"
   ],
+  "heading": null,
   "id": "atm_e29dd72ae7f9",
   "lang": "en",
   "lat": 51.7642643,
@@ -28,7 +30,7 @@
     "road-signage"
   ],
   "title": "Polish EU-standard road signage and driving conventions",
-  "updated": 1786717884.6189702,
+  "updated": 1788506030.223211,
   "uses": 2
 }
 ---

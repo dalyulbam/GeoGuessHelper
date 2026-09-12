@@ -1,6 +1,7 @@
 ---
 {
   "body": "Place-name suffixes are strong regional discriminators within India: '-nagar', '-ganj', 'chowki', 'dhal' indicate Hindi/Urdu-speaking Hindi Belt regions (UP, Bihar, MP); Gurmukhi script indicates Punjab/Haryana; Marathi suffixes like '-wadi' and '-peth' indicate Maharashtra; arid scrub and sandstone architecture indicate Rajasthan.",
+  "category": "toponymy",
   "cell": "tu9necb",
   "created": 1786672926.7614741,
   "entities": [
@@ -10,6 +11,7 @@
     "punjab",
     "rajasthan"
   ],
+  "heading": null,
   "id": "atm_6c4efdf6ce82",
   "lang": "en",
   "lat": 26.4656425,
@@ -44,7 +46,7 @@
     "toponymy"
   ],
   "title": "Toponym suffixes distinguishing Indian linguistic macro-regions",
-  "updated": 1786672926.761782,
+  "updated": 1788505996.8346465,
   "uses": 1
 }
 ---

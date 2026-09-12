@@ -1,6 +1,7 @@
 ---
 {
   "body": "Small Croatian island-based shipping companies such as Rapska Plovidba (based on Rab island) operate short car-ferry crossings linking depopulated mainland littoral hamlets to islands, often relocating terminals over time (e.g. the Rab crossing moved from Jablanac to Stinica in 2012) as infrastructure is upgraded. Such ferry links function as the primary economic anchor for otherwise near-abandoned coastal hamlets along Croatia's Velebit and Dalmatian coasts.",
+  "category": "logistics",
   "cell": "srfw77f",
   "created": 1786468506.4218957,
   "entities": [
@@ -8,6 +9,7 @@
     "rapska-plovidba",
     "stinica"
   ],
+  "heading": null,
   "id": "atm_9cae96b246e6",
   "lang": "en",
   "lat": 44.7139608,
@@ -41,7 +43,7 @@
     "rapska-plovidba"
   ],
   "title": "Croatian ferry operators as regional lifelines (e.g. Rapska Plovidba)",
-  "updated": 1786468506.422045,
+  "updated": 1788506009.8312054,
   "uses": 1
 }
 ---

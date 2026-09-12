@@ -1,6 +1,7 @@
 ---
 {
   "body": "Oxford, in Oxfordshire, South East England, is home to the University of Oxford, the oldest university in the English-speaking world, organised as a collegiate system of ancient colleges (e.g. Christ Church, Magdalen, Merton, New College, St Hilda's). Nicknamed 'the city of dreaming spires,' it combines world-class scholarship with libraries like the Bodleian and museums such as the Ashmolean, the world's first university museum. The city has a 'town and gown' character with a large transient student population of roughly 160,000 total residents.",
+  "category": "education",
   "cell": "gcpn77e",
   "created": 1786294430.5833063,
   "entities": [
@@ -9,6 +10,7 @@
     "oxford",
     "university-of-oxford"
   ],
+  "heading": null,
   "id": "atm_dbf795f532fa",
   "lang": "en",
   "lat": 51.7430428,
@@ -44,7 +46,7 @@
     "university-of-oxford"
   ],
   "title": "University of Oxford and 'dreaming spires'",
-  "updated": 1786294430.5836046,
+  "updated": 1788506021.3886292,
   "uses": 1
 }
 ---

@@ -1,6 +1,7 @@
 ---
 {
   "body": "Croatia's first LNG (liquefied natural gas) import terminal, inaugurated in 2021 with EU co-funding, is located at Omišalj on Krk Island. It receives LNG carriers (including from the United States) for regasification and national/regional gas supply, positioning Croatia as a European energy-import hub alongside the adjacent JANAF crude-oil terminal and tank farm integrated with the Rijeka refining cluster.",
+  "category": "energy",
   "cell": "u2437ts",
   "created": 1786322129.625558,
   "entities": [
@@ -8,6 +9,7 @@
     "janaf",
     "omisalj"
   ],
+  "heading": null,
   "id": "atm_fb908e0b6c54",
   "lang": "en",
   "lat": 45.2502735,
@@ -42,7 +44,7 @@
     "omisalj"
   ],
   "title": "Croatia's LNG import terminal at Omišalj",
-  "updated": 1786322129.6258125,
+  "updated": 1788506031.1820412,
   "uses": 1
 }
 ---

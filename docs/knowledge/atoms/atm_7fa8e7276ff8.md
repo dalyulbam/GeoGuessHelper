@@ -1,11 +1,13 @@
 ---
 {
   "body": "Squamish, BC had an estimated 2024 population of ~23,819 (+5.6% YoY growth from 19,497 in 2021), with a young median age of 37.9 versus the Canadian national average of 41.9, and 18.7% of residents under 14. It is marketed as 'Canada's Outdoor Recreation Capital' due to world-class rock climbing, mountain biking, hiking, and windsurfing, and functions as a lifestyle-migrant and Vancouver-commuter destination between Vancouver and Whistler.",
+  "category": "demography",
   "cell": "c2b6twp",
   "created": 1786672517.7997193,
   "entities": [
     "squamish"
   ],
+  "heading": null,
   "id": "atm_7fa8e7276ff8",
   "lang": "en",
   "lat": 49.6912326,
@@ -39,7 +41,7 @@
     "squamish"
   ],
   "title": "Squamish, BC: demographic profile of a Vancouver-Whistler gateway town",
-  "updated": 1786672517.799969,
+  "updated": 1788506008.2749162,
   "uses": 1
 }
 ---

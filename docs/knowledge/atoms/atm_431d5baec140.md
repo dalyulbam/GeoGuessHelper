@@ -1,6 +1,7 @@
 ---
 {
   "body": "Zaton bay near Dubrovnik became a favored countryside retreat for Ragusan (Dubrovnik Republic) noble families from the early 15th century onward, with almost every noble family maintaining a summer villa (ljetnikovac) there. This exemplifies the broader Ragusan pattern of elite rural villa estates distinct from the fortified urban core, complementing similar villa clusters elsewhere on the Dubrovnik littoral (e.g. Trsteno, Rijeka Dubrovačka).",
+  "category": "housing-typology",
   "cell": "srsff7q",
   "created": 1786627515.3592062,
   "entities": [
@@ -8,6 +9,7 @@
     "republic-of-ragusa",
     "zaton"
   ],
+  "heading": null,
   "id": "atm_431d5baec140",
   "lang": "en",
   "lat": 42.6900608,
@@ -42,7 +44,7 @@
     "villa"
   ],
   "title": "Ragusan noble summer villas at Zaton bay",
-  "updated": 1786627515.3597798,
+  "updated": 1788505994.5418158,
   "uses": 1
 }
 ---

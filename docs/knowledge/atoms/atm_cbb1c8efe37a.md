@@ -1,12 +1,14 @@
 ---
 {
   "body": "Several Southeast Asian coastal fishing villages were 'discovered' by Western backpackers and hippies in the 1960s-70s, transforming quiet fishing communities into internationally known surf and beach-tourism hubs with guesthouses, beach bars, and yoga/surf schools, producing a distinct multicultural village atmosphere layered atop the original Muslim/Malay or otherwise traditional community.",
+  "category": "tourism-economy",
   "cell": "w29x2w0",
   "created": 1786672732.061035,
   "entities": [
     "cherating",
     "southeast-asia"
   ],
+  "heading": null,
   "id": "atm_cbb1c8efe37a",
   "lang": "en",
   "lat": 4.1205809,
@@ -40,7 +42,7 @@
     "surf-tourism"
   ],
   "title": "1970s Western backpacker/hippie trail origin of Southeast Asian beach villages",
-  "updated": 1786672732.0614026,
+  "updated": 1788506020.967461,
   "uses": 1
 }
 ---

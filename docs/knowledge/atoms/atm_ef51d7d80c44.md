@@ -1,6 +1,7 @@
 ---
 {
   "body": "Northern Kyrgyzstan's Chuy Region is a dead-flat alluvial irrigated plain with wide Russian-settler-style street grids and poplar/willow shelterbelts, with no mountains visible in most frames despite proximity to the Tian Shan foothills. This contrasts with Issyk-Kul and Naryn, which sit in visible mountain amphitheatres with treeless slopes and stone-walled yards, and with Osh/Fergana in the south, which shows mudbrick duval-walled compounds, cotton/apricot orchards and denser Uzbek-influenced street frontage and signage.",
+  "category": "settlement-pattern",
   "cell": "txt5gy4",
   "created": 1787962699.0758986,
   "entities": [
@@ -10,6 +11,7 @@
     "naryn-region",
     "osh-region"
   ],
+  "heading": null,
   "id": "atm_ef51d7d80c44",
   "lang": "en",
   "lat": 42.8800065,
@@ -43,7 +45,7 @@
     "vernacular-settlement"
   ],
   "title": "Chuy Region vs Issyk-Kul/Naryn/Osh — landscape discriminators within Kyrgyzstan",
-  "updated": 1787962699.0760536,
+  "updated": 1788506030.832396,
   "uses": 1
 }
 ---

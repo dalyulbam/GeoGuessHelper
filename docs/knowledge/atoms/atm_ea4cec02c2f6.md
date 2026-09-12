@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Frankopan family were medieval Croatian feudal princes who held the island of Krk and much of the Kvarner littoral, building a network of castles (including at Omišalj) from the 15th century onward. Their legacy shapes island identity and heritage tourism (castle concerts, medieval fairs) across Krk's settlements today.",
+  "category": "succession",
   "cell": "u2437ts",
   "created": 1786322129.6088476,
   "entities": [
@@ -8,6 +9,7 @@
     "frankopan",
     "krk-island"
   ],
+  "heading": null,
   "id": "atm_ea4cec02c2f6",
   "lang": "en",
   "lat": 45.2502735,
@@ -42,7 +44,7 @@
     "medieval-heritage"
   ],
   "title": "Frankopan dynasty of Krk",
-  "updated": 1786322129.6090622,
+  "updated": 1788506030.5824497,
   "uses": 1
 }
 ---

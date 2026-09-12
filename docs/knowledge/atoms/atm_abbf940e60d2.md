@@ -1,12 +1,14 @@
 ---
 {
   "body": "In the Kvarner Gulf, channels exposed to the cold northeasterly bora wind show bare, wind-scoured limestone slopes on the windward side, while sheltered slopes carry lush evergreen maquis, holm oak and pine. This asymmetric vegetation pattern is a reliable visual cue for wind exposure on Adriatic karst islands and channels.",
+  "category": "vegetation-cue",
   "cell": "u2437ts",
   "created": 1786322129.6197734,
   "entities": [
     "krk-island",
     "kvarner"
   ],
+  "heading": null,
   "id": "atm_abbf940e60d2",
   "lang": "en",
   "lat": 45.2502735,
@@ -41,7 +43,7 @@
     "microclimate"
   ],
   "title": "Kvarner/Rijeka Bay bora-driven microclimate asymmetry",
-  "updated": 1786322129.6200438,
+  "updated": 1788506020.1551282,
   "uses": 1
 }
 ---

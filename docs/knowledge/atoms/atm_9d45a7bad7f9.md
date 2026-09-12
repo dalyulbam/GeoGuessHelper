@@ -1,12 +1,14 @@
 ---
 {
   "body": "Hungarian is a Uralic (Finno-Ugric) language unrelated to its Indo-European neighbours, written in Latin script with accented and double-accented vowels (á, é, ő, ű). Place-name elements include -sziget (island), -tér (square), -vára/vár (castle), -híd (bridge), -körút/krt. (boulevard), and fürdő (bath). Signage is instantly recognisable by these forms.",
+  "category": "toponymy",
   "cell": "u2mw3kn",
   "created": 1786295091.0889978,
   "entities": [
     "hungarian-language",
     "hungary"
   ],
+  "heading": null,
   "id": "atm_9d45a7bad7f9",
   "lang": "en",
   "lat": 47.5271214,
@@ -41,7 +43,7 @@
     "uralic"
   ],
   "title": "Hungarian language and toponymic suffixes",
-  "updated": 1786295091.0891926,
+  "updated": 1788506009.9215817,
   "uses": 1
 }
 ---

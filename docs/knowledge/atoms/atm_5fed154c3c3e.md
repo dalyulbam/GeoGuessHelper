@@ -1,12 +1,14 @@
 ---
 {
   "body": "Following the Reconquista of the Kingdom of Granada (1492), many town parish churches in the region were built in Mudéjar style directly atop the foundations of former mosques, a common conversion pattern across former Nasrid territory. Example: the 16th-century Nuestra Señora de la Encarnación church in Albolote, designed by architect Ambrosio de Vico on a former mosque site, is a protected national historic-artistic monument.",
+  "category": "religious-building",
   "cell": "eyt7v0d",
   "created": 1786908098.177382,
   "entities": [
     "albolote",
     "kingdom-of-granada"
   ],
+  "heading": null,
   "id": "atm_5fed154c3c3e",
   "lang": "en",
   "lat": 37.2246056,
@@ -40,7 +42,7 @@
     "reconquista"
   ],
   "title": "Mudéjar parish churches built on former mosque sites in Granada region towns",
-  "updated": 1786908098.1775577,
+  "updated": 1788505996.4079027,
   "uses": 1
 }
 ---

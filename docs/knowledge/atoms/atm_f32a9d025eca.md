@@ -1,11 +1,13 @@
 ---
 {
   "body": "Romanian is written in Latin script with distinctive diacritics ș, ț, ă, â/î not shared by neighboring languages, and uses toponymic generics like 'Piața' (square), 'Strada' (street), 'Biserica' (church) — distinguishing it from Hungarian ('utca/tér'), Serbian/Bulgarian (Cyrillic), and Slovak ('ulica/námestie').",
+  "category": "toponymy",
   "cell": "u845wjw",
   "created": 1787964400.7767928,
   "entities": [
     "romania"
   ],
+  "heading": null,
   "id": "atm_f32a9d025eca",
   "lang": "en",
   "lat": 45.6461945,
@@ -39,7 +41,7 @@
     "toponymy"
   ],
   "title": "Romanian orthography and toponymic generics as a country discriminator",
-  "updated": 1787964400.7769835,
+  "updated": 1788506030.9913423,
   "uses": 1
 }
 ---

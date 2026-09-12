@@ -1,12 +1,14 @@
 ---
 {
   "body": "'Konoba' is a specifically Croatian and Dalmatian term for a small tavern-style eatery, often located in a wine cellar or stone building, serving local wine and traditional food. Its presence on signage is a strong linguistic/cultural marker distinguishing Croatia from neighboring Italy (which uses 'trattoria/osteria'), Montenegro, and Albania in visual geolocation.",
+  "category": "cuisine",
   "cell": "srskkfj",
   "created": 1786623790.9089453,
   "entities": [
     "croatia",
     "dalmatia"
   ],
+  "heading": null,
   "id": "atm_080c7ca4a29f",
   "lang": "en",
   "lat": 42.9468687,
@@ -41,7 +43,7 @@
     "tavern"
   ],
   "title": "'Konoba' as marker of Croatian/Dalmatian tavern-eatery culture",
-  "updated": 1786623790.909259,
+  "updated": 1788505962.596712,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Small Gulf-coast lagoon towns in Campeche state (outside the oil-industry hub of Ciudad del Carmen) typically run on artisanal fishing economies — shrimp, snook (robalo), red snapper (pargo), mullet, octopus, crab and oyster caught from fibreglass outboard pangas — supplemented by small-scale domestic beach tourism (palapas, seafood restaurants, boat tours) and informal/family-based trade, rather than industrial or extractive employers. Youth out-migration toward oil-services jobs in Ciudad del Carmen or tourism jobs in the Riviera Maya is common.",
+  "category": "agriculture",
   "cell": "9gqfsnv",
   "created": 1786570065.7796977,
   "entities": [
     "campeche",
     "ciudad-del-carmen"
   ],
+  "heading": null,
   "id": "atm_3ba44d2fa55c",
   "lang": "en",
   "lat": 18.7580553,
@@ -41,7 +43,7 @@
     "pangas"
   ],
   "title": "Artisanal fishing economy of Campeche's Gulf lagoon towns",
-  "updated": 1786570065.7798479,
+  "updated": 1788505986.6361067,
   "uses": 1
 }
 ---

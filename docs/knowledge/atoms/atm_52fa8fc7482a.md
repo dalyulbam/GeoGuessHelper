@@ -1,9 +1,11 @@
 ---
 {
   "body": "The Maeda clan ruled the wealthy Kaga Domain (covering Kaga, Etchu/Toyama, and Noto) from Kanazawa during the Edo period, holding one of Japan's largest rice stipends. Maeda Toshinaga founded Takaoka around Takaoka Castle in 1609, and Maeda patronage of castle-town craftsmen seeded local craft industries such as metal casting. Castle-town patronage was a common driver of regional craft economies across Japan.",
+  "category": "polity-rule",
   "cell": "xn92tyx",
   "created": 1786291329.0537019,
   "entities": [],
+  "heading": null,
   "id": "atm_52fa8fc7482a",
   "lang": "en",
   "lat": 36.6874326,
@@ -38,7 +40,7 @@
     "takaoka"
   ],
   "title": "Kaga Maeda clan and Edo-period castle towns",
-  "updated": 1786291329.0539858,
+  "updated": 1788505995.6199284,
   "uses": 1
 }
 ---

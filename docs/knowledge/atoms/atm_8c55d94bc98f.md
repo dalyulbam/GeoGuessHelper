@@ -1,6 +1,7 @@
 ---
 {
   "body": "Lago Maggiore is a large north-south oriented glacial lake at the foot of the Alps, straddling the Piedmont-Lombardy border (and extending into Switzerland's Ticino canton), with a wide open plain at its southern end contrasting with narrower, cliff-lined northern reaches. This distinguishes it from neighboring pre-Alpine lakes: Lake Como's Y-shaped fork with steep cliff villages, and Lake Garda's broad rounded southern bay with olive terracing.",
+  "category": "landform",
   "cell": "u0nh6e5",
   "created": 1786673174.2874072,
   "entities": [
@@ -8,6 +9,7 @@
     "lake-como",
     "lake-garda"
   ],
+  "heading": null,
   "id": "atm_8c55d94bc98f",
   "lang": "en",
   "lat": 45.7636059,
@@ -42,7 +44,7 @@
     "pre-alpine-lakes"
   ],
   "title": "Lago Maggiore pre-Alpine lake basin geography",
-  "updated": 1786673174.287578,
+  "updated": 1788506008.718097,
   "uses": 1
 }
 ---

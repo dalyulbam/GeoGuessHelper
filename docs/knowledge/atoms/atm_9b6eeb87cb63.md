@@ -1,9 +1,11 @@
 ---
 {
   "body": "Regional Japanese cities away from major metros, such as Takaoka, typically face aging and declining populations as younger residents leave for prefectural capitals or large metros for study and work. Their economies often rest on manufacturing and legacy craft industries that struggle with succession and falling domestic demand, offset by lower living costs and community-centered life.",
+  "category": "demography",
   "cell": "xn92tyx",
   "created": 1786291329.0759306,
   "entities": [],
+  "heading": null,
   "id": "atm_9b6eeb87cb63",
   "lang": "en",
   "lat": 36.6874326,
@@ -37,7 +39,7 @@
     "rural-decline"
   ],
   "title": "Aging and shrinking regional Japanese cities",
-  "updated": 1786291329.0761974,
+  "updated": 1788506009.7023516,
   "uses": 1
 }
 ---

@@ -1,11 +1,13 @@
 ---
 {
   "body": "In small-to-mid Soviet-planned industrial towns, planned mikroraion districts of 9-story brick/panel apartment blocks (with individually glazed balconies) typically border unpaved lanes of single-story private houses with kitchen gardens and greenhouse plots. This reflects municipal investment concentrated on main arterial roads, leaving residential side-lanes unpaved — a common indicator of low local fiscal capacity in post-Soviet secondary cities.",
+  "category": "housing-typology",
   "cell": "u8xsc9x",
   "created": 1786907847.295181,
   "entities": [
     "soviet-union"
   ],
+  "heading": null,
   "id": "atm_d146af6844dc",
   "lang": "en",
   "lat": 48.6569823,
@@ -40,7 +42,7 @@
     "urban-fringe"
   ],
   "title": "Soviet mikroraion urban-fringe pattern: panel high-rises abutting unpaved private-house lanes",
-  "updated": 1786907847.2952855,
+  "updated": 1788506021.116997,
   "uses": 1
 }
 ---

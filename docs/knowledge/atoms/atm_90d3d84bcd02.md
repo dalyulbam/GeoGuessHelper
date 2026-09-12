@@ -1,6 +1,7 @@
 ---
 {
   "body": "Croatian naturalist and travel writer Miroslav Hirtz (1878–1944) built a mountain hut on a 26-metre-high cliff above Jablanac beach on the Velebit coast, reachable by 122 steps from the beach. Now named Planinarski dom Miroslav Hirtz in his honor, it is considered the world's lowest-altitude mountain lodge and serves as the trailhead for routes into Northern Velebit, including toward the Alan mountain pass.",
+  "category": "tourism-economy",
   "cell": "srfw77f",
   "created": 1786468506.4174228,
   "entities": [
@@ -8,6 +9,7 @@
     "miroslav-hirtz",
     "velebit"
   ],
+  "heading": null,
   "id": "atm_90d3d84bcd02",
   "lang": "en",
   "lat": 44.7139608,
@@ -42,7 +44,7 @@
     "velebit"
   ],
   "title": "Miroslav Hirtz mountain lodge, Jablanac — world's lowest-altitude mountain hut",
-  "updated": 1786468506.4177232,
+  "updated": 1788506009.0556076,
   "uses": 1
 }
 ---

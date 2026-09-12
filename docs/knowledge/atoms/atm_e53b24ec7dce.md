@@ -1,12 +1,14 @@
 ---
 {
   "body": "Saltillo and surrounding Coahuila settlements sit in a semi-arid highland basin (~1,600m elevation) ringed by dry limestone massifs with sparse scrub vegetation (e.g. Tecoma stans/esperanza, oleander), typical of Mexico's northern arid plateau. This contrasts with the humid volcanic-soil greenery of central/southern Mexico or the karst flatlands of Yucatán.",
+  "category": "landform",
   "cell": "9u80w79",
   "created": 1786718184.57062,
   "entities": [
     "coahuila",
     "saltillo"
   ],
+  "heading": null,
   "id": "atm_e53b24ec7dce",
   "lang": "en",
   "lat": 25.4200978,
@@ -40,7 +42,7 @@
     "semi-arid-plateau"
   ],
   "title": "Coahuila semi-arid highland basin setting",
-  "updated": 1786718184.5708556,
+  "updated": 1788506030.3029816,
   "uses": 1
 }
 ---

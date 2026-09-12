@@ -1,6 +1,7 @@
 ---
 {
   "body": "Thermal and medicinal bathing is a defining cultural practice in the Carpathian Basin, with roots in Roman spa use and reinforced by Ottoman-era Turkish baths. Budapest is especially famous for it, with landmark baths such as Széchenyi, Gellért, and the Palatinus lido on Margaret Island. Spa and medical wellness tourism is a major economic draw.",
+  "category": "tourism-economy",
   "cell": "u2mw3kn",
   "created": 1786295091.1120162,
   "entities": [
@@ -8,6 +9,7 @@
     "szechenyi-baths",
     "thermal-baths"
   ],
+  "heading": null,
   "id": "atm_9d7ccc769c8d",
   "lang": "en",
   "lat": 47.5271214,
@@ -42,7 +44,7 @@
     "wellness-tourism"
   ],
   "title": "Central European thermal bath culture",
-  "updated": 1786295091.1122286,
+  "updated": 1788506009.9660769,
   "uses": 1
 }
 ---

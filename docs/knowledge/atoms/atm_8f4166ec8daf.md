@@ -1,12 +1,14 @@
 ---
 {
   "body": "Japan's kei-jidosha (kei-class) vehicles carry distinctive yellow license plates and are built to compact size/engine limits for tax and parking advantages; brands like Daihatsu (Mira, Move, Tanto, Hijet), Honda (N-Box), and Suzuki (Wagon R) dominate this segment. A high proportion of yellow-plate kei cars on residential streets is a strong visual marker for identifying a scene as Japan versus other right- or left-hand-drive East Asian countries.",
+  "category": "vehicle-fleet",
   "cell": "wynu5mx",
   "created": 1787963878.4697044,
   "entities": [
     "daihatsu",
     "japan"
   ],
+  "heading": null,
   "id": "atm_8f4166ec8daf",
   "lang": "en",
   "lat": 34.4836144,
@@ -40,7 +42,7 @@
     "yellow-plate"
   ],
   "title": "Kei-class yellow-plate cars as a uniquely Japanese vehicle category",
-  "updated": 1787963878.469902,
+  "updated": 1788506008.9270365,
   "uses": 1
 }
 ---

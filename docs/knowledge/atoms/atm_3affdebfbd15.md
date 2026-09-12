@@ -1,11 +1,13 @@
 ---
 {
   "body": "Map overlays naming Canadian-specific institutions — the CBC (Canadian Broadcasting Corporation), a 'Legislative Building' (rather than a state Capitol), or provincial agency names — reliably distinguish a Canadian location from a similar-looking US Northern Plains city, since the US has no equivalent provincial/CBC naming convention.",
+  "category": "civic-building",
   "cell": "c8vwgv1",
   "created": 1787960139.7298045,
   "entities": [
     "canada"
   ],
+  "heading": null,
   "id": "atm_3affdebfbd15",
   "lang": "en",
   "lat": 50.4337107,
@@ -39,7 +41,7 @@
     "map-cues"
   ],
   "title": "CBC and provincial-institution naming as Canada vs US discriminator on maps",
-  "updated": 1787960139.7299707,
+  "updated": 1788505986.5769956,
   "uses": 1
 }
 ---

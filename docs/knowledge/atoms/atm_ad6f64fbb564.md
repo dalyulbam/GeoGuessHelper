@@ -1,11 +1,13 @@
 ---
 {
   "body": "In Iceland, rural two-lane roads without shoulders or guardrails commonly use thin yellow-tipped snow poles (snjóstikur) planted along the roadside at regular intervals instead of guardrails, marking road edges under snow cover. This is characteristic of low-traffic, low-maintenance-budget road design in a wealthy but sparsely populated country.",
+  "category": "street-furniture",
   "cell": "g7x9x69",
   "created": 1786673692.795958,
   "entities": [
     "iceland"
   ],
+  "heading": null,
   "id": "atm_ad6f64fbb564",
   "lang": "en",
   "lat": 64.96599,
@@ -39,7 +41,7 @@
     "snow-poles"
   ],
   "title": "Roadside snow poles (snjóstikur) as cold-climate low-traffic road infrastructure",
-  "updated": 1786673692.7961543,
+  "updated": 1788506020.1820524,
   "uses": 1
 }
 ---

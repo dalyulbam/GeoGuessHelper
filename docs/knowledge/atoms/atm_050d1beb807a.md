@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Kvarner islands (Krk, Cres, Lošinj) and adjacent coast are historically a stronghold of the Čakavian dialect group of Croatian, distinct from the standard Štokavian-based literary language, with multiple local sub-dialects surviving village to village. The same region was a major center of Glagolitic script literacy from the 11th century, used for liturgical and administrative Croatian texts predating wider Latin-script adoption.",
+  "category": "script",
   "cell": "u2437ts",
   "created": 1786322129.613951,
   "entities": [
@@ -8,6 +9,7 @@
     "krk-island",
     "kvarner"
   ],
+  "heading": null,
   "id": "atm_050d1beb807a",
   "lang": "en",
   "lat": 45.2502735,
@@ -53,7 +55,7 @@
     "velebit"
   ],
   "title": "Čakavian dialect and Glagolitic literacy on Kvarner islands",
-  "updated": 1786468233.338805,
+  "updated": 1788505962.4526203,
   "uses": 2
 }
 ---

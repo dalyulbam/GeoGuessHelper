@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Saltillo-Ramos Arizpe-Arteaga metropolitan belt in Coahuila, northeastern Mexico, is one of Latin America's key automotive manufacturing hubs. General Motors de México has operated an assembly plant there since 1981, generating over 11,000 direct jobs plus an extensive auto-parts supplier network. The region also has notable ceramics, energy, and pharmaceutical sectors, and benefits from foreign direct investment tied to nearshoring and export manufacturing chains to the United States.",
+  "category": "industry",
   "cell": "9u80w79",
   "created": 1786718184.5592132,
   "entities": [
@@ -9,6 +10,7 @@
     "mexico",
     "saltillo"
   ],
+  "heading": null,
   "id": "atm_bfa44d28d5f9",
   "lang": "en",
   "lat": 25.4200978,
@@ -43,7 +45,7 @@
     "saltillo"
   ],
   "title": "Saltillo-Ramos Arizpe-Arteaga automotive industrial belt",
-  "updated": 1786718184.5595338,
+  "updated": 1788506020.6474838,
   "uses": 1
 }
 ---

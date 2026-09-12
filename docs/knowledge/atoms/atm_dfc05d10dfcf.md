@@ -1,6 +1,7 @@
 ---
 {
   "body": "Former forestry/pulp-and-paper industrial towns along the BC coast and Pacific Northwest (e.g. Squamish) have diversified into green-tech, outdoor recreation tech, and sustainable tourism economies as timber industries declined, while retaining legacy deep-water log-boom/mill terminal infrastructure. Such towns often serve as highway 'gateway' nodes between a major metro (e.g. Vancouver) and an alpine resort (e.g. Whistler), driving car-dependent, low-density commuter and tourism growth.",
+  "category": "tourism-economy",
   "cell": "c2b6twp",
   "created": 1786646410.432896,
   "entities": [
@@ -8,6 +9,7 @@
     "pacific-northwest",
     "squamish"
   ],
+  "heading": null,
   "id": "atm_dfc05d10dfcf",
   "lang": "en",
   "lat": 49.6912326,
@@ -42,7 +44,7 @@
     "resource-economy"
   ],
   "title": "Resource-to-recreation economic transition in Pacific Northwest gateway towns",
-  "updated": 1786672517.8349612,
+  "updated": 1788506021.4705088,
   "uses": 2
 }
 ---

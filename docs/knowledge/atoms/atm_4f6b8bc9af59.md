@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Trans Adriatic Pipeline (TAP) carries natural gas across Albania toward Italy; its Adriatic crossing point is near Vlorë. Combined with a nearby thermal power plant, this energy infrastructure has drawn investment and jobs to the Vlorë area and forms part of the Southern Gas Corridor linking Caspian gas to Europe.",
+  "category": "energy",
   "cell": "srjy70q",
   "created": 1786294651.4135592,
   "entities": [
@@ -8,6 +9,7 @@
     "trans-adriatic-pipeline",
     "vlore"
   ],
+  "heading": null,
   "id": "atm_4f6b8bc9af59",
   "lang": "en",
   "lat": 40.4752774,
@@ -42,7 +44,7 @@
     "vlore"
   ],
   "title": "Trans Adriatic Pipeline energy corridor in Albania",
-  "updated": 1786294651.4137232,
+  "updated": 1788505995.4428499,
   "uses": 1
 }
 ---

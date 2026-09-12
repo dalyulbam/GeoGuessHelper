@@ -1,9 +1,11 @@
 ---
 {
   "body": "The Yucatán Peninsula is a flat, relief-free limestone karst platform lacking rivers or hills; its Gulf-side coast features pale limestone/shell beaches, turquoise shallow shelf waters, long sand barrier bars enclosing lagoon/estuary systems (e.g. Laguna de Términos), and low thorn scrub with mangrove and chit/coconut palms. This contrasts with the volcanic dark-sand, hilly coasts of Veracruz or the muddy deltaic river plains of Tabasco.",
+  "category": "landform",
   "cell": "9gqfsnv",
   "created": 1786570065.7665367,
   "entities": [],
+  "heading": null,
   "id": "atm_7eb3b0d86a01",
   "lang": "en",
   "lat": 18.7580553,
@@ -38,7 +40,7 @@
     "yucatan-peninsula"
   ],
   "title": "Yucatán Peninsula karst coast morphology",
-  "updated": 1786570065.7668118,
+  "updated": 1788506008.1518211,
   "uses": 1
 }
 ---

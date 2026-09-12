@@ -1,12 +1,14 @@
 ---
 {
   "body": "The Dubrovnik littoral (Dubrovačko Primorje) and its former dependencies form a distinct cultural sphere shaped by the historic Republic of Ragusa (Dubrovnik). Settlement pattern favors dispersed agrarian hamlets on terraced hillsides above the coast rather than compact fortified Venetian town cores, with stone houses, dry-stone terracing, and olive/vine cultivation as the dominant land use.",
+  "category": "settlement-pattern",
   "cell": "srsfctz",
   "created": 1786624288.8865104,
   "entities": [
     "dubrovnik-riviera",
     "republic-of-ragusa"
   ],
+  "heading": null,
   "id": "atm_ca62fa29fa29",
   "lang": "en",
   "lat": 42.7038049,
@@ -50,7 +52,7 @@
     "settlement-pattern"
   ],
   "title": "Ragusan (Dubrovnik Republic) littoral cultural sphere",
-  "updated": 1786627515.4499075,
+  "updated": 1788506020.909763,
   "uses": 2
 }
 ---

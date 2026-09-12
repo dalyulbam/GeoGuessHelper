@@ -1,6 +1,7 @@
 ---
 {
   "body": "Budapest's built environment is dominated by grand 19th-century (Habsburg/Austro-Hungarian era) architecture, including the neo-Gothic Parliament, Buda Castle, Fisherman's Bastion, Matthias Church, and St. Stephen's Basilica. The Danube panorama, Buda Castle Quarter, and Andrássy Avenue are UNESCO World Heritage sites. Vajdahunyad Castle in City Park is an eclectic 1896 pastiche of Hungarian architectural styles.",
+  "category": "civic-building",
   "cell": "u2mw3kn",
   "created": 1786295091.1165373,
   "entities": [
@@ -8,6 +9,7 @@
     "budapest",
     "vajdahunyad-castle"
   ],
+  "heading": null,
   "id": "atm_c65d1dbc1ab1",
   "lang": "en",
   "lat": 47.5271214,
@@ -42,7 +44,7 @@
     "unesco"
   ],
   "title": "Habsburg-era grandeur and UNESCO Danube cityscape of Budapest",
-  "updated": 1786295091.116729,
+  "updated": 1788506020.8283775,
   "uses": 1
 }
 ---

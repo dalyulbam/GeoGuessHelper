@@ -1,12 +1,14 @@
 ---
 {
   "body": "The Marmara region east of Istanbul (Kocaeli/İzmit, Gebze, Yalova, Bursa corridor) is characterized by narrow coastal plains hugging long bays backed by immediately rising hills, humid mixed evergreen-deciduous forest even in winter, and large-scale industrial/logistics infrastructure. This distinguishes it from the treeless steppe plateau of Central Anatolia, the tea/hazelnut terraced slopes of the Black Sea region, and the palm/citrus tourist coastline of the Mediterranean/Aegean.",
+  "category": "landform",
   "cell": "sxjrck3",
   "created": 1786673426.0888138,
   "entities": [
     "marmara-region",
     "turkey"
   ],
+  "heading": null,
   "id": "atm_fc22ca49a31d",
   "lang": "en",
   "lat": 40.7614517,
@@ -40,7 +42,7 @@
     "turkey"
   ],
   "title": "Marmara region coastal-industrial corridor east of Istanbul",
-  "updated": 1786673426.0889754,
+  "updated": 1788506031.2793946,
   "uses": 1
 }
 ---

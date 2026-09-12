@@ -1,6 +1,6 @@
 # 엔티티 · italy
 
-원자 12개 · 이 엔티티를 다룬 보고서 1건
+원자 13개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_1836cc39ec5e]] **Regional tavern-naming markers across Mediterranean and Balkan cuisines** (culture/global)
@@ -12,9 +12,11 @@
 - [[atm_9590fe7cadd2]] **Global pattern of shrinking industrial regional cities** (economy/global)
 - [[atm_96f35fc5636b]] **Southern Italy and immigrant-driven demographic cushioning** (economy/country)
 - [[atm_9fe5ccb4b404]] **Local opposition and environmental pushback against pipeline megaprojects** (economy/global)
+- [[atm_ad6ef340394d]] **Spanish 'Salida' vs Portuguese/French/Italian exit signage terms** (language/country)
 - [[atm_d77af7df6d03]] **Vienna Convention harmonization versus persistent national signage variants** (architecture/global)
 - [[atm_dddae32137b0]] **Italian road/parking signage conventions (SS roads, O-24 sub-signs)** (architecture/country)
 - [[atm_fcd1da2c1009]] **Company-form suffixes as national linguistic fingerprints** (language/global)
 
 ## 보고서
+- `report_es_madrid-ifema_38.5714_-7.9135_260904_162146_ko.html`
 - `report_it_arona_45.7636_8.552_260814_110552_ko.html`

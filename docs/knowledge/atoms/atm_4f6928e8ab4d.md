@@ -1,11 +1,13 @@
 ---
 {
   "body": "Turkish urban toponymy typically layers secular Republican-era street names (e.g., Atatürk Bulvarı, İnönü Caddesi, honoring republic founders) alongside older Ottoman-era religious landmarks (mosques like 'Camii'), reflecting the coexistence of secular nation-state identity and Islamic heritage in city planning and naming conventions.",
+  "category": "toponymy",
   "cell": "sxjrck3",
   "created": 1786673426.1182168,
   "entities": [
     "turkey"
   ],
+  "heading": null,
   "id": "atm_4f6928e8ab4d",
   "lang": "en",
   "lat": 40.7614517,
@@ -39,7 +41,7 @@
     "turkey"
   ],
   "title": "Republican-era secular street naming alongside Ottoman/Islamic landmarks in Turkish cities",
-  "updated": 1786673426.1183443,
+  "updated": 1788505995.4023702,
   "uses": 1
 }
 ---

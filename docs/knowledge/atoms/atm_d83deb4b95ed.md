@@ -1,12 +1,14 @@
 ---
 {
   "body": "Central American countries use a shared CA-route numbering system (e.g. CA-9 linking Guatemala City to Puerto Barrios) marked with green destination signs and route shields, distinct from national numbering schemes like Mexico's federal highway system. Route destination signs naming the capital or major port cities, combined with country-specific phone number formats and .gov/.com national domain suffixes, are reliable discriminators between neighboring Central American countries.",
+  "category": "road-signage",
   "cell": "d4bb4ty",
   "created": 1786908287.3969257,
   "entities": [
     "central-america",
     "guatemala"
   ],
+  "heading": null,
   "id": "atm_d83deb4b95ed",
   "lang": "en",
   "lat": 15.5008524,
@@ -40,7 +42,7 @@
     "route-numbering"
   ],
   "title": "CA (Central American) highway route numbering and signage system",
-  "updated": 1786908287.3970714,
+  "updated": 1788506021.2923615,
   "uses": 1
 }
 ---

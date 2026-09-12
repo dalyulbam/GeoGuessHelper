@@ -1,6 +1,7 @@
 ---
 {
   "body": "Small Icelandic coastal municipalities (population a few hundred to ~1000) historically built wealth on fisheries and fish-processing tied to rich adjacent fishing grounds, reflected in early prosperous housing styles. Since roughly the 2000s-2010s, tourism (driven by social media exposure, film/TV location fame, and Iceland's broader tourism boom) has grown rapidly to rival or surpass fishing as an economic driver, though most tourism businesses remain small and highly seasonal (summer-dependent). Population in such towns tends to stagnate or grow slightly rather than decline, unlike many rural areas, partly due to this tourism cushion.",
+  "category": "tourism-economy",
   "cell": "g7x9x69",
   "created": 1786673692.7772558,
   "entities": [
@@ -8,6 +9,7 @@
     "iceland",
     "stykkisholmur"
   ],
+  "heading": null,
   "id": "atm_9d42b1e8cd15",
   "lang": "en",
   "lat": 64.96599,
@@ -41,7 +43,7 @@
     "tourism-transition"
   ],
   "title": "Icelandic fishing-village economy transitioning toward tourism",
-  "updated": 1786673692.7774594,
+  "updated": 1788506009.8748498,
   "uses": 1
 }
 ---

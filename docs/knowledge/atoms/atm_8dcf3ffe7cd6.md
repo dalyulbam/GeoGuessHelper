@@ -1,12 +1,14 @@
 ---
 {
   "body": "Although Russia drives on the right, right-hand-drive used Japanese imports are extremely common in Siberia and the Russian Far East due to proximity to Japan and cheap secondhand vehicle supply. This produces a visible mix of RHD and LHD cars on the roads.",
+  "category": "vehicle-fleet",
   "cell": "vc7x8jq",
   "created": 1786289140.6588511,
   "entities": [
     "russia",
     "siberia"
   ],
+  "heading": null,
   "id": "atm_8dcf3ffe7cd6",
   "lang": "en",
   "lat": 53.3792627,
@@ -40,7 +42,7 @@
     "siberia"
   ],
   "title": "Right-hand-drive Japanese imports common in Siberia",
-  "updated": 1786289140.659278,
+  "updated": 1788506008.8834343,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Rural Yucatán Peninsula housing has two contrasting types: traditional Maya villages retain oval/apsidal thatched-roof 'na' houses with whitewashed walls and Maya-language shop signage, while newer, migrant-settled or ejido colonization villages show uniform flat-roofed concrete-block houses (white walls with a painted red/orange band, wrought-iron window grilles, low painted-column fences) and grid-planned layouts, signaling a more mestizo, planned-settlement character rather than deep indigenous continuity.",
+  "category": "housing-typology",
   "cell": "9gr3utj",
   "created": 1786716838.4596353,
   "entities": [
     "maya-civilization",
     "yucatan-peninsula"
   ],
+  "heading": null,
   "id": "atm_fb1c88a99dbf",
   "lang": "en",
   "lat": 18.6175538,
@@ -40,7 +42,7 @@
     "yucatan-peninsula"
   ],
   "title": "Standard rural Yucatán Peninsula house type: flat-roof block house vs. traditional Maya 'na'",
-  "updated": 1786716838.4597354,
+  "updated": 1788506031.1452298,
   "uses": 1
 }
 ---

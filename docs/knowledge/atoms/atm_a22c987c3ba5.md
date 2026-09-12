@@ -1,11 +1,13 @@
 ---
 {
   "body": "In Romanian towns with high-value view plots (e.g., hillside strips above historic centers), it is common to see renovated modern villas with wrought-iron balconies and stone/andesite plinths sitting directly beside derelict interwar houses with collapsed roofs — a visible symptom of unresolved post-1989 property restitution or heirship disputes rather than economic decline per se.",
+  "category": "real-estate",
   "cell": "u845wjw",
   "created": 1787964400.8473988,
   "entities": [
     "romania"
   ],
+  "heading": null,
   "id": "atm_a22c987c3ba5",
   "lang": "en",
   "lat": 45.6461945,
@@ -39,7 +41,7 @@
     "vernacular-housing"
   ],
   "title": "Post-socialist restitution property polarization in Romanian hillside districts",
-  "updated": 1787964400.8475049,
+  "updated": 1788506010.1350932,
   "uses": 1
 }
 ---

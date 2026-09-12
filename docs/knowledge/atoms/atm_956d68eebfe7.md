@@ -1,12 +1,14 @@
 ---
 {
   "body": "Small towns in the former eastern German provinces (Pomerania, Neumark, Brandenburg borderlands) display a characteristic late-19th/early-20th century Prussian townscape: steep-pitched clay tile roofs, red brick facades with contrasting yellow brick banding/trim, and Fachwerk (half-timbered) decorative gables on public and residential buildings. This architectural stock persists largely intact in many present-day western Polish towns despite the 1945 change in national sovereignty and population.",
+  "category": "roof-facade",
   "cell": "u36t47h",
   "created": 1786717884.600537,
   "entities": [
     "pomerania",
     "prussia"
   ],
+  "heading": null,
   "id": "atm_956d68eebfe7",
   "lang": "en",
   "lat": 52.9267102,
@@ -40,7 +42,7 @@
     "prussian-architecture"
   ],
   "title": "Prussian-era small-town brick architecture in former eastern German lands",
-  "updated": 1786717884.6007059,
+  "updated": 1788506009.3561947,
   "uses": 1
 }
 ---

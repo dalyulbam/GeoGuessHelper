@@ -1,6 +1,7 @@
 ---
 {
   "body": "Villages on Peninsular Malaysia's east coast can administratively belong to one district (e.g. Kuantan) while their actual daily commerce, transport, and social life gravitate toward a closer neighboring town across a state border (e.g. Bandar Chukai in Kemaman, Terengganu), due to travel-time asymmetries along the Federal Route 3 corridor. This pattern of administrative boundary vs. functional catchment divergence is common in linear coastal settlement corridors.",
+  "category": "settlement-pattern",
   "cell": "w29x2w0",
   "created": 1786672732.032005,
   "entities": [
@@ -9,6 +10,7 @@
     "kuantan",
     "pahang"
   ],
+  "heading": null,
   "id": "atm_371fbba51c79",
   "lang": "en",
   "lat": 4.1205809,
@@ -42,7 +44,7 @@
     "settlement-pattern"
   ],
   "title": "Administrative-district vs. daily-life catchment mismatch on Malaysia's east coast",
-  "updated": 1786672732.0322797,
+  "updated": 1788505986.475466,
   "uses": 1
 }
 ---

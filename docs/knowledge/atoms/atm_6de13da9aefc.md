@@ -1,12 +1,14 @@
 ---
 {
   "body": "The Dingač Winegrowers' Cooperative, founded in the early 20th century (1902/1937), historically pooled grapes from smallholder households on the steep Dingač and Postup slopes, peaking at around 550 member households. Following Yugoslav-era privatization in the early 1990s, membership declined to roughly 330 households sharing about 293 hectares of vineyard, with the Dingač appellation itself covering only ~42.65 ha and Postup ~28.59 ha. This reflects a broader post-socialist shift from large agricultural cooperatives toward smaller independent family wineries and agritourism income.",
+  "category": "agriculture",
   "cell": "srskkfj",
   "created": 1786623790.892846,
   "entities": [
     "dingac",
     "peljesac-peninsula"
   ],
+  "heading": null,
   "id": "atm_6de13da9aefc",
   "lang": "en",
   "lat": 42.9468687,
@@ -41,7 +43,7 @@
     "viticulture"
   ],
   "title": "Cooperative winery model on Pelješac: Vinarija Dingač",
-  "updated": 1786623790.8930697,
+  "updated": 1788505996.8801866,
   "uses": 1
 }
 ---

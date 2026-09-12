@@ -1,11 +1,13 @@
 ---
 {
   "body": "Mljet island is traditionally associated in local lore and tourism narrative with the Homeric legend of Ogygia, the island where the nymph Calypso held Odysseus captive for years. This kind of Odyssean mythic-geography claim recurs at multiple sites around the Mediterranean (including parts of Croatia and the Ionian islands), each locally asserting itself as the 'true' Ogygia or Ithaca.",
+  "category": "memory-monument",
   "cell": "srs76v3",
   "created": 1786624054.1177752,
   "entities": [
     "mljet"
   ],
+  "heading": null,
   "id": "atm_fc3ea847867d",
   "lang": "en",
   "lat": 42.788239,
@@ -40,7 +42,7 @@
     "ogygia"
   ],
   "title": "Mljet identified with Homeric Ogygia / Calypso myth",
-  "updated": 1786624054.1178868,
+  "updated": 1788506031.3083692,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Wascana Lake is an entirely artificial lake in central Regina, Saskatchewan, containing Willow Island and Goose Island and ringed by the Saskatchewan Legislative Building, Royal Saskatchewan Museum, and Saskatchewan Science Centre. Its presence, combined with provincial-institution naming, is a unique metro-area discriminator distinguishing Regina from Saskatoon (South Saskatchewan River), Winnipeg (Red/Assiniboine confluence), and Calgary/Edmonton (river valleys with quadrant addressing).",
+  "category": "landform",
   "cell": "c8vwgv1",
   "created": 1787960139.6958792,
   "entities": [
     "regina",
     "wascana-lake"
   ],
+  "heading": null,
   "id": "atm_f93a956e3f2f",
   "lang": "en",
   "lat": 50.4337107,
@@ -40,7 +42,7 @@
     "wascana-lake"
   ],
   "title": "Wascana Centre / Wascana Lake as Regina's identifying landmark",
-  "updated": 1787960139.6961713,
+  "updated": 1788506031.0842693,
   "uses": 1
 }
 ---

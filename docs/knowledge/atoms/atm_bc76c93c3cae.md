@@ -1,11 +1,13 @@
 ---
 {
   "body": "Switzerland's federal structure gives each canton its own legislature, commonly called the 'Kantonsrat' (cantonal council), an institution distinctive to Switzerland (and structurally similar to Liechtenstein's Landtag, though named differently). Swiss political parties often campaign with canton-specific branding, such as 'FDP Die Liberalen' plus a canton name, reflecting frequent, hyper-local cantonal elections and Switzerland's tradition of militia democracy.",
+  "category": "politics-civic",
   "cell": "u0qh3ck",
   "created": 1787964651.1322792,
   "entities": [
     "switzerland"
   ],
+  "heading": null,
   "id": "atm_bc76c93c3cae",
   "lang": "en",
   "lat": 47.1610331,
@@ -40,7 +42,7 @@
     "switzerland"
   ],
   "title": "Swiss cantonal political institutions: Kantonsrat and party branding",
-  "updated": 1787964651.1324341,
+  "updated": 1788506020.5269413,
   "uses": 1
 }
 ---

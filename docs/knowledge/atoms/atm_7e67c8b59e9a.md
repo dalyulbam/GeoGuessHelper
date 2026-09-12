@@ -1,12 +1,14 @@
 ---
 {
   "body": "Southern Dalmatia's Dubrovnik littoral is characterized by a steep, bare limestone (Dinaric karst) escarpment rising directly behind a narrow coastal strip, with maquis, Aleppo pine and cypress vegetation and no deciduous forest. This is visually distinct from gentler terra-rossa hill terrain of Istria–Kvarner or the lower-relief estuary crossings of central Dalmatia (Split/Šibenik).",
+  "category": "landform",
   "cell": "srsfeq5",
   "created": 1786630709.7008266,
   "entities": [
     "dalmatia",
     "dinaric-alps"
   ],
+  "heading": null,
   "id": "atm_7e67c8b59e9a",
   "lang": "en",
   "lat": 42.6607928,
@@ -40,7 +42,7 @@
     "maquis"
   ],
   "title": "Dinaric karst coastal profile: abrupt limestone wall behind narrow littoral strip",
-  "updated": 1786630709.701257,
+  "updated": 1788506008.1101034,
   "uses": 1
 }
 ---
