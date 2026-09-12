@@ -35,6 +35,7 @@
 from __future__ import annotations
 
 import asyncio
+import contextvars
 import json
 import re
 import socket
@@ -50,7 +51,7 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Streamin
 from fastapi.staticfiles import StaticFiles
 
 from . import capture as capture_mod
-from . import cleanup, i18n, jobs, knowledge, linkresolver, streetview, translate
+from . import cleanup, i18n, jobs, knowledge, linkresolver, llm, streetview, tenancy, translate
 from . import report as report_mod
 from . import research as research_mod
 from .analyze import analyze_captures
@@ -64,6 +65,10 @@ WEBUI_DIR = Path(__file__).parent / "webui"
 _POOL: ThreadPoolExecutor | None = None
 _CAPTURE_SEM: asyncio.Semaphore | None = None
 _QUEUE: jobs.JobQueue | None = None
+
+# 이 요청의 주인. 라우트 시그니처를 전부 고치지 않고 _submit 이 읽을 수 있게 한다
+# (미들웨어가 설정하고, 요청이 끝나면 되돌린다).
+_CURRENT_USER_ID: contextvars.ContextVar[str] = contextvars.ContextVar("ggh_user", default="")
 
 
 def _norm_langs(value) -> list[str]:
@@ -620,8 +625,41 @@ def build_app(settings: Settings) -> FastAPI:
         history=settings.job_history,
         log_path=settings.jobs_dir / "jobs.jsonl",
     )
+    def _tenant_handler(kind: str, base_fn):
+        """잡을 **그 회원의 것으로** 돌린다 — 저장소도 키도 그 사람 것이다.
+
+        핸들러 본문은 한 줄도 고치지 않는다. `_make_handlers` 를 그 회원용 Settings 로
+        다시 만들어 주면(클로저 생성은 싸다) 안에서 쓰는 settings 가 통째로 갈린다.
+        """
+        async def run(job):
+            owner = str((job.payload or {}).get("_owner") or "")
+            if not (settings.multi_user and owner):
+                return await base_fn(job)
+            from . import db as _db
+            from . import webapi as _webapi
+
+            us = tenancy.settings_for_user(settings, owner)
+            tenancy.hydrate(settings, owner)
+            with _db.session_for(settings) as s:
+                user = s.get(_db.User, owner)
+            plan = getattr(user, "plan", "free")
+            creds = _webapi.credentials_for(settings, user) if user is not None else None
+            token = llm.set_credentials(creds) if creds is not None else None
+            try:
+                return await _make_handlers(us)[kind](job)
+            finally:
+                if token is not None:
+                    llm.reset_credentials(token)
+                # 이 잡이 만든 원자를 DB 로 올린다(write-through). 무료 회원은 상한에서
+                # 멈추고, 멈춘 사실은 sync_atoms 의 반환값에 남는다.
+                try:
+                    tenancy.sync_atoms(settings, owner, plan=plan)
+                except Exception:  # noqa: BLE001 — 적재 실패가 보고서를 실패로 만들지 않는다
+                    pass
+        return run
+
     for kind, fn in _make_handlers(settings).items():
-        _QUEUE.register(kind, fn)
+        _QUEUE.register(kind, _tenant_handler(kind, fn) if settings.multi_user else fn)
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -639,6 +677,40 @@ def build_app(settings: Settings) -> FastAPI:
             llm.close_client()
 
     app = FastAPI(title="GeoGuessHelper", version=__version__, lifespan=lifespan)
+
+    # ── 다중 사용자 ──────────────────────────────────────────────
+    # DATABASE_URL 이 없으면 이 블록은 통째로 지나간다 — 로컬 단독 소유자 모드는
+    # 이 코드를 한 줄도 실행하지 않는다.
+    if settings.multi_user:
+        from . import webapi
+
+        app.include_router(webapi.build_router(settings))
+
+        @app.middleware("http")
+        async def _tenant(request: Request, call_next):
+            """이 요청을 **누구의 것으로** 처리할지 한 곳에서 정한다.
+
+            여기서 하지 않으면 라우트마다 사용자를 꺼내 쓰게 되고, 한 곳만 빠뜨리면
+            남의 키로 남의 돈을 쓰거나 남의 원자를 읽는다 — 이 앱에서 가장 나쁜 실패다.
+            """
+            user = webapi.current_user(settings, request)
+            request.state.user = user
+            token = None
+            uid_token = _CURRENT_USER_ID.set(user.id if user is not None else "")
+            if user is not None:
+                creds = webapi.credentials_for(settings, user)
+                if creds is not None:
+                    token = llm.set_credentials(creds)
+                try:
+                    tenancy.hydrate(settings, user.id)     # DB → 파일 복원(회원마다 1회)
+                except Exception:  # noqa: BLE001 — 복원 실패가 요청을 막지 않는다
+                    pass
+            try:
+                return await call_next(request)
+            finally:
+                if token is not None:
+                    llm.reset_credentials(token)
+                _CURRENT_USER_ID.reset(uid_token)
 
     @app.get("/")
     async def index():
@@ -859,6 +931,11 @@ def build_app(settings: Settings) -> FastAPI:
     # ── 작업 큐 ─────────────────────────────────────────────────
     def _submit(kind: str, payload: dict, label: str):
         assert _QUEUE is not None
+        # 이 잡이 누구의 것인지 **id 만** 새긴다. 키를 payload 에 넣으면 jobs.jsonl 에
+        # 평문으로 남는다 — 잡 시작 시 DB 에서 다시 푼다(_tenant_handler).
+        owner = _CURRENT_USER_ID.get()
+        if owner:
+            payload = {**payload, "_owner": owner}
         return _QUEUE.submit(kind, payload, label=label, client_key=str(payload.get("clientKey") or ""))
 
     @app.post("/api/jobs/report")
@@ -1188,7 +1265,13 @@ def main() -> None:
     neutralize_keylog()
     tls_mode = decide_tls()
     settings = load_settings()
-    settings.port = _find_free_port(settings.port, settings.host)
+    # PaaS 가 준 포트는 **협상 대상이 아니다** — 비었는지 확인하고 옮기는 것은 로컬에서
+    # 8799 가 이미 물려 있을 때의 편의일 뿐이고, 컨테이너에서 포트를 옮기면 라우터가
+    # 우리를 영영 못 찾는다.
+    import os as _os
+
+    if not _os.environ.get("PORT", "").strip():
+        settings.port = _find_free_port(settings.port, settings.host)
     app = build_app(settings)
 
     url = f"http://localhost:{settings.port}/"
@@ -1217,7 +1300,8 @@ def main() -> None:
 
     import os
 
-    if not os.environ.get("GEOHELPER_NO_BROWSER"):
+    # 서버에서는 열 브라우저가 없다. $PORT 가 있으면 PaaS 로 보고 건너뛴다.
+    if not os.environ.get("GEOHELPER_NO_BROWSER") and not os.environ.get("PORT", "").strip():
         threading.Timer(1.2, lambda: webbrowser.open(url)).start()
     uvicorn.run(app, host=settings.host, port=settings.port, log_level="warning")
 

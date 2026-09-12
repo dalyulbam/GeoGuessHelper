@@ -199,6 +199,25 @@ class Settings:
     knowledge_dir: Path = field(default_factory=lambda: project_root() / "docs" / "knowledge")
     jobs_dir: Path = field(default_factory=lambda: project_root() / "docs" / "jobs")
 
+    # ── 다중 사용자 서버 ──────────────────────────────────────────
+    # 비어 있으면 지금까지처럼 **단독 소유자 모드**다 — 인증도, 사용자별 분리도 없다.
+    # 로컬에서 매일 쓰는 흐름을 깨지 않기 위한 기본값이다.
+    database_url: str = ""               # 있으면 다중 사용자 모드
+    session_secret: str = ""             # 세션 쿠키 서명
+    key_enc_secret: str = ""             # 사용자 API 키 암호화(없으면 키 보관 자체를 거부한다)
+    google_client_id: str = ""
+    google_client_secret: str = ""
+    public_base_url: str = ""            # OAuth 리디렉션에 쓰는 외부 주소
+    admin_emails: list[str] = field(default_factory=list)
+    # 무료 회원이 DB 에 쌓을 수 있는 원자 수. 넘으면 적재를 멈추고 그 사실을 알린다.
+    free_atom_limit: int = 200
+    # 사용자별 데이터가 쌓이는 뿌리(회원별 지식 저장소·캡처).
+    data_dir: Path = field(default_factory=lambda: project_root() / "data")
+
+    @property
+    def multi_user(self) -> bool:
+        return bool(self.database_url)
+
     # ── 파생 플래그 (프론트로 내려보내는 안전 요약) ──────────────────
     @property
     def has_js_key(self) -> bool:
@@ -255,17 +274,46 @@ def load_settings() -> Settings:
     s.js_api_key = os.environ.get("GOOGLE_MAPS_JS_API_KEY", "").strip()
     s.static_api_key = os.environ.get("GOOGLE_MAPS_STATIC_KEY", "").strip()
     s.anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
-    if os.environ.get("GEOHELPER_PORT"):
-        try:
-            s.port = int(os.environ["GEOHELPER_PORT"])
-        except ValueError:
-            pass
+    # 포트 — PaaS(Railway·Render·Fly…)는 $PORT 로 알려 주고 그 포트로만 트래픽을 보낸다.
+    # GEOHELPER_PORT 가 더 구체적이므로 우선한다.
+    for env in ("GEOHELPER_PORT", "PORT"):
+        raw = os.environ.get(env, "").strip()
+        if raw:
+            try:
+                s.port = int(raw)
+                break
+            except ValueError:
+                continue
+    # 호스트 — 컨테이너 안에서 127.0.0.1 에 묶으면 **밖에서 도달할 수 없다**(헬스체크 실패).
+    # $PORT 가 있다는 것은 곧 PaaS 라는 뜻이므로 0.0.0.0 으로 연다. 로컬 기본은 그대로
+    # 127.0.0.1 이다 — 개인 도구가 실수로 LAN 에 열리는 일이 없어야 한다.
+    s.host = os.environ.get("GEOHELPER_HOST", "").strip() or (
+        "0.0.0.0" if os.environ.get("PORT", "").strip() else s.host  # noqa: S104
+    )
     if os.environ.get("GEOHELPER_REPORT_LANG"):
         s.report_lang = os.environ["GEOHELPER_REPORT_LANG"].strip()
     if os.environ.get("GEOHELPER_CAPTURES"):
         s.captures_dir = Path(os.environ["GEOHELPER_CAPTURES"])
     if os.environ.get("GEOHELPER_KNOWLEDGE"):
         s.knowledge_dir = Path(os.environ["GEOHELPER_KNOWLEDGE"])
+    if os.environ.get("GEOHELPER_DATA_DIR"):
+        s.data_dir = Path(os.environ["GEOHELPER_DATA_DIR"])
+    # Railway 등은 DATABASE_URL 을 자동 주입한다. postgres:// 는 SQLAlchemy 가 모르는
+    # 옛 스킴이라 여기서 한 번만 바로잡는다.
+    db = os.environ.get("DATABASE_URL", "").strip()
+    if db.startswith("postgres://"):
+        db = "postgresql+psycopg://" + db[len("postgres://"):]
+    elif db.startswith("postgresql://"):
+        db = "postgresql+psycopg://" + db[len("postgresql://"):]
+    s.database_url = db
+    s.session_secret = os.environ.get("GEOHELPER_SESSION_SECRET", "").strip()
+    s.key_enc_secret = os.environ.get("GEOHELPER_KEY_SECRET", "").strip()
+    s.google_client_id = os.environ.get("GOOGLE_OAUTH_CLIENT_ID", "").strip()
+    s.google_client_secret = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET", "").strip()
+    s.public_base_url = os.environ.get("GEOHELPER_PUBLIC_URL", "").strip().rstrip("/")
+    s.admin_emails = [e.strip().lower() for e in
+                      os.environ.get("GEOHELPER_ADMIN_EMAILS", "").split(",") if e.strip()]
+    _env_int(s, "GEOHELPER_FREE_ATOM_LIMIT", "free_atom_limit", lo=0, hi=100000)
     _env_int(s, "GEOHELPER_JOB_CONCURRENCY", "job_concurrency", lo=1, hi=8)
     _env_int(s, "GEOHELPER_CAPTURE_CONCURRENCY", "capture_concurrency", lo=1, hi=4)
     _env_int(s, "GEOHELPER_WEB_SEARCH_MAX", "web_search_max_uses", lo=0, hi=10)

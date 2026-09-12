@@ -21,6 +21,46 @@
     <button id="btn-paste" class="icon" title="클립보드에서 붙여넣기">📋</button>
     <button id="btn-extract" class="primary">추출</button>
   </div>
+  <!-- 계정·내 키. 단독 소유자 모드(서버에 DATABASE_URL 없음)에서는 app.js 가 통째로 숨긴다. -->
+  <details id="acct-menu" class="lang-menu" hidden>
+    <summary id="acct-summary" title="계정과 API 키">👤 <b id="acct-label">로그인</b> <span class="caret">▾</span></summary>
+    <div class="lang-pop acct-pop">
+      <div id="acct-anon">
+        <div class="lang-pop-h">로그인 / 가입</div>
+        <a id="btn-google" class="gbtn" href="/api/auth/google/start" hidden>Google 계정으로 계속하기</a>
+        <input id="acct-email" type="email" autocomplete="email" placeholder="이메일">
+        <input id="acct-pw" type="password" autocomplete="current-password" placeholder="비밀번호 (8자 이상)">
+        <div class="acct-row">
+          <button id="btn-login" class="primary">로그인</button>
+          <button id="btn-signup">가입</button>
+        </div>
+        <div class="lang-base-hint">가입하면 나만의 지식 저장소가 생깁니다.</div>
+      </div>
+
+      <div id="acct-user" hidden>
+        <div class="lang-pop-h"><span id="acct-email-shown"></span> <span id="acct-plan" class="plan-chip"></span></div>
+
+        <div class="lang-pop-h" style="margin-top:10px">내 API 키</div>
+        <div id="key-list" class="key-list"></div>
+        <input id="key-input" type="password" autocomplete="off" spellcheck="false"
+               placeholder="sk-ant-… (Claude) 또는 sk-… (ChatGPT)">
+        <div class="acct-row">
+          <button id="btn-key-save" class="primary">키 저장</button>
+        </div>
+        <div class="lang-base-hint">
+          키는 <b>암호화해서</b> 보관하고 화면·로그에는 끝 네 자리만 보입니다.
+          이 키로 회원님 계정에 요금이 청구됩니다.
+        </div>
+
+        <div class="lang-pop-h" style="margin-top:10px">내 지식 저장소</div>
+        <div id="acct-usage" class="lang-base-hint"></div>
+        <div class="acct-row">
+          <a id="btn-export" href="/api/my/knowledge/export">원자 내려받기</a>
+          <button id="btn-logout">로그아웃</button>
+        </div>
+      </div>
+    </div>
+  </details>
   <details id="lang-menu" class="lang-menu">
     <summary title="분석/보고서 출력 언어 (여러 개 선택 가능)">🌐 보고서 언어: <b id="lang-summary">한국어</b> <span class="caret">▾</span></summary>
     <div class="lang-pop">

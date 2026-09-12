@@ -1969,3 +1969,119 @@ function setStatus(msg, kind = "", ms = 3000) {
 }
 
 boot();
+
+/* ── 계정 · 내 API 키 ────────────────────────────────────────────────────────
+ *
+ *  단독 소유자 모드(서버에 DATABASE_URL 없음)에서는 /api/me 가 multiUser:false 를
+ *  돌려주고, 이 블록은 메뉴를 숨긴 채 아무 일도 하지 않는다 — 로컬에서 매일 쓰는
+ *  흐름이 이 기능 때문에 달라지면 안 된다.
+ *
+ *  키는 절대 화면에 되돌려 받지 않는다. 서버가 주는 것은 마스킹된 hint 뿐이다.
+ */
+let ACCOUNT = null;
+
+async function refreshAccount() {
+  const menu = $("#acct-menu");
+  if (!menu) return;
+  let me;
+  try {
+    me = await api("/api/me", { timeoutMs: 15000 });
+  } catch (e) {
+    menu.hidden = true;
+    return;
+  }
+  ACCOUNT = me;
+  if (!me.multiUser) { menu.hidden = true; return; }   // 단독 소유자 모드
+  menu.hidden = false;
+
+  const g = $("#btn-google");
+  if (g) g.hidden = !me.googleEnabled;
+
+  const anon = $("#acct-anon"), user = $("#acct-user");
+  if (!me.authenticated) {
+    anon.hidden = false; user.hidden = true;
+    $("#acct-label").textContent = "로그인";
+    return;
+  }
+  anon.hidden = true; user.hidden = false;
+  $("#acct-label").textContent = me.user.name;
+  $("#acct-email-shown").textContent = me.user.email;
+  const plan = $("#acct-plan");
+  plan.textContent = me.user.isPro ? "PRO" : "FREE";
+  plan.className = "plan-chip" + (me.user.isPro ? "" : " free");
+
+  // 키 목록 — hint 만 온다.
+  const list = $("#key-list");
+  list.innerHTML = (me.keys || []).length
+    ? me.keys.map((k) => `<div class="key-row"><span>${esc(k.label)}</span>`
+        + `<span class="k-hint">${esc(k.hint)}</span>`
+        + `<button data-provider="${esc(k.provider)}">삭제</button></div>`).join("")
+    : `<div class="lang-base-hint">아직 키가 없습니다. 넣어야 분석·보고서가 동작합니다.</div>`;
+  list.querySelectorAll("button[data-provider]").forEach((b) => {
+    b.addEventListener("click", async () => {
+      try {
+        await api("/api/keys/" + encodeURIComponent(b.dataset.provider),
+                  { method: "DELETE", timeoutMs: 15000 });
+        setStatus("키를 삭제했습니다", "ok");
+        refreshAccount();
+      } catch (e) { setStatus("키 삭제 실패: " + e.message, "err", 6000); }
+    });
+  });
+
+  const u = me.usage || {};
+  $("#acct-usage").innerHTML = u.limit == null
+    ? `원자 <b>${u.atoms || 0}</b>개 · 무제한`
+    : `원자 <b>${u.atoms || 0}</b> / ${u.limit}개`
+      + (u.atoms >= u.limit
+          ? ` — <b>상한에 도달했습니다.</b> 새 원자는 저장되지 않습니다.` : "");
+
+  if (!me.keyStorage) {
+    setStatus("서버에 키 암호화 비밀(GEOHELPER_KEY_SECRET)이 없어 키를 보관할 수 없습니다.",
+              "err", 10000);
+  }
+}
+
+function wireAccount() {
+  const on = (sel, fn) => { const el = $(sel); if (el) el.addEventListener("click", fn); };
+
+  async function post(path, body, okMsg) {
+    try {
+      await api(path, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body), timeoutMs: 20000,
+      });
+      setStatus(okMsg, "ok");
+      await refreshAccount();
+      return true;
+    } catch (e) {
+      setStatus(e.message, "err", 8000);
+      return false;
+    }
+  }
+
+  on("#btn-login", () => post("/api/auth/login",
+      { email: $("#acct-email").value, password: $("#acct-pw").value }, "로그인했습니다"));
+  on("#btn-signup", () => post("/api/auth/signup",
+      { email: $("#acct-email").value, password: $("#acct-pw").value }, "가입했습니다"));
+  on("#btn-logout", () => post("/api/auth/logout", {}, "로그아웃했습니다"));
+  on("#btn-key-save", async () => {
+    const el = $("#key-input");
+    const key = (el.value || "").trim();
+    if (!key) { setStatus("키를 입력하세요", "err"); return; }
+    if (await post("/api/keys", { key }, "키를 저장했습니다")) el.value = "";
+  });
+
+  // 구글 콜백이 실패를 쿼리로 알려 준다 — 조용히 넘기지 않는다.
+  const err = new URLSearchParams(location.search).get("auth_error");
+  if (err) {
+    setStatus("구글 로그인 실패: " + err, "err", 10000);
+    history.replaceState(null, "", location.pathname);
+  }
+  refreshAccount();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", wireAccount, { once: true });
+} else {
+  wireAccount();
+}

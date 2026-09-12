@@ -115,12 +115,12 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
   <h1>보고서 생성·구글맵 로드·화면 캡처를 방해한 것들 — 전수 정리</h1>
   <p class="lede">2026-07-08 기획부터 2026-09-10 캡처 지연 수리까지, 커밋 65건·오류 기록 7건·구현 기록 2건·코드 주석에
   남은 <b>방해 요소 88건</b>을 한 자리에 모았다. 한 건마다 <b>무엇이 막았나 → 증거(실측·출처) → 조치 → 지금 상태</b>를 적고,
-  상태는 HEAD 코드에 대고 다시 확인했다. 이 문서의 목적은 회고가 아니라 <b>아직 남은 5건과 사용자 조치 2건</b>을 정확히 짚는 것이다.</p>
+  상태는 HEAD 코드에 대고 다시 확인했다. 이 문서의 목적은 회고가 아니라 <b>아직 남은 4건과 사용자 조치 2건</b>을 정확히 짚는 것이다.</p>
   <div class="meta">
     <span class="chip ac">방해 요소 88건</span>
     <span class="chip ok">해결 58</span>
-    <span class="chip wn">완화 17</span>
-    <span class="chip dn">미해결 5</span>
+    <span class="chip wn">완화 18</span>
+    <span class="chip dn">미해결 4</span>
     <span class="chip ev">환경(사용자 조치) 2</span>
     <span class="chip ds">설계 제약 6</span>
   </div>
@@ -152,7 +152,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
       <tr><td class="id">I-5</td><td>Avast 실시간 보호가 Chromium <b>종료를 16~66초</b> 잡는다</td><td>풀링으로 캡처 경로에선 제거. 프로세스 종료 시 1회는 남음. 인과는 아직 <b>추정</b> — 대조군 미측정</td><td>환경 (예외 등록)</td><td>5분</td></tr>
       <tr><td class="id">I-2</td><td>Avast TLS 가로채기 → 인증서 검증 실패 → <code>verify=False</code> 폴백</td><td>Anthropic·Google 연결이 검증 없이 나간다(보안)</td><td>환경 (HTTPS 스캐닝 해제 또는 CA 신뢰)</td><td>10분</td></tr>
       <tr><td class="id">C-21</td><td>캡처의 남은 4초 — 하단 지도 <code>tilesloaded</code> 대기(7초 폴백)가 임계경로</td><td>Static <b>이 선택되는 캡처에 한해</b> 사라진다. 와이드 화각·명시적 playwright·보고서 지도는 그대로</td><td>코드</td><td>1시간</td></tr>
-      <tr><td class="id">I-10</td><td>Claude <b>Connection error</b> → 정정 잡 <code>API_ERROR</code>. 다음 <code>run()</code> 에서 대상이 되긴 하지만 <b>재개가 아니라 처음부터</b> 전체 재실행</td><td>09-10 실제 발생 1건($0). SDK 재시도 2회를 다 쓰고도 실패한 것 — 그 뒤 백오프가 없다</td><td>코드</td><td>20분</td></tr>
+      <tr><td class="id">I-10</td><td>Claude <b>Connection error</b> → 정정 잡 <code>API_ERROR</code>. 다음 <code>run()</code> 에서 대상이 되긴 하지만 <b>재개가 아니라 처음부터</b> 전체 재실행</td><td>09-10 실제 발생 1건($0). <b>260912 백오프 추가로 완화</b> — 남은 것은 재시도가 판단 단계를 재사용하지 않아 비용이 두 배라는 점</td><td>코드</td><td>1시간</td></tr>
       <tr><td class="id">C-22</td><td><code>%TEMP%</code> 에 지워지지 못한 Playwright 프로필 <b>47개</b></td><td>디스크 잔여. I-5 의 흔적</td><td>환경/도구</td><td>5분</td></tr>
     </tbody>
   </table></div>
@@ -225,7 +225,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
       <tr><td class="id">I-8</td><td><b>탭 N개 → Chromium N개 → 스레드풀 20슬롯 고갈 → 21번째부터 영원히 대기.</b> 동시성 제어가 프론트의 탭별 불리언뿐이라 새로고침·두 번째 창이면 통째로 우회</td><td><code>jobs.py</code> 머리 주석 · <span class="hash">b8f36d1</span></td><td>서버 작업 큐(순차·멱등·취소·백프레셔·SSE) + 캡처 세마포어(<code>capture_concurrency=1</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
       <tr><td class="id">I-9</td><td><b>실패의 흔적이 사라진다.</b> 260813 밤 배치 9건의 번역 실패가 429 였는지 스트림 마감이었는지 “서버 재시작으로 로그가 남아 있지 않아” 단정 못 함</td><td><code>docs/error/report-missing-korean_260814</code> §3. 지금은 <code>docs/jobs/jobs.jsonl</code> 1개가 있고 인메모리 이력은 200건 상한(<code>jobs.py:132</code>)</td><td>jsonl 은 남는다. 다만 gitignore 라 저장소에는 없고, 이력 상한을 넘으면 메모리에서 밀려난다</td><td class="st"><span class="mit">완화</span></td></tr>
       <tr><td class="id">I-11</td><td><b>SDK 호출이 20분 넘게 끝나지 않았다 — 네트워크가 아니라 요청을 <u>만들다가</u> 멈춘 것이다.</b> anthropic SDK 는 <code>x-stainless-os</code> <b>텔레메트리 헤더 한 줄</b>을 채우려고 <code>platform.system()</code> 을 부르고, 그것이 <code>win32_ver()</code>→<code>_win32_ver()</code>→<code>platform._wmi_query('OS')</code> 로 내려가 이 PC 에서 멈춘다</td><td>260904 실측(스택으로 특정). <b>이것이 R-3 의 잔여 리스크가 실제로 터진 사례다</b> — 스트림이 시작조차 못 했으므로 <code>deadline_s</code>·<code>LLMTimeout</code> 이 걸리지 않았다(벽시계 마감은 스트림을 도는 동안만 잰다). 오래 “httpx 가 느리다”로 오진됐다 — 같은 순간 curl 은 2.4초에 돌아왔는데, curl 은 파이썬 <code>platform</code> 을 안 거치기 때문이다</td><td><code>winquirks.neutralize_wmi()</code> — <code>platform.uname()</code> 캐시가 차기 전에 꺼야 해서 <code>cli.main()</code>·<code>server.main()</code> 맨 앞에서 부른다(<code>server.py:1121</code>). <code>_win32_ver</code> 은 WMI 실패 시 레지스트리·<code>sys.getwindowsversion()</code> 으로 폴백하고 이 PC 값은 정확했다(<code>Windows-11-10.0.26200-SP0</code>). <b>우회 후 순정 httpx 로 2.7초</b> — httpx 는 처음부터 멀쩡했다. 되돌리려면 <code>GEOHELPER_WMI=1</code></td><td class="st"><span class="ok">해결</span></td></tr>
-      <tr><td class="id">I-10</td><td><b>Claude 연결 오류가 잡을 통째로 죽인다.</b> <code>Connection error</code> → 정정 잡 <code>API_ERROR</code>. 다음 <code>run()</code> 에서 <b>대상이 되기는 한다</b>(<code>correction.py:988</code> 은 OK 만 제외) — 그러나 <code>PARTIAL</code> 전용인 <b>재개</b> 경로(<code>_resumable</code>, <code>correction.py:687</code>)를 못 타므로 blind 2패스·정정 호출을 <b>처음부터 다시</b> 돌려 비용을 또 쓴다</td><td>260910 <code>corr_job_737cae606637</code> — “Claude 호출 실패: Connection error.” $0. SDK <code>max_retries=2</code>(<code>llm.py:112</code>)와 <code>_correction_call</code> 의 자체 1회 재시도(<code>correction.py:484-509</code>)는 정정 잡에도 적용된다 — <b>그것을 다 쓰고도 실패한 것</b></td><td><b>260912 해결</b> — <code>run()</code> 이 <code>API_ERROR</code> 를 만나면 5·20·60초 백오프로 그 자리에서 다시 건다(<code>correction.py</code>). 세 번 만에 포기하고 넘어간다 — 한 잡이 배치 전체를 붙잡지 않게</td><td class="st"><span class="open">미해결</span></td></tr>
+      <tr><td class="id">I-10</td><td><b>Claude 연결 오류가 잡을 통째로 죽인다.</b> <code>Connection error</code> → 정정 잡 <code>API_ERROR</code>. 다음 <code>run()</code> 에서 <b>대상이 되기는 한다</b>(<code>correction.py:988</code> 은 OK 만 제외) — 그러나 <code>PARTIAL</code> 전용인 <b>재개</b> 경로(<code>_resumable</code>, <code>correction.py:687</code>)를 못 타므로 blind 2패스·정정 호출을 <b>처음부터 다시</b> 돌려 비용을 또 쓴다</td><td>260910 <code>corr_job_737cae606637</code> — “Claude 호출 실패: Connection error.” $0. SDK <code>max_retries=2</code>(<code>llm.py:112</code>)와 <code>_correction_call</code> 의 자체 1회 재시도(<code>correction.py:484-509</code>)는 정정 잡에도 적용된다 — <b>그것을 다 쓰고도 실패한 것</b></td><td><b>260912 완화</b> — <code>_run_with_backoff()</code> 가 <code>API_ERROR</code> 에 5·20·60초 백오프로 다시 건다. <code>run()</code>(CLI 배치)과 <b><code>run_for_result()</code>(서버가 보고서 뒤 자동 등록하는 경로)</b> 양쪽에 적용한다 — 260910 에 실제로 죽은 것이 후자였다. 비용 상한은 매 시도 직후 확인하고 세 번 만에 포기한다. <b>남은 것</b>: 재시도가 판단 단계를 재사용하지 않는다 — 마지막 정정 호출만 실패해도 blind 2패스를 처음부터 다시 돌려 비용을 또 쓴다. 단계별 체크포인트는 별도 작업이다</td><td class="st"><span class="mit">완화</span></td></tr>
     </tbody>
   </table></div>
   <div class="callout warn"><b>Avast 한 곳에서 네 가지 얼굴.</b> I-1(키로그 주입 → 기동 불가), I-2(TLS 가로채기 → 검증 끔), M-5(웹실드 → googleusercontent 차단 의심), I-5(실시간 스캔 → 종료 지연). 앱은 넷 다 우회했지만, 원인은 하나도 안 없어졌다. HTTPS 스캐닝 해제 한 번이 I-1·I-2 를, 예외 등록(<code>%TEMP%</code>·<code>ms-playwright</code>)이 I-5·C-22 를 없앤다.</div>
@@ -354,7 +354,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
 <!-- ───────────────────────── §6 ───────────────────────── -->
 <section id="s6">
   <h2>6. 아직 남아 있는 것 — 숨기지 않는다</h2>
-  <p class="sec-desc">미해결 5건·환경 2건·완화 17건 중 잔여가 실제로 작동을 방해하는 것만 추렸다. 우선순위는 “지금 사용자가 겪는 빈도 × 고치는 비용”이다.</p>
+  <p class="sec-desc">미해결 4건·환경 2건·완화 18건 중 잔여가 실제로 작동을 방해하는 것만 추렸다. 우선순위는 “지금 사용자가 겪는 빈도 × 고치는 비용”이다.</p>
   <div class="grid g2">
     <div class="card"><h3>사용자가 할 일 (코드로 못 없앤다)</h3><ul>
       <li><b>C-2</b> Google Cloud Console → <b>Street View Static API</b>·<b>Maps Static API</b> 활성화. 키에 리퍼러 제한이 있으면 서버용 키를 <code>GOOGLE_MAPS_STATIC_KEY</code> 로 분리(C-3). Static 이 실제로 선택되는 캡처에 한해 4~5초 → 추정 0.5~2초이고 그 경우 C-21 도 함께 사라진다</li>

@@ -13,10 +13,55 @@ analyze / research / translate / knowledge 가 각자 클라이언트를 만들�
 """
 from __future__ import annotations
 
+import contextvars
 import threading
+from dataclasses import dataclass
 from typing import Any
 
 from .config import Settings
+
+# ── 누구의 키로 부르는가 ─────────────────────────────────────────
+# 다중 사용자 서버에서는 호출마다 주인이 다르다. 그런데 call() 을 부르는 곳이
+# analyze·research·translate·script·knowledge·correction·dialogue 로 흩어져 있어
+# 시그니처에 자격증명을 끼워 넣으면 전부 고쳐야 하고, 한 곳만 빠뜨리면 **남의 키로
+# 남의 돈을 쓰는** 사고가 난다. 그래서 컨텍스트 변수로 흘린다 — asyncio 태스크와
+# asyncio.to_thread 로 그대로 전파되므로 잡 파이프라인 전체가 한 번에 덮인다.
+
+
+@dataclass(frozen=True)
+class Creds:
+    """이 호출에 쓸 제공자와 키. provider 는 "anthropic" | "openai"."""
+    provider: str
+    api_key: str
+    label: str = ""          # 진단용(마스킹된 표시). 평문은 담지 않는다.
+
+
+_creds: contextvars.ContextVar[Creds | None] = contextvars.ContextVar("ggh_creds", default=None)
+
+
+def set_credentials(c: Creds | None):
+    """이 컨텍스트의 자격증명을 바꾼다. 반환 토큰을 reset_credentials 에 넘겨 되돌린다."""
+    return _creds.set(c)
+
+
+def reset_credentials(token) -> None:
+    try:
+        _creds.reset(token)
+    except ValueError:      # 다른 컨텍스트에서 만든 토큰 — 무시해도 안전하다
+        pass
+
+
+def current_credentials(settings: Settings) -> Creds:
+    """지금 쓸 자격증명. 컨텍스트에 없으면 서버 설정(단독 소유자 모드)으로 물러선다."""
+    c = _creds.get()
+    if c is not None and c.api_key:
+        return c
+    if settings.anthropic_api_key:
+        return Creds("anthropic", settings.anthropic_api_key, "server")
+    raise LLMUnavailable(
+        "이 요청에 쓸 API 키가 없습니다. 화면 오른쪽 위 '내 키'에서 Claude 또는 "
+        "ChatGPT 키를 넣어 주세요."
+    )
 
 # claude-opus-4-8 기준 단가 ($/MTok)
 _IN_PER_MTOK = 5.0
@@ -79,50 +124,93 @@ class LLMCanceled(RuntimeError):
     """사용자가 작업을 취소했다 — 진행 중인 스트림을 즉시 끊는다."""
 
 
-def get_client(settings: Settings):
-    """프로세스 전역 Anthropic 클라이언트(키·TLS 모드가 같으면 재사용)."""
-    global _client, _client_key
-    if not settings.has_anthropic:
-        raise LLMUnavailable("ANTHROPIC_API_KEY 가 필요합니다(.env).")
-    try:
-        import anthropic  # type: ignore
-    except ModuleNotFoundError as exc:  # pragma: no cover
-        raise LLMUnavailable("anthropic 미설치 — `uv sync --extra analyze` 후 다시 시도하세요.") from exc
+_clients: dict[tuple, Any] = {}
+
+
+def get_client(settings: Settings, creds: "Creds | None" = None):
+    """이 호출의 제공자 클라이언트. (제공자·키·TLS 모드)가 같으면 재사용한다.
+
+    예전에는 전역 1개였다. 다중 사용자에서는 회원마다 키가 다르므로 키별로 캐시한다 —
+    다만 키 자체를 사전 키로 쓰지 않는다(메모리 덤프에 평문이 남는다). 해시를 쓴다.
+    """
+    import hashlib
 
     import httpx
 
     from .tls import httpx_verify
 
+    c = creds or current_credentials(settings)
     verify = httpx_verify()
-    key = (settings.anthropic_api_key, verify is False)
+    ck = (c.provider, hashlib.sha256(c.api_key.encode("utf-8")).hexdigest(), verify is False)
     with _client_lock:
-        if _client is None or _client_key != key:
-            if _client is not None:
-                try:
-                    _client.close()
-                except Exception:  # noqa: BLE001
-                    pass
-            _client = anthropic.Anthropic(
-                api_key=settings.anthropic_api_key,
-                http_client=httpx.Client(
-                    verify=verify,
-                    timeout=httpx.Timeout(settings.llm_timeout_s, connect=15.0),
-                    limits=httpx.Limits(max_keepalive_connections=4, max_connections=8),
-                ),
-                max_retries=2,
+        got = _clients.get(ck)
+        if got is not None:
+            return got
+        http = httpx.Client(
+            verify=verify,
+            timeout=httpx.Timeout(settings.llm_timeout_s, connect=15.0),
+            limits=httpx.Limits(max_keepalive_connections=4, max_connections=8),
+        )
+        if c.provider == "openai":
+            try:
+                import openai  # type: ignore
+            except ModuleNotFoundError as exc:  # pragma: no cover
+                raise LLMUnavailable(
+                    "openai 미설치 — `uv sync --extra server` 후 다시 시도하세요."
+                ) from exc
+            got = openai.OpenAI(api_key=c.api_key, http_client=http, max_retries=2)
+        else:
+            try:
+                import anthropic  # type: ignore
+            except ModuleNotFoundError as exc:  # pragma: no cover
+                raise LLMUnavailable(
+                    "anthropic 미설치 — `uv sync --extra analyze` 후 다시 시도하세요."
+                ) from exc
+            got = anthropic.Anthropic(api_key=c.api_key, http_client=http, max_retries=2)
+        # 무한히 쌓이지 않게 — 회원이 많아지면 오래된 것부터 버린다.
+        if len(_clients) >= 32:
+            old = next(iter(_clients))
+            try:
+                _clients.pop(old).close()
+            except Exception:  # noqa: BLE001
+                pass
+        _clients[ck] = got
+    return got
+
+
+def verify_key(settings: Settings, provider: str, api_key: str) -> tuple[bool, str]:
+    """키가 실제로 동작하는지 **한 번** 확인한다(값싼 호출).
+
+    저장 전에 확인하는 이유 — 오타 난 키를 받아 두면 그 뒤 모든 보고서가 실패하고,
+    사용자는 왜인지 모른다. 여기서 걸러 그 자리에서 말한다.
+    """
+    c = Creds(provider, api_key)
+    try:
+        client = get_client(settings, c)
+        if provider == "openai":
+            client.models.list()
+        else:
+            client.messages.create(
+                model=settings.model_draft, max_tokens=1,
+                messages=[{"role": "user", "content": "hi"}],
             )
-            _client_key = key
-    return _client
+        return True, ""
+    except Exception as exc:  # noqa: BLE001 — 사유를 그대로 사용자에게 보여 준다
+        msg = str(exc)
+        if "authentication" in msg.lower() or "401" in msg or "invalid_api_key" in msg:
+            return False, "키가 거부됐습니다(인증 실패). 값을 다시 확인해 주세요."
+        return False, f"키 확인에 실패했습니다: {type(exc).__name__}: {msg[:160]}"
 
 
 def close_client() -> None:
     global _client, _client_key
     with _client_lock:
-        if _client is not None:
+        for c in list(_clients.values()):
             try:
-                _client.close()
+                c.close()
             except Exception:  # noqa: BLE001
                 pass
+        _clients.clear()
         _client = None
         _client_key = None
 
@@ -134,6 +222,11 @@ def cost_of(usage, model: str | None = None) -> float:
     """
     if usage is None:
         return 0.0
+    # OpenAI usage 는 필드 이름이 다르다(prompt_tokens/completion_tokens).
+    if getattr(usage, "prompt_tokens", None) is not None:
+        pin, pout = _OPENAI_PRICE.get(model or "", _OPENAI_PRICE["gpt-4o"])
+        return ((getattr(usage, "prompt_tokens", 0) or 0) / 1_000_000 * pin
+                + (getattr(usage, "completion_tokens", 0) or 0) / 1_000_000 * pout)
     pin, pout = _price(model) if model else (_IN_PER_MTOK, _OUT_PER_MTOK)
     inp = getattr(usage, "input_tokens", 0) or 0
     out = getattr(usage, "output_tokens", 0) or 0
@@ -186,7 +279,13 @@ def call(
     반대로 꺼짐), 암묵적으로 놔두면 모델 문자열만 바꿔도 토큰과 동작이 조용히 달라진다.
     `thinking: disabled` 는 effort 가 high 이하일 때만 허용되므로 그 조합도 여기서 막는다.
     """
-    client = get_client(settings)
+    creds = current_credentials(settings)
+    if creds.provider == "openai":
+        return _call_openai(settings, system=system, messages=messages, tools=tools,
+                            tool_choice=tool_choice, max_tokens=max_tokens, role=role,
+                            model=model, deadline_s=deadline_s, should_stop=should_stop,
+                            creds=creds)
+    client = get_client(settings, creds)
     use_model = model or model_for(settings, role)
     kwargs: dict[str, Any] = {
         "model": use_model,
@@ -241,6 +340,95 @@ def call(
         return s.get_final_message()
 
 
+# ── OpenAI 경로 ──────────────────────────────────────────────────
+# 이 앱의 호출은 대부분 "강제 도구 호출로 구조화 출력을 받는다"는 한 가지 모양이다.
+# 그 모양은 OpenAI 의 chat.completions + tools + tool_choice 로 그대로 옮겨진다.
+# 옮겨지지 **않는** 것 하나: Anthropic 의 서버측 web_search 도구다. OpenAI 쪽에 같은
+# 것이 없으므로 리서치는 검색 없이 돌고, research.py 가 그 사실을 보고서에 적는다.
+_OPENAI_MODELS = {
+    "vision": "gpt-4o", "fact": "gpt-4o-mini", "reason": "gpt-4o",
+    "draft": "gpt-4o-mini", "verify": "gpt-4o",
+}
+# gpt-4o 기준 단가 ($/MTok) — 응답의 usage 로 계산한다.
+_OPENAI_PRICE = {"gpt-4o": (2.5, 10.0), "gpt-4o-mini": (0.15, 0.6)}
+
+
+class _OpenAIResponse:
+    """Anthropic 응답처럼 읽히는 얇은 껍데기.
+
+    호출부(analyze·research·translate…)는 `tool_input(resp)`·`text_of(resp)`·`spend(resp)`
+    만 쓴다. 그 셋이 같은 모양이면 호출부를 한 줄도 고치지 않아도 된다.
+    """
+
+    def __init__(self, raw, model: str):
+        self.raw = raw
+        self.model = model
+        self.usage = getattr(raw, "usage", None)
+
+    @property
+    def _msg(self):
+        return self.raw.choices[0].message if self.raw.choices else None
+
+
+def _to_openai_messages(system: str, messages: list[dict]) -> list[dict]:
+    """Anthropic 메시지 → OpenAI 메시지. 이미지 블록도 옮긴다."""
+    out: list[dict] = [{"role": "system", "content": system}] if system else []
+    for m in messages:
+        content = m.get("content")
+        if isinstance(content, str):
+            out.append({"role": m.get("role", "user"), "content": content})
+            continue
+        parts: list[dict] = []
+        for b in content or []:
+            t = b.get("type")
+            if t == "text":
+                parts.append({"type": "text", "text": b.get("text", "")})
+            elif t == "image":
+                src = b.get("source") or {}
+                if src.get("type") == "base64":
+                    url = f"data:{src.get('media_type', 'image/jpeg')};base64,{src.get('data', '')}"
+                    parts.append({"type": "image_url", "image_url": {"url": url}})
+        out.append({"role": m.get("role", "user"), "content": parts or ""})
+    return out
+
+
+def _call_openai(settings: Settings, *, system, messages, tools, tool_choice,
+                 max_tokens, role, model, deadline_s, should_stop, creds):
+    import time as _time
+
+    client = get_client(settings, creds)
+    use_model = model if (model and model.startswith("gpt")) else _OPENAI_MODELS.get(
+        role or "", "gpt-4o")
+    kwargs: dict[str, Any] = {
+        "model": use_model,
+        "max_tokens": max_tokens,
+        "messages": _to_openai_messages(system, messages),
+    }
+    if tools:
+        # Anthropic tool → OpenAI function tool. input_schema 이름만 다르다.
+        kwargs["tools"] = [{"type": "function", "function": {
+            "name": t["name"], "description": t.get("description", ""),
+            "parameters": t.get("input_schema") or {"type": "object", "properties": {}},
+        }} for t in tools if t.get("type") is None or t.get("type") == "custom"]
+        if tool_choice and tool_choice.get("type") == "tool" and tool_choice.get("name"):
+            kwargs["tool_choice"] = {"type": "function",
+                                     "function": {"name": tool_choice["name"]}}
+        elif kwargs["tools"]:
+            kwargs["tool_choice"] = "auto"
+        if not kwargs["tools"]:
+            kwargs.pop("tools", None)
+            kwargs.pop("tool_choice", None)
+    if should_stop is not None and should_stop():
+        raise LLMCanceled("호출이 취소되었습니다.")
+    t0 = _time.monotonic()
+    raw = client.chat.completions.create(**kwargs)
+    # 스트리밍을 쓰지 않으므로 마감은 사후 확인이다 — httpx 타임아웃이 1차 방어선이고,
+    # 여기서는 넘긴 사실을 호출부에 알려 다음 단계를 건너뛰게 한다.
+    if deadline_s and (_time.monotonic() - t0) > deadline_s:
+        raise LLMTimeout(f"{use_model} 호출이 {deadline_s:.0f}초를 넘겼습니다.")
+    return _OpenAIResponse(raw, use_model)
+
+
 def used_model(resp) -> str | None:
     """응답이 실제로 어떤 모델로 처리됐는지(라우팅 후 비용 계산에 필요)."""
     return getattr(resp, "model", None)
@@ -283,7 +471,25 @@ def gather(tasks: list, settings: Settings, *, limit: int | None = None) -> list
 
 
 def tool_input(resp, name: str | None = None) -> dict | None:
-    """응답에서 tool_use 블록의 input 을 꺼낸다(name 지정 시 그 도구만)."""
+    """응답에서 tool_use 블록의 input 을 꺼낸다(name 지정 시 그 도구만).
+
+    OpenAI 응답은 모양이 다르다(choices[0].message.tool_calls[].function.arguments 가
+    **문자열 JSON**). 호출부를 고치지 않으려고 여기서 흡수한다.
+    """
+    if isinstance(resp, _OpenAIResponse):
+        import json as _json
+
+        msg = resp._msg
+        for tc in (getattr(msg, "tool_calls", None) or []):
+            fn = getattr(tc, "function", None)
+            if fn is None:
+                continue
+            if name is None or getattr(fn, "name", None) == name:
+                try:
+                    return _json.loads(fn.arguments or "{}")
+                except ValueError:
+                    return None
+        return None
     for block in getattr(resp, "content", []) or []:
         if getattr(block, "type", None) != "tool_use":
             continue
@@ -293,6 +499,9 @@ def tool_input(resp, name: str | None = None) -> dict | None:
 
 
 def text_of(resp) -> str:
+    if isinstance(resp, _OpenAIResponse):
+        msg = resp._msg
+        return (getattr(msg, "content", None) or "").strip()
     return " ".join(
         b.text for b in (getattr(resp, "content", []) or []) if getattr(b, "type", None) == "text"
     ).strip()
