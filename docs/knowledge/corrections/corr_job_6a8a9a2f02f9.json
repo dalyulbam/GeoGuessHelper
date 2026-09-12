@@ -1,0 +1,954 @@
+{
+ "job_id": "job_6a8a9a2f02f9",
+ "report_file": "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html",
+ "label": "선택 장면 보고서 · KxE7qR7P…mtng",
+ "created": 1789053090.4702766,
+ "lang": "en",
+ "images": [
+  "capture_1c93f8e13256.jpg",
+  "capture_db6a212d99c5.jpg",
+  "capture_a952506bbea7.jpg",
+  "capture_72f2ed104878.jpg",
+  "capture_cf67934a114f.jpg",
+  "capture_4d306a1bcc3e.jpg"
+ ],
+ "image_panos": {
+  "capture_1c93f8e13256.jpg": {
+   "pano_id": "KxE7qR7PDYDKgD1ppmmtng",
+   "lat": 37.41957222968513,
+   "lng": 27.59475963479118,
+   "heading": 284.83,
+   "pitch": -0.28000000000000114
+  },
+  "capture_db6a212d99c5.jpg": {
+   "pano_id": "QiOfG6kD09pwLjRcBUMTjg",
+   "lat": 37.41977449997597,
+   "lng": 27.59386869355165,
+   "heading": 295.1834194439919,
+   "pitch": 0.31481477079640285
+  },
+  "capture_a952506bbea7.jpg": {
+   "pano_id": "xNVpaurRLq3B4w9ivkas_g",
+   "lat": 37.421077136736876,
+   "lng": 27.58986670483532,
+   "heading": 297.49634995939533,
+   "pitch": 0.9101417314654014
+  },
+  "capture_72f2ed104878.jpg": {
+   "pano_id": "pRaW03e-MUyk-fqc_a6ErQ",
+   "lat": 37.42210316115772,
+   "lng": 27.58701576595811,
+   "heading": 292.40532860410576,
+   "pitch": 0.7118844099525177
+  },
+  "capture_cf67934a114f.jpg": {
+   "pano_id": "X3x952iY7ixYPvsYEDr45w",
+   "lat": 37.423289004410634,
+   "lng": 27.583675004057586,
+   "heading": 47.64992063628378,
+   "pitch": -3.7035055208293954
+  },
+  "capture_4d306a1bcc3e.jpg": {
+   "pano_id": "X3x952iY7ixYPvsYEDr45w",
+   "lat": 37.423289004410634,
+   "lng": 27.583675004057586,
+   "heading": 83.53177686071074,
+   "pitch": 1.9076008206471613
+  }
+ },
+ "truth": {
+  "lat": 37.422462771602284,
+  "lng": 27.585887784500922,
+  "iso": "TR",
+  "country": "Turkey",
+  "region": "Muğla Province (Milas district), Aegean Region",
+  "city": "Etrenli / Danışment (Milas district)",
+  "source": "aided_prior",
+  "file_lat": 37.4196,
+  "file_lng": 27.5948,
+  "n_panos": 8
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Milas (rural, near Ören/Kızılağaç area on the Milas–Bodrum/Muğla highway corridor)",
+     "confidence": 0.6,
+     "country": "Turkey",
+     "country_iso": "TR",
+     "region_or_state": "Muğla Province",
+     "coordinate_estimate": {
+      "lat": 37.28,
+      "lng": 27.86,
+      "radius_km": 25
+     }
+    },
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Turkey",
+      "country_iso": "TR"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Greece",
+      "country_iso": "GR"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Italy",
+      "country_iso": "IT"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Mediterranean — maquis scrub, olive groves, stone pine, eucalyptus plantings on alluvial valley floor",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "observation": "Bus shelter fascia reads 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' with Turkish-specific letters (Ğ, Ü, Ş, İ) and the 'T.C.' (Türkiye Cumhuriyeti) prefix used only by Turkish public bodies.",
+      "weight": "high",
+      "supports": [
+       "Turkey",
+       "Muğla Province"
+      ],
+      "image_index": 4,
+      "level": "country"
+     },
+     {
+      "category": "signage",
+      "observation": "Warning signs are equilateral red-bordered white triangles with a black skidding-car pictogram plus a rectangular sub-plate showing rain/umbrella — the standard Turkish KGM 'kaygan yol / yağışta' combination.",
+      "weight": "medium",
+      "supports": [
+       "Turkey"
+      ],
+      "image_index": 2,
+      "level": "country"
+     },
+     {
+      "category": "road_infrastructure",
+      "observation": "Speed limit 70 on a white circle with red rim, plus a black-triangle 'road narrows/obstacle ahead' style warning, on a divided rural expressway with narrow grass median — typical Turkish devlet yolu dual carriageway.",
+      "weight": "medium",
+      "supports": [
+       "Turkey"
+      ],
+      "image_index": 3,
+      "level": "country"
+     },
+     {
+      "category": "road_infrastructure",
+      "observation": "Short white-painted concrete delineator posts with a red reflector band along the shoulder — the Turkish KGM kilometre/edge post style, distinct from Greek black-and-white or Italian tapered posts.",
+      "weight": "medium",
+      "supports": [
+       "Turkey"
+      ],
+      "image_index": 0,
+      "level": "country"
+     },
+     {
+      "category": "utility",
+      "observation": "Slim round concrete/spun utility poles with short cross-arms carrying low-voltage lines, plus lattice steel HV pylons following the valley — standard Turkish TEDAŞ rural distribution hardware.",
+      "weight": "low",
+      "supports": [
+       "Turkey"
+      ],
+      "image_index": 1,
+      "level": "country"
+     },
+     {
+      "category": "vegetation",
+      "observation": "Silvery olive groves in rows on the hillside behind the bus stop, mixed with dense evergreen maquis (kermes oak, mastic) and umbrella-crowned stone pines.",
+      "weight": "medium",
+      "supports": [
+       "Aegean Turkey",
+       "Muğla"
+      ],
+      "image_index": 4,
+      "level": "admin_region"
+     },
+     {
+      "category": "vegetation",
+      "observation": "Row of tall planted eucalyptus with peeling white trunks lining the carriageway — a plantation species widely used on Aegean/Mediterranean Turkish coastal plains for drainage of marshy alluvium.",
+      "weight": "medium",
+      "supports": [
+       "Aegean/Mediterranean coastal lowland"
+      ],
+      "image_index": 2,
+      "level": "macro_region"
+     },
+     {
+      "category": "geology",
+      "observation": "Rounded granite/gneiss tors protruding from scrub-covered hills, with olive terraces below — characteristic of the Menderes Massif basement rock around Milas–Bodrum.",
+      "weight": "medium",
+      "supports": [
+       "Muğla, Milas basin"
+      ],
+      "image_index": 5,
+      "level": "admin_region"
+     },
+     {
+      "category": "commerce",
+      "observation": "Improvised roadside stall: red steel pergola strung with festoon bulbs, glass display cart, blue oil drum bin — an informal seasonal fruit/gözleme stand typical of Turkish highway laybys.",
+      "weight": "low",
+      "supports": [
+       "Turkey",
+       "rural tourist highway"
+      ],
+      "image_index": 1,
+      "level": "district"
+     },
+     {
+      "category": "road_infrastructure",
+      "observation": "Blue-and-white arrow keep-right island markers at a median opening/at-grade junction on the dual carriageway, and unpaved worn shoulders — mid-tier state highway rather than a tolled otoyol.",
+      "weight": "low",
+      "supports": [
+       "state highway corridor"
+      ],
+      "image_index": 0,
+      "level": "metro_area"
+     },
+     {
+      "category": "weather_light",
+      "observation": "Lush green grass and full leaf-out with cool cumulus sky — late spring in a Mediterranean climate before summer browning.",
+      "weight": "low",
+      "supports": [
+       "northern hemisphere spring"
+      ],
+      "image_index": 3,
+      "level": "continent"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which broad climate/culture zone does this belong to?",
+      "candidates": [
+       "Mediterranean Europe/Anatolia",
+       "Central Europe",
+       "North America",
+       "Australia"
+      ],
+      "observation": "Dense evergreen maquis, olive groves, umbrella pines, dry-stone hills and a right-hand-drive-side road with European-style triangular warning signs.",
+      "discriminator": "North America would show yellow diamond warning signs and no olive/maquis mosaic; Australia would have left-hand traffic and yellow diamond signs; Central Europe would show deciduous beech/spruce and no olives.",
+      "ruled_out": [
+       "North America — no yellow diamond signage, wrong flora",
+       "Australia — traffic drives on the right here",
+       "Central Europe — olive/maquis vegetation impossible"
+      ],
+      "conclusion": "Mediterranean basin, northern hemisphere, right-hand traffic",
+      "confidence_after": 0.95,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Turkey, Greece, Italy or Spain?",
+      "candidates": [
+       "Turkey",
+       "Greece",
+       "Italy",
+       "Spain"
+      ],
+      "observation": "Bus shelter carries 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' in Latin script with Turkish diacritics Ğ/Ü/Ş/İ; road furniture uses white posts with a single red reflector band and KGM-style skid+rain plate.",
+      "discriminator": "Greece would show Greek script on the shelter and bilingual green/blue signs; Italy would use 'COMUNE DI…' with tapered black-white delineators; Spain would use 'AYUNTAMIENTO' and yellow-topped kilometre posts. The 'T.C.' republic prefix and büyükşehir belediyesi tier exist only in Turkey.",
+      "ruled_out": [
+       "Greece — no Greek alphabet anywhere",
+       "Italy — no Italian wording or Italian sign fonts",
+       "Spain — no Castilian wording, different post design"
+      ],
+      "conclusion": "Turkey",
+      "confidence_after": 0.97,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Aegean/SW coastal Turkey or interior/eastern Anatolia?",
+      "candidates": [
+       "Aegean-Mediterranean coast",
+       "Central Anatolian plateau",
+       "Black Sea coast",
+       "Eastern Anatolia"
+      ],
+      "observation": "Olive plantations on hillsides, evergreen maquis with mastic and kermes oak, stone pines and planted eucalyptus on a flat alluvial valley floor at low elevation.",
+      "discriminator": "Central Anatolia would be treeless steppe with wheat and volcanic cones; the Black Sea coast would be hazelnut/tea terraces under humid broadleaf forest with much steeper wet slopes; Eastern Anatolia would be high, bare, snow-scarred ranges without olives or eucalyptus.",
+      "ruled_out": [
+       "Central Anatolia — no steppe, olives present",
+       "Black Sea — no hazelnut/tea, no humid deciduous forest",
+       "Eastern Anatolia — low elevation, frost-sensitive olive and eucalyptus thriving"
+      ],
+      "conclusion": "Southwest Aegean/Mediterranean coastal Turkey",
+      "confidence_after": 0.9,
+      "weight": "high"
+     },
+     {
+      "level": "admin_region",
+      "question": "Which southwestern province — Muğla, Aydın, İzmir or Antalya?",
+      "candidates": [
+       "Muğla",
+       "Aydın",
+       "İzmir",
+       "Antalya"
+      ],
+      "observation": "Municipal shelter branding is that of a metropolitan municipality (büyükşehir) named with Ğ/ğ letters; surrounding relief is a narrow olive-and-maquis basin closed by rounded granitic tors rather than a wide cotton delta or a limestone travertine plain.",
+      "discriminator": "Aydın's Büyük Menderes plain would be a broad flat cotton/fig delta with far gentler horizons; İzmir would show suburban density and vineyards near the metro; Antalya would sit under sheer grey Taurus limestone walls with citrus groves and greenhouse plastic.",
+      "ruled_out": [
+       "Aydın — no wide alluvial cotton/fig plain",
+       "İzmir — landscape too rural, no metro fringe development",
+       "Antalya — no Taurus limestone cliffs, no citrus/greenhouses"
+      ],
+      "conclusion": "Muğla Province",
+      "confidence_after": 0.85,
+      "weight": "high"
+     },
+     {
+      "level": "metro_area",
+      "question": "Which part of Muğla — the Milas lowland corridor, Muğla-Yatağan uplands, or the Fethiye/Dalaman coast?",
+      "candidates": [
+       "Milas basin / Bodrum approach",
+       "Muğla–Yatağan plateau",
+       "Fethiye–Dalaman coastal plain",
+       "Marmaris peninsula"
+      ],
+      "observation": "A flat dual carriageway runs along a broad low valley floor between scrub hills, with monoculture olive groves, marsh-drainage eucalyptus rows, granitic tors, and truck traffic — a busy lowland trunk route, not a mountain pass or a resort seafront.",
+      "discriminator": "The Muğla–Yatağan plateau segment sits at 600–800 m with pine forest, lignite mine scars and power-plant plumes; Fethiye/Dalaman would show pine-clad steep coast and greenhouse/citrus farming; Marmaris would be twisting narrow road through dense red pine. Only the Milas basin combines flat alluvium, mass olive cultivation, granite tors and a four-lane through highway.",
+      "ruled_out": [
+       "Muğla–Yatağan — elevation and pine forest/mining landscape absent",
+       "Fethiye–Dalaman — no steep pine coast or greenhouses",
+       "Marmaris peninsula — road geometry far too straight and wide"
+      ],
+      "conclusion": "Milas lowland highway corridor in western Muğla, heading toward Bodrum/Ören",
+      "confidence_after": 0.6,
+      "weight": "medium"
+     },
+     {
+      "level": "district",
+      "question": "Exactly where along that corridor?",
+      "candidates": [
+       "D330 Milas–Yatağan stretch",
+       "D550/Milas–Bodrum road",
+       "Milas–Ören junction area"
+      ],
+      "observation": "An at-grade median opening with an informal fruit stand and a rural bus shelter, plus 70 km/h limit and junction warnings, suggest a village access on the dual carriageway rather than a town edge; no place-name board is visible.",
+      "discriminator": "A town-edge location would show sidewalks, streetlights, apartment blocks and municipal plantings; a motorway section would have grade-separated interchanges and no roadside stalls.",
+      "ruled_out": [
+       "Town centre location — no urban fabric, lighting or footpaths",
+       "Grade-separated otoyol — at-grade median crossings present"
+      ],
+      "conclusion": "Rural village access on the Milas-area trunk highway; precise district not resolvable from these frames",
+      "confidence_after": 0.45,
+      "weight": "low"
+     }
+    ],
+    "cues_note": "n/a",
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' on the bus shelter fascia",
+      "language": "Turkish",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.9,
+      "image_index": 4,
+      "name": "Muğla Metropolitan Municipality bus shelter",
+      "type": "public transport furniture with administrative branding"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 5,
+      "name": "Granitic tors of the Menderes Massif above olive groves",
+      "type": "geological feature"
+     }
+    ],
+    "cultural_economic_read": "A rural, olive-based agricultural economy on a low Aegean valley floor, threaded by a state-built four-lane trunk highway that carries tourist and freight traffic toward the Bodrum/Aegean coast. Public investment is visible in the road and in branded metropolitan-municipality bus shelters serving scattered villages, while local livelihood shows up as informal roadside produce stalls, drum bins and improvised pergolas — a middle-income mix of good arterial infrastructure and low-capital village commerce. Culturally Turkish-Anatolian Aegean: no minority-language signage, Latin-script Turkish only, and secular republican branding ('T.C.').",
+    "overall_confidence": 0.62,
+    "place_slug": "milas",
+    "relied_on_atoms": [],
+    "revised_from": null
+   },
+   "cost_usd": 0.2385,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4703,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Turkey",
+    "country_iso": "TR",
+    "country_correct": true,
+    "region": "Muğla Province",
+    "city": "Milas (rural, near Ören/Kızılağaç area on the Milas–Bodrum/Muğla highway corridor)",
+    "confidence": 0.6,
+    "overall_confidence": 0.62,
+    "error_km": 28.95,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 11,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "commerce",
+     "geology",
+     "language",
+     "road_infrastructure",
+     "signage",
+     "utility",
+     "vegetation",
+     "weather_light"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Milas",
+     "confidence": 0.72,
+     "coordinate_estimate": {
+      "lat": 37.32,
+      "lng": 27.75,
+      "radius_km": 25
+     },
+     "country": "Turkey",
+     "country_iso": "TR",
+     "region_or_state": "Muğla Province"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.12,
+      "country": "Turkey",
+      "country_iso": "TR"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Greece",
+      "country_iso": "GR"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Mediterranean (Csa) — olive groves, kermes-oak maquis, stone pine, planted river red gum eucalyptus",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 4,
+      "level": "admin_region",
+      "observation": "Bus shelter fascia reads 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' with twin provincial rosette seals — Turkish Latin script with ğ, ş, İ, and the metropolitan-municipality naming convention.",
+      "supports": [
+       "Turkey",
+       "Muğla Province"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_signage",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Slippery-road warning triangle with a wide white border and a supplementary 'rain/umbrella' plate below, mounted on a slim double-post galvanised frame — the Turkish KGM sign style and mounting.",
+      "supports": [
+       "Turkey"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_signage",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Red-ring '70' speed plate stacked directly under a warning triangle on one post, plus dual-carriageway state highway with continuous W-beam guardrail — standard Turkish D-road furniture.",
+      "supports": [
+       "Turkey"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_infrastructure",
+      "image_index": 0,
+      "level": "country",
+      "observation": "White concrete edge delineator posts with a single red reflective band, and a triangular blue-white 'keep right' island sign at the median opening.",
+      "supports": [
+       "Turkey"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 5,
+      "level": "macro_region",
+      "observation": "Stony granite/limestone knolls covered in kermes-oak maquis with smallholder olive groves running up the slopes — the Aegean hinterland signature, not Anatolian steppe.",
+      "supports": [
+       "Aegean Turkey"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Planted row of river red gum eucalyptus with peeling white bark beside the highway, a common Aegean/Mediterranean Turkish roadside planting.",
+      "supports": [
+       "Aegean Turkey"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 1,
+      "level": "macro_region",
+      "observation": "Umbrella-crowned stone pines punctuating the valley floor plus olive/carob scrub — Mediterranean coastal hinterland, no conifer-fir montane belt.",
+      "supports": [
+       "Aegean/Mediterranean Turkey"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "economy",
+      "image_index": 1,
+      "level": "district",
+      "observation": "Improvised roadside stall: red steel pergola strung with festoon bulbs, a glazed cart and stacked crates — a seasonal fruit/olive-oil/honey vendor typical of rural highways feeding the coastal tourist corridor.",
+      "supports": [
+       "rural Muğla highway"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Steel lattice HV transmission pylons paralleling the valley plus concrete LV poles with pin insulators — inland transmission corridor crossing a broad alluvial valley between hill ranges.",
+      "supports": [
+       "valley trunk route"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "traffic",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Vehicles drive on the right; separated dual carriageway with grass median and full guardrail, typical of an upgraded Turkish state highway (D-330/D-525 class).",
+      "supports": [
+       "right-hand traffic"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.9,
+      "image_index": 4,
+      "name": "Muğla Metropolitan Municipality bus shelter",
+      "type": "municipal street furniture"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 5,
+      "name": "Granite/limestone crag over olive terraces",
+      "type": "natural rock outcrop"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' — Turkish-specific letters ğ, ş, İ and the 'Belediyesi' toponymic lexicon.",
+      "language": "Turkish",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Mediterranean Europe",
+       "Anatolia",
+       "North Africa",
+       "California"
+      ],
+      "conclusion": "Eastern Mediterranean / Anatolia–Aegean basin",
+      "confidence_after": 0.85,
+      "discriminator": "California would show live-oak savanna with no olive smallholdings and US-style yellow centre lines; North Africa would show arid, sparser maquis and Arabic-script signage.",
+      "level": "continent",
+      "observation": "Broad valley flanked by low maquis-covered ranges, olive groves, stone pines and eucalyptus, right-hand traffic, white-only lane markings, Latin-script signage.",
+      "ruled_out": [
+       "California — no yellow centreline, European-style triangular warning signs",
+       "North Africa — vegetation too lush, no Arabic script"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Turkey",
+       "Greece",
+       "Albania",
+       "Bulgaria"
+      ],
+      "conclusion": "Turkey",
+      "confidence_after": 0.96,
+      "discriminator": "Greece would show Greek-script signage and blue-on-white place plates; Albania uses Italianate sign faces and different delineators; Bulgaria uses Cyrillic. Here the shelter reads Turkish with ğ/ş/İ and the 'T.C.' republic prefix, which no neighbour uses.",
+      "level": "country",
+      "observation": "Bus shelter fascia in Turkish Latin orthography with 'T.C.' (Türkiye Cumhuriyeti) prefix; KGM-style warning triangles with wide white borders and rain supplementary plate.",
+      "ruled_out": [
+       "Greece — Greek alphabet absent",
+       "Bulgaria — Cyrillic absent",
+       "Albania — sign geometry and delineator style differ"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Aegean Turkey",
+       "Mediterranean Turkey (Antalya)",
+       "Central Anatolia",
+       "Black Sea coast",
+       "Marmara"
+      ],
+      "conclusion": "Aegean Turkey (Muğla/Aydın/İzmir belt)",
+      "confidence_after": 0.88,
+      "discriminator": "Central Anatolia would be treeless steppe with wheat and no olives (too cold); Black Sea would show hazelnut/tea terraces and dense humid deciduous forest with steep-pitched roofs; Antalya's Taurus front would show taller karst limestone walls and red-soil citrus/greenhouse plastic rather than dry-farmed olive maquis.",
+      "level": "macro_region",
+      "observation": "Smallholder olive groves on stony slopes, kermes-oak maquis, stone pines and planted river red gums; rounded granite/limestone hills, no greenhouses, no terraced tea.",
+      "ruled_out": [
+       "Central Anatolia — olives and maquis impossible",
+       "Black Sea — no hazelnut/tea, climate too dry",
+       "Antalya/Taurus — landform lower and rounder, no citrus/greenhouse economy"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Turkish Aegean mainstream",
+       "Kurdish/Zaza southeast",
+       "Laz/Hemshin Black Sea",
+       "Arabic-speaking Hatay"
+      ],
+      "conclusion": "Yörük/Turkmen-settled Turkish Aegean sphere over ancient Carian substrate; monolingual Turkish public signage",
+      "confidence_after": 0.9,
+      "discriminator": "The southeast would carry bilingual or Kurdish-influenced business names and heavier gendarmerie infrastructure; Hatay would show Arabic secondary text. Here the only text is standard Turkish municipal branding with no minority-language layer.",
+      "level": "cultural_sphere",
+      "observation": "Purely Turkish signage, dispersed olive smallholdings and roadside vendor economy typical of settled Yörük villages absorbed as mahalle.",
+      "ruled_out": [
+       "Kurdish southeast — no bilingual/minority signage, wrong biome",
+       "Hatay — no Arabic text",
+       "Laz/Hemshin — wrong biome"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Muğla Province",
+       "Aydın Province",
+       "İzmir Province"
+      ],
+      "conclusion": "Muğla Province",
+      "confidence_after": 0.93,
+      "discriminator": "Aydın and İzmir shelters carry their own metropolitan wordmarks and seals ('AYDIN BÜYÜKŞEHİR', 'İZMİR BÜYÜKŞEHİR' with a different emblem); the rosette seal and 'MUĞLA BÜYÜKŞEHİR BELEDİYESİ' text here is province-specific street furniture deployed even in remote hamlets after the 2014 reform.",
+      "level": "admin_region",
+      "observation": "Standardized black-framed glass bus shelter branded 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' with the provincial rosette emblem.",
+      "ruled_out": [
+       "Aydın Province — different wordmark",
+       "İzmir Province — different emblem and shelter design"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Milas plain / Milas–Bodrum corridor",
+       "Muğla–Yatağan basin",
+       "Ortaca–Dalaman coastal plain",
+       "Fethiye area"
+      ],
+      "conclusion": "Milas district area on the Milas–Yatağan/Bodrum state highway corridor",
+      "confidence_after": 0.62,
+      "discriminator": "Ortaca/Dalaman would show flat delta farmland with citrus and greenhouse plastic plus Sandras/Ölüdeniz backdrop; Fethiye sits under much higher, bare Taurus limestone walls. Yatağan would show the lignite power-plant stacks and mine spoil. Here we have a moderate-relief olive-dominated valley with rounded granite crags and a heavy-truck dual carriageway — matching the Milas basin olive-oil district on the corridor toward Bodrum airport.",
+      "level": "metro_area",
+      "observation": "Wide dual-carriageway trunk road with lorry traffic, extensive olive monoculture, granite outcrops, seasonal roadside stall aimed at tourist traffic.",
+      "ruled_out": [
+       "Ortaca/Dalaman — no greenhouses/citrus, relief too hilly",
+       "Fethiye — surrounding mountains far lower than Taurus front",
+       "Yatağan — no lignite plant/mine spoil visible"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A rural but well-invested Turkish Aegean corridor: a modern dual-carriageway state highway with full guardrails and metropolitan-municipality bus shelters serving scattered olive-farming hamlets absorbed as mahalle after the 2014 büyükşehir reform. The economy reads as smallholder olive/olive-oil production (Milas-type early-harvest oil) on stony limestone and granite slopes, supplemented by informal roadside vending to through-traffic heading between the inland agricultural basin and the Bodrum coastal tourism/airport corridor. Heavy lorry traffic and HV transmission lines indicate the route is also a freight and utility spine. No minority-language signage; culturally solid Turkish Aegean with a settled Yörük/Turkmen background over an ancient Carian landscape.",
+    "overall_confidence": 0.72,
+    "place_slug": "milas",
+    "relied_on_atoms": [
+     "atm_cb0c83bea310",
+     "atm_91bb4809c09e",
+     "atm_9a486159e361",
+     "atm_490cab9597a7",
+     "atm_0e23428c07fd",
+     "atm_590816a2ad04"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1351,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2595,
+    "output": 4503,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Turkey",
+    "country_iso": "TR",
+    "country_correct": true,
+    "region": "Muğla Province",
+    "city": "Milas",
+    "confidence": 0.72,
+    "overall_confidence": 0.72,
+    "error_km": 18.44,
+    "reached_level": "metro_area",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 10,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "economy",
+     "infrastructure",
+     "road_infrastructure",
+     "road_signage",
+     "signage",
+     "traffic",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_91bb4809c09e",
+    "atm_cb0c83bea310",
+    "atm_590816a2ad04",
+    "atm_b9e670bd45e8",
+    "atm_7f1b78158b4f",
+    "atm_0e23428c07fd",
+    "atm_490cab9597a7",
+    "atm_366a599b10cc",
+    "atm_9a486159e361",
+    "atm_af77a40342bd"
+   ],
+   "relied_on": [
+    "atm_cb0c83bea310",
+    "atm_91bb4809c09e",
+    "atm_9a486159e361",
+    "atm_490cab9597a7",
+    "atm_0e23428c07fd",
+    "atm_590816a2ad04"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "TR",
+   "country": "Turkey",
+   "region": "Muğla Province",
+   "city": "Milas",
+   "lat": 37.32,
+   "lng": 27.75,
+   "error_km": 18.44,
+   "reached_level": "metro_area",
+   "confidence": 0.72,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 18.44,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.21348375000000003,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5273,
+   "output": 2836,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "HIT: Turkey / Muğla Province / Milas district confirmed, with only 18 km error (truth is the Etrenli–Danışment stretch of the dual D525 northwest of Milas, while the guess placed it southeast of Milas). The decisive visible cue was the bus-shelter fascia reading 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' with the provincial rosette seals, backed by Turkish KGM sign geometry (warning triangle with rain supplementary plate, red-ring 70 under the triangle) and the olive-maquis/eucalyptus/stone-pine hinterland biome. Greece was correctly excluded because no Greek script appears and the delineator/shelter hardware is Turkish; the residual uncertainty was intra-district positioning, not country.",
+  "misleading_cues": [
+   {
+    "observation": "Roadside vendor stall with festoon lights read as aimed at the Bodrum tourist corridor (img 1).",
+    "why_misleading": "Such stalls line all Aegean trunk roads regardless of proximity to the coast, and pulled the estimate southwest toward Bodrum instead of the inland Milas–Söke leg."
+   },
+   {
+    "observation": "Broad flat-floored valley with heavy lorry traffic on a dual carriageway interpreted as the Milas–Yatağan/Bodrum corridor (imgs 0,3).",
+    "why_misleading": "Several dual state highways radiate from Milas; carriageway width and truck volume do not distinguish the D525 (Söke direction) from the Bodrum/Yatağan legs, causing ~18 km of along-corridor error."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Bus shelter fascia: 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' in Turkish Latin orthography with twin rosette seals.",
+    "why_decisive": "Names both country and province outright; metropolitan branding of village shelters pins Muğla Province.",
+    "category": "signage-language",
+    "image_index": 4
+   },
+   {
+    "observation": "Slippery-road warning triangle with wide white border plus separate rectangular rain/umbrella supplementary plate on a double-post galvanised frame.",
+    "why_decisive": "Turkish KGM sign face and mounting style; Greek/Bulgarian equivalents differ in border proportion and rarely use this rain sub-plate.",
+    "category": "road-signage",
+    "image_index": 2
+   },
+   {
+    "observation": "Red-ring 70 speed plate stacked directly beneath a warning triangle on a single post along a dual carriageway with continuous W-beam guardrail.",
+    "why_decisive": "Standard Turkish D-road furniture stacking convention.",
+    "category": "road-signage",
+    "image_index": 3
+   },
+   {
+    "observation": "White concrete delineator posts with a single red reflective band and a blue-white triangular keep-right island sign at the median opening.",
+    "why_decisive": "Turkish delineator/island-marker hardware, distinct from Greek plastic posts.",
+    "category": "bollard-guardrail",
+    "image_index": 0
+   },
+   {
+    "observation": "Smallholder olive groves climbing stony granite knolls in kermes-oak maquis, with stone pines and planted river red gum eucalyptus by the road.",
+    "why_decisive": "Places the pano in the Aegean coastal hinterland (Muğla/Aydın belt) rather than continental Anatolia or the Taurus front.",
+    "category": "vegetation",
+    "image_index": 5
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Turkish KGM warning triangle + rain sub-plate vs Greek sign style",
+    "body": "In Turkey warning triangles carry a broad white inner band inside the red border and are frequently paired with a separate white rectangular supplementary plate (e.g. rain/umbrella pictogram) on the same twin-post galvanised frame, with speed roundels stacked directly below. In Greece you would instead see triangles with a narrower white margin, Greek-language supplementary text plates, and blue-on-white place-name signage in Greek script. Absence of any Greek characters plus this stacking convention settles the border.",
+    "layer": "language",
+    "category": "road-signage",
+    "scope": "country",
+    "tags": [
+     "kgm",
+     "warning-triangle",
+     "supplementary-plate"
+    ],
+    "entities": [
+     "Turkey",
+     "Greece"
+    ],
+    "looks_like": {
+     "country_iso": "GR",
+     "country": "Greece",
+     "region": "Dodecanese/Aegean coast"
+    },
+    "actually": {
+     "country_iso": "TR",
+     "country": "Turkey",
+     "region": "Muğla Province"
+    },
+    "confidence": 0.8
+   },
+   {
+    "title": "'T.C. … BÜYÜKŞEHİR BELEDİYESİ' shelters pin the province in rural Turkey",
+    "body": "In Turkey, rural roadside bus shelters carry a black fascia with 'T.C. <PROVINCE> BÜYÜKŞEHİR BELEDİYESİ' and a province-specific rosette or seal, deployed even in hamlets far from the provincial capital after the 2014 metropolitan reform. In Greece or Bulgaria you would instead see unbranded or KTEL/operator-branded shelters with Greek or Cyrillic text and no republic ('T.C.') prefix. Reading the wordmark therefore jumps straight from country to province.",
+    "layer": "culture",
+    "category": "street-furniture",
+    "scope": "region",
+    "tags": [
+     "buyuksehir",
+     "bus-shelter",
+     "municipal-branding"
+    ],
+    "entities": [
+     "Muğla Province",
+     "Aydın Province"
+    ],
+    "looks_like": {
+     "country_iso": "TR",
+     "country": "Turkey",
+     "region": "Aydın Province"
+    },
+    "actually": {
+     "country_iso": "TR",
+     "country": "Turkey",
+     "region": "Muğla Province"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Aegean olive-maquis hinterland vs Taurus/Antalya front",
+    "body": "Inland Muğla/Aydın shows rounded granite–limestone knolls under kermes-oak maquis with dry-farmed smallholder olive groves, stone pines and planted river red gum eucalyptus along the highway. On the Antalya/Taurus front you would instead see tall bare karst limestone walls, red terra-rossa soils, citrus orchards and greenhouse plastic. Rounded relief plus olive-maquis therefore favours the Aegean belt.",
+    "layer": "nature",
+    "category": "vegetation",
+    "scope": "region",
+    "tags": [
+     "maquis",
+     "olive",
+     "eucalyptus"
+    ],
+    "entities": [
+     "Aegean Turkey",
+     "Antalya/Taurus"
+    ],
+    "looks_like": {
+     "country_iso": "TR",
+     "country": "Turkey",
+     "region": "Antalya"
+    },
+    "actually": {
+     "country_iso": "TR",
+     "country": "Turkey",
+     "region": "Aegean Region (Muğla)"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Muğla dual-carriageway legs: inland Söke road vs Bodrum coastal corridor",
+    "body": "On the inland dual state highways of Milas district (e.g. toward Söke) the roadside is open olive/maquis with agricultural stalls, HV lattice pylon corridors along the valley floor and no coastal-resort signage. Along the Bodrum-airport corridor you would instead see hotel/marina advertising boards, dense commercial frontage and a broader flat coastal plain. Presence of pure farm-maquis frontage with only agricultural stalls argues for the inland leg, not the coastal one.",
+    "layer": "economy",
+    "category": "infrastructure-built",
+    "scope": "region",
+    "tags": [
+     "d525",
+     "corridor",
+     "olive-district"
+    ],
+    "entities": [
+     "Milas–Söke corridor",
+     "Milas–Bodrum corridor"
+    ],
+    "looks_like": {
+     "country_iso": "TR",
+     "country": "Turkey",
+     "region": "Milas–Bodrum highway"
+    },
+    "actually": {
+     "country_iso": "TR",
+     "country": "Turkey",
+     "region": "Milas–Söke (D525) near Etrenli/Danışment"
+    },
+    "confidence": 0.55
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_cb0c83bea310",
+   "atm_91bb4809c09e",
+   "atm_590816a2ad04",
+   "atm_9a486159e361",
+   "atm_490cab9597a7",
+   "atm_0e23428c07fd"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [],
+  "merged": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "cost_usd": 0.5871,
+ "status": "PARTIAL",
+ "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+}

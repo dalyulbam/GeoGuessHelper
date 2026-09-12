@@ -1,0 +1,691 @@
+{
+ "job_id": "job_08cebc7d3644",
+ "report_file": "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html",
+ "label": "선택 장면 보고서 · 0wnNlAeN…jHOQ",
+ "created": 1789053589.0157964,
+ "lang": "en",
+ "images": [
+  "capture_04fa5d672b4c.jpg",
+  "capture_0577dafa0e9c.jpg",
+  "capture_3784ca2310cc.jpg",
+  "capture_73ba2ba6ab1e.jpg",
+  "capture_5855d1a84527.jpg",
+  "capture_89c151f83ef4.jpg"
+ ],
+ "image_panos": {
+  "capture_04fa5d672b4c.jpg": {
+   "pano_id": "0wnNlAeNZsnzBYJjHfjHOQ",
+   "lat": 20.560573939264767,
+   "lng": -101.37938235940979,
+   "heading": 182.49870648852442,
+   "pitch": 2.474118557553595
+  },
+  "capture_0577dafa0e9c.jpg": {
+   "pano_id": "tRBTfNV9vHdMipP7zmjrbw",
+   "lat": 20.559271109647494,
+   "lng": -101.38007892700455,
+   "heading": 202.21708967534218,
+   "pitch": 0.5935174871782749
+  },
+  "capture_3784ca2310cc.jpg": {
+   "pano_id": "n3dW9C1ZZPiYYFCzLCKLhA",
+   "lat": 20.557431600486666,
+   "lng": -101.38114777451861,
+   "heading": 180.3878878557889,
+   "pitch": -0.5958365618533605
+  },
+  "capture_73ba2ba6ab1e.jpg": {
+   "pano_id": "jMqcP7Z9aN5YJMtbySCkRg",
+   "lat": 20.55619510098304,
+   "lng": -101.38175619916001,
+   "heading": 190.9675640517135,
+   "pitch": 0.9585660908823144
+  },
+  "capture_5855d1a84527.jpg": {
+   "pano_id": "Nb0MqQOXwOpqLaN59TPNpg",
+   "lat": 20.554775747636125,
+   "lng": -101.3805007320331,
+   "heading": 167.50411417351435,
+   "pitch": 0.5515799179277394
+  },
+  "capture_89c151f83ef4.jpg": {
+   "pano_id": "9bRtBroQHG6uAWpjsuf5cw",
+   "lat": 20.554755675051943,
+   "lng": -101.37980191004893,
+   "heading": 81.24315318219088,
+   "pitch": 1.8976575543412366
+  }
+ },
+ "truth": {
+  "lat": 20.55716719551167,
+  "lng": -101.3804446503625,
+  "iso": "MX",
+  "country": "Mexico",
+  "region": "Guanajuato",
+  "city": "Colonia El Palomar / Yóstiro (near Irapuato)",
+  "source": "aided_prior",
+  "file_lat": 20.5606,
+  "file_lng": -101.3794,
+  "n_panos": 6
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "near Pénjamo / Cuerámaro rural area (Bajío)",
+     "confidence": 0.4,
+     "coordinate_estimate": {
+      "lat": 20.55,
+      "lng": -101.6,
+      "radius_km": 90
+     },
+     "country": "Mexico",
+     "country_iso": "MX",
+     "region_or_state": "Guanajuato (Bajío region)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.22,
+      "country": "Mexico",
+      "country_iso": "MX"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Mexico",
+      "country_iso": "MX"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Peru",
+      "country_iso": "PE"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "semi-arid subtropical highland (Bs/Cwa), summer-rain savanna-scrub with mesquite and huizache; dry-season golden grass",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "vehicles",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Old American full-size van with a spare-tire cover bearing what appears to be the Mexican eagle-and-serpent coat of arms; such 1980s-90s US vans are extremely common in central Mexico.",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_infrastructure",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Two-lane rural highway with no paved shoulder, narrow white edge line, centre broken white line and worn chip-seal surface — typical Mexican state highway (carretera estatal) build standard.",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utility_poles",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Slender round concrete poles alternating with wooden poles, single crossarm with 3 conductors and small pole-top pin insulators — CFE distribution standard.",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Yellow diamond curve-arrow warning sign (SCT style) mounted low on a single post beside W-beam guardrail with orange-painted post caps.",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Tall introduced eucalyptus and pepper trees along the road, mesquite/huizache scrub, dry tawny grass in a green-tinged landscape — Bajío highland mix rather than tropical coastal or true desert flora.",
+      "supports": [
+       "central Mexico highlands"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "geology",
+      "image_index": 4,
+      "level": "admin_region",
+      "observation": "Piles of dark vesicular basalt (volcanic) field stones used as boundary heaps, with agave/nopal planted among them — classic Trans-Mexican Volcanic Belt farmland clearance.",
+      "supports": [
+       "Guanajuato/Jalisco/Michoacan volcanic belt"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "landform",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Low rounded scrub-covered volcanic hill/cerro rising isolated from a broad flat plain — Bajío basin-and-cerro topography, not the steep sierra of the Sierra Madre.",
+      "supports": [
+       "Bajío plain"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "buildings",
+      "image_index": 2,
+      "level": "district",
+      "observation": "Long low adobe/brick wall with corrugated asbestos-cement roof sheets and rough tabique boundary walls — modest rural rancho construction.",
+      "supports": [
+       "rural central Mexico"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "buildings",
+      "image_index": 4,
+      "level": "district",
+      "observation": "New flat-roofed concrete-block workshop with a blue roll-up steel curtain door, unrendered parapet — remittance-funded rural construction common in the Bajío/west Mexico migration belt.",
+      "supports": [
+       "Guanajuato/Michoacan/Jalisco"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "livestock",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Horse grazing untethered on the highway verge next to a village access lane; small-scale mixed ranching.",
+      "supports": [
+       "rural ejido landscape"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "climate",
+      "image_index": null,
+      "level": "macro_region",
+      "observation": "High sun angle, hazy bright sky, green grass mixed with dried stalks — end of the summer rainy season at tropical latitude but with highland dryness.",
+      "supports": [
+       "18-22 N highlands"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "telecom",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Red-and-white lattice cellular mast at village edge, plus roadside cargo trucks — a moderately trafficked interurban corridor rather than a remote track.",
+      "supports": [
+       "secondary highway near a town"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "Rural, lower-middle-income Mexican countryside: ejido-style smallholdings, adobe and block houses mixed with newer remittance-financed concrete workshops, free-ranging horses, older US-market sedans and vans, minimal road furniture and no sidewalks. Economy is agriculture/ranching plus commuting to a nearby regional town; the volcanic stone piles and agave rows indicate long-cleared, intensively used farmland typical of the Bajío.",
+    "landmarks": [
+     {
+      "confidence": 0.3,
+      "image_index": 5,
+      "name": "Unnamed low volcanic cerro on the Bajío plain",
+      "type": "natural landform"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 5,
+      "name": "Lattice cell tower at village edge",
+      "type": "telecom mast"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.35,
+      "evidence": "No legible text; inference from vehicle iconography (Mexican coat of arms) and building/road style rather than script.",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Latin America",
+       "Mediterranean Europe",
+       "Southern Africa",
+       "South Asia"
+      ],
+      "conclusion": "Latin America, right-hand traffic, northern-hemisphere subtropics",
+      "confidence_after": 0.85,
+      "discriminator": "Southern Africa would show left-hand traffic and different guardrail/pole hardware; Mediterranean Europe would have painted kerbs, hard shoulders, EU-style chevrons and no adobe; South Asia would show left-hand traffic and dense pedestrian/auto-rickshaw activity.",
+      "level": "continent",
+      "observation": "Vehicles drive on the right; unpaved-shoulder chip-seal two-lane road, adobe/block rural housing, mesquite-agave scrub, older US-model sedans and a full-size American van.",
+      "ruled_out": [
+       "Southern Africa — left-hand driving absent",
+       "Mediterranean Europe — no EU road furniture, adobe construction",
+       "South Asia — right-hand driving and vehicle fleet wrong"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Mexico",
+       "Guatemala",
+       "Peru",
+       "Bolivia",
+       "Argentina"
+      ],
+      "conclusion": "Mexico",
+      "confidence_after": 0.88,
+      "discriminator": "Peru/Bolivia would show Toyota/Hyundai station-wagon taxis, blue-white informal signage and adobe with mud-tile roofs, not US full-size vans; Argentina would have wire-fenced pampas, Renault/Fiat fleet and different pole tops; Guatemala would show chicken buses and steeper volcanic terrain with milpa on slopes.",
+      "level": "country",
+      "observation": "Mexican national coat of arms on the van's spare-tyre cover; SCT-style yellow diamond warning sign; CFE-style slim concrete distribution poles with single crossarm; 1990s US-market sedans (Chevy/VW Jetta silhouettes).",
+      "ruled_out": [
+       "Peru — vehicle fleet and sign shapes differ",
+       "Bolivia — no altiplano vegetation, no minibus culture",
+       "Guatemala — no volcanic cone/steep milpa, road standard too wide",
+       "Argentina — no pampa fencing or Southern-Cone signage"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Northern desert (Chihuahua/Sonora/Coahuila)",
+       "Gulf/southeast tropical (Veracruz/Tabasco/Yucatán)",
+       "Pacific tropics (Guerrero/Oaxaca coast)",
+       "Central highlands (Bajío / Volcanic Belt)"
+      ],
+      "conclusion": "Central Mexican highlands within the Trans-Mexican Volcanic Belt",
+      "confidence_after": 0.8,
+      "discriminator": "Northern desert would show creosote/ocotillo, bare gravel plains and no eucalyptus windbreaks; Gulf/southeast would be evergreen, with palms, banana and high humidity haze plus white limestone soils; Pacific tropics would show ceiba, coconut and steep coastal sierra. Here the ground stone is dark vesicular basalt and grasses go straw-gold in the dry season with mesquite-huizache scrub.",
+      "level": "macro_region",
+      "observation": "Dark basalt boulder heaps cleared from fields, agave and nopal at field edges, tall eucalyptus rows, broad flat plain broken by isolated rounded cerros, seasonally dry golden grass.",
+      "ruled_out": [
+       "Northern desert — vegetation too dense and green, no desert succulents typical of Chihuahuan flats",
+       "Gulf/southeast tropics — no palms/limestone, dry-season grass present",
+       "Pacific tropics — no coastal tropical hardwoods or steep relief"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Nahua/Otomí central plateau (México, Hidalgo, Tlaxcala, Puebla)",
+       "Bajío criollo-mestizo belt (Guanajuato, Querétaro, Jalisco, Michoacán)"
+      ],
+      "conclusion": "Bajío mestizo/ranchero cultural sphere of west-central Mexico",
+      "confidence_after": 0.68,
+      "discriminator": "The eastern plateau around Hidalgo/Tlaxcala/Puebla would show maguey-pulque rows as living field fences, terraced slopes, nopal plantations and the big snow-capped stratovolcanoes on the horizon; here the horizon holds only low eroded cerros, fields are open and mechanised, and housing shows the flat-roof concrete 'remittance' style typical of the migration-heavy Bajío rather than dense indigenous village clustering.",
+      "level": "cultural_sphere",
+      "observation": "Dispersed ranchos rather than compact indigenous pueblos, no maguey-row field boundaries or terracing, new flat-roof concrete workshops, US-import vehicles indicating strong migration links.",
+      "ruled_out": [
+       "Eastern central plateau (Hidalgo/Tlaxcala/Puebla) — lacks maguey hedgerows, terraces and stratovolcano skyline"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Guanajuato",
+       "Michoacán (northern)",
+       "Jalisco (Los Altos)",
+       "Querétaro"
+      ],
+      "conclusion": "Most likely Guanajuato/northern Michoacán lowland Bajío; Jalisco Altos less likely, Querétaro least",
+      "confidence_after": 0.45,
+      "discriminator": "Los Altos de Jalisco would show red-tinted soils, stone-walled cattle paddocks and rolling higher terrain with more pine-oak on hills; Querétaro's semi-desert would be drier with more cardón-like columnar cacti and lighter limestone soil; northern Michoacán would show more lake-basin irrigation canals and denser tree cover. The flat irrigated plain with basalt clearance piles, eucalyptus windbreaks and isolated low cerros matches the Guanajuato Bajío best.",
+      "level": "admin_region",
+      "observation": "Flat alluvial plain with irrigation-scale field parcels, concrete-lined culvert under a farm access (image 2), basalt field stones, single low cerro on the skyline.",
+      "ruled_out": [
+       "Querétaro — landscape too green/agricultural for its semi-desert north; no limestone-cactus scrub",
+       "Jalisco Los Altos — no red soil or dry-stone cattle walls, terrain too flat"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Highway edge of a small town",
+       "Isolated ejido on an interurban corridor"
+      ],
+      "conclusion": "Outskirts of a small town/ejido on a two-lane state highway, a few km from a service centre",
+      "confidence_after": 0.55,
+      "discriminator": "A truly isolated ejido would lack a cell mast, guardrail-protected curve, painted lane markings and continuous roadside electrification; a town centre would show shops, topes, painted kerbs and pedestrians — neither extreme is present.",
+      "level": "district",
+      "observation": "Cell tower, guardrail on a curve, continuous distribution line, several passing cars and cargo trucks, small commercial/industrial sheds and hand-painted roadside notice boards at a dirt side lane.",
+      "ruled_out": [
+       "Town centre — no commerce, sidewalks or speed bumps",
+       "Deep backcountry — infrastructure density too high"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.45,
+    "place_slug": "penjamo",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2369,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4640,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Mexico",
+    "country_iso": "MX",
+    "country_correct": true,
+    "region": "Guanajuato (Bajío region)",
+    "city": "near Pénjamo / Cuerámaro rural area (Bajío)",
+    "confidence": 0.4,
+    "overall_confidence": 0.45,
+    "error_km": 22.87,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 12,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "buildings",
+     "climate",
+     "geology",
+     "landform",
+     "livestock",
+     "road_infrastructure",
+     "signage",
+     "telecom",
+     "utility_poles",
+     "vegetation",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Rural highway between Pénjamo and Cuerámaro area, Bajío lowlands",
+     "region_or_state": "Guanajuato",
+     "country": "Mexico",
+     "country_iso": "MX",
+     "confidence": 0.42,
+     "coordinate_estimate": {
+      "lat": 20.55,
+      "lng": -101.6,
+      "radius_km": 90
+     }
+    },
+    "alternatives": [
+     {
+      "country": "Mexico",
+      "country_iso": "MX",
+      "confidence": 0.4
+     },
+     {
+      "country": "Guatemala",
+      "country_iso": "GT",
+      "confidence": 0.03
+     }
+    ]
+   },
+   "cost_usd": 0.1637,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2626,
+    "output": 5641,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Mexico",
+    "country_iso": "MX",
+    "country_correct": true,
+    "region": "Guanajuato",
+    "city": "Rural highway between Pénjamo and Cuerámaro area, Bajío lowlands",
+    "confidence": 0.42,
+    "overall_confidence": null,
+    "error_km": 22.87,
+    "reached_level": null,
+    "n_steps": 0,
+    "n_steps_with_cut": 0,
+    "n_cues": 0,
+    "n_landmarks": 0,
+    "cue_categories": []
+   },
+   "known_offered": [
+    "atm_5b9c968b7ed1",
+    "atm_a7ecfad95f50",
+    "atm_bfa5269be192",
+    "atm_7ce456065485",
+    "atm_1a4c17a4c72d",
+    "atm_2fbd4c769a30",
+    "atm_b2fcdcfac982",
+    "atm_a54d90c20b3e",
+    "atm_0f5685ec7286",
+    "atm_59493deb0040"
+   ],
+   "relied_on": [],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "MX",
+   "country": "Mexico",
+   "region": "Guanajuato",
+   "city": "Rural highway between Pénjamo and Cuerámaro area, Bajío lowlands",
+   "lat": 20.55,
+   "lng": -101.6,
+   "error_km": 22.87,
+   "reached_level": null,
+   "confidence": 0.42,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "miss",
+  "error_km": 22.87,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.19971875,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 2595,
+   "output": 2821,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "HIT at country and region: Mexico / Guanajuato (Bajío) was correctly identified, and the guess landed only ~23 km from the true point near Irapuato; only the intra-Bajío city call (Pénjamo/Cuerámaro rather than Irapuato/Yóstiro) was off. The decisive visible cues were the two-lane rural highway with white dashed lane line and no paved shoulder, wooden poles with small distribution transformers, dark volcanic boulder piles at plot edges, mesquite/huizache scrub with eucalyptus rows, a low mesa-like cerro, and a spare-tyre cover carrying an eagle-and-snake emblem. Nothing in the images could have separated Irapuato's surroundings from Pénjamo's, so the city-level residual error was essentially unavoidable from the panel alone.",
+  "misleading_cues": [
+   {
+    "observation": "Generic dry-season Bajío roadside scenery with no legible town or highway sign in any frame.",
+    "why_misleading": "With no toponym or route shield the analyst had to pick an arbitrary point along a long, visually uniform Bajío corridor; it chose the western Bajío (Pénjamo/Cuerámaro) instead of the central Bajío near Irapuato.",
+    "image_index": 1
+   },
+   {
+    "observation": "Very sparse, low-density roadside built environment (isolated sheds, weedy lots) in all frames.",
+    "why_misleading": "Suggests deep countryside far from a large city, whereas linear colonias of this kind also occur within ~20 km of major Bajío cities such as Irapuato.",
+    "image_index": 2
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Two-lane asphalt highway, single white dashed centre-lane marking, no painted edge lines and no paved shoulder, right-hand traffic.",
+    "why_decisive": "Typical Mexican secondary state-highway marking package, ruling out US/Central American alternatives.",
+    "category": "road-marking",
+    "image_index": 2
+   },
+   {
+    "observation": "Slender wooden poles with short crossarms, few conductors and small pole-mounted distribution transformers, plus taller concrete/steel poles at intersections.",
+    "why_decisive": "CFE rural distribution hardware typical of central Mexico.",
+    "category": "utility-pole",
+    "image_index": 1
+   },
+   {
+    "observation": "Piles of dark vesicular volcanic boulders heaped at plot edges and beside a driveway, on brown soil with agave/nopal plantings.",
+    "why_decisive": "Field-clearance basalt on the volcanic-belt margin — the classic Bajío soil/terrain signature.",
+    "category": "soil-terrain-cue",
+    "image_index": 5
+   },
+   {
+    "observation": "Low rounded mesa-like cerro on the horizon above flat cropland with a lattice telecom mast.",
+    "why_decisive": "Flat basin floor punctuated by isolated volcanic cerros is the Bajío basin landform.",
+    "category": "landform",
+    "image_index": 6
+   },
+   {
+    "observation": "Mesquite/huizache thorn scrub mixed with planted eucalyptus and cypress rows, dry golden grass in a green-tinged dry season.",
+    "why_decisive": "Semi-arid central Mexican highland vegetation, distinct from tropical Central America.",
+    "category": "vegetation",
+    "image_index": 1
+   },
+   {
+    "observation": "Van spare-tyre cover painted with an eagle-on-cactus-and-snake emblem.",
+    "why_decisive": "Mexican national emblem motif, confirming country.",
+    "category": "flag-emblem",
+    "image_index": 5
+   },
+   {
+    "observation": "Linear roadside colonia: dispersed unplastered cinderblock compounds and flat-roofed sheds strung along the highway with wide grassy setbacks and unpaved side lanes.",
+    "why_decisive": "Matches the Bajío roadside-colonia settlement form rather than a nucleated village core.",
+    "category": "settlement-pattern",
+    "image_index": 1
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Bajío basalt clearance piles vs Altiplano pale calcareous soil",
+    "body": "In Guanajuato's Bajío you see heaps of dark vesicular basalt boulders shoved to plot edges on deep brown-black soil, with agave and mesquite between them. In the Chihuahuan Altiplano further north you would instead see pale, chalky-tan calcareous soil with yucca, creosote and low nopal, and few volcanic rock piles. Isolated flat-topped cerros on a flat basin floor reinforce the volcanic-belt margin reading.",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "region",
+    "tags": [
+     "bajio",
+     "volcanic",
+     "soil"
+    ],
+    "entities": [
+     "Guanajuato Bajío",
+     "Mexican Altiplano"
+    ],
+    "looks_like": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "Altiplano / northern Mexico"
+    },
+    "actually": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "Guanajuato (Bajío)"
+    },
+    "confidence": 0.7,
+    "image_index": 5
+   },
+   {
+    "title": "Mexican rural two-lane: dashed centre line only, no edge lines",
+    "body": "Mexican secondary highways typically carry a single white dashed centre line with unpainted, unpaved gravel shoulders and grass encroaching to the asphalt edge. In Guatemala and much of Central America you would more often see a solid yellow centre line and narrower, more sinuous alignments through denser tropical vegetation. Combined with mesquite scrub and dry grass this confidently places the scene in semi-arid Mexico.",
+    "layer": "geography",
+    "category": "road-marking",
+    "scope": "country",
+    "tags": [
+     "road-marking",
+     "two-lane"
+    ],
+    "entities": [
+     "Mexico",
+     "Guatemala"
+    ],
+    "looks_like": {
+     "country_iso": "GT",
+     "country": "Guatemala"
+    },
+    "actually": {
+     "country_iso": "MX",
+     "country": "Mexico"
+    },
+    "confidence": 0.65,
+    "image_index": 2
+   },
+   {
+    "title": "Bajío linear colonia sits close to big cities, not only deep countryside",
+    "body": "In the Bajío, dispersed roadside colonias with weedy lots, cinderblock sheds and horses grazing on the verge occur within 10-25 km of large cities like Irapuato, Salamanca or Celaya. Do not read low built density as evidence of a remote western-Bajío location; instead look for frequent truck traffic, telecom masts and paved side turnoffs, which indicate proximity to a metropolitan corridor. Absent a route shield, anchor the guess on the central Bajío corridor rather than its far western end.",
+    "layer": "geography",
+    "category": "settlement-pattern",
+    "scope": "region",
+    "tags": [
+     "colonia",
+     "irapuato",
+     "bajio"
+    ],
+    "entities": [
+     "Irapuato area",
+     "Pénjamo/Cuerámaro area"
+    ],
+    "looks_like": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "Pénjamo/Cuerámaro, western Guanajuato"
+    },
+    "actually": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "Irapuato, central Guanajuato"
+    },
+    "confidence": 0.45,
+    "image_index": 6
+   },
+   {
+    "title": "CFE rural wooden poles with small transformers vs US rural distribution",
+    "body": "Mexican rural feeders use thin wooden poles with short single crossarms, only two to four conductors, and small drum transformers, often mixed with grey concrete poles at junctions. In the southwestern US you would instead see taller, thicker treated poles, consistent pole spacing, and usually a paved shoulder with white edge lines beside them. The mixed wood/concrete pole population is a reliable Mexico tell.",
+    "layer": "economy",
+    "category": "utility-pole",
+    "scope": "country",
+    "tags": [
+     "cfe",
+     "poles"
+    ],
+    "entities": [
+     "Mexico",
+     "United States"
+    ],
+    "looks_like": {
+     "country_iso": "US",
+     "country": "United States",
+     "region": "Southwest"
+    },
+    "actually": {
+     "country_iso": "MX",
+     "country": "Mexico"
+    },
+    "confidence": 0.6,
+    "image_index": 1
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_5b9c968b7ed1",
+   "atm_2fbd4c769a30",
+   "atm_0f5685ec7286"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [],
+  "merged": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "cost_usd": 0.6003,
+ "status": "PARTIAL",
+ "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+}

@@ -1,0 +1,937 @@
+{
+ "job_id": "job_84ae6f5d2adb",
+ "report_file": "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html",
+ "label": "선택 장면 보고서 · DqMkMifG…R_vQ",
+ "created": 1789052156.1914344,
+ "lang": "en",
+ "images": [
+  "capture_09d60e1d7abd.jpg",
+  "capture_84c18dc2d89c.jpg",
+  "capture_30831c92ea87.jpg",
+  "capture_4da859cbe061.jpg",
+  "capture_552eb5871300.jpg",
+  "capture_171781e54f61.jpg"
+ ],
+ "image_panos": {
+  "capture_09d60e1d7abd.jpg": {
+   "pano_id": "DqMkMifGtGcpi6pruMR_vQ",
+   "lat": 4.271580425855922,
+   "lng": -73.48949309049588,
+   "heading": 56.447119539219976,
+   "pitch": -0.500925946015883
+  },
+  "capture_84c18dc2d89c.jpg": {
+   "pano_id": "8NPX_W6DIBeukvFqlLLlXg",
+   "lat": 4.271585784735129,
+   "lng": -73.48941137665201,
+   "heading": 99.21944019237577,
+   "pitch": -3.3254918176930346
+  },
+  "capture_30831c92ea87.jpg": {
+   "pano_id": "JaZpT_HaKKrhNgDxKRfhqg",
+   "lat": 4.271619282844003,
+   "lng": -73.48895138735121,
+   "heading": 39.067814326467435,
+   "pitch": -1.566043133274917
+  },
+  "capture_4da859cbe061.jpg": {
+   "pano_id": "gjvx1jPnR_T-IcMo96rNwg",
+   "lat": 4.271726980852697,
+   "lng": -73.48797396294998,
+   "heading": 5.265805829553649,
+   "pitch": 25.18343814454289
+  },
+  "capture_552eb5871300.jpg": {
+   "pano_id": "TulRqZoA6IDDWsY-SBMHyg",
+   "lat": 4.271744046380731,
+   "lng": -73.48733921449109,
+   "heading": 166.52697325913985,
+   "pitch": -3.847020568567217
+  },
+  "capture_171781e54f61.jpg": {
+   "pano_id": "d1OH_ZR7zoDJ5R6yKxi5sA",
+   "lat": 4.271815928611716,
+   "lng": -73.4872913902842,
+   "heading": 352.055640406225,
+   "pitch": -2.759036345742004
+  }
+ },
+ "truth": {
+  "lat": 4.2716787415467,
+  "lng": -73.48841007037073,
+  "iso": "CO",
+  "country": "Colombia",
+  "region": "Meta Department",
+  "city": "Cumaral",
+  "source": "aided_prior",
+  "file_lat": 4.2716,
+  "file_lng": -73.4895,
+  "n_panos": 6
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Villa Garzón (or a similar Putumayo/Caquetá piedmont town)",
+     "confidence": 0.4,
+     "coordinate_estimate": {
+      "lat": 1.03,
+      "lng": -76.6,
+      "radius_km": 120
+     },
+     "country": "Colombia",
+     "country_iso": "CO",
+     "region_or_state": "Putumayo / Caquetá (Amazon piedmont)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Humid tropical lowland/piedmont, year-round rain, lush broadleaf vegetation and palms",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Green street blade sign reading 'Carrera 21' with a black one-way arrow plate below — the Colombian carrera/calle grid signage standard.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 5,
+      "level": "country",
+      "observation": "'Calle 10' green blade sign plus one-way arrow, matching Colombian municipal nomenclature (calles vs carreras).",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "commerce",
+      "image_index": 5,
+      "level": "country",
+      "observation": "Liquor store advertising 'Licorera MAJO' and 'Néctar' aguardiente, a distinctly Colombian spirit brand.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "commerce",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Small fast-food shop 'ESTADIO EXPRESS' with hamburger combo posters priced in thousands of pesos, plus a coffee-grower federation (FNC) logo sign down the block — smalltown Colombian commercial fabric.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Motorcycle-based cargo tricycle (motocarro) parked at the curb; these dominate hot lowland towns of Colombia rather than the cold Andean cities.",
+      "supports": [
+       "lowland/piedmont Colombia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 4,
+      "level": "macro_region",
+      "observation": "Areca/chontaduro-type palms, dense evergreen broadleaf canopy and wet pavement — perhumid low-elevation climate, not the drier inter-Andean valleys.",
+      "supports": [
+       "Amazon piedmont / Pacific-humid lowland"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Single-nave parish church with two slim towers, white walls and strong cobalt-blue with yellow trim, modern mid-20th-century construction — typical of recently founded colonization towns rather than colonial highland stone churches.",
+      "supports": [
+       "frontier colonization town"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Wide central boulevard with a planted median, low one-storey shopfronts, cellular/telecom lattice tower right beside the plaza — small municipal seat layout.",
+      "supports": [
+       "small municipal seat"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Yellow rear plate on a parked car and a white utility bucket truck; yellow rear/white front plates are the Colombian private-vehicle standard.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "flag",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Yellow-blue-red vertical banner hanging from a storefront awning.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_markings",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Circular red-ring '30' km/h speed sign, European-style, used across Colombia.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A modest municipal seat in Colombia's humid lowlands: low-rise concrete-and-brick shops, street vendors with pushcarts, heavy motorcycle and motocarro dependence, a linemen's bucket truck doing grid work, and a coffee-federation office. Economy is local service/retail plus agriculture; incomes are modest, informality visible (sidewalk snack cart, plastic-chair cafés), but paved streets, painted curbs, telecom tower and street lighting show functioning municipal services. Culturally mestizo-criollo Catholic, with the parish church anchoring the plaza — typical of a 20th-century colonization frontier town rather than a colonial highland core.",
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "'Carrera 21', 'Calle 10', 'Fuente de Soda La Estrella', 'Licorera MAJO Original', 'Combos Familiares'",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 3,
+      "name": "Main parish church on the town plaza (blue-and-white twin-tower facade)",
+      "type": "Catholic parish church"
+     },
+     {
+      "confidence": 0.4,
+      "image_index": 4,
+      "name": "Fuente de Soda La Estrella (corner soda fountain, est. 1929 per logo)",
+      "type": "local business landmark"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Latin America",
+       "Iberia",
+       "Southeast Asia",
+       "Africa"
+      ],
+      "conclusion": "Tropical Latin America, right-hand traffic",
+      "confidence_after": 0.96,
+      "discriminator": "Iberia would show EU blue-band plates, roundabouts and no motocarros; SE Asia would have non-Latin script and left-hand traffic in several candidates; Africa would lack the carrera/calle grid signage.",
+      "level": "continent",
+      "observation": "Spanish-language signage, right-hand driving, tropical broadleaf and palm vegetation, motorcycles everywhere.",
+      "ruled_out": [
+       "Iberia — no EU plates or Spanish road furniture",
+       "Southeast Asia — Latin script Spanish text",
+       "Africa — Spanish signage and Latin-American shop culture"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Colombia",
+       "Ecuador",
+       "Peru",
+       "Venezuela",
+       "Panama",
+       "Costa Rica"
+      ],
+      "conclusion": "Colombia",
+      "confidence_after": 0.94,
+      "discriminator": "Only Colombia labels every street as 'Carrera'/'Calle' on small green blade signs with a separate black one-way arrow plate; Ecuador uses 'Av./Calle' on blue-white plaques, Peru uses 'Jr./Av.', Venezuela uses 'Calle/Avenida' with different colors. 'Néctar' aguardiente and the FNC coffee-grower logo are Colombia-exclusive.",
+      "level": "country",
+      "observation": "Green 'Carrera 21' and 'Calle 10' blades, Colombian aguardiente brands (Néctar, MAJO), yellow rear plate, tricolor yellow-blue-red banner.",
+      "ruled_out": [
+       "Ecuador — street plaques and liquor brands differ",
+       "Peru — 'Jirón' nomenclature absent",
+       "Venezuela — no Venezuelan brand/plate cues",
+       "Panama/Costa Rica — no calle/carrera numbering grid of this type"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Andean highlands (Boyacá/Cundinamarca/Antioquia)",
+       "Caribbean coast",
+       "Coffee Axis mid-altitude",
+       "Amazon-Orinoco piedmont lowlands"
+      ],
+      "conclusion": "Hot, perhumid lowland/piedmont, not highland or Caribbean",
+      "confidence_after": 0.8,
+      "discriminator": "Highland towns (Boyacá, Antioquia) would show colonial whitewash-and-dark-wood balconies, steep tiled roofs, cool-climate eucalyptus/pine and residents in jackets. The Caribbean coast would be arid-to-savanna with cacti/acacia, dustier streets and flat-roofed concrete. Here the canopy is closed, evergreen and dripping wet, with areca palms and heliconia-scale foliage, and everyone is in short sleeves.",
+      "level": "macro_region",
+      "observation": "Continuous evergreen canopy, palms, wet pavement after rain, single-storey shaded shopfronts, motocarros, no highland colonial architecture.",
+      "ruled_out": [
+       "Andean highlands — no colonial balconied casonas, no cold-climate dress",
+       "Caribbean coast — vegetation far too humid/green",
+       "Coffee Axis core — architecture lacks bahareque colored eaves, terrain is flat"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Amazon piedmont (Putumayo/Caquetá)",
+       "Middle Magdalena valley",
+       "Llanos (Meta/Casanare)",
+       "Pacific lowland (Chocó/Valle)"
+      ],
+      "conclusion": "Amazon/Andean piedmont colonization town, most likely Putumayo or Caquetá",
+      "confidence_after": 0.45,
+      "discriminator": "Llanos towns sit in open savanna with visible flat grass horizons and llanero cattle iconography; the Middle Magdalena is drier with more brick two-storey commerce and heavier truck traffic on the Ruta del Sol; Chocó would show far more Afro-Colombian population, timber-plank houses on stilts and unpaved mud. Here the setting is flat but framed by dense forest-edge greenery, the town is a planned grid of low houses with wide medians, and population appears mestizo/indigenous-mestizo — the signature of mid-20th-century Amazon-piedmont colonization seats.",
+      "level": "admin_region",
+      "observation": "Flat gridded town, wide tree-lined median avenue, mid-century blue-and-white parish church, motocarro transport, forest-edge vegetation, no coastal or savanna cues.",
+      "ruled_out": [
+       "Llanos — no open savanna horizon or llanero cultural markers",
+       "Pacific Chocó — demographic and building materials do not match",
+       "Middle Magdalena — vegetation too perhumid, commerce too small-scale"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Villa Garzón (Putumayo)",
+       "Puerto Asís / Mocoa (Putumayo)",
+       "Florencia periphery / Belén de los Andaquíes (Caquetá)",
+       "San Vicente del Caguán"
+      ],
+      "conclusion": "A small Putumayo-Caquetá municipal seat; Villa Garzón fits best but cannot be confirmed from the frames alone",
+      "confidence_after": 0.35,
+      "discriminator": "Mocoa and Florencia are larger, with multi-storey blocks and departmental-capital institutional buildings absent here; Puerto Asís would show river-port infrastructure and heavier oil-service traffic. The grid reaching only to Carrera 21 / Calle 10 with a single plaza church implies a town of a few tens of thousands. No unique nameplate or river is visible, so the exact seat stays undetermined.",
+      "level": "metro_area",
+      "observation": "Street numbering caps around Carrera 21 and Calle 10, one plaza church, one main commercial street, no port or capital-level buildings.",
+      "ruled_out": [
+       "Mocoa/Florencia — too large and institutional for this skyline",
+       "Puerto Asís — no river-port or oil-camp signature"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "villa-garzon",
+    "relied_on_atoms": [],
+    "alternatives": [
+     {
+      "confidence": 0.03,
+      "country": "Ecuador",
+      "country_iso": "EC"
+     },
+     {
+      "confidence": 0.02,
+      "country": "Peru",
+      "country_iso": "PE"
+     }
+    ]
+   },
+   "cost_usd": 0.2237,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4110,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Colombia",
+    "country_iso": "CO",
+    "country_correct": true,
+    "region": "Putumayo / Caquetá (Amazon piedmont)",
+    "city": "Villa Garzón (or a similar Putumayo/Caquetá piedmont town)",
+    "confidence": 0.4,
+    "overall_confidence": 0.55,
+    "error_km": 499.35,
+    "reached_level": "metro_area",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 11,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "commerce",
+     "flag",
+     "infrastructure",
+     "road_markings",
+     "signage",
+     "vegetation",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Acacías / Granada area piedmont town, Meta",
+     "confidence": 0.44,
+     "coordinate_estimate": {
+      "lat": 3.53,
+      "lng": -73.72,
+      "radius_km": 70
+     },
+     "country": "Colombia",
+     "country_iso": "CO",
+     "region_or_state": "Meta (Llanos Orientales piedmont)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.22,
+      "country": "Colombia",
+      "country_iso": "CO"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Colombia",
+      "country_iso": "CO"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Venezuela",
+      "country_iso": "VE"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Hot humid tropical lowland/piedmont (Af/Aw), lush broadleaf trees, palms, frequent rain — wet pavement",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 1,
+      "level": "country",
+      "observation": "White-on-green street blade reading 'Carrera 21' with a separate black-and-white double-arrow plate below — the classic Colombian calle/carrera grid signage format.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 5,
+      "level": "country",
+      "observation": "Matching green blade 'Calle 10' with a one-way arrow plate underneath, confirming the perpendicular calle/carrera pair convention.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Spanish commercial sign 'FUENTE DE SODA LA ESTRELLA DE ABI' plus another green blade ('...19'), and a Colombian tricolor (yellow-blue-red) flag hanging from a shopfront.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "commerce",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Aguardiente/rum branding 'Licorera MAJO' — regional low-cost liquor distributor typical of Llanos/eastern-plains market towns rather than the Antioquia (Aguardiente Antioqueño) or Valle (Blanco del Valle) spheres.",
+      "supports": [
+       "Meta / Orinoquia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 4,
+      "level": "macro_region",
+      "observation": "Areca/oil-palm ornamentals, dense broadleaf shade trees and heliconia-like understory — hot humid lowland, not cool Andean highland.",
+      "supports": [
+       "lowland piedmont"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Modest single-nave parish church with twin slim towers painted white with blue-and-yellow trim, corrugated-roof shops beside it — mid-20th-century piedmont/colonization-era church type, not colonial stone Andean architecture.",
+      "supports": [
+       "frontier colonization town"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "transport",
+      "image_index": 4,
+      "level": "cultural_sphere",
+      "observation": "Heavy small-displacement motorcycle dependence, motorcycle cargo tricycle, older US-built International utility bucket truck — typical hot-lowland market town fleet.",
+      "supports": [
+       "piedmont market town"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "culture",
+      "image_index": 0,
+      "level": "cultural_sphere",
+      "observation": "Man in a pale wide-brim straw hat on the street corner, sidewalk snack vendor cart, low open-front cafes with plastic stools — llanero/lowland streetlife rather than highland ruana-and-fedora cachaco dress.",
+      "supports": [
+       "Llanero sphere"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "metro_area",
+      "observation": "Wide boulevard with a treed central median and a broad plaza-side avenue, concrete slab pavement with visible joints, whitewashed kerbs — planned mid-century grid of a departmental secondary town, not a village.",
+      "supports": [
+       "town of 20k-80k"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "topography",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Low forested hills just behind the town skyline with a telecom lattice mast, otherwise flat streets — cordillera foothills meeting a plain.",
+      "supports": [
+       "Andean piedmont edge"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Circular red-ring '30' km/h speed sign and Spanish fast-food posters priced in thousands ('$5.000 combos'), consistent with Colombian peso pricing.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A small-to-medium lowland market town: one- and two-storey concrete shophouses with corrugated or tile roofs, street snack carts, cheap liquor distributorships, fried-chicken and burger joints with hand-priced posters, and heavy reliance on motorcycles and moto-cargo tricycles. The economy reads as a service and market node for a cattle, oil-palm and rice hinterland, with private-utility line maintenance and telecom masts indicating modest but functional infrastructure. Streetlife is llanero-lowland: straw hats, open-front cafes with plastic chairs, informal vending, and little formal chain retail.",
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "'Carrera 21', 'Calle 10', 'Fuente de Soda', 'Licorera', 'Combos Familiares'",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.4,
+      "image_index": 3,
+      "name": "Parish church (twin-tower, blue/white/yellow) on the main plaza",
+      "type": "religious building"
+     },
+     {
+      "confidence": 0.3,
+      "image_index": 4,
+      "name": "Fuente de Soda La Estrella de Abi (local landmark business est. 1929?)",
+      "type": "commercial landmark"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Latin America",
+       "Iberia",
+       "Southeast Asia",
+       "Africa"
+      ],
+      "conclusion": "Spanish-speaking tropical Latin America, right-hand traffic",
+      "confidence_after": 0.96,
+      "discriminator": "Iberian towns would show EU-blue plates, cobbled plazas and no moto-cargo tricycles; SE Asia would show non-Latin script or left-hand traffic in some cases and different signage colour codes.",
+      "level": "continent",
+      "observation": "Spanish signage, right-hand driving, tropical broadleaf/palm vegetation, low concrete shophouses with corrugated roofs, dense motorcycle use.",
+      "ruled_out": [
+       "Iberia — no EU-format plates, no European road furniture",
+       "Southeast Asia — Latin-script Spanish text, Catholic plaza church"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Colombia",
+       "Venezuela",
+       "Ecuador",
+       "Peru",
+       "Panama",
+       "Bolivia"
+      ],
+      "conclusion": "Colombia",
+      "confidence_after": 0.93,
+      "discriminator": "Only Colombia systematically signs both axes as 'Calle' and 'Carrera' on white-on-green blades with a detachable black/white arrow plate beneath. Venezuela uses 'Avenida/Calle' with different blue or yellow-ish plaques; Ecuador uses named streets on blue-and-white tiles; Peru uses 'Av./Jr./Calle' on rectangular blue or green signs without the paired arrow plate; Panama uses 'Calle/Avenida' with numbered avenidas only. Bolivia's ENTEL-oval + Tigo Money wall painting pattern (atm_e4bdaab98801) is completely absent here, killing Bolivia.",
+      "level": "country",
+      "observation": "Two independent blades: 'Carrera 21' and 'Calle 10', both white text on green with separate one-way/two-way arrow plates; Colombian yellow-blue-red flag on a shopfront.",
+      "ruled_out": [
+       "Venezuela — street-name plaque style and typography differ; no Venezuelan tricolor or PDVSA/Mercal branding",
+       "Ecuador — no tiled street plaques or 'Panamericana' furniture",
+       "Peru — no green Bitel / red Claro wall murals, no 'Jr.' abbreviations",
+       "Bolivia — no ENTEL blue oval or Tigo Money agent boards",
+       "Panama — no numbered-avenida-only scheme, no Balboa pricing"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Caribbean coast (Atlantico/Bolivar)",
+       "Andean interior (Boyaca/Antioquia/Cundinamarca)",
+       "Pacific (Choco/Valle)",
+       "Eastern piedmont / Llanos (Meta, Casanare, Caqueta, Putumayo)",
+       "Magdalena valley (Tolima/Huila)"
+      ],
+      "conclusion": "Hot humid lowland/piedmont, not highland and not Caribbean-dry",
+      "confidence_after": 0.8,
+      "discriminator": "Andean interior towns (Boyaca, eastern Antioquia) would show steep-pitched clay-tile roofs, two-storey balconied colonial cores, eucalyptus/pine and people in ruanas; the Caribbean coast would show drier thorn scrub, cardon/acacia, and flat-roofed pastel houses with vallenato-branded shops. Here the greenery is permanently lush wet-tropical (areca palms, heliconia understory, mango/samán shade trees), pavement is rain-slicked, and everyone is in short sleeves.",
+      "level": "macro_region",
+      "observation": "Wet pavement under lush evergreen broadleaf and palm canopy, low forested hills immediately behind the town, single-storey corrugated-roof shops, no highland dress.",
+      "ruled_out": [
+       "Andean interior — no colonial two-storey balconies, no cool-climate vegetation or clothing",
+       "Caribbean coast — vegetation far too wet/green, no coastal dry scrub"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Llanero sphere (Meta/Casanare)",
+       "Amazonian-Andean sphere (Caqueta/Putumayo)",
+       "Magdalena-valley 'opita/tolimense' sphere",
+       "Antioquian paisa colonization sphere"
+      ],
+      "conclusion": "Llanero / Orinoquia piedmont cultural sphere",
+      "confidence_after": 0.55,
+      "discriminator": "A paisa colonization town would show the distinctive brightly painted wood-fronted houses with zocalo skirting and Aguardiente Antioqueño branding; a Caqueta/Putumayo Amazonian town would sit against denser rainforest with visible cocoa/plantain trade and much more informal, unpaved streetscape; an opita Magdalena town would show drier gallery-forest hills and 'Doble Anís' liquor. Here the wide tree-median boulevard, cattle-town openness, straw hats, and 'Licorera MAJO' cheap-liquor branding fit the Orinoquia piedmont, whose towns were laid out on generous grids during 20th-century colonization.",
+      "level": "cultural_sphere",
+      "observation": "Straw-hat wear, wide median boulevards, plaza with asadero-style commerce nearby, regional generic-liquor distributor sign, flat street grid meeting foothills.",
+      "ruled_out": [
+       "Antioquian paisa — no zocalo-painted wooden facades, no steep hillside terracing",
+       "Amazonian Caqueta/Putumayo — streets too consolidated/paved and vegetation not rainforest-dense",
+       "Magdalena valley — vegetation wetter than typical Tolima/Huila dry gallery forest"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Meta",
+       "Casanare",
+       "Caqueta",
+       "Guaviare"
+      ],
+      "conclusion": "Meta department piedmont most likely",
+      "confidence_after": 0.45,
+      "discriminator": "Casanare piedmont towns (Yopal, Aguazul) sit on flatter, more open savanna with visible oil-industry pickups and less closed tree canopy; Guaviare/Caqueta towns are smaller, less consolidated, with more unpaved blocks. The visible closed shade canopy, consolidated concrete boulevard with landscaped median, brick two-storey commercial buildings and a well-established 1920s-founded soda fountain point to the denser, older, better-serviced Meta piedmont corridor south of Villavicencio.",
+      "level": "admin_region",
+      "observation": "Consolidated urban core with kerbed medians, brick two-storey commercial block, telecom mast, private-utility bucket truck doing line maintenance, hills close behind town.",
+      "ruled_out": [
+       "Casanare — canopy and hill proximity suggest cordillera foothills with higher rainfall than Yopal plains",
+       "Guaviare — town too consolidated and tree-lined for a Guaviare colonization town"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Acacias",
+       "Granada",
+       "Villavicencio outskirts",
+       "Cumaral/Restrepo"
+      ],
+      "conclusion": "A mid-sized Meta piedmont town on the Villavicencio–Granada axis; cannot pin the exact municipality",
+      "confidence_after": 0.35,
+      "discriminator": "Villavicencio itself would show multi-storey buildings, painted bus routes and traffic lights at these carrera crossings; Cumaral/Restrepo are too small to reach Carrera 21 with this much commercial density. A grid extending to at least Carrera 21 and Calle 10+ with a full plaza church implies a town of tens of thousands, i.e. Acacias or Granada class.",
+      "level": "metro_area",
+      "observation": "Street numbering reaches Carrera 21 and Calle 10/19, but the tallest structures are two storeys and traffic is light with no signals.",
+      "ruled_out": [
+       "Villavicencio core — no mid-rise density or urban bus system visible",
+       "Cumaral/Restrepo — grid too extensive for such small municipalities"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "acacias-meta",
+    "relied_on_atoms": [
+     "atm_91b8f6217bd1",
+     "atm_e4bdaab98801",
+     "atm_8eff91373f39",
+     "atm_3641a82e3cde",
+     "atm_c8c9936aabeb",
+     "atm_be2b79054b54"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1509,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 1927,
+    "output": 5269,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Colombia",
+    "country_iso": "CO",
+    "country_correct": true,
+    "region": "Meta (Llanos Orientales piedmont)",
+    "city": "Acacías / Granada area piedmont town, Meta",
+    "confidence": 0.44,
+    "overall_confidence": 0.55,
+    "error_km": 86.38,
+    "reached_level": "metro_area",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 11,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "commerce",
+     "culture",
+     "infrastructure",
+     "signage",
+     "topography",
+     "transport",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_91b8f6217bd1",
+    "atm_e4bdaab98801",
+    "atm_bf39ad75c9fc",
+    "atm_be2b79054b54",
+    "atm_c8c9936aabeb",
+    "atm_8eff91373f39",
+    "atm_3641a82e3cde"
+   ],
+   "relied_on": [
+    "atm_91b8f6217bd1",
+    "atm_e4bdaab98801",
+    "atm_8eff91373f39",
+    "atm_3641a82e3cde",
+    "atm_c8c9936aabeb",
+    "atm_be2b79054b54"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "CO",
+   "country": "Colombia",
+   "region": "Meta (Llanos Orientales piedmont)",
+   "city": "Acacías / Granada area piedmont town, Meta",
+   "lat": 3.53,
+   "lng": -73.72,
+   "error_km": 86.38,
+   "reached_level": "metro_area",
+   "confidence": 0.44,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "miss",
+  "city": "miss",
+  "error_km": 86.38,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.21142375000000002,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5226,
+   "output": 2763,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Colombia and the Meta/Llanos piedmont were both correct; the only real error was the metro step — the analyst explicitly ruled OUT Cumaral (\"grid too extensive for such small municipalities\") and chose Acacías/Granada, giving an 86 km miss. The grid-extent heuristic (Carrera 21 + Calle 10/19 implies tens of thousands of inhabitants) is unreliable in Llanos colonization towns, where generous mid-century grids with high street numbers exist in municipalities of only a few thousand. All visible cues (green calle/carrera blades, wet-tropical canopy, foothills behind town, single/two-storey shophouses, no traffic signals) were consistent with a small Cumaral-class town rather than a mid-size one.",
+  "misleading_cues": [
+   {
+    "image_index": 1,
+    "observation": "Street numbering reaching 'Carrera 21' and 'Calle 19' was read as proof of a town of tens of thousands.",
+    "why_misleading": "Llanos piedmont colonization towns were platted on wide, generous grids, so high carrera/calle numbers occur even in small municipalities; this pushed the guess up the Villavicencio–Granada axis and away from small Cumaral."
+   },
+   {
+    "image_index": 4,
+    "observation": "Two-storey brick commercial block with a 1929-dated soda-fountain sign and a utility bucket truck read as 'older, better-serviced, denser' core.",
+    "why_misleading": "A single brick block plus routine line maintenance is present in almost any Meta piedmont cabecera and does not scale with population."
+   },
+   {
+    "image_index": 0,
+    "observation": "Wide boulevard with treed central median interpreted as a departmental secondary town's planned grid.",
+    "why_misleading": "Landscaped medians on the plaza-side avenue are common in small piedmont towns too, so they carry no population information."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Green white-lettered 'Carrera 21' / 'Calle 10' blades with a detachable black-and-white arrow plate underneath.",
+    "why_decisive": "Locks Colombia against Venezuela/Ecuador/Peru sign conventions.",
+    "category": "road-signage",
+    "image_index": 1
+   },
+   {
+    "observation": "Low forested cordillera foothills immediately behind the town with a lattice telecom mast, otherwise dead-flat streets.",
+    "why_decisive": "Places the town on the abrupt Andes-to-Llanos break, i.e. the Meta/Casanare piedmont rather than interior Andes or Amazon interior.",
+    "category": "landform",
+    "image_index": 0
+   },
+   {
+    "observation": "Very light traffic, no traffic signals at any carrera crossing, all buildings one or two storeys, plaza church with slim twin towers.",
+    "why_decisive": "Indicates a small cabecera of a few thousand, not an Acacías/Granada-class town of tens of thousands.",
+    "category": "urban-form",
+    "image_index": 3
+   },
+   {
+    "observation": "Permanently lush wet-tropical canopy (samán/mango shade trees, areca palms), rain-slicked concrete pavement, all people in short sleeves.",
+    "why_decisive": "Hot humid piedmont climate consistent with the northern Meta piedmont just below Villavicencio.",
+    "category": "vegetation",
+    "image_index": 4
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "High carrera numbers do not imply a big town in Llanos colonization grids",
+    "body": "In Colombian Llanos/piedmont towns you can see 'Carrera 21' or 'Calle 19' blades in a municipality of only a few thousand, because 20th-century colonization plats were laid out on generous wide-block grids that never filled in. In an actual mid-size town (Acacías, Granada class) you would instead see three-plus-storey commercial buildings, traffic signals or at least painted stop lines at the main carrera crossings, and urban bus/colectivo route boards. Use vertical density and signalisation, not street numbers, to size a Colombian town.",
+    "layer": "geography",
+    "category": "urban-form",
+    "scope": "region",
+    "tags": [
+     "grid",
+     "town-size",
+     "llanos",
+     "colombia"
+    ],
+    "entities": [
+     "Cumaral",
+     "Acacías",
+     "Granada"
+    ],
+    "looks_like": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Meta (Acacías/Granada axis)"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Meta (Cumaral, northern piedmont)"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Closed shade canopy + hills right behind town = northern Meta piedmont, not Casanare plains",
+    "body": "In the northern Meta piedmont around Villavicencio you see a closed evergreen shade canopy over the streets and forested foothills rising immediately behind the last block, with lush areca/mango planting. In Casanare (Yopal, Aguazul) you would instead see open savanna horizons, sparser tree cover, drier grass and oil-service pickups, with the cordillera far to the west. Canopy closure plus a hill wall in the same frame is the piedmont-proper signature.",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "region",
+    "tags": [
+     "piedmont",
+     "canopy",
+     "foothills"
+    ],
+    "entities": [
+     "Meta",
+     "Casanare"
+    ],
+    "looks_like": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Casanare"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Meta"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Colombian green street blade with separate arrow plate vs Venezuelan plaques",
+    "body": "In Colombia street signs are white-on-green rectangular blades reading 'Calle N' or 'Carrera N', with a detachable black-and-white arrow plate bolted beneath to show one-way or two-way flow. In Venezuela's llanos towns you would instead see named avenues on differently coloured plaques or painted wall lettering, without the paired numbered calle/carrera plus arrow-plate assembly. This pair is a reliable Colombia lock even in border-adjacent llanero towns.",
+    "layer": "language",
+    "category": "road-signage",
+    "scope": "country",
+    "tags": [
+     "street-blade",
+     "one-way-arrow"
+    ],
+    "entities": [
+     "Colombia",
+     "Venezuela"
+    ],
+    "looks_like": {
+     "country_iso": "VE",
+     "country": "Venezuela"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Piedmont colonization church vs Andean colonial church",
+    "body": "Mid-20th-century Meta/Orinoquia piedmont plaza churches are plastered concrete with slim rectilinear twin towers, flat pilaster strips and bright blue/yellow trim on white. In an Andean interior town (Boyacá, eastern Antioquia) you would instead see stone or heavy adobe masonry, a single deep-set baroque portal, clay-tile roofs and a colonial two-storey balconied plaza around it. Church fabric therefore separates colonization-era lowland towns from colonial highland ones.",
+    "layer": "architecture",
+    "category": "religious-building",
+    "scope": "region",
+    "tags": [
+     "church",
+     "plaza",
+     "colonization"
+    ],
+    "entities": [
+     "Meta piedmont",
+     "Boyacá"
+    ],
+    "looks_like": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Andean interior"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Meta piedmont"
+    },
+    "confidence": 0.65
+   }
+  ],
+  "misled_atoms": [
+   "atm_c8c9936aabeb"
+  ],
+  "confirming_atoms": [
+   "atm_91b8f6217bd1",
+   "atm_8eff91373f39",
+   "atm_3641a82e3cde"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [],
+  "merged": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "cost_usd": 0.586,
+ "status": "PARTIAL",
+ "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+}

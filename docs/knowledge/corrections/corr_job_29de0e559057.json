@@ -1,0 +1,974 @@
+{
+ "job_id": "job_29de0e559057",
+ "report_file": "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html",
+ "label": "선택 장면 보고서 · Y2Mf1bMA…Oc6g",
+ "created": 1789053258.6732154,
+ "lang": "en",
+ "images": [
+  "capture_8e57fe431bc7.jpg",
+  "capture_bfdf85046f52.jpg",
+  "capture_b8df24601d39.jpg",
+  "capture_4ef8b28356d8.jpg",
+  "capture_afd6cb99d85a.jpg",
+  "capture_2fd34fa031a2.jpg"
+ ],
+ "image_panos": {
+  "capture_8e57fe431bc7.jpg": {
+   "pano_id": "Y2Mf1bMAlBLoeDqhkvOc6g",
+   "lat": 17.307074871394814,
+   "lng": 103.58019495433378,
+   "heading": 267.53,
+   "pitch": -5.900000000000006
+  },
+  "capture_bfdf85046f52.jpg": {
+   "pano_id": "t5r2xh-p0bFT-MhyFU54Ig",
+   "lat": 17.307054346386533,
+   "lng": 103.58002182798225,
+   "heading": 3.874790044498809,
+   "pitch": -2.868344507518998
+  },
+  "capture_b8df24601d39.jpg": {
+   "pano_id": "bNdIPorHUu_2Nke9WG8h2A",
+   "lat": 17.307509403353645,
+   "lng": 103.57931140317221,
+   "heading": 347.45826877322605,
+   "pitch": 1.102796785398695
+  },
+  "capture_4ef8b28356d8.jpg": {
+   "pano_id": "-2i0l5lxOiuRiw-eRgqCDw",
+   "lat": 17.30807089529685,
+   "lng": 103.57868529318728,
+   "heading": 288.48247034745145,
+   "pitch": 1.1100356962169826
+  },
+  "capture_afd6cb99d85a.jpg": {
+   "pano_id": "bTl5LR15mBSBKI7UKh9bFQ",
+   "lat": 17.310317842314394,
+   "lng": 103.5765438995976,
+   "heading": 229.82966049518396,
+   "pitch": -3.742136587798754
+  },
+  "capture_2fd34fa031a2.jpg": {
+   "pano_id": "p_F-cG-MqzAUs1Orf7qQLQ",
+   "lat": 17.310582402365753,
+   "lng": 103.57572225857444,
+   "heading": 346.50187638392094,
+   "pitch": -2.44231047690009
+  }
+ },
+ "truth": {
+  "lat": 17.309275121611837,
+  "lng": 103.57712181729663,
+  "iso": "TH",
+  "country": "Thailand",
+  "region": "Sakon Nakhon Province (Isan)",
+  "city": "Ban Champa Thong, Nong Lat subdistrict, Warichaphum district",
+  "source": "aided_prior",
+  "file_lat": 17.3071,
+  "file_lng": 103.5802,
+  "n_panos": 9
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Ban Cham Pa Thong, Nong Lat subdistrict, Waritchaphum district",
+     "confidence": 0.88,
+     "coordinate_estimate": {
+      "lat": 17.269,
+      "lng": 103.625,
+      "radius_km": 8
+     },
+     "country": "Thailand",
+     "country_iso": "TH",
+     "region_or_state": "Sakon Nakhon Province (Isan)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Tropical savanna (Aw), dry-season deciduous vegetation, lateritic red soil",
+     "driving_side": "left",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language/script",
+      "observation": "Thai abugida on both the blue village sign and the green municipal project board; no Lao script variants (no distinct Lao 'ດ/ຫ' letterforms), confirming Thailand rather than Laos.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Thailand"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage text",
+      "observation": "Green board reads 'construction project of Nong Lat Subdistrict Municipality, Waritchaphum District, Sakon Nakhon Province' with village 'Ban Cham Pa Thong, Moo 10'.",
+      "image_index": 0,
+      "level": "admin_region",
+      "supports": [
+       "Sakon Nakhon",
+       "Waritchaphum"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "calendar system",
+      "observation": "Dates given as 2566 (Buddhist Era = 2023 CE) and budget in baht — Thai BE dating, not Lao or Cambodian conventions.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Thailand"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "soil/geology",
+      "observation": "Bright orange-red lateritic roadside soil and shoulders typical of the Khorat Plateau in northeastern Thailand.",
+      "image_index": 3,
+      "level": "macro_region",
+      "supports": [
+       "Isan"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vernacular architecture",
+      "observation": "Two-storey timber-clad houses on masonry ground floors with shallow gable corrugated-metal roofs and open under-house sitting platforms — classic Isan/Lao-Thai village form, unlike central Thai shophouses or southern concrete rowhouses.",
+      "image_index": 2,
+      "level": "cultural_sphere",
+      "supports": [
+       "Lao-Isan cultural sphere"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "traffic",
+      "observation": "Motorcycle riding on the left side of a two-lane rural road; vehicles parked facing left-hand-traffic direction.",
+      "image_index": 3,
+      "level": "country",
+      "supports": [
+       "Thailand"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utilities",
+      "observation": "Square-section prestressed concrete distribution poles with simple crossarms and dense low-voltage drops — PEA provincial network standard, not MEA Bangkok metropolitan hardware.",
+      "image_index": 3,
+      "level": "macro_region",
+      "supports": [
+       "provincial Thailand"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "consumer/commerce",
+      "observation": "Nescafe Thai-language promotional vinyl banners and a QR-code campaign at a small village grocery with blue water-jug stacks and plastic tarps — rural Thai convenience retail with no 7-Eleven storefront.",
+      "image_index": 5,
+      "level": "district",
+      "supports": [
+       "small rural village"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "telecom",
+      "observation": "C-band satellite dishes on nearly every roof plus a lattice mobile mast — rural connectivity pattern of Isan villages.",
+      "image_index": 1,
+      "level": "macro_region",
+      "supports": [
+       "rural Isan"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vegetation/season",
+      "observation": "Dry-season look: dusty red laterite, leaf-drop on trees, flowering yellow Tecoma/Tabebuia and crotons in gardens — Nov–Mar dry season in the upper Isan.",
+      "image_index": 2,
+      "level": "macro_region",
+      "supports": [
+       "Isan dry season"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A small, comparatively prosperous farming village in upper Isan: multi-storey timber-and-brick family houses, pickup trucks (the Isan status vehicle), motorcycles, satellite TV on every roof, and bottled-water/soft-drink micro-retail. Public spending is visibly modest and hyperlocal — a ~197,600 baht subdistrict-municipality drainage-channel contract, 50-day duration, announced on a project board, typical of Thailand's decentralised tambon budgets. Lao-Isan cultural sphere: Thai-script officialdom over a Lao-speaking rural population.",
+    "landmarks": [
+     {
+      "confidence": 0.9,
+      "image_index": 0,
+      "name": "Nong Lat Subdistrict Municipality project board (Ban Cham Pa Thong, Moo 10)",
+      "type": "government project signboard"
+     },
+     {
+      "confidence": 0.6,
+      "image_index": 0,
+      "name": "Village monk residence / temple office sign, 1 km ahead",
+      "type": "blue directional sign to temple"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 1,
+      "name": "Village fuel dispenser / small filling point",
+      "type": "rural retail fuel pump"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "Thai script on municipal board: project, district and province wording, BE dates 2566, baht budget figures",
+      "language": "Thai",
+      "script": "Thai"
+     },
+     {
+      "confidence": 0.4,
+      "evidence": "Place names (Ban Cham Pa Thong, Nong Lat) and vernacular architecture indicate a Lao-Isan speaking community using Thai in writing",
+      "language": "Isan (Northeastern Thai)",
+      "script": "Thai"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Southeast Asia",
+       "South Asia",
+       "East Asia",
+       "Latin America"
+      ],
+      "conclusion": "Mainland Southeast Asia, tropical savanna belt",
+      "confidence_after": 0.96,
+      "discriminator": "South Asian villages would show Devanagari/Tamil signage and flat-roofed masonry; Latin America would show Spanish/Portuguese and no Buddhist-temple directional signs.",
+      "level": "continent",
+      "observation": "Thai/Lao-family abugida script, tropical dry-season vegetation, corrugated-metal gable roofs, motorcycle-dominated traffic.",
+      "question": "Which continent and climate belt?",
+      "ruled_out": [
+       "South Asia — no Indic Devanagari/Tamil scripts",
+       "Latin America — no Latin-script Romance signage"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Thailand",
+       "Laos",
+       "Cambodia",
+       "Myanmar"
+      ],
+      "conclusion": "Thailand",
+      "confidence_after": 0.97,
+      "discriminator": "Laos would use Lao script (different ຫ/ຂ letterforms, no ฤ/ษ characters) and drive on the right; Cambodia would show Khmer script and right-hand traffic; Myanmar would show circular Burmese script.",
+      "level": "country",
+      "observation": "Standard Thai script with Thai-only consonants, Buddhist-Era year 2566, budget in baht, and left-hand traffic (motorcycle on the left lane).",
+      "question": "Which mainland SE Asian state?",
+      "ruled_out": [
+       "Laos — Lao script and RHT absent",
+       "Cambodia — no Khmer script",
+       "Myanmar — no Burmese round script"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Central Plain",
+       "Northern Thailand",
+       "Isan (Northeast)",
+       "Southern Thailand"
+      ],
+      "conclusion": "Isan, the Khorat Plateau northeast",
+      "confidence_after": 0.93,
+      "discriminator": "Southern Thailand would show rubber/oil-palm plantations, grey-brown soil and mosque minarets; Northern Thailand would show forested hills, Lanna-style temple gables and cooler-season pine/teak; the Central Plain would show flat irrigated paddy with canals and darker alluvial soil rather than laterite.",
+      "level": "macro_region",
+      "observation": "Intense orange lateritic soil shoulders, flat-to-gently-rolling terrain, dry deciduous scrub, timber houses on raised masonry bases, satellite dishes everywhere.",
+      "question": "Which macro-region of Thailand?",
+      "ruled_out": [
+       "Southern Thailand — no rubber/palm, no Malay-Muslim signage",
+       "Northern Thailand — no mountainous relief or Lanna roof forms",
+       "Central Plain — no canal-side alluvial paddy landscape"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Thai-Central sphere",
+       "Lao-Isan sphere",
+       "Northern Khmer sphere (lower Isan)"
+      ],
+      "conclusion": "Lao-Isan cultural sphere of the upper Northeast",
+      "confidence_after": 0.85,
+      "discriminator": "Lower Isan (Surin/Buriram/Sisaket) Khmer-speaking areas typically show Khmer-influenced temple stonework and place-names of Khmer type (Prasat, Kap Choeng); here place-names are Lao-Thai ('Ban ...', 'Nong ...', 'Waritchaphum') and house forms are Lao-style raised timber.",
+      "question": "Upper Lao-Isan or lower Khmer-Isan?",
+      "ruled_out": [
+       "Northern Khmer sphere — no Khmer toponyms or Prasat-type heritage cues",
+       "Central Thai sphere — no shophouse rows or central-plain temple styling"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Sakon Nakhon",
+       "Udon Thani",
+       "Nakhon Phanom",
+       "Kalasin"
+      ],
+      "conclusion": "Sakon Nakhon Province, Waritchaphum District, Nong Lat subdistrict",
+      "confidence_after": 0.9,
+      "discriminator": "An Udon Thani or Kalasin board would name that province and its own districts; the board here explicitly names Waritchaphum District of Sakon Nakhon, a district unique to that province.",
+      "level": "admin_region",
+      "observation": "Municipal project board text names 'Nong Lat Subdistrict Municipality, Waritchaphum District, Sakon Nakhon Province', with a provincial seal.",
+      "question": "Which Isan province?",
+      "ruled_out": [
+       "Udon Thani — different districts named on official boards",
+       "Nakhon Phanom — Mekong-border province, no Waritchaphum district",
+       "Kalasin — no Nong Lat municipality"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Waritchaphum town centre",
+       "Ban Cham Pa Thong village (Moo 10)",
+       "other Nong Lat villages"
+      ],
+      "conclusion": "Ban Cham Pa Thong, Moo 10, in Nong Lat subdistrict — a village a few km from Waritchaphum town",
+      "confidence_after": 0.82,
+      "discriminator": "The district town centre would show continuous concrete shophouse rows, painted curb parking bans, a 7-Eleven and a market; here we see single-lane village roads with dirt shoulders, home-front planters and a single family grocery — a Moo-level hamlet.",
+      "level": "district",
+      "observation": "The blue sign gives the village as Ban Cham Pa Thong, Tambon Nong Lat, Amphoe Waritchaphum, with a temple 1 km ahead; the streetscape is loose village housing on unkerbed laterite verges.",
+      "question": "District town or outlying village?",
+      "ruled_out": [
+       "Waritchaphum town centre — no shophouse commercial strip or urban kerbing"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.86,
+    "place_slug": "waritchaphum",
+    "relied_on_atoms": [],
+    "alternatives": [
+     {
+      "confidence": 0.06,
+      "country": "Thailand",
+      "country_iso": "TH"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Laos",
+      "country_iso": "LA"
+     }
+    ]
+   },
+   "cost_usd": 0.224,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4124,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Thailand",
+    "country_iso": "TH",
+    "country_correct": true,
+    "region": "Sakon Nakhon Province (Isan)",
+    "city": "Ban Cham Pa Thong, Nong Lat subdistrict, Waritchaphum district",
+    "confidence": 0.88,
+    "overall_confidence": 0.86,
+    "error_km": 6.77,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 10,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "calendar system",
+     "consumer/commerce",
+     "language/script",
+     "signage text",
+     "soil/geology",
+     "telecom",
+     "traffic",
+     "utilities",
+     "vegetation/season",
+     "vernacular architecture"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Wanon Niwat / Ban Cham Pa Thong, Nong Lat subdistrict, Waritchaphum district",
+     "confidence": 0.83,
+     "coordinate_estimate": {
+      "lat": 17.24,
+      "lng": 103.68,
+      "radius_km": 12
+     },
+     "country": "Thailand",
+     "country_iso": "TH",
+     "region_or_state": "Sakon Nakhon Province (Isan / Northeast)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.08,
+      "country": "Thailand",
+      "country_iso": "TH"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Laos",
+      "country_iso": "LA"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Tropical savanna (Koppen Aw), dry-season deciduous woodland on red laterite plateau soil",
+     "driving_side": "left",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Large green project board in Thai abugida with rounded looped letterforms, superscript tone marks and Thai-only consonants; no Lao simplified forms, no Khmer subscripts, no Latin diacritics.",
+      "supports": [
+       "Thailand"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage/administration",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Board reads as a subdistrict-municipality (Thesaban Tambon) construction project: tambon Nong Lat, amphoe Waritchaphum, changwat Sakon Nakhon; small budget ~197,600 baht, contract dated 2566 BE (2023 CE).",
+      "supports": [
+       "Sakon Nakhon",
+       "Isan local-government tier"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Blue directional sign for a village monastic office at Ban Cham Pa Thong, tambon Nong Lat, amphoe Wari(chaphum), '1 km' ahead — Lao-Isan 'Ban'/'Nong' toponymy.",
+      "supports": [
+       "Lao-Isan cultural sphere",
+       "Waritchaphum area"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "calendar",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Dates given in Buddhist Era (2566) with Thai month abbreviations — Thai state convention, not Lao or Vietnamese usage.",
+      "supports": [
+       "Thailand"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "soil/geology",
+      "image_index": 1,
+      "level": "macro_region",
+      "observation": "Bright red-orange laterite shoulders and dirt yards flanking a thin asphalt lane; flat terrain with no relief.",
+      "supports": [
+       "Khorat Plateau / Isan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 1,
+      "level": "macro_region",
+      "observation": "Dry-season deciduous canopy, part-leafless trees, dusty ground, strong low sun — Aw dry season of the interior plateau rather than evergreen rubber/palm of the south.",
+      "supports": [
+       "Isan"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "cultural_sphere",
+      "observation": "Two-storey house with unpainted hardwood upper storey over masonry/brick ground floor, corrugated metal roof, wide eaves — classic Isan vernacular evolution of the raised timber house.",
+      "supports": [
+       "Lao-Isan sphere"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "economy",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Multiple large C-band satellite dishes on village houses plus concrete-frame extensions — remittance-funded rural consumption typical of Isan villages.",
+      "supports": [
+       "Isan remittance economy"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Square-section concrete utility poles with cross-arm insulator racks and stacked LV/telecom drops, PEA-style rural distribution; motorcycle rides on the left side.",
+      "supports": [
+       "Thailand",
+       "left-hand traffic"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Silver single-cab pickup under a light steel carport, white rear plate — the ubiquitous Thai rural pickup, and typical white plate format.",
+      "supports": [
+       "Thailand"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "commerce",
+      "image_index": 5,
+      "level": "country",
+      "observation": "Nescafe promotional banners in Thai advertising a football-star prize draw, blue water-jug stacks and a small tarpaulin-shaded grocery front — Thai FMCG village retail.",
+      "supports": [
+       "Thailand"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "street furniture",
+      "image_index": 2,
+      "level": "district",
+      "observation": "Village lane with slim ornamental streetlight poles and painted picket fencing on concrete plinths, no sidewalks — small tambon-level settlement, not a district town centre.",
+      "supports": [
+       "rural village"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A modest but not poor Lao-Isan village on the Khorat Plateau, with wet-rice/cassava livelihoods visibly supplemented by remittance income (hardwood two-storey houses, pickups, satellite dishes) and public goods delivered by the subdistrict municipality tier.",
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "Green project board and blue village sign in Thai script; Buddhist-Era dates; Nescafe banners in Thai",
+      "language": "Thai (with Isan/Lao toponymy)",
+      "script": "Thai"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.8,
+      "image_index": 0,
+      "name": "Nong Lat Subdistrict Municipality public-works signboard",
+      "type": "civic signage"
+     },
+     {
+      "confidence": 0.7,
+      "image_index": 0,
+      "name": "Ban Cham Pa Thong village monastic office direction sign",
+      "type": "religious/administrative signage"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 1,
+      "name": "Village telecom mast",
+      "type": "infrastructure"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Mainland Southeast Asia",
+       "South Asia",
+       "Maritime Southeast Asia"
+      ],
+      "conclusion": "Mainland Southeast Asia, Buddhist Theravada sphere",
+      "confidence_after": 0.97,
+      "discriminator": "South Asia would show Devanagari/Tamil script and different pole hardware; maritime SE Asia (Malaysia/Indonesia) would show Latin-script Malay signage, mosques and rubber/oil-palm rather than an abugida with tone marks.",
+      "level": "continent",
+      "observation": "Abugida script with superscript tone marks, tropical savanna dry-season vegetation, tin-roofed timber houses.",
+      "question": "Which macro-cultural region?",
+      "ruled_out": [
+       "South Asia: no Indic Brahmic-derived Devanagari/Tamil signage",
+       "Maritime SE Asia: no Latin-script Malay, no mosque/minaret"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Thailand",
+       "Laos",
+       "Cambodia",
+       "Vietnam"
+      ],
+      "conclusion": "Thailand",
+      "confidence_after": 0.96,
+      "discriminator": "Lao script would lack Thai-only consonants and use simplified rounded glyphs; Khmer would stack subscript consonants with tall ascenders; Vietnamese would print diacritic-heavy Latin with four-level hamlet–commune–district–province addresses. None of these appear — instead the Thai-specific administrative lexicon (thesaban tambon / amphoe / changwat) is spelled out.",
+      "level": "country",
+      "observation": "Thai letterforms with loops and tone marks; project board naming tambon/amphoe/changwat hierarchy; Buddhist Era 2566 dating; left-hand traffic.",
+      "question": "Thailand, Laos, Cambodia or Vietnam?",
+      "ruled_out": [
+       "Laos: script glyphs are Thai, not Lao; also drives on the right",
+       "Cambodia: no Khmer subscript consonants",
+       "Vietnam: no Latin-diacritic signage, no commune people's committee/BHXH banners"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Central Thailand",
+       "Northern Thailand",
+       "Southern Thailand",
+       "Northeast Thailand (Isan)"
+      ],
+      "conclusion": "Northeast Thailand, Khorat Plateau (Isan)",
+      "confidence_after": 0.93,
+      "discriminator": "Central Thailand would show grey alluvial clay and khlong-side ribbon settlement with 'Bang/Khlong' toponyms; the North would show forested ridgelines and Lanna temple rooflines; the South would show evergreen rubber/oil-palm rows, mosques and Yawi influence. Here the shoulders are bright red laterite on dead-flat ground with dry deciduous canopy.",
+      "level": "macro_region",
+      "observation": "Red laterite road shoulders and yards, flat horizon, part-leafless dry-season trees, unpainted hardwood upper-storey houses.",
+      "question": "Which quadrant of Thailand?",
+      "ruled_out": [
+       "Central: no grey clay/canal geometry",
+       "North: no mountain relief or Lanna eaves",
+       "South: no rubber/oil-palm monoculture or Islamic architecture"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Lao-Isan sphere",
+       "Khmer-Surin sphere",
+       "Central Thai settler sphere"
+      ],
+      "conclusion": "Lao-Isan (Phu Thai/Lao) cultural sphere of the upper Isan",
+      "confidence_after": 0.9,
+      "discriminator": "A Khmer-Surin village would carry 'Prasat'/'Ta-' toponyms and laterite temple ruins; a Central Thai settler village would use 'Bang/Khlong'. Here toponyms are 'Ban ...' and 'Nong ...' (village / pond), the classic Lao-Isan pattern, paired with hardwood-over-masonry houses.",
+      "level": "cultural_sphere",
+      "observation": "Village and subdistrict names both use Lao-Isan elements ('Ban', 'Nong'); vernacular houses have unpainted teak/hardwood upper storeys over open or masonry ground floors.",
+      "question": "Lao-Isan, Khmer-Surin, or Central-Thai-settler Isan?",
+      "ruled_out": [
+       "Khmer-Surin: no Khmer toponymy or Angkorian laterite ruins",
+       "Central Thai settler: no canal-oriented toponyms or layout"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Sakon Nakhon",
+       "Udon Thani",
+       "Nakhon Phanom",
+       "Kalasin",
+       "Nong Khai"
+      ],
+      "conclusion": "Sakon Nakhon Province",
+      "confidence_after": 0.88,
+      "discriminator": "Any other province's board would name its own changwat; the board explicitly pairs amphoe Waritchaphum with changwat Sakon Nakhon, and Waritchaphum exists only in Sakon Nakhon. Udon Thani or Kalasin boards would name Amphoe Kumphawapi, Yang Talat, etc.",
+      "level": "admin_region",
+      "observation": "Green municipal board names 'Thesaban Tambon Nong Lat, Amphoe Waritchaphum, Changwat Sakon Nakhon'.",
+      "question": "Which upper-Isan province?",
+      "ruled_out": [
+       "Udon Thani / Nong Khai / Nakhon Phanom / Kalasin: none contain an Amphoe Waritchaphum"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Waritchaphum town",
+       "Ban Cham Pa Thong (Moo 10, Tambon Nong Lat)",
+       "other Nong Lat villages"
+      ],
+      "conclusion": "Ban Cham Pa Thong village, Tambon Nong Lat, west of Waritchaphum town, on the Phu Phan foothill margin",
+      "confidence_after": 0.8,
+      "discriminator": "The district town would show shophouse rows, painted kerbs, sidewalks and a fresh market; instead we see a single-carriageway lane with laterite shoulders, no kerb, scattered detached compounds and a single village grocery — a Moo-level hamlet. The blue sign gives '1 km' to the village monastic office, so the capture sits on the approach road to that hamlet.",
+      "level": "district",
+      "observation": "Project board specifies drainage works inside Ban Cham Pa Thong, Moo 10; the scenes are low-density village lanes with no commercial strip.",
+      "question": "District town or the named village?",
+      "ruled_out": [
+       "Waritchaphum town centre: no shophouse row, no sidewalks or urban density",
+       "Other Nong Lat villages: the signage explicitly points to Ban Cham Pa Thong 1 km away"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.83,
+    "place_slug": "waritchaphum",
+    "relied_on_atoms": [
+     "atm_e2c9a9aafaf4",
+     "atm_309c39141fcb",
+     "atm_c6a252ad0c50",
+     "atm_a410bcb0d577",
+     "atm_68509cfdf0f6",
+     "atm_31b06bbe84f4",
+     "atm_724d7e7a7c99",
+     "atm_a829b13225ed"
+    ]
+   },
+   "cost_usd": 0.144,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2754,
+    "output": 4829,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Thailand",
+    "country_iso": "TH",
+    "country_correct": true,
+    "region": "Sakon Nakhon Province (Isan / Northeast)",
+    "city": "Wanon Niwat / Ban Cham Pa Thong, Nong Lat subdistrict, Waritchaphum district",
+    "confidence": 0.83,
+    "overall_confidence": 0.83,
+    "error_km": 13.37,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 12,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "calendar",
+     "commerce",
+     "economy",
+     "infrastructure",
+     "language",
+     "signage",
+     "signage/administration",
+     "soil/geology",
+     "street furniture",
+     "vegetation",
+     "vehicles"
+    ]
+   },
+   "known_offered": [
+    "atm_724d7e7a7c99",
+    "atm_e2c9a9aafaf4",
+    "atm_a829b13225ed",
+    "atm_68509cfdf0f6",
+    "atm_309c39141fcb",
+    "atm_c6a252ad0c50",
+    "atm_9f241d0453c6",
+    "atm_a410bcb0d577",
+    "atm_128968f951fe",
+    "atm_31b06bbe84f4"
+   ],
+   "relied_on": [
+    "atm_e2c9a9aafaf4",
+    "atm_309c39141fcb",
+    "atm_c6a252ad0c50",
+    "atm_a410bcb0d577",
+    "atm_68509cfdf0f6",
+    "atm_31b06bbe84f4",
+    "atm_724d7e7a7c99",
+    "atm_a829b13225ed"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "TH",
+   "country": "Thailand",
+   "region": "Sakon Nakhon Province (Isan / Northeast)",
+   "city": "Wanon Niwat / Ban Cham Pa Thong, Nong Lat subdistrict, Waritchaphum district",
+   "lat": 17.24,
+   "lng": 103.68,
+   "error_km": 13.37,
+   "reached_level": "district",
+   "confidence": 0.83,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 13.37,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.20760375000000003,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5682,
+   "output": 2519,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "HIT: Thailand / Sakon Nakhon / Ban Champa Thong (Nong Lat, Warichaphum) was read directly off the green Thesaban Tambon project board, whose Thai script and tambon–amphoe–changwat chain fixed both country and district; the 13 km offset only reflects the guessed position along the village approach road. The alternatives Laos and Cambodia were correctly excluded because the letterforms are Thai (loops, tone marks, Thai-only consonants) with Buddhist-Era 2566 dating, and traffic is left-hand — Laos drives on the right and uses simplified Lao glyphs. Isan was confirmed independently by bright red laterite shoulders, flat terrain, dry deciduous canopy and hardwood-over-masonry houses.",
+  "misleading_cues": [
+   {
+    "observation": "Blind chain placed the point near Wanon Niwat / 17.24, 103.68 rather than on the west side of Warichaphum district.",
+    "why_misleading": "The signboard names only the village and subdistrict, giving no along-road position; assuming a specific approach direction added ~13 km of error."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "category": "script",
+    "image_index": 0,
+    "observation": "Green board in Thai abugida with looped letterforms, superscript tone marks, Thai-only consonants, no subscript stacking.",
+    "why_decisive": "Separates Thailand from Laos (simplified Lao glyphs) and Cambodia (subscript consonants)."
+   },
+   {
+    "category": "civic-building",
+    "image_index": 0,
+    "observation": "Board of a subdistrict municipality construction project naming tambon / amphoe / changwat with a ~197,600 baht budget and contract dated 2566.",
+    "why_decisive": "The Thai three-tier administrative lexicon plus Buddhist-Era dating is a Thai-state-only convention and names the exact province and district."
+   },
+   {
+    "category": "soil-terrain-cue",
+    "image_index": 1,
+    "observation": "Bright red-orange laterite shoulders and yards beside a thin asphalt lane on dead-flat ground.",
+    "why_decisive": "Khorat Plateau laterite, unlike Central Thai grey alluvium or Northern mountain relief."
+   },
+   {
+    "category": "housing-typology",
+    "image_index": 2,
+    "observation": "Two-storey houses with unpainted hardwood upper storey over brick/masonry ground floor and corrugated metal roofs.",
+    "why_decisive": "Isan vernacular evolution of the raised timber house, distinct from southern Thai/Malay stilt kampung forms."
+   },
+   {
+    "category": "road-marking",
+    "image_index": 3,
+    "observation": "Motorcycle travelling on the left-hand side of the rural lane.",
+    "why_decisive": "Left-hand traffic excludes Laos, Cambodia and Vietnam."
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Thai loops with tone marks vs Lao simplified glyphs on rural project boards",
+    "body": "In Thailand village public-works boards carry Thai script with looped letterforms, superscript tone marks and Thai-only consonants, plus a tambon/amphoe/changwat chain and Buddhist-Era dates. In Laos you would instead see rounder, simplified Lao glyphs lacking those consonants, with ban/muang/khoueng wording and Gregorian dates. Combined with left-hand traffic this settles Thailand over Laos even a few kilometres from the Mekong.",
+    "layer": "language",
+    "category": "script",
+    "scope": "country",
+    "tags": [
+     "thai-script",
+     "signboard",
+     "administration"
+    ],
+    "entities": [
+     "Thailand",
+     "Laos"
+    ],
+    "looks_like": {
+     "country_iso": "LA",
+     "country": "Laos"
+    },
+    "actually": {
+     "country_iso": "TH",
+     "country": "Thailand",
+     "region": "Sakon Nakhon"
+    },
+    "confidence": 0.9
+   },
+   {
+    "title": "Red laterite shoulders on flat plateau mark Isan, not Central Thailand",
+    "body": "In Isan (Khorat Plateau) village roads have bright red-orange laterite shoulders and dusty yards on dead-flat ground with part-leafless dry deciduous trees. In Central Thailand you would instead see grey alluvial clay, canal-side ribbon settlement and 'Bang/Khlong' toponyms; in the South, evergreen rubber/oil-palm rows and mosques.",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "region",
+    "tags": [
+     "laterite",
+     "isan",
+     "dry-season"
+    ],
+    "entities": [
+     "Isan",
+     "Central Thailand"
+    ],
+    "looks_like": {
+     "country_iso": "TH",
+     "country": "Thailand",
+     "region": "Central Thailand"
+    },
+    "actually": {
+     "country_iso": "TH",
+     "country": "Thailand",
+     "region": "Isan (Khorat Plateau)"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Hardwood-over-masonry Isan houses vs stilted Malay kampung houses",
+    "body": "In Isan villages the standard house is a two-storey block with an unpainted hardwood upper storey sitting on an enclosed brick/masonry ground floor under corrugated metal, often with a large C-band dish. In Malay/southern kampung areas you would instead see timber boxes fully raised on visible piloti with open underfloor space and mosque domes nearby.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "region",
+    "tags": [
+     "vernacular",
+     "isan",
+     "kampung"
+    ],
+    "entities": [
+     "Isan Thailand",
+     "Peninsular Malaysia"
+    ],
+    "looks_like": {
+     "country_iso": "MY",
+     "country": "Malaysia"
+    },
+    "actually": {
+     "country_iso": "TH",
+     "country": "Thailand",
+     "region": "Isan"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Ban/Nong toponyms vs Khmer Prasat/Ta- toponyms inside Isan",
+    "body": "In the Lao-Isan north of the Khorat Plateau, village and subdistrict names on signs use 'Ban' and 'Nong' elements. In the Khmer-influenced southern Isan belt (Surin, Buriram, Si Saket) you would instead see 'Prasat', 'Ta-' and 'Chorak' names alongside Angkorian laterite ruins.",
+    "layer": "language",
+    "category": "toponymy",
+    "scope": "region",
+    "tags": [
+     "toponymy",
+     "lao-isan",
+     "khmer-surin"
+    ],
+    "entities": [
+     "Upper Isan",
+     "Surin/Buriram"
+    ],
+    "looks_like": {
+     "country_iso": "TH",
+     "country": "Thailand",
+     "region": "Surin (Khmer Isan)"
+    },
+    "actually": {
+     "country_iso": "TH",
+     "country": "Thailand",
+     "region": "Sakon Nakhon (Lao-Isan)"
+    },
+    "confidence": 0.7
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_e2c9a9aafaf4",
+   "atm_309c39141fcb",
+   "atm_c6a252ad0c50",
+   "atm_a410bcb0d577",
+   "atm_31b06bbe84f4",
+   "atm_68509cfdf0f6"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [],
+  "merged": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "cost_usd": 0.5756,
+ "status": "PARTIAL",
+ "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+}

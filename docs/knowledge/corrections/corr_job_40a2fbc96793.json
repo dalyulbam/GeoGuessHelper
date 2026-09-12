@@ -1,0 +1,863 @@
+{
+ "job_id": "job_40a2fbc96793",
+ "report_file": "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html",
+ "label": "선택 장면 보고서 · LQ4-ChLf…uVVQ",
+ "created": 1789052933.4518008,
+ "lang": "en",
+ "images": [
+  "capture_63dd3b689b52.jpg",
+  "capture_2734ceced9fa.jpg",
+  "capture_b8dcbd31bdce.jpg",
+  "capture_20bf4d60448e.jpg",
+  "capture_48d720ce4c77.jpg",
+  "capture_5e5d396ec467.jpg"
+ ],
+ "image_panos": {
+  "capture_63dd3b689b52.jpg": {
+   "pano_id": "LQ4-ChLfU9KwIXxW9PuVVQ",
+   "lat": -29.375163649900593,
+   "lng": -70.95509170802413,
+   "heading": 53.92620970521581,
+   "pitch": -3.498349549209294
+  },
+  "capture_2734ceced9fa.jpg": {
+   "pano_id": "LQ4-ChLfU9KwIXxW9PuVVQ",
+   "lat": -29.375163649900593,
+   "lng": -70.95509170802413,
+   "heading": 227.51881220399412,
+   "pitch": 2.1593234322763095
+  },
+  "capture_b8dcbd31bdce.jpg": {
+   "pano_id": "jsmMOzXuUWGUhwmgC-nL8w",
+   "lat": -29.375400875362594,
+   "lng": -70.95641631107021,
+   "heading": 266.98194980321995,
+   "pitch": 0.7479538031345356
+  },
+  "capture_20bf4d60448e.jpg": {
+   "pano_id": "_q27pzyOsjCc97kPrbsw8Q",
+   "lat": -29.373812583006547,
+   "lng": -70.95816058315454,
+   "heading": 283.5182903307723,
+   "pitch": -3.462846446312298
+  },
+  "capture_48d720ce4c77.jpg": {
+   "pano_id": "Zs_lcIT97sWD6qPB1RjfHQ",
+   "lat": -29.37533771205342,
+   "lng": -70.95533478804767,
+   "heading": 114.75313531504793,
+   "pitch": 3.00570908098004
+  },
+  "capture_5e5d396ec467.jpg": {
+   "pano_id": "bgxfGBo2QIN0pgXz1JNTJw",
+   "lat": -29.373820582046807,
+   "lng": -70.95419675511734,
+   "heading": 109.27651605412484,
+   "pitch": -0.6031778594748687
+  }
+ },
+ "truth": {
+  "lat": -29.374783175378425,
+  "lng": -70.95571530890633,
+  "iso": "CL",
+  "country": "Chile",
+  "region": "Atacama Region (Huasco / Copiapó province)",
+  "city": "Quebrada de los Choros / Chacho Martínez (Huasco valley area)",
+  "source": "aided_prior",
+  "file_lat": -29.3752,
+  "file_lng": -70.9551,
+  "n_panos": 6
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Vicuña / Paihuano area, Elqui Valley",
+     "confidence": 0.55,
+     "coordinate_estimate": {
+      "lat": -30.03,
+      "lng": -70.62,
+      "radius_km": 45
+     },
+     "country": "Chile",
+     "country_iso": "CL",
+     "region_or_state": "Coquimbo Region"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.15,
+      "country": "Chile",
+      "country_iso": "CL"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Peru",
+      "country_iso": "PE"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Argentina",
+      "country_iso": "AR"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Semi-arid / desert transition (Norte Chico steppe-desert) with irrigated valley-floor viticulture",
+     "driving_side": "right",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 1,
+      "observation": "Yellow diamond warning sign with black right-curve arrow, mounted on a slim galvanized post with white-and-blue base band — standard Chilean MOP rural sign format.",
+      "level": "country",
+      "supports": [
+       "Chile",
+       "Peru"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 0,
+      "observation": "Small white-bordered red circular speed sign and a plain white diamond marker; European-style circular prohibitory signs indicate a Vienna-convention-derived system used across the Andean west coast.",
+      "level": "country",
+      "supports": [
+       "Chile"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "agriculture",
+      "image_index": 5,
+      "observation": "Table-grape / pisco-grape vineyards on overhead parronal trellis with shade cloth and irregular wooden/eucalyptus posts, planted right up against bare desert hillslopes.",
+      "level": "admin_region",
+      "supports": [
+       "Elqui/Limari valleys, Coquimbo"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "observation": "Hillsides essentially bare with only sparse xeric shrubs and scattered columnar cacti; irrigated green strip confined to the narrow valley floor — classic Norte Chico transverse valley oasis pattern.",
+      "level": "macro_region",
+      "supports": [
+       "Coquimbo/Atacama"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "observation": "Long riveted steel truss viaduct in oxidized/ochre paint crossing the valley — a legacy narrow-gauge Chilean railway bridge typical of northern Chile mining branch lines.",
+      "level": "admin_region",
+      "supports": [
+       "Coquimbo Region rail heritage"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 2,
+      "observation": "Rough wooden distribution poles with single crossarm and few conductors, plus black polyethylene irrigation mains along field edges — low-density rural electrification.",
+      "level": "district",
+      "supports": [
+       "small rural valley settlement"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "geology",
+      "image_index": 1,
+      "observation": "Dark brown weathered granitic/dioritic outcrops with tafoni-style cavities and pale alluvial fanglomerate terraces along a dry braided riverbed.",
+      "level": "macro_region",
+      "supports": [
+       "Andean coastal batholith, northern Chile"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road",
+      "image_index": 3,
+      "observation": "Unpaved compacted gravel valley road with no markings and no guardrails, following a wide dry wash.",
+      "level": "district",
+      "supports": [
+       "secondary interior valley route"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "sun",
+      "image_index": 3,
+      "observation": "Low sun and long shadows with sun tracking on the northern side of the sky; winter-dormant grapevines (bare canes) indicate a southern-hemisphere winter capture.",
+      "level": "continent",
+      "supports": [
+       "southern hemisphere"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A smallholder-to-mid-scale irrigated agricultural pocket in an otherwise barren desert valley: parronal table-grape/pisco-grape vineyards with shade netting, drip and PE-pipe irrigation, improvised wooden posts and wire fences, unpaved access road, modest single-phase electrification. Economy is export/pisco fruit growing plus a disused mining-era railway line whose truss viaduct still spans the valley. Hispanic criollo rural culture with a strong Diaguita-descended local population typical of Norte Chico transverse valleys; low capital intensity but clearly commercially oriented horticulture rather than subsistence.",
+    "languages_detected": [
+     {
+      "confidence": 0.3,
+      "evidence": "No legible text; only pictographic road signs. Language inferred from regional context, not read.",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 1,
+      "name": "Steel truss railway viaduct over a dry valley (likely a former Chilean longitudinal/branch railway bridge)",
+      "type": "railway bridge"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "North America (SW USA/Mexico)",
+       "South America (Andean west coast)",
+       "Middle East/North Africa",
+       "Central Asia"
+      ],
+      "conclusion": "Southern-hemisphere Andean west coast of South America",
+      "confidence_after": 0.8,
+      "discriminator": "A Middle Eastern or North African desert valley would show date palms, block/flat-roofed masonry hamlets and Arabic-script signage; the US Southwest would show wide paved shoulders, mile markers and white-on-green signage plus creosote/saguaro flora. Here the flora is thorny Acacia/Prosopis scrub with slender columnar cacti and the built vocabulary is Latin-American rural.",
+      "level": "continent",
+      "observation": "Bare granitic desert ranges, thorn scrub, columnar cacti, dormant vines in a low-angle sun with the sun path on the north side of the sky.",
+      "question": "Which arid continental belt is this?",
+      "ruled_out": [
+       "Middle East/North Africa — no palms, no Arabic signage, wrong sign geometry",
+       "US Southwest — no paved shoulders, no US-style signing",
+       "Central Asia — no Cyrillic, no poplar windbreaks"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Chile",
+       "Peru",
+       "Argentina",
+       "Bolivia"
+      ],
+      "conclusion": "Chile",
+      "confidence_after": 0.78,
+      "discriminator": "Peruvian rural warning signs are the same yellow diamond but posts are usually plain grey/white without the blue-white banded base, and Peruvian coastal valleys are dominated by sugarcane, asparagus and adobe walls. Argentine Cuyo valleys (Mendoza/San Juan) are far flatter with poplar (Populus) windbreak lines around every vineyard and paved provincial routes; here vineyards abut bare rock with no poplar rows. Bolivia lacks this coastal-batholith geology and this trellis type.",
+      "level": "country",
+      "observation": "Yellow diamond curve sign on a slim post with white/blue banded base, MOP-style rural signing, and overhead parronal grape trellis with shade cloth in a narrow transverse desert valley.",
+      "question": "Chile, Peru, Argentina or Bolivia?",
+      "ruled_out": [
+       "Peru — different valley crop mix and post/sign detailing",
+       "Argentina — no poplar windbreaks, wrong valley morphology",
+       "Bolivia — no altiplano signatures"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Norte Grande (Arica–Antofagasta)",
+       "Norte Chico (Atacama–Coquimbo)",
+       "Central Chile (Valparaiso–Maule)",
+       "South Chile"
+      ],
+      "conclusion": "Norte Chico transverse valleys",
+      "confidence_after": 0.75,
+      "discriminator": "Norte Grande valleys (Azapa, Lluta, Loa) are hyper-arid with zero hillside shrub cover and grow olives/maize, not trellised grapes at this density. Central Chile would show continuous green matorral on the slopes, espaliered wine vineyards on wide flat plains, and paved rural roads with painted lines. South Chile is impossible: no rain-fed vegetation here at all.",
+      "level": "macro_region",
+      "observation": "Slopes carry sparse but non-zero xeric shrub and cacti (not hyper-arid bare), while the valley floor is fully irrigated with table-grape parronales; braided dry riverbed with large alluvial boulders.",
+      "question": "Which Chilean latitudinal belt?",
+      "ruled_out": [
+       "Norte Grande — vegetation on slopes is too abundant for the Atacama core",
+       "Central Chile — hillsides would be green matorral, roads paved",
+       "South Chile — climate mismatch"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Copiapo valley",
+       "Huasco valley",
+       "Elqui valley",
+       "Limari valley",
+       "Choapa valley"
+      ],
+      "conclusion": "Elqui/Limari system, Coquimbo Region — most likely Elqui",
+      "confidence_after": 0.55,
+      "discriminator": "Copiapo and Huasco (Atacama Region) sit in a browner, more totally bare landscape and their valley floors are wider with large corporate blocks and metal-post trellis; a steel truss viaduct of this vintage over an agricultural valley matches the old Coquimbo-region branch railways. Choapa is greener with more matorral and rain-fed pasture. The dense overhead parronal with shade netting jammed against bare hills is the Elqui signature.",
+      "level": "admin_region",
+      "observation": "Narrow steep-walled valley, parronal grapes with shade cloth against a bare hill, historic steel truss railway viaduct crossing the valley floor, gravel access road.",
+      "question": "Which transverse valley of the Norte Chico?",
+      "ruled_out": [
+       "Copiapo/Huasco — wider, barer, more industrial-scale plantings",
+       "Choapa — too much natural vegetation"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Main valley floor near Vicuna",
+       "Side tributary (Cochiguaz/Paihuano)",
+       "Lower valley near Rivadavia"
+      ],
+      "conclusion": "A secondary/tributary gravel road off the main Elqui valley road, near a railway viaduct crossing — cannot be resolved further without a place name or a route shield",
+      "confidence_after": 0.4,
+      "discriminator": "The main Ruta 41 corridor would be asphalt with painted centre line and larger reflective destination signs; this is unpaved with only pictographic warning signs, so it is a lateral/service road. Missing evidence: any legible toponym, kilometre marker or settlement architecture.",
+      "level": "district",
+      "observation": "Unpaved single-track-plus road with no markings, small holdings, minimal power infrastructure.",
+      "question": "Main valley trunk road or a side branch?",
+      "ruled_out": [
+       "Main paved valley highway — road is gravel and unmarked"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "elqui-valley",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2207,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 3989,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Chile",
+    "country_iso": "CL",
+    "country_correct": true,
+    "region": "Coquimbo Region",
+    "city": "Vicuña / Paihuano area, Elqui Valley",
+    "confidence": 0.55,
+    "overall_confidence": 0.55,
+    "error_km": 79.75,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 9,
+    "n_landmarks": 1,
+    "cue_categories": [
+     "agriculture",
+     "geology",
+     "infrastructure",
+     "road",
+     "signage",
+     "sun",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Vallenar / Alto del Carmen area, Huasco Valley",
+     "confidence": 0.55,
+     "coordinate_estimate": {
+      "lat": -28.66,
+      "lng": -70.62,
+      "radius_km": 70
+     },
+     "country": "Chile",
+     "country_iso": "CL",
+     "region_or_state": "Atacama Region (III)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.25,
+      "country": "Chile",
+      "country_iso": "CL"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Peru",
+      "country_iso": "PE"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Argentina",
+      "country_iso": "AR"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Hyper-arid to semi-arid subtropical desert; barren mineral slopes with an irrigated alluvial valley-floor oasis strip",
+     "driving_side": "right",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "observation": "Yellow diamond warning sign with black right-curve chevron arrow and a small white-on-yellow plate style typical of Chilean MOP rural signage; also a red-ringed circular prohibition sign in the distance.",
+      "image_index": 1,
+      "level": "country",
+      "supports": [
+       "Chile",
+       "Peru"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "agriculture",
+      "observation": "Overhead wire-and-post trellis vineyards ('parronal' table-grape system) with shade netting and drip irrigation lines, planted on the narrow alluvial valley floor directly against barren slopes.",
+      "image_index": 5,
+      "level": "macro_region",
+      "supports": [
+       "Norte Chico Chile"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "agriculture",
+      "observation": "Long lines of thin wooden posts with wire canopy stretching to the hillside foot; a classic Chilean transverse-valley export grape parronal rather than terraced Andean maize/alfalfa plots.",
+      "image_index": 4,
+      "level": "macro_region",
+      "supports": [
+       "Chile Atacama/Coquimbo"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "observation": "Riveted steel truss railway viaduct on concrete piers crossing the valley, rusted and apparently disused — a legacy mining/branch railway structure.",
+      "image_index": 1,
+      "level": "macro_region",
+      "supports": [
+       "Norte Chico legacy mining railway"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "geology",
+      "observation": "Completely bare, oxidised brown-grey rocky slopes with no vegetation above the irrigation line; sharply demarcated green valley floor.",
+      "image_index": 0,
+      "level": "macro_region",
+      "supports": [
+       "hyper-arid transverse valley"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "observation": "Thorny leafless shrubs (algarrobo/acacia-type), scattered columnar cactus on ridges, and eucalyptus windbreaks — Norte Chico riparian scrub, not Andean puna grass.",
+      "image_index": 0,
+      "level": "macro_region",
+      "supports": [
+       "Chile Norte Chico"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road",
+      "observation": "Narrow unpaved gravel road with a rough chip-seal transition, no lane markings, cut into an alluvial terrace; low-density rural network typical of an interior quebrada road.",
+      "image_index": 3,
+      "level": "admin_region",
+      "supports": [
+       "small interior valley rather than Elqui/Limari trunk road"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utility",
+      "observation": "Simple wooden/timber distribution poles with a single crossless span crossing the valley; minimal electrification hardware indicates a low-population interior valley.",
+      "image_index": 2,
+      "level": "admin_region",
+      "supports": [
+       "sparse interior valley"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "sun",
+      "observation": "Sun low and to the north-northwest with long shadows and dry winter-dormant vines — southern-hemisphere winter capture.",
+      "image_index": 3,
+      "level": "continent",
+      "supports": [
+       "southern hemisphere"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 1,
+      "name": "Disused steel truss railway viaduct over the valley",
+      "type": "railway bridge"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.3,
+      "evidence": "No legible text; only pictographic MOP-style road signs consistent with Spanish-speaking South America.",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "South America Pacific desert",
+       "North Africa/Middle East",
+       "Southwest USA/Mexico",
+       "Central Asia"
+      ],
+      "conclusion": "South American Pacific arid margin, southern hemisphere",
+      "confidence_after": 0.85,
+      "discriminator": "A Middle Eastern/North African wadi oasis would show date palms, mud-brick walls and Arabic script signage; the US Southwest would have wide paved county roads, steel W-beam guardrail and saguaro/creosote flats. Here the crop is trellised table grapes under shade cloth on a narrow alluvial fan with thorny acacia scrub and columnar cactus, plus southern-hemisphere low northern sun.",
+      "level": "continent",
+      "observation": "Barren oxidised mineral ranges enclosing a thin green irrigated valley floor, thorn scrub, columnar cacti, sun low in the north.",
+      "ruled_out": [
+       "North Africa/Middle East: no palms, mud-brick or Arabic signage",
+       "Southwest USA: road standards and fencing far too rudimentary",
+       "Central Asia: no poplar rows or mud-walled compounds"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Chile",
+       "Peru",
+       "Argentina (Cuyo/NW)",
+       "Bolivia"
+      ],
+      "conclusion": "Chile",
+      "confidence_after": 0.78,
+      "discriminator": "Peruvian coastal valleys would show mototaxis, adobe-brick huts, Bitel/Claro painted walls and 'XX-###' departmental route codes; Argentine Cuyo would show green pentagon provincial shields, brick town portales and vines on low VSP wires with flood-irrigation acequias; Bolivia would show ENTEL blue ovals and minibus traffic. Here the sign vocabulary is the MOP yellow diamond chevron, the vines are overhead parronal frames with drip line, and the terrain is a west-draining transverse quebrada wedged between an arid coastal range — the Chilean Norte Chico signature.",
+      "level": "country",
+      "observation": "MOP-style yellow diamond chevron sign, gravel local road, drip-irrigated parronal grapes, no Andean altiplano terracing or adobe villages.",
+      "ruled_out": [
+       "Peru: no adobe/estera housing, no mototaxis, valley too narrow and vine architecture differs",
+       "Argentina: no green pentagon shields or acequia flood irrigation",
+       "Bolivia: no ENTEL/Tigo wall painting, no altiplano built form"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Norte Grande (Tarapacá/Antofagasta)",
+       "Norte Chico (Atacama/Coquimbo)",
+       "Central Valley (Aconcagua/Maipo)"
+      ],
+      "conclusion": "Norte Chico transverse-valley oasis belt",
+      "confidence_after": 0.75,
+      "discriminator": "Norte Grande valleys (Lluta, Camarones) are far more extreme — no continuous grape parronales, more saltpetre/mining infrastructure, and mostly maize/alfalfa in tiny terraces. The Central Valley would show broad flat plains, poplar rows, paved secondary roads, wineries and green hills in winter rather than 100% bare slopes. Here the slopes are completely lifeless while the floor is intensively trellised — the classic Atacama/Coquimbo transverse-valley oasis.",
+      "level": "macro_region",
+      "observation": "Sharp vegetation line: dense parronal on the fan, absolutely bare rock above; valley only a few hundred metres wide.",
+      "ruled_out": [
+       "Norte Grande: grape parronal export agriculture at this scale is uncommon",
+       "Central Valley: hills would carry matorral/grass and roads would be paved"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Elqui/Limarí (Coquimbo, Region IV)",
+       "Huasco/Copiapó interior quebradas (Atacama, Region III)"
+      ],
+      "conclusion": "Interior quebrada of Atacama Region (Huasco/Copiapó system), most likely Huasco",
+      "confidence_after": 0.55,
+      "discriminator": "Elqui and Limarí are far more developed: paved C-4xx/D-4xx roads with painted lines, tourism/pisco-route signage, frequent villages, retaining walls and metal guardrail. Here the through road is loose gravel with no markings, no signage clutter, no roadside businesses and only barbed-wire smallholder plots — an infrastructure-poor interior quebrada, matching the Huasco/Copiapó tier. The rusting truss viaduct also fits the derelict Atacama mining branch lines rather than Coquimbo's still-active Longitudinal Norte alignment.",
+      "level": "admin_region",
+      "observation": "Unpaved main road, minimal signage, single-wire timber power line, derelict truss railway bridge, hillsides utterly barren.",
+      "ruled_out": [
+       "Elqui/Limarí: would be paved with tourism signage and denser settlement"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Huasco valley (Vallenar–Alto del Carmen)",
+       "Copiapó valley tributaries"
+      ],
+      "conclusion": "Most consistent with the Huasco river system upstream of Vallenar; cannot be fully separated from Copiapó tributaries",
+      "confidence_after": 0.45,
+      "discriminator": "Copiapó valley floors are wider with large corporate vineyard blocks, packing sheds and heavy mining haul traffic; the Huasco system near Alto del Carmen keeps this exact form — narrow gravel roads hugging the river terrace, smallholder parronales under shade net, thorny algarrobo riparian scrub and abandoned rail structures. No town, plate, or route code is visible to lock it, so confidence is kept moderate.",
+      "level": "metro_area",
+      "observation": "Smallholder-scale parronal blocks, riverbed cobbles, hand-cut timber posts, no packing infrastructure or mining traffic visible.",
+      "ruled_out": [
+       "Copiapó main valley: absence of large corporate vineyard/packing infrastructure and mine haul traffic"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cues_note": ".",
+    "cultural_economic_read": "A low-density, capital-poor but export-linked rural economy: hand-cut timber posts, barbed wire and homemade trellis frames indicate smallholder or medium-sized family plots, yet the drip lines and shade netting show the parcels feed the international table-grape trade that dominates Chile's Norte Chico oases. All value is concentrated on the thin irrigated alluvial ribbon; everything above the canal line is unusable mineral slope. The derelict steel truss viaduct is a relic of an earlier extractive cycle (mining rail to the coast), so the valley reads as a post-mining landscape re-purposed for irrigated horticulture. Public investment is thin — unpaved carriageway, single-circuit wooden distribution line, no commercial signage — typical of an interior quebrada far from the Panamericana.",
+    "overall_confidence": 0.62,
+    "place_slug": "huasco-valley",
+    "relied_on_atoms": [
+     "atm_e591fce7975b",
+     "atm_bb66dca32eda",
+     "atm_47d9d151a778",
+     "atm_71667f856f45"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1254,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2742,
+    "output": 4087,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Chile",
+    "country_iso": "CL",
+    "country_correct": true,
+    "region": "Atacama Region (III)",
+    "city": "Vallenar / Alto del Carmen area, Huasco Valley",
+    "confidence": 0.55,
+    "overall_confidence": 0.62,
+    "error_km": 85.92,
+    "reached_level": "metro_area",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 9,
+    "n_landmarks": 1,
+    "cue_categories": [
+     "agriculture",
+     "geology",
+     "infrastructure",
+     "road",
+     "signage",
+     "sun",
+     "utility",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_71667f856f45",
+    "atm_bb66dca32eda",
+    "atm_e591fce7975b",
+    "atm_530209fff20e",
+    "atm_bb85705ffd68",
+    "atm_47d9d151a778",
+    "atm_cf43621783bd",
+    "atm_e4bdaab98801",
+    "atm_71255f910af9",
+    "atm_62c66acd242d"
+   ],
+   "relied_on": [
+    "atm_e591fce7975b",
+    "atm_bb66dca32eda",
+    "atm_47d9d151a778",
+    "atm_71667f856f45"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "CL",
+   "country": "Chile",
+   "region": "Atacama Region (III)",
+   "city": "Vallenar / Alto del Carmen area, Huasco Valley",
+   "lat": -28.66,
+   "lng": -70.62,
+   "error_km": 85.92,
+   "reached_level": "metro_area",
+   "confidence": 0.55,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 85.92,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.20588375000000003,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5038,
+   "output": 2579,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Chile / Norte Chico / interior Huasco-sector quebrada confirmed at 86 km error. The decisive visible cues were the overhead parronal table-grape trellis with shade netting on a narrow alluvial floor against utterly barren oxidised slopes, the derelict riveted steel truss railway viaduct on concrete piers, the MOP-style yellow diamond chevron sign, unpaved gravel road and southern-hemisphere low northern winter sun. Peru and Argentina were correctly excluded: no adobe/estera housing or mototaxis, no green pentagon provincial shields or acequia flood-irrigation vineyard layout; the analyst's own second-pass shift away from Elqui (paved, tourism-signed, denser) toward the infrastructure-poor Atacama tier was the right call.",
+  "misleading_cues": [
+   {
+    "observation": "First-pass reading of the valley as Elqui/Paihuano (Coquimbo)",
+    "why_misleading": "Elqui and Limari trunk valleys are paved with painted lines, pisco-route tourism signage and guardrail; the loose-gravel unmarked road and bare smallholder plots here belong to the poorer interior quebradas farther north. The atoms correctly pushed the second pass northwards."
+   },
+   {
+    "observation": "Grape parronal + narrow oasis read as necessarily Huasco river mainstem near Alto del Carmen",
+    "why_misleading": "The same landscape signature recurs across many transverse quebradas of the Atacama/Coquimbo boundary zone; without a route code or town name visible the along-valley position cannot be fixed, which produced the ~86 km along-strike offset."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Overhead wire-and-post trellis vineyards (parronal) with shade netting and drip lines, planted only on the narrow alluvial floor",
+    "why_decisive": "Export table-grape parronal in a hyper-arid oasis strip is the Chilean Norte Chico signature, unlike Peruvian coastal maize/asparagus or Argentine low VSP flood-irrigated vines.",
+    "category": "agriculture",
+    "image_index": 5
+   },
+   {
+    "observation": "Rusting riveted steel truss railway viaduct on concrete piers spanning the valley, evidently disused",
+    "why_decisive": "Derelict mining branch-line viaducts are characteristic of Atacama's abandoned ore railways rather than the still-used Coquimbo alignments.",
+    "category": "infrastructure-built",
+    "image_index": 1
+   },
+   {
+    "observation": "Yellow diamond warning sign with black right-curve chevron on a slim grey post",
+    "why_decisive": "Chilean MOP rural warning sign vocabulary; Argentina and Peru use different diamond proportions and mounting.",
+    "category": "road-signage",
+    "image_index": 1
+   },
+   {
+    "observation": "Loose gravel unmarked road with no guardrail, only barbed wire on hand-cut timber posts",
+    "why_decisive": "Marks an infrastructure-poor interior quebrada rather than the paved, tourism-serviced Elqui/Limari trunk valleys.",
+    "category": "road-marking",
+    "image_index": 3
+   },
+   {
+    "observation": "Completely bare oxidised brown-grey slopes with a razor-sharp vegetation line at the irrigation limit",
+    "why_decisive": "Norte Chico transverse-valley oasis geometry; Chile's Central Valley hills would carry matorral.",
+    "category": "landform",
+    "image_index": 0
+   },
+   {
+    "observation": "Low sun to the north with long shadows and dormant, leafless vines",
+    "why_decisive": "Southern-hemisphere winter capture, excluding North African and US Southwest analogues.",
+    "category": "climate",
+    "image_index": 3
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Parronal overhead trellis + shade net = Chile Norte Chico, not Argentine Cuyo",
+    "body": "In Chile's arid transverse valleys table grapes are trained on high overhead wire-and-post 'parronal' frames with shade netting and drip lines on a narrow alluvial strip. In Argentine Cuyo you would instead see mostly low vertical-shoot-position wire rows fed by open acequia flood channels, with poplar windbreaks and broader valley floors.",
+    "layer": "economy",
+    "category": "agriculture",
+    "scope": "region",
+    "tags": [
+     "parronal",
+     "vineyard",
+     "irrigation"
+    ],
+    "entities": [
+     "Chile",
+     "Argentina"
+    ],
+    "looks_like": {
+     "country_iso": "AR",
+     "country": "Argentina",
+     "region": "Cuyo"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "Norte Chico"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Bare gravel quebrada road vs paved Elqui/Limarí trunk valley",
+    "body": "Atacama's interior quebradas keep unpaved, unmarked gravel roads with no guardrail, no roadside businesses and only barbed-wire smallholder plots. In Coquimbo's Elqui or Limarí trunk valleys you would instead find paved C-/D- roads with painted centrelines, pisco-route tourism signage, retaining walls and metal W-beam guardrail.",
+    "layer": "geography",
+    "category": "infrastructure-built",
+    "scope": "region",
+    "tags": [
+     "gravel-road",
+     "norte-chico",
+     "road-standard"
+    ],
+    "entities": [
+     "Atacama Region",
+     "Coquimbo Region"
+    ],
+    "looks_like": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "Coquimbo (Elqui)"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "Atacama (Huasco)"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Derelict steel truss viaduct over a farm valley = Atacama mining branch line",
+    "body": "A rusting riveted truss bridge on concrete piers crossing an agricultural quebrada indicates a disused Chilean ore railway of the Norte Chico. On an active Peruvian coastal valley you would instead see concrete road bridges and Panamericana-style paved crossings, with no abandoned narrow-gauge steelwork.",
+    "layer": "history",
+    "category": "industry",
+    "scope": "region",
+    "tags": [
+     "railway",
+     "mining-heritage",
+     "viaduct"
+    ],
+    "entities": [
+     "Chile",
+     "Peru"
+    ],
+    "looks_like": {
+     "country_iso": "PE",
+     "country": "Peru"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "Atacama"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Absent adobe/estera housing and mototaxis rules out Peruvian coastal valley",
+    "body": "Chilean oasis smallholdings show timber-post fencing, corrugated sheds and no informal cane-mat (estera) walls. In a Peruvian coastal valley of the same aridity you would instead see adobe-brick and estera dwellings, mototaxis on the gravel, and Movistar/Claro painted walls.",
+    "layer": "culture",
+    "category": "housing-typology",
+    "scope": "country",
+    "tags": [
+     "adobe",
+     "mototaxi",
+     "peru-vs-chile"
+    ],
+    "entities": [
+     "Chile",
+     "Peru"
+    ],
+    "looks_like": {
+     "country_iso": "PE",
+     "country": "Peru"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile"
+    },
+    "confidence": 0.65
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_e591fce7975b",
+   "atm_bb66dca32eda",
+   "atm_47d9d151a778",
+   "atm_71667f856f45"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [],
+  "merged": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "cost_usd": 0.552,
+ "status": "PARTIAL",
+ "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+}

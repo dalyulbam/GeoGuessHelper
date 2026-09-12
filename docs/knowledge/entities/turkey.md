@@ -1,6 +1,6 @@
 # 엔티티 · turkey
 
-원자 13개 · 이 엔티티를 다룬 보고서 1건
+원자 15개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_062228b64e03]] **Islamist-leaning municipal renaming and re-Islamization of Turkish public space** (culture/country)
@@ -11,11 +11,14 @@
 - [[atm_4f6928e8ab4d]] **Republican-era secular street naming alongside Ottoman/Islamic landmarks in Turkish cities** (culture/country)
 - [[atm_590816a2ad04]] **Turkish road infrastructure markers: D-100 highway and right-hand traffic** (history/country)
 - [[atm_5a0a958e8c06]] **Vehbi Koç, founder of Ford Otosan's parent conglomerate** (economy/country)
+- [[atm_91bb4809c09e]] **Aegean Turkey olive-maquis hinterland vegetation signature** (nature/region)
 - [[atm_9a486159e361]] **Turkish toponymic lexicon markers (Camii, Bulvarı, Sokak, Caddesi)** (language/country)
 - [[atm_af77a40342bd]] **Ottoman Arabic-script toponymy replaced by Turkish Latin alphabet reform** (language/country)
 - [[atm_c2c5ced5d1a1]] **Script simplification and Latinization reforms** (language/global)
+- [[atm_cb0c83bea310]] **Muğla Büyükşehir Belediyesi branding on rural bus shelters** (culture/region)
 - [[atm_e81470498de1]] **North Anatolian Fault seismic risk to Marmara industrial corridor** (geography/region)
 - [[atm_fc22ca49a31d]] **Marmara region coastal-industrial corridor east of Istanbul** (geography/region)
 
 ## 보고서
 - `report_tr_izmit_40.7615_29.9392_260814_111004_ko.html`
+- `report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html`

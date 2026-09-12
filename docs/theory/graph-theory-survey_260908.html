@@ -96,8 +96,8 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
   ② 최근(2019~2026) 그래프이론 연구 성과가 여기 적용될 수 있는가. 세 각도(커뮤니티 탐지, 중심성·연결예측·매칭, 시간적 그래프·
   지식그래프 임베딩)로 나눠 각각 WebSearch 로 실제 문헌·라이브러리 문서를 찾아 조사했다(에이전트 3개, 실측 검증). 결론부터:
   <b>21개 기법을 검토해 adopt 5 · consider 6 · reject 7</b>(판정표 18행 기준)로 갈랐고(1차 재검토에서 k-truss 가 실측으로 adopt→reject), adopt 5개 중
-  <b>3개는 실제로 구현(1개는 일부)</b>했고 부수 방어 조치 1건을 더했다(짝문서 §구현 참조). 기각은 전부 "안 써도 된다"가 아니라 근거가 있다 — Louvain 은 프로젝트가 이미
-  기각한 클리크 퍼콜레이션과 <b>같은 종류의 결함</b>(비연결 커뮤니티)을 갖고, k-truss 는 이 그래프 밀도에서 클리크 위로 접힌다.
+  <b>3개는 실제로 구현(1개는 일부)</b>했고 부수 방어 조치 1건을 더했다(짝문서 §구현 참조). 기각은 전부 "안 써도 된다"가 아니라 근거가 있다 — Louvain 은 비연결
+  커뮤니티를 만들 수 있어 프로젝트가 이미 기각한 클리크 퍼콜레이션과는 <b>다른 종류의 결함</b>을 갖고(클리크 퍼콜레이션은 연결성은 유지), k-truss 는 이 그래프 밀도에서 클리크 위로 접힌다.
   이 문서는 <b>1차 fable → 2차 codex → 3차 fable</b> 세 번의 검토를 거쳤다(§검토 이력).</p>
   <div class="meta">
     <span class="chip ac">21개 기법 · 3개 각도 · 실제 인용 다수</span>
@@ -147,14 +147,18 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
       k=3 만 완전 밖 387 을 주는데 3-truss 는 "삼각형 하나에 든다" = 3-클리크 멤버십이라 <code>min_size=3</code> 과 같고, 그건
       molecule-theory §7 이 "수천 개가 나온다"고 이미 기각한 설정이다. 이 밀도 영역에서 truss 위계는 클리크 멤버십 위로 <b>그대로
       접힌다</b> — 얹을 등급이 없다. 그래프가 지금보다 훨씬 조밀해지는 영역(pct 2~3)에서만 재검토.</p>
+      <p><b>이 실측은 k-truss 만 검증했다 — k-core 는 별도다.</b> 같은 그래프의 4-core 는 368개 노드이며, 그중 <b>48개</b>는 분자
+      멤버·periphery 모두의 밖에 있다(truss 의 완전 밖 0 과 다르다). k-core 는 truss 와 달리 이 48개를 추가로 포착한다는 뜻이지만,
+      보조 그룹화로서의 가치와 품질은 아직 확인하지 않았다.</p>
       <div class="src">era: 고전(Seidman 1983 · Cohen 2008) · <a href="https://networkx.org/documentation/stable/reference/algorithms/core.html" target="_blank" rel="noopener">networkx docs</a> · 실측 스크립트: stage1_checks(1차)</div>
     </div>
     <div class="card"><h3>계층적 Leiden(GraphRAG 패턴) <span class="badge adopt">adopt</span></h3>
       <p>Microsoft GraphRAG(2024)가 LLM 추출 개체-관계 그래프에 계층적 Leiden 을 적용해 상위 주제 요약을 얻는 패턴. 로컬 개체 계층과
       커뮤니티 요약 계층을 <b>통합하지 않고 병존</b>시킨다.</p>
-      <p><b>왜 맞다:</b> extract.py 의 관계 그래프가 molecule.py 와 단절돼 있다는 게 바로 이 프로젝트의 실제 상황이고, GraphRAG 는
-      애초에 "통합 안 함"을 아키텍처로 채택했다 — 지금 상태를 결함이 아니라 <b>의도된 병존</b>으로 재해석하고, 거기에 요약 계층만
-      얹는 경로. 다만 python-igraph+leidenalg 신규 의존성이 필요하다(networkx 자체 leiden_communities()는 GPU 백엔드가 있어야 동작).</p>
+      <p><b>왜 맞다:</b> GraphRAG 는 추출한 개체·관계 그래프 자체에서 Leiden 커뮤니티를 구하고 그 구성 요소를 요약하는 <b>연결된</b>
+      파이프라인이다 — extract.py 의 관계 그래프가 molecule.py 와 단절돼 있는 지금 상태를 이 논문이 정당화하는 건 아니다. 이 패턴을
+      참고해 extract.py 관계 그래프 위에 요약 계층을 얹는 경로이고, molecule.py 임베딩 클리크 그래프와의 병존·연계 방식은 이
+      프로젝트의 별도 설계 판단으로 남는다. 다만 python-igraph+leidenalg 신규 의존성이 필요하다(networkx 자체 leiden_communities()는 GPU 백엔드가 있어야 동작).</p>
       <div class="src">era: 2024(Edge et al., Microsoft Research) · <a href="https://arxiv.org/html/2404.16130v1" target="_blank" rel="noopener">arXiv:2404.16130</a></div>
     </div>
     <div class="card"><h3>HDBSCAN(밀도 클러스터링) <span class="badge consider">consider</span></h3>
@@ -162,21 +166,21 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
       BERTopic 류를 통해 2022년 이후 텍스트 임베딩 클러스터링의 사실상 표준.</p>
       <p><b>왜 보류:</b> 클러스터 내부 쌍이 밀도-연결 체이닝으로 인해 ε 보다 멀 수 있어 "판정은 거리 행렬로"(molecule-theory 원칙)와
       정면으로 부딪힌다. 별도 status 로 명확히 분리해 표시한다는 전제가 서야 채택할 만하다.</p>
-      <div class="src">era: 2013/2017 원류, 2022~ scikit-learn 표준화 · <a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener">sklearn docs</a></div>
+      <div class="src">era: 2013/2017 원류 · scikit-learn 구현은 2023년 6월 출시된 1.3에 추가 · <a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener">sklearn docs</a></div>
     </div>
     <div class="card"><h3>CPM(Constant Potts Model) Leiden <span class="badge consider">consider</span></h3>
       <p>해상도 파라미터 γ 를 높이면 modularity 의 해상도 한계 없이 "거의 완전 그래프"에 가까운 작은 조밀 그룹만 통과시킨다 — 클리크보다
       느슨하지만 무작위 밀집보다 엄격한 등급.</p>
-      <p><b>왜 보류:</b> k-truss 로 같은 목표(클리크 못 들어간 원자의 등급화)를 신규 의존성 없이 이미 달성할 수 있어 우선순위가 낮다.
-      k-truss 가 부족하다고 판명되면 다음 후보.</p>
+      <p><b>왜 보류:</b> k-truss 는 이 스냅샷에서 추가 포착이 없어 기각했으므로 대체재 근거로 삼지 않는다(위 카드). CPM 은 신규
+      의존성과 별도 등급 표시가 필요하고, 이 그래프에서의 추가 포착·품질을 아직 검증하지 않아 보류한다.</p>
       <div class="src">era: 2019(Traag, Waltman, van Eck) · <a href="https://arxiv.org/abs/1810.08473" target="_blank" rel="noopener">arXiv:1810.08473</a></div>
     </div>
   </div>
   <h3 class="sub">기각 — 이유가 있다</h3>
   <div class="grid g3">
-    <div class="card"><h3>Louvain <span class="badge reject">reject</span></h3><p>반복 적용 시 최악의 경우 <b>내부적으로 끊어진(비연결)</b> 커뮤니티를 최대 16%까지 만든다(Traag et al. 2019 증명). 이건 프로젝트가 클리크 퍼콜레이션을 기각한 것과 <b>같은 종류의 결함</b>(그룹의 내부 연결성이 깨짐)이라, "networkx 에 공짜로 있으니"로 채택하면 이미 내린 결정을 modularity 버전으로 재도입하는 셈이다. 정말 필요하면 Leiden 으로 건너뛴다.</p></div>
+    <div class="card"><h3>Louvain <span class="badge reject">reject</span></h3><p>반복 적용 시 최악의 경우 <b>내부적으로 끊어진(비연결)</b> 커뮤니티를 만들 수 있다 — Traag et al.(2019)의 실험에서는 그 비율이 최대 16%로 관측됐다(16%는 이론적 상한이 아니다). 이건 프로젝트가 클리크 퍼콜레이션을 기각한 것과는 <b>다른 종류의 결함</b>이다 — 클리크 퍼콜레이션(k≥2)은 연결성은 유지하되 모든 쌍의 근접을 보장하지 않아 기각됐고(molecule-theory §5(c)), Louvain 은 연결성 자체가 깨질 수 있다. "networkx 에 공짜로 있으니"로 채택하면 이미 내린 결정보다 약한 보장을 modularity 버전으로 재도입하는 셈이다. 정말 필요하면 Leiden 으로 건너뛴다.</p></div>
     <div class="card"><h3>BigCLAM <span class="badge reject">reject</span></h3><p>NMF 기반 중첩 커뮤니티. 원자가 여러 분자에 걸치는 요구는 이미 refs + 자카드≥0.75 병합(유니온-파인드)으로 닫혀 있어 메우는 간극이 없다.</p></div>
-    <div class="card"><h3>SBM / graph-tool <span class="badge reject">reject</span></h3><p>베이지안 모델선택으로 pct 임계를 통계적으로 정당화할 수는 있으나, k-truss/Leiden 이 이미 커버하는 문제고 graph-tool 은 C++/Boost 컴파일이 필요해 이 프로젝트의 Windows 개발 환경에서 설치 장벽이 크다.</p></div>
+    <div class="card"><h3>SBM / graph-tool <span class="badge reject">reject</span></h3><p>베이지안 모델선택으로 pct 임계를 통계적으로 정당화할 수는 있으나, Leiden 이 이미 커버하는 문제고 graph-tool 은 C++/Boost 컴파일이 필요해 이 프로젝트의 Windows 개발 환경에서 설치 장벽이 크다.</p></div>
   </div>
 </div></section>
 
@@ -199,8 +203,9 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
       아니라 가중치</b>로 써야 한다. 그래서 <code>bridges</code> 를 따로 냈다: 목록형 제외 · d ≥ pct1.0 임계 · 공통 이웃 ≥5 인 쌍을
       score×d 로 순위. 상위 100 의 d 중앙값 0.51(ε 의 1.5배), <b>70 쌍이 층(layer)을 가로지른다</b>. 예: "대학 라이벌 전통" ↔ "잉글랜드
       대학 강의 펀팅"(부재 노드: 옥스브리지), "Southern Gas Corridor" ↔ "크로아티아 LNG 정책가"(부재 노드: LNG 터미널), "인도
-      좌측통행·이륜차" ↔ "회색시장 RHD/LHD 수입 불일치"(부재 노드: 우핸들 교통권). molecule-theory 의 '다빈치' 예가 처음으로
-      데이터에서 나왔다.</p>
+      좌측통행·이륜차" ↔ "회색시장 RHD/LHD 수입 불일치"(부재 노드: 우핸들 교통권). molecule-theory 의 '다빈치' 예와 유사한
+      거리·공통 이웃 패턴을 가진 후보 쌍을 얻었다 — 옥스브리지·LNG 터미널·우핸들 교통권은 이 문서가 제안하는 부재 개념 가설이며,
+      각 후보의 설명력은 사람 검토가 필요하다(§다음).</p>
       <div class="src">era: 2009(Zhou, Lü, Zhang) · <a href="https://arxiv.org/abs/0901.0553" target="_blank" rel="noopener">arXiv:0901.0553</a> · networkx.link_prediction</div>
     </div>
     <div class="card"><h3>헝가리안 알고리즘(선형 할당) <span class="badge adopt">adopt · 구현함</span></h3>
@@ -217,8 +222,9 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
       <div class="src">era: Page &amp; Brin 1998 · Jeh &amp; Widom 2003</div>
     </div>
     <div class="card"><h3>Betweenness / Eigenvector Centrality <span class="badge consider">consider</span></h3>
-      <p>다리 역할(betweenness) · 중요한 이웃에의 연결(eigenvector). k=15 이웃그래프면 완전계산도 VE≈1,300만으로 매 빌드 수 초~수십
-      초 — 여유가 크지 않아 k-샘플링 근사가 안전.</p>
+      <p>다리 역할(betweenness) · 중요한 이웃에의 연결(eigenvector). 계산 규모 추정: 현재 상호 kNN15 그래프는 V=1,373, E=6,180 이므로
+      VE=8,485,140 이다 — 비가중 betweenness 의 O(VE) 규모를 가늠하는 값이며, 실행 시간은 아직 실측하지 않았다. 완전계산 시간을
+      측정한 뒤 샘플링 여부를 결정하고, eigenvector centrality 의 비용은 별도로 측정한다.</p>
       <p><b>왜 보류:</b> "허브 원자" 탐지의 실마리는 되지만 Adamic-Adar 링크 후보가 더 직접적이라 우선순위를 뒤로 뒀다. §다음.</p>
       <div class="src">era: Bonacich 1972 · Brandes 2001</div>
     </div>
@@ -245,16 +251,18 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
       <div class="src">era: 서베이 2018(Rossetti &amp; Cazabet) · <a href="https://arxiv.org/abs/1707.03186" target="_blank" rel="noopener">arXiv:1707.03186</a></div>
     </div>
     <div class="card"><h3>SimKGC — 대조학습으로 임베딩에 구조 신호 주입 <span class="badge adopt">adopt(미구현)</span></h3>
-      <p>사전학습 텍스트 인코더를 InfoNCE 대조학습으로 파인튜닝해, 순수 코사인 유사도가 구조적 KGE 보다 뒤처지는 문제를 풀면서 귀납적
-      추론력은 유지(WN18RR +19%, Wikidata5M +6.8~22% MRR).</p>
+      <p>사전학습 텍스트 인코더를 InfoNCE 대조학습으로 파인튜닝해, 순수 코사인 유사도가 구조적 KGE 보다 뒤처지는 문제를 풀면서
+      귀납적 설정에서도 성능을 보였다. 원문 비교 기준에서 MRR 은 WN18RR 47.6→66.6(+19.0%p), Wikidata5M 전이적 설정 29.0→35.8(+6.8%p),
+      귀납적 설정 49.3→71.4(+22.1%p)였다.</p>
       <p><b>가장 침습이 적은 개선:</b> refs 를 positive pair 로 삼으면 molecule.py 의 전체 아키텍처(코사인+상호kNN+클리크+자카드)를
       하나도 안 바꾸고 임베딩 품질만 올릴 수 있다. refs 데이터가 이미 있어 새 라벨링 비용이 없다. 다만 학습 인프라·평가 설계가
       필요해 이번 세션에는 <b>미구현</b> — §다음.</p>
       <div class="src">era: 2022(Wang et al.) · <a href="https://arxiv.org/abs/2203.02167" target="_blank" rel="noopener">arXiv:2203.02167</a></div>
     </div>
     <div class="card"><h3>RotatE 류 관계 임베딩 <span class="badge consider">consider</span></h3>
-      <p>confusions("X&gt;X2")·refs 는 방향/비대칭 정보를 담는데, 순수 코사인 거리는 본질적으로 대칭이라 이를 못 담는다.
-      (atom, relation, atom) 트리플로 보고 별도 레이어로 학습하면 "X 가 X2 로 자주 오인됨"을 벡터화할 수 있다.</p>
+      <p>confusions("X&gt;X2")는 정정 방향에 따른 비대칭 정보를 담는데(§현황 — refs 는 현재 양방향 인접리스트), 순수 코사인
+      거리는 본질적으로 대칭이라 이를 못 담는다. (atom, relation, atom) 트리플로 보고 별도 레이어로 학습하면 "X 가 X2 로 자주
+      오인됨"을 벡터화할 수 있다.</p>
       <p><b>왜 보류:</b> molecule.py 의 클리크 탐지(대칭 거리 전제)는 건드리지 않고 confusion 예측 같은 별도 용도로만 붙이는 게
       안전 — 그 별도 용도 자체가 아직 없다(정정 루프의 recall(confusion_isos=…) 은 문자열 매치일 뿐).</p>
       <div class="src">era: TransE 2013 · RotatE 2019</div>
@@ -268,8 +276,9 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
       초과 14개를 실제로 열어 보니, 후자는 Jerash·Decapolis, 추크의 체리 케이크, Regina 의 Wascana, Botswana 의 'Brigade' 판별자 같은
       <b>보고서·정정 유래의 유일 단서</b>였고, 전자는 Champa·Manchukuo·Mustang 같은 위키 정치체 단건이었다. 구조적 고립은 품질
       문제가 아니라 <b>"이 지역엔 이 원자 하나뿐"</b>이라는 커버리지 신호다 — 관측소에 넣는다면 "제거 후보"가 아니라 "유일 단서 /
-      확장 필요"로 이름 붙여야 한다. GADBench 의 결론(단순 구조 피처로 충분)은 그대로 유효하되, 이 프로젝트에서 그 피처의
-      의미론은 이상탐지가 아니라 희소성 탐지다.</p>
+      확장 필요"로 이름 붙여야 한다. GADBench 는 지도학습 이상탐지에서 단순 이웃집계를 결합한 트리 앙상블이 최신 GNN 을 능가할
+      수 있음을 보였다 — 여기서 구현한 연결요소와 관찰한 고립도는 별도의 비학습 휴리스틱이며, 이번 표본에서는 희소성 신호로
+      해석했다. 이 피처만으로 충분한지는 미검증이다.</p>
       <div class="src">era: 2021~2023 · <a href="https://arxiv.org/abs/2306.12251" target="_blank" rel="noopener">arXiv:2306.12251</a>(GADBench) · <a href="https://arxiv.org/abs/2206.10071" target="_blank" rel="noopener">PyGOD</a></div>
     </div>
   </div>
@@ -303,7 +312,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
     <tr><td>그래프 구조 이상탐지(GADBench류)</td><td>시간·임베딩</td><td>2021~2023</td><td><span class="badge adopt">adopt</span></td><td><b>일부 구현함</b> — dups.json groups · 1차 실측: 고립 10·외로운 14 는 "이상"이 아니라 "유일 단서"(의미론 수정)</td></tr>
     <tr><td>Temporal Graph Networks(TGN)</td><td>시간·임베딩</td><td>2020/2023</td><td><span class="badge reject">reject</span></td><td>GPU·볼륨 부족</td></tr>
   </table></div>
-  <p class="sec-desc" style="margin-top:10px">3건(k-truss·계층적Leiden·SimKGC 등 일부는 위 두 각도 표에 이미 있어 표는 18행이지만 텍스트 항목은 21개 — 근거링크 미부여 항목 3건 포함)은 §angle1~3 본문 카드에서 근거 URL 과 함께 확인.</p>
+  <p class="sec-desc" style="margin-top:10px">집계 단위는 이 판정표의 18개 항목이다 — 여러 기법을 함께 다룬 행(k-core/k-truss·계층적 Leiden·SimKGC 등)도 한 항목으로 센다. 해당 본문 설명(§angle1~3)에 외부 근거 URL 이 있는 항목은 8개, 없는 항목은 10개다.</p>
 </div></section>
 
 <!-- ============================================================ -->
@@ -324,7 +333,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
 <!-- ============================================================ -->
 <section class="section" id="deferred"><div class="wrap">
   <div class="eyebrow">채택했지만 미룸</div>
-  <h2 class="sec">adopt 인데 이번엔 안 한 4개 — 왜, 그리고 다음 순서</h2>
+  <h2 class="sec">미구현 adopt 2개와 보류·기각 항목 — 현재 판정과 다음 순서</h2>
   <div class="grid g2">
     <div class="card"><h3>k-core / k-truss 2차 등급 <span class="badge reject">1차 실측 후 기각</span></h3><p>처음엔 "UI 결정이 먼저"라서 미룬 항목이었으나, 1차 재검토에서 실제 스냅샷 그래프에 돌려 본 결과 k≥4 truss 가 클리크·periphery 밖 원자를 하나도 더 잡지 못했다(§angle1). 미룬 게 아니라 <b>안 해도 되는 것</b>으로 바뀌었다 — 미리 구현했다면 헛일이었을 항목. 실측이 조사를 고친 첫 사례.</p></div>
     <div class="card"><h3>extract.py 관계그래프 + 계층적 Leiden</h3><p>가장 흥미로운 발견(GraphRAG 패턴)이지만 leidenalg/python-igraph 신규 의존성 + extract.py 관계 그래프를 쿼리 가능한 형태로 노출하는 작업이 함께 필요해 한 세션에 안전하게 넣기엔 크다. link_candidates.json(이미 구현)이 그 전 단계 — 임베딩 그래프에서 먼저 공통 이웃을 실험하고, 결과가 유용하면 관계 그래프로 확장한다.</p></div>
@@ -362,6 +371,8 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
       <td>adopt 합계 정답 확정: <b>5</b>(consider 6 · reject 7 = 18행). hero·§판정표 제목·§구현함 제목·칩 4곳을 5 로 통일. "카드마다 정의 없이" → "형식적 정의 없이"(기존 카드도 산문 정의는 있음). "3×3 행렬로 재현된다" → "같은 원리를 별도 예로 보여준다"(재현이 아님).</td></tr>
     <tr><td><b>추가 검토 2회</b>(260909)</td><td>codex(gpt-6-astra)</td><td>쓰기 권한(<code>--write --cwd</code>) 부여를 시도했으나 환경 정책이 여전히 read-only 를 강제 — 재검증만 수행(수정은 Claude Sonnet 5 가 반영)</td>
       <td>§구현함 "adopt 5개 중 4개 구현"이 부정확함을 지적 — 실제로는 adopt 3개(1개는 일부)만 구현이고 4번째 행은 부수 방어 조치(클리크 상한)로, adopt 판정과 무관. hero·칩·§구현함 제목을 "3개 구현(1개 일부) + 부수 1건"으로 정정.</td></tr>
+    <tr><td><b>추가 검토 3회</b>(260911)</td><td>codex(gpt-6-astra)</td><td>writing-craft 원칙과 대조해 전문 재독 · 16건 지적, 전부 Claude Sonnet 5 가 독립 재검증(스냅샷 그래프 networkx 재계산, arXiv·scikit-learn 원문 WebFetch 대조) 후 반영</td>
+      <td>k-core 를 k-truss 재검증에 얹어 판정한 것 분리(4-core 368개 노드 중 48개 분자·periphery 밖, 별도 검토 필요로 명시) · Louvain "16%"를 "증명"에서 "실험 관측"으로(arXiv:1810.08473) · Leiden/GraphRAG 관계 재서술(arXiv:2404.16130) · SimKGC MRR 을 상대% 대신 원문 표의 절대 수치로 · Betweenness/Eigenvector 의 VE·실행시간 단정을 실측값(V=1,373·E=6,180·VE=8,485,140)으로 교체, 실행시간은 미실측 명시 · §미룸·§next 의 항목 분류(adopt 미구현 2·reject 1·consider 1) 재정리 · 그 외 판정표 집계·HDBSCAN 연혁 등 8건. 채택 16/16 — 보류 없음(k-core/k-truss 는 verdict 자체가 아니라 텍스트 caveat만 추가, verdict 변경은 저자 몫으로 남김).</td></tr>
   </table></div>
   <div class="callout ok"><b>조사 문서 관점에서 3단이 준 것.</b> 1차 실측이 adopt 하나(k-truss)를 뒤집었고, 2차가 "구현했다"고 적은 알고리즘의 수학적 결함(벌점)을 반례로 잡았으며, 3차가 그 반례를 회귀 테스트로 만들었다. 조사→구현→검증이 한 문서 안에서 닫힌다.</div>
 </div></section>
@@ -371,13 +382,13 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
   <h2 class="sec">순서</h2>
   <ol class="plain">
     <li><b>link_candidates.json 을 사람이 검토</b> — 관측소 작업대에 노출하고, 승인된 것만 refs 로 승격(대화의 link 제안과 같은 관문 통과).</li>
-    <li><b>refs 가 조밀해지면</b> Personalized PageRank/Betweenness 를 recall() 항으로 실험 — 지금 넣으면 무의미, 그때는 의미가 생긴다.</li>
-    <li><b>bridges 를 관측소 작업대에</b> — 100쌍을 사람이 보고 "부재 노드" 이름을 붙이면 그것이 분자 명명(가추)의 새 재료다(k-truss 항목은 1차 실측으로 삭제).</li>
+    <li><b>Personalized PageRank/Betweenness 를 recall() 항으로 실험</b> — 현재 refs 와, 승인 링크가 추가된 refs 에서 각각 기준 모델 대비 성능을 비교해 조밀화가 중심성 신호의 유용성을 높이는지 확인한다.</li>
+    <li><b>작업대에 노출된 bridges 를 사람이 검토</b> — 100쌍의 공통 이웃과 거리를 확인하고, 설명력이 있는 후보에 부재 개념 가설을 붙인다(k-truss 항목은 1차 실측으로 삭제).</li>
     <li><b>extract.py 관계 그래프 노출</b> — 쿼리 가능한 형태로 만든 뒤 계층적 Leiden 실험(GraphRAG 패턴), '다빈치'류 허브 개념 탐지.</li>
     <li><b>SimKGC</b> — refs 가 §1로 조밀해진 뒤, 파인튜닝 평가 세트(before/after 클리크 안정성 비교)부터 설계.</li>
   </ol>
-  <div class="callout ok"><b>한 문장으로.</b> 21개 후보 중 지금 당장 안전하고 값싼 4개(헝가리안·Adamic-Adar·연결요소·클리크 상한)는
-  구현했고, 나머지는 "안 맞아서"가 아니라 "먼저 필요한 것이 있어서" 순서대로 미뤘다 — 그 순서 자체가 이 문서의 결론이다.</div>
+  <div class="callout ok"><b>한 문장으로.</b> 판정표의 adopt 5개 중 3개를 구현했고(그중 1개는 일부 구현) 클리크 상한은 별도의
+  부수 방어 조치다. 나머지는 미구현 adopt 2개·consider 6개·reject 7개로 구분하며, 보류 이유와 기각의 재검토 조건은 각 항목에 따른다.</div>
 </div></section>
 
 <!-- ============================================================ -->

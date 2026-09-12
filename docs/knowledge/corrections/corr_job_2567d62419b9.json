@@ -1,0 +1,974 @@
+{
+ "job_id": "job_2567d62419b9",
+ "report_file": "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html",
+ "label": "선택 장면 보고서 · zh0baQKY…-7pQ",
+ "created": 1789053414.8710544,
+ "lang": "en",
+ "images": [
+  "capture_7967c1efa85f.jpg",
+  "capture_570de75bd347.jpg",
+  "capture_d556c1dba10a.jpg",
+  "capture_999fdb59f50c.jpg",
+  "capture_426467a3a501.jpg",
+  "capture_66346decca91.jpg"
+ ],
+ "image_panos": {
+  "capture_7967c1efa85f.jpg": {
+   "pano_id": "zh0baQKYBcW88GyArI-7pQ",
+   "lat": 22.231097292468064,
+   "lng": -101.22818473150163,
+   "heading": 130.52848588034064,
+   "pitch": 0.2247279675047622
+  },
+  "capture_570de75bd347.jpg": {
+   "pano_id": "Xbfl7HKfD3Iji_7M--lzBw",
+   "lat": 22.230681797570146,
+   "lng": -101.22795534544444,
+   "heading": 122.66954656841433,
+   "pitch": -7.675534663446044
+  },
+  "capture_d556c1dba10a.jpg": {
+   "pano_id": "5mqZo8O-VyrvHiXQRecYaQ",
+   "lat": 22.23050092690004,
+   "lng": -101.2279211061842,
+   "heading": 160.42733901098876,
+   "pitch": -3.9630623021982956
+  },
+  "capture_999fdb59f50c.jpg": {
+   "pano_id": "ug6XckrSVnjJ3K6oT0LL8A",
+   "lat": 22.230044933675178,
+   "lng": -101.22784718054918,
+   "heading": 238.77795894410588,
+   "pitch": -7.605552628344796
+  },
+  "capture_426467a3a501.jpg": {
+   "pano_id": "ThIa2Od0cFikPt0l4WuhmA",
+   "lat": 22.229648139761412,
+   "lng": -101.22779132566163,
+   "heading": 119.18417506661574,
+   "pitch": -1.072885832917919
+  },
+  "capture_66346decca91.jpg": {
+   "pano_id": "Ld4QYX3ozUP2HgeDL8w1qQ",
+   "lat": 22.228511099292998,
+   "lng": -101.22759963815314,
+   "heading": 87.84461293635763,
+   "pitch": 3.4171811061700623
+  }
+ },
+ "truth": {
+  "lat": 22.22951386176575,
+  "lng": -101.22789149296368,
+  "iso": "MX",
+  "country": "Mexico",
+  "region": "San Luis Potosí",
+  "city": "La Tapona, Mexquitic de Carmona",
+  "source": "aided_prior",
+  "file_lat": 22.2311,
+  "file_lng": -101.2282,
+  "n_panos": 8
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "rural village near Ojocaliente / Villa García area, Zacatecas–Aguascalientes borderlands",
+     "confidence": 0.4,
+     "coordinate_estimate": {
+      "lat": 22.35,
+      "lng": -102.1,
+      "radius_km": 110
+     },
+     "country": "Mexico",
+     "country_iso": "MX",
+     "region_or_state": "Zacatecas (Mexican Altiplano, possibly Aguascalientes/NE Jalisco/Guanajuato fringe)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Semi-arid highland scrub (matorral/nopalera) with mesquite-huizache and Yucca filifera, ~1900-2200 m elevation",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Large tree yuccas (Yucca filifera / palma china) with thick trunks and branched heads tower over the lane — a signature of the Mexican central-northern altiplano, not of the Sonoran or Chihuahuan lowland deserts",
+      "supports": [
+       "Mexico",
+       "Zacatecas/San Luis Potosi altiplano"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Dense hedges of cultivated Opuntia (nopal) planted as living property boundaries, mixed with maguey and mesquite",
+      "supports": [
+       "central Mexican highlands nopal-growing belt"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Adobe walls with lime-wash over rubble-stone footing, exposed adobe blocks eroding at the top, flat roofs — classic Mexican rural bardas",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Solid fired-red brick perimeter wall with cast-concrete castillos (columns) and dala ring beam — the standard Mexican rural construction system",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "district",
+      "observation": "Rounded river-cobble faced wall panels between concrete pillars, plus dry-stone field walls — local stone economy of a volcanic/alluvial highland valley",
+      "supports": [
+       "highland Mexican valley village"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Unpaved pale caliche/limestone dust lane with wheel ruts and no curbs — small ejido/rancho settlement",
+      "supports": [
+       "rural low-density settlement"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Newly poured white concrete street with earth shoulder — typical Mexican municipal 'calle de concreto hidraulico' upgrade program in small towns",
+      "supports": [
+       "Mexico, recent municipal works"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Slim square-section prestressed concrete utility poles carrying low-voltage lines, CFE-style rural distribution",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage/language",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Red painted political/greeting graffiti on a wall including '2020' and a Spanish name ending in '...MARCHA'; Spanish-language hand lettering only",
+      "supports": [
+       "Spanish-speaking Latin America",
+       "Mexico"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "landform",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Low dark sierra ridges on the horizon across a broad flat basin — altiplano bolson topography",
+      "supports": [
+       "Mexican Altiplano"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "climate",
+      "image_index": 5,
+      "level": "macro_region",
+      "observation": "Deep blue, low-humidity sky with harsh shadows and dry golden grass under green mesquite — high-altitude dry spring",
+      "supports": [
+       "highland semi-arid, ~2000 m"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 3,
+      "level": "district",
+      "observation": "Grey hollow concrete block walls and corrugated steel gate next to older whitewashed adobe — mixed-vintage village fabric, remittance-era rebuilding",
+      "supports": [
+       "central-northern Mexico migration belt"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Adobe ruin wall shaded by a single tall yucca and mesquite, with plastic-covered stored fodder in a smallholding",
+      "supports": [
+       "subsistence/small-scale agriculture"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A small, low-income rural village (rancho/ejido) on the Mexican central-northern altiplano. Mestizo Spanish-speaking, Catholic-cultural sphere with no indigenous-language signage. Economy is smallholder: nopal hedges and probable nopal/tuna harvesting, mesquite scrub grazing, maguey, and stored fodder. Housing shows the classic staged self-build sequence — old adobe and rubble-stone walls being replaced by fired brick and grey concrete block with exposed castillos, financed in increments (very often by US remittances, which is characteristic of Zacatecas/Aguascalientes/Los Altos). Public investment is visible but thin: CFE concrete distribution poles everywhere, one street recently paved in hydraulic concrete while adjacent lanes remain caliche dust. Painted political graffiti dated 2020 indicates active municipal campaigning.",
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 0,
+      "name": "Grove of Yucca filifera (palma china)",
+      "type": "distinctive vegetation"
+     },
+     {
+      "confidence": 0.4,
+      "image_index": 2,
+      "name": "River-cobble faced boundary wall",
+      "type": "vernacular construction"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.6,
+      "evidence": "Red hand-painted wall lettering with '2020' and a Spanish surname/word ending '-MARCHA'",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "North America",
+       "South America",
+       "Mediterranean Europe",
+       "North Africa",
+       "Australia",
+       "southern Africa"
+      ],
+      "conclusion": "New World semi-arid subtropics — the Americas",
+      "confidence_after": 0.93,
+      "discriminator": "Opuntia and Yucca are New World natives; an Old World dry landscape (Spain, Morocco, Anatolia) would show olives, holm oak, Aleppo pine, prickly pear only as scattered escapes, and would not have branched tree yuccas at all. Australia would give eucalyptus and acacia phyllodes rather than mesquite and nopal hedgerows.",
+      "level": "continent",
+      "observation": "Columnar cacti, dense Opuntia (prickly pear) thickets, maguey/agave, mesquite (Prosopis) and branched tree yuccas dominate the vegetation.",
+      "question": "Which continent hosts this cactus-and-yucca dry scrub?",
+      "ruled_out": [
+       "Mediterranean Europe — no native Opuntia thickets or tree yuccas",
+       "North Africa/Middle East — palms and thorn acacia instead of nopal/mesquite hedges",
+       "Australia — eucalypt/spinifex flora absent"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Mexico",
+       "USA Southwest",
+       "Peru/Bolivia Andes",
+       "Argentina Monte",
+       "Chile"
+      ],
+      "conclusion": "Mexico",
+      "confidence_after": 0.93,
+      "discriminator": "In the US Southwest the same climate would give asphalt or chip-seal streets, wooden utility poles with pole-top transformers, mailbox posts, house numbers and setback zoning; adobe would be stuccoed suburban 'pueblo revival', not eroding raw adobe over rubble footings. Andean Peru/Bolivia would show eucalyptus windbreaks, adobe with tile roofs and Quechua/Aymara toponyms; Argentine Monte would use cardon and different brick bond with hipped roofs.",
+      "level": "country",
+      "observation": "Square prestressed-concrete CFE-style utility poles, exposed-castillo brick perimeter walls, flat roofs, whitewashed adobe bardas, Spanish hand-painted political graffiti dated 2020, and a hydraulic-concrete village street.",
+      "question": "Which Spanish-speaking American country?",
+      "ruled_out": [
+       "USA Southwest — wooden poles, paved roads, no raw adobe boundary walls",
+       "Peru/Bolivia — no tile roofs, no eucalyptus, no indigenous-language signage",
+       "Argentina/Chile — different pole and wall typology, no nopal hedge agriculture"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Baja California",
+       "Sonora/Sinaloa NW",
+       "Chihuahua/Coahuila NE desert",
+       "Central Altiplano (ZAC/SLP/AGS/GTO/QRO)",
+       "Bajio irrigated plain",
+       "Oaxaca/Puebla south",
+       "Gulf/tropical Mexico"
+      ],
+      "conclusion": "Mexican Altiplano / Mesa Central, roughly 1900-2200 m",
+      "confidence_after": 0.85,
+      "discriminator": "Sonora would show saguaro, palo verde, ocotillo and no yucca forest; Chihuahua's high desert has creosote flats, lechuguilla and far sparser mesquite with no nopal hedgerow farming; the Bajio floor would be irrigated cropland with tractors and levelled fields rather than rocky dry-stone plots; Oaxaca/Puebla would add organ-pipe cactus rows plus adobe with tiled pitched roofs and often indigenous-language signage; the Gulf lowlands are humid and green year-round.",
+      "level": "macro_region",
+      "observation": "Yucca filifera groves, cultivated nopal hedges, mesquite-huizache scrub, dry-stone field walls, a broad flat basin ringed by low dark sierras, deep low-humidity blue sky.",
+      "question": "Which Mexican macro-region: northwest deserts, northeast desert, central altiplano, Bajio, or the tropical south?",
+      "ruled_out": [
+       "Sonora/Baja — no saguaro/cardon/palo verde",
+       "Chihuahua–Coahuila — vegetation too dense and too many yuccas/nopal",
+       "Oaxaca/Puebla — no tiled pitched roofs or Mesoamerican terracing",
+       "Gulf/tropical Mexico — climate far too dry"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Yamato-equivalent: mestizo criollo rural sphere",
+       "Indigenous Nahua/Otomi/Huichol sphere"
+      ],
+      "conclusion": "Mestizo ranchero sphere of the northern-central plateau — no indigenous linguistic marking",
+      "confidence_after": 0.8,
+      "discriminator": "An Otomi (Queretaro/Hidalgo) or Nahua (Puebla/SLP Huasteca) village would show bilingual health-centre or school signage, pulque-maguey field terraces at scale, and often lechuguilla/ixtle fibre work; a Huichol/Wixarika settlement would have distinct compound layouts. Here everything — graffiti, house typology, fencing — reads generic mestizo ranchero, the culture of the mining-and-ranching plateau colonized in the 16th-17th centuries.",
+      "level": "cultural_sphere",
+      "observation": "Purely Spanish signage, criollo/mestizo rural building style (adobe barda, brick with castillos, flat roof), no ceremonial or indigenous-language markers.",
+      "question": "Mestizo ranchero culture or an indigenous-language village?",
+      "ruled_out": [
+       "Otomi/Nahua indigenous villages — would carry bilingual signage and different agricultural terracing"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Zacatecas",
+       "Aguascalientes",
+       "San Luis Potosi altiplano",
+       "Guanajuato north",
+       "Queretaro semi-desert",
+       "Jalisco Los Altos"
+      ],
+      "conclusion": "Zacatecas / Aguascalientes borderlands most likely, with SLP altiplano and NE Guanajuato as live alternatives",
+      "confidence_after": 0.45,
+      "discriminator": "The SLP altiplano around Charcas/Salinas is drier and more open, with lechuguilla and far fewer mesquite trees of this size; Queretaro's semi-desert (Cadereyta/Tolimán) has more limestone cliffs and organ-pipe cactus fences; Los Altos de Jalisco is greener with red basaltic soil and cattle-dairy infrastructure (silos, milk sheds) that is absent here. The combination of pale caliche dust roads, abundant Yucca filifera, nopal as a cash hedge crop, dry-stone rubble walls and heavy incremental brick rebuilding fits the Zacatecas–Aguascalientes plateau best.",
+      "level": "admin_region",
+      "observation": "Pale limestone/caliche soil and rounded cobble walls, Yucca filifera as the dominant tree form, extensive nopal cultivation, mesquite of good size indicating ~450-550 mm summer rainfall — plus heavy remittance-style rebuilding.",
+      "question": "Which altiplano state?",
+      "ruled_out": [
+       "Queretaro semi-desert — no limestone cliffs or organ-pipe fence rows",
+       "Jalisco Los Altos — soil too pale, no dairy infrastructure, too arid"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "small ejido/rancho",
+       "municipal cabecera",
+       "peri-urban colonia of a city"
+      ],
+      "conclusion": "A small dispersed rancho/ejido or the outskirts of a small cabecera, a few hundred to a couple of thousand inhabitants",
+      "confidence_after": 0.7,
+      "discriminator": "A municipal cabecera would show a plaza, a church tower on the skyline, painted commercial storefronts and street-name plaques; a peri-urban colonia of a city like Zacatecas or Aguascalientes would show grid streets, streetlights on every pole, and denser two-storey block housing. Here there are lot-wide walled compounds, no visible commerce, one recently concreted street among dirt lanes, and open scrub within the settlement.",
+      "level": "district",
+      "observation": "Walled agricultural compounds fronting dust lanes, empty scrub lots inside the settlement, no shops, no church tower, single-storey buildings only.",
+      "question": "Village core, ranch periphery, or city fringe?",
+      "ruled_out": [
+       "Municipal cabecera core — no plaza, church, or commerce",
+       "City peri-urban colonia — density and street furniture far too low"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.62,
+    "place_slug": "zacatecas-altiplano-village",
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Mexico",
+      "country_iso": "MX"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Mexico",
+      "country_iso": "MX"
+     },
+     {
+      "confidence": 0.06,
+      "country": "United States",
+      "country_iso": "US"
+     }
+    ],
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2533,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 5293,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Mexico",
+    "country_iso": "MX",
+    "country_correct": true,
+    "region": "Zacatecas (Mexican Altiplano, possibly Aguascalientes/NE Jalisco/Guanajuato fringe)",
+    "city": "rural village near Ojocaliente / Villa García area, Zacatecas–Aguascalientes borderlands",
+    "confidence": 0.4,
+    "overall_confidence": 0.62,
+    "error_km": 90.72,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 13,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "climate",
+     "infrastructure",
+     "landform",
+     "road",
+     "signage/language",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "rural village near Villa de Arista / Moctezuma area, Altiplano Potosino",
+     "country": "Mexico",
+     "country_iso": "MX",
+     "region_or_state": "San Luis Potosí",
+     "confidence": 0.45,
+     "coordinate_estimate": {
+      "lat": 22.6,
+      "lng": -100.85,
+      "radius_km": 110
+     }
+    },
+    "alternatives": [
+     {
+      "country": "Mexico",
+      "country_iso": "MX",
+      "confidence": 0.25
+     },
+     {
+      "country": "Mexico",
+      "country_iso": "MX",
+      "confidence": 0.15
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Semi-arid highland shrubland/grassland (Chihuahuan Desert transition, ~1700-2000 m), summer-rain regime with dry-season brown grasses",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "observation": "Large multi-branched tree yuccas (Yucca filifera 'palma china') towering over adobe walls, together with dense Opuntia (nopal) and mesquite.",
+      "supports": [
+       "Chihuahuan Altiplano",
+       "central-northern Mexico"
+      ],
+      "weight": "high",
+      "level": "admin_region"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 1,
+      "observation": "Continuous planted nopal hedge rows used as living field fence beside dry-stone rock walls.",
+      "supports": [
+       "nopal-growing Altiplano (SLP/Zacatecas/NE Guanajuato)"
+      ],
+      "weight": "high",
+      "level": "admin_region"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "observation": "Whitewashed adobe/lime-rendered wall on a rubble-stone footing, badly eroded, with adobe rooflines behind — traditional rural Mexican adobe construction.",
+      "supports": [
+       "rural Mexico"
+      ],
+      "weight": "medium",
+      "level": "country"
+     },
+     {
+      "category": "architecture",
+      "image_index": 1,
+      "observation": "Handmade red brick (tabique rojo) wall with cast-in-place concrete castillo columns and bond beam — the standard Mexican confined-masonry technique.",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "high",
+      "level": "country"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 2,
+      "observation": "Single-phase rural distribution on slender square concrete poles with short wooden crossarm, typical CFE rural feeders.",
+      "supports": [
+       "Mexico (CFE rural grid)"
+      ],
+      "weight": "medium",
+      "level": "country"
+     },
+     {
+      "category": "road",
+      "image_index": 2,
+      "observation": "Unpaved caliche/limestone-dust street with stone property walls, no curbs, no sidewalks — small rancho settlement.",
+      "supports": [
+       "rural village, low income"
+      ],
+      "weight": "medium",
+      "level": "district"
+     },
+     {
+      "category": "language",
+      "image_index": 3,
+      "observation": "Red painted political/graffiti lettering on a wall reading Spanish words and the year '2020'.",
+      "supports": [
+       "Spanish-speaking country"
+      ],
+      "weight": "medium",
+      "level": "country"
+     },
+     {
+      "category": "architecture",
+      "image_index": 3,
+      "observation": "Grey cement-block boundary wall and flat-roofed house with corrugated steel sheet gate, unplastered — Mexican partial-buildout pattern.",
+      "supports": [
+       "Mexico"
+      ],
+      "weight": "medium",
+      "level": "country"
+     },
+     {
+      "category": "geomorphology",
+      "image_index": 4,
+      "observation": "Low rounded ranges on the horizon, pale stony soil, concrete-paved main street through the village while side streets are dirt.",
+      "supports": [
+       "highland basin-and-range Altiplano"
+      ],
+      "weight": "medium",
+      "level": "macro_region"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 5,
+      "observation": "Solitary Yucca filifera with thick swollen trunk beside a collapsing adobe wall, mesquite and nopal in open rangeland.",
+      "supports": [
+       "Chihuahuan Desert scrub of SLP/Zacatecas"
+      ],
+      "weight": "high",
+      "level": "admin_region"
+     },
+     {
+      "category": "climate",
+      "image_index": 4,
+      "observation": "Deep blue sky, high sun, straw-brown herb layer with green cactus/mesquite — pre-monsoon dry season at altitude.",
+      "supports": [
+       "interior highland semi-arid"
+      ],
+      "weight": "low",
+      "level": "macro_region"
+     }
+    ],
+    "languages_detected": [
+     {
+      "language": "Spanish",
+      "script": "Latin",
+      "confidence": 0.8,
+      "evidence": "Red hand-painted wall text with '2020' and Spanish wording (image 3)"
+     }
+    ],
+    "landmarks": [
+     {
+      "name": "Yucca filifera (palma china) grove",
+      "type": "vegetation marker",
+      "confidence": 0.75,
+      "image_index": 0
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which arid world region is this — North American desert, Mediterranean, or Old World steppe?",
+      "candidates": [
+       "North America (Mexico/SW USA)",
+       "Mediterranean basin",
+       "Middle East/North Africa",
+       "Southern Africa",
+       "Andes"
+      ],
+      "observation": "Opuntia (prickly pear) growing as native thickets, Prosopis (mesquite) trees and arborescent Yucca — a New World Chihuahuan flora assemblage.",
+      "discriminator": "North Africa/Middle East would show date palms, olives, acacia and no native Opuntia thickets; southern Africa would show Aloe/Euphorbia instead of Yucca; the Andes would show Polylepis/columnar cacti with terraced stone agriculture.",
+      "ruled_out": [
+       "Mediterranean — no olive/oak scrub, wrong succulent guild",
+       "MENA — no acacia/date-palm oasis pattern",
+       "Southern Africa — Yucca and Opuntia are American genera"
+      ],
+      "conclusion": "North American arid interior",
+      "confidence_after": 0.92,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Mexico or the US Southwest?",
+      "candidates": [
+       "Mexico",
+       "USA (TX/NM/AZ)"
+      ],
+      "observation": "Adobe walls on rubble footings, handmade red brick with concrete castillos, unrendered cement-block walls, single-phase concrete distribution poles, unpaved village lanes without any signage or mailboxes, Spanish graffiti with '2020'.",
+      "discriminator": "A US Southwest hamlet at this density would show wood-frame or stucco tract houses, mailbox clusters, chain-link, asphalt with painted edge lines, and wooden utility poles with pole-top transformers; graffiti and street names would be in English.",
+      "ruled_out": [
+       "USA — construction technology, road surfacing standards and Spanish-only text are inconsistent"
+      ],
+      "conclusion": "Rural Mexico",
+      "confidence_after": 0.95,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Which Mexican arid macro-region — Sonoran NW, Chihuahuan Altiplano, Bajío, or the volcanic belt?",
+      "candidates": [
+       "Sonora/Sinaloa (Sonoran)",
+       "Chihuahuan Altiplano (SLP/Zacatecas/Durango)",
+       "Bajío (Guanajuato/Querétaro)",
+       "Trans-Mexican Volcanic Belt (Hidalgo/Tlaxcala)"
+      ],
+      "observation": "Massive branching Yucca filifera, dense nopal hedgerows, mesquite bosque, pale limestone/caliche dust and rock-pile walls; no saguaro, no ocotillo, no maguey pulquero rows, no dark volcanic andosol, no irrigated sorghum plains.",
+      "discriminator": "Sonoran NW would put saguaro/cardón and palo verde on red granitic grit; the volcanic belt would show ordered maguey pulquero rows on black andosol with tepetate road cuts; the Bajío floor would be flat, greener and under irrigated row crops with far fewer yuccas.",
+      "ruled_out": [
+       "Sonoran NW — no columnar saguaro/palo verde",
+       "Volcanic belt — no maguey rows, soils are pale not dark",
+       "Bajío core — landscape is rangeland scrub, not irrigated cropland"
+      ],
+      "conclusion": "Chihuahuan Altiplano of central-northern Mexico",
+      "confidence_after": 0.8,
+      "weight": "high"
+     },
+     {
+      "level": "cultural_sphere",
+      "question": "Indigenous-language sphere or mestizo Chichimeca-frontier sphere?",
+      "candidates": [
+       "Wixárika/Huichol (NW Jalisco-Nayarit sierra)",
+       "Nahua Huasteca (E SLP/N Veracruz)",
+       "Mestizo Altiplano (former Guachichil frontier)"
+      ],
+      "observation": "Only Spanish text; generic rancho architecture (adobe + brick + block), no traditional indigenous dwelling forms, no bilingual signage; arid nopal/yucca rangeland rather than humid Huasteca vegetation.",
+      "discriminator": "The Nahua Huasteca would be humid, with banana/citrus, palm-thatch and bilingual school signage; a Wixárika area would sit in pine-oak sierra with distinctive ranchería layout.",
+      "ruled_out": [
+       "Nahua Huasteca — climate and flora far too dry",
+       "Wixárika sierra — no pine-oak, wrong elevation/topography"
+      ],
+      "conclusion": "Spanish-speaking mestizo peasant sphere of the old Chichimeca frontier",
+      "confidence_after": 0.78,
+      "weight": "medium"
+     },
+     {
+      "level": "admin_region",
+      "question": "Within the Altiplano, which state — San Luis Potosí, Zacatecas, Guanajuato's northern sierra, or southern Coahuila/Durango?",
+      "candidates": [
+       "San Luis Potosí (Altiplano/Zona Media)",
+       "Zacatecas",
+       "northern Guanajuato",
+       "Durango/Coahuila"
+      ],
+      "observation": "Very large, tall Yucca filifera in mixed nopal-mesquite scrub with low rounded limestone ranges close by and modest elevation (mesquite still vigorous, no high-cold grassland tone); dense human settlement of small ranchos with cactus-hedge parcels.",
+      "discriminator": "Zacatecas' higher plateaux tend to open, colder grass-and-nopal plains with fewer giant yuccas and more bare rangeland; Durango/Coahuila would show creosote (gobernadora) flats and sparser settlement; northern Guanajuato would be closer to the Bajío with more cultivated ground and huizache.",
+      "ruled_out": [
+       "Durango/Coahuila — no creosote flats, settlement pattern too dense",
+       "Northern Guanajuato — too little cropland here for that transition zone"
+      ],
+      "conclusion": "Most likely San Luis Potosí Altiplano/Zona Media, with Zacatecas the closest rival",
+      "confidence_after": 0.5,
+      "weight": "medium"
+     },
+     {
+      "level": "district",
+      "question": "Which kind of settlement within that state?",
+      "candidates": [
+       "ejido/rancho on a valley floor",
+       "municipal cabecera",
+       "peri-urban colonia"
+      ],
+      "observation": "Dry-stone rock-pile parcel walls, cactus-hedge plot boundaries, a single concrete-paved through street with dirt side lanes, no shops, church or plaza visible.",
+      "discriminator": "A cabecera would show a plaza, painted municipal buildings and continuous paving; a peri-urban colonia would have gridded blocks, street lights and painted house numbers.",
+      "ruled_out": [
+       "Municipal cabecera — no civic core",
+       "Peri-urban colonia — no grid, no street furniture"
+      ],
+      "conclusion": "A small ejido/rancho settlement, recently getting its first concrete street",
+      "confidence_after": 0.6,
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A poor-to-modest rural ejido community in Mexico's semi-arid highlands. Wealth is layered chronologically in the walls: eroding adobe on rubble footings (oldest), handmade red brick with confined-concrete castillos (mid), and grey cement block with rebar stubs and sheet-steel gates (newest, remittance/wage-financed). Livelihood cues are livestock-and-nopal rangeland with stone-walled rainfed parcels rather than irrigated commercial cropping. Public investment is arriving incrementally — CFE single-phase power on concrete poles and one hydraulic-concrete street through the village while all side lanes remain caliche dust. Political wall painting dated 2020 indicates active municipal campaigning. Population is Spanish-speaking mestizo; no indigenous-language signage.",
+    "overall_confidence": 0.55,
+    "place_slug": "altiplano-potosino",
+    "relied_on_atoms": [
+     "atm_8dca31d7924e",
+     "atm_424413bdfad8",
+     "atm_b2fcdcfac982",
+     "atm_0f5685ec7286"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1336,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2729,
+    "output": 4418,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Mexico",
+    "country_iso": "MX",
+    "country_correct": true,
+    "region": "San Luis Potosí",
+    "city": "rural village near Villa de Arista / Moctezuma area, Altiplano Potosino",
+    "confidence": 0.45,
+    "overall_confidence": 0.55,
+    "error_km": 56.62,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 11,
+    "n_landmarks": 1,
+    "cue_categories": [
+     "architecture",
+     "climate",
+     "geomorphology",
+     "infrastructure",
+     "language",
+     "road",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_a7ecfad95f50",
+    "atm_bfa5269be192",
+    "atm_7ce456065485",
+    "atm_b2fcdcfac982",
+    "atm_a54d90c20b3e",
+    "atm_0f5685ec7286",
+    "atm_11de3f1b2c80",
+    "atm_a741bec60f9c",
+    "atm_424413bdfad8",
+    "atm_8dca31d7924e"
+   ],
+   "relied_on": [
+    "atm_8dca31d7924e",
+    "atm_424413bdfad8",
+    "atm_b2fcdcfac982",
+    "atm_0f5685ec7286"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "MX",
+   "country": "Mexico",
+   "region": "San Luis Potosí",
+   "city": "rural village near Villa de Arista / Moctezuma area, Altiplano Potosino",
+   "lat": 22.6,
+   "lng": -100.85,
+   "error_km": 56.62,
+   "reached_level": "district",
+   "confidence": 0.45,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "miss",
+  "error_km": 56.62,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.21222375000000002,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5366,
+   "output": 2767,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "HIT at country and state level: Mexico / San Luis Potosí was correct, and the guess landed 57 km from La Tapona (Mexquitic de Carmona) rather than the estimated Villa de Arista/Moctezuma area. The decisive visible evidence was the Chihuahuan Altiplano flora guild (giant branching Yucca filifera, planted nopal hedges, mesquite), Mexican confined-masonry brickwork with castillos, adobe on rubble footings and slender square concrete CFE-style poles on caliche lanes. Zacatecas (the 1st-pass answer and remaining rival) could not be excluded from the images alone; the dense small-ejido settlement with vigorous mesquite and giant yuccas rather than open cold nopal-grass plain is the only weak tiebreaker.",
+  "misleading_cues": [
+   {
+    "image_index": 0,
+    "observation": "Very large Yucca filifera stands were read as pointing to the Villa de Arista / Moctezuma belt north of San Luis Potosí city.",
+    "why_misleading": "Palma china is widespread across the whole southern Altiplano Potosino including the Mexquitic valley west/northwest of the state capital, so it cannot fix a sub-state position; it pushed the estimate ~55 km too far north-east."
+   },
+   {
+    "image_index": 4,
+    "observation": "Absence of any plaza, church, shop or civic building in the frames was taken to mean a remote rancho far from a city.",
+    "why_misleading": "A village on the edge of a metropolitan municipality can still present only cactus parcels and dirt lanes at its western fringe; 'no civic core' says nothing about distance to a large city."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "image_index": 1,
+    "observation": "Handmade red brick panels framed by cast-in-place concrete castillos and a bond beam, on a rubble-stone plinth.",
+    "why_decisive": "Confined masonry with visible castillos is the standard Mexican rural building technique and rules out the US Southwest.",
+    "category": "roof-facade"
+   },
+   {
+    "image_index": 2,
+    "observation": "Slender square-section concrete distribution poles carrying a single-phase line with a short crossarm along a caliche lane.",
+    "why_decisive": "Square concrete CFE-type poles on unpaved rural lanes are a Mexican rural-electrification signature, unlike wooden poles with pole-top cans in the US.",
+    "category": "utility-pole"
+   },
+   {
+    "image_index": 2,
+    "observation": "Dry-stone rock-pile parcel walls topped with planted nopal hedge rows bounding narrow strip plots.",
+    "why_decisive": "This ejido-style rainfed parcel boundary morphology is characteristic of semi-arid highland central-northern Mexico, matching the small-ejido belt of the Altiplano Potosino.",
+    "category": "agriculture"
+   },
+   {
+    "image_index": 0,
+    "observation": "Multi-branched tree yuccas (palma china) over nopal and mesquite scrub with pale limestone/caliche dust and low rounded ranges.",
+    "why_decisive": "This flora/soil guild is diagnostic of the southern Chihuahuan Altiplano rather than the Sonoran, Bajío or volcanic-belt zones.",
+    "category": "vegetation"
+   },
+   {
+    "image_index": 3,
+    "observation": "Spanish red-painted wall lettering with the year 2020, grey unplastered cement-block walls and corrugated steel gates.",
+    "why_decisive": "Spanish-only informal wall painting plus partial-buildout block construction confirms rural Mexico.",
+    "category": "signage-language"
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Altiplano Potosino vs Zacatecas plateau: mesquite bosque and giant palma china",
+    "body": "In San Luis Potosí's southern Altiplano (roughly 1800-2000 m) you see vigorous mesquite bosque mixed with dense nopal hedges and tall multi-branched Yucca filifera close to settlements. On the higher, colder Zacatecas plateau you would instead see more open nopal-and-grass rangeland with stunted mesquite, fewer giant tree yuccas and more bare stony ground between hamlets.",
+    "layer": "nature",
+    "category": "vegetation",
+    "scope": "region",
+    "tags": [
+     "yucca-filifera",
+     "mesquite",
+     "altiplano"
+    ],
+    "entities": [
+     "San Luis Potosí",
+     "Zacatecas"
+    ],
+    "looks_like": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "Zacatecas"
+    },
+    "actually": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "San Luis Potosí"
+    },
+    "confidence": 0.5
+   },
+   {
+    "title": "Rural Mexico vs US Southwest: castillo-framed brick and square concrete poles",
+    "body": "In rural Mexico boundary walls are handmade red brick or adobe on rubble footings, framed by cast-in-place concrete castillos and bond beams, and power runs on slender square-section concrete poles. In a comparable US Southwest hamlet you would instead see chain-link or stucco tract walls, wooden poles with pole-top transformers, mailbox clusters and asphalt with painted edge lines.",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "country",
+    "tags": [
+     "confined-masonry",
+     "castillo",
+     "concrete-pole"
+    ],
+    "entities": [
+     "Mexico",
+     "United States"
+    ],
+    "looks_like": {
+     "country_iso": "US",
+     "country": "United States",
+     "region": "Southwest"
+    },
+    "actually": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": null
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Nopal hedge on rock-pile wall marks Mexican ejido parcels, not fenced US rangeland",
+    "body": "Mexican highland ejido plots are bounded by dry-stone rock piles cleared from the field and topped with living Opuntia hedges, producing dense small parcels along a lane. On US or Argentine dry rangeland you would instead see wire fencing on steel or wooden posts with far larger, unhedged paddocks.",
+    "layer": "economy",
+    "category": "agriculture",
+    "scope": "region",
+    "tags": [
+     "ejido",
+     "nopal-hedge",
+     "dry-stone"
+    ],
+    "entities": [
+     "Mexico",
+     "United States"
+    ],
+    "looks_like": {
+     "country_iso": "US",
+     "country": "United States",
+     "region": "Southwest"
+    },
+    "actually": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "San Luis Potosí"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Peri-urban ejido fringe can look as remote as a deep-rural rancho",
+    "body": "Near large Mexican highland cities the outermost blocks of ejido villages still show dirt lanes, cactus parcels and unfinished block houses with no plaza or shop in sight, while a single concrete-paved through street signals recent municipal investment typical of a metropolitan municipality. Do not read 'no civic core, dirt lanes' as 'far from any city'; in a genuinely isolated rancho you would instead expect no paved street at all and sparser, older electrification.",
+    "layer": "geography",
+    "category": "settlement-pattern",
+    "scope": "region",
+    "tags": [
+     "peri-urban",
+     "ejido",
+     "paving"
+    ],
+    "entities": [
+     "Mexquitic de Carmona",
+     "Altiplano Potosino"
+    ],
+    "looks_like": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "remote Altiplano rancho"
+    },
+    "actually": {
+     "country_iso": "MX",
+     "country": "Mexico",
+     "region": "San Luis Potosí (Mexquitic de Carmona)"
+    },
+    "confidence": 0.55
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_8dca31d7924e",
+   "atm_b2fcdcfac982",
+   "atm_424413bdfad8",
+   "atm_0f5685ec7286"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [],
+  "merged": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "cost_usd": 0.5991,
+ "status": "PARTIAL",
+ "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+}

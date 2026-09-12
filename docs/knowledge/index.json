@@ -7161,10 +7161,15 @@
    "layer": "history",
    "scope": "country",
    "title": "Turkish road infrastructure markers: D-100 highway and right-hand traffic",
+   "category": null,
    "tags": [
     "d-100",
+    "d-series",
     "driving-side",
     "road-infrastructure",
+    "road-numbering",
+    "signage",
+    "state-highway",
     "transportation",
     "turkey"
    ],
@@ -7175,6 +7180,7 @@
    "period_end": null,
    "lat": 40.7614517,
    "lng": 29.9392062,
+   "heading": null,
    "radius_km": 1200,
    "cell": "sxjrck3",
    "lang": "en",
@@ -7192,11 +7198,19 @@
    ],
    "refs": [],
    "reports": [
-    "report_tr_izmit_40.7615_29.9392_260814_111004_ko.html"
+    "report_tr_izmit_40.7615_29.9392_260814_111004_ko.html",
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1786673426.1109853,
-   "updated": 1786673426.1111422
+   "updated": 1789051865.0827725,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
   },
   "atm_4f6928e8ab4d": {
    "id": "atm_4f6928e8ab4d",
@@ -51897,6 +51911,1136 @@
    "hits": 0,
    "misses": 0,
    "confusions": []
+  },
+  "atm_91b8f6217bd1": {
+   "id": "atm_91b8f6217bd1",
+   "layer": "language",
+   "scope": "country",
+   "title": "Colombian calle/carrera street grid naming convention",
+   "category": "road-signage",
+   "tags": [
+    "colombia",
+    "signage",
+    "street-grid",
+    "toponymy",
+    "urban-planning"
+   ],
+   "entities": [
+    "colombia"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.2715804,
+   "lng": -73.4894931,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "d2g8r9w",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051322.5810404,
+   "updated": 1789051322.5813322,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_3641a82e3cde": {
+   "id": "atm_3641a82e3cde",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Llanero cultural sphere of the Orinoquia piedmont",
+   "category": "cuisine",
+   "tags": [
+    "cattle-ranching",
+    "cuisine",
+    "cultural-sphere",
+    "llanero",
+    "llanos",
+    "orinoquia"
+   ],
+   "entities": [
+    "colombia",
+    "llanos",
+    "meta-department"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.2715804,
+   "lng": -73.4894931,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "d2g8r9w",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051322.606911,
+   "updated": 1789051322.6070948,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_8eff91373f39": {
+   "id": "atm_8eff91373f39",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Eastern Andean piedmont / Llanos Orientales transition zone",
+   "category": "landform",
+   "tags": [
+    "andes",
+    "biogeography",
+    "llanos-orientales",
+    "meta-department",
+    "piedmont"
+   ],
+   "entities": [
+    "colombia",
+    "llanos-orientales",
+    "meta-department"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.2715804,
+   "lng": -73.4894931,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "d2g8r9w",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051322.6406858,
+   "updated": 1789051322.6408448,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_c8c9936aabeb": {
+   "id": "atm_c8c9936aabeb",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Piedmont town economy tied to cattle, oil palm, rice, and weekend tourism",
+   "category": "tourism-economy",
+   "tags": [
+    "cattle-ranching",
+    "market-town",
+    "meta-department",
+    "oil-palm",
+    "rice",
+    "tourism-economy"
+   ],
+   "entities": [
+    "colombia",
+    "meta-department"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.2715804,
+   "lng": -73.4894931,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "d2g8r9w",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051322.6661222,
+   "updated": 1789051322.6662838,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_71667f856f45": {
+   "id": "atm_71667f856f45",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Chilean MOP secondary-road lettering scheme",
+   "category": "road-signage",
+   "tags": [
+    "chile-roads",
+    "mop",
+    "norte-chico",
+    "road-numbering",
+    "route-code"
+   ],
+   "entities": [
+    "chile",
+    "ministry-of-public-works-chile"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -29.3751636,
+   "lng": -70.9550917,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "66v8ckk",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051574.1070325,
+   "updated": 1789051574.107332,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_47d9d151a778": {
+   "id": "atm_47d9d151a778",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Norte Chico transverse valley oases of Chile",
+   "category": "landform",
+   "tags": [
+    "atacama",
+    "chile-geography",
+    "norte-chico",
+    "oasis-agriculture",
+    "transverse-valleys"
+   ],
+   "entities": [
+    "atacama-region",
+    "elqui-valley",
+    "huasco-valley",
+    "limari-valley",
+    "norte-chico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -29.3751636,
+   "lng": -70.9550917,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "66v8ckk",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051574.136119,
+   "updated": 1789051574.136264,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e591fce7975b": {
+   "id": "atm_e591fce7975b",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Parronal table-grape cultivation in Chilean desert valleys",
+   "category": "agriculture",
+   "tags": [
+    "desert-oasis",
+    "drip-irrigation",
+    "export-agriculture",
+    "parronal",
+    "table-grapes"
+   ],
+   "entities": [
+    "chile",
+    "norte-chico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -29.3751636,
+   "lng": -70.9550917,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "66v8ckk",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051574.1630645,
+   "updated": 1789051574.1632102,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_bb66dca32eda": {
+   "id": "atm_bb66dca32eda",
+   "layer": "history",
+   "scope": "region",
+   "title": "Legacy mining railway viaducts in Chile's Norte Chico",
+   "category": "industry",
+   "tags": [
+    "atacama",
+    "industrial-heritage",
+    "mining-railway",
+    "norte-chico",
+    "viaduct"
+   ],
+   "entities": [
+    "atacama-region",
+    "chile"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -29.3751636,
+   "lng": -70.9550917,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "66v8ckk",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051574.1891632,
+   "updated": 1789051574.1893103,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_cb0c83bea310": {
+   "id": "atm_cb0c83bea310",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Muğla Büyükşehir Belediyesi branding on rural bus shelters",
+   "category": "civic-building",
+   "tags": [
+    "administrative-branding",
+    "bus-shelter",
+    "buyuksehir",
+    "mugla",
+    "municipal-reform",
+    "turkey"
+   ],
+   "entities": [
+    "mugla-province",
+    "turkey"
+   ],
+   "period_start": 2014,
+   "period_end": null,
+   "lat": 37.4195722,
+   "lng": 27.5947596,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "swesguj",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051865.1286657,
+   "updated": 1789051865.128855,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_91bb4809c09e": {
+   "id": "atm_91bb4809c09e",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Aegean Turkey olive-maquis hinterland vegetation signature",
+   "category": "vegetation-cue",
+   "tags": [
+    "aegean-region",
+    "anatolia",
+    "maquis",
+    "mediterranean-climate",
+    "olive-cultivation",
+    "vegetation-cue"
+   ],
+   "entities": [
+    "aegean-region",
+    "turkey"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.4195722,
+   "lng": 27.5947596,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "swesguj",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051865.1577244,
+   "updated": 1789051865.1578794,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_490cab9597a7": {
+   "id": "atm_490cab9597a7",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Milas olive oil as a regional PGI economic driver",
+   "category": "agriculture",
+   "tags": [
+    "aegean-turkey",
+    "agriculture",
+    "milas",
+    "olive-oil",
+    "pgi",
+    "rural-economy"
+   ],
+   "entities": [
+    "milas",
+    "mugla-province"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.4195722,
+   "lng": 27.5947596,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "swesguj",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051865.1824737,
+   "updated": 1789051865.182718,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_0e23428c07fd": {
+   "id": "atm_0e23428c07fd",
+   "layer": "history",
+   "scope": "region",
+   "title": "Yörük/Turkmen nomadic settlement layer over ancient Carian Anatolia",
+   "category": "migration",
+   "tags": [
+    "aegean-region",
+    "anatolia",
+    "caria",
+    "settlement-history",
+    "turkmen",
+    "yoruk"
+   ],
+   "entities": [
+    "aegean-region",
+    "caria",
+    "mugla-province"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.4195722,
+   "lng": 27.5947596,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "swesguj",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789051865.2095664,
+   "updated": 1789051865.209855,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e2c9a9aafaf4": {
+   "id": "atm_e2c9a9aafaf4",
+   "layer": "language",
+   "scope": "country",
+   "title": "Thai abugida script letterforms distinguish Thai from Lao and Khmer",
+   "category": "script",
+   "tags": [
+    "abugida",
+    "khmer-script",
+    "lao-script",
+    "mainland-southeast-asia",
+    "script-comparison",
+    "thai-script"
+   ],
+   "entities": [
+    "cambodia",
+    "laos",
+    "thailand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 17.3070749,
+   "lng": 103.580195,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "w71dmn8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052155.931217,
+   "updated": 1789052155.9314866,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_c6a252ad0c50": {
+   "id": "atm_c6a252ad0c50",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Khorat Plateau (Isan) defined by red laterite soil and flat terrain",
+   "category": "landform",
+   "tags": [
+    "isan",
+    "khorat-plateau",
+    "laterite-soil",
+    "thailand-regions",
+    "tropical-savanna"
+   ],
+   "entities": [
+    "isan",
+    "khorat-plateau",
+    "thailand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 17.3070749,
+   "lng": 103.580195,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "w71dmn8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052155.9601474,
+   "updated": 1789052155.9603126,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_a410bcb0d577": {
+   "id": "atm_a410bcb0d577",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Lao-Isan toponymy and vernacular housing distinguish Isan from Central Thai and Khmer-Surin zones",
+   "category": "toponymy",
+   "tags": [
+    "central-thai",
+    "isan",
+    "khmer-surin",
+    "lao-isan",
+    "toponymy",
+    "vernacular-housing"
+   ],
+   "entities": [
+    "isan",
+    "khmer-surin",
+    "lao-isan-culture"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 17.3070749,
+   "lng": 103.580195,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "w71dmn8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052155.9930089,
+   "updated": 1789052155.9932344,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_309c39141fcb": {
+   "id": "atm_309c39141fcb",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Thai Tessaban Tambon (subdistrict municipality) micro-works contracts",
+   "category": "civic-building",
+   "tags": [
+    "civic-signage",
+    "local-government",
+    "public-works",
+    "tessaban-tambon",
+    "thailand"
+   ],
+   "entities": [
+    "tessaban-tambon",
+    "thailand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 17.3070749,
+   "lng": 103.580195,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "w71dmn8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052156.0254257,
+   "updated": 1789052156.02568,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_68509cfdf0f6": {
+   "id": "atm_68509cfdf0f6",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Remittance-funded rural consumption pattern in Isan villages",
+   "category": "migration",
+   "tags": [
+    "isan",
+    "migration-income",
+    "paddy-agriculture",
+    "remittance",
+    "rural-economy"
+   ],
+   "entities": [
+    "isan",
+    "thailand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 17.3070749,
+   "lng": 103.580195,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "w71dmn8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052156.067899,
+   "updated": 1789052156.068678,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_bcebe14f209f": {
+   "id": "atm_bcebe14f209f",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Chihuahuan Desert Altiplano flora signature (Yucca filifera + nopal hedges)",
+   "category": "vegetation",
+   "tags": [
+    "altiplano",
+    "chihuahuan-desert",
+    "nopal",
+    "san-luis-potosi",
+    "xeric-flora",
+    "yucca-filifera"
+   ],
+   "entities": [
+    "chihuahuan-desert",
+    "san-luis-potosi",
+    "zacatecas"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 22.2310973,
+   "lng": -101.2281847,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9gbn2rp",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052625.872839,
+   "updated": 1789052625.8731017,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_8dca31d7924e": {
+   "id": "atm_8dca31d7924e",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Sonoran vs Chihuahuan vs Bajío vs Trans-Mexican Volcanic Belt landscape discriminators",
+   "category": "landform",
+   "tags": [
+    "bajio",
+    "biome-discriminator",
+    "chihuahuan-desert",
+    "mexico-regions",
+    "sonoran-desert",
+    "trans-mexican-volcanic-belt"
+   ],
+   "entities": [
+    "bajio",
+    "chihuahuan-desert",
+    "sonora",
+    "trans-mexican-volcanic-belt"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 22.2310973,
+   "lng": -101.2281847,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9gbn2rp",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052625.8997684,
+   "updated": 1789052625.8999205,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_424413bdfad8": {
+   "id": "atm_424413bdfad8",
+   "layer": "history",
+   "scope": "region",
+   "title": "Chichimeca frontier and Guachichil/Otomí resettlement zone of the Altiplano Potosino",
+   "category": "migration",
+   "tags": [
+    "chichimeca-war",
+    "frontier-colonization",
+    "guachichil",
+    "mestizo-culture",
+    "otomi",
+    "san-luis-potosi"
+   ],
+   "entities": [
+    "chichimeca-war",
+    "guachichil",
+    "otomi"
+   ],
+   "period_start": 1550,
+   "period_end": 1600,
+   "lat": 22.2310973,
+   "lng": -101.2281847,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9gbn2rp",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052625.925184,
+   "updated": 1789052625.9253564,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_7ce456065485": {
+   "id": "atm_7ce456065485",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Evangelical/Adventist inroads alongside Catholic parishes in rural central Mexico",
+   "category": "religion",
+   "tags": [
+    "adventist",
+    "catholicism",
+    "evangelical-growth",
+    "religious-pluralism",
+    "rural-mexico"
+   ],
+   "entities": [
+    "mexico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 22.2310973,
+   "lng": -101.2281847,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9gbn2rp",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052625.9518666,
+   "updated": 1789052625.9520295,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_b2fcdcfac982": {
+   "id": "atm_b2fcdcfac982",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Ejido strip-parcel field morphology in rainfed Mexican highland agriculture",
+   "category": "agriculture",
+   "tags": [
+    "agrarian-reform",
+    "ejido",
+    "land-tenure",
+    "rainfed-agriculture",
+    "strip-parcels"
+   ],
+   "entities": [
+    "ejido-system",
+    "mexico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 22.2310973,
+   "lng": -101.2281847,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9gbn2rp",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052625.9829311,
+   "updated": 1789052625.983086,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_bfa5269be192": {
+   "id": "atm_bfa5269be192",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Telesecundaria/telebachillerato as Mexico-specific distance-education markers",
+   "category": "education",
+   "tags": [
+    "mexico",
+    "rural-education",
+    "sep",
+    "telebachillerato",
+    "telesecundaria"
+   ],
+   "entities": [
+    "mexico",
+    "sep-mexico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.5605739,
+   "lng": -101.3793824,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "9exuvnc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052933.2007787,
+   "updated": 1789052933.2010148,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_a7ecfad95f50": {
+   "id": "atm_a7ecfad95f50",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Mexican state highway road-label prefixes encode the state",
+   "category": "road-signage",
+   "tags": [
+    "gto",
+    "highway-signage",
+    "mexico",
+    "road-labeling",
+    "state-abbreviation"
+   ],
+   "entities": [
+    "guanajuato",
+    "mexico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.5605739,
+   "lng": -101.3793824,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "9exuvnc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052933.2303522,
+   "updated": 1789052933.2304943,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_2fbd4c769a30": {
+   "id": "atm_2fbd4c769a30",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Bajío basin field-clearance and soil signature",
+   "category": "soil-terrain-cue",
+   "tags": [
+    "bajio",
+    "basalt",
+    "field-clearance",
+    "irrigated-agriculture",
+    "volcanic-soil"
+   ],
+   "entities": [
+    "bajio",
+    "guanajuato",
+    "trans-mexican-volcanic-belt"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.5605739,
+   "lng": -101.3793824,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9exuvnc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052933.2597275,
+   "updated": 1789052933.259879,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_5b9c968b7ed1": {
+   "id": "atm_5b9c968b7ed1",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Linear roadside colonia vs compact village-grid core settlement pattern",
+   "category": "settlement-pattern",
+   "tags": [
+    "colonia",
+    "roadside-sprawl",
+    "rural-mexico",
+    "settlement-pattern",
+    "village-grid"
+   ],
+   "entities": [
+    "mexico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.5605739,
+   "lng": -101.3793824,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9exuvnc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052933.2762394,
+   "updated": 1789052933.2763107,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_1a4c17a4c72d": {
+   "id": "atm_1a4c17a4c72d",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Purépecha/Mesoamerican toponymic residue in mestizo Bajío communities",
+   "category": "toponymy",
+   "tags": [
+    "bajio",
+    "indigenous-residue",
+    "mestizo-culture",
+    "purepecha",
+    "toponymy"
+   ],
+   "entities": [
+    "bajio",
+    "guanajuato",
+    "purepecha"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.5605739,
+   "lng": -101.3793824,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9exuvnc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789052933.3327231,
+   "updated": 1789052933.332863,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
   }
  },
  "cells": {
@@ -52329,7 +53473,8 @@
    "atm_3569d417f648",
    "atm_4a66ab569c4f",
    "atm_af77a40342bd",
-   "atm_7fee21f2b232"
+   "atm_7fee21f2b232",
+   "atm_590816a2ad04"
   ],
   "sxj": [
    "atm_fc22ca49a31d",
@@ -52896,7 +54041,8 @@
   "w7": [
    "atm_a829b13225ed",
    "atm_724d7e7a7c99",
-   "atm_a829b13225ed"
+   "atm_a829b13225ed",
+   "atm_e2c9a9aafaf4"
   ],
   "u28": [
    "atm_d4219be3d4fb",
@@ -52972,6 +54118,50 @@
   ],
   "s1nmb": [
    "atm_643367ff9498"
+  ],
+  "d2": [
+   "atm_91b8f6217bd1"
+  ],
+  "d2g": [
+   "atm_3641a82e3cde",
+   "atm_8eff91373f39",
+   "atm_c8c9936aabeb"
+  ],
+  "66": [
+   "atm_71667f856f45"
+  ],
+  "66v": [
+   "atm_47d9d151a778",
+   "atm_e591fce7975b",
+   "atm_bb66dca32eda"
+  ],
+  "swe": [
+   "atm_cb0c83bea310",
+   "atm_91bb4809c09e",
+   "atm_490cab9597a7",
+   "atm_0e23428c07fd"
+  ],
+  "w71": [
+   "atm_c6a252ad0c50",
+   "atm_a410bcb0d577",
+   "atm_309c39141fcb",
+   "atm_68509cfdf0f6"
+  ],
+  "9gb": [
+   "atm_bcebe14f209f",
+   "atm_8dca31d7924e",
+   "atm_424413bdfad8",
+   "atm_7ce456065485",
+   "atm_b2fcdcfac982"
+  ],
+  "9e": [
+   "atm_bfa5269be192",
+   "atm_a7ecfad95f50"
+  ],
+  "9ex": [
+   "atm_2fbd4c769a30",
+   "atm_5b9c968b7ed1",
+   "atm_1a4c17a4c72d"
   ]
  },
  "entities": {
@@ -54136,7 +55326,9 @@
    "atm_310e2cb423dc",
    "atm_af77a40342bd",
    "atm_e81470498de1",
-   "atm_c2c5ced5d1a1"
+   "atm_c2c5ced5d1a1",
+   "atm_cb0c83bea310",
+   "atm_91bb4809c09e"
   ],
   "marmara-region": [
    "atm_fc22ca49a31d",
@@ -54237,7 +55429,12 @@
    "atm_3fc712b096be",
    "atm_bd33b40b4b46",
    "atm_a54d90c20b3e",
-   "atm_0f259f84fb29"
+   "atm_0f259f84fb29",
+   "atm_7ce456065485",
+   "atm_b2fcdcfac982",
+   "atm_bfa5269be192",
+   "atm_a7ecfad95f50",
+   "atm_5b9c968b7ed1"
   ],
   "escarcega": [
    "atm_ef0a76735f18"
@@ -55191,7 +56388,11 @@
    "atm_128968f951fe",
    "atm_dcc3f946acb2",
    "atm_66fd8453fad2",
-   "atm_7ff4706a4ace"
+   "atm_7ff4706a4ace",
+   "atm_e2c9a9aafaf4",
+   "atm_c6a252ad0c50",
+   "atm_309c39141fcb",
+   "atm_68509cfdf0f6"
   ],
   "vietnam": [
    "atm_31b06bbe84f4",
@@ -56306,13 +57507,20 @@
    "atm_11de3f1b2c80"
   ],
   "chile": [
-   "atm_be2b79054b54"
+   "atm_be2b79054b54",
+   "atm_71667f856f45",
+   "atm_e591fce7975b",
+   "atm_bb66dca32eda"
   ],
   "codensa": [
    "atm_be2b79054b54"
   ],
   "colombia": [
-   "atm_be2b79054b54"
+   "atm_be2b79054b54",
+   "atm_91b8f6217bd1",
+   "atm_3641a82e3cde",
+   "atm_8eff91373f39",
+   "atm_c8c9936aabeb"
   ],
   "enel": [
    "atm_be2b79054b54"
@@ -56460,7 +57668,10 @@
   "bajio": [
    "atm_b8ff25417de5",
    "atm_aa1543dd152e",
-   "atm_0f259f84fb29"
+   "atm_0f259f84fb29",
+   "atm_8dca31d7924e",
+   "atm_2fbd4c769a30",
+   "atm_1a4c17a4c72d"
   ],
   "slovakia-auto-corridor": [
    "atm_b8ff25417de5"
@@ -56740,7 +57951,9 @@
    "atm_aa1543dd152e"
   ],
   "trans-mexican-volcanic-belt": [
-   "atm_aa1543dd152e"
+   "atm_aa1543dd152e",
+   "atm_8dca31d7924e",
+   "atm_2fbd4c769a30"
   ],
   "aashto": [
    "atm_62b989fe9ba7",
@@ -57867,7 +59080,8 @@
    "atm_a67a2d79524f"
   ],
   "cambodia": [
-   "atm_0168a452921d"
+   "atm_0168a452921d",
+   "atm_e2c9a9aafaf4"
   ],
   "house-of-norodom": [
    "atm_0168a452921d",
@@ -63021,7 +64235,8 @@
    "atm_a750174aa676"
   ],
   "laos": [
-   "atm_724d7e7a7c99"
+   "atm_724d7e7a7c99",
+   "atm_e2c9a9aafaf4"
   ],
   "th-i-nguy-n": [
    "atm_724d7e7a7c99",
@@ -63132,6 +64347,105 @@
   ],
   "yoruba": [
    "atm_c9e4132840cf"
+  ],
+  "llanos": [
+   "atm_3641a82e3cde"
+  ],
+  "meta-department": [
+   "atm_3641a82e3cde",
+   "atm_8eff91373f39",
+   "atm_c8c9936aabeb"
+  ],
+  "llanos-orientales": [
+   "atm_8eff91373f39"
+  ],
+  "ministry-of-public-works-chile": [
+   "atm_71667f856f45"
+  ],
+  "atacama-region": [
+   "atm_47d9d151a778",
+   "atm_bb66dca32eda"
+  ],
+  "elqui-valley": [
+   "atm_47d9d151a778"
+  ],
+  "huasco-valley": [
+   "atm_47d9d151a778"
+  ],
+  "limari-valley": [
+   "atm_47d9d151a778"
+  ],
+  "norte-chico": [
+   "atm_47d9d151a778",
+   "atm_e591fce7975b"
+  ],
+  "mugla-province": [
+   "atm_cb0c83bea310",
+   "atm_490cab9597a7",
+   "atm_0e23428c07fd"
+  ],
+  "aegean-region": [
+   "atm_91bb4809c09e",
+   "atm_0e23428c07fd"
+  ],
+  "milas": [
+   "atm_490cab9597a7"
+  ],
+  "caria": [
+   "atm_0e23428c07fd"
+  ],
+  "isan": [
+   "atm_c6a252ad0c50",
+   "atm_a410bcb0d577",
+   "atm_68509cfdf0f6"
+  ],
+  "khorat-plateau": [
+   "atm_c6a252ad0c50"
+  ],
+  "khmer-surin": [
+   "atm_a410bcb0d577"
+  ],
+  "lao-isan-culture": [
+   "atm_a410bcb0d577"
+  ],
+  "tessaban-tambon": [
+   "atm_309c39141fcb"
+  ],
+  "chihuahuan-desert": [
+   "atm_bcebe14f209f",
+   "atm_8dca31d7924e"
+  ],
+  "san-luis-potosi": [
+   "atm_bcebe14f209f"
+  ],
+  "zacatecas": [
+   "atm_bcebe14f209f"
+  ],
+  "sonora": [
+   "atm_8dca31d7924e"
+  ],
+  "chichimeca-war": [
+   "atm_424413bdfad8"
+  ],
+  "guachichil": [
+   "atm_424413bdfad8"
+  ],
+  "otomi": [
+   "atm_424413bdfad8"
+  ],
+  "ejido-system": [
+   "atm_b2fcdcfac982"
+  ],
+  "sep-mexico": [
+   "atm_bfa5269be192"
+  ],
+  "guanajuato": [
+   "atm_a7ecfad95f50",
+   "atm_2fbd4c769a30",
+   "atm_1a4c17a4c72d"
+  ],
+  "purepecha": [
+   "atm_1a4c17a4c72d"
   ]
  },
  "tags": {
@@ -63221,7 +64535,8 @@
    "atm_38455d899c95",
    "atm_26dc0e77b3da",
    "atm_dbf7cd33fdfa",
-   "atm_302a89d8dbd0"
+   "atm_302a89d8dbd0",
+   "atm_490cab9597a7"
   ],
   "dairy": [
    "atm_3ecf707f944b"
@@ -63291,7 +64606,8 @@
    "atm_764d16790153",
    "atm_c0ad2b5cf825",
    "atm_8721acb94173",
-   "atm_9e35ecc6159d"
+   "atm_9e35ecc6159d",
+   "atm_91b8f6217bd1"
   ],
   "cars": [
    "atm_8dcf3ffe7cd6"
@@ -64443,7 +65759,8 @@
    "atm_7e67c8b59e9a",
    "atm_1e838f1226ff",
    "atm_4db6f48f473b",
-   "atm_4aeb3a99a3c3"
+   "atm_4aeb3a99a3c3",
+   "atm_91bb4809c09e"
   ],
   "microclimate": [
    "atm_abbf940e60d2",
@@ -64558,7 +65875,8 @@
    "atm_050d1beb807a",
    "atm_ca62fa29fa29",
    "atm_3f5066a286fc",
-   "atm_395187fe388d"
+   "atm_395187fe388d",
+   "atm_3641a82e3cde"
   ],
   "hrvatsko-primorje": [
    "atm_050d1beb807a"
@@ -64596,7 +65914,8 @@
    "atm_57714df5d867",
    "atm_1927638bf02d",
    "atm_d57d50cbd46f",
-   "atm_5d9c6a60125a"
+   "atm_5d9c6a60125a",
+   "atm_c8c9936aabeb"
   ],
   "geomorphology": [
    "atm_1a3815c39ac0",
@@ -64861,7 +66180,10 @@
    "atm_91b249335f9f",
    "atm_04c54e42050d",
    "atm_a4c8bfdf483f",
-   "atm_c9e4132840cf"
+   "atm_c9e4132840cf",
+   "atm_91b8f6217bd1",
+   "atm_a410bcb0d577",
+   "atm_1a4c17a4c72d"
   ],
   "catholic": [
    "atm_4c506c031137",
@@ -64914,7 +66236,8 @@
    "atm_4aeb3a99a3c3",
    "atm_2ecb8ee81d38",
    "atm_b390d2961a02",
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_5b9c968b7ed1"
   ],
   "viens-ta": [
    "atm_7439e4c1e09e"
@@ -64943,7 +66266,9 @@
    "atm_0625509c4e13",
    "atm_9d42b1e8cd15",
    "atm_1c47fc832bdd",
-   "atm_273f3134faf4"
+   "atm_273f3134faf4",
+   "atm_490cab9597a7",
+   "atm_68509cfdf0f6"
   ],
   "administrative-vocabulary": [
    "atm_27356d38e4dc",
@@ -65104,7 +66429,8 @@
   "highway-signage": [
    "atm_635d3f4d1fe8",
    "atm_8d9e4ea3562c",
-   "atm_e5882c19fe5d"
+   "atm_e5882c19fe5d",
+   "atm_a7ecfad95f50"
   ],
   "mexico": [
    "atm_635d3f4d1fe8",
@@ -65123,7 +66449,9 @@
    "atm_7b1933188ec9",
    "atm_bd33b40b4b46",
    "atm_a54d90c20b3e",
-   "atm_0f259f84fb29"
+   "atm_0f259f84fb29",
+   "atm_bfa5269be192",
+   "atm_a7ecfad95f50"
   ],
   "sct": [
    "atm_635d3f4d1fe8",
@@ -65271,7 +66599,9 @@
    "atm_e605fa30bf62",
    "atm_b6439b6999a1",
    "atm_98d192cb04cf",
-   "atm_b0c0a8fcab45"
+   "atm_b0c0a8fcab45",
+   "atm_91b8f6217bd1",
+   "atm_590816a2ad04"
   ],
   "tavern": [
    "atm_080c7ca4a29f"
@@ -66234,7 +67564,8 @@
   ],
   "piedmont": [
    "atm_8c55d94bc98f",
-   "atm_5d77688926e3"
+   "atm_5d77688926e3",
+   "atm_8eff91373f39"
   ],
   "pre-alpine-lakes": [
    "atm_8c55d94bc98f",
@@ -66284,7 +67615,8 @@
    "atm_7da4497d86ef",
    "atm_5f98f9cb940c",
    "atm_c9190de8a525",
-   "atm_296422adc279"
+   "atm_296422adc279",
+   "atm_cb0c83bea310"
   ],
   "turkish-language": [
    "atm_9a486159e361"
@@ -66373,7 +67705,9 @@
    "atm_263fbcaac613",
    "atm_d51008e27081",
    "atm_ca05c73a7f07",
-   "atm_296c5163328d"
+   "atm_296c5163328d",
+   "atm_71667f856f45",
+   "atm_590816a2ad04"
   ],
   "snaefellsnes": [
    "atm_da86790feea2"
@@ -66513,7 +67847,8 @@
   "ejido": [
    "atm_45446d19bcd9",
    "atm_aa03a02047ac",
-   "atm_4f9a4a052204"
+   "atm_4f9a4a052204",
+   "atm_b2fcdcfac982"
   ],
   "internal-migration": [
    "atm_45446d19bcd9",
@@ -66541,7 +67876,9 @@
    "atm_38c092e9501b"
   ],
   "rural-mexico": [
-   "atm_ef0a76735f18"
+   "atm_ef0a76735f18",
+   "atm_7ce456065485",
+   "atm_5b9c968b7ed1"
   ],
   "satellite-settlement": [
    "atm_ef0a76735f18",
@@ -66556,7 +67893,8 @@
   "vernacular-housing": [
    "atm_fb1c88a99dbf",
    "atm_20964856ecd8",
-   "atm_a22c987c3ba5"
+   "atm_a22c987c3ba5",
+   "atm_a410bcb0d577"
   ],
   "sascab": [
    "atm_632fccf1df46"
@@ -66743,7 +68081,8 @@
   ],
   "market-town": [
    "atm_1b9b30221a10",
-   "atm_643367ff9498"
+   "atm_643367ff9498",
+   "atm_c8c9936aabeb"
   ],
   "medieval-urban-law": [
    "atm_1b9b30221a10",
@@ -66792,7 +68131,8 @@
    "atm_fba72a044766",
    "atm_6d1197a3fa15",
    "atm_18f21fa2e6eb",
-   "atm_198968193acf"
+   "atm_198968193acf",
+   "atm_309c39141fcb"
   ],
   "municipal-election": [
    "atm_fba72a044766"
@@ -69902,7 +71242,8 @@
    "atm_3d2e64f3716f"
   ],
   "religious-pluralism": [
-   "atm_5ef010a44deb"
+   "atm_5ef010a44deb",
+   "atm_7ce456065485"
   ],
   "ataturk": [
    "atm_8ca97c9de43b",
@@ -70130,7 +71471,8 @@
    "atm_7183fc7dcba5"
   ],
   "biogeography": [
-   "atm_7183fc7dcba5"
+   "atm_7183fc7dcba5",
+   "atm_8eff91373f39"
   ],
   "arctic-warming": [
    "atm_ad1ba461b58a"
@@ -70573,11 +71915,13 @@
    "atm_94f4cc63f804"
   ],
   "trans-mexican-volcanic-belt": [
-   "atm_94f4cc63f804"
+   "atm_94f4cc63f804",
+   "atm_8dca31d7924e"
   ],
   "volcanic-soil": [
    "atm_94f4cc63f804",
-   "atm_aa1543dd152e"
+   "atm_aa1543dd152e",
+   "atm_2fbd4c769a30"
   ],
   "highway-standards": [
    "atm_70f0ec5e8b9e"
@@ -70722,7 +72066,8 @@
    "atm_08ad7f81de9f"
   ],
   "land-tenure": [
-   "atm_08ad7f81de9f"
+   "atm_08ad7f81de9f",
+   "atm_b2fcdcfac982"
   ],
   "gdp-per-capita": [
    "atm_fdfb75d2c5b0"
@@ -71332,7 +72677,8 @@
   "thailand": [
    "atm_dcc3f946acb2",
    "atm_7ff4706a4ace",
-   "atm_c6438748e927"
+   "atm_c6438748e927",
+   "atm_309c39141fcb"
   ],
   "morihiko-hiramatsu": [
    "atm_29aac8d5f161"
@@ -71366,7 +72712,8 @@
    "atm_98f1eccf8187"
   ],
   "catholicism": [
-   "atm_6153039a726c"
+   "atm_6153039a726c",
+   "atm_7ce456065485"
   ],
   "religious-festival": [
    "atm_6153039a726c"
@@ -71725,7 +73072,10 @@
   "bajio": [
    "atm_b8ff25417de5",
    "atm_aa1543dd152e",
-   "atm_0f259f84fb29"
+   "atm_0f259f84fb29",
+   "atm_8dca31d7924e",
+   "atm_2fbd4c769a30",
+   "atm_1a4c17a4c72d"
   ],
   "central-europe-auto": [
    "atm_b8ff25417de5"
@@ -72851,7 +74201,8 @@
    "atm_1488e46f2dcc"
   ],
   "municipal-reform": [
-   "atm_1488e46f2dcc"
+   "atm_1488e46f2dcc",
+   "atm_cb0c83bea310"
   ],
   "business-signage": [
    "atm_fcd1da2c1009"
@@ -73773,7 +75124,8 @@
    "atm_0c5f6ed3609b"
   ],
   "industrial-heritage": [
-   "atm_80da3b6542c6"
+   "atm_80da3b6542c6",
+   "atm_bb66dca32eda"
   ],
   "ruhr": [
    "atm_80da3b6542c6",
@@ -75890,7 +77242,9 @@
    "atm_0501f243d9a6",
    "atm_7da4497d86ef",
    "atm_5f98f9cb940c",
-   "atm_c9190de8a525"
+   "atm_c9190de8a525",
+   "atm_91bb4809c09e",
+   "atm_0e23428c07fd"
   ],
   "asia-minor": [
    "atm_0501f243d9a6"
@@ -76118,7 +77472,8 @@
    "atm_11ce587e0cc0"
   ],
   "purepecha": [
-   "atm_9a78e996a5e2"
+   "atm_9a78e996a5e2",
+   "atm_1a4c17a4c72d"
   ],
   "panama": [
    "atm_99ef85b51bdd"
@@ -76250,7 +77605,8 @@
   "andes": [
    "atm_504b2c302a94",
    "atm_cc44b8c34785",
-   "atm_59d740c202ba"
+   "atm_59d740c202ba",
+   "atm_8eff91373f39"
   ],
   "pacific": [
    "atm_504b2c302a94"
@@ -76568,7 +77924,8 @@
    "atm_aad0b444279e"
   ],
   "colombia": [
-   "atm_6babccae81e3"
+   "atm_6babccae81e3",
+   "atm_91b8f6217bd1"
   ],
   "gran-colombia": [
    "atm_6babccae81e3"
@@ -76850,7 +78207,9 @@
   ],
   "cattle-ranching": [
    "atm_5f68a2115a45",
-   "atm_903cbb9320fc"
+   "atm_903cbb9320fc",
+   "atm_3641a82e3cde",
+   "atm_c8c9936aabeb"
   ],
   "espinal": [
    "atm_5f68a2115a45"
@@ -77537,7 +78896,8 @@
    "atm_0bd4cb8da21c"
   ],
   "altiplano": [
-   "atm_e3b5fda161ae"
+   "atm_e3b5fda161ae",
+   "atm_bcebe14f209f"
   ],
   "climate-zonation": [
    "atm_e3b5fda161ae"
@@ -77771,7 +79131,8 @@
    "atm_dbf7cd33fdfa"
   ],
   "civic-signage": [
-   "atm_a829b13225ed"
+   "atm_a829b13225ed",
+   "atm_309c39141fcb"
   ],
   "commune": [
    "atm_a829b13225ed",
@@ -78026,7 +79387,8 @@
    "atm_e857853e0979",
    "atm_875df0438462",
    "atm_f6ff80704d60",
-   "atm_36aae0a58891"
+   "atm_36aae0a58891",
+   "atm_91bb4809c09e"
   ],
   "administrative": [
    "atm_895143231e7c"
@@ -78769,7 +80131,8 @@
    "atm_52d9e7fe3865"
   ],
   "oil-palm": [
-   "atm_52d9e7fe3865"
+   "atm_52d9e7fe3865",
+   "atm_c8c9936aabeb"
   ],
   "mission": [
    "atm_643367ff9498"
@@ -78782,6 +80145,289 @@
   ],
   "urban-core": [
    "atm_643367ff9498"
+  ],
+  "street-grid": [
+   "atm_91b8f6217bd1"
+  ],
+  "cuisine": [
+   "atm_3641a82e3cde"
+  ],
+  "llanero": [
+   "atm_3641a82e3cde"
+  ],
+  "llanos": [
+   "atm_3641a82e3cde"
+  ],
+  "orinoquia": [
+   "atm_3641a82e3cde"
+  ],
+  "llanos-orientales": [
+   "atm_8eff91373f39"
+  ],
+  "meta-department": [
+   "atm_8eff91373f39",
+   "atm_c8c9936aabeb"
+  ],
+  "rice": [
+   "atm_c8c9936aabeb"
+  ],
+  "chile-roads": [
+   "atm_71667f856f45"
+  ],
+  "mop": [
+   "atm_71667f856f45"
+  ],
+  "norte-chico": [
+   "atm_71667f856f45",
+   "atm_47d9d151a778",
+   "atm_bb66dca32eda"
+  ],
+  "route-code": [
+   "atm_71667f856f45"
+  ],
+  "atacama": [
+   "atm_47d9d151a778",
+   "atm_bb66dca32eda"
+  ],
+  "chile-geography": [
+   "atm_47d9d151a778"
+  ],
+  "oasis-agriculture": [
+   "atm_47d9d151a778"
+  ],
+  "transverse-valleys": [
+   "atm_47d9d151a778"
+  ],
+  "desert-oasis": [
+   "atm_e591fce7975b"
+  ],
+  "drip-irrigation": [
+   "atm_e591fce7975b"
+  ],
+  "export-agriculture": [
+   "atm_e591fce7975b"
+  ],
+  "parronal": [
+   "atm_e591fce7975b"
+  ],
+  "table-grapes": [
+   "atm_e591fce7975b"
+  ],
+  "mining-railway": [
+   "atm_bb66dca32eda"
+  ],
+  "viaduct": [
+   "atm_bb66dca32eda"
+  ],
+  "d-series": [
+   "atm_590816a2ad04"
+  ],
+  "state-highway": [
+   "atm_590816a2ad04"
+  ],
+  "administrative-branding": [
+   "atm_cb0c83bea310"
+  ],
+  "bus-shelter": [
+   "atm_cb0c83bea310"
+  ],
+  "buyuksehir": [
+   "atm_cb0c83bea310"
+  ],
+  "mugla": [
+   "atm_cb0c83bea310"
+  ],
+  "aegean-region": [
+   "atm_91bb4809c09e",
+   "atm_0e23428c07fd"
+  ],
+  "mediterranean-climate": [
+   "atm_91bb4809c09e"
+  ],
+  "olive-cultivation": [
+   "atm_91bb4809c09e"
+  ],
+  "aegean-turkey": [
+   "atm_490cab9597a7"
+  ],
+  "milas": [
+   "atm_490cab9597a7"
+  ],
+  "olive-oil": [
+   "atm_490cab9597a7"
+  ],
+  "pgi": [
+   "atm_490cab9597a7"
+  ],
+  "caria": [
+   "atm_0e23428c07fd"
+  ],
+  "settlement-history": [
+   "atm_0e23428c07fd"
+  ],
+  "turkmen": [
+   "atm_0e23428c07fd"
+  ],
+  "yoruk": [
+   "atm_0e23428c07fd"
+  ],
+  "abugida": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "khmer-script": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "lao-script": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "mainland-southeast-asia": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "script-comparison": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "thai-script": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "isan": [
+   "atm_c6a252ad0c50",
+   "atm_a410bcb0d577",
+   "atm_68509cfdf0f6"
+  ],
+  "khorat-plateau": [
+   "atm_c6a252ad0c50"
+  ],
+  "laterite-soil": [
+   "atm_c6a252ad0c50"
+  ],
+  "thailand-regions": [
+   "atm_c6a252ad0c50"
+  ],
+  "tropical-savanna": [
+   "atm_c6a252ad0c50"
+  ],
+  "central-thai": [
+   "atm_a410bcb0d577"
+  ],
+  "khmer-surin": [
+   "atm_a410bcb0d577"
+  ],
+  "lao-isan": [
+   "atm_a410bcb0d577"
+  ],
+  "public-works": [
+   "atm_309c39141fcb"
+  ],
+  "tessaban-tambon": [
+   "atm_309c39141fcb"
+  ],
+  "migration-income": [
+   "atm_68509cfdf0f6"
+  ],
+  "paddy-agriculture": [
+   "atm_68509cfdf0f6"
+  ],
+  "remittance": [
+   "atm_68509cfdf0f6"
+  ],
+  "chihuahuan-desert": [
+   "atm_bcebe14f209f",
+   "atm_8dca31d7924e"
+  ],
+  "nopal": [
+   "atm_bcebe14f209f"
+  ],
+  "san-luis-potosi": [
+   "atm_bcebe14f209f",
+   "atm_424413bdfad8"
+  ],
+  "xeric-flora": [
+   "atm_bcebe14f209f"
+  ],
+  "yucca-filifera": [
+   "atm_bcebe14f209f"
+  ],
+  "biome-discriminator": [
+   "atm_8dca31d7924e"
+  ],
+  "mexico-regions": [
+   "atm_8dca31d7924e"
+  ],
+  "sonoran-desert": [
+   "atm_8dca31d7924e"
+  ],
+  "chichimeca-war": [
+   "atm_424413bdfad8"
+  ],
+  "frontier-colonization": [
+   "atm_424413bdfad8"
+  ],
+  "guachichil": [
+   "atm_424413bdfad8"
+  ],
+  "mestizo-culture": [
+   "atm_424413bdfad8",
+   "atm_1a4c17a4c72d"
+  ],
+  "otomi": [
+   "atm_424413bdfad8"
+  ],
+  "adventist": [
+   "atm_7ce456065485"
+  ],
+  "evangelical-growth": [
+   "atm_7ce456065485"
+  ],
+  "agrarian-reform": [
+   "atm_b2fcdcfac982"
+  ],
+  "rainfed-agriculture": [
+   "atm_b2fcdcfac982"
+  ],
+  "strip-parcels": [
+   "atm_b2fcdcfac982"
+  ],
+  "rural-education": [
+   "atm_bfa5269be192"
+  ],
+  "sep": [
+   "atm_bfa5269be192"
+  ],
+  "telebachillerato": [
+   "atm_bfa5269be192"
+  ],
+  "telesecundaria": [
+   "atm_bfa5269be192"
+  ],
+  "gto": [
+   "atm_a7ecfad95f50"
+  ],
+  "road-labeling": [
+   "atm_a7ecfad95f50"
+  ],
+  "state-abbreviation": [
+   "atm_a7ecfad95f50"
+  ],
+  "basalt": [
+   "atm_2fbd4c769a30"
+  ],
+  "field-clearance": [
+   "atm_2fbd4c769a30"
+  ],
+  "irrigated-agriculture": [
+   "atm_2fbd4c769a30"
+  ],
+  "colonia": [
+   "atm_5b9c968b7ed1"
+  ],
+  "roadside-sprawl": [
+   "atm_5b9c968b7ed1"
+  ],
+  "village-grid": [
+   "atm_5b9c968b7ed1"
+  ],
+  "indigenous-residue": [
+   "atm_1a4c17a4c72d"
   ]
  },
  "reports": {
@@ -80281,6 +81927,130 @@
    "passes": [
     "p2"
    ]
+  },
+  "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html": {
+   "place": "Cumaral, Meta Department, Colombia",
+   "lat": 4.2715804,
+   "lng": -73.4894931,
+   "cell": "d2g8r",
+   "atoms": [
+    "atm_3641a82e3cde",
+    "atm_8eff91373f39",
+    "atm_91b8f6217bd1",
+    "atm_c8c9936aabeb"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html": {
+   "place": "Quebrada de los Choros / Chacho Martínez (Huasco valley area), Atacama Region (Huasco / Copiapó province), Chile",
+   "lat": -29.3751636,
+   "lng": -70.9550917,
+   "cell": "66v8c",
+   "atoms": [
+    "atm_47d9d151a778",
+    "atm_71667f856f45",
+    "atm_bb66dca32eda",
+    "atm_e591fce7975b"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html": {
+   "place": "Etrenli / Danışment (Milas district), Muğla Province (Milas district), Aegean Region, Turkey",
+   "lat": 37.4195722,
+   "lng": 27.5947596,
+   "cell": "swesg",
+   "atoms": [
+    "atm_0e23428c07fd",
+    "atm_490cab9597a7",
+    "atm_590816a2ad04",
+    "atm_91bb4809c09e",
+    "atm_cb0c83bea310"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html": {
+   "place": "Ban Champa Thong, Nong Lat subdistrict, Warichaphum district, Sakon Nakhon Province (Isan), Thailand",
+   "lat": 17.3070749,
+   "lng": 103.580195,
+   "cell": "w71dm",
+   "atoms": [
+    "atm_309c39141fcb",
+    "atm_68509cfdf0f6",
+    "atm_a410bcb0d577",
+    "atm_c6a252ad0c50",
+    "atm_e2c9a9aafaf4"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html": {
+   "place": "La Tapona, Mexquitic de Carmona, San Luis Potosí, Mexico",
+   "lat": 22.2310973,
+   "lng": -101.2281847,
+   "cell": "9gbn2",
+   "atoms": [
+    "atm_424413bdfad8",
+    "atm_7ce456065485",
+    "atm_8dca31d7924e",
+    "atm_b2fcdcfac982",
+    "atm_bcebe14f209f"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html": {
+   "place": "Colonia El Palomar / Yóstiro (near Irapuato), Guanajuato, Mexico",
+   "lat": 20.5605739,
+   "lng": -101.3793824,
+   "cell": "9exuv",
+   "atoms": [
+    "atm_1a4c17a4c72d",
+    "atm_2fbd4c769a30",
+    "atm_5b9c968b7ed1",
+    "atm_a7ecfad95f50",
+    "atm_bfa5269be192"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
   }
  },
  "categories": {
@@ -80298,19 +82068,27 @@
    "atm_d06a11087118",
    "atm_a750174aa676",
    "atm_349a166db7f2",
-   "atm_b3a8761917a2"
+   "atm_b3a8761917a2",
+   "atm_8eff91373f39",
+   "atm_47d9d151a778",
+   "atm_c6a252ad0c50",
+   "atm_8dca31d7924e"
   ],
   "toponymy": [
    "atm_88ae5884a999",
    "atm_a4c8bfdf483f",
-   "atm_c9e4132840cf"
+   "atm_c9e4132840cf",
+   "atm_a410bcb0d577",
+   "atm_1a4c17a4c72d"
   ],
   "civic-building": [
    "atm_4331cd4c61dd",
    "atm_895143231e7c",
    "atm_49209926afa8",
    "atm_4d13feb25fdd",
-   "atm_ba9c8744e74b"
+   "atm_ba9c8744e74b",
+   "atm_cb0c83bea310",
+   "atm_309c39141fcb"
   ],
   "infrastructure-built": [
    "atm_ca05c73a7f07",
@@ -80324,7 +82102,8 @@
   "tourism-economy": [
    "atm_273f3134faf4",
    "atm_bf51659690c9",
-   "atm_7bbe41cc890f"
+   "atm_7bbe41cc890f",
+   "atm_c8c9936aabeb"
   ],
   "other": [
    "atm_e8b3ce9a64be"
@@ -80363,12 +82142,14 @@
    "atm_4e202ceb9bb6",
    "atm_3e9eb9eb04a3",
    "atm_b390d2961a02",
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_5b9c968b7ed1"
   ],
   "education": [
    "atm_bd6ba55f3e73",
    "atm_bb7944532780",
-   "atm_a1ebb65130d5"
+   "atm_a1ebb65130d5",
+   "atm_bfa5269be192"
   ],
   "industry": [
    "atm_0bd4cb8da21c",
@@ -80377,7 +82158,8 @@
    "atm_6a567f0a848c",
    "atm_03f50dbbbf22",
    "atm_50a2614e4a4c",
-   "atm_b263ea2c5db6"
+   "atm_b263ea2c5db6",
+   "atm_bb66dca32eda"
   ],
   "roof-facade": [
    "atm_8ca08cd09c9c",
@@ -80401,7 +82183,8 @@
   ],
   "vegetation": [
    "atm_702faf957ae7",
-   "atm_05d896f43565"
+   "atm_05d896f43565",
+   "atm_bcebe14f209f"
   ],
   "dialect": [
    "atm_5dea4781e2c0"
@@ -80411,7 +82194,10 @@
    "atm_7a93556dc671",
    "atm_296c5163328d",
    "atm_de07ff165cf0",
-   "atm_16179f1c9c92"
+   "atm_16179f1c9c92",
+   "atm_91b8f6217bd1",
+   "atm_71667f856f45",
+   "atm_a7ecfad95f50"
   ],
   "protected-area": [
    "atm_4244e1fe682d",
@@ -80449,24 +82235,30 @@
    "atm_38455d899c95",
    "atm_26dc0e77b3da",
    "atm_dbf7cd33fdfa",
-   "atm_302a89d8dbd0"
+   "atm_302a89d8dbd0",
+   "atm_e591fce7975b",
+   "atm_490cab9597a7",
+   "atm_b2fcdcfac982"
   ],
   "logistics": [
    "atm_9a557d0b3688"
   ],
   "script": [
    "atm_df67f805f8ad",
-   "atm_91b249335f9f"
+   "atm_91b249335f9f",
+   "atm_e2c9a9aafaf4"
   ],
   "vegetation-cue": [
    "atm_e857853e0979",
    "atm_875df0438462",
    "atm_f6ff80704d60",
-   "atm_36aae0a58891"
+   "atm_36aae0a58891",
+   "atm_91bb4809c09e"
   ],
   "soil-terrain-cue": [
    "atm_48f209c13e3a",
-   "atm_2259a51ab69b"
+   "atm_2259a51ab69b",
+   "atm_2fbd4c769a30"
   ],
   "license-plate": [
    "atm_014560901a69"
@@ -80488,6 +82280,17 @@
   ],
   "religious-building": [
    "atm_74079b0c8ba5"
+  ],
+  "cuisine": [
+   "atm_3641a82e3cde"
+  ],
+  "migration": [
+   "atm_0e23428c07fd",
+   "atm_68509cfdf0f6",
+   "atm_424413bdfad8"
+  ],
+  "religion": [
+   "atm_7ce456065485"
   ]
  }
 }

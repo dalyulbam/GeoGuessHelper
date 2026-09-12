@@ -1,6 +1,6 @@
 # 자동 정정 루프 — 정정 원장
 
-생성 2026-09-10 13:14 · 잡 18건(최신 기록, 그중 OK 15) · 실행 19회(corrections.jsonl) · 이번 기록 비용 $9.407 · 누적 실행 비용 $9.953 · 기획: docs/plan/impl-spec_260907.md §3
+생성 2026-09-11 00:22 · 잡 24건(최신 기록, 그중 OK 15) · 실행 25회(corrections.jsonl) · 이번 기록 비용 $12.907 · 누적 실행 비용 $13.453 · 기획: docs/plan/impl-spec_260907.md §3
 
 같은 캡처를 지도 없이(blind) 다시 판단하고(회상 원자가 있으면 2패스), 실측 pano 좌표·aided 분석과 대조해 "X 는 사실 X2 였다"는 정정을 만들어 kind=discriminator 원자로 적재한다. 사람 승인은 없다 — 회상돼 쓰인 원자는 confirming/misled 로 채점되어 hits/misses 가 오르내리고, 오답만 뒷받침한 원자는 retracted(회상 제외)된다.
 
@@ -18,7 +18,7 @@
 | 판별자 원자 — 이번 기록에서 신규 / 병합 | 66 / 7 |
 | 저장소의 kind=discriminator 원자(누적) | 70 |
 | 철회된 원자 — 이번 기록 / 저장소 현재 status=retracted | 0 / 0 |
-| 총비용(최신 기록 합) | $9.407 |
+| 총비용(최신 기록 합) | $12.907 |
 
 ## 잡별
 
@@ -42,6 +42,12 @@
 | 09-10 12:50 | `report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html` | NG · Ogoja | NG · Ogoja | hit | hit | hit | 0.89 | — | 5 (0+0) | $0.431 | PARTIAL |
 | 09-10 13:11 | `report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html` | CO · Cumaral | CO · Cumaral | hit | hit | hit | 0.24 | 1/1 | 5 (0+0) | $0.493 | PARTIAL |
 | 09-10 13:14 | `report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html` | NG · Ogoja | — · — | — | — | — | — | — | 0 (0+0) | $0.000 | API_ERROR |
+| 09-10 23:55 | `report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html` | CO · Cumaral | CO · Acacías / Granada area piedmont town, Meta | hit | miss | miss | 86.38 | 7/6 | 4 (0+0) | $0.586 | PARTIAL |
+| 09-11 00:08 | `report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html` | CL · Quebrada de los Choros / Chacho Martínez (Huasco valley area) | CL · Vallenar / Alto del Carmen area, Huasco Valley | hit | hit | hit | 85.92 | 10/4 | 4 (0+0) | $0.552 | PARTIAL |
+| 09-11 00:11 | `report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html` | TR · Etrenli / Danışment (Milas district) | TR · Milas | hit | hit | hit | 18.44 | 10/6 | 4 (0+0) | $0.587 | PARTIAL |
+| 09-11 00:14 | `report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html` | TH · Ban Champa Thong, Nong Lat subdistrict, Warichaphum district | TH · Wanon Niwat / Ban Cham Pa Thong, Nong Lat subdistrict, Waritchaphum district | hit | hit | hit | 13.37 | 10/8 | 4 (0+0) | $0.576 | PARTIAL |
+| 09-11 00:16 | `report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html` | MX · La Tapona, Mexquitic de Carmona | MX · rural village near Villa de Arista / Moctezuma area, Altiplano Potosino | hit | hit | miss | 56.62 | 10/4 | 4 (0+0) | $0.599 | PARTIAL |
+| 09-11 00:19 | `report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html` | MX · Colonia El Palomar / Yóstiro (near Irapuato) | MX · Rural highway between Pénjamo and Cuerámaro area, Bajío lowlands | hit | hit | miss | 22.87 | 10/0 | 4 (0+0) | $0.600 | PARTIAL |
 
 ## 이번 기록의 판별자 원자
 
@@ -145,6 +151,36 @@
   - [geography/urban-form/region] CO>CO **Llanos piedmont town fabric vs Amazonian frontier town**
   - [economy/finance/country] EC>CO **Peso magnitude with dot separators rules out dollarized Ecuador**
   - [culture/demography/region] CO>CO **Indigenous brand names hint at macro-region inside Colombia**
+- **job_84ae6f5d2adb** (CO) — Colombia and the Meta/Llanos piedmont were both correct; the only real error was the metro step — the analyst explicitly ruled OUT Cumaral ("grid too extensive for such small municipalities") and chose Acacías/Granada, giving an 86 km miss. The grid-extent heuristic (Carrera 21 + Calle 10/19 implies
+  - [geography/urban-form/region] CO>CO **High carrera numbers do not imply a big town in Llanos colonization grids**
+  - [nature/vegetation-cue/region] CO>CO **Closed shade canopy + hills right behind town = northern Meta piedmont, not Casanare plains**
+  - [language/road-signage/country] VE>CO **Colombian green street blade with separate arrow plate vs Venezuelan plaques**
+  - [architecture/religious-building/region] CO>CO **Piedmont colonization church vs Andean colonial church**
+- **job_40a2fbc96793** (CL) — Chile / Norte Chico / interior Huasco-sector quebrada confirmed at 86 km error. The decisive visible cues were the overhead parronal table-grape trellis with shade netting on a narrow alluvial floor against utterly barren oxidised slopes, the derelict riveted steel truss railway viaduct on concrete 
+  - [economy/agriculture/region] AR>CL **Parronal overhead trellis + shade net = Chile Norte Chico, not Argentine Cuyo**
+  - [geography/infrastructure-built/region] CL>CL **Bare gravel quebrada road vs paved Elqui/Limarí trunk valley**
+  - [history/industry/region] PE>CL **Derelict steel truss viaduct over a farm valley = Atacama mining branch line**
+  - [culture/housing-typology/country] PE>CL **Absent adobe/estera housing and mototaxis rules out Peruvian coastal valley**
+- **job_6a8a9a2f02f9** (TR) — HIT: Turkey / Muğla Province / Milas district confirmed, with only 18 km error (truth is the Etrenli–Danışment stretch of the dual D525 northwest of Milas, while the guess placed it southeast of Milas). The decisive visible cue was the bus-shelter fascia reading 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' wi
+  - [language/road-signage/country] GR>TR **Turkish KGM warning triangle + rain sub-plate vs Greek sign style**
+  - [culture/street-furniture/region] TR>TR **'T.C. … BÜYÜKŞEHİR BELEDİYESİ' shelters pin the province in rural Turkey**
+  - [nature/vegetation/region] TR>TR **Aegean olive-maquis hinterland vs Taurus/Antalya front**
+  - [economy/infrastructure-built/region] TR>TR **Muğla dual-carriageway legs: inland Söke road vs Bodrum coastal corridor**
+- **job_29de0e559057** (TH) — HIT: Thailand / Sakon Nakhon / Ban Champa Thong (Nong Lat, Warichaphum) was read directly off the green Thesaban Tambon project board, whose Thai script and tambon–amphoe–changwat chain fixed both country and district; the 13 km offset only reflects the guessed position along the village approach ro
+  - [language/script/country] LA>TH **Thai loops with tone marks vs Lao simplified glyphs on rural project boards**
+  - [geography/soil-terrain-cue/region] TH>TH **Red laterite shoulders on flat plateau mark Isan, not Central Thailand**
+  - [architecture/housing-typology/region] MY>TH **Hardwood-over-masonry Isan houses vs stilted Malay kampung houses**
+  - [language/toponymy/region] TH>TH **Ban/Nong toponyms vs Khmer Prasat/Ta- toponyms inside Isan**
+- **job_2567d62419b9** (MX) — HIT at country and state level: Mexico / San Luis Potosí was correct, and the guess landed 57 km from La Tapona (Mexquitic de Carmona) rather than the estimated Villa de Arista/Moctezuma area. The decisive visible evidence was the Chihuahuan Altiplano flora guild (giant branching Yucca filifera, pla
+  - [nature/vegetation/region] MX>MX **Altiplano Potosino vs Zacatecas plateau: mesquite bosque and giant palma china**
+  - [architecture/roof-facade/country] US>MX **Rural Mexico vs US Southwest: castillo-framed brick and square concrete poles**
+  - [economy/agriculture/region] US>MX **Nopal hedge on rock-pile wall marks Mexican ejido parcels, not fenced US rangeland**
+  - [geography/settlement-pattern/region] MX>MX **Peri-urban ejido fringe can look as remote as a deep-rural rancho**
+- **job_08cebc7d3644** (MX) — HIT at country and region: Mexico / Guanajuato (Bajío) was correctly identified, and the guess landed only ~23 km from the true point near Irapuato; only the intra-Bajío city call (Pénjamo/Cuerámaro rather than Irapuato/Yóstiro) was off. The decisive visible cues were the two-lane rural highway with
+  - [geography/soil-terrain-cue/region] MX>MX **Bajío basalt clearance piles vs Altiplano pale calcareous soil**
+  - [geography/road-marking/country] GT>MX **Mexican rural two-lane: dashed centre line only, no edge lines**
+  - [geography/settlement-pattern/region] MX>MX **Bajío linear colonia sits close to big cities, not only deep countryside**
+  - [economy/utility-pole/country] US>MX **CFE rural wooden poles with small transformers vs US rural distribution**
 
 ## 유도 확인 (redo)
 
@@ -179,6 +215,12 @@
 | 09-10 12:50 | job_7974038fd53d | NG | NG | hit | 0.89 | 0/0 |  | 5 | 0/0 | $0.431 |
 | 09-10 13:11 | job_5fed61e7bed8 | CO | CO | hit | 0.24 | 1/1 |  | 5 | 0/0 | $0.493 |
 | 09-10 13:14 | job_737cae606637 | NG | None | None | — | 0/0 |  | 0 | 0/0 | $0.000 |
+| 09-10 23:55 | job_84ae6f5d2adb | CO | CO | hit | 86.38 | 7/6 |  | 4 | 0/0 | $0.586 |
+| 09-11 00:08 | job_40a2fbc96793 | CL | CL | hit | 85.92 | 10/4 |  | 4 | 0/0 | $0.552 |
+| 09-11 00:11 | job_6a8a9a2f02f9 | TR | TR | hit | 18.44 | 10/6 |  | 4 | 0/0 | $0.587 |
+| 09-11 00:14 | job_29de0e559057 | TH | TH | hit | 13.37 | 10/8 |  | 4 | 0/0 | $0.576 |
+| 09-11 00:16 | job_2567d62419b9 | MX | MX | hit | 56.62 | 10/4 |  | 4 | 0/0 | $0.599 |
+| 09-11 00:19 | job_08cebc7d3644 | MX | MX | hit | 22.87 | 10/0 |  | 4 | 0/0 | $0.600 |
 
 ## 파일
 
