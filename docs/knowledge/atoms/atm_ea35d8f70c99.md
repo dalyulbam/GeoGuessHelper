@@ -1,6 +1,7 @@
 ---
 {
   "body": "Eastern Guatemala's Caribbean lowlands (Izabal department) exhibit a distinct ethnic mosaic from the highland altiplano: Spanish-speaking Ladino (mestizo) culture predominates (~70%), coexisting with Q'eqchi' Maya indigenous communities (~28%) and smaller Garífuna Afro-indigenous coastal communities (~1%, concentrated in towns like Livingston). Unlike highland Maya areas, traditional indigenous dress and Mayan-language signage are largely absent from lowland commercial corridors, signaling the Ladino-dominant lowland cultural zone.",
+  "category": "demography",
   "cell": "d4bb4ty",
   "created": 1786908287.4213495,
   "entities": [
@@ -9,6 +10,7 @@
     "izabal",
     "qeqchi-maya"
   ],
+  "heading": null,
   "id": "atm_ea35d8f70c99",
   "lang": "en",
   "lat": 15.5008524,
@@ -43,7 +45,7 @@
     "qeqchi-maya"
   ],
   "title": "Ladino, Q'eqchi' Maya, and Garífuna cultural coexistence in eastern Guatemala",
-  "updated": 1786908287.4215596,
+  "updated": 1788506030.5521698,
   "uses": 1
 }
 ---

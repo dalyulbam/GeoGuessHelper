@@ -1,6 +1,7 @@
 ---
 {
   "body": "On Pag island, neighboring settlements have specialized into non-competing tourism/economic niches rather than converging on one product: Novalja (nightlife/party tourism), the historic town of Pag (Renaissance urbanism and Pag lace heritage crafts), and Kolan (artisanal cheese/gastronomy via the Gligora dairy and a cheese festival). This kind of niche differentiation among adjacent small settlements is a common strategy for diversifying visitor demographics on small tourism-dependent islands.",
+  "category": "tourism-economy",
   "cell": "srfth7t",
   "created": 1786468820.1993995,
   "entities": [
@@ -9,6 +10,7 @@
     "pag-island",
     "pag-town"
   ],
+  "heading": null,
   "id": "atm_15b8c8e30fd8",
   "lang": "en",
   "lat": 44.4930714,
@@ -41,7 +43,7 @@
     "tourism-diversification"
   ],
   "title": "Segmented tourism niches across a small island's settlements",
-  "updated": 1786468820.1994908,
+  "updated": 1788505985.2694554,
   "uses": 1
 }
 ---

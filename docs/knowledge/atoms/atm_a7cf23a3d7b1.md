@@ -1,12 +1,14 @@
 ---
 {
   "body": "Northern Mexican industrial/ranching cities exhibit a 'norteño' mestizo urban culture marked by pickup-truck-dominant vehicle fleets (influenced by used-car inflow from the US border economy), Spanish-only small-business signage (auto parts, glass, locksmith shops), and the general absence of indigenous-language place names, dress, or traditional markets — distinguishing it from indigenous-influenced cultural zones further south.",
+  "category": "vehicle-fleet",
   "cell": "9u80w79",
   "created": 1786718184.5992258,
   "entities": [
     "mexico",
     "northern-mexico"
   ],
+  "heading": null,
   "id": "atm_a7cf23a3d7b1",
   "lang": "en",
   "lat": 25.4200978,
@@ -40,7 +42,7 @@
     "pickup-trucks"
   ],
   "title": "Norteño mestizo urban cultural sphere (northern Mexico)",
-  "updated": 1786718184.5994232,
+  "updated": 1788506019.982111,
   "uses": 1
 }
 ---

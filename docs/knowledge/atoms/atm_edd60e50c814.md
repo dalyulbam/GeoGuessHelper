@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Universidad Nacional de Córdoba, founded in 1613, is one of the oldest universities in the Americas and central to the city's identity as the alma mater of many Argentine leaders. The 1918 University Reform (Reforma Universitaria), which spread across Latin America advocating university autonomy and student participation, originated here.",
+  "category": "education",
   "cell": "6d6m63c",
   "created": 1786294197.4329302,
   "entities": [
@@ -8,6 +9,7 @@
     "universidad-nacional-de-cordoba",
     "university-reform-1918"
   ],
+  "heading": null,
   "id": "atm_edd60e50c814",
   "lang": "en",
   "lat": -31.4102477,
@@ -41,7 +43,7 @@
     "universidad-nacional-de-cordoba"
   ],
   "title": "Universidad Nacional de Córdoba and 1918 University Reform",
-  "updated": 1786294197.4330661,
+  "updated": 1788506030.681437,
   "uses": 1
 }
 ---

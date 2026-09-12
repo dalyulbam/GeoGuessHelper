@@ -1,6 +1,7 @@
 ---
 {
   "body": "Marathi is the official language of the Indian state of Maharashtra, written in the Devanagari script. Public signage typically appears in Marathi/Hindi (Devanagari) alongside English (Latin script), reflecting India's multilingual administrative norm. Common signage words include शासकीय (government) and संग्रहालय (museum).",
+  "category": "script",
   "cell": "tet94mc",
   "created": 1786293223.7447946,
   "entities": [
@@ -8,6 +9,7 @@
     "maharashtra",
     "marathi-language"
   ],
+  "heading": null,
   "id": "atm_f1e627fbac6a",
   "lang": "en",
   "lat": 19.8953229,
@@ -31,7 +33,7 @@
     "multilingual-signage"
   ],
   "title": "Marathi in Devanagari script in Maharashtra",
-  "updated": 1786293223.745051,
+  "updated": 1788506030.9607673,
   "uses": 1
 }
 ---

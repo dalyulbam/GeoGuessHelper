@@ -1,9 +1,11 @@
 ---
 {
   "body": "Takaoka's landmarks include the Great Buddha of Takaoka (a notable daibutsu cast in local bronze) and Zuiryu-ji, an Edo-period Zen temple designated a National Treasure. The city preserves the Kanaya-machi copper-casting district and Yamachosuji merchant street, and holds the ornate Mikuruma-yama float festival. Manga artist Fujiko F. Fujio, co-creator of Doraemon, was born in Takaoka, celebrated with a themed tram and attractions.",
+  "category": "festival",
   "cell": "xn92tyx",
   "created": 1786291329.0636187,
   "entities": [],
+  "heading": null,
   "id": "atm_48e28cb5f3ff",
   "lang": "en",
   "lat": 36.6874326,
@@ -38,7 +40,7 @@
     "zuiryu-ji"
   ],
   "title": "Takaoka heritage sites and Doraemon connection",
-  "updated": 1786291329.0638134,
+  "updated": 1788505995.0255048,
   "uses": 1
 }
 ---

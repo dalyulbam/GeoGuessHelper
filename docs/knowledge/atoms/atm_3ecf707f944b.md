@@ -1,6 +1,7 @@
 ---
 {
   "body": "Altai Krai is Russia's largest agricultural region, making food processing (grain, meat, dairy, canned goods) a key economic pillar. Regional food staples include dairy, butter, cheese, grain and honey. Barnaul holds about 32% of the krai's population and concentrates government, universities and industry that second-tier cities like Biysk and Rubtsovsk cannot match.",
+  "category": "agriculture",
   "cell": "vc7x8jq",
   "created": 1786289140.6440978,
   "entities": [
@@ -9,6 +10,7 @@
     "biysk",
     "rubtsovsk"
   ],
+  "heading": null,
   "id": "atm_3ecf707f944b",
   "lang": "en",
   "lat": 53.3792627,
@@ -44,7 +46,7 @@
     "honey"
   ],
   "title": "Altai Krai as Russia's largest agricultural region",
-  "updated": 1786289140.6444004,
+  "updated": 1788505986.7029843,
   "uses": 1
 }
 ---

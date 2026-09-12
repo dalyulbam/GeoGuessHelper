@@ -1,7 +1,7 @@
 ---
 {
   "body": "Along the Seto Inland Sea coast of western Honshu (Chugoku-Setouchi region), traditional and modern housing uses shallow-pitch kawara (clay tile) roofs with shallow eaves and no snow-shedding measures (no snow poles, no steep gables, no sprinkler road nozzles), reflecting the region's dry, rain-shadowed climate. This contrasts sharply with Hokuriku/Tohoku/Hokkaido Japan-Sea-side snow country, which uses steep-pitched roofs, deep eaves, and snow poles.",
-  "category": null,
+  "category": "roof-facade",
   "cell": "wynu5mx",
   "confusions": [],
   "created": 1787963878.3247125,

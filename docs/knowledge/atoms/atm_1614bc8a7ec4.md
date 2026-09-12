@@ -1,12 +1,14 @@
 ---
 {
   "body": "Croatian marine national parks such as Mljet National Park maintain a special legal regime (enacted 2002 in Mljet's case) preserving local residents' right to traditional small-scale fishing within the park's protected coastal zone (e.g. a 500m band), balancing conservation status with continuity of traditional livelihoods for island communities.",
+  "category": "protected-area",
   "cell": "srs76v3",
   "created": 1786624054.1225603,
   "entities": [
     "croatia",
     "mljet-national-park"
   ],
+  "heading": null,
   "id": "atm_1614bc8a7ec4",
   "lang": "en",
   "lat": 42.788239,
@@ -40,7 +42,7 @@
     "traditional-livelihood"
   ],
   "title": "Protected traditional fishing rights within Croatian marine national parks",
-  "updated": 1786624054.122706,
+  "updated": 1788505985.3391702,
   "uses": 1
 }
 ---

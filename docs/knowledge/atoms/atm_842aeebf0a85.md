@@ -1,12 +1,14 @@
 ---
 {
   "body": "Cities in the historically German/Prussian part of Upper Silesia (e.g., Bytom, Zabrze), annexed by Poland after WWII, share a distinctive street-address plaque style: a dark-green arched upper section with the house number, a white band below with the street name, and the district (dzielnica) name at the bottom — a design common across these former-German industrial towns and visually distinct from address signage in historically Polish regions like Mazovia.",
+  "category": "street-furniture",
   "cell": "u2vqqje",
   "created": 1786908556.2386866,
   "entities": [
     "bytom",
     "upper-silesia"
   ],
+  "heading": null,
   "id": "atm_842aeebf0a85",
   "lang": "en",
   "lat": 50.3477333,
@@ -41,7 +43,7 @@
     "urban-design"
   ],
   "title": "Prussian/German-era Upper Silesian address plaque and street-plate design",
-  "updated": 1786908556.2388432,
+  "updated": 1788506008.4174197,
   "uses": 1
 }
 ---

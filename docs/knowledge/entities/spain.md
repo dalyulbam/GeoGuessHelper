@@ -1,6 +1,6 @@
 # 엔티티 · spain
 
-원자 26개 · 이 엔티티를 다룬 보고서 3건
+원자 27개 · 이 엔티티를 다룬 보고서 4건
 
 ## 원자
 - [[atm_0e03ac7cf71d]] **Spain's state industrial-estate planning institutes** (economy/country)
@@ -18,6 +18,7 @@
 - [[atm_a26ee42e2c47]] **Italian brown 'Parco Fluviale Regionale' panels name the river and thus the province** (geography/region)
 - [[atm_a8965343eeda]] **Spanish DGT road signage conventions** (culture/country)
 - [[atm_aa4716639ec8]] **Aging and shrinking towns across Southern and Eastern Europe** (geography/global)
+- [[atm_ad6ef340394d]] **Spanish 'Salida' vs Portuguese/French/Italian exit signage terms** (language/country)
 - [[atm_b333b74897e9]] **Corniche cut vs dune flat: Jandía vs Corralejo/Caleta de Fuste** (geography/region)
 - [[atm_d09f20285662]] **Secular seismic engineering response contrasted with religious commemoration** (culture/country)
 - [[atm_d63bb6e17e2f]] **Period of rule dating conventions** (history/global)
@@ -33,4 +34,5 @@
 ## 보고서
 - `report_es_cerdanyola-del-valles_41.4835_2.1349_260829_094215_ko-en-fr.html`
 - `report_es_esquinzo-fuerteventura_28.0717_-14.3123_260906_204807_ko-en-fr.html`
+- `report_es_madrid-ifema_38.5714_-7.9135_260904_162146_ko.html`
 - `report_it_fornovo-di-taro_44.6943_10.0983_260906_205248_ko-en-fr.html`

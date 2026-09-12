@@ -1,12 +1,14 @@
 ---
 {
   "body": "In Kyrgyzstan, government and municipal signage (agro-fair billboards, civic 'keep our village clean' banners) is typically presented in Kyrgyz first and Russian second, reflecting post-Soviet independence-era language policy even in villages with strong Russian-settler toponymic heritage. This layering of Kyrgyz-primacy signage atop Slavic street names and toponyms is a marker of mixed Slavic-Kyrgyz suburban communities in the Chüy Valley.",
+  "category": "signage-language",
   "cell": "txt5gy4",
   "created": 1787962699.0997915,
   "entities": [
     "chuy-region",
     "kyrgyzstan"
   ],
+  "heading": null,
   "id": "atm_ff43edba76d3",
   "lang": "en",
   "lat": 42.8800065,
@@ -40,7 +42,7 @@
     "post-soviet"
   ],
   "title": "Bilingual Kyrgyz-first, Russian-second public signage as post-independence language policy marker",
-  "updated": 1787962699.1000068,
+  "updated": 1788506031.3716235,
   "uses": 1
 }
 ---

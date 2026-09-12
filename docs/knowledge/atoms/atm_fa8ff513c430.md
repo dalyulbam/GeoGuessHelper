@@ -1,6 +1,7 @@
 ---
 {
   "body": "In Catalan-speaking areas of Spain (Catalonia, and with variants in Valencia and the Balearics), street and place generics use 'Carrer', 'Avinguda', 'Plaça' rather than the Castilian 'Calle'/'Avenida'. Local road codes also differ regionally: Barcelona province uses BV-/BP- prefixes, Girona GI-, Tarragona T-, Lleida L-, and Valencia CV-, while Basque areas use 'Kalea'/'Etorbidea' with distinct Euskara orthography (-tegi, -aga suffixes).",
+  "category": "toponymy",
   "cell": "sp3ebxf",
   "created": 1787964154.7663844,
   "entities": [
@@ -9,6 +10,7 @@
     "spain",
     "valencia"
   ],
+  "heading": null,
   "id": "atm_fa8ff513c430",
   "lang": "en",
   "lat": 41.4835407,
@@ -42,7 +44,7 @@
     "toponymy"
   ],
   "title": "Catalan toponymic and administrative generics distinguish Catalonia from Castilian Spain",
-  "updated": 1787964154.7667403,
+  "updated": 1788506031.1168568,
   "uses": 1
 }
 ---

@@ -1,6 +1,7 @@
 ---
 {
   "body": "Kyrgyz Cyrillic uses the letters Ө and Ү plus possessive suffixes like -СИ (e.g. КАФЕСИ). Kazakh Cyrillic instead uses Ә, Қ, Ң, Ұ, І; Tajik Cyrillic uses Ҷ, Ҳ, Ғ; Uzbek has used Latin script since 1995. Presence of Ө/Ү without Kazakh-specific letters reliably identifies Kyrgyz-language signage among post-Soviet Central Asian Turkic states.",
+  "category": "script",
   "cell": "txt5gy4",
   "created": 1787962698.9908915,
   "entities": [
@@ -9,6 +10,7 @@
     "tajikistan",
     "uzbekistan"
   ],
+  "heading": null,
   "id": "atm_bc282d8bf5a5",
   "lang": "en",
   "lat": 42.8800065,
@@ -42,7 +44,7 @@
     "script-identification"
   ],
   "title": "Kyrgyz-specific Cyrillic letters distinguish Kyrgyz from Kazakh/Tajik/Uzbek orthography",
-  "updated": 1787962698.991351,
+  "updated": 1788506020.4981465,
   "uses": 1
 }
 ---

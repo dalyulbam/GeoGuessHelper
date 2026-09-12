@@ -1,6 +1,7 @@
 ---
 {
   "body": "Many towns in the Vega de Granada (e.g. Albolote) trace their names and settlement origins to the Nasrid/Almoravid/Zirid period of al-Andalus (11th-15th c.), often named after local vegetation such as encina (holm oak) groves. Notable local scholars produced Arabic agricultural treatises, e.g. an 11th-century Almoravid governor of Albolote authored a garden/agronomy treatise, reflecting al-Andalus's strong tradition of applied agronomic scholarship tied to irrigated Vega farmland.",
+  "category": "toponymy",
   "cell": "eyt7v0d",
   "created": 1786908098.1287255,
   "entities": [
@@ -9,6 +10,7 @@
     "granada",
     "nasrid-dynasty"
   ],
+  "heading": null,
   "id": "atm_a8fd0dd52605",
   "lang": "en",
   "lat": 37.2246056,
@@ -42,7 +44,7 @@
     "toponymy"
   ],
   "title": "Al-Andalus toponyms and rural agrarian treatises in the Granada basin",
-  "updated": 1786908098.1289709,
+  "updated": 1788506020.0683646,
   "uses": 1
 }
 ---

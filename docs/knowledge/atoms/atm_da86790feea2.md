@@ -1,12 +1,14 @@
 ---
 {
   "body": "The Snæfellsnes peninsula in western Iceland (Vesturland) uses distinctive 2-3 digit road numbers (route 54 Snæfellsnesvegur, 56 Vatnaleið, 558 Helgafellssveitarvegur) that differ from Reykjanes (4x), north Iceland (8x) or east Iceland (9x) route number ranges, allowing region identification from road signage alone. The peninsula features aa lava fields with red scoria cinder cones, flat-topped basalt table mountains, and a glacier-capped volcano (Snæfellsjökull) at its western tip.",
+  "category": "road-signage",
   "cell": "g7x9x69",
   "created": 1786673692.756109,
   "entities": [
     "iceland",
     "snaefellsnes-peninsula"
   ],
+  "heading": null,
   "id": "atm_da86790feea2",
   "lang": "en",
   "lat": 64.96599,
@@ -41,7 +43,7 @@
     "vesturland"
   ],
   "title": "Snæfellsnes peninsula road numbering and geology (Western Iceland)",
-  "updated": 1786673692.75669,
+  "updated": 1788506021.3598557,
   "uses": 1
 }
 ---

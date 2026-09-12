@@ -1,9 +1,11 @@
 ---
 {
   "body": "The Hokuriku region on the Sea of Japan side of Honshu receives some of the world's heaviest lowland snowfall, driven by cold winter monsoon winds picking up moisture over the Sea of Japan. Buildings use heavy dark-tile hipped roofs, thick eaves, and drainage ditches to cope with snow. Summers are warm and humid, supporting productive rice agriculture.",
+  "category": "climate",
   "cell": "xn92tyx",
   "created": 1786291329.026166,
   "entities": [],
+  "heading": null,
   "id": "atm_4f92a18e4ed7",
   "lang": "en",
   "lat": 36.6874326,
@@ -38,7 +40,7 @@
     "winter-monsoon"
   ],
   "title": "Hokuriku Sea-of-Japan heavy-snow climate",
-  "updated": 1786291329.0264096,
+  "updated": 1788505995.48611,
   "uses": 1
 }
 ---

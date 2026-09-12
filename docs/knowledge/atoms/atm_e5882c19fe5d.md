@@ -1,12 +1,14 @@
 ---
 {
   "body": "British Columbia uses a plain white rectangular shield for its numbered highways (e.g. Highway 99, the Sea-to-Sky Highway), visually distinct from US state highway shields such as Washington's George-Washington-silhouette marker. On maps this shield shape is a reliable discriminator between BC and adjacent US Pacific states.",
+  "category": "road-signage",
   "cell": "c2b6twp",
   "created": 1786672517.7870138,
   "entities": [
     "british-columbia",
     "highway-99"
   ],
+  "heading": null,
   "id": "atm_e5882c19fe5d",
   "lang": "en",
   "lat": 49.6912326,
@@ -39,7 +41,7 @@
     "road-marker"
   ],
   "title": "BC provincial highway shield distinct from US state highway markers",
-  "updated": 1786672517.7873387,
+  "updated": 1788506030.359072,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Canadian provincial highways use distinct numbered shield signage (e.g. BC Highway '99' shield) with route names like 'Sea-to-Sky Hwy', differing from US state highway shields (e.g. Washington's white George-Washington-silhouette shield or blue/red Interstate shields). Combined with multi-tier wooden utility poles with cylindrical transformers, yellow centerlines, right-hand traffic, and Jersey-barrier medians, these are standard North American (Canada/US Pacific coast) road-infrastructure identifiers.",
+  "category": "road-signage",
   "cell": "c2b6twp",
   "created": 1786646410.4379392,
   "entities": [
     "british-columbia",
     "canada"
   ],
+  "heading": null,
   "id": "atm_8d9e4ea3562c",
   "lang": "en",
   "lat": 49.6912326,
@@ -41,7 +43,7 @@
     "utility-poles"
   ],
   "title": "Canadian highway shield and utility-pole cues distinguishing Canada from US Pacific states",
-  "updated": 1786672517.8247483,
+  "updated": 1788506008.8443997,
   "uses": 2
 }
 ---

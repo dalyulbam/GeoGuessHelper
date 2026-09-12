@@ -1,11 +1,13 @@
 ---
 {
   "body": "Italian roads use 'SS' (Strada Statale) prefixed national route numbers on distinctive shield signage, distinguishing them from Swiss or French route numbering. Italian no-parking (divieto di sosta) circular red-slash signs are frequently paired with small rectangular sub-plates showing time restrictions in formats like 'O-24' (0-24h), a locally distinctive convention versus Swiss black-and-white time placards or French 'sauf riverains' (except residents) exemption text.",
+  "category": "road-signage",
   "cell": "u0nh6e5",
   "created": 1786673174.2631059,
   "entities": [
     "italy"
   ],
+  "heading": null,
   "id": "atm_dddae32137b0",
   "lang": "en",
   "lat": 45.7636059,
@@ -39,7 +41,7 @@
     "traffic-signs"
   ],
   "title": "Italian road/parking signage conventions (SS roads, O-24 sub-signs)",
-  "updated": 1786673174.2632995,
+  "updated": 1788506021.4421513,
   "uses": 1
 }
 ---

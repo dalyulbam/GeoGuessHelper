@@ -1,12 +1,14 @@
 ---
 {
   "body": "Austrian furniture chains XXXLutz and Möbelix, alongside Polish DIY/hardware chain Merkury Market, are common anchors of suburban big-box retail parks across Central Europe (Slovakia, Czechia, etc.), reflecting post-EU-accession cross-border retail expansion. Their presence alongside international logistics brands (e.g., UPS) is a marker of a peri-urban commercial/industrial belt rather than a historic city center.",
+  "category": "business-chain",
   "cell": "u2xj588",
   "created": 1786907363.72232,
   "entities": [
     "central-europe",
     "slovakia"
   ],
+  "heading": null,
   "id": "atm_8fa1d9becc4b",
   "lang": "en",
   "lat": 48.6947266,
@@ -42,7 +44,7 @@
     "xxxlutz"
   ],
   "title": "Foreign furniture and retail chains as Central European suburban retail markers",
-  "updated": 1786907363.7225313,
+  "updated": 1788506008.9679003,
   "uses": 1
 }
 ---

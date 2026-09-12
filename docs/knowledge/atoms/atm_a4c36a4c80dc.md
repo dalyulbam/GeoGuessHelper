@@ -1,6 +1,7 @@
 ---
 {
   "body": "Dingač and Postup are steep, south-facing vineyard slopes on the Pelješac peninsula in southern Dalmatia, Croatia, planted almost exclusively with the indigenous Plavac Mali grape. Dingač was the first Croatian wine legally protected (recognized under the Geneva Convention in 1961, declared highest-quality category in 1964), and Postup became the second protected Croatian wine region in 1967. Both wines are produced from grapes grown on slopes exceeding 45 degrees, requiring hand cultivation on stony karst terrain.",
+  "category": "agriculture",
   "cell": "srskkfj",
   "created": 1786623790.8564818,
   "entities": [
@@ -9,6 +10,7 @@
     "plavac-mali",
     "postup"
   ],
+  "heading": null,
   "id": "atm_a4c36a4c80dc",
   "lang": "en",
   "lat": 42.9468687,
@@ -44,7 +46,7 @@
     "wine-appellation"
   ],
   "title": "Dingač and Postup: protected Plavac Mali wine appellations on Pelješac",
-  "updated": 1786623790.8566914,
+  "updated": 1788506010.2228012,
   "uses": 1
 }
 ---

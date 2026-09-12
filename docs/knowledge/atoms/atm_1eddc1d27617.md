@@ -1,6 +1,7 @@
 ---
 {
   "body": "Bibi Ka Maqbara is a Mughal-era mausoleum in Aurangabad, built in the late 17th century by Aurangzeb's son Azam Shah in memory of his mother Dilras Banu Begum. Modeled on the Taj Mahal with a central domed tomb and tapering minarets, it is often called the 'Taj of the Deccan' and is the city's most iconic landmark.",
+  "category": "religious-building",
   "cell": "tet94mc",
   "created": 1786293223.7094407,
   "entities": [
@@ -8,6 +9,7 @@
     "bibi-ka-maqbara",
     "mughal-empire"
   ],
+  "heading": null,
   "id": "atm_1eddc1d27617",
   "lang": "en",
   "lat": 19.8953229,
@@ -30,7 +32,7 @@
     "taj-of-deccan"
   ],
   "title": "Bibi Ka Maqbara mausoleum",
-  "updated": 1786293223.7097518,
+  "updated": 1788505985.628064,
   "uses": 1
 }
 ---

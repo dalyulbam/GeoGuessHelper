@@ -1,12 +1,14 @@
 ---
 {
   "body": "Several east-coast Malay fishing villages (kampung) along the Pahang-Terengganu coast, originally subsistence fishing communities, transitioned from the 1970s-80s onward into backpacker and surf tourism economies. This shift typically brings guesthouses/chalets, small seafood warungs, water-sports rental businesses, and a declining share of the population in traditional fishing, with younger residents moving into tourism services.",
+  "category": "tourism-economy",
   "cell": "w29x2w0",
   "created": 1786642943.8112867,
   "entities": [
     "malaysia",
     "pahang"
   ],
+  "heading": null,
   "id": "atm_49b6b08fee5f",
   "lang": "en",
   "lat": 4.1205809,
@@ -42,7 +44,7 @@
     "tourism-transition"
   ],
   "title": "East coast Pahang/Terengganu fishing villages transitioning to backpacker tourism",
-  "updated": 1786672732.1153965,
+  "updated": 1788505995.1114335,
   "uses": 2
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Many small towns founded during and after Argentina's 19th-century frontier campaigns market their civic identity around being 'the first' or founding settlement of their province/region, using slogans tying them to indigenous-contact history and frontier military origins (e.g., Victorica's 'Donde Nació La Pampa'). This pattern of heritage branding around conquest-era founding is common across Pampean and Patagonian frontier towns as a tourism and identity strategy.",
+  "category": "founding",
   "cell": "6993z1r",
   "created": 1787960916.0629723,
   "entities": [
     "la-pampa-province",
     "victorica"
   ],
+  "heading": null,
   "id": "atm_62c66acd242d",
   "lang": "en",
   "lat": -36.2479652,
@@ -39,7 +41,7 @@
     "heritage-tourism"
   ],
   "title": "Frontier town founding narratives in post-Conquista Argentina",
-  "updated": 1787960916.0631852,
+  "updated": 1788505996.4869072,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Latvia's rural municipal units are called 'pagasts' (parish), signed on boundary markers like 'X PAGASTS' on blue rectangular signs. Latvian uses Latin script with macrons and diacritics (ā, ē, ī, ū, ž, š) distinguishing it from Estonian ('vald' units, õ/ä diacritics) and Lithuanian ('seniūnija' units, -as/-ys endings with ė). Regional roads are numbered with a 'P' prefix (e.g., P38).",
+  "category": "toponymy",
   "cell": "ud4tpyy",
   "created": 1786492434.0226223,
   "entities": [
     "latvia",
     "latvian-language"
   ],
+  "heading": null,
   "id": "atm_d5d073d080fc",
   "lang": "en",
   "lat": 57.1659952,
@@ -40,7 +42,7 @@
     "toponymy"
   ],
   "title": "Latvian rural-parish terminology and orthography",
-  "updated": 1786492434.023079,
+  "updated": 1788506021.2376142,
   "uses": 1
 }
 ---

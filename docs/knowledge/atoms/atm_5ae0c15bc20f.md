@@ -1,12 +1,14 @@
 ---
 {
   "body": "In the early 20th century, cableways carried felled timber from the Velebit mountain interior (e.g. Stirovaca) down to coastal sawmills such as Stinica, employing hundreds of workers and horses. After WWII, mechanization (trucks) and a failed cable-car investment eliminated most of these forestry jobs, triggering an exodus of roughly 80% of the local population from the Velebit coast, who were not absorbed into any replacement industry until seasonal tourism emerged decades later. This forestry-to-tourism collapse pattern is characteristic of depopulated Adriatic hinterland economies.",
+  "category": "industry",
   "cell": "srfw77f",
   "created": 1786468506.4126582,
   "entities": [
     "lika-senj-county",
     "velebit"
   ],
+  "heading": null,
   "id": "atm_5ae0c15bc20f",
   "lang": "en",
   "lat": 44.7139608,
@@ -41,7 +43,7 @@
     "velebit"
   ],
   "title": "Velebit timber cableway economy and its post-WWII collapse",
-  "updated": 1786468506.4127636,
+  "updated": 1788505996.151739,
   "uses": 1
 }
 ---

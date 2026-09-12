@@ -1,11 +1,13 @@
 ---
 {
   "body": "Inland karst areas of the Yucatán Peninsula (Campeche, Yucatán, Quintana Roo) commonly have unpaved village roads surfaced in pale, chalky 'sascab' (weathered limestone marl), distinct from the reddish laterite or dark volcanic soils found elsewhere in Mexico. This bright white unpaved road surface, combined with a flat, hill-free terrain, is a diagnostic visual cue for the peninsula's limestone platform geology.",
+  "category": "soil-terrain-cue",
   "cell": "9gr3utj",
   "created": 1786716838.465138,
   "entities": [
     "yucatan-peninsula"
   ],
+  "heading": null,
   "id": "atm_632fccf1df46",
   "lang": "en",
   "lat": 18.6175538,
@@ -39,7 +41,7 @@
     "yucatan-peninsula"
   ],
   "title": "Whitish sascab limestone soil roads of the Yucatán karst interior",
-  "updated": 1786716838.4654648,
+  "updated": 1788505996.568672,
   "uses": 1
 }
 ---

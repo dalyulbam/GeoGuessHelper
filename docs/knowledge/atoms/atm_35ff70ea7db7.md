@@ -1,12 +1,14 @@
 ---
 {
   "body": "The telephone area code 351 corresponds to Córdoba city in Argentina. Argentina drives on the right; the national flag is light blue and white, colours often applied to civic infrastructure such as bollards.",
+  "category": "flag-emblem",
   "cell": "6d6m63c",
   "created": 1786294197.4358597,
   "entities": [
     "argentina",
     "cordoba-argentina"
   ],
+  "heading": null,
   "id": "atm_35ff70ea7db7",
   "lang": "en",
   "lat": -31.4102477,
@@ -41,7 +43,7 @@
     "telephone"
   ],
   "title": "Argentine telephone area code 351 (Córdoba)",
-  "updated": 1786294197.4359722,
+  "updated": 1788505986.3775709,
   "uses": 1
 }
 ---

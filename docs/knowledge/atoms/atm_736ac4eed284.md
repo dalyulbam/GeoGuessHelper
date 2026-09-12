@@ -1,12 +1,14 @@
 ---
 {
   "body": "Upper Silesian coal/steel towns feature dense 3-4 story interwar (1920s-30s) workers' apartment blocks with steeply pitched red-tile roofs, originally rendered/plastered, often adjacent to rail marshalling yards and coal stockpiles. Many have been recently retrofitted with EU-funded exterior insulation (styrofoam cladding, grey/red repainting), creating visual contrast with unrenovated neighboring blocks — a marker distinct from the red-brick 'familok' worker-terrace housing typical of nearby districts like Rozbark.",
+  "category": "housing-typology",
   "cell": "u2vqqje",
   "created": 1786908556.2459881,
   "entities": [
     "bytom",
     "upper-silesia"
   ],
+  "heading": null,
   "id": "atm_736ac4eed284",
   "lang": "en",
   "lat": 50.3477333,
@@ -41,7 +43,7 @@
     "worker-housing"
   ],
   "title": "Interwar workers' housing blocks in Upper Silesian mining towns",
-  "updated": 1786908556.2461338,
+  "updated": 1788506007.7574565,
   "uses": 1
 }
 ---

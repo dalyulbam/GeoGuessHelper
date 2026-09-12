@@ -1,12 +1,14 @@
 ---
 {
   "body": "From the early 1980s, Yugoslav-era planned residential extensions were built on hillsides above older Dalmatian coastal villages to house workers commuting to nearby tourism/service hubs — multi-story rendered concrete apartment blocks contrasting visually and functionally with the older stone village core below. This produces a common dual-character settlement pattern (historic waterfront village + dense socialist-era upslope suburb) along the Croatian Adriatic coast.",
+  "category": "housing-typology",
   "cell": "srsfg8t",
   "created": 1786630119.8827171,
   "entities": [
     "dalmatia",
     "yugoslavia"
   ],
+  "heading": null,
   "id": "atm_c370d530dba1",
   "lang": "en",
   "lat": 42.6739049,
@@ -41,7 +43,7 @@
     "yugoslavia"
   ],
   "title": "Socialist-era planned housing estates on Dalmatian coastal hillsides",
-  "updated": 1786630119.882816,
+  "updated": 1788506020.748064,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "The Negombo coastal community belongs mainly to the Karava (Karaiyar) fishing caste, a Roman Catholic, Sinhala-identifying population. A distinctive linguistic relic survives among them: 'Negombo Fishermen's Tamil,' a Tamil dialect used at sea and at home by these Catholic Karava fisherfolk who otherwise speak Sinhala and identify as Sinhalese — an example of occupation- and religion-linked language preservation distinct from ethnic identity.",
+  "category": "dialect",
   "cell": "tc2c139",
   "created": 1787960407.912865,
   "entities": [
     "negombo",
     "sri-lanka"
   ],
+  "heading": null,
   "id": "atm_01ff3b6b06b5",
   "lang": "en",
   "lat": 7.2156679,
@@ -41,7 +43,7 @@
     "tamil-dialect"
   ],
   "title": "Karava (Karaiyar) Catholic fishing caste of Sri Lanka's west coast",
-  "updated": 1787960407.9129994,
+  "updated": 1788505962.3437018,
   "uses": 1
 }
 ---

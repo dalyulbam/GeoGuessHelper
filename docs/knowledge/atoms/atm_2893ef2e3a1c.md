@@ -1,11 +1,13 @@
 ---
 {
   "body": "Japanese landline area codes are assigned at a sub-prefectural level, allowing precise identification of a city or district: e.g. Fukuyama and its immediate satellites use (084), Okayama city uses (086), Hiroshima city uses (082), and Onomichi uses (0848). Area codes visible on shopfront or clinic signage are a strong high-confidence discriminator for narrowing location within a prefecture.",
+  "category": "infrastructure-built",
   "cell": "wynu5mx",
   "created": 1787963878.3871567,
   "entities": [
     "japan"
   ],
+  "heading": null,
   "id": "atm_2893ef2e3a1c",
   "lang": "en",
   "lat": 34.4836144,
@@ -39,7 +41,7 @@
     "telephone"
   ],
   "title": "Japanese telephone area codes as fine-grained geographic identifiers",
-  "updated": 1787963878.3872817,
+  "updated": 1788505985.911125,
   "uses": 1
 }
 ---

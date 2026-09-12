@@ -1,11 +1,13 @@
 ---
 {
   "body": "Spain's DGT (Dirección General de Tráfico) traffic signage uses metric circular speed-limit discs with thin red rims (often without a full black border) and blue circular mandatory/informational discs (e.g., combined moped-and-car symbols for restricted-access residential streets), distinguishing it from French or Italian sign typography and post/collar hardware styles.",
+  "category": "road-signage",
   "cell": "sp3ebxf",
   "created": 1787964154.868895,
   "entities": [
     "spain"
   ],
+  "heading": null,
   "id": "atm_a8965343eeda",
   "lang": "en",
   "lat": 41.4835407,
@@ -38,7 +40,7 @@
     "traffic-signs"
   ],
   "title": "Spanish DGT road signage conventions",
-  "updated": 1787964154.868982,
+  "updated": 1788506020.0378852,
   "uses": 1
 }
 ---

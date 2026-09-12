@@ -1,12 +1,14 @@
 ---
 {
   "body": "Towns in the Granada basin subject to historic earthquakes (notably 1884 and 1956) commemorate the events with annual religious processions honoring a patron saint/image (e.g. a 'Cristo de la Salud'), reflecting a broader Andalusian pattern where natural disaster memory is embedded in festive/religious calendar rather than purely secular commemoration.",
+  "category": "festival",
   "cell": "eyt7v0d",
   "created": 1786908098.1670136,
   "entities": [
     "albolote",
     "granada"
   ],
+  "heading": null,
   "id": "atm_a604a76ce31b",
   "lang": "en",
   "lat": 37.2246056,
@@ -40,7 +42,7 @@
     "religious-procession"
   ],
   "title": "Seismic memorial religious festivals in Andalusian towns (Granada basin)",
-  "updated": 1786908098.1672645,
+  "updated": 1788506019.8115592,
   "uses": 1
 }
 ---

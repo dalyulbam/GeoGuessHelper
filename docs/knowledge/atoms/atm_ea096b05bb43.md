@@ -1,11 +1,13 @@
 ---
 {
   "body": "Albania faces low birth rates and significant youth emigration abroad, which ages the resident base and can drain skilled labor from local economies. This nationwide demographic trend affects even growing coastal cities, though seasonal tourism work attracts temporary in-migration.",
+  "category": "demography",
   "cell": "srjy70q",
   "created": 1786294651.4231474,
   "entities": [
     "albania"
   ],
+  "heading": null,
   "id": "atm_ea096b05bb43",
   "lang": "en",
   "lat": 40.4752774,
@@ -40,7 +42,7 @@
     "youth-migration"
   ],
   "title": "Albanian youth emigration and aging population",
-  "updated": 1786294651.4233003,
+  "updated": 1788506030.5209484,
   "uses": 1
 }
 ---

@@ -1,6 +1,7 @@
 ---
 {
   "body": "Transylvanian Saxon towns are distinguished by continuous stone curtain walls with guild-funded bastions, a large trapezoidal central market square dominated by a free-standing council house (not attached to other buildings) with a clock tower, and a Gothic hall church, surrounded by steep-roofed burgher houses with dormers. This contrasts with Wallachian/Moldavian towns (Brâncovenesc-style Orthodox churches, low-rise open plans, no Saxon curtain walls) and Székely-Hungarian towns (wooden carved gates, no continuous stone wall, Hungarian bilingual signage).",
+  "category": "urban-form",
   "cell": "u845wjw",
   "created": 1787964400.748963,
   "entities": [
@@ -9,6 +10,7 @@
     "sighisoara",
     "transylvanian-saxons"
   ],
+  "heading": null,
   "id": "atm_8baefc94ff8b",
   "lang": "en",
   "lat": 45.6461945,
@@ -43,7 +45,7 @@
     "urban-morphology"
   ],
   "title": "Saxon guild-town urban morphology vs Wallachian/Moldavian and Székely forms",
-  "updated": 1787964400.7490563,
+  "updated": 1788506008.6781795,
   "uses": 1
 }
 ---

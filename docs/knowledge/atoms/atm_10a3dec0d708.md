@@ -1,6 +1,7 @@
 ---
 {
   "body": "Encarnación, Itapúa's departmental capital in Paraguay, functions economically as a retail-tourism destination for shoppers from Posadas, Argentina (across the Paraná River), combined with soy/agro logistics from its rural hinterland. Its rebuilt waterfront (Costanera) post-Yacyretá flooding and peri-urban plantation fringes (paraíso/teak saplings) reflect this dual economy of cross-border commerce and agricultural production.",
+  "category": "retail",
   "cell": "6g0k8uc",
   "created": 1788000545.5275946,
   "entities": [
@@ -8,6 +9,7 @@
     "itapua",
     "posadas"
   ],
+  "heading": null,
   "id": "atm_10a3dec0d708",
   "lang": "en",
   "lat": -27.3074,
@@ -30,7 +32,7 @@
     "retail-tourism"
   ],
   "title": "Encarnación as cross-border retail-tourism hub with Posadas, Argentina",
-  "updated": 1788000545.5278487,
+  "updated": 1788505962.8547993,
   "uses": 1
 }
 ---

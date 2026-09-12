@@ -1,11 +1,13 @@
 ---
 {
   "body": "Mexican landline phone numbers display three-digit area codes tied to specific cities/regions (e.g. 669 = Mazatlán, Sinaloa; 322 = Puerto Vallarta, Jalisco; 624 = Los Cabos, Baja California Sur; 667 = Culiacán, Sinaloa). These codes, visible on storefront signage, are a high-confidence method for pinpointing a Mexican city from street-level imagery.",
+  "category": "license-plate",
   "cell": "9shk1z4",
   "created": 1787963586.4564555,
   "entities": [
     "mexico"
   ],
+  "heading": null,
   "id": "atm_a54d90c20b3e",
   "lang": "en",
   "lat": 23.2415848,
@@ -38,7 +40,7 @@
     "telephone-numbering"
   ],
   "title": "Mexican telephone area codes as sub-national geolocation markers",
-  "updated": 1787963586.4565647,
+  "updated": 1788506010.2736676,
   "uses": 1
 }
 ---

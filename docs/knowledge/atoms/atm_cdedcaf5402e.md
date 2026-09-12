@@ -1,12 +1,14 @@
 ---
 {
   "body": "COOP Jednota is a nationwide Slovak retail cooperative chain, easily recognized by its red 'POTRAVINY' (groceries) signage, present even in small towns and villages. Its presence on a storefront is a strong discriminator for Slovakia versus neighboring Czechia, Poland, or Hungary, which have their own distinct national retail chains.",
+  "category": "business-chain",
   "cell": "u2v27rh",
   "created": 1786907104.12394,
   "entities": [
     "coop-jednota",
     "slovakia"
   ],
+  "heading": null,
   "id": "atm_cdedcaf5402e",
   "lang": "en",
   "lat": 49.302293,
@@ -39,7 +41,7 @@
     "slovakia"
   ],
   "title": "COOP Jednota retail cooperative chain in Slovakia",
-  "updated": 1786907104.1240819,
+  "updated": 1788506021.058836,
   "uses": 1
 }
 ---

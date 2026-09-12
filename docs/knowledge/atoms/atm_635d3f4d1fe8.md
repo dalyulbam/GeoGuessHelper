@@ -1,9 +1,11 @@
 ---
 {
   "body": "Mexican federal and state highways use a standardized marking scheme: yellow (single or double) centre lines with white outer edge lines, narrow unpaved shoulders, and numbered route shields (e.g. Federal Highway 180, state route 259) often with descriptive names like 'Carretera Costera del Golfo'. SCT-built bridges typically show low concrete parapets topped with painted orange/yellow steel tube rails. CFE-branded wooden/concrete utility poles and tall lattice transmission towers commonly follow highway corridors.",
+  "category": "road-marking",
   "cell": "9gqfsnv",
   "created": 1786570065.7716203,
   "entities": [],
+  "heading": null,
   "id": "atm_635d3f4d1fe8",
   "lang": "en",
   "lat": 18.7580553,
@@ -38,7 +40,7 @@
     "sct"
   ],
   "title": "Mexican federal highway marking and signage scheme",
-  "updated": 1786570065.771782,
+  "updated": 1788505996.6084146,
   "uses": 1
 }
 ---

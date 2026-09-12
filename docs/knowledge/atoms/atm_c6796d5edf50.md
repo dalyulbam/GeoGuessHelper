@@ -1,12 +1,14 @@
 ---
 {
   "body": "In intensely tourism-dependent Adriatic coastal towns, private houses are commonly extended with external staircases, added balconies, and per-room split AC units to convert them into short-term rental apartments, visible as a dense, repetitive facade pattern. This is a marker of a near mono-cultural tourism economy overlaying an older stone fishing/villa-era urban fabric.",
+  "category": "tourism-economy",
   "cell": "srsfeq5",
   "created": 1786630709.7133548,
   "entities": [
     "adriatic-coast",
     "dubrovnik"
   ],
+  "heading": null,
   "id": "atm_c6796d5edf50",
   "lang": "en",
   "lat": 42.6607928,
@@ -40,7 +42,7 @@
     "vernacular-conversion"
   ],
   "title": "Mono-cultural tourism economy: private housing converted to rental apartments",
-  "updated": 1786630709.7135558,
+  "updated": 1788506020.8558989,
   "uses": 1
 }
 ---

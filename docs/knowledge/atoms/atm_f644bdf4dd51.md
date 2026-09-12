@@ -1,6 +1,7 @@
 ---
 {
   "body": "Since the late 20th century, Upper Silesian mining cities have undergone severe deindustrialization: most historic coal mines and steelworks closed, leaving only a handful of operating mines per city (e.g., Bytom retains only KWK 'Bobrek-Centrum'). Cities that failed to diversify into services or new industries (Bytom being a cited example, alongside Łódź and Wałbrzych nationally) suffer high unemployment, wage stagnation, population decline, and 'negative path dependence' — a self-reinforcing economic decline tied to the lost single-industry identity.",
+  "category": "industry",
   "cell": "u2vqqje",
   "created": 1786908556.2305808,
   "entities": [
@@ -9,6 +10,7 @@
     "upper-silesia",
     "walbrzych"
   ],
+  "heading": null,
   "id": "atm_f644bdf4dd51",
   "lang": "en",
   "lat": 50.3477333,
@@ -43,7 +45,7 @@
     "upper-silesia"
   ],
   "title": "Post-1989 deindustrialization of Upper Silesian coal/steel cities",
-  "updated": 1786908556.2306879,
+  "updated": 1788506031.021363,
   "uses": 1
 }
 ---

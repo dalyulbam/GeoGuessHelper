@@ -1,12 +1,14 @@
 ---
 {
   "body": "The Zaton bay area near Dubrovnik is administratively and colloquially split into several named constituent settlements clustered around one bay: Zaton Veliki, Zaton Mali, Štikovica, and Vrbica, together totalling only around 850 inhabitants. This pattern of a single bay hosting multiple separately-named micro-settlements is typical of the fragmented settlement nomenclature along the Dubrovnik littoral.",
+  "category": "settlement-pattern",
   "cell": "srsffep",
   "created": 1786629876.8515513,
   "entities": [
     "dubrovnik-littoral",
     "zaton"
   ],
+  "heading": null,
   "id": "atm_1fe30f1788db",
   "lang": "en",
   "lat": 42.6875086,
@@ -40,7 +42,7 @@
     "zaton"
   ],
   "title": "Zaton bay urban cluster naming convention",
-  "updated": 1786629876.8518236,
+  "updated": 1788505985.7106135,
   "uses": 1
 }
 ---

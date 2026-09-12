@@ -1,9 +1,11 @@
 ---
 {
   "body": "Traditional and modern houses in the Hokuriku snow belt feature heavy dark-glazed tile hipped roofs and thick projecting eaves designed to shed and withstand heavy snow loads, along with drainage ditches along roads. This construction style is a visual marker of the Sea-of-Japan coastal prefectures.",
+  "category": "roof-facade",
   "cell": "xn92tyx",
   "created": 1786291329.0491805,
   "entities": [],
+  "heading": null,
   "id": "atm_1bb47ee4e339",
   "lang": "en",
   "lat": 36.6874326,
@@ -37,7 +39,7 @@
     "vernacular-architecture"
   ],
   "title": "Hokuriku snow-country vernacular housing",
-  "updated": 1786291329.0494459,
+  "updated": 1788505985.5349514,
   "uses": 1
 }
 ---

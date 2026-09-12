@@ -1,11 +1,13 @@
 ---
 {
   "body": "Croatian coastal signage and maps commonly use the terms 'Jadranska Magistrala' (Adriatic coastal highway/D8), 'Plaža' (beach) and 'Spilja' (cave), alongside 'Konoba' for taverns. These Latin-script terms with Croatian diacritics (Š, ž, č) are reliable linguistic markers distinguishing Croatia from Italian (SS roads, trattoria), Montenegrin (bilingual Cyrillic, Jadranski put) and Albanian (Rruga) coastal signage.",
+  "category": "toponymy",
   "cell": "srsff7q",
   "created": 1786627515.4580588,
   "entities": [
     "croatia"
   ],
+  "heading": null,
   "id": "atm_29b9d2dea9c4",
   "lang": "en",
   "lat": 42.6900608,
@@ -39,7 +41,7 @@
     "toponymy"
   ],
   "title": "Croatian coastal road/place lexicon: Jadranska Magistrala, Plaža, Spilja",
-  "updated": 1786627515.458416,
+  "updated": 1788505985.966249,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Many Icelandic place names encode narrative episodes from medieval Icelandic sagas (e.g. Eyrbyggja Saga), such as Berserkjahraun ('berserkers' lava field') named for a legendary tale of two Swedish berserker slaves who built a road (Berserkjagata) across a lava field and were then killed and buried there by the farmer who had promised them freedom. These saga-linked sites function today as heritage/hiking attractions with associated grave markers.",
+  "category": "toponymy",
   "cell": "g7x9x69",
   "created": 1786673692.7676604,
   "entities": [
     "eyrbyggja-saga",
     "snaefellsnes-peninsula"
   ],
+  "heading": null,
   "id": "atm_cad327cb9b65",
   "lang": "en",
   "lat": 64.96599,
@@ -41,7 +43,7 @@
     "toponymy"
   ],
   "title": "Icelandic sagas as landscape toponymy sources",
-  "updated": 1786673692.7678454,
+  "updated": 1788506020.9372299,
   "uses": 1
 }
 ---

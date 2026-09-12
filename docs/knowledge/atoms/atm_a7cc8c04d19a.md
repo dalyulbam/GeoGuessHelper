@@ -1,6 +1,7 @@
 ---
 {
   "body": "Former mining and manufacturing communities in the Lothians (e.g. wire mills, net mills, paper mills, coal pits) have transitioned into commuter suburbs anchored by proximity to Edinburgh, trunk roads (A1) and rail links, with modern employment shifting toward education (universities), engineering, energy, retail, and care/administrative roles rather than heavy industry. This produces a landscape mixing surviving 19th/20th-century industrial-worker cottages with 1990s-2000s private speculative housing estates, and uneven prosperity with pockets of deprivation persisting alongside overall regional affluence.",
+  "category": "industry",
   "cell": "gcvy4mw",
   "created": 1787962965.8827653,
   "entities": [
@@ -8,6 +9,7 @@
     "edinburgh",
     "musselburgh"
   ],
+  "heading": null,
   "id": "atm_a7cc8c04d19a",
   "lang": "en",
   "lat": 55.9297342,
@@ -41,7 +43,7 @@
     "gentrification"
   ],
   "title": "Post-industrial East Lothian/Lothian commuter-belt economic transition",
-  "updated": 1787962965.8828702,
+  "updated": 1788506019.9565253,
   "uses": 1
 }
 ---

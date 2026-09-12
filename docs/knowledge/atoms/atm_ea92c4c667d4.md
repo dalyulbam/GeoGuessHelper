@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Pacífico brewery, founded in 1900 in central Mazatlán, is a historic beer-export producer now owned by Grupo Modelo/AB InBev, and remains a major employer and cultural landmark in the city, illustrating how a legacy industrial facility can persist as an economic anchor within a tourism-dominated coastal economy.",
+  "category": "industry",
   "cell": "9shk1z4",
   "created": 1787963586.4099464,
   "entities": [
@@ -8,6 +9,7 @@
     "mazatlan",
     "pacifico-brewery"
   ],
+  "heading": null,
   "id": "atm_ea92c4c667d4",
   "lang": "en",
   "lat": 23.2415848,
@@ -41,7 +43,7 @@
     "pacifico-brewery"
   ],
   "title": "Grupo Modelo/Pacífico brewery as historic industrial anchor",
-  "updated": 1787963586.410047,
+  "updated": 1788506030.6180115,
   "uses": 1
 }
 ---

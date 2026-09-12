@@ -1,12 +1,14 @@
 ---
 {
   "body": "Polish is written in Latin script with distinctive diacritic letters ż, ł, ś, ź, ą, ę not found in neighboring Slavic languages. Polish commercial signage frequently uses 'Sp. z o.o.' (spółka z ograniczoną odpowiedzialnością, limited liability company) as a company-form suffix, analogous to Czech 's.r.o.', German 'GmbH', or Lithuanian 'UAB', and is a reliable discriminator among Central European countries.",
+  "category": "script",
   "cell": "u3jy6rm",
   "created": 1786642690.2443166,
   "entities": [
     "poland",
     "polish-language"
   ],
+  "heading": null,
   "id": "atm_20fcefef8581",
   "lang": "en",
   "lat": 51.7642643,
@@ -30,7 +32,7 @@
     "polish-language"
   ],
   "title": "Polish orthography and business-form markers (ż, ł, ź, Sp. z o.o.)",
-  "updated": 1786717884.624124,
+  "updated": 1788505985.7675748,
   "uses": 2
 }
 ---

@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Motagua River valley forms the principal Caribbean (Atlantic)-slope lowland corridor in eastern Guatemala, running from the dry Zacapa interior through increasingly humid Izabal department to the Caribbean coast at Puerto Barrios. Vegetation and climate shift markedly along this corridor: dry thornscrub/cactus in Zacapa contrasts with wet evergreen forest, palms, and banana/plantain cultivation downstream in Izabal, making vegetation a key discriminator of position along the valley.",
+  "category": "landform",
   "cell": "d4bb4ty",
   "created": 1786908287.4037783,
   "entities": [
@@ -8,6 +9,7 @@
     "izabal",
     "motagua-river"
   ],
+  "heading": null,
   "id": "atm_1270c7cffadd",
   "lang": "en",
   "lat": 15.5008524,
@@ -42,7 +44,7 @@
     "zacapa"
   ],
   "title": "Motagua River valley as Guatemala's Caribbean-slope lowland corridor",
-  "updated": 1786908287.4039302,
+  "updated": 1788505985.0817387,
   "uses": 1
 }
 ---

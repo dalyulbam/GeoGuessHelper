@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Katowice (Poland) and Ostrava (Czechia) metropolitan areas together form a cross-border industrial and economic belt of roughly 5 million people and €75 billion GDP, functioning as complementary rather than competing industrial clusters (coal, steel, machinery) straddling the Polish-Czech border in Upper Silesia/Moravian-Silesia.",
+  "category": "industry",
   "cell": "u2vqqje",
   "created": 1786908556.2604012,
   "entities": [
@@ -8,6 +9,7 @@
     "ostrava",
     "upper-silesia"
   ],
+  "heading": null,
   "id": "atm_35d9bccaf4af",
   "lang": "en",
   "lat": 50.3477333,
@@ -42,7 +44,7 @@
     "upper-silesia"
   ],
   "title": "Cross-border Katowice-Ostrava industrial economic belt",
-  "updated": 1786908556.2605128,
+  "updated": 1788505986.339617,
   "uses": 1
 }
 ---

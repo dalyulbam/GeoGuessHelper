@@ -1,12 +1,14 @@
 ---
 {
   "body": "Unlike Dubrovnik's Old Town, which is largely emptied by short-term rental conversion, the port district of Gruž retains a substantial year-round population (~15,000) living in ordinary apartments and older houses, with a working morning market for fish and produce and daily life dominated by locals rather than tourists, despite being the city's busiest area after the Old Town.",
+  "category": "settlement-pattern",
   "cell": "srsfew1",
   "created": 1786631000.223483,
   "entities": [
     "dubrovnik",
     "gruz"
   ],
+  "heading": null,
   "id": "atm_d17226bbf6bf",
   "lang": "en",
   "lat": 42.6609547,
@@ -40,7 +42,7 @@
     "residential-district"
   ],
   "title": "Gruž retains genuine year-round residential character unlike Old Town",
-  "updated": 1786631000.2238529,
+  "updated": 1788506021.144753,
   "uses": 1
 }
 ---

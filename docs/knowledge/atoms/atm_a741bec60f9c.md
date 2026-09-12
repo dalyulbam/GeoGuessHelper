@@ -1,6 +1,7 @@
 ---
 {
   "body": "CFE (Comisión Federal de Electricidad, national electric utility) and IMSS (Instituto Mexicano del Seguro Social, public health/social security) are Mexico-exclusive federal institution brands. Their signage reliably distinguishes Mexican urban scenes from other Latin American countries, which use different national utilities (e.g. Colombia's Codensa/Enel, Peru's Luz del Sur).",
+  "category": "business-chain",
   "cell": "9u80w79",
   "created": 1786718184.5799217,
   "entities": [
@@ -8,6 +9,7 @@
     "imss",
     "mexico"
   ],
+  "heading": null,
   "id": "atm_a741bec60f9c",
   "lang": "en",
   "lat": 25.4200978,
@@ -41,7 +43,7 @@
     "street-level-identification"
   ],
   "title": "Mexican federal institutional branding as nationality marker",
-  "updated": 1786718184.580097,
+  "updated": 1788506019.9242449,
   "uses": 1
 }
 ---

@@ -1,6 +1,7 @@
 ---
 {
   "body": "Prairie cities in Saskatchewan, Manitoba, and Alberta typically feature dead-flat terrain, wide low-density residential lots, gravel rear service lanes with detached garages, chain-link fencing, and planted (not natural) urban forests of American elm, blue spruce, and juniper, since the region is naturally treeless grassland. This contrasts with Ontario's mature hardwood canopy/brick construction or British Columbia's conifer-forested, rain-country building details.",
+  "category": "urban-form",
   "cell": "c8vwgv1",
   "created": 1787960139.6273308,
   "entities": [
@@ -9,6 +10,7 @@
     "manitoba",
     "saskatchewan"
   ],
+  "heading": null,
   "id": "atm_d58b8f318cd5",
   "lang": "en",
   "lat": 50.4337107,
@@ -44,7 +46,7 @@
     "urban-forest"
   ],
   "title": "Canadian prairie provinces street/back-lane pattern",
-  "updated": 1787960139.627615,
+  "updated": 1788506021.2073634,
   "uses": 1
 }
 ---

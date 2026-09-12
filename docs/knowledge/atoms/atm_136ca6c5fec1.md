@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Siege of Pleven and surrounding engagements (including the Battle of Pelishat-Zgalevo, August 19, 1877, where Osman Pasha's breakout attempt was repelled) were pivotal in the 1877–78 Russo-Turkish War of Liberation. Villages around Pleven province commonly host memorial monuments to fallen Russian and Bulgarian soldiers from this war, and the war's memory forms a core layer of local identity and heritage-tourism itineraries across the region, alongside Pleven's own war museums and the Grivitsa redoubt.",
+  "category": "memory-monument",
   "cell": "sx9wsps",
   "created": 1786908742.688498,
   "entities": [
@@ -8,6 +9,7 @@
     "pleven",
     "russo-turkish-war-1877-78"
   ],
+  "heading": null,
   "id": "atm_136ca6c5fec1",
   "lang": "en",
   "lat": 43.3718558,
@@ -42,7 +44,7 @@
     "war-memorial"
   ],
   "title": "Russo-Turkish War (1877–78) battle sites around Pleven, Bulgaria",
-  "updated": 1786908742.6885886,
+  "updated": 1788505985.1144032,
   "uses": 1
 }
 ---

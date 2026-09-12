@@ -1,6 +1,7 @@
 ---
 {
   "body": "Vlorë is a port city on Albania's southwestern coast and capital of Vlorë County, sited where the Adriatic Sea transitions to the Ionian Sea. It is the northern gateway to the Albanian Riviera, with a backdrop of low coastal hills and mountains, and is one of Albania's largest cities (municipality population well over 100,000).",
+  "category": "coast-port",
   "cell": "srjy70q",
   "created": 1786294651.4065256,
   "entities": [
@@ -9,6 +10,7 @@
     "vlore",
     "vlore-county"
   ],
+  "heading": null,
   "id": "atm_fbc1ae263ecd",
   "lang": "en",
   "lat": 40.4752774,
@@ -43,7 +45,7 @@
     "vlore"
   ],
   "title": "Vlorë: port city where Adriatic meets Ionian",
-  "updated": 1786294651.4067202,
+  "updated": 1788506031.249453,
   "uses": 1
 }
 ---

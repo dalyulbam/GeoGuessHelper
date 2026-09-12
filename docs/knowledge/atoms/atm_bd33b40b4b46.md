@@ -1,6 +1,7 @@
 ---
 {
   "body": "Certain retail and hospitality chains are exclusively or predominantly Mexican and serve as reliable street-level country markers: Soriana (supermarket), Cinépolis (cinema), City Express (hotel chain), Office Depot Mexico, and Scotiabank's Mexican retail branding. Comparable country-specific chains elsewhere in Latin America include Éxito/Bancolombia (Colombia), Plaza Vea/BCP (Peru), and Líder/Santander (Chile) — recognizing these brand combinations helps distinguish Spanish-speaking countries from one another at street level.",
+  "category": "business-chain",
   "cell": "9shk1z4",
   "created": 1787963586.4324474,
   "entities": [
@@ -8,6 +9,7 @@
     "mexico",
     "soriana"
   ],
+  "heading": null,
   "id": "atm_bd33b40b4b46",
   "lang": "en",
   "lat": 23.2415848,
@@ -43,7 +45,7 @@
     "soriana"
   ],
   "title": "Mexican retail/hospitality chains as country-identification markers",
-  "updated": 1787963586.4325504,
+  "updated": 1788506020.5563657,
   "uses": 1
 }
 ---

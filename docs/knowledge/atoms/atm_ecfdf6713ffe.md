@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Battle of La Higueruela, fought 1 July 1431 near Albolote-Atarfe outside Granada, pitted the Castilian army of Juan II against the Nasrid Kingdom of Granada and is considered one of the decisive engagements of the late Reconquista period. It is commemorated in a large mural in the Hall of Battles (Sala de las Batallas) at El Escorial.",
+  "category": "war-conflict",
   "cell": "eyt7v0d",
   "created": 1786908098.1392307,
   "entities": [
@@ -8,6 +9,7 @@
     "el-escorial",
     "kingdom-of-granada"
   ],
+  "heading": null,
   "id": "atm_ecfdf6713ffe",
   "lang": "en",
   "lat": 37.2246056,
@@ -41,7 +43,7 @@
     "reconquista"
   ],
   "title": "Battle of La Higueruela (1431) near Granada",
-  "updated": 1786908098.1394312,
+  "updated": 1788506030.6554458,
   "uses": 1
 }
 ---

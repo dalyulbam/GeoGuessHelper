@@ -1,11 +1,13 @@
 ---
 {
   "body": "Kanpur, Uttar Pradesh, is known as the 'Leather City of India', accounting for roughly 15% of India's leather product exports and employing about 1 million people directly and indirectly across hundreds of tanneries, manufacturers, and traders (~120 billion rupees annual industry). The sector has faced decline from pollution regulations and economic pressures, prompting government efforts to relocate tanneries to a leather cluster at Ramaipur.",
+  "category": "industry",
   "cell": "tu9necb",
   "created": 1786672926.7911084,
   "entities": [
     "kanpur"
   ],
+  "heading": null,
   "id": "atm_6a979dd94d7e",
   "lang": "en",
   "lat": 26.4656425,
@@ -38,7 +40,7 @@
     "tannery"
   ],
   "title": "Kanpur as India's leather manufacturing and export hub",
-  "updated": 1786672926.7912822,
+  "updated": 1788505996.7421663,
   "uses": 1
 }
 ---

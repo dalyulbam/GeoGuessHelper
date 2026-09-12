@@ -1,6 +1,7 @@
 ---
 {
   "body": "Barnaul and Biysk serve as staging cities for travel into the scenic Altai Mountains and Altai Republic, largely via the R256 Chuysky Trakt highway. The Altai Krai region is the birthplace of cosmonaut German Titov (second human to orbit Earth, Vostok 2) and Mikhail Kalashnikov, designer of the AK-47.",
+  "category": "tourism-economy",
   "cell": "vc7x8jq",
   "created": 1786289140.648444,
   "entities": [
@@ -11,6 +12,7 @@
     "german-titov",
     "mikhail-kalashnikov"
   ],
+  "heading": null,
   "id": "atm_bffa90fceb9e",
   "lang": "en",
   "lat": 53.3792627,
@@ -45,7 +47,7 @@
     "tourism"
   ],
   "title": "Altai as gateway to Altai Mountains and notable natives",
-  "updated": 1786289140.6487432,
+  "updated": 1788506020.6779633,
   "uses": 1
 }
 ---

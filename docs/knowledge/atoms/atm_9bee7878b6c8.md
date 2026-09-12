@@ -1,6 +1,7 @@
 ---
 {
   "body": "Beginning in the 12th century, Hungarian kings invited German (mostly Rhenish/Moselle) settlers, later called Transylvanian Saxons, to colonize southeastern Transylvania and defend the kingdom's borders. They established a network of fortified towns and villages — notably Brașov (Kronstadt), Sibiu (Hermannstadt), Sighișoara (Schäßburg) and Mediaș — organized as the 'Seven Saxon Seats', which retained German language, Lutheran faith (after the Reformation), and distinct guild-based urban culture for centuries, distinct from Wallachian/Moldavian or Székely-Hungarian settlement forms.",
+  "category": "founding",
   "cell": "u845wjw",
   "created": 1787964400.7055202,
   "entities": [
@@ -11,6 +12,7 @@
     "transylvania",
     "transylvanian-saxons"
   ],
+  "heading": null,
   "id": "atm_9bee7878b6c8",
   "lang": "en",
   "lat": 45.6461945,
@@ -45,7 +47,7 @@
     "transylvanian-saxons"
   ],
   "title": "Transylvanian Saxon fortified towns network (Siebenbürgen)",
-  "updated": 1787964400.7057483,
+  "updated": 1788506009.7892776,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Village and place names of Tatar origin in Tatarstan (e.g., 'Морты', 'Татарский Дюм-Дюм') appear on Russian federal highway signs, often with an official Latin transliteration added beneath the Cyrillic Russian text for destinations (e.g., 'НАБ. ЧЕЛНЫ / NAB. CHELNY'). This dual Cyrillic-plus-transliteration signage convention is characteristic of Tatarstan's official bilingual policy, distinguishing it from ordinary Russian oblasts that use Cyrillic-only signage.",
+  "category": "signage-language",
   "cell": "v1uv16c",
   "created": 1788000563.1512938,
   "entities": [
     "russia",
     "tatarstan"
   ],
+  "heading": null,
   "id": "atm_e5601aaeca59",
   "lang": "en",
   "lat": 55.7391,
@@ -29,7 +31,7 @@
     "transliteration"
   ],
   "title": "Tatar-language toponym patterns within Tatarstan signage",
-  "updated": 1788000563.1515517,
+  "updated": 1788506030.3327127,
   "uses": 1
 }
 ---

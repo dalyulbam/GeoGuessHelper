@@ -1,11 +1,13 @@
 ---
 {
   "body": "Łódź hosts the 'Urban Forms' gallery initiative, which commissions large-scale murals painted on the gable/blank end walls of 19th-century brick tenement buildings (kamienica) throughout the city center, turning post-industrial residential facades into an outdoor public art gallery as part of post-industrial urban regeneration.",
+  "category": "media-arts",
   "cell": "u3jy6rm",
   "created": 1786642690.2751067,
   "entities": [
     "lodz"
   ],
+  "heading": null,
   "id": "atm_2eba6c4a5d40",
   "lang": "en",
   "lat": 51.7642643,
@@ -28,7 +30,7 @@
     "urban-regeneration"
   ],
   "title": "Łódź 'Urban Forms' large-scale mural gallery program",
-  "updated": 1786642690.275227,
+  "updated": 1788505986.096966,
   "uses": 1
 }
 ---

@@ -1,12 +1,14 @@
 ---
 {
   "body": "Along the medieval Dalmatian coast, some settlements (e.g. Orašac near Dubrovnik, founded c. AD 1040) built their historic cores with houses clustered tightly together as a defensive response to raids by the Narentines (Neretva-based pirates active in the early medieval Adriatic). This compact core layout contrasts with later, more dispersed hillside housing added after the piracy threat subsided.",
+  "category": "settlement-pattern",
   "cell": "srsfctz",
   "created": 1786624288.9161565,
   "entities": [
     "dalmatia",
     "narentines"
   ],
+  "heading": null,
   "id": "atm_c3ac51f65d6e",
   "lang": "en",
   "lat": 42.7038049,
@@ -40,7 +42,7 @@
     "settlement-pattern"
   ],
   "title": "Neretva pirates (Narentines) and defensive compact village layouts",
-  "updated": 1786624288.9162595,
+  "updated": 1788506020.7742243,
   "uses": 1
 }
 ---

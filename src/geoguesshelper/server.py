@@ -1113,8 +1113,12 @@ def main() -> None:
     import uvicorn
 
     from .tls import decide_tls, keylog_removed, neutralize_keylog
+    from .winquirks import neutralize_wmi, wmi_neutralized
 
     _safe_stdout()
+    # platform.uname() 캐시가 차기 전에. 이 PC 의 WMI 조회는 멈추고, SDK 는 요청 헤더를
+    # 만들려고 그것을 부른다(winquirks.py 주석 참고).
+    neutralize_wmi()
     # ssl 을 건드리기 전에 먼저. 이 값이 남아 있으면 create_default_context() 가
     # OPENSSL_Uplink 를 타고 ExitProcess(1) 로 프로세스를 끝내버린다(tls.py 주석 참고).
     neutralize_keylog()
@@ -1134,6 +1138,7 @@ def main() -> None:
         f"   Claude 분석  : {'설정됨' if settings.has_anthropic else '없음 (분석 비활성)'}",
         f"   TLS 검증     : {'끔 (사내 프록시 감지 - verify=False)' if tls_mode == 'insecure' else '켬'}",
         *([f"   SSLKEYLOGFILE: 제거함 ({keylog_removed()}) - 백신 TLS 감청 지시"] if keylog_removed() else []),
+        *(["   WMI 조회     : 끔 - 이 PC 에서 멈춤 (platform.uname 폴백 사용)"] if wmi_neutralized() else []),
         f"   작업 큐      : 동시 {settings.job_concurrency}건 (대기 최대 {settings.job_max_pending})",
         f"   캡처 형식    : {settings.capture_format.upper()} q{settings.capture_quality}",
         f"   지식 저장소  : {'원자 ' + str(kstats.get('atoms', 0)) + '개' if settings.knowledge_enabled else '꺼짐'}",

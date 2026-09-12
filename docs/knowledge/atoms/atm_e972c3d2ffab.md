@@ -1,11 +1,13 @@
 ---
 {
   "body": "Bulgarian map labels use distinctive administrative terms such as 'Кметство' (kmetstvo, village mayoralty/town hall office), 'Гробищен парк' (cemetery park), and 'сборище'/'събор' (village fair/festival). These terms, written in Cyrillic, reliably distinguish Bulgaria from neighboring Cyrillic-using countries like Serbia (which uses 'Месна заједница' and often bilingual Latin/Cyrillic signage), North Macedonia ('Општина'), and Ukraine ('сільрада').",
+  "category": "toponymy",
   "cell": "sx9wsps",
   "created": 1786908742.6706743,
   "entities": [
     "bulgaria"
   ],
+  "heading": null,
   "id": "atm_e972c3d2ffab",
   "lang": "en",
   "lat": 43.3718558,
@@ -39,7 +41,7 @@
     "toponymy"
   ],
   "title": "Bulgarian Cyrillic administrative and toponymic lexicon markers",
-  "updated": 1786908742.6709006,
+  "updated": 1788506030.4911158,
   "uses": 1
 }
 ---

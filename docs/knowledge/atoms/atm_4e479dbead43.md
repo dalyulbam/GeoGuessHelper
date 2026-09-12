@@ -1,6 +1,7 @@
 ---
 {
   "body": "Between 1919-1934 the Social Democratic city government of Vienna built large-scale municipal housing blocks (Gemeindebau) for the working class, characterized by monumental multi-story perimeter blocks with large interior courtyards, arched gateway passages, and integrated communal facilities (laundries, kindergartens, libraries). This 'Red Vienna' program remains architecturally distinct and concentrated in traditionally working-class districts like Brigittenau and Floridsdorf, and represents one of the most influential early 20th-century social housing movements in Europe.",
+  "category": "housing-typology",
   "cell": "u2edmpb",
   "created": 1786673950.6432097,
   "entities": [
@@ -8,6 +9,7 @@
     "red-vienna",
     "vienna"
   ],
+  "heading": null,
   "id": "atm_4e479dbead43",
   "lang": "en",
   "lat": 48.2517596,
@@ -41,7 +43,7 @@
     "vienna"
   ],
   "title": "'Red Vienna' (Rotes Wien) interwar municipal housing (Gemeindebau)",
-  "updated": 1786673950.643801,
+  "updated": 1788505995.3554263,
   "uses": 1
 }
 ---

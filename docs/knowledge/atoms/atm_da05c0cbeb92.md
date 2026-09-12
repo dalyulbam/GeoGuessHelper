@@ -1,6 +1,7 @@
 ---
 {
   "body": "The Stawamus Chief near Squamish, BC is a granite/granodiorite monolith rising directly from a fjord-head valley, forming a three-peaked silhouette and a world-class rock-climbing destination. Such glacially exposed granite batholith faces are characteristic of Coast Mountains fjord margins and often anchor outdoor-recreation branding for nearby towns.",
+  "category": "landform",
   "cell": "c2b6twp",
   "created": 1786672517.7573137,
   "entities": [
@@ -8,6 +9,7 @@
     "squamish",
     "stawamus-chief"
   ],
+  "heading": null,
   "id": "atm_da05c0cbeb92",
   "lang": "en",
   "lat": 49.6912326,
@@ -41,7 +43,7 @@
     "stawamus-chief"
   ],
   "title": "Granite monolith climbing landmarks in Coast Mountains fjord valleys",
-  "updated": 1786672517.7578638,
+  "updated": 1788506021.3292797,
   "uses": 1
 }
 ---
