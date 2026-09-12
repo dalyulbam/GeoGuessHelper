@@ -1,0 +1,1089 @@
+{
+ "job_id": "job_72caf482d49b",
+ "report_file": "report_za_uitenhage_-33.769_25.3892_260906_203817_ko-en-fr.html",
+ "label": "선택 장면 보고서 · ZexpLPkD…L-2g",
+ "lang": "en",
+ "images": [
+  "capture_c2a0f5eb0475.jpg",
+  "capture_f14eb578e798.jpg",
+  "capture_eca34ab2f5ce.jpg",
+  "capture_cea671df621c.jpg",
+  "capture_2ce83091417d.jpg",
+  "capture_a6093d25002f.jpg"
+ ],
+ "blind_cut_px": [
+  960,
+  960,
+  960,
+  960,
+  960,
+  960
+ ],
+ "image_panos": {
+  "capture_c2a0f5eb0475.jpg": {
+   "pano_id": "ZexpLPkD55hcDnO4tTL-2g",
+   "lat": -33.76902201129674,
+   "lng": 25.389223690587144,
+   "heading": 212.96018140977424,
+   "pitch": 0.10952447437193769
+  },
+  "capture_f14eb578e798.jpg": {
+   "pano_id": "uU5dAl8B_AQyrbwBgU82-w",
+   "lat": -33.76909566595982,
+   "lng": 25.38901467697326,
+   "heading": 288.56604180206705,
+   "pitch": 1.4198151043318035
+  },
+  "capture_eca34ab2f5ce.jpg": {
+   "pano_id": "Zbv_c5yzWSHM2uAvj4m-Xg",
+   "lat": -33.768855548364,
+   "lng": 25.38917875990475,
+   "heading": 5.277292792294101,
+   "pitch": 0.8568206415267667
+  },
+  "capture_cea671df621c.jpg": {
+   "pano_id": "8iGMuD4CQrjB5xBO_pbCUA",
+   "lat": -33.76778153635864,
+   "lng": 25.39023322790826,
+   "heading": 70.22765915713866,
+   "pitch": 2.202134292406271
+  },
+  "capture_2ce83091417d.jpg": {
+   "pano_id": "u92JTKRp8d2aVDooedr3lw",
+   "lat": -33.76715398027464,
+   "lng": 25.39088892360694,
+   "heading": 98.21257576624252,
+   "pitch": -3.0088752695474312
+  },
+  "capture_a6093d25002f.jpg": {
+   "pano_id": "qypNVJDSZswSclxZs271Ew",
+   "lat": -33.767299012170696,
+   "lng": 25.39074662881217,
+   "heading": 98.21257576624252,
+   "pitch": -3.0088752695474312
+  },
+  "capture_0dc6a2603d6d.jpg": {
+   "pano_id": "zTfBz6WyaeWCBQiWP84gug",
+   "lat": -33.76618779061767,
+   "lng": 25.391757697858946,
+   "heading": 160.13946578491033,
+   "pitch": 2.698869964199204
+  }
+ },
+ "truth": {
+  "lat": -33.76791364929174,
+  "lng": 25.39014908652164,
+  "iso": "ZA",
+  "file_lat": -33.769,
+  "file_lng": 25.3892,
+  "n_panos": 7
+ },
+ "created": 1788740669.728717,
+ "blind": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Uitenhage (Kariega)",
+    "confidence": 0.9,
+    "coordinate_estimate": {
+     "lat": -33.762,
+     "lng": 25.398,
+     "radius_km": 2.5
+    },
+    "country": "South Africa",
+    "country_iso": "ZA",
+    "region_or_state": "Eastern Cape"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.06,
+     "country": "South Africa",
+     "country_iso": "ZA"
+    },
+    {
+     "confidence": 0.02,
+     "country": "Namibia",
+     "country_iso": "NA"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Warm-temperate coastal / Albany thicket margin; dry winter grass, palms and eucalypts",
+    "driving_side": "left",
+    "hemisphere": "southern"
+   },
+   "cues": [
+    {
+     "category": "signage",
+     "image_index": 2,
+     "level": "metro_area",
+     "observation": "BUCO hardware directional sign reads 'BUCO UITENHAGE 600M' with phone code 041",
+     "supports": [
+      "Uitenhage/Kariega, Nelson Mandela Bay"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 1,
+     "level": "metro_area",
+     "observation": "'nelson mandela bay municipality — Municipal Court, Office Hours: 07h30 - 15h45' — 24h-style time written with 'h' separator is a South African convention",
+     "supports": [
+      "Nelson Mandela Bay Metro",
+      "South Africa"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 2,
+     "level": "admin_region",
+     "observation": "Billboard for 'South African Autoweek, 1-3 Oct 2025, Eastern Cape' with Eastern Cape provincial and G20 logos",
+     "supports": [
+      "Eastern Cape province"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 2,
+     "level": "metro_area",
+     "observation": "Blue municipal board reading 'NEL... METROPO... FIRE & EM... UITEN...' (Nelson Mandela Bay Metropolitan Fire & Emergency, Uitenhage)",
+     "supports": [
+      "Uitenhage town centre"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "traffic_infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Inverted red-bordered triangular YIELD sign and pedestrian-crossing sign on a leaning pole; painted zebra/chevron road markings; traffic keeps left",
+     "supports": [
+      "Southern African, left-hand traffic"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vehicles",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Heavy presence of half-ton bakkies (Ford Ranger, Hyundai H100 dropside) and a Renault Kwid — a distinctly South African vehicle mix",
+     "supports": [
+      "South Africa"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "commerce",
+     "image_index": 4,
+     "level": "country",
+     "observation": "'Gascor' LPG distributor with Air Products / ESAB accreditation boards, 'LP Gas, Welding & Gas Consumables, Paraffin & Wood'",
+     "supports": [
+      "South African industrial retail"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "language",
+     "image_index": 5,
+     "level": "cultural_sphere",
+     "observation": "Afrikaans surname business branding 'MULDER Property Rentals' alongside English-only signage",
+     "supports": [
+      "Afrikaans/English settler-commercial sphere of Uitenhage"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "architecture",
+     "image_index": 1,
+     "level": "district",
+     "observation": "Single-storey face-brick and plastered municipal building with green corrugated-iron roof, burglar bars on every window, palisade steel fencing",
+     "supports": [
+      "Small-town South African civic core"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 0,
+     "level": "admin_region",
+     "observation": "Canary Island date palms mixed with mature eucalyptus and dry winter grass verges",
+     "supports": [
+      "Eastern Cape coastal-interior town planting"
+     ],
+     "weight": "low"
+    },
+    {
+     "category": "commerce",
+     "image_index": 3,
+     "level": "district",
+     "observation": "'MRB Building Materials Suppliers, 61 Cuyler Street, Tel 041 991 ...' — Cuyler Street is a Uitenhage main street; 041 is the Gqeberha/Uitenhage area code",
+     "supports": [
+      "Central Uitenhage, Cuyler Street corridor"
+     ],
+     "weight": "high"
+    }
+   ],
+   "cultural_economic_read": "A modest, light-industrial and civic edge of a working-class Eastern Cape town: builders' merchants, aluminium fabricators, gas and welding suppliers, cash-and-carry, property-rental agents and a municipal traffic court. Security hardening is routine (palisade fencing, burglar bars, electric fence on the brick warehouse), signalling a middle-to-lower-income South African urban context. The bakkie-dominated vehicle fleet and Isuzu/Hyundai light trucks indicate a trades-and-logistics economy; Uitenhage's historic automotive base (VW plant) is echoed by the South African Autoweek billboard. Signage is English with Afrikaans-surnamed family firms, reflecting the town's Afrikaans/English commercial layer over an isiXhosa-majority metro population.",
+   "landmarks": [
+    {
+     "confidence": 0.85,
+     "image_index": 1,
+     "name": "Nelson Mandela Bay Municipality Municipal Court (Uitenhage traffic department)",
+     "type": "civic building"
+    },
+    {
+     "confidence": 0.9,
+     "image_index": 2,
+     "name": "BUCO Uitenhage directional sign",
+     "type": "retail signage"
+    },
+    {
+     "confidence": 0.7,
+     "image_index": 2,
+     "name": "Nelson Mandela Bay Metropolitan Fire & Emergency Services, Uitenhage",
+     "type": "emergency services station"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.97,
+     "evidence": "'Municipal Court', 'Traffic Fine Payments', 'HARDWARE & BUILDING MATERIALS', 'PS Cash & Carry'",
+     "language": "English",
+     "script": "Latin"
+    },
+    {
+     "confidence": 0.4,
+     "evidence": "Afrikaans-origin business name 'Mulder'; '07h30 - 15h45' time format typical of SA/Afrikaans usage",
+     "language": "Afrikaans",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Sub-Saharan Africa",
+      "Australia/NZ",
+      "Southern Europe",
+      "Latin America"
+     ],
+     "conclusion": "Southern Africa, southern hemisphere, left-hand traffic",
+     "confidence_after": 0.9,
+     "discriminator": "Australia would show yellow-and-black route shields, 'GIVE WAY' text and hardwood power poles; Southern Europe would drive on the right with EU-blue plate bands; Latin America would show Spanish/Portuguese signage. Instead: English-only signage, red-triangle yield without text, deep-set burglar bars and palisade fencing typical of Southern Africa.",
+     "level": "continent",
+     "observation": "Left-hand traffic, dry winter grass under a high sun, palms plus eucalypts, universal security fencing and window bars, bakkie-heavy fleet.",
+     "ruled_out": [
+      "Australia/NZ — signage typography and security hardening do not match",
+      "Southern Europe — wrong driving side and language",
+      "Latin America — language"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "South Africa",
+      "Namibia",
+      "Botswana",
+      "Zimbabwe"
+     ],
+     "conclusion": "South Africa",
+     "confidence_after": 0.97,
+     "discriminator": "Namibia/Botswana/Zimbabwe would show different retail chains (Pupkewitz, Choppies) and no 'Nelson Mandela Bay' branding; South African-only chains BUCO and Gascor plus the SA municipal corporate identity settle it.",
+     "level": "country",
+     "observation": "BUCO Hardware & Buildware, Gascor LPG, 'nelson mandela bay municipality' logo, 041 area code, 082 mobile prefix.",
+     "ruled_out": [
+      "Namibia — 061/064 codes and Namibian municipal branding absent",
+      "Botswana/Zimbabwe — chains and municipal identity do not exist there"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Gauteng",
+      "Western Cape",
+      "KwaZulu-Natal",
+      "Eastern Cape"
+     ],
+     "conclusion": "Eastern Cape, Nelson Mandela Bay Metro",
+     "confidence_after": 0.96,
+     "discriminator": "A Gauteng location would carry City of Johannesburg/Tshwane branding and 011/012 codes; Western Cape would show City of Cape Town and 021; KZN would show eThekwini and 031. Here the metro is explicitly Nelson Mandela Bay with 041, and a billboard names Eastern Cape.",
+     "level": "admin_region",
+     "observation": "Municipal court branded Nelson Mandela Bay; billboard for South African Autoweek with 'EASTERN CAPE' and provincial crest; phone numbers all 041.",
+     "ruled_out": [
+      "Gauteng",
+      "Western Cape",
+      "KwaZulu-Natal"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Gqeberha (Port Elizabeth) core",
+      "Despatch",
+      "Uitenhage/Kariega",
+      "Colchester"
+     ],
+     "conclusion": "Uitenhage (Kariega), the metro's north-western industrial town",
+     "confidence_after": 0.93,
+     "discriminator": "Gqeberha central would show coastal dune vegetation, multi-storey CBD blocks and 'Port Elizabeth/Gqeberha' municipal sub-branding; Despatch is far smaller with no metro fire station or municipal court. Here signs read 'BUCO UITENHAGE' and 'Fire & Emergency ... UITEN...', and an address on Cuyler Street.",
+     "level": "metro_area",
+     "observation": "Two independent signs name Uitenhage; a builders' merchant lists '61 Cuyler Street'.",
+     "ruled_out": [
+      "Gqeberha central — different sub-branding and denser CBD fabric",
+      "Despatch — lacks these metro facilities",
+      "Colchester — rural village, no industrial strip"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Uitenhage CBD (Caledon/Baird St)",
+      "Cuyler Street / Graaff-Reinet Road light-industrial corridor",
+      "Kabega/residential suburbs"
+     ],
+     "conclusion": "Uitenhage light-industrial fringe along the Cuyler Street / Graaff-Reinet Road corridor, near the metro fire station and municipal court",
+     "confidence_after": 0.75,
+     "discriminator": "The CBD proper would show a continuous retail shopfront terrace with awnings and pedestrian density; a residential suburb would show walled houses and no builders' merchants. Instead we get single-storey sheds, gravel yards, aluminium fabricators, a gas depot and warehouse 'TO LET' boards — a fringe industrial street — anchored by the Cuyler Street address and the BUCO 600 m sign.",
+     "level": "district",
+     "observation": "Wide arterial with grass median at the truck junction; behind it low warehouses, unsealed forecourts, palms and old eucalypts; municipal court and fire station within the same few hundred metres.",
+     "ruled_out": [
+      "Uitenhage CBD retail core",
+      "Purely residential suburbs"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "overall_confidence": 0.88,
+   "place_slug": "uitenhage"
+  },
+  "cost_usd": 0.2223,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "South Africa",
+   "country_iso": "ZA",
+   "country_correct": true,
+   "region": "Eastern Cape",
+   "city": "Uitenhage (Kariega)",
+   "confidence": 0.9,
+   "overall_confidence": 0.88,
+   "error_km": 0.98,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 11,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "language",
+    "signage",
+    "traffic_infrastructure",
+    "vegetation",
+    "vehicles"
+   ]
+  },
+  "atoms": [
+   "atm_cdf02553d9d6",
+   "atm_f10353f07da8",
+   "atm_990ab226093b",
+   "atm_7311df0e4fa3",
+   "atm_32a347b0ab5e",
+   "atm_036be6c811e8",
+   "atm_a428bc42f357",
+   "atm_4470109c57eb",
+   "atm_3576bd565590",
+   "atm_4fbaa0d62307",
+   "atm_1f13b3e189ab",
+   "atm_3b89499a7ce5",
+   "atm_76597c6a1141",
+   "atm_480bec883360",
+   "atm_e84d4e933277",
+   "atm_e74b18b19959"
+  ],
+  "ingest": {
+   "created": 16,
+   "merged": 1,
+   "cost_usd": 0.0695,
+   "passes": {
+    "p2": {
+     "created": 6,
+     "merged": 0,
+     "cost_usd": 0.0355,
+     "n": 6
+    },
+    "p1": {
+     "created": 10,
+     "merged": 1,
+     "cost_usd": 0.034,
+     "n": 11
+    }
+   }
+  }
+ },
+ "aided": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Kariega (Uitenhage)",
+    "confidence": 0.93,
+    "coordinate_estimate": {
+     "lat": -33.7625,
+     "lng": 25.3925,
+     "radius_km": 1.2
+    },
+    "country": "South Africa",
+    "country_iso": "ZA",
+    "region_or_state": "Eastern Cape (Nelson Mandela Bay Metro)"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.04,
+     "country": "South Africa",
+     "country_iso": "ZA"
+    },
+    {
+     "confidence": 0.02,
+     "country": "Namibia",
+     "country_iso": "NA"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Semi-arid subtropical / Albany thicket-fynbos transition; dry grass, aloe/eucalyptus/palm mix",
+    "driving_side": "left",
+    "hemisphere": "southern"
+   },
+   "cues": [
+    {
+     "category": "traffic_infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Traffic moves on the left; red-bordered inverted-triangle YIELD sign paired with a pedestrian-crossing plate of the South African SADC-standard design",
+     "supports": [
+      "ZA"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 0,
+     "level": "continent",
+     "observation": "Canary/date palms mixed with eucalyptus and thorn trees over dry yellow-brown grass, strong low sun and deep blue sky",
+     "supports": [
+      "Southern Africa"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "signage_language",
+     "image_index": 1,
+     "level": "admin_region",
+     "observation": "Blue municipal sign reads 'nelson mandela bay MUNICIPALITY - Municipal Court, Office Hours 07h30 - 15h45' — the 07h30 time format is distinctly South African",
+     "supports": [
+      "Eastern Cape",
+      "Nelson Mandela Bay"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "commercial_brand",
+     "image_index": 2,
+     "level": "metro_area",
+     "observation": "BUCO Hardware & Building Materials sign explicitly reading 'BUCO UITENHAGE' with 041 dialling code (Port Elizabeth/Gqeberha area code)",
+     "supports": [
+      "Uitenhage/Kariega"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "event_poster",
+     "image_index": 2,
+     "level": "admin_region",
+     "observation": "Billboard for 'South African Autoweek 1-3 Oct 2025, Eastern Cape' with Eastern Cape provincial and G20 logos",
+     "supports": [
+      "Eastern Cape"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage_language",
+     "image_index": 3,
+     "level": "district",
+     "observation": "MRB Building Materials Suppliers gives its address as '61 Cuyler Street' with 041 phone prefix — Cuyler Street is the main artery through Uitenhage/Kariega central",
+     "supports": [
+      "Uitenhage Lower Central"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage_language",
+     "image_index": 5,
+     "level": "cultural_sphere",
+     "observation": "Afrikaans surname business branding ('MULDER Property Rentals'), English trade signage, 082 Vodacom mobile prefix",
+     "supports": [
+      "Afrikaans/English settler commercial sphere"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vehicles",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Fleet dominated by white bakkies (Ford Ranger, Hyundai H100 drop-side) and a Renault Kwid — a vehicle mix specific to the South African market",
+     "supports": [
+      "ZA"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "security_architecture",
+     "image_index": 2,
+     "level": "country",
+     "observation": "Tall galvanised palisade fencing and burglar bars on every window — the South African urban security vernacular",
+     "supports": [
+      "ZA"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "brands",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Gascor and Air Products LPG distributor signage with 041 landline; ESAB welding board — South African industrial supply chain",
+     "supports": [
+      "ZA"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "urban_fabric",
+     "image_index": 3,
+     "level": "district",
+     "observation": "Low-rise light-industrial strip: aluminium manufacturers, cash & carry, unpaved verges, wide street reserve — Uitenhage's Cuyler/Lower Central industrial belt near the VW-driven automotive economy",
+     "supports": [
+      "Uitenhage Lower Central"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "cultural_economic_read": "A working-class light-industrial and service corridor in Kariega (formerly Uitenhage), the automotive manufacturing satellite of Gqeberha within Nelson Mandela Bay Metro. Signage is bilingual-leaning English with Afrikaans-surname family businesses (Mulder, MRB, PS Cash & Carry), reflecting the Afrikaans/coloured/Xhosa mixed demographic of the Eastern Cape metro. Economy reads as blue-collar: building-material suppliers, industrial gas distributors, tyre fitment, aluminium fabrication, municipal traffic department and municipal court, plus tow-away municipal tipper trucks. Universal palisade fencing and window bars signal high property-crime awareness; the mid-2020s billboard for SA Autoweek in the Eastern Cape underlines the region's motor-industry identity (VW South Africa's plant is in Kariega).",
+   "landmarks": [
+    {
+     "confidence": 0.9,
+     "image_index": 1,
+     "name": "Nelson Mandela Bay Municipality Municipal Court, Uitenhage",
+     "type": "government building"
+    },
+    {
+     "confidence": 0.85,
+     "image_index": 2,
+     "name": "Nelson Mandela Bay Metropolitan Fire & Emergency Services, Uitenhage",
+     "type": "emergency services station"
+    },
+    {
+     "confidence": 0.8,
+     "image_index": 0,
+     "name": "Cuyler Street / R334 corridor",
+     "type": "road"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.97,
+     "evidence": "'Municipal Court', 'HARDWARE & BUILDING MATERIALS', 'PROPERTY RENTALS ... TO LET', 'ENTRANCE'",
+     "language": "English",
+     "script": "Latin"
+    },
+    {
+     "confidence": 0.5,
+     "evidence": "Afrikaans commercial surnames and toponyms: Mulder, Cuyler, Uitenhage, Swartkops",
+     "language": "Afrikaans (onomastic traces)",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Southern Africa",
+      "Australia",
+      "Southern Europe",
+      "South America"
+     ],
+     "conclusion": "Southern Africa, left-hand traffic",
+     "confidence_after": 0.9,
+     "discriminator": "Australia would show yellow-on-black diamond warning signs and no palisade-and-razor security fencing on every commercial plot; Mediterranean Europe drives on the right and would not have this dry thicket/palm-eucalyptus mix with corrugated-iron industrial sheds.",
+     "level": "continent",
+     "observation": "Vehicles keep left, dry grass verges, mixed palm/eucalyptus/thorn vegetation, heavy palisade fencing and burglar bars on all buildings, sun in the northern sky.",
+     "question": "Which continent and which driving side?",
+     "ruled_out": [
+      "Australia: sign typology and security architecture differ",
+      "Southern Europe/South America: right-hand traffic"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "South Africa",
+      "Namibia",
+      "Botswana",
+      "Zimbabwe"
+     ],
+     "conclusion": "South Africa",
+     "confidence_after": 0.97,
+     "discriminator": "Namibia would use N-prefixed routes, German/Afrikaans bilingual town signage and far sparser commercial density; Botswana/Zimbabwe lack BUCO and the 0xx three-digit landline scheme shown, and their municipal branding differs entirely.",
+     "level": "country",
+     "observation": "SADC-standard red triangular yield sign, BUCO hardware chain branding, Gascor/Air Products LPG boards, 041 landline and 082 cellular prefixes, 'Office Hours 07h30-15h45' time format.",
+     "question": "Which southern African state?",
+     "ruled_out": [
+      "Namibia: no BUCO/041 numbering, different municipal identity",
+      "Botswana and Zimbabwe: brands and phone formats do not match"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Gauteng",
+      "Western Cape",
+      "KwaZulu-Natal",
+      "Eastern Cape"
+     ],
+     "conclusion": "Eastern Cape, Nelson Mandela Bay Metro",
+     "confidence_after": 0.96,
+     "discriminator": "Gauteng would show City of Johannesburg/Tshwane livery and 011/012 codes; Western Cape would show City of Cape Town green-and-white branding and 021 codes; KZN would show eThekwini branding, 031 codes and lush subtropical vegetation instead of this dry Albany thicket.",
+     "level": "admin_region",
+     "observation": "Municipal building carries the 'nelson mandela bay MUNICIPALITY' logo; billboard advertises 'South African Autoweek, Eastern Cape'; landlines all begin 041.",
+     "question": "Which province / metropolitan municipality?",
+     "ruled_out": [
+      "Gauteng, Western Cape, KwaZulu-Natal: wrong municipal branding and dialling codes"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Gqeberha (Port Elizabeth) core",
+      "Despatch",
+      "Kariega (Uitenhage)",
+      "Motherwell"
+     ],
+     "conclusion": "Kariega / Uitenhage",
+     "confidence_after": 0.94,
+     "discriminator": "Gqeberha's core would show coastal dune vegetation, larger multi-storey CBD blocks and 'Port Elizabeth/Gqeberha' branch naming; Despatch is far smaller with no municipal court or fire station of this scale; Motherwell is a residential township without this pre-war brick industrial stock.",
+     "level": "metro_area",
+     "observation": "Explicit branch naming 'BUCO UITENHAGE', a Uitenhage municipal court and metropolitan fire station, and 1930s-era red-brick/corrugated-roof industrial buildings typical of Uitenhage's rail-and-motor heritage rather than PE's coastal CBD.",
+     "question": "Which town inside the Nelson Mandela Bay metro?",
+     "ruled_out": [
+      "Gqeberha core: different urban morphology and branch naming",
+      "Despatch and Motherwell: no metro court/fire complex or heritage industrial stock"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Uitenhage Lower Central / Cuyler St corridor",
+      "Uitenhage Central (Caledon St)",
+      "Penford",
+      "Kariega Central north"
+     ],
+     "conclusion": "Cuyler Street corridor, Kariega Central / Uitenhage Lower Central, near the Traffic Department and Swartkops River bench",
+     "confidence_after": 0.9,
+     "discriminator": "Caledon Street central would show retail frontage (KFC, banks, continuous shopfront verandas) rather than aluminium fabricators and gas distributors; Penford is residential with no commercial palisade strip; the north end of Kariega Central lacks the municipal court/fire station cluster.",
+     "level": "district",
+     "observation": "MRB Suppliers lists '61 Cuyler Street'; the municipal court, metropolitan fire and emergency station, and a BUCO branch 600 m away all cluster along the same wide R334-carrying artery with unpaved side verges and light-industrial plots.",
+     "question": "Which street corridor within Uitenhage?",
+     "ruled_out": [
+      "Caledon Street retail core: different land use",
+      "Penford: residential",
+      "Northern Kariega Central: lacks the civic cluster"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "overall_confidence": 0.92,
+   "place_slug": "uitenhage"
+  },
+  "cost_usd": 0.2774,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "South Africa",
+   "country_iso": "ZA",
+   "country_correct": true,
+   "region": "Eastern Cape (Nelson Mandela Bay Metro)",
+   "city": "Kariega (Uitenhage)",
+   "confidence": 0.93,
+   "overall_confidence": 0.92,
+   "error_km": 0.64,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 11,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "brands",
+    "commercial_brand",
+    "event_poster",
+    "security_architecture",
+    "signage_language",
+    "traffic_infrastructure",
+    "urban_fabric",
+    "vegetation",
+    "vehicles"
+   ]
+  },
+  "atoms": [
+   "atm_a0c094988a31",
+   "atm_b8de25e28831",
+   "atm_068acca14763",
+   "atm_351ebc433361",
+   "atm_f408e92482a5",
+   "atm_fe8a7311c859",
+   "atm_8557bb61fc9b",
+   "atm_d1b2b2e3856d",
+   "atm_4b100318f64a",
+   "atm_1d76c352db67",
+   "atm_93ae00602fa3",
+   "atm_2dab6c336a4e",
+   "atm_05c35d0c82ed",
+   "atm_d11dc0371075",
+   "atm_1825a27f26c3"
+  ],
+  "ingest": {
+   "created": 15,
+   "merged": 1,
+   "cost_usd": 0.0696,
+   "passes": {
+    "p2": {
+     "created": 5,
+     "merged": 0,
+     "cost_usd": 0.0363,
+     "n": 5
+    },
+    "p1": {
+     "created": 10,
+     "merged": 1,
+     "cost_usd": 0.0333,
+     "n": 11
+    }
+   }
+  }
+ },
+ "aided_prior": {
+  "lang": "en",
+  "metrics": {
+   "country": "South Africa",
+   "country_iso": "ZA",
+   "country_correct": true,
+   "region": "Eastern Cape (Nelson Mandela Bay Metro)",
+   "city": "Uitenhage (Kariega)",
+   "confidence": 0.93,
+   "overall_confidence": 0.92,
+   "error_km": 0.75,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 11,
+   "n_landmarks": 4,
+   "cue_categories": [
+    "address_on_shopfront",
+    "advertising",
+    "architecture",
+    "commercial_brand",
+    "government_signage",
+    "industry",
+    "language",
+    "security_infrastructure",
+    "signage",
+    "traffic",
+    "vegetation"
+   ]
+  },
+  "best_guess": {
+   "city": "Uitenhage (Kariega)",
+   "confidence": 0.93,
+   "coordinate_estimate": {
+    "lat": -33.7615,
+    "lng": 25.3925,
+    "radius_km": 1.2
+   },
+   "country": "South Africa",
+   "country_iso": "ZA",
+   "region_or_state": "Eastern Cape (Nelson Mandela Bay Metro)"
+  }
+ },
+ "cues": {
+  "unaided": [
+   {
+    "blind": {
+     "category": "signage",
+     "image_index": 2,
+     "level": "admin_region",
+     "observation": "Billboard for 'South African Autoweek, 1-3 Oct 2025, Eastern Cape' with Eastern Cape provincial and G20 logos",
+     "supports": [
+      "Eastern Cape province"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "event_poster",
+     "image_index": 2,
+     "level": "admin_region",
+     "observation": "Billboard for 'South African Autoweek 1-3 Oct 2025, Eastern Cape' with Eastern Cape provincial and G20 logos",
+     "supports": [
+      "Eastern Cape"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.73
+   },
+   {
+    "blind": {
+     "category": "language",
+     "image_index": 5,
+     "level": "cultural_sphere",
+     "observation": "Afrikaans surname business branding 'MULDER Property Rentals' alongside English-only signage",
+     "supports": [
+      "Afrikaans/English settler-commercial sphere of Uitenhage"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "signage_language",
+     "image_index": 5,
+     "level": "cultural_sphere",
+     "observation": "Afrikaans surname business branding ('MULDER Property Rentals'), English trade signage, 082 Vodacom mobile prefix",
+     "supports": [
+      "Afrikaans/English settler commercial sphere"
+     ],
+     "weight": "medium"
+    },
+    "sim": 1.38
+   },
+   {
+    "blind": {
+     "category": "signage",
+     "image_index": 1,
+     "level": "metro_area",
+     "observation": "'nelson mandela bay municipality — Municipal Court, Office Hours: 07h30 - 15h45' — 24h-style time written with 'h' separator is a South African convention",
+     "supports": [
+      "Nelson Mandela Bay Metro",
+      "South Africa"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "signage_language",
+     "image_index": 1,
+     "level": "admin_region",
+     "observation": "Blue municipal sign reads 'nelson mandela bay MUNICIPALITY - Municipal Court, Office Hours 07h30 - 15h45' — the 07h30 time format is distinctly South African",
+     "supports": [
+      "Eastern Cape",
+      "Nelson Mandela Bay"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.23
+   },
+   {
+    "blind": {
+     "category": "vehicles",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Heavy presence of half-ton bakkies (Ford Ranger, Hyundai H100 dropside) and a Renault Kwid — a distinctly South African vehicle mix",
+     "supports": [
+      "South Africa"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "vehicles",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Fleet dominated by white bakkies (Ford Ranger, Hyundai H100 drop-side) and a Renault Kwid — a vehicle mix specific to the South African market",
+     "supports": [
+      "ZA"
+     ],
+     "weight": "medium"
+    },
+    "sim": 1.19
+   },
+   {
+    "blind": {
+     "category": "vegetation",
+     "image_index": 0,
+     "level": "admin_region",
+     "observation": "Canary Island date palms mixed with mature eucalyptus and dry winter grass verges",
+     "supports": [
+      "Eastern Cape coastal-interior town planting"
+     ],
+     "weight": "low"
+    },
+    "aided": {
+     "category": "vegetation",
+     "image_index": 0,
+     "level": "continent",
+     "observation": "Canary/date palms mixed with eucalyptus and thorn trees over dry yellow-brown grass, strong low sun and deep blue sky",
+     "supports": [
+      "Southern Africa"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.97
+   },
+   {
+    "blind": {
+     "category": "traffic_infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Inverted red-bordered triangular YIELD sign and pedestrian-crossing sign on a leaning pole; painted zebra/chevron road markings; traffic keeps left",
+     "supports": [
+      "Southern African, left-hand traffic"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "traffic_infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Traffic moves on the left; red-bordered inverted-triangle YIELD sign paired with a pedestrian-crossing plate of the South African SADC-standard design",
+     "supports": [
+      "ZA"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.85
+   },
+   {
+    "blind": {
+     "category": "commerce",
+     "image_index": 3,
+     "level": "district",
+     "observation": "'MRB Building Materials Suppliers, 61 Cuyler Street, Tel 041 991 ...' — Cuyler Street is a Uitenhage main street; 041 is the Gqeberha/Uitenhage area code",
+     "supports": [
+      "Central Uitenhage, Cuyler Street corridor"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "signage_language",
+     "image_index": 3,
+     "level": "district",
+     "observation": "MRB Building Materials Suppliers gives its address as '61 Cuyler Street' with 041 phone prefix — Cuyler Street is the main artery through Uitenhage/Kariega central",
+     "supports": [
+      "Uitenhage Lower Central"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.79
+   },
+   {
+    "blind": {
+     "category": "commerce",
+     "image_index": 4,
+     "level": "country",
+     "observation": "'Gascor' LPG distributor with Air Products / ESAB accreditation boards, 'LP Gas, Welding & Gas Consumables, Paraffin & Wood'",
+     "supports": [
+      "South African industrial retail"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "brands",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Gascor and Air Products LPG distributor signage with 041 landline; ESAB welding board — South African industrial supply chain",
+     "supports": [
+      "ZA"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.64
+   },
+   {
+    "blind": {
+     "category": "signage",
+     "image_index": 2,
+     "level": "metro_area",
+     "observation": "BUCO hardware directional sign reads 'BUCO UITENHAGE 600M' with phone code 041",
+     "supports": [
+      "Uitenhage/Kariega, Nelson Mandela Bay"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "commercial_brand",
+     "image_index": 2,
+     "level": "metro_area",
+     "observation": "BUCO Hardware & Building Materials sign explicitly reading 'BUCO UITENHAGE' with 041 dialling code (Port Elizabeth/Gqeberha area code)",
+     "supports": [
+      "Uitenhage/Kariega"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.6
+   },
+   {
+    "blind": {
+     "category": "architecture",
+     "image_index": 1,
+     "level": "district",
+     "observation": "Single-storey face-brick and plastered municipal building with green corrugated-iron roof, burglar bars on every window, palisade steel fencing",
+     "supports": [
+      "Small-town South African civic core"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "security_architecture",
+     "image_index": 2,
+     "level": "country",
+     "observation": "Tall galvanised palisade fencing and burglar bars on every window — the South African urban security vernacular",
+     "supports": [
+      "ZA"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.59
+   }
+  ],
+  "aided_only": [
+   {
+    "category": "urban_fabric",
+    "image_index": 3,
+    "level": "district",
+    "observation": "Low-rise light-industrial strip: aluminium manufacturers, cash & carry, unpaved verges, wide street reserve — Uitenhage's Cuyler/Lower Central industrial belt near the VW-driven automotive economy",
+    "supports": [
+     "Uitenhage Lower Central"
+    ],
+    "weight": "medium"
+   }
+  ],
+  "blind_only": [
+   {
+    "category": "signage",
+    "image_index": 2,
+    "level": "metro_area",
+    "observation": "Blue municipal board reading 'NEL... METROPO... FIRE & EM... UITEN...' (Nelson Mandela Bay Metropolitan Fire & Emergency, Uitenhage)",
+    "supports": [
+     "Uitenhage town centre"
+    ],
+    "weight": "high"
+   }
+  ]
+ },
+ "narrative": {
+  "blind_logic": "The blind chain moved from left-hand traffic plus palisade/burglar-bar security architecture to Southern Africa, then used SA-only retail and utility brands (BUCO, Gascor) with 041/082 dialling prefixes and the 'nelson mandela bay municipality' logo to lock South Africa. The Eastern Cape Autoweek billboard and metro branding gave the province and metro. Two explicit 'Uitenhage' signs plus a '61 Cuyler Street' address on a builders' merchant produced the town and then the light-industrial Cuyler Street / Graaff-Reinet Road corridor near the fire station and municipal court. Every narrowing step was carried by legible in-image text.",
+  "aided_logic": "The aided chain reaches the same continent, country, province and metro through the same cues — left-hand traffic, BUCO/Gascor, 041 landlines, the Nelson Mandela Bay logo, the Eastern Cape Autoweek billboard. At town level it repeats 'BUCO UITENHAGE', the municipal court and fire station, adding an architectural argument about 1930s red-brick rail-and-motor industrial stock. At district level it again cites '61 Cuyler Street' and the court/fire cluster, but now names the R334 route number, 'Kariega Central / Uitenhage Lower Central', Penford, Motherwell, Caledon Street and a 'Swartkops River bench'.",
+  "delta": "Nothing structural changed: the map added no evidentiary step the blind chain lacked, since the blind chain had already read the town name and street address off signage. What the map added is vocabulary and false precision — route number R334, suburb names (Kariega Central, Penford, Motherwell, Uitenhage Lower Central), the neighbouring Caledon Street retail core, and the Swartkops River bench. These are gazetteer/basemap labels, not things visible in the panel, and the discriminators built on them ('Penford is residential', 'northern Kariega Central lacks the civic cluster') are post-hoc rationalisations of a marker already seen. Confidence rose only 0.90 to 0.93, which is the tell that the map confirmed rather than enabled. The heritage-brick argument at metro_area is also post-hoc dressing on a conclusion the branch signage had already given.",
+  "map_dependent_steps": [
+   "district: naming the artery as R334-carrying — no route shield is cited anywhere in either chain",
+   "district: 'Kariega Central / Uitenhage Lower Central' as the named locality label",
+   "district: ruling out 'Penford' and 'Northern Kariega Central' — suburb names available only from a basemap",
+   "district: 'near the Traffic Department and Swartkops River bench' — neither is observed in the imagery",
+   "metro_area: ruling out 'Motherwell' as a comparison town, a candidate only salient once the metro is drawn on a map",
+   "district: contrasting with the 'Caledon Street' retail core by name"
+  ],
+  "verdict": "blind-sufficient",
+  "cost_usd": 0.046,
+  "model": "claude-opus-5"
+ },
+ "cost_usd": 0.7056,
+ "status": "OK"
+}

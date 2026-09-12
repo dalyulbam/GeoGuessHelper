@@ -1,6 +1,6 @@
 # 엔티티 · slovakia
 
-원자 18개 · 이 엔티티를 다룬 보고서 2건
+원자 19개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_04e0153e2160]] **SAD network origins under Czechoslovak state transport reform** (economy/country)
@@ -9,6 +9,7 @@
 - [[atm_3b4caddc25e6]] **Czechoslovakism and the suppressed dual-language convergence** (language/period)
 - [[atm_465631657fbd]] **SAD regional bus operator branding in Slovakia** (geography/polity)
 - [[atm_4bd93c84a1a2]] **Eastern-western development divide within Slovakia** (geography/region)
+- [[atm_647da10d11f2]] **Czech vs Slovak sorted-waste igloo lettering** (language/country)
 - [[atm_76d4211f5d39]] **Košice Basin and eastern Slovakia macro-region markers** (geography/region)
 - [[atm_7a548ba0d999]] **Foreign discount chains challenging national cooperatives in Central Europe** (economy/region)
 - [[atm_7f1b78158b4f]] **Slovak vs Czech orthographic discriminators (LEKÁREŇ vs lékárna)** (language/polity)
@@ -23,5 +24,6 @@
 - [[atm_fba72a044766]] **Slovak local-government terminology: starosta obce** (language/country)
 
 ## 보고서
+- `report_cz_zelec-u-tabora_49.318_14.6477_260906_223536_ko-en-fr.html`
 - `report_sk_kosice_48.6947_21.2482_260817_040902_ko.html`
 - `report_sk_kysucke-nove-mesto_49.3023_18.7819_260817_040440_ko.html`

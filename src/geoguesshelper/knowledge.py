@@ -192,6 +192,25 @@ class Atom:
     uses: int = 1
     created: float = field(default_factory=time.time)
     updated: float = field(default_factory=time.time)
+    # 추론 계층(baseline 실험, docs/knowledge/baseline/). None = 미판정.
+    #   "unaided"    — 로드뷰 패널만 보고도 추론된 사실(일반 추론)
+    #   "aided"      — 하단 지도(보조 지식)가 있어야만 추론된 사실
+    #   "blind-only" — 지도 없이 볼 때만 나온 관찰(지도가 있으면 사라짐)
+    tier: str | None = None
+    # ── 자동 정정 루프(260907 goal) — 사람 승인 대신 **증거**로 고친다 ──────────
+    #   kind        fact(기본) · discriminator("X 처럼 보이지만 사실 X2" 판별자, correction 유래)
+    #               · claim(대화 제안 — 인용 관문만 통과한 기계 산출)
+    #   status      active · retracted(오답을 뒷받침한 증거가 누적되면 회상에서 빠진다. 지우지 않는다 —
+    #               더 많은 정보가 들어오면 hits 가 다시 쌓여 살아날 수 있다)
+    #   origin      report · expansion · wiki · correction · dialogue · baseline (None = 구 원자, 파생 판정)
+    #   hits/misses 회상되어 프롬프트에 실린 뒤 정답/오답에 기여한 횟수(correction 루프가 채점)
+    #   confusions  "FI>NO" = FI 처럼 보였지만 사실 NO. 회상은 blind 추측이 FI 일 때 이 원자를 끌어온다.
+    kind: str = "fact"
+    status: str = "active"
+    origin: str | None = None
+    hits: int = 0
+    misses: int = 0
+    confusions: list[str] = field(default_factory=list)
 
     def meta(self) -> dict:
         d = asdict(self)
@@ -365,6 +384,10 @@ def recall(
     entities: list[str] | None = None,
     limit: int = 12,
     char_budget: int = 6000,
+    kinds: tuple[str, ...] | None = None,
+    exclude_tiers: tuple[str, ...] = ("aided",),
+    confusion_isos: list[str] | None = None,
+    ctx: dict | None = None,
 ) -> list[Atom]:
     """좌표·태그·엔티티로 관련 원자를 점수순으로 회수한다.
 
@@ -372,6 +395,16 @@ def recall(
     150m 셀에서만, polity 원자는 대륙 규모에서 걸린다. 그래서 '샤를마뉴 강역' 같은 광역
     원자는 프랑스에서도 독일에서도 회수되지만, 특정 골목의 표지판 원자는 그 골목에서만
     회수된다.
+
+    260907(자동 정정 루프):
+      · status=retracted 원자는 회수하지 않는다(삭제는 안 한다).
+      · tier 가 `exclude_tiers`(기본 aided = 지도가 있어야만 나온 사실)인 원자는 장면 분석에
+        실리지 않는다 — 기준선 실험 FINDINGS 함의 4.
+      · `confusion_isos` = blind 추측의 ISO 들("FI"). confusions 에 "FI>…" 가 있는 판별자는
+        지리·엔티티 접점이 없어도 후보가 된다 — 추측이 **틀렸을 때** 끌어와야 하는 원자라서
+        정답 위치 기준 지리 매칭에는 걸릴 수 없다.
+      · hits/misses 가 점수에 들어간다 — 정답에 기여한 원자는 오르고, 오답을 뒷받침한 원자는 내려간다.
+      · 회수 결과를 recall_log.jsonl 에 한 줄씩 남긴다(관측소 Q8 "어느 원자가 실제로 쓰였나").
     """
     st = store_for(settings)
     idx = st.index()
@@ -385,14 +418,27 @@ def recall(
         if p.get(key):
             q_ents.add(slug(p[key]))
     q_cell = geohash(lat, lng, 7) if lat is not None and lng is not None else ""
+    q_conf = {str(c).upper() for c in (confusion_isos or []) if c}
 
-    scored: list[tuple[float, str]] = []
+    scored: list[tuple[float, str, str]] = []
     now = time.time()
     for aid, meta in idx["atoms"].items():
+        if (meta.get("status") or "active") == "retracted":
+            continue
+        if meta.get("tier") in exclude_tiers:
+            continue
+        if kinds and (meta.get("kind") or "fact") not in kinds:
+            continue
         scope = meta.get("scope") or "city"
         prec = _SCOPE_PRECISION.get(scope, 5)
         tag_s = _jaccard(q_tags, {slug(t) for t in (meta.get("tags") or [])})
         ent_s = _jaccard(q_ents, {slug(e) for e in (meta.get("entities") or [])})
+        conf = 0.0
+        if q_conf:
+            for c in meta.get("confusions") or []:
+                if str(c).split(">")[0].upper() in q_conf:
+                    conf = 1.0
+                    break
         geo = 0.0
         if prec == 0:
             # 시기/전역 원자는 지리 조건이 없는 대신 내용 접점이 있어야만 후보가 된다.
@@ -409,22 +455,28 @@ def recall(
                     geo = 0.8
         # 지리 접점도 엔티티 접점도 없는 원자는 태그만으로 들어오지 못한다 —
         # #road-signage 같은 일반 태그가 지구 반대편 원자를 끌어오는 것을 막는다.
-        if geo <= 0 and ent_s <= 0:
+        # 예외: 혼동 판별자(conf) — 추측 X 에 걸린 "X 처럼 보이지만 X2" 원자.
+        if geo <= 0 and ent_s <= 0 and conf <= 0:
             continue
         age_days = max(0.0, (now - float(meta.get("updated") or now)) / 86400.0)
         score = (
             3.0 * geo
             + 2.5 * ent_s
             + 1.5 * tag_s
+            + 2.0 * conf
             + 0.4 * math.log1p(float(meta.get("uses") or 1))
+            + 0.8 * math.log1p(float(meta.get("hits") or 0))
+            - 1.0 * math.log1p(float(meta.get("misses") or 0))
             - 0.01 * min(age_days, 365)
         )
-        scored.append((score, aid))
+        via = "+".join(k for k, v in (("geo", geo), ("ent", ent_s), ("tag", tag_s), ("conf", conf)) if v > 0)
+        scored.append((score, aid, via))
 
     scored.sort(reverse=True)
     out: list[Atom] = []
+    log_rows: list[dict] = []
     used = 0
-    for score, aid in scored:
+    for score, aid, via in scored:
         if len(out) >= limit or used >= char_budget:
             break
         a = st.load(aid)
@@ -432,6 +484,284 @@ def recall(
             continue
         used += len(a.body) + len(a.title)
         out.append(a)
+        log_rows.append({"atom": aid, "score": round(score, 3), "rank": len(out), "via": via})
+    _append_recall_log(settings, log_rows, ctx or {}, place=p, lat=lat, lng=lng)
+    return out
+
+
+def _append_recall_log(settings: Settings, rows: list[dict], ctx: dict, *, place: dict, lat, lng) -> None:
+    """회상 로그 — 원자 파일은 건드리지 않고 `recall_log.jsonl` 에 덧붙인다(관측소 재료).
+
+    잡당 ≤limit 줄. 실패해도 회상 자체는 실패하지 않는다."""
+    if not rows:
+        return
+    try:
+        path = settings.knowledge_dir / "recall_log.jsonl"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        at = time.time()
+        label = ", ".join(str(place.get(k)) for k in ("city", "region_or_state", "country") if place.get(k))
+        cell = geohash(lat, lng, 5) if lat is not None and lng is not None else ""
+        with path.open("a", encoding="utf-8") as f:
+            for r in rows:
+                f.write(json.dumps({"at": at, "ctx": ctx.get("job") or ctx.get("kind") or "", "mode": ctx.get("mode") or "",
+                                    "place": label, "cell": cell, **r}, ensure_ascii=False) + "\n")
+    except OSError:
+        pass
+
+
+# ── 증거(evidence) — 회상된 원자가 정답/오답에 기여했는지 채점한다 ─────────────
+def record_evidence(settings: Settings, *, hits: list[str] | None = None, misses: list[str] | None = None,
+                    ctx: dict | None = None, note: str = "") -> dict:
+    """정정 루프·대화의 채점. hits/misses 를 올리고, 오답만 뒷받침한 원자는 `retracted` 로 내린다.
+
+    철회 규칙: misses ≥ 3 이고 hits == 0, 또는 misses ≥ 2·hits + 3. 철회는 회상 제외일 뿐
+    파일은 남는다 — 이후 hits 가 쌓여 규칙을 벗어나면 다시 active 로 돌아온다("더 많은 정보를
+    흡수하면서 수정"). 모든 변경은 evidence_log.jsonl 에 남는다.
+    """
+    st = store_for(settings)
+    changed: list[dict] = []
+    skipped: list[dict] = []
+    job = (ctx or {}).get("job") or ""
+    # 멱등성 — 같은 잡이 같은 원자에 같은 판정을 이미 기록했으면 다시 올리지 않는다. 정정 루프의 PARTIAL 재시도가
+    # 채점을 반복하면 hits/misses 가 중복 가산돼 misses≥3 철회까지 갈 수 있었다(codex 2차 260908). 근거는 evidence_log.
+    seen = _evidence_seen(settings, job) if job else set()
+    for kind, ids in (("hit", hits or []), ("miss", misses or [])):
+        for aid in dict.fromkeys(i for i in ids if isinstance(i, str) and i.startswith("atm_")):
+            if (aid, kind) in seen:
+                skipped.append({"atom": aid, "event": kind})
+                continue
+            a = st.load(aid)
+            if a is None:
+                continue
+            if kind == "hit":
+                a.hits += 1
+            else:
+                a.misses += 1
+            retract = a.misses >= 3 and (a.hits == 0 or a.misses >= 2 * a.hits + 3)
+            new_status = "retracted" if retract else "active"
+            status_changed = new_status != (a.status or "active")
+            a.status = new_status
+            st.save(a)
+            changed.append({"atom": aid, "event": kind, "hits": a.hits, "misses": a.misses,
+                            "status": a.status, "status_changed": status_changed})
+    if changed:
+        try:
+            path = settings.knowledge_dir / "evidence_log.jsonl"
+            with path.open("a", encoding="utf-8") as f:
+                at = time.time()
+                for c in changed:
+                    f.write(json.dumps({"at": at, "ctx": (ctx or {}).get("job") or "", "note": note[:300], **c},
+                                       ensure_ascii=False) + "\n")
+        except OSError:
+            pass
+    return {"changed": changed, "skipped": skipped,
+            "retracted": [c["atom"] for c in changed if c["status"] == "retracted" and c["status_changed"]],
+            "restored": [c["atom"] for c in changed if c["status"] == "active" and c["status_changed"]]}
+
+
+def _evidence_seen(settings: Settings, job: str) -> set[tuple[str, str]]:
+    """evidence_log.jsonl 에서 ctx==job 인 (atom, event) 집합 — record_evidence 의 잡 단위 멱등 키."""
+    path = settings.knowledge_dir / "evidence_log.jsonl"
+    out: set[tuple[str, str]] = set()
+    if not path.exists():
+        return out
+    try:
+        for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                d = json.loads(line)
+            except ValueError:
+                continue
+            if isinstance(d, dict) and d.get("ctx") == job and isinstance(d.get("atom"), str) and d.get("event") in ("hit", "miss"):
+                out.add((d["atom"], d["event"]))
+    except OSError:
+        pass
+    return out
+
+
+# ── 정정 적재 — "X 처럼 보였지만 사실 X2" 판별자 원자 (LLM 없음, correction.py 가 재료를 준다) ──
+def ingest_corrections(settings: Settings, *, discriminators: list[dict], truth: dict,
+                       images: list[str] | None = None, image_panos: dict | None = None,
+                       report_file: str = "", ctx: dict | None = None) -> dict:
+    """정정 호출의 `discriminators[]` 를 kind=discriminator 원자로 저장한다.
+
+    항목 스키마(correction.py 의 도구 출력):
+      {title, body, layer, category, scope("country"|"region"|"city"|"point"), tags[], entities[],
+       looks_like: {country_iso, region?}, actually: {country_iso, region?}, image_index|null, confidence}
+    좌표는 정답(truth lat/lng — pano 평균) 에서만 온다. point 스코프는 image_index 의 pano 좌표.
+    중복은 `_find_near_duplicate` 로 잡고 기존 원자에 병합(+hits). 원자는 tier=unaided
+    (blind 이미지에서 보인 것), status=active, origin=correction 이다.
+    """
+    if not settings.knowledge_enabled:
+        return {"atoms": [], "created": 0, "merged": 0, "skipped": "disabled"}
+    st = store_for(settings)
+    images = images or []
+    image_panos = image_panos or {}
+    t_lat, t_lng = _as_float(truth.get("lat")), _as_float(truth.get("lng"))
+    saved: list[Atom] = []
+    created = merged = 0
+    cap = int(getattr(settings, "correction_max_atoms", 8) or 8)
+    for raw in discriminators or []:
+        if not isinstance(raw, dict) or len(saved) >= cap:
+            continue
+        title = (raw.get("title") or "").strip()
+        body = (raw.get("body") or "").strip()
+        layer = raw.get("layer") if raw.get("layer") in LAYERS else "architecture"
+        if not title or not body:
+            continue
+        category = raw.get("category") if raw.get("category") in ALL_CATEGORIES else CATEGORY_OTHER
+        scope = raw.get("scope") if raw.get("scope") in ("country", "region", "city", "point") else "country"
+        looks = raw.get("looks_like") if isinstance(raw.get("looks_like"), dict) else {}
+        actual = raw.get("actually") if isinstance(raw.get("actually"), dict) else {}
+        l_iso = str(looks.get("country_iso") or "").upper()[:2]
+        a_iso = str(actual.get("country_iso") or truth.get("iso") or "").upper()[:2]
+        conf_tag = f"{l_iso}>{a_iso}" if l_iso and a_iso and l_iso != a_iso else None
+        tags = {slug(t) for t in (raw.get("tags") or []) if t} | {category, "discriminator"}
+        if l_iso:
+            tags.add(f"looks-like-{l_iso.lower()}")
+        if a_iso:
+            tags.add(f"actually-{a_iso.lower()}")
+        ents = {slug(e) for e in (raw.get("entities") or []) if e}
+        for k in ("country", "region"):
+            if actual.get(k):
+                ents.add(slug(str(actual[k])))
+            if looks.get(k):
+                ents.add(slug(str(looks[k])))
+        tags_l = sorted(tags)[:14]
+        ents_l = sorted(ents)[:8]
+
+        lat_i, lng_i = t_lat, t_lng
+        src: list[str] = []
+        ii = raw.get("image_index")
+        if ii is not None and images:
+            try:
+                ii = int(ii)
+            except (TypeError, ValueError):
+                ii = None
+            if ii is not None and 0 <= ii < len(images):
+                src = [f"/captures/{Path(images[ii]).name}"]
+                pano = image_panos.get(Path(images[ii]).name) or {}
+                if scope == "point" and _as_float(pano.get("lat")) is not None:
+                    lat_i, lng_i = _as_float(pano.get("lat")), _as_float(pano.get("lng"))
+        if scope == "point" and (lat_i is None or lng_i is None):
+            scope = "region"
+        cell = geohash(lat_i, lng_i, 7) if lat_i is not None and lng_i is not None else ""
+
+        aid = atom_id(layer, ents_l, body)
+        existing = st.load(aid) or _find_near_duplicate(st, layer, ents_l, tags_l, scope, category)
+        if existing is not None:
+            _touch(existing, report_file, tags_l, src)
+            existing.hits += 1
+            if conf_tag and conf_tag not in existing.confusions:
+                existing.confusions = (existing.confusions + [conf_tag])[:12]
+            if existing.kind == "fact" and conf_tag:
+                existing.kind = "discriminator"
+            st.save(existing)
+            saved.append(existing)
+            merged += 1
+            continue
+        atom = Atom(
+            id=aid, layer=layer, scope=scope, title=title[:120], body=body, category=category,
+            tags=tags_l, entities=ents_l, lat=lat_i, lng=lng_i,
+            radius_km=_SCOPE_RADIUS_KM.get(scope, 200), cell=cell, lang="en",
+            sources=src, reports=[report_file] if report_file else [],
+            tier="unaided", kind="discriminator", status="active", origin="correction",
+            confusions=[conf_tag] if conf_tag else [],
+        )
+        st.save(atom)
+        saved.append(atom)
+        created += 1
+    if saved:
+        label = ", ".join(str(truth.get(k)) for k in ("city", "region", "country") if truth.get(k))
+        _write_place_note(st, t_lat, t_lng, label, saved, report_file)
+        for e in {e for a2 in saved for e in a2.entities}:
+            _write_entity_note(st, e)
+    return {"atoms": saved, "created": created, "merged": merged}
+
+
+# ── 대화 제안 적재 — 인용 관문만 통과하면 기계 등급(claim)으로 들어온다 ─────────────
+def ingest_claims(settings: Settings, *, proposals: list[dict], cite_pool: set[str],
+                  n_images: int = 0, ctx: dict | None = None, report_file: str = "") -> dict:
+    """dialogue.py 의 제안을 원자로. 사람 승인 없음 — 대신 (1) 문맥 원자/이미지 인용 ≥1 이라는
+    기계 관문, (2) kind=claim · origin=dialogue 표식, (3) 이후 정정 루프의 hits/misses 채점.
+
+    proposals[]: {type: atom|link|dispute, title, body, layer, category, scope, tags[], entities[],
+                  cites: ["atm_…" | "image:0"], target_atom?, reason?, lat?, lng?}
+    """
+    st = store_for(settings)
+    out = {"atoms": [], "created": 0, "merged": 0, "links": 0, "disputes": 0, "rejected": []}
+    for p in proposals or []:
+        if not isinstance(p, dict):
+            continue
+        cites = [str(c) for c in (p.get("cites") or []) if c]
+        ok_cites = [c for c in cites if c in cite_pool or
+                    (c.startswith("image:") and c[6:].isdigit() and int(c[6:]) < n_images)]
+        typ = p.get("type") or "atom"
+        if typ == "dispute":
+            tgt = p.get("target_atom")
+            if isinstance(tgt, str) and tgt in cite_pool:
+                record_evidence(settings, misses=[tgt], ctx=ctx, note=f"dialogue dispute: {p.get('reason') or ''}")
+                out["disputes"] += 1
+            else:
+                out["rejected"].append({"type": typ, "why": "target not in context"})
+            continue
+        if typ == "link":
+            a_id, b_id = p.get("atom_a"), p.get("atom_b")
+            a, b = (st.load(a_id) if isinstance(a_id, str) else None), (st.load(b_id) if isinstance(b_id, str) else None)
+            if a and b and a.id != b.id:
+                if b.id not in a.refs:
+                    a.refs.append(b.id)
+                    st.save(a)
+                if a.id not in b.refs:
+                    b.refs.append(a.id)
+                    st.save(b)
+                out["links"] += 1
+            else:
+                out["rejected"].append({"type": typ, "why": "unknown atom"})
+            continue
+        if not ok_cites:
+            out["rejected"].append({"type": typ, "title": p.get("title"), "why": "uncited"})
+            continue
+        title = (p.get("title") or "").strip()
+        body = (p.get("body") or "").strip()
+        if not title or not body:
+            out["rejected"].append({"type": typ, "why": "empty"})
+            continue
+        layer = p.get("layer") if p.get("layer") in LAYERS else "culture"
+        scope = p.get("scope") if p.get("scope") in SCOPES else "region"
+        category = p.get("category") if p.get("category") in ALL_CATEGORIES else CATEGORY_OTHER
+        tags = sorted({slug(t) for t in (p.get("tags") or []) if t} | {"claim"})[:12]
+        ents = sorted({slug(e) for e in (p.get("entities") or []) if e})[:8]
+        refs = [c for c in ok_cites if c.startswith("atm_")]
+        lat_i, lng_i = _as_float(p.get("lat")), _as_float(p.get("lng"))
+        if lat_i is None or lng_i is None:
+            # 좌표는 인용한 원자에서 물려받는다(LLM 지오코딩 금지).
+            for r in refs:
+                ra = st.load(r)
+                if ra and ra.lat is not None:
+                    lat_i, lng_i = ra.lat, ra.lng
+                    break
+        cell = geohash(lat_i, lng_i, 7) if lat_i is not None and lng_i is not None else ""
+        aid = atom_id(layer, ents, body)
+        existing = st.load(aid) or _find_near_duplicate(st, layer, ents, tags, scope, category)
+        if existing is not None:
+            _touch(existing, report_file, tags, [])
+            existing.refs = sorted(set(existing.refs) | set(refs))[:24]
+            st.save(existing)
+            out["atoms"].append(existing.id)
+            out["merged"] += 1
+            continue
+        atom = Atom(
+            id=aid, layer=layer, scope=scope, title=title[:120], body=body, category=category,
+            tags=tags, entities=ents, lat=lat_i, lng=lng_i, radius_km=_SCOPE_RADIUS_KM.get(scope, 200),
+            cell=cell, lang="en", refs=refs, reports=[report_file] if report_file else [],
+            kind="claim", status="active", origin="dialogue",
+        )
+        st.save(atom)
+        out["atoms"].append(atom.id)
+        out["created"] += 1
     return out
 
 

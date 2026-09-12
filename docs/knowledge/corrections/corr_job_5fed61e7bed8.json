@@ -1,0 +1,939 @@
+{
+ "job_id": "job_5fed61e7bed8",
+ "report_file": "report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html",
+ "label": "선택 장면 보고서 · NyDqIycL…GANA",
+ "created": 1789013491.02445,
+ "lang": "en",
+ "images": [
+  "capture_9bb126c20b38.jpg",
+  "capture_83e40e110f27.jpg",
+  "capture_eb2d9538219e.jpg",
+  "capture_614cffd4b2c0.jpg"
+ ],
+ "image_panos": {
+  "capture_9bb126c20b38.jpg": {
+   "pano_id": "NyDqIycLqTRbDvinu_GANA",
+   "lat": 4.271594374197751,
+   "lng": -73.49033198150923,
+   "heading": 75.78496077758633,
+   "pitch": -1.8203468596442036
+  },
+  "capture_83e40e110f27.jpg": {
+   "pano_id": "BRYbNZ2MXAk4_vlGJBhtzg",
+   "lat": 4.271620549900164,
+   "lng": -73.48988844481924,
+   "heading": 85.8467482195755,
+   "pitch": -4.905675832713641
+  },
+  "capture_eb2d9538219e.jpg": {
+   "pano_id": "UQwV1LO6bKVU15zH-4hseA",
+   "lat": 4.271646446514073,
+   "lng": -73.48952122737869,
+   "heading": 87.8867038587624,
+   "pitch": 0.9791921277243176
+  },
+  "capture_614cffd4b2c0.jpg": {
+   "pano_id": "1S7dl9iKjtGnS_cmTJiLBQ",
+   "lat": 4.271602144588788,
+   "lng": -73.48917225785169,
+   "heading": 134.92417554963228,
+   "pitch": -2.1330323435481233
+  }
+ },
+ "truth": {
+  "lat": 4.271615878800194,
+  "lng": -73.48972847788971,
+  "iso": "CO",
+  "country": "Colombia",
+  "region": "Meta Department (Llanos Orientales)",
+  "city": "Cumaral",
+  "source": "aided_prior",
+  "file_lat": 4.2716,
+  "file_lng": -73.4903,
+  "n_panos": 4
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Cumaral",
+     "confidence": 0.82,
+     "coordinate_estimate": {
+      "lat": 4.2705,
+      "lng": -73.4875,
+      "radius_km": 3
+     },
+     "country": "Colombia",
+     "country_iso": "CO",
+     "region_or_state": "Meta"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.08,
+      "country": "Colombia",
+      "country_iso": "CO"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Venezuela",
+      "country_iso": "VE"
+     },
+     {
+      "confidence": 0.03,
+      "country": "Ecuador",
+      "country_iso": "EC"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Tropical humid savanna / piedmont llanos, hot lowland with lush broadleaf trees and palms",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Green street blade reading 'Calle 10' with a one-way arrow — the Calle/Carrera grid naming system is characteristic of Colombia.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Spanish commercial text 'Red de servicios farmacéuticos', 'SAS' (Sociedad por Acciones Simplificada, a Colombian corporate suffix), prices as '$21.999' with dot thousands separator typical of Colombian peso pricing.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "business",
+      "image_index": 3,
+      "level": "metro_area",
+      "observation": "Pharmacy chain banner 'Sikuany SAS' with a branch label ('Sede ... Cumaral'); 'Sikuani' is the name of a Llanos indigenous people, tying the brand to the Orinoquía region.",
+      "supports": [
+       "Meta department",
+       "Cumaral"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 1,
+      "level": "macro_region",
+      "observation": "Single-storey painted masonry houses with corrugated zinc/fibre-cement roofs, barred windows, no glazing needs — hot lowland construction rather than Andean brick two-storey with steep tile roofs.",
+      "supports": [
+       "lowland llanos"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Mango/almond shade trees with whitewashed trunks, palms and a deciduous flowering tree (Ceiba/frangipani) bare in dry season — piedmont llanos flora, not páramo or Caribbean scrub.",
+      "supports": [
+       "Meta piedmont"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Wide tree-planted central median boulevard with painted kerbs, concrete slab pavement and low traffic — typical planned grid of a small Meta/Casanare llanos town.",
+      "supports": [
+       "Meta"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "transport",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Small-displacement commuter motorcycles dominate over cars, parked at kerb; heavy motorcycle dependence is standard in Colombian provincial towns.",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "terrain",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Flat street grid but a low green ridge visible on the far right horizon — consistent with the Andean foothills edge (piedemonte llanero) rather than the fully flat deep llanos.",
+      "supports": [
+       "Cumaral / Villavicencio corridor"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A small, low-income but tidy provincial town in the Colombian Eastern Plains piedmont: one-storey painted masonry homes, informal street-front eateries with plastic chairs, motorcycle-based mobility, and a regional pharmacy chain rather than national supermarkets. Economy is agropastoral (cattle, rice, oil palm) with services oriented toward nearby Villavicencio. Cultural sphere is mestizo llanero (Hispanic criollo with indigenous Sikuani naming legacy), not Andean highland nor Caribbean coastal.",
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 3,
+      "name": "Sikuany SAS pharmacy branch",
+      "type": "regional pharmacy chain storefront"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 0,
+      "name": "Calle 10 corner shop",
+      "type": "street name blade / corner tienda"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "'Calle 10', 'Red de servicios farmacéuticos', 'SOLO POR', 'COMBO'",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Latin America",
+       "Southeast Asia",
+       "Sub-Saharan Africa"
+      ],
+      "conclusion": "Tropical Latin America, right-hand traffic",
+      "confidence_after": 0.95,
+      "discriminator": "Southeast Asia would show Thai/Vietnamese/Latin-with-diacritics signage and left-hand or scooter-swarm traffic patterns; Africa would show different shop-sign typography and no Calle/Carrera grid.",
+      "level": "continent",
+      "observation": "Spanish-language signage, right-side parked vehicles, colonial-derived grid town with painted masonry houses and zinc roofs.",
+      "question": "Which tropical world region?",
+      "ruled_out": [
+       "Southeast Asia — no Asian scripts, motorcycles are Latin-style commuter bikes",
+       "Sub-Saharan Africa — Spanish signage and Latin-American shop layouts"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Colombia",
+       "Venezuela",
+       "Ecuador",
+       "Peru",
+       "Bolivia"
+      ],
+      "conclusion": "Colombia",
+      "confidence_after": 0.92,
+      "discriminator": "Venezuela would use 'Calle' but with Av./Calle names rather than numbered Calle/Carrera grids and would show Venezuelan-style yellow plates and Polar/PDVSA branding; Ecuador uses 'Cía. Ltda.' not 'SAS' and prices in USD without dot-thousands; Peru/Bolivia would show 'Jr.'/'Av.' plus S.A.C. or S.R.L. suffixes.",
+      "level": "country",
+      "observation": "Green 'Calle 10' blade, corporate suffix 'SAS', peso price '$21.999' with dot as thousand separator.",
+      "question": "Which Spanish-speaking Andean/Caribbean country?",
+      "ruled_out": [
+       "Venezuela — 'SAS' suffix and peso-scale pricing are Colombian",
+       "Ecuador — dollarized prices would not read 21.999",
+       "Peru/Bolivia — different street prefixes and company suffixes"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Caribbean coast",
+       "Andean highlands",
+       "Pacific/Chocó",
+       "Orinoquía llanos",
+       "Amazon"
+      ],
+      "conclusion": "Orinoquía / Eastern Plains piedmont",
+      "confidence_after": 0.85,
+      "discriminator": "Andean towns (Boyacá, Antioquia) sit on slopes with tiled two-storey balconied houses and cool-climate vegetation; Caribbean coast would show cactus/scrub, sandier streets and coastal breeze architecture; Chocó would be timber stilt houses in dense rainforest; Amazon towns lack this wide planted-median grid.",
+      "level": "macro_region",
+      "observation": "Dead-flat wide grid streets with planted central median, hot-lowland zinc-roof single-storey houses, mango/ceiba shade trees, and a low foothill ridge on the horizon.",
+      "question": "Which Colombian macro-region?",
+      "ruled_out": [
+       "Andean highlands — no slope, no eucalyptus/clay tile, tropical broadleaf instead",
+       "Caribbean coast — vegetation too lush and green, no coastal scrub",
+       "Chocó/Pacific — masonry not timber, dry paved streets"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Sikuani/Llanero indigenous sphere",
+       "Mestizo llanero criollo sphere",
+       "Andean mestizo sphere"
+      ],
+      "conclusion": "Mestizo llanero (criollo) town that adopts local Sikuani indigenous naming in branding",
+      "confidence_after": 0.8,
+      "discriminator": "A genuinely indigenous settlement would show communal/resguardo layout and bilingual or NGO signage; an Andean mestizo town would use Chibcha-derived toponyms and cool-climate dress rather than a Sikuani-named commercial chain.",
+      "level": "cultural_sphere",
+      "observation": "Commercial branding uses 'Sikuany', the ethnonym of the Guahibo/Sikuani people of the Orinoco plains, while the townscape is fully criollo-mestizo commercial.",
+      "question": "Which cultural sphere within the plains?",
+      "ruled_out": [
+       "Andean mestizo sphere — Sikuani naming is exclusive to the Orinoquía",
+       "Purely indigenous settlement — town is a standard criollo grid with chain retail"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Meta",
+       "Casanare",
+       "Arauca",
+       "Vichada"
+      ],
+      "conclusion": "Department of Meta, Andean-piedmont belt near Villavicencio",
+      "confidence_after": 0.8,
+      "discriminator": "Casanare/Arauca towns (Yopal, Tame) sit on flatter, drier savanna with sparser tree canopy and more Llanero cattle-market infrastructure; Vichada towns are far smaller with unpaved streets and no chain pharmacies.",
+      "level": "admin_region",
+      "observation": "Dense humid vegetation, concrete-slab paved streets, an established pharmacy chain branch, and a green foothill ridge on the horizon indicating proximity to the Cordillera Oriental.",
+      "question": "Which llanos department?",
+      "ruled_out": [
+       "Vichada — infrastructure far too developed",
+       "Arauca — drier savanna vegetation and no foothill relief",
+       "Casanare — canopy and relief here read piedmont rather than open savanna"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Cumaral",
+       "Restrepo",
+       "Acacías",
+       "Villavicencio outskirts"
+      ],
+      "conclusion": "Cumaral, Meta",
+      "confidence_after": 0.78,
+      "discriminator": "Villavicencio proper would be far denser with multi-storey blocks and busy traffic; Acacías/Restrepo would not carry a branch banner naming Cumaral. The pharmacy banner explicitly labels its branch location.",
+      "level": "metro_area",
+      "observation": "Pharmacy banner shows a branch label ending in 'Cumaral' beneath the chain name, in a low-rise town of a few thousand residents.",
+      "question": "Which piedmont town?",
+      "ruled_out": [
+       "Villavicencio — scale and density far larger",
+       "Acacías / Restrepo — branch labelling points elsewhere"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Central plaza blocks",
+       "Peripheral residential grid"
+      ],
+      "conclusion": "Residential grid a few blocks off the central plaza, around Calle 10 with a landscaped median boulevard",
+      "confidence_after": 0.6,
+      "discriminator": "The plaza core would show a church tower, the municipal hall and continuous commercial arcades; here the frontage is houses with occasional corner tiendas and a green median with benches.",
+      "level": "district",
+      "observation": "Mostly residential frontages with a corner shop, a tree-lined median with a bench, quiet street with parked motorcycles.",
+      "question": "Plaza core or residential fringe?",
+      "ruled_out": [
+       "Central plaza — no church, no municipal building, no arcade shops"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.78,
+    "place_slug": "cumaral",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.1962,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4300,
+    "cacheWrite": 13848,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Colombia",
+    "country_iso": "CO",
+    "country_correct": true,
+    "region": "Meta",
+    "city": "Cumaral",
+    "confidence": 0.82,
+    "overall_confidence": 0.78,
+    "error_km": 0.28,
+    "reached_level": "district",
+    "n_steps": 7,
+    "n_steps_with_cut": 7,
+    "n_cues": 8,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "business",
+     "infrastructure",
+     "language",
+     "signage",
+     "terrain",
+     "transport",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Cumaral",
+     "confidence": 0.82,
+     "coordinate_estimate": {
+      "lat": 4.2705,
+      "lng": -73.4879,
+      "radius_km": 3
+     },
+     "country": "Colombia",
+     "country_iso": "CO",
+     "region_or_state": "Meta Department"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.07,
+      "country": "Colombia",
+      "country_iso": "CO"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Venezuela",
+      "country_iso": "VE"
+     },
+     {
+      "confidence": 0.03,
+      "country": "Ecuador",
+      "country_iso": "EC"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Hot humid tropical savanna (Llanos piedmont), lush broadleaf shade trees, mango/almendro street planting",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 0,
+      "observation": "Green street blade reading 'Calle 10' with a white one-way arrow on blue plate — the Colombian Calle/Carrera grid naming convention on a small green sign.",
+      "level": "country",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 3,
+      "observation": "Spanish commercial signage: 'Red de servicios farmacéuticos', 'SAS' company suffix (Sociedad por Acciones Simplificada), price '$21.999' with dot as thousands separator.",
+      "level": "country",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "business/branding",
+      "image_index": 3,
+      "observation": "Pharmacy chain 'Sikuany SAS' — 'Sikuani' is an indigenous people of the Colombian/Venezuelan Llanos; the sign also shows a branch label beginning 'Sede ... Cumaral'.",
+      "level": "admin_region",
+      "supports": [
+       "Meta, Colombia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "price/currency",
+      "image_index": 3,
+      "observation": "Fast-food combo priced at 21,999 — magnitude consistent with Colombian pesos, not USD/soles/bolívares.",
+      "level": "country",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "urban form",
+      "image_index": 1,
+      "observation": "Wide concrete-slab street with central planted median and whitewashed tree trunks, single-storey painted masonry houses with corrugated zinc roofs — typical Llanos small-town layout.",
+      "level": "macro_region",
+      "supports": [
+       "Llanos piedmont"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "observation": "Concrete utility poles with unbundled multi-wire distribution and simple cobra-head streetlights on tubular arms; no state-monopoly branding, consistent with privatized distributors in Colombia.",
+      "level": "country",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vegetation/climate",
+      "image_index": 2,
+      "observation": "Mix of leafless dry-season tree (likely a ceiba/frangipani) beside fully green mango trees under towering cumulus — seasonal Llanos climate rather than perhumid Amazon.",
+      "level": "macro_region",
+      "supports": [
+       "Meta/Casanare piedmont"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "observation": "Small-displacement commuter motorcycles dominate, several parked on sidewalks; typical of Colombian intermediate towns.",
+      "level": "cultural_sphere",
+      "supports": [
+       "Colombia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "topography",
+      "image_index": 0,
+      "observation": "Faint low ridge visible on the right horizon over flat town — consistent with the Andean foothill/Llanos boundary rather than deep plains.",
+      "level": "admin_region",
+      "supports": [
+       "Piedmont of Meta"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A modest but stable llanero market town: owner-occupied single-storey masonry houses in bright paint, small storefronts (a fried-chicken/burger place advertising combos, a chain pharmacy branch), motorcycle-based mobility, concrete-paved but crack-worn streets, planted medians maintained by the municipality. Presence of a regional pharmacy chain with a branded branch and air conditioning indicates formal retail penetration; overall lower-middle-income, agriculture/cattle-service economy of the Meta piedmont, within Bogotá's commercial orbit via the Villavicencio corridor.",
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "'Calle 10', 'Red de servicios farmacéuticos', 'Sede', 'COMBO'",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 3,
+      "name": "Sikuany SAS pharmacy, Cumaral branch",
+      "type": "chain pharmacy storefront"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 0,
+      "name": "Calle 10 corner shop",
+      "type": "street sign / corner tienda"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which continent and language sphere?",
+      "candidates": [
+       "Latin America",
+       "Southeast Asia",
+       "Sub-Saharan Africa",
+       "Southern Europe"
+      ],
+      "observation": "Spanish-language shop signage, right-hand traffic, tropical broadleaf trees, painted masonry single-storey houses with zinc roofs.",
+      "discriminator": "Southeast Asia would show Latin-script Vietnamese/Thai script and different pole hardware; Africa would lack the Spanish 'SAS' corporate suffix; Southern Europe would have tile roofs, no zinc, and no whitewashed tree trunks.",
+      "ruled_out": [
+       "Southeast Asia — no Asian script, Spanish text",
+       "Sub-Saharan Africa — Spanish commercial language",
+       "Southern Europe — tropical vegetation and zinc roofing"
+      ],
+      "conclusion": "Spanish-speaking tropical Latin America",
+      "confidence_after": 0.96,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Which Spanish-speaking tropical country?",
+      "candidates": [
+       "Colombia",
+       "Venezuela",
+       "Ecuador",
+       "Peru",
+       "Mexico",
+       "Bolivia"
+      ],
+      "observation": "Green 'Calle 10' blade with attached one-way arrow, 'SAS' company suffix, price '21.999' pesos.",
+      "discriminator": "Venezuela would price in bolívares/USD and rarely uses the SAS legal form; Ecuador uses USD with two-decimal cents; Peru would show 'S/.' soles and 'S.A.C.' suffix; Mexico would show CFE-branded utility furniture and 'S.A. de C.V.'. The Calle/Carrera numeric grid plus 'SAS' is a Colombian pair.",
+      "ruled_out": [
+       "Venezuela — currency and legal-suffix mismatch",
+       "Ecuador — USD pricing absent",
+       "Peru — no soles symbol, wrong company suffix",
+       "Mexico — no CFE utility branding, different sign style"
+      ],
+      "conclusion": "Colombia",
+      "confidence_after": 0.95,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Andean highland, Caribbean coast, Pacific, or Llanos/Orinoquía?",
+      "candidates": [
+       "Andean interior (Boyacá/Cundinamarca)",
+       "Caribbean coast",
+       "Pacific Chocó",
+       "Llanos Orientales"
+      ],
+      "observation": "Flat town on wide concrete streets, hot lowland vegetation (mango, ceiba), zinc roofs, a distant low ridge, no coastal palms-on-sand or Chocó rain-forest wall, no highland brick-and-tile Andean housing.",
+      "discriminator": "Andean towns at 2,000 m+ show clay-tile roofs, cooler-climate eucalyptus and shuttered two-storey balconies; the Caribbean coast shows salt-weathered pastel houses and coconut palms with sea haze; Chocó shows stilt timber houses and constant rain-slick surfaces. Here the mix of savanna-piedmont hardwoods with a faint foothill line fits the Orinoquía piedmont.",
+      "ruled_out": [
+       "Andean interior — no tile roofs, too hot/lowland",
+       "Caribbean coast — no coconut/sea influence",
+       "Pacific Chocó — no timber stilt construction"
+      ],
+      "conclusion": "Llanos Orientales piedmont",
+      "confidence_after": 0.8,
+      "weight": "medium"
+     },
+     {
+      "level": "cultural_sphere",
+      "question": "Which cultural sphere within the eastern lowlands — llanero-mestizo or Amazonian/indigenous frontier?",
+      "candidates": [
+       "Llanero mestizo piedmont (Meta/Casanare)",
+       "Amazonian frontier (Caquetá/Putumayo/Amazonas)"
+      ],
+      "observation": "A pharmacy chain branded 'Sikuany', the name of the Sikuani (Guahibo) people of the Orinoco savannas, indicating a business rooted in Llanos identity, not Amazonian.",
+      "discriminator": "An Amazonian-frontier town's local brands reference Witoto/Ticuna/Putumayo motifs, and its streets would be more often unpaved with heavier rain-forest canopy; a Llanos brand invokes Sikuani/llanero symbolism.",
+      "ruled_out": [
+       "Amazonian frontier departments — indigenous naming and vegetation do not match"
+      ],
+      "conclusion": "Llanero-mestizo sphere of the Orinoquía",
+      "confidence_after": 0.78,
+      "weight": "medium"
+     },
+     {
+      "level": "admin_region",
+      "question": "Meta or Casanare/Arauca?",
+      "candidates": [
+       "Meta",
+       "Casanare",
+       "Arauca",
+       "Vichada"
+      ],
+      "observation": "Distant low ridge to one side (Andean foothills close by), consolidated concrete street grid, formal chain-pharmacy branch, mature street planting — a well-established piedmont municipality rather than a remote plains settlement.",
+      "discriminator": "Casanare/Arauca towns of this size sit on flatter open plains with fewer foothills visible and typically newer, sparser tree canopy; Vichada towns are far poorer with sand streets. The proximity of foothills plus the Sikuany chain's presence points to the Villavicencio–Meta corridor.",
+      "ruled_out": [
+       "Vichada — infrastructure far more rudimentary",
+       "Arauca — no foothills, different urban texture",
+       "Casanare — plausible but no visible foothills there"
+      ],
+      "conclusion": "Meta Department, piedmont corridor north of Villavicencio",
+      "confidence_after": 0.8,
+      "weight": "medium"
+     },
+     {
+      "level": "metro_area",
+      "question": "Which Meta piedmont town?",
+      "candidates": [
+       "Cumaral",
+       "Restrepo",
+       "Villavicencio (outskirts)",
+       "Guamal",
+       "Acacías"
+      ],
+      "observation": "The pharmacy banner names its branch 'Sede ... Cumaral'; town scale is small (low-rise, quiet streets, Calle 10 near the edge of the grid), inconsistent with Villavicencio's city fabric.",
+      "discriminator": "Villavicencio would show multi-storey blocks, traffic and bus routes; Acacías/Guamal lie south of the city and would not host a branch labelled Cumaral; Restrepo sits against steeper slopes with visible mountain wall rather than this near-flat horizon.",
+      "ruled_out": [
+       "Villavicencio — urban density far higher",
+       "Acacías/Guamal — wrong branch name",
+       "Restrepo — mountain backdrop would dominate"
+      ],
+      "conclusion": "Cumaral, Meta",
+      "confidence_after": 0.82,
+      "weight": "high"
+     },
+     {
+      "level": "district",
+      "question": "Where within Cumaral?",
+      "candidates": [
+       "Central grid near Calle 10",
+       "Peripheral barrio",
+       "Highway strip (Vía Villavicencio–Paratebueno)"
+      ],
+      "observation": "Calle 10 corner with a boulevard-style median street of concrete slabs, corner tienda, and low commercial density — a few blocks off the main highway strip inside the residential grid.",
+      "discriminator": "The highway strip would show truck traffic, fuel stations and larger signage; a raw periphery would have unpaved streets and no planted median.",
+      "ruled_out": [
+       "Highway strip — no through traffic or fuel stations visible",
+       "Raw periphery — streets are fully paved with maintained median"
+      ],
+      "conclusion": "Residential-commercial grid of central Cumaral around Calle 10",
+      "confidence_after": 0.6,
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.8,
+    "place_slug": "cumaral",
+    "relied_on_atoms": [
+     "atm_be2b79054b54"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1208,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 752,
+    "output": 4403,
+    "cacheWrite": 0,
+    "cacheRead": 13848
+   },
+   "metrics": {
+    "country": "Colombia",
+    "country_iso": "CO",
+    "country_correct": true,
+    "region": "Meta Department",
+    "city": "Cumaral",
+    "confidence": 0.82,
+    "overall_confidence": 0.8,
+    "error_km": 0.24,
+    "reached_level": "district",
+    "n_steps": 7,
+    "n_steps_with_cut": 7,
+    "n_cues": 9,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "business/branding",
+     "infrastructure",
+     "language",
+     "price/currency",
+     "signage",
+     "topography",
+     "urban form",
+     "vegetation/climate",
+     "vehicles"
+    ]
+   },
+   "known_offered": [
+    "atm_be2b79054b54"
+   ],
+   "relied_on": [
+    "atm_be2b79054b54"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "CO",
+   "country": "Colombia",
+   "region": "Meta Department",
+   "city": "Cumaral",
+   "lat": 4.2705,
+   "lng": -73.4879,
+   "error_km": 0.24,
+   "reached_level": "district",
+   "confidence": 0.82,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 0.24,
+  "bucket": "<1"
+ },
+ "correction": {
+  "cost_usd": 0.17619625,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 3513,
+   "output": 2986,
+   "cacheWrite": 13437,
+   "cacheRead": 0
+  },
+  "summary": "HIT: Colombia / Meta / Cumaral confirmed to within 0.24 km. The decisive chain was the Spanish \"SAS\" legal suffix plus peso-magnitude pricing ($21.999 with dot thousands separator), the green \"Calle 10\" blade of the Colombian Calle/Carrera grid, and the pharmacy banner's own branch label reading \"Cumaral\" together with the Llanos-associated \"Sikuany\" brand. Venezuela and Ecuador were correctly excluded on currency magnitude, legal-form suffix and street-signage style; the Andean/Caribbean alternatives were excluded by lowland zinc-roof, whitewashed-trunk, wide concrete-slab street typology.",
+  "misleading_cues": [
+   {
+    "observation": "Reliance on an atom about privatized electricity utility branding (Enel/Codensa) when no utility brand is legible anywhere in the images.",
+    "why_misleading": "The pole hardware here carries no branding at all; the atom added false confidence rather than evidence, and generic concrete poles with cobra-heads look identical across Colombia, Venezuela and Ecuador."
+   },
+   {
+    "observation": "Reading a 'faint low ridge' on the horizon of image 0 as proof of Andean piedmont.",
+    "why_misleading": "The feature is barely distinguishable from cloud/roofline haze; had it been misread the analyst could have wrongly excluded Casanare. The conclusion happened to be right but the cue is near-unusable at this resolution."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Storefront banner with 'SAS' after the company name and the phrase 'Red de servicios farmacéuticos'.",
+    "why_decisive": "Sociedad por Acciones Simplificada is the standard Colombian corporate suffix; Venezuela uses C.A./S.A., Ecuador Cía. Ltda., Peru S.A.C.",
+    "category": "listed-company",
+    "image_index": 3
+   },
+   {
+    "observation": "Combo price written '$21.999' using a dot as thousands separator, no cents.",
+    "why_decisive": "Four-to-five-digit peso magnitudes with dot separators exclude dollarized Ecuador and Peruvian soles pricing.",
+    "category": "finance",
+    "image_index": 3
+   },
+   {
+    "observation": "Small green street blade reading 'Calle 10' mounted with a blue one-way arrow plate on a slim pole.",
+    "why_decisive": "The green Calle/Carrera numeric grid blade is the standard Colombian municipal street-naming plate.",
+    "category": "road-signage",
+    "image_index": 0
+   },
+   {
+    "observation": "Branch label under the pharmacy logo reading 'Sede ... Cumaral'.",
+    "why_decisive": "A self-declared branch town name pinned the municipality directly.",
+    "category": "toponymy",
+    "image_index": 3
+   },
+   {
+    "observation": "Wide concrete-slab streets with a planted central median, whitewashed tree trunks, single-storey painted masonry houses under corrugated zinc, mango/ceiba canopy.",
+    "why_decisive": "Hot-lowland Llanos/piedmont town typology, incompatible with Andean tile-roof highland towns or Chocó timber construction.",
+    "category": "urban-form",
+    "image_index": 1
+   },
+   {
+    "observation": "Leafless dry-season tree standing beside fully leafed green trees under towering cumulus.",
+    "why_decisive": "Marked seasonality indicates savanna/Llanos climate rather than perhumid Amazonian or Pacific Colombia.",
+    "category": "vegetation-cue",
+    "image_index": 2
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "SAS suffix marks Colombia, not Venezuela or Ecuador",
+    "body": "In Colombia small and mid-sized firms almost universally carry the 'SAS' (Sociedad por Acciones Simplificada) suffix on shopfront signage. In Venezuela you would instead see 'C.A.' or 'S.A.', and in Ecuador 'Cía. Ltda.' or 'S.A.'; Peru uses 'S.A.C.'. A painted or printed 'SAS' after a brand name is one of the fastest single-word country locks in Latin America.",
+    "layer": "economy",
+    "category": "listed-company",
+    "scope": "country",
+    "tags": [
+     "signage",
+     "corporate-form"
+    ],
+    "entities": [
+     "Colombia",
+     "Venezuela"
+    ],
+    "looks_like": {
+     "country_iso": "VE",
+     "country": "Venezuela"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia"
+    },
+    "confidence": 0.9
+   },
+   {
+    "title": "Green Calle/Carrera blades vs other Latin street signage",
+    "body": "Colombian towns sign their orthogonal grid with small green blades reading 'Calle N' or 'Carrera N', frequently paired with a separate blue one-way arrow plate. In Venezuela and Ecuador you would instead see named streets on white or blue plates, and Ecuadorian towns commonly use larger blue-and-white municipal signs with a coat of arms. Numeric Calle/Carrera pairing is near-diagnostic of Colombia.",
+    "layer": "language",
+    "category": "road-signage",
+    "scope": "country",
+    "tags": [
+     "street-sign",
+     "grid"
+    ],
+    "entities": [
+     "Colombia",
+     "Ecuador"
+    ],
+    "looks_like": {
+     "country_iso": "EC",
+     "country": "Ecuador"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Llanos piedmont town fabric vs Amazonian frontier town",
+    "body": "Meta/Casanare piedmont towns show fully paved concrete-slab streets with planted medians, whitewashed tree trunks, trimmed mango and ceiba canopy and painted masonry houses under zinc. In an Amazonian frontier town (Caquetá, Putumayo, Amazonas) you would instead see more unpaved or mud-stained streets, denser continuous rainforest canopy at the town edge, more timber construction and no dry-season leafless trees. Seasonal deciduous trees standing next to evergreen ones is a savanna marker.",
+    "layer": "geography",
+    "category": "urban-form",
+    "scope": "region",
+    "tags": [
+     "llanos",
+     "seasonality"
+    ],
+    "entities": [
+     "Meta (Llanos)",
+     "Colombian Amazon"
+    ],
+    "looks_like": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Caquetá/Putumayo"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Meta Department"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Peso magnitude with dot separators rules out dollarized Ecuador",
+    "body": "Colombian retail prices run to four or five digits with a dot as thousands separator and no cents, e.g. '$21.999'. In Ecuador (and Panama/El Salvador) you would instead see two-decimal USD prices like '$4.99', and in Peru an 'S/' prefix. Price magnitude alone separates the peso countries from the dollarized ones.",
+    "layer": "economy",
+    "category": "finance",
+    "scope": "country",
+    "tags": [
+     "currency",
+     "pricing"
+    ],
+    "entities": [
+     "Colombia",
+     "Ecuador"
+    ],
+    "looks_like": {
+     "country_iso": "EC",
+     "country": "Ecuador"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Indigenous brand names hint at macro-region inside Colombia",
+    "body": "Commercial brands built on Sikuani/Guahibo or llanero imagery cluster in the Orinoquía (Meta, Casanare, Vichada, Arauca). In Andean Colombia you would instead find Muisca/Chibcha or coffee-culture references, and on the Caribbean coast Wayuu or vallenato motifs. Reading the ethnic reference in a chain's name is a legitimate regional narrower once the country is fixed.",
+    "layer": "culture",
+    "category": "demography",
+    "scope": "region",
+    "tags": [
+     "branding",
+     "indigenous"
+    ],
+    "entities": [
+     "Orinoquía",
+     "Andean Colombia"
+    ],
+    "looks_like": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Andean interior"
+    },
+    "actually": {
+     "country_iso": "CO",
+     "country": "Colombia",
+     "region": "Meta Department"
+    },
+    "confidence": 0.6
+   }
+  ],
+  "misled_atoms": [
+   "atm_be2b79054b54"
+  ],
+  "confirming_atoms": [],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [],
+  "merged": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "cost_usd": 0.4932,
+ "status": "PARTIAL",
+ "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+}

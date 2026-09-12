@@ -1,0 +1,1015 @@
+{
+ "job_id": "job_b2b72f38b424",
+ "report_file": "report_bw_mahalapye_-23.1093_26.8227_260906_202206_ko-en-fr.html",
+ "label": "선택 장면 보고서 · l3Fnkxim…sN-g",
+ "created": 1788761259.5999455,
+ "lang": "en",
+ "images": [
+  "capture_30f986a48880.jpg",
+  "capture_6d18ce421300.jpg",
+  "capture_79cc6327540f.jpg",
+  "capture_cc2d1b14db5b.jpg",
+  "capture_cc96aa490e97.jpg"
+ ],
+ "image_panos": {
+  "capture_30f986a48880.jpg": {
+   "pano_id": "l3Fnkximt1kuKr3r4DsN-g",
+   "lat": -23.109303514202637,
+   "lng": 26.822740984295365,
+   "heading": 255.0389284030762,
+   "pitch": -5.161729966068307
+  },
+  "capture_6d18ce421300.jpg": {
+   "pano_id": "n-rW27PSVoBdADnHFRwlMA",
+   "lat": -23.10924296629874,
+   "lng": 26.82371684855237,
+   "heading": 36.935420347582706,
+   "pitch": -6.051485080972483
+  },
+  "capture_79cc6327540f.jpg": {
+   "pano_id": "4i5JBtwmkoNgSli4Ki7DbQ",
+   "lat": -23.10962630959676,
+   "lng": 26.82582398489995,
+   "heading": 67.58765729280685,
+   "pitch": -4.442495478811736
+  },
+  "capture_cc2d1b14db5b.jpg": {
+   "pano_id": "oZgn8YJ56AzrnSXosW3Nkw",
+   "lat": -23.110364673492978,
+   "lng": 26.828053710452874,
+   "heading": 63.51108423585239,
+   "pitch": -8.927646884150874
+  },
+  "capture_cc96aa490e97.jpg": {
+   "pano_id": "zSxfPuGVlzS5cR8JOv5A6A",
+   "lat": -23.11046064853707,
+   "lng": 26.82834827881726,
+   "heading": 126.65027586013125,
+   "pitch": -3.822003503115198
+  }
+ },
+ "truth": {
+  "lat": -23.109799622425637,
+  "lng": 26.82573676140356,
+  "iso": "BW",
+  "country": "Botswana",
+  "region": "Central District",
+  "city": "Mahalapye (Borotsi / Tamocha area, west of A1)",
+  "source": "aided_prior",
+  "file_lat": -23.1093,
+  "file_lng": 26.8227,
+  "n_panos": 5
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Mahalapye",
+     "confidence": 0.72,
+     "coordinate_estimate": {
+      "lat": -23.1,
+      "lng": 26.83,
+      "radius_km": 12
+     },
+     "country": "Botswana",
+     "country_iso": "BW",
+     "region_or_state": "Central District"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.14,
+      "country": "Botswana",
+      "country_iso": "BW"
+     },
+     {
+      "confidence": 0.08,
+      "country": "South Africa",
+      "country_iso": "ZA"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Zimbabwe",
+      "country_iso": "ZW"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Semi-arid Kalahari-fringe savanna / bushveld, dry-season (winter) grass, red-brown sandy soil, acacia and mopane-type trees",
+     "driving_side": "left",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "traffic",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Vehicle ahead travels on the left-hand side of a two-lane highway with white edge lines and no centre barrier — left-hand traffic, southern-African pattern.",
+      "supports": [
+       "Botswana",
+       "South Africa",
+       "Zimbabwe",
+       "Namibia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Dry golden grass, bare red sandy verges, scattered acacia/camelthorn canopies — semi-arid dry-season savanna typical of the Kalahari fringe / eastern Botswana hardveld.",
+      "supports": [
+       "Botswana",
+       "Limpopo/North West RSA"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage_language",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Orange (mobile operator) shopfront advertising 'reka airtime fa' — Setswana for 'buy airtime here', a Botswana/Tswana-sphere phrasing.",
+      "supports": [
+       "Botswana"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "commerce",
+      "image_index": 2,
+      "level": "country",
+      "observation": "'St Louis Lager' branding — a beer brewed and marketed in Botswana (Kgalagadi Breweries), rarely seen outside the country.",
+      "supports": [
+       "Botswana"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "commerce",
+      "image_index": 2,
+      "level": "country",
+      "observation": "'NDU'S BOTTLE STORE P.O. BOX 1474' — bottle-store licensing culture plus PO-Box-only addressing, standard in Botswana villages where street addressing is absent.",
+      "supports": [
+       "Botswana"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "institution",
+      "image_index": 1,
+      "level": "metro_area",
+      "observation": "Painted 'WELCOME TO ... BRIGADE' board at a gated vocational training compound; the Brigades are a distinctly Botswana network of village vocational schools, and the second word of the name is a long word beginning with 'MAHALA'-type letters.",
+      "supports": [
+       "Botswana",
+       "Mahalapye"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 4,
+      "level": "cultural_sphere",
+      "observation": "Cluster of round thatched rondavels with conical grass roofs mixed with flat-roofed cement-block houses inside low breeze-block lolwapa walls — Tswana homestead layout of the eastern hardveld villages.",
+      "supports": [
+       "Botswana Tswana sphere"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "commerce",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Hand-painted tuck shop 'The Millenium ... Phone Shop' with Bakers Aide flour and Super Sun oil murals — South-African-supplied FMCG brands typical of Botswana's eastern corridor along the A1.",
+      "supports": [
+       "Botswana eastern corridor"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Wide sealed two-lane trunk road with paved footpath, tall galvanized streetlight masts and wood-pole distribution lines running through a village — the A1 Gaborone–Francistown corridor passing through a large service village.",
+      "supports": [
+       "A1 corridor village"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "services",
+      "image_index": 4,
+      "level": "district",
+      "observation": "'TYRE JUNCTION CAR WASH & UPHOLSTERY', 'Puncture Man' and multiple tyre-repair signs concentrated on the roadside — truck-stop service economy typical of a long-haul halfway town on the A1.",
+      "supports": [
+       "Mahalapye",
+       "Palapye"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "climate_season",
+      "image_index": 3,
+      "level": "macro_region",
+      "observation": "Schoolchildren in hooded jackets and long trousers under bare/dry deciduous trees — dry cool winter (June-August) in the southern hemisphere.",
+      "supports": [
+       "southern hemisphere winter"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A large roadside village-town on a national trunk route: informal hand-painted tuck shops, bottle stores, phone/airtime kiosks and tyre/puncture repair yards serving passing long-haul traffic. Housing is mixed — traditional thatched rondavels and lolwapa-walled compounds alongside cement-block flat-roofed houses with burglar bars and gated brick institutional buildings. Electrification, tarred road, footpaths, streetlights and a state-linked vocational Brigade indicate a middle-income country with real public investment, but incomes are modest and the retail economy is small-scale and cash-based, with South African consumer brands dominating shelves. Language landscape is Setswana with English used for all commercial and official lettering.",
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 1,
+      "name": "Mahalapye Brigade (vocational training centre)",
+      "type": "vocational school compound with welcome signboard"
+     },
+     {
+      "confidence": 0.4,
+      "image_index": 0,
+      "name": "A1 highway through the village",
+      "type": "national trunk road"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.9,
+      "evidence": "'NDU'S BOTTLE STORE', 'TYRE JUNCTION CAR WASH & UPHOLSTERY', 'WELCOME TO', 'Puncture Man'",
+      "language": "English",
+      "script": "Latin"
+     },
+     {
+      "confidence": 0.8,
+      "evidence": "'reka airtime fa' ('buy airtime here') on the orange telecom shopfront",
+      "language": "Setswana",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Sub-Saharan Africa",
+       "South Asia",
+       "Latin America",
+       "Southeast Asia"
+      ],
+      "conclusion": "Southern Africa, dry-season savanna, left-hand traffic",
+      "confidence_after": 0.95,
+      "discriminator": "South Asia would show auto-rickshaws, Devanagari/Tamil script and dense motorcycle traffic; Latin America right-hand traffic and Spanish/Portuguese signage; Southeast Asia lush wet vegetation and scooter swarms. Here: English/Setswana Latin signage, pickup trucks, dry acacia savanna and red sand.",
+      "level": "continent",
+      "observation": "Red sandy soil, dry golden grass, flat-topped acacias, English-language hand-painted shop signs, left-hand traffic, thatched rondavels.",
+      "ruled_out": [
+       "South Asia — no Indic script, no rickshaws",
+       "Latin America — traffic keeps left, signage in English",
+       "Southeast Asia — arid dry-season biome, no scooters or wet-rice landscape"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Botswana",
+       "South Africa",
+       "Zimbabwe",
+       "Namibia",
+       "Zambia"
+      ],
+      "conclusion": "Botswana",
+      "confidence_after": 0.9,
+      "discriminator": "South Africa would show Afrikaans co-signage, SANRAL route shields, R-prefixed road numbers and chain-store branding (Spar/Shoprite corporate fascias); Zimbabwe would show Shona/Ndebele wording, Delta/Zambezi Lager and heavily potholed asphalt; Namibia would show German/Afrikaans names and Windhoek Lager; Zambia drives left but uses Mosi Lager and no Setswana. Instead we see 'reka airtime fa' (Setswana), 'St Louis Lager' (Kgalagadi Breweries, Botswana), and a village 'Brigade' — a uniquely Botswana vocational-school institution.",
+      "level": "country",
+      "observation": "Setswana advertising slogan on a telecom shopfront, St Louis Lager signage, PO-Box-only shop addressing, and a 'Brigade' training compound.",
+      "ruled_out": [
+       "South Africa — no Afrikaans, no national route shields, no chain retail",
+       "Zimbabwe — no Shona/Ndebele text, no Zimbabwean beer brands, road too well maintained",
+       "Namibia — no German/Afrikaans toponyms or Namibian brands",
+       "Zambia — Setswana slogan and Botswana beer brand absent there"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Eastern hardveld corridor (Gaborone–Francistown)",
+       "Kgalagadi/Ghanzi west",
+       "Okavango/Ngamiland north-west",
+       "Chobe far north"
+      ],
+      "conclusion": "Eastern hardveld corridor along the A1",
+      "confidence_after": 0.85,
+      "discriminator": "Ghanzi/Kgalagadi would be pure deep-sand Kalahari with sparse thorn scrub, gravel side roads and far thinner settlement; Ngamiland would show mopane/palm and floodplain vegetation with more reed/mud construction; Chobe would show teak woodland and tourism signage. Here the road is a broad, well-surfaced two-lane trunk with kerbed footpaths, streetlight masts, granite boulders and rocky outcrop stone used in walls — the hardveld, not the sandveld.",
+      "level": "macro_region",
+      "observation": "Continuous roadside village strip on a wide tarred trunk road with paved footpath, streetlights, granite/quartzite boulders used in yard walls, and dense electrification.",
+      "ruled_out": [
+       "Kgalagadi/Ghanzi — no deep sandveld or sparse scrub",
+       "Ngamiland — no floodplain/palm vegetation",
+       "Chobe — no teak woodland or tourism infrastructure"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Tswana hardveld sphere",
+       "Kalanga north-east sphere",
+       "Herero/San western sphere"
+      ],
+      "conclusion": "Tswana-speaking hardveld cultural sphere",
+      "confidence_after": 0.82,
+      "discriminator": "In the Kalanga north-east (Francistown hinterland) shop and personal names skew Kalanga/Ndebele and Ikalanga phrasing appears; in the west San/Herero settlements show low sparse compounds without lolwapa walls or rondavel clusters. Here: Setswana commercial slogan and classic Tswana homestead morphology — conical thatched rondavels enclosed by low block lolwapa walls with flat-roofed additions.",
+      "level": "cultural_sphere",
+      "observation": "Setswana-language telecom slogan, Tswana rondavel-plus-lolwapa homestead plan repeated in two frames.",
+      "ruled_out": [
+       "Kalanga north-east — no Ikalanga/Ndebele signage",
+       "Herero/San west — homestead morphology and language do not match"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Central District (Mahalapye/Palapye/Serowe)",
+       "Kgatleng (Mochudi)",
+       "South-East/Kweneng (Molepolole)"
+      ],
+      "conclusion": "Central District, a large A1 service town",
+      "confidence_after": 0.75,
+      "discriminator": "Mochudi and Molepolole are large villages but sit off the A1 on hillier terrain with granite koppies dominating the skyline and no long-haul truck-service strip; their roads are urban-feeder rather than trunk. Here the settlement straddles a flat, straight national trunk highway and the roadside economy is explicitly transit-oriented (tyre junction, puncture repair, bottle stores, phone shops), the signature of a halfway stop between Gaborone and Francistown.",
+      "level": "admin_region",
+      "observation": "Straight flat trunk highway bisecting the settlement; clustered tyre/puncture/car-wash businesses and bottle stores aimed at through traffic.",
+      "ruled_out": [
+       "Kgatleng (Mochudi) — not on the A1, hillier, no truck-stop strip",
+       "Kweneng (Molepolole) — off-corridor, koppie topography"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Mahalapye",
+       "Palapye",
+       "Serowe"
+      ],
+      "conclusion": "Mahalapye",
+      "confidence_after": 0.7,
+      "discriminator": "Serowe is not on the A1 mainline and has no truck-transit strip; Palapye's roadside economy is dominated by Morupule colliery/power-station traffic and its Brigade signage would read differently. The institutional board here reads 'WELCOME TO' plus a long single-word place name consistent with MAHALAPYE, and Mahalapye is the classic A1 midpoint tyre/repair town with the country's best-known Brigade campus.",
+      "level": "metro_area",
+      "observation": "Brigade welcome signboard with a long place-name word beginning 'MAHALA-', combined with the tyre/puncture service cluster on the trunk road.",
+      "ruled_out": [
+       "Serowe — off the A1 mainline, no transit service strip",
+       "Palapye — sign wording and absence of coal/power-industry cues"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "A1 through-town strip near the Brigade",
+       "Outer ward on the Francistown side",
+       "Outer ward on the Gaborone side"
+      ],
+      "conclusion": "Roadside ward along the A1 in/near Mahalapye, close to the Brigade campus",
+      "confidence_after": 0.55,
+      "discriminator": "Cannot be resolved further: no route markers, kilometre plates or river/bridge landmarks are visible to fix which side of the town centre this is. The mix of paved footpath and streetlights suggests inside the built-up strip rather than the far outskirts, but that is weak.",
+      "level": "district",
+      "observation": "Continuous but low-rise roadside development with footpath and streetlights, no visible town-centre commercial block or bridge.",
+      "ruled_out": [],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.7,
+    "place_slug": "mahalapye",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.235,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 5206,
+    "cacheWrite": 16427,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Botswana",
+    "country_iso": "BW",
+    "country_correct": true,
+    "region": "Central District",
+    "city": "Mahalapye",
+    "confidence": 0.72,
+    "overall_confidence": 0.7,
+    "error_km": 1.17,
+    "reached_level": "district",
+    "n_steps": 7,
+    "n_steps_with_cut": 6,
+    "n_cues": 11,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "climate_season",
+     "commerce",
+     "infrastructure",
+     "institution",
+     "services",
+     "signage_language",
+     "traffic",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Mahalapye",
+     "confidence": 0.83,
+     "coordinate_estimate": {
+      "lat": -23.1,
+      "lng": 26.83,
+      "radius_km": 12
+     },
+     "country": "Botswana",
+     "country_iso": "BW",
+     "region_or_state": "Central District (Bangwato territory)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.08,
+      "country": "Botswana",
+      "country_iso": "BW"
+     },
+     {
+      "confidence": 0.05,
+      "country": "South Africa",
+      "country_iso": "ZA"
+     },
+     {
+      "confidence": 0.03,
+      "country": "Zimbabwe",
+      "country_iso": "ZW"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Semi-arid savanna / eastern hardveld thornveld, dry-season (winter) foliage and bleached grass",
+     "driving_side": "left",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "traffic",
+      "image_index": 0,
+      "level": "continent",
+      "observation": "Oncoming pickup drives on the left-hand lane of a two-lane tarred trunk road; left-hand traffic narrows to Commonwealth-legacy southern Africa.",
+      "supports": [
+       "Botswana",
+       "South Africa",
+       "Zimbabwe",
+       "Zambia",
+       "Namibia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Acacia/camelthorn and mopane-fringe savanna trees, red-brown sandy-loam soil, dry bleached grass — dry-season semi-arid savanna of the southern African interior plateau.",
+      "supports": [
+       "Botswana eastern hardveld"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage_language",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Orange telco wall branding with Setswana copy 'reka airtime fa' (buy airtime here) — Orange is the dominant network in Botswana and the Setswana imperative is decisive.",
+      "supports": [
+       "Botswana"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "brands",
+      "image_index": 2,
+      "level": "country",
+      "observation": "'St Louis Lager' bar sign — a Botswana-brewed (Kgalagadi Breweries) beer not marketed in South Africa, Namibia or Zimbabwe.",
+      "supports": [
+       "Botswana"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "institution",
+      "image_index": 1,
+      "level": "metro_area",
+      "observation": "'WELCOME TO MAHALAPYE BRIGADE' board at a gated vocational training compound — 'Brigades' are Botswana's community-based technical/vocational institutions.",
+      "supports": [
+       "Mahalapye, Central District"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 4,
+      "level": "cultural_sphere",
+      "observation": "Walled family compounds mixing conical thatch rondavels with concrete-block, corrugated-iron-roof houses — transitional Tswana homestead typology.",
+      "supports": [
+       "Tswana settlement, eastern Botswana"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Tarred trunk road with painted edge lines, tall galvanised streetlight masts and wooden-pole grid electrification through a village — public infrastructure level typical of Botswana's A1 corridor towns rather than the deep Kalahari.",
+      "supports": [
+       "A1 hardveld corridor"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "commerce",
+      "image_index": 2,
+      "level": "district",
+      "observation": "'NDU'S BOTTLE STORE P.O. BOX 1474' plus informal bar/general dealer cluster on graded sand forecourt — small-town roadside commercial strip, not a city CBD.",
+      "supports": [
+       "secondary town periphery"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "commerce",
+      "image_index": 4,
+      "level": "district",
+      "observation": "'TYRE JUNCTION CAR WASH & UPHOLSTERY' and 'Puncture Man' hand-painted signs cluster at a side-road junction — highway-service micro-economy at a truck-corridor town.",
+      "supports": [
+       "A1 trunk-road town"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "commerce",
+      "image_index": 0,
+      "level": "district",
+      "observation": "'The MILLENIUM ... Phone Shop' painted shopfront with 'Bakers Pride' bread advert and stacked concrete paving blocks for sale — informal retail plus building-materials trade.",
+      "supports": [
+       "village-edge trading"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "people",
+      "image_index": 3,
+      "level": "metro_area",
+      "observation": "Schoolchildren in blue/black uniforms with backpacks walking a sandy verge in cool-weather jackets — dry-season winter morning, active government school system.",
+      "supports": [
+       "Botswana district town"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A lower-middle-income southern African district town on a national trunk-road corridor. Public goods are visibly state-provided — tarred road with markings, streetlights, grid power on wooden poles, a government vocational 'Brigade' centre, uniformed school pupils — while private commerce is small-scale and informal: hand-painted bottle store, phone shop, puncture repair, car wash and upholstery, paving-block yard. Housing shows a transitional Tswana pattern: thatch rondavels and block houses inside shared walled compounds, with modest burglar bars and steel gates but no heavy palisade/electric-fence idiom of South African towns. Telco branding in Setswana points to a mobile-first, prepaid-airtime economy.",
+    "landmarks": [
+     {
+      "confidence": 0.85,
+      "image_index": 1,
+      "name": "Mahalapye Brigade (vocational training centre)",
+      "type": "educational institution"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 2,
+      "name": "Ndu's Bottle Store",
+      "type": "local business"
+     },
+     {
+      "confidence": 0.45,
+      "image_index": 4,
+      "name": "Tyre Junction Car Wash & Upholstery",
+      "type": "local business"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "'WELCOME TO ... BRIGADE', 'NDU'S BOTTLE STORE P.O. BOX 1474', 'TYRE JUNCTION CAR WASH & UPHOLSTERY', 'Puncture Man'",
+      "language": "English",
+      "script": "Latin"
+     },
+     {
+      "confidence": 0.85,
+      "evidence": "'reka airtime fa' on Orange telco wall advert",
+      "language": "Setswana",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Sub-Saharan Africa",
+       "South Asia",
+       "Australia",
+       "Latin America"
+      ],
+      "conclusion": "Southern African savanna interior, left-hand traffic",
+      "confidence_after": 0.93,
+      "discriminator": "South Asia would show auto-rickshaws, Devanagari/Tamil script and dense frontage; Australia would show sealed kerbing, standardised reflectorised signage and no thatch rondavels; Latin America drives on the right and would use Spanish/Portuguese signage.",
+      "level": "continent",
+      "observation": "Left-hand traffic on a tarred two-lane road, English signage, thatch-roofed rondavels in walled compounds, acacia savanna with red sandy soil.",
+      "ruled_out": [
+       "South Asia — no Indic script, no rickshaws",
+       "Australia/NZ — thatch rondavel homesteads absent there",
+       "Latin America — right-hand traffic, non-English signage"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Botswana",
+       "South Africa",
+       "Zimbabwe",
+       "Zambia",
+       "Namibia"
+      ],
+      "conclusion": "Botswana",
+      "confidence_after": 0.94,
+      "discriminator": "South Africa would show Castle/Carling or Black Label beer signage, Vodacom/MTN red-yellow branding, Afrikaans co-signage and heavy palisade fencing; Zimbabwe would show Econet/NetOne and Zambezi Lager; Namibia would show Windhoek Lager and MTC; Zambia drives left but signage would be MTN/Airtel with Mosi lager. Instead we see St Louis Lager and Orange with Setswana 'reka airtime fa', plus a state 'Brigade' vocational centre — both Botswana-specific.",
+      "level": "country",
+      "observation": "Orange telco advert in Setswana ('reka airtime fa'), 'St Louis' lager bar sign, and a signposted 'Brigade' vocational institution.",
+      "ruled_out": [
+       "South Africa — no Vodacom/MTN, no Afrikaans, no Castle branding, no palisade fence idiom",
+       "Zimbabwe — no Econet/NetOne branding",
+       "Namibia — no Windhoek Lager/MTC",
+       "Zambia — Setswana text and St Louis are not Zambian"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Eastern hardveld corridor (A1)",
+       "Kalahari west (Ghanzi/Kgalagadi)",
+       "Ngamiland/Chobe north",
+       "Gaborone metro"
+      ],
+      "conclusion": "Eastern hardveld A1 corridor town, well north of Gaborone",
+      "confidence_after": 0.87,
+      "discriminator": "Ghanzi/Kgalagadi would give deep white-sand tracks, sparse camelthorn and mostly ungraded roads with little street lighting; Ngamiland/Chobe would show mopane woodland, floodplain grass and reed/thatch fencing; Gaborone metro would show multi-storey retail, kerbed medians, traffic signals and chain supermarkets rather than hand-painted bottle stores.",
+      "level": "macro_region",
+      "observation": "A wide tarred trunk road with painted edge line, tall galvanised streetlight masts and wooden-pole distribution running through a linear ribbon village of block houses and rondavels; granite boulders and hardveld thornveld, not deep Kalahari sand.",
+      "ruled_out": [
+       "Kalahari west — sand tracks, no street lighting corridor",
+       "Ngamiland/Chobe — mopane/floodplain vegetation absent",
+       "Gaborone metro — no urban commercial fabric or signalised junctions"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Central District (Bangwato)",
+       "Kgatleng",
+       "Kweneng",
+       "North-East District"
+      ],
+      "conclusion": "Central District, Bangwato Tswana sphere",
+      "confidence_after": 0.85,
+      "discriminator": "Kgatleng (Mochudi) and Kweneng (Molepolole) villages sit on shorter secondary approaches with denser Gaborone-commuter housing and no 'Brigade' of this name; North-East District (Francistown side) would show Kalanga-influenced naming and Zimbabwe-border trade branding. The Brigade board reads as a Mahalapye institution, placing us in the Bangwato heartland corridor.",
+      "level": "admin_region",
+      "observation": "'WELCOME TO MAHALAPYE BRIGADE' welcome board at a fenced, blue-trimmed institutional compound; surrounding wards of walled Tswana compounds.",
+      "ruled_out": [
+       "Kgatleng/Kweneng — different brigade towns and denser peri-urban fabric",
+       "North-East District — Kalanga sphere, different institutional names"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Mahalapye central A1 strip",
+       "Mahalapye outer ward (Ramokgonami/Xhosa-2/Madiba side)",
+       "Palapye"
+      ],
+      "conclusion": "Outer residential/commercial ward of Mahalapye along the A1 through-road, roughly 1-4 km from the centre",
+      "confidence_after": 0.72,
+      "discriminator": "The town centre would show the mall, banks, fuel stations and bus rank with kerbed parking; a purely rural village would lack streetlights and a Brigade. What we see is streetlit trunk road but sand verges, no kerbs on side roads, and micro-enterprise frontage — the transition zone between the CBD and the wards.",
+      "level": "district",
+      "observation": "Streetlit main road but unsurfaced sandy shoulders and side lanes, scattered bottle store / puncture / car-wash businesses, homestead compounds directly fronting the highway.",
+      "ruled_out": [
+       "Town-centre CBD — no banks, mall or fuel station visible",
+       "Palapye — brigade name on the board does not match"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.82,
+    "place_slug": "mahalapye",
+    "relied_on_atoms": [
+     "atm_8bf3f3677185",
+     "atm_bd6ba55f3e73",
+     "atm_4e202ceb9bb6",
+     "atm_90cfb45789c2",
+     "atm_2ecb8ee81d38",
+     "atm_a919b2d25025"
+    ]
+   },
+   "cost_usd": 0.1342,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2473,
+    "output": 4543,
+    "cacheWrite": 0,
+    "cacheRead": 16427
+   },
+   "metrics": {
+    "country": "Botswana",
+    "country_iso": "BW",
+    "country_correct": true,
+    "region": "Central District (Bangwato territory)",
+    "city": "Mahalapye",
+    "confidence": 0.83,
+    "overall_confidence": 0.82,
+    "error_km": 1.17,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 11,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "brands",
+     "commerce",
+     "infrastructure",
+     "institution",
+     "people",
+     "signage_language",
+     "traffic",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_bd6ba55f3e73",
+    "atm_4e202ceb9bb6",
+    "atm_8bf3f3677185",
+    "atm_9fb7c0e4a0ac",
+    "atm_90cfb45789c2",
+    "atm_2ecb8ee81d38",
+    "atm_b408fc3d3b66",
+    "atm_a919b2d25025",
+    "atm_2494855827a9",
+    "atm_6f9fc96c5833"
+   ],
+   "relied_on": [
+    "atm_8bf3f3677185",
+    "atm_bd6ba55f3e73",
+    "atm_4e202ceb9bb6",
+    "atm_90cfb45789c2",
+    "atm_2ecb8ee81d38",
+    "atm_a919b2d25025"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "BW",
+   "country": "Botswana",
+   "region": "Central District (Bangwato territory)",
+   "city": "Mahalapye",
+   "lat": -23.1,
+   "lng": 26.83,
+   "error_km": 1.17,
+   "reached_level": "district",
+   "confidence": 0.83,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 1.17,
+  "bucket": "<10"
+ },
+ "correction": {
+  "cost_usd": 0.198085,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5087,
+   "output": 2902,
+   "cacheWrite": 16016,
+   "cacheRead": 0
+  },
+  "summary": "Botswana / Mahalapye confirmed to within 1.2 km. The decisive visible evidence was the Botswana-specific consumer branding pair (St Louis Lager, Orange with Setswana 'reka airtime fa'), the 'WELCOME TO MAHALAPYE BRIGADE' vocational-centre board, and the transitional Tswana walled compounds with thatch rondavels on a streetlit tarred through-road. South Africa and Zimbabwe were correctly excluded: no Castle/Carling or Vodacom/MTN branding, no Afrikaans co-signage, no ubiquitous steel palisade fencing, and no Econet/NetOne presence.",
+  "misleading_cues": [
+   {
+    "observation": "Generic left-hand traffic, English hand-painted shop signage and acacia savanna",
+    "why_misleading": "Shared with South Africa, Zimbabwe, Zambia and Namibia; on its own it could have pulled the guess into the SA Limpopo/North West rural belt, which looks nearly identical.",
+    "image_index": 0
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Orange-branded wall advertising with Setswana copy 'reka airtime fa' on a black-and-orange bar",
+    "why_decisive": "Orange was the dominant network in Botswana; Setswana imperative advertising rules out Zimbabwe/Zambia and is atypical for South Africa's Vodacom/MTN-dominated rural signage.",
+    "category": "signage-language",
+    "image_index": 2
+   },
+   {
+    "observation": "'St Louis' lager sign on a bottle store/bar",
+    "why_decisive": "St Louis is brewed by Kgalagadi Breweries for the Botswana market and is essentially not seen in neighbouring countries.",
+    "category": "business-chain",
+    "image_index": 2
+   },
+   {
+    "observation": "'WELCOME TO ... BRIGADE' board at a fenced blue-trimmed institutional compound",
+    "why_decisive": "'Brigades' are Botswana's community-based vocational training institutions, a state institutional category unique to the country.",
+    "category": "education",
+    "image_index": 1
+   },
+   {
+    "observation": "Walled family compounds combining conical thatch rondavels with concrete-block iron-roofed houses on sandy plots",
+    "why_decisive": "Transitional Tswana homestead typology of eastern Botswana villages, distinct from RDP township rows in South Africa.",
+    "category": "housing-typology",
+    "image_index": 4
+   },
+   {
+    "observation": "Tarred two-lane through-road with painted edge lines, tall galvanised streetlight masts and wooden-pole distribution, but unkerbed sandy verges and side lanes",
+    "why_decisive": "Public-infrastructure profile of Botswana's A1 hardveld corridor towns, not the deep Kalahari and not a metropolitan CBD.",
+    "category": "infrastructure-built",
+    "image_index": 0
+   },
+   {
+    "observation": "Micro-enterprise roadside frontage: bottle store, puncture repair, tyre car-wash and phone shop with hand-painted boards, no banks/malls/fuel stations",
+    "why_decisive": "Places the pano in an outer ward corridor of a corridor town rather than its centre, which is why the city-level guess landed accurately.",
+    "category": "retail",
+    "image_index": 4
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "St Louis Lager + Orange Setswana ads mean Botswana, not South Africa",
+    "body": "In Botswana rural bottle stores you see St Louis Lager boards and Orange branding with Setswana copy such as 'reka airtime fa'. In South Africa you would instead see Castle/Carling Black Label or Hansa boards with Vodacom red or MTN yellow airtime branding, often with Afrikaans co-text. Zimbabwe would give Econet/NetOne and Zambezi/Castle instead.",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "country",
+    "tags": [
+     "beer",
+     "telco",
+     "signage"
+    ],
+    "entities": [
+     "Botswana",
+     "South Africa",
+     "Zimbabwe"
+    ],
+    "looks_like": {
+     "country_iso": "ZA",
+     "country": "South Africa"
+    },
+    "actually": {
+     "country_iso": "BW",
+     "country": "Botswana",
+     "region": "Central District"
+    },
+    "confidence": 0.9
+   },
+   {
+    "title": "'Brigade' vocational compounds are a Botswana-only institutional label",
+    "body": "A gated compound signposted '<Town> Brigade' is Botswana's community-based technical/vocational training institution, usually with low white blocks, blue trim and a painted welcome board. In South Africa the equivalent would be signposted as a TVET College or FET Centre, and in Zimbabwe as a Polytechnic or Vocational Training Centre instead.",
+    "layer": "culture",
+    "category": "education",
+    "scope": "country",
+    "tags": [
+     "institution",
+     "welcome-sign"
+    ],
+    "entities": [
+     "Botswana",
+     "South Africa"
+    ],
+    "looks_like": {
+     "country_iso": "ZA",
+     "country": "South Africa"
+    },
+    "actually": {
+     "country_iso": "BW",
+     "country": "Botswana"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Absence of palisade fencing separates Botswana villages from South African ones",
+    "body": "In eastern Botswana villages, plots are edged with concrete-block walls, wire mesh or nothing at all, and shopfronts have simple grilles. In comparable South African rural/township settings you would instead see near-universal galvanised steel palisade fencing, razor wire and heavy burglar bars as the default security idiom.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "country",
+    "tags": [
+     "fencing",
+     "security"
+    ],
+    "entities": [
+     "Botswana",
+     "South Africa"
+    ],
+    "looks_like": {
+     "country_iso": "ZA",
+     "country": "South Africa"
+    },
+    "actually": {
+     "country_iso": "BW",
+     "country": "Botswana"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Hardveld A1 corridor vs deep Kalahari inside Botswana",
+    "body": "Eastern hardveld corridor towns show tarred trunk roads with painted edge lines, tall galvanised streetlight masts, wooden-pole grid electrification, granite boulders and mixed thornveld trees. In Ghanzi/Kgalagadi you would instead see deep pale sand tracks, sparse camelthorn, no street lighting and far fewer masonry shopfronts; in Ngamiland/Chobe mopane woodland and reed fencing instead.",
+    "layer": "geography",
+    "category": "settlement-pattern",
+    "scope": "region",
+    "tags": [
+     "A1",
+     "hardveld",
+     "kalahari"
+    ],
+    "entities": [
+     "Central District",
+     "Ghanzi",
+     "Ngamiland"
+    ],
+    "looks_like": {
+     "country_iso": "BW",
+     "country": "Botswana",
+     "region": "Kgalagadi/Ghanzi"
+    },
+    "actually": {
+     "country_iso": "BW",
+     "country": "Botswana",
+     "region": "Central District"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Streetlit road with unkerbed sand verges = outer ward, not town centre",
+    "body": "In Botswana corridor towns, an outer ward reads as a lit tarred through-road flanked by unkerbed sandy shoulders, homestead compounds fronting the road and hand-painted micro-enterprise signs. The actual CBD would instead show kerbed parking bays, a bus rank, fuel stations, banks and chain supermarket facades, so absence of these should shift your pin a few kilometres out rather than to the centre point.",
+    "layer": "geography",
+    "category": "urban-form",
+    "scope": "city",
+    "tags": [
+     "ward",
+     "cbd",
+     "pin-placement"
+    ],
+    "entities": [
+     "Mahalapye outer wards",
+     "Mahalapye centre"
+    ],
+    "looks_like": {
+     "country_iso": "BW",
+     "country": "Botswana",
+     "region": "town centre"
+    },
+    "actually": {
+     "country_iso": "BW",
+     "country": "Botswana",
+     "region": "Central District"
+    },
+    "confidence": 0.6
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_8bf3f3677185",
+   "atm_bd6ba55f3e73",
+   "atm_4e202ceb9bb6",
+   "atm_90cfb45789c2",
+   "atm_2ecb8ee81d38",
+   "atm_a919b2d25025"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_b6439b6999a1",
+   "atm_bb7944532780",
+   "atm_db06a93e906a",
+   "atm_b390d2961a02",
+   "atm_e5c689a80f57"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_b6439b6999a1",
+   "atm_bb7944532780",
+   "atm_db06a93e906a",
+   "atm_b390d2961a02",
+   "atm_e5c689a80f57"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_8bf3f3677185",
+   "atm_bd6ba55f3e73",
+   "atm_4e202ceb9bb6",
+   "atm_90cfb45789c2",
+   "atm_2ecb8ee81d38",
+   "atm_a919b2d25025"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.5673,
+ "status": "OK"
+}

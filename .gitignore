@@ -13,16 +13,22 @@ dist/
 
 # runtime artifacts
 captures/
-# 보고서는 전부 로컬 전용 — 하위 폴더(크로아시아/, atlas/ …)와 zip 까지 통째로 막아
-# 용량 과다(실측 328MB)를 방지한다. 이전의 docs/report/*.html 은 * 가 / 를 넘지
-# 못해 하위 폴더가 새고 있었다.
+# 지점 보고서는 전부 로컬 전용 — docs/report/country/{iso2}/ (국가 폴더, 260907 에 country/
+# 아래로 한 단계 내림)와 최상위 종합 보고서·zip 까지 통째로 막아 용량 과다(실측 328MB,
+# 캡처 base64 임베드 때문에 한 건 10~30MB)를 방지한다. 지식은 원자(docs/knowledge)로만 공유한다.
+# 이전의 docs/report/*.html 은 * 가 / 를 넘지 못해 하위 폴더가 새고 있었다.
 docs/report/*
 !docs/report/.gitkeep
+# docs/atlas/ (어드바이저·아틀라스 보고서, 원자만으로 만든 수백 KB 문서)와
+# docs/civilization/ (Civ5 UI 리서치 문서 + img/)은 docs/report 밖으로 옮겨 **추적한다** —
+# 위 규칙에 걸리지 않는다(git check-ignore 로 확인함, 260907).
 # 작업 큐 실행 로그 — 실행할 때마다 바뀌는 상태 (gitignore 는 인라인 주석을 지원하지 않는다)
 docs/jobs/
 
 # docs/knowledge/ 는 **의도적으로 커밋한다** — 보고서를 만들수록 쌓이는 지식 저장소이고,
 # 다음 조사에서 재검색을 건너뛰는 근거가 된다(원자 .md + 장소/엔티티 백링크).
+# 단, 분자(molecule) 임베딩 벡터(.npz)는 원자에서 재생성 가능한 대용량 파생물이라 막는다.
+docs/knowledge/molecule/*.npz
 
 # Playwright 실증 산출물(스크린샷) — 로컬 전용
 .testout/
@@ -33,3 +39,6 @@ reference/
 # Windows 탐색기가 폴더마다 남기는 아이콘 설정 파일
 desktop.ini
 altaiya_local_backup/
+
+# 정정 루프 E2E 검증이 남기는 서버 로그(테스트 잔재 — 실행 중이면 파일이 잠긴다)
+docs/knowledge/corrections/*.log

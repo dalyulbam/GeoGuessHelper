@@ -1,0 +1,113 @@
+{
+ "job_id": "job_737cae606637",
+ "report_file": "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html",
+ "label": "보고서 · Ogoja, Nigeria",
+ "created": 1789013646.7175314,
+ "lang": "en",
+ "images": [
+  "capture_adc26dd1b9f4.jpg",
+  "capture_1113fcd16b9f.jpg",
+  "capture_e8b898cb813f.jpg",
+  "capture_b52d2f4dfebe.jpg",
+  "capture_646bdfeacd76.jpg",
+  "capture_a0173e361801.jpg"
+ ],
+ "image_panos": {
+  "capture_adc26dd1b9f4.jpg": {
+   "pano_id": "xG0zAd3N17qEtNjO_xUo9A",
+   "lat": 6.659916369193586,
+   "lng": 8.80263943372408,
+   "heading": 37.28419198726678,
+   "pitch": 0.7026379686471245
+  },
+  "capture_1113fcd16b9f.jpg": {
+   "pano_id": "1isLIpdtzjLLkLY_WALpkg",
+   "lat": 6.660287367172176,
+   "lng": 8.803161189994812,
+   "heading": 74.74178097681227,
+   "pitch": 5.466681689289601
+  },
+  "capture_e8b898cb813f.jpg": {
+   "pano_id": "1isLIpdtzjLLkLY_WALpkg",
+   "lat": 6.660287367172176,
+   "lng": 8.803161189994812,
+   "heading": 67.27350756515531,
+   "pitch": 5.037918013930721
+  },
+  "capture_b52d2f4dfebe.jpg": {
+   "pano_id": "1isLIpdtzjLLkLY_WALpkg",
+   "lat": 6.660287367172176,
+   "lng": 8.803161189994812,
+   "heading": 67.27350756515531,
+   "pitch": 5.037918013930721
+  },
+  "capture_646bdfeacd76.jpg": {
+   "pano_id": "1isLIpdtzjLLkLY_WALpkg",
+   "lat": 6.660287367172176,
+   "lng": 8.803161189994812,
+   "heading": 132.9179603367228,
+   "pitch": 3.530639366849684
+  },
+  "capture_a0173e361801.jpg": {
+   "pano_id": "CN4P4TjqO1hEzCmoP_SERw",
+   "lat": 6.660211669850476,
+   "lng": 8.803096443256285,
+   "heading": 252.44869846509565,
+   "pitch": 9.485273596301028
+  }
+ },
+ "truth": {
+  "lat": 6.660212917955461,
+  "lng": 8.80306343949327,
+  "iso": "NG",
+  "country": "Nigeria",
+  "region": "Cross River State",
+  "city": "Ogoja",
+  "source": "aided_prior",
+  "file_lat": 6.6599,
+  "file_lng": 8.8026,
+  "n_panos": 6
+ },
+ "blind": {
+  "phase1": {
+   "status": "API_ERROR",
+   "analysis": {},
+   "cost_usd": 0.0,
+   "model": null,
+   "cache": null,
+   "metrics": {
+    "country": null,
+    "country_iso": null,
+    "country_correct": null,
+    "region": null,
+    "city": null,
+    "confidence": null,
+    "overall_confidence": null,
+    "error_km": null,
+    "reached_level": null,
+    "n_steps": 0,
+    "n_steps_with_cut": 0,
+    "n_cues": 0,
+    "n_landmarks": 0,
+    "cue_categories": []
+   }
+  },
+  "phase2": null,
+  "final": null
+ },
+ "verdict": null,
+ "correction": null,
+ "atoms": {
+  "created": [],
+  "merged": []
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.0,
+ "status": "API_ERROR",
+ "message": "Claude 호출 실패: Connection error."
+}

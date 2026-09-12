@@ -1,0 +1,1033 @@
+{
+ "job_id": "job_1a2be2d9d7ff",
+ "report_file": "report_es_esquinzo-fuerteventura_28.0717_-14.3123_260906_204807_ko-en-fr.html",
+ "label": "선택 장면 보고서 · lJp_ScSR…EhbQ",
+ "created": 1788761927.6643612,
+ "lang": "en",
+ "images": [
+  "capture_931824372f63.jpg",
+  "capture_7faa88bc8c06.jpg",
+  "capture_9c08376bc721.jpg",
+  "capture_38eb852653f4.jpg",
+  "capture_56e12f115ba6.jpg",
+  "capture_3bfc40625944.jpg"
+ ],
+ "image_panos": {
+  "capture_931824372f63.jpg": {
+   "pano_id": "lJp_ScSRn1i-btQRPEEhbQ",
+   "lat": 28.071691379413256,
+   "lng": -14.312312574844173,
+   "heading": 144.070699583942,
+   "pitch": -3.1542958297231536
+  },
+  "capture_7faa88bc8c06.jpg": {
+   "pano_id": "8s6YJ1GLuA9nODnv0n9hIA",
+   "lat": 28.069638946355987,
+   "lng": -14.31085939161405,
+   "heading": 141.76643751135956,
+   "pitch": 1.3136076309262847
+  },
+  "capture_9c08376bc721.jpg": {
+   "pano_id": "WkHmKU5uhufw650O_9R-1w",
+   "lat": 28.068661886503957,
+   "lng": -14.310504374408321,
+   "heading": 129.7775447793441,
+   "pitch": -0.8513963259443074
+  },
+  "capture_38eb852653f4.jpg": {
+   "pano_id": "gt39uxg4X8TtmzV4ixhGjw",
+   "lat": 28.068442431619637,
+   "lng": -14.310483783437036,
+   "heading": 53.932622533344706,
+   "pitch": -1.4100665315521468
+  },
+  "capture_56e12f115ba6.jpg": {
+   "pano_id": "fr5Cnt_UPwy6YjYm8XIdUg",
+   "lat": 28.069880027945153,
+   "lng": -14.310680729096706,
+   "heading": 36.67886489384025,
+   "pitch": -2.6004943430834118
+  },
+  "capture_3bfc40625944.jpg": {
+   "pano_id": "KGvUuJImtGm3CCToaw2FTQ",
+   "lat": 28.071914885515667,
+   "lng": -14.309713221689865,
+   "heading": 88.44080409483124,
+   "pitch": -3.4445991964341403
+  }
+ },
+ "truth": {
+  "lat": 28.070923471343104,
+  "lng": -14.309379217012756,
+  "iso": "ES",
+  "country": "Spain",
+  "region": "Canary Islands — Fuerteventura (Las Palmas province)",
+  "city": "Esquinzo / Butihondo (Jandía), Pájara municipality",
+  "source": "aided_prior",
+  "file_lat": 28.0717,
+  "file_lng": -14.3123,
+  "n_panos": 9
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Costa Calma / Playitas–Las Playitas area, Fuerteventura",
+     "confidence": 0.55,
+     "country": "Spain",
+     "country_iso": "ES",
+     "region_or_state": "Canary Islands (Fuerteventura, Las Palmas province)",
+     "coordinate_estimate": {
+      "lat": 28.1,
+      "lng": -14.25,
+      "radius_km": 30
+     }
+    },
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Spain",
+      "country_iso": "ES"
+     },
+     {
+      "confidence": 0.1,
+      "country": "Portugal",
+      "country_iso": "PT"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Cape Verde",
+      "country_iso": "CV"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "hot desert / arid subtropical oceanic (BWh), volcanic island coast",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "road_infrastructure",
+      "observation": "Dual carriageway with a low cast-concrete central barrier, wide paved shoulders and white edge lines, no yellow lines — standard Spanish autovía/dual-carriageway geometry.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Spain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage",
+      "observation": "Round white speed-limit sign with red rim reading 90 mounted on a slim grey post, one per direction — EU/Vienna Convention type, and 90 km/h matches Spanish two-lane/dual-carriageway limits.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Spain",
+       "EU"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "observation": "Rows of planted Canary Island date palms (Phoenix canariensis) with thick trunks used as motorway landscaping, set against otherwise bare desert ground.",
+      "image_index": 0,
+      "level": "admin_region",
+      "supports": [
+       "Canary Islands"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "geology",
+      "observation": "Dark reddish-brown, rounded, deeply eroded volcanic hill with no vegetation cover and scattered scree — typical old basaltic Fuerteventura/Lanzarote relief rather than sharp young cones or forested slopes.",
+      "image_index": 0,
+      "level": "admin_region",
+      "supports": [
+       "Fuerteventura",
+       "Lanzarote"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "climate_biome",
+      "observation": "Ground is bare gravelly desert with sparse dry Launaea/Suaeda-type tussocks right up to the resort walls; no irrigated farmland — extreme aridity.",
+      "image_index": 3,
+      "level": "admin_region",
+      "supports": [
+       "eastern Canary Islands"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "observation": "Large low-rise resort complexes: whitewashed cubic blocks with orange-red pantile roofs, arcaded entrance and pagoda-like tiered roof lantern — classic 1980s–2000s Canarian package-holiday hotel vernacular.",
+      "image_index": 2,
+      "level": "metro_area",
+      "supports": [
+       "Canary Islands tourist resort"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "emergency_vehicle",
+      "observation": "Yellow-orange Mercedes Sprinter ambulance with red striping, the standard Canarian/Spanish SUC ambulance livery.",
+      "image_index": 1,
+      "level": "country",
+      "supports": [
+       "Spain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "observation": "Dense mix of small, brand-new European hatchbacks and SUVs in bright colours parked at the hotel, with white/blue EU-style plates — heavy rental-car fleet signature of an island tourist hub.",
+      "image_index": 3,
+      "level": "metro_area",
+      "supports": [
+       "resort area",
+       "Spain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "landscape",
+      "observation": "Deep blue open Atlantic with a distant island silhouette on the horizon, seen from a low arid coast — line-of-sight to a neighbouring island.",
+      "image_index": 3,
+      "level": "admin_region",
+      "supports": [
+       "inter-island view, eastern Canaries"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "urban_form",
+      "observation": "Purpose-built low-density holiday village of identical white bungalows with red roofs stepping down to a beach, tennis courts inside walled grounds — planned resort, not organic town.",
+      "image_index": 4,
+      "level": "district",
+      "supports": [
+       "package resort such as Costa Calma / Playitas"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "street_furniture",
+      "observation": "Narrow service street lined with mature Canary palms, low kerbs, painted white parking bays and no drainage gutters — typical Canarian resort access road.",
+      "image_index": 5,
+      "level": "district",
+      "supports": [
+       "resort service road"
+      ],
+      "weight": "low"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which climatic/continental setting: arid subtropical Atlantic island vs Mediterranean mainland vs Middle East?",
+      "candidates": [
+       "Southern Europe mainland",
+       "Macaronesia (Canaries/Madeira/Cape Verde)",
+       "North Africa",
+       "Middle East"
+      ],
+      "observation": "Bare basaltic desert hills with zero natural tree cover, planted Canary date palms, deep blue Atlantic and a modern EU-standard dual carriageway with concrete median.",
+      "discriminator": "Mediterranean mainland Spain/Italy would show pines, olive terraces or maquis on hillsides rather than sterile volcanic gravel; North African/Middle Eastern roads would show Arabic script signage and different guardrail/kerb detailing, plus no EU-style rental-car fleet.",
+      "ruled_out": [
+       "Southern Europe mainland — no maquis/olive/pine vegetation, hills are lava scree",
+       "North Africa/Middle East — no Arabic signage, road furniture is EU spec"
+      ],
+      "conclusion": "Volcanic Atlantic island in the Macaronesian belt, under EU road standards",
+      "confidence_after": 0.85,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Spain (Canaries), Portugal (Madeira) or Cape Verde?",
+      "candidates": [
+       "Spain (Canary Islands)",
+       "Portugal (Madeira)",
+       "Cape Verde"
+      ],
+      "observation": "90 km/h Spanish-style round limit sign, Spanish/Canarian yellow-orange Mercedes ambulance, EU plates, wide flat-graded dual carriageway on gently sloping desert terrain.",
+      "discriminator": "Madeira would be lush laurisilva-green with tunnels, viaducts and very steep gradients, plus Portuguese blue-white ambulances (INEM); Cape Verde would have far poorer road surface, no crash-barrier concrete median, hilux/older vehicle fleet and no EU plates.",
+      "ruled_out": [
+       "Madeira — terrain here is flat arid coastal shelf, not tunnelled cliff road; vegetation is desert",
+       "Cape Verde — infrastructure quality, vehicle fleet and EU signage standards too high"
+      ],
+      "conclusion": "Spain, Canary Islands",
+      "confidence_after": 0.92,
+      "weight": "high"
+     },
+     {
+      "level": "cultural_sphere",
+      "question": "Which cultural-economic sphere within the Canaries: traditional Canarian town, or Northern-European package-tourism enclave?",
+      "candidates": [
+       "local Canarian town/agricultural sphere",
+       "international resort enclave"
+      ],
+      "observation": "Uniform whitewashed bungalow complexes with orange pantiles behind white perimeter walls, huge car parks of new rental cars, motorhome parked outside, no local commerce or churches visible.",
+      "discriminator": "A native Canarian settlement would show a plaza, church belfry, mixed-age housing, shops with Spanish signage and older cars; here everything is single-developer holiday architecture serving Northern-European tourists.",
+      "ruled_out": [
+       "local Canarian town sphere — no historic core, no church, no local retail"
+      ],
+      "conclusion": "Purpose-built international tourist enclave on the Canarian coast",
+      "confidence_after": 0.88,
+      "weight": "medium"
+     },
+     {
+      "level": "admin_region",
+      "question": "Western Canaries (Tenerife, La Palma, Gran Canaria) or eastern desert islands (Fuerteventura, Lanzarote)?",
+      "candidates": [
+       "Tenerife",
+       "Gran Canaria",
+       "Fuerteventura",
+       "Lanzarote"
+      ],
+      "observation": "Extremely low, rounded and heavily eroded ochre-brown hills; sea-level desert with no cloud-forest, no Teide-scale volcano, no deep barranco cliffs; single distant island silhouette across the water.",
+      "discriminator": "Tenerife's south would show the massive Teide massif and much steeper ravine walls plus dense motorway interchanges; Gran Canaria's south shows tall cliff barrancos and Maspalomas dune apron; Lanzarote would show recent black lava fields and low white flat-roofed buildings with green paint trim rather than large red-tiled resort blocks.",
+      "ruled_out": [
+       "Tenerife — no towering volcanic massif backdrop",
+       "Gran Canaria — relief far too subdued, no deep barranco walls",
+       "Lanzarote — no fresh black malpaís lava, roofs here are pitched red tile"
+      ],
+      "conclusion": "Fuerteventura, the low, old, most arid eastern island",
+      "confidence_after": 0.65,
+      "weight": "high"
+     },
+     {
+      "level": "metro_area",
+      "question": "Which stretch of Fuerteventura's east/south coast: Corralejo north, Caleta de Fuste centre, or the Jandía-axis resorts (Costa Calma / Las Playitas / Tarajalejo)?",
+      "candidates": [
+       "Corralejo",
+       "Caleta de Fuste",
+       "Costa Calma / Playitas / Tarajalejo corridor"
+      ],
+      "observation": "A fast dual carriageway (FV-2-type coastal trunk road) running along a hill flank with the sea and a walled resort village immediately below, palm-lined median, and a hill rising steeply on the inland side.",
+      "discriminator": "Corralejo sits on flat sandy dunes with the Lobos/Lanzarote silhouette very close and no hill flank hugging the road; Caleta de Fuste is a flat plain beside the airport with commercial sprawl rather than an isolated single resort against a bare mountain.",
+      "ruled_out": [
+       "Corralejo — terrain is dune-flat, not a mountain-flank cutting",
+       "Caleta de Fuste — no isolated hill and the surroundings are built-up commercial"
+      ],
+      "conclusion": "Southern/eastern Jandía-axis resort corridor served by the FV-2, most likely the Costa Calma–Las Playitas belt",
+      "confidence_after": 0.5,
+      "weight": "medium"
+     },
+     {
+      "level": "district",
+      "question": "Can the exact resort be pinned?",
+      "candidates": [
+       "Costa Calma",
+       "Las Playitas",
+       "Tarajalejo",
+       "Esquinzo"
+      ],
+      "observation": "A single large hotel with tiered pagoda-style roof lantern and starred logo signage sits at the head of a big car park; a separate bungalow village steps down to the beach nearby.",
+      "discriminator": "Distinguishing these neighbouring resorts would need a readable hotel name, route shield or municipal sign; the logo and lettering are too small/blurred to resolve, so no cut is justified.",
+      "ruled_out": [],
+      "conclusion": "One of the southern Fuerteventura resort villages; exact one not resolvable from these frames",
+      "confidence_after": 0.4,
+      "weight": "low"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.35,
+      "evidence": "No legible text; only a numeric 90 speed-limit sign and a blurred hotel logo. Spanish inferred from road standards and ambulance livery rather than from script.",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.4,
+      "image_index": 2,
+      "name": "Large four-star beach resort hotel with tiered pagoda-style roof (Canarian resort architecture)",
+      "type": "hotel complex"
+     },
+     {
+      "confidence": 0.3,
+      "image_index": 4,
+      "name": "Walled white bungalow holiday village with tennis courts",
+      "type": "resort village"
+     },
+     {
+      "confidence": 0.45,
+      "image_index": 0,
+      "name": "FV-2-type coastal dual carriageway (Fuerteventura trunk road)",
+      "type": "highway"
+     }
+    ],
+    "cultural_economic_read": "A mono-economy tourist coast: high-standard EU-funded dual carriageway and ornamental palm planting contrast with completely undeveloped volcanic desert immediately beside it, showing infrastructure built for visitor mobility rather than local population. The building stock is developer-uniform white-and-terracotta resort architecture behind perimeter walls, with vast lots of near-new small rental cars, motorhomes and a modern public ambulance — a wealthy Spanish/EU service standard grafted onto an arid, low-agriculture island whose income is Northern-European package holidays. Local Canarian civic fabric (church, plaza, mixed housing) is absent, indicating an enclave rather than a town.",
+    "place_slug": "fuerteventura",
+    "overall_confidence": 0.55
+   },
+   "cost_usd": 0.2339,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4517,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Spain",
+    "country_iso": "ES",
+    "country_correct": true,
+    "region": "Canary Islands (Fuerteventura, Las Palmas province)",
+    "city": "Costa Calma / Playitas–Las Playitas area, Fuerteventura",
+    "confidence": 0.55,
+    "overall_confidence": 0.55,
+    "error_km": 6.66,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 5,
+    "n_cues": 11,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "climate_biome",
+     "emergency_vehicle",
+     "geology",
+     "landscape",
+     "road_infrastructure",
+     "signage",
+     "street_furniture",
+     "urban_form",
+     "vegetation",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Costa Calma / Esquinzo-Butihondo, Jandía",
+     "confidence": 0.63,
+     "coordinate_estimate": {
+      "lat": 28.1655,
+      "lng": -14.2265,
+      "radius_km": 9
+     },
+     "country": "Spain",
+     "country_iso": "ES",
+     "region_or_state": "Canary Islands (Fuerteventura, Las Palmas province)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.15,
+      "country": "Spain",
+      "country_iso": "ES"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Portugal",
+      "country_iso": "PT"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Cape Verde",
+      "country_iso": "CV"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Hot arid / desert coastal (BWh), xeric scrub on volcanic substrate",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "observation": "Round red-bordered white speed-limit sign reading 90, EU-standard design, mounted on both carriageway shoulders of a dual carriageway.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "EU/Spain",
+       "90 km/h limit typical of Spanish non-motorway dual carriageway"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_infrastructure",
+      "observation": "Dual carriageway cut into an eroded ochre-tan ridge directly above the sea, with a low cast-in-place concrete parapet/New Jersey median and a parallel service road on the seaward terrace lined with Canary date palms.",
+      "image_index": 0,
+      "level": "admin_region",
+      "supports": [
+       "FV-2 corniche between Costa Calma and Morro Jable"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "geology",
+      "observation": "Hillside is deeply eroded, ochre-to-brown weathered basalt with sparse scrub — no fresh black lava fields, no barranco terracing.",
+      "image_index": 0,
+      "level": "admin_region",
+      "supports": [
+       "Older Miocene Fuerteventura massif rather than young Lanzarote lava"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "observation": "Planted Phoenix canariensis rows plus dry tussock scrub (Launaea/Salsola-type cushions) on bare gravel — irrigated ornamental palms in an otherwise desert setting.",
+      "image_index": 1,
+      "level": "macro_region",
+      "supports": [
+       "Eastern arid Canaries; not laurel-forest western islands"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "observation": "Large resort complex with orange pantile hipped and pyramidal roofs over whitewashed volumes, pergola-shaded entrance porte-cochère.",
+      "image_index": 2,
+      "level": "admin_region",
+      "supports": [
+       "Fuerteventura resort code permits tiled colored roofs, unlike Lanzarote's white-cube ban"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vehicles",
+      "observation": "Yellow/orange ambulance on white Mercedes Sprinter chassis, plus a dense mix of small hatchbacks and near-new SUVs consistent with rental-fleet turnover; EU-format long white plates.",
+      "image_index": 1,
+      "level": "country",
+      "supports": [
+       "Spanish emergency livery",
+       "Tourist rental-car economy"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "urban_form",
+      "observation": "Hillside stacked with low-rise white self-catering apartment urbanizaciones and gated resorts with tennis courts, no shops or civic buildings, no agriculture.",
+      "image_index": 4,
+      "level": "metro_area",
+      "supports": [
+       "Mono-functional international tourism enclave"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "landform",
+      "observation": "View across a broad blue channel to a distant mountainous silhouette on the horizon beyond the resort front.",
+      "image_index": 3,
+      "level": "admin_region",
+      "supports": [
+       "Sight line across a strait toward a neighbouring island / Jandía massif"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_markings",
+      "observation": "White-only lane markings, dashed white lane lines, no yellow paint; right-hand traffic confirmed by vehicles on the right of the carriageway.",
+      "image_index": 0,
+      "level": "continent",
+      "supports": [
+       "Continental EU marking standard, right-hand drive"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "street_furniture",
+      "observation": "Tall slim galvanised twin-arm mast lights on the dual carriageway and short black ornamental lantern posts inside the resort grounds.",
+      "image_index": 2,
+      "level": "country",
+      "supports": [
+       "Spanish resort municipal lighting kit"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "street_scene",
+      "observation": "Narrow one-way resort access lane densely lined on both sides with mature Canary date palms, kerbside parked older European hatchbacks, bare graded lava-gravel lot alongside.",
+      "image_index": 5,
+      "level": "district",
+      "supports": [
+       "Interior street of a Jandía-strip urbanización"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A mono-functional international beach-tourism economy grafted onto an agriculturally worthless arid volcanic coast: gated all-inclusive resort compounds and self-catering apartment urbanizaciones on a seaward terrace, no visible local commerce beyond hotel gates, total car dependence with large surface car parks and heavy rental-fleet presence, and Spanish-standard public infrastructure (EU signage, Sprinter ambulance, motorway-grade lighting) serving a largely Northern European clientele. Labour and services are imported from the mainland/other islands; land between the road and the resorts is left as raw graded gravel awaiting further speculative build-out.",
+    "languages_detected": [
+     {
+      "confidence": 0.35,
+      "evidence": "No legible text; inference from EU sign geometry, plate format and resort-branding style rather than readable lettering",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.4,
+      "image_index": 2,
+      "name": "Large all-inclusive resort hotel with pyramidal pantile roof (Jandía/Costa Calma type)",
+      "type": "resort hotel complex"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 0,
+      "name": "FV-2 coastal dual carriageway cut into the ridge above the resort strip",
+      "type": "highway"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Mediterranean Europe",
+       "Macaronesian Atlantic islands",
+       "North Africa",
+       "Middle East",
+       "Latin America"
+      ],
+      "conclusion": "European-standard (EU) hot-arid coast, right-hand traffic",
+      "confidence_after": 0.9,
+      "discriminator": "North Africa or the Middle East would show Arabic-script signage, differently proportioned plates, minarets and mixed informal streetscape; Latin America would use different sign fonts/shapes and far shabbier crash barriers. Here the speed sign is the exact EU circular 90 with thin red annulus and the plates are the long white EU strip format.",
+      "level": "continent",
+      "observation": "EU-pattern circular 90 speed sign, white-only lane markings, long white EU-format plates, motorway-grade galvanised lighting masts, right-hand traffic.",
+      "question": "Which broad regulatory/traffic sphere?",
+      "ruled_out": [
+       "North Africa — no Arabic script or Maghreb sign styling",
+       "Middle East — no bilingual Arabic panels",
+       "Latin America — sign and plate formats differ"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Spain (mainland SE)",
+       "Spain (Canary Islands)",
+       "Portugal (Madeira/Algarve)",
+       "Cape Verde",
+       "Greece"
+      ],
+      "conclusion": "Spain — specifically an Atlantic volcanic island, not the mainland",
+      "confidence_after": 0.82,
+      "discriminator": "Mainland SE Spain (Almería/Murcia) would show plastic-greenhouse fields, olive/almond terraces and a light-coloured limestone/marl substrate; Madeira would show deep green laurisilva slopes and tunnel-heavy roads with basalt-block walls; Cape Verde would show much poorer road furniture, no motorway-grade median parapet, and no EU sign geometry; Greece would show Greek script on shields. Here the substrate is dark eroded basalt with reddish scree, the only trees are planted Canary date palms, and the road hardware is fully Spanish state-standard.",
+      "level": "country",
+      "observation": "Spanish/EU road hardware combined with a treeless basaltic desert coast and planted Phoenix canariensis; whitewashed low-rise resort architecture with red pantiles.",
+      "question": "Which country and is this mainland or an Atlantic island?",
+      "ruled_out": [
+       "Mainland Spain — no greenhouse/olive agriculture, substrate is basalt not limestone",
+       "Madeira — no laurel forest, no basalt-block engineering walls",
+       "Cape Verde — infrastructure quality and EU signage inconsistent",
+       "Greece — no Greek signage, wrong architecture"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Lanzarote",
+       "Fuerteventura",
+       "Gran Canaria",
+       "Tenerife",
+       "La Palma"
+      ],
+      "conclusion": "Fuerteventura (eastern arid island, older eroded massif)",
+      "confidence_after": 0.75,
+      "discriminator": "Lanzarote's building code (Manrique-era) bans orange pantile roofs and colored facades — resorts there are strictly flat-roofed white cubes with green/blue woodwork, and its terrain is near-black young lava with picón mulch fields. Tenerife or Gran Canaria at this altitude/coastline would show a much bigger backdrop massif with barranco ravines, terraced banana plantations under plastic and denser multi-storey urbanisation. La Palma would be green and forested. Here the hills are low, rounded, ochre-tan, deeply eroded Miocene basalt with no fresh flows, and the resorts flaunt large pyramidal orange-tiled roofs.",
+      "level": "admin_region",
+      "observation": "Big pyramidal and hipped orange pantile roofs on resort hotels; low rounded ochre eroded ridges; no black picón fields, no banana terraces, no green highland.",
+      "question": "Which Canary island?",
+      "ruled_out": [
+       "Lanzarote — pantile hipped roofs are prohibited there; terrain would be black lava",
+       "Gran Canaria / Tenerife — would show high ravined massif, banana cultivation, denser city fabric",
+       "La Palma — forested, humid, no desert scrub"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Corralejo (north)",
+       "Caleta de Fuste (centre-east)",
+       "Costa Calma / Jandía corniche (south)",
+       "Puerto del Rosario"
+      ],
+      "conclusion": "The southern Jandía-corniche resort strip (Costa Calma–Esquinzo/Butihondo–Morro Jable)",
+      "confidence_after": 0.66,
+      "discriminator": "Corralejo sits on a flat white dune field with the Lobos/Lanzarote skyline low and close, and its dual carriageway runs on level sand, not cut into a ridge. Caleta de Fuste is a flat airport plain with the road far inland and no sea-cliff cut. Puerto del Rosario is a working port town with commerce and industry. Here the dual carriageway is benched into a steep eroded ridge with the sea immediately below, and gated resort compounds are stacked on a seaward terrace above the road — the signature Jandía corniche layout.",
+      "level": "metro_area",
+      "observation": "Dual carriageway notched into a steep hillside with the ocean directly below and resort urbanizaciones on the terrace between road and beach; a distant island/massif silhouette across the water.",
+      "question": "Which resort zone of Fuerteventura?",
+      "ruled_out": [
+       "Corralejo — flat dune terrain, no ridge cut",
+       "Caleta de Fuste — flat plain, road inland",
+       "Puerto del Rosario — port/commercial town, not a resort enclave"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Costa Calma",
+       "Esquinzo-Butihondo",
+       "Solana Matorral / Morro Jable"
+      ],
+      "conclusion": "Most likely the Costa Calma–Esquinzo/Butihondo stretch; cannot separate the two precisely",
+      "confidence_after": 0.5,
+      "discriminator": "Morro Jable/Solana Matorral would show the dense multi-storey apartment town, harbour breakwater and the tall Jandía massif rising immediately behind; Costa Calma proper would show the flat palm-avenue plain and a long straight beachfront strip. What we see is intermediate: hillside-stacked mid-rise white apartment blocks and single gated hotels with tennis courts on a narrow terrace, with the highway hugging the slope — but no route shield number, no place-name panel and no harbour is visible to settle it.",
+      "level": "district",
+      "observation": "Scattered gated hotel compounds and stepped white apartment blocks on the slope, no town centre, no port, no visible route shield or town-entry sign.",
+      "question": "Which segment of the Jandía strip?",
+      "ruled_out": [
+       "Solana Matorral / Morro Jable core — no harbour, no dense town grid, no towering massif backdrop"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.63,
+    "place_slug": "costa-calma",
+    "relied_on_atoms": [
+     "atm_cdd15c235ccf",
+     "atm_bf51659690c9",
+     "atm_63230a15ee6e",
+     "atm_7bbe41cc890f"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1392,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2574,
+    "output": 4675,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Spain",
+    "country_iso": "ES",
+    "country_correct": true,
+    "region": "Canary Islands (Fuerteventura, Las Palmas province)",
+    "city": "Costa Calma / Esquinzo-Butihondo, Jandía",
+    "confidence": 0.63,
+    "overall_confidence": 0.63,
+    "error_km": 13.29,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 11,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "geology",
+     "landform",
+     "road_infrastructure",
+     "road_markings",
+     "signage",
+     "street_furniture",
+     "street_scene",
+     "urban_form",
+     "vegetation",
+     "vehicles"
+    ]
+   },
+   "known_offered": [
+    "atm_7bbe41cc890f",
+    "atm_e270eb2291f6",
+    "atm_bf51659690c9",
+    "atm_cdd15c235ccf",
+    "atm_63230a15ee6e",
+    "atm_c57fe98938af",
+    "atm_e20896f61acd",
+    "atm_dc6f04f6a1d0",
+    "atm_a8fd0dd52605",
+    "atm_5d0db7397579"
+   ],
+   "relied_on": [
+    "atm_cdd15c235ccf",
+    "atm_bf51659690c9",
+    "atm_63230a15ee6e",
+    "atm_7bbe41cc890f"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "ES",
+   "country": "Spain",
+   "region": "Canary Islands (Fuerteventura, Las Palmas province)",
+   "city": "Costa Calma / Esquinzo-Butihondo, Jandía",
+   "lat": 28.1655,
+   "lng": -14.2265,
+   "error_km": 13.29,
+   "reached_level": "district",
+   "confidence": 0.63,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 13.29,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.23220375000000001,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5352,
+   "output": 3569,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Full hit: Spain / Fuerteventura / Esquinzo-Butihondo on the Jandía strip, with only 13 km of along-strip error. The decisive chain was EU sign and plate geometry plus Spanish motorway hardware, an ochre eroded (not black lava) basaltic coast with only planted Canary date palms, and resort blocks with orange pantile hipped/pyramidal roofs — which excluded Lanzarote, the green western islands and Madeira, while mainland SE Spain was excluded by the absence of greenhouse/olive agriculture and limestone substrate. The residual uncertainty (Costa Calma vs Esquinzo vs Morro Jable) could not be resolved from the images because no route shield or place-name panel is visible.",
+  "misleading_cues": [
+   {
+    "image_index": 3,
+    "observation": "Distant mountainous silhouette across a blue channel was read as a neighbouring island",
+    "why_misleading": "On the Jandía corniche the far silhouette can equally be the island's own coastline curving away; treating it as an inter-island channel view risks pushing the guess towards Corralejo/Lobos-Lanzarote sightlines."
+   },
+   {
+    "image_index": 0,
+    "observation": "Absence of any route shield or town-entry panel",
+    "why_misleading": "Without an FV- shield or kilometre plate the district-level split between Costa Calma and Esquinzo/Butihondo stays unresolved, which is where the 13 km error came from."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "category": "road-signage",
+    "image_index": 0,
+    "observation": "Circular white sign with thin red annulus reading 90, placed on both shoulders of a dual carriageway",
+    "why_decisive": "EU/Spanish sign geometry and the 90 km/h dual-carriageway limit fit Spanish autovía-standard secondary highways, excluding Morocco/Cape Verde formats."
+   },
+   {
+    "category": "soil-terrain-cue",
+    "image_index": 0,
+    "observation": "Deeply eroded ochre-brown basaltic slope with reddish scree, no fresh black lava, no picón fields",
+    "why_decisive": "Marks an old Miocene eroded massif — Fuerteventura — rather than young Lanzarote lava or the green high western Canaries."
+   },
+   {
+    "category": "roof-facade",
+    "image_index": 2,
+    "observation": "Whitewashed resort volumes topped with large orange pantile hipped and pyramidal roofs",
+    "why_decisive": "Such tiled roofs on tourist complexes are permitted on Fuerteventura but not under Lanzarote's white-cube code."
+   },
+   {
+    "category": "vegetation-cue",
+    "image_index": 1,
+    "observation": "Rows of irrigated Phoenix canariensis amid bare gravel with dry cushion scrub",
+    "why_decisive": "Planted Canary date palm in true desert scrub is the signature of the eastern arid Canaries, not Madeira or mainland Iberia."
+   },
+   {
+    "category": "urban-form",
+    "image_index": 4,
+    "observation": "Hillside terrace stacked with gated low-rise white self-catering urbanizaciones and hotel compounds with tennis courts, no shops or civic buildings",
+    "why_decisive": "Mono-functional resort enclave morphology of the Jandía corniche, distinct from a working port town like Puerto del Rosario."
+   },
+   {
+    "category": "infrastructure-built",
+    "image_index": 0,
+    "observation": "Dual carriageway benched into the slope with cast-in-place low concrete parapets and a narrow planted median, service road on the seaward terrace",
+    "why_decisive": "Spanish state road hardware quality plus the corniche cut fixes the southern Jandía FV-2 corridor rather than the flat dune or airport plains."
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Ochre eroded basalt vs black picón: Fuerteventura vs Lanzarote",
+    "body": "On Fuerteventura the slopes above the resort coast are rounded, ochre-to-brown, deeply gullied Miocene basalt with reddish scree and thin cushion scrub. In Lanzarote you would instead see near-black young lava, malpaís badlands and picón (black lapilli) mulch fields around vines and vegetables. The absence of any fresh black flow is enough to move the guess east-to-south Fuerteventura.",
+    "layer": "nature",
+    "category": "soil-terrain-cue",
+    "scope": "region",
+    "tags": [
+     "canaries",
+     "volcanic",
+     "erosion"
+    ],
+    "entities": [
+     "Fuerteventura",
+     "Lanzarote"
+    ],
+    "looks_like": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Lanzarote"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Fuerteventura"
+    },
+    "confidence": 0.8,
+    "image_index": 0
+   },
+   {
+    "title": "Orange pantile pyramidal resort roofs allowed on Fuerteventura, banned on Lanzarote",
+    "body": "Fuerteventura resorts freely use large orange pantile hipped and pyramidal roofs over whitewashed volumes. In Lanzarote the Manrique-era code yields strictly flat-roofed white cubes with green or blue woodwork and no tiled roofs at all. A skyline of orange tiles over white walls in a Canarian desert therefore reads Fuerteventura (or Gran Canaria south), not Lanzarote.",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "region",
+    "tags": [
+     "building-code",
+     "resort",
+     "canaries"
+    ],
+    "entities": [
+     "Fuerteventura",
+     "Lanzarote"
+    ],
+    "looks_like": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Lanzarote"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Fuerteventura"
+    },
+    "confidence": 0.78,
+    "image_index": 2
+   },
+   {
+    "title": "Canarian desert coast vs Madeira: palms in gravel, not laurisilva",
+    "body": "In the eastern Canaries the only trees are planted Phoenix canariensis in irrigated rows on bare volcanic gravel, with dry tussock/cushion scrub elsewhere. In Madeira you would instead see deep green slopes, laurel and eucalyptus, terraced smallholdings and tunnel-heavy roads with basalt-block retaining walls. Bare ochre gravel with ornamental palms rules Madeira out immediately.",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "region",
+    "tags": [
+     "palms",
+     "arid",
+     "atlantic-islands"
+    ],
+    "entities": [
+     "Canary Islands",
+     "Madeira"
+    ],
+    "looks_like": {
+     "country_iso": "PT",
+     "country": "Portugal",
+     "region": "Madeira"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Canary Islands"
+    },
+    "confidence": 0.82,
+    "image_index": 1
+   },
+   {
+    "title": "Spanish state road hardware separates Canaries from Cape Verde",
+    "body": "Canarian resort highways carry full Spanish state standards: cast-in-place concrete New Jersey parapets, tall galvanised twin-arm mast lighting, crisp white-only lane markings and EU circular speed plates. In Cape Verde you would instead see cobbled or patched single carriageways, minimal or improvised barriers, sparse lighting and different sign proportions. Infrastructure grade alone excludes Cape Verde despite similar arid volcanic scenery.",
+    "layer": "economy",
+    "category": "infrastructure-built",
+    "scope": "country",
+    "tags": [
+     "road-standards",
+     "atlantic-islands"
+    ],
+    "entities": [
+     "Spain (Canary Islands)",
+     "Cape Verde"
+    ],
+    "looks_like": {
+     "country_iso": "CV",
+     "country": "Cape Verde"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Canary Islands"
+    },
+    "confidence": 0.8,
+    "image_index": 0
+   },
+   {
+    "title": "Corniche cut vs dune flat: Jandía vs Corralejo/Caleta de Fuste",
+    "body": "On the Jandía peninsula the dual carriageway is benched into a steep eroded ridge with the sea immediately below and gated resorts stacked on a seaward terrace. At Corralejo the equivalent road runs level across white dune sand, and at Caleta de Fuste it crosses a flat inland airport plain with the resorts seaward of it. A hillside-cut carriageway above resort terraces places you in southern Fuerteventura.",
+    "layer": "geography",
+    "category": "urban-form",
+    "scope": "region",
+    "tags": [
+     "corniche",
+     "resort-strip",
+     "fuerteventura"
+    ],
+    "entities": [
+     "Jandía / Esquinzo-Butihondo",
+     "Corralejo"
+    ],
+    "looks_like": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Corralejo, Fuerteventura"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Jandía, Fuerteventura"
+    },
+    "confidence": 0.7,
+    "image_index": 0
+   },
+   {
+    "title": "Canarian arid coast vs SE mainland Spain: no greenhouses or olives",
+    "body": "The eastern Canaries show bare basaltic gravel, cushion scrub and ornamental palms with zero commercial agriculture near the coast. In Almería/Murcia you would instead see seas of plastic greenhouses, almond and olive plantings and pale limestone/marl soils, plus much denser road networks with A- autovía shields. Dark volcanic substrate with no farming is the split.",
+    "layer": "geography",
+    "category": "agriculture",
+    "scope": "country",
+    "tags": [
+     "mainland-vs-island",
+     "spain"
+    ],
+    "entities": [
+     "Canary Islands",
+     "Almería/Murcia"
+    ],
+    "looks_like": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Almería/Murcia"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Fuerteventura"
+    },
+    "confidence": 0.75
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_cdd15c235ccf",
+   "atm_bf51659690c9",
+   "atm_63230a15ee6e",
+   "atm_7bbe41cc890f"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_2259a51ab69b",
+   "atm_5c0a27638e98",
+   "atm_36aae0a58891",
+   "atm_eccd4326ddf2",
+   "atm_b333b74897e9",
+   "atm_26dc0e77b3da"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_2259a51ab69b",
+   "atm_5c0a27638e98",
+   "atm_36aae0a58891",
+   "atm_eccd4326ddf2",
+   "atm_b333b74897e9",
+   "atm_26dc0e77b3da"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_cdd15c235ccf",
+   "atm_bf51659690c9",
+   "atm_63230a15ee6e",
+   "atm_7bbe41cc890f"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.6053,
+ "status": "OK"
+}

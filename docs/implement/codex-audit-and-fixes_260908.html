@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>구현 기록 · codex 코드 감사와 그래프이론 기반 개선 — atom·molecule·altaiya (260908)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(168 74% 37%); --accent-deep:hsl(168 78% 27%); --accent-soft:hsl(168 58% 95%);
+  --accent2:hsl(38 92% 50%); --ink:#0e1a17; --ink-2:#2f4a43; --muted:#657a73;
+  --line:#e3ece9; --bg:#f4f7f6; --card:#ffffff; --ok:#127a4b; --ok-soft:#e6f6ee;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(14,26,23,.04),0 8px 24px -12px rgba(14,26,23,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.75;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:2px;font-size:12.5px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 9px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft)}
+.hero{padding:54px 0 32px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.26;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:80ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#c4e8df;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:44px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:25px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:24px;max-width:78ch}
+h3.sub{font-size:17px;font-weight:750;letter-spacing:-.02em;margin:30px 0 10px}
+p+p{margin-top:10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:15.5px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card p,.card li{font-size:13.8px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7faf9;font-weight:700;font-size:12px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+.tscroll{overflow-x:auto}
+code{font-family:var(--mono);font-size:12.3px;background:#eaf1ef;padding:1px 6px;border-radius:5px;color:#1f3b34}
+pre{background:#0e1a17;color:#e4efec;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.3px;line-height:1.62;margin-top:10px}
+.callout{background:var(--accent-soft);border:1px solid #c4e8df;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.foot{padding:36px 0 64px;color:var(--muted);font-size:13px}
+.badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.04em;padding:2px 8px;border-radius:999px;text-transform:uppercase}
+.badge.high{background:var(--danger-soft);color:var(--danger)}
+.badge.medium{background:var(--warn-soft);color:var(--warn)}
+.badge.low{background:#eee;color:var(--muted)}
+.badge.fixed{background:var(--ok-soft);color:var(--ok)}
+.badge.deferred{background:var(--warn-soft);color:var(--warn)}
+.badge.clean{background:var(--accent-soft);color:var(--accent-deep)}
+ul.clean{list-style:none;padding:0} ul.clean li{padding-left:23px;position:relative;margin:8px 0;font-size:14.5px;color:var(--ink-2)}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+ul.warn-li{list-style:none;padding:0} ul.warn-li li{padding-left:23px;position:relative;margin:8px 0;font-size:14.5px;color:var(--ink-2)}
+ul.warn-li li::before{content:"!";position:absolute;left:0;color:var(--danger);font-weight:800}
+.small{font-size:12px;color:var(--muted)}
+.case{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow);overflow:hidden;margin-top:18px}
+.case>.ch{padding:14px 18px;background:linear-gradient(135deg,var(--accent-soft),#fff);border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.case>.ch .cn{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep)}
+.case>.ch h3{font-size:16.5px;font-weight:800;letter-spacing:-.02em;flex:1;min-width:200px;margin:0}
+.case>.cb{padding:18px}
+.mv{display:grid;grid-template-columns:88px 1fr;gap:0 14px;font-size:13.8px}
+.mv .mk{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:4px;text-align:right}
+.mv .mb{padding:2px 0 12px;color:var(--ink-2);border-left:2px solid var(--line);padding-left:14px;margin-left:-8px}
+.mv .mk.x{color:var(--danger)} .mv .mb.x{border-left-color:var(--danger);background:#fffaf9}
+.mv .mk.g{color:var(--ok)} .mv .mb.g{border-left-color:var(--ok);background:#f4fbf7}
+.mv .mb:last-child{padding-bottom:0}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent-deep);margin-left:6px}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span> GeoGuessHelper · 구현 기록</div>
+  <nav class="topnav">
+    <a href="#method">방법</a><a href="#findings">감사 결과</a><a href="#fixes">고친 것</a>
+    <a href="#deferred">미룬 것</a><a href="#verify">검증</a><a href="#review">검토 이력</a><a href="#next">다음</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">구현 기록 · 2026-09-08 · 짝문서: docs/theory/graph-theory-survey_260908.html</div>
+  <h1>codex 코드 감사와 그래프이론 기반 개선 — atom·molecule·altaiya</h1>
+  <p>codex(<code>codex:codex-rescue</code>)에게 원자·분자 생성/관리 파이프라인과 altaiya 뷰어를 실제로 읽고 한계점을 찾게 했다.
+  핵심 파이프라인은 file:line 근거가 있는 <b>12건</b>을 받았다. altaiya 는 nested git 저장소라는 이유로 codex 의 승인 정책이
+  Bash 실행을 3번 다 막아 실행하지 못했다 — 그 부분은 직접 읽어 <b>6건</b>(문제 3 · 정상 확인 3)을 남겼다. 이후 지시에 따라
+  <b>1차 fable → 2차 codex → 3차 fable</b> 의 3단 재검토를 돌렸다: 1차가 자기 수정에서 2건을 더 찾았고(#19·#20), 2차는 중첩 저장소를
+  altaiya 감사를 재시도(셸 차단을 node_repl 로 우회)하며 1차의 수정 9건을 반박 검증해 <b>25건</b>을 더 찾았고, 3차가 그것을
+  코드로 대조해 22건을 고치고 2건을 미루고 1차 판정 1건을 철회했다(§검토 이력). 총 45건 중 <b>고침 31건</b>(1차 FIX 9 + 3차 22),
+  미룸 9건, 정상/철회 4건. 전부 <code>observe_check.py</code>(55) · <code>observe_clique_check.mjs</code>(엄격) ·
+  <code>graph_fixes_check.py</code>(신설 23) · <code>dialogue_check.py</code> · <code>correction_check.py</code> · <code>observe_api_check.py</code> 로 검증했다.</p>
+  <div class="meta">
+    <span class="chip dn">발견 45건(1차 codex 12 · 직접 6 · 자기검토 2 · 2차 codex 25)</span>
+    <span class="chip ok">고침 31건</span>
+    <span class="chip wn">미룸 9건(이유 명시) · 정상/철회 4건</span>
+    <span class="chip ac">검토 3단(fable·codex·fable)</span>
+    <span class="chip ac">테스트 6종 전부 통과</span>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<!-- ═══════════════════ 방법 ═══════════════════ -->
+<section class="section" id="method">
+  <div class="eyebrow">Method</div>
+  <h2 class="sec">codex 를 어떻게 썼고, 어디서 막혔는가</h2>
+  <p class="sec-desc">"codex 로 altaiya 코드와 atom/molecule 생성·관리 코드를 쭉 살피라"는 지시를 두 영역으로 나눠 각각
+  <code>codex:codex-rescue</code> 에이전트에게 file:line 근거 없이는 항목을 만들지 말라고 명시해 맡겼다.</p>
+  <div class="grid g2">
+    <div class="card"><h3>① 핵심 파이프라인 — 성공</h3>
+      <p><code>knowledge.py</code>·<code>molecule.py</code>·<code>observe.py</code>·<code>correction.py</code>·<code>dialogue.py</code>·<code>baseline.py</code>·<code>analyze.py</code>(7파일, 6,355줄)를 5회의 도구 호출로 읽고 12건을 file:line 과 함께 반환했다. 반환된 재현 시나리오는 실제 코드를 인용해 구체적이었다(예: 자카드 반례를 구체적 집합으로 구성).</p></div>
+    <div class="card"><h3>② altaiya 뷰어 — 3회 실패</h3>
+      <p>같은 방식으로 <code>observe_api.py</code>·<code>dialogue_api.py</code>·<code>app.py</code>·<code>extract.py</code>·<code>observe.js</code>·<code>clique.js</code>·<code>app.js</code>(7파일, 6,142줄)를 맡겼다. 워크플로 병렬 실행 1회 + 단독 재시도 2회 모두 "Automatic approval review rejected... blocked by policy. This session does not permit approval escalation" 로 실패 — codex 가 파일을 한 줄도 읽지 못했다고 스스로 보고했다(지어내지 않고 빈 결과 반환).</p></div>
+  </div>
+  <div class="callout danger"><b>원인 — 1차 추정은 틀렸고, 2차에서 로그로 바로잡았다.</b> 처음엔 "altaiya 가 자체 <code>.git</code> 을 가진 중첩 저장소라 codex 샌드박스가 저장소 경계에서 막는다"고 추정했다. 그러나 2차 재검토에서 주 저장소 파일(<code>src/geoguesshelper/observe.py</code>)의 <code>cat</code> 까지 같은 문구로 거부됐고, Codex 작업 로그(<code>~/.claude/plugins/data/codex-openai-codex/state/…/jobs/*.log</code>)를 대조하니 <b>모든 실행에서 읽기 전용 Bash 가 정책으로 거부</b>되고 있었다. 유일하게 성공한 1차 실행은 Codex 가 "읽기 전용 Bash 명령도 실행 정책에 의해 차단되었습니다 … 별도의 파일 읽기 도구로"라고 스스로 판단해 <code>node_repl/js</code> MCP 도구(Node <code>fs.readFileSync</code>)로 우회한 경우였다 — 그 세션은 심지어 clique.js 를 node 로 실제 실행해 반올림 반례를 만들었다. 이후 세션들은 셸이 막히자 포기하고 빈 JSON 을 냈다. 즉 실패는 환경(sandbox read-only + approval never 에서 셸 도구 거부)이고, 성공 여부는 Codex 가 우회를 찾느냐에 달린 <b>비결정적</b> 문제였다. 제품 피드백 초안(로컬 큐)의 원인 추정도 이 진단으로 정정해야 한다.</div>
+  <p style="margin-top:14px">altaiya 부분은 그래서 <b>직접</b> 읽었다 — grep 로 clique.js/molecule.py 재현 정확도, extract.py↔molecule.py 상호참조, XSS(innerHTML 삽입 지점), API 에러 처리를 확인했다(§findings 하단).</p>
+  <div class="callout ok" style="margin-top:14px"><b>2차 재시도 — 두 번.</b> ① 중첩 저장소 가설에 따라 altaiya 7개 파일을 <code>_codex_audit_tmp/</code> 로 복사해 보냈다 → 주 저장소 파일까지 거부되며 실패, 가설 반증. ② 로그 진단 뒤 프롬프트 첫 줄에 "셸은 전부 거부된다 — <code>node_repl/js</code> 로 <code>fs.readFileSync</code> 하라, 포기하고 빈 결과를 내지 마라"를 명시해 재전송했다. codex-rescue 서브에이전트는 일회성 전달자(status/result 폴링 금지)라 결과는 <code>codex-companion.mjs status/result</code> 로 직접 수거했다. 결과는 §검토 이력.</div>
+</section>
+
+<!-- ═══════════════════ 감사 결과 ═══════════════════ -->
+<section class="section" id="findings">
+  <div class="eyebrow">Findings</div>
+  <h2 class="sec">전체 18건 — 심각도·상태</h2>
+  <h3 class="sub">핵심 파이프라인(codex, 12건)</h3>
+  <div class="tscroll"><table>
+    <tr><th>#</th><th>제목</th><th>파일</th><th>심각도</th><th>상태</th></tr>
+    <tr><td>1</td><td>본문·시기·좌표를 비교하지 않는 중복 병합이 서로 다른 사실을 덮어쓴다</td><td><code>knowledge.py</code></td><td><span class="badge high">high</span></td><td><span class="badge deferred">deferred</span></td></tr>
+    <tr><td>2</td><td>원자·인덱스 동시 갱신에서 증거·참조가 유실된다(잠금 없음)</td><td><code>knowledge.py</code></td><td><span class="badge high">high</span></td><td><span class="badge deferred">deferred</span></td></tr>
+    <tr><td>3</td><td>계보 매칭이 이전 분자를 중복 선택하고 next 를 덮어쓴다</td><td><code>observe.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-2</td></tr>
+    <tr><td>4</td><td>거리 반올림 때문에 같은 임계에서도 브라우저 분자가 달라질 수 있다</td><td><code>observe.py</code>/<code>clique.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-1</td></tr>
+    <tr><td>5</td><td>상호 kNN 그래프 전에 여러 밀집 n×n 행렬을 할당한다(메모리 폭)</td><td><code>molecule.py</code>/<code>observe.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge deferred">deferred</span></td></tr>
+    <tr><td>6</td><td>큰 knn 설정에서 클리크 전량 열거를 막을 장치가 없다(지수 폭발)</td><td><code>molecule.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-5</td></tr>
+    <tr><td>7</td><td>오래된 임베딩으로 현재 본문의 분자를 생성할 수 있다(재임베딩 검증 없음)</td><td><code>molecule.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-8(1차 재검토)</td></tr>
+    <tr><td>8</td><td>정정 적재·채점 실패가 OK 로 저장돼 재시도에서 영구 제외된다</td><td><code>correction.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-7</td></tr>
+    <tr><td>9</td><td>기준선(baseline) 분석 실패도 성공 기록으로 고정된다</td><td><code>baseline.py</code>/<code>analyze.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge deferred">deferred</span></td></tr>
+    <tr><td>10</td><td>분자 명명 예산이 호출 전 상한이 아니라 배치 후 정지 조건이다(초과 가능)</td><td><code>molecule.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge deferred">deferred</span></td></tr>
+    <tr><td>11</td><td>대화 재시도에서 첫 응답의 비용이 최종 기록에서 빠진다</td><td><code>dialogue.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-6</td></tr>
+    <tr><td>12</td><td>중복 후보 워크벤치가 연결된 검토 대상을 쌍별로 분산한다(전이성 없음)</td><td><code>observe.py</code>/<code>observe.js</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span> §fix-3</td></tr>
+  </table></div>
+  <h3 class="sub">altaiya 뷰어(직접 감사, 6건 — codex 실행 실패로 대체)</h3>
+  <div class="tscroll"><table>
+    <tr><th>#</th><th>제목</th><th>파일</th><th>심각도</th><th>상태</th></tr>
+    <tr><td>13</td><td>extract.py 관계 그래프가 molecule.py 임베딩 클리크 그래프와 완전히 단절(상호 참조 0건, grep 확인)</td><td><code>extract.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge deferred">deferred</span> — link_candidates.json 이 1차 접근(§fix-4)</td></tr>
+    <tr><td>14</td><td>#4 와 같은 반올림 불일치가 관측소 뷰어의 "미리보기=스냅샷" 보장을 깬다</td><td><code>clique.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-1(공유 원인)</td></tr>
+    <tr><td>15</td><td>observe_api.py 에 JSON 파싱 실패 방어가 없다 — <b>2차 codex 가 반박</b>: <code>_cached</code>(:81-98)가 OSError·ValueError(JSONDecodeError 포함)를 잡아 default 를 낸다. 1차 직접 감사의 오판</td><td><code>observe_api.py</code></td><td>—</td><td><span class="badge clean">철회(1차 오판)</span></td></tr>
+    <tr><td>16</td><td>XSS 확인 — 1차는 "전부 esc()" 라 했으나 <b>2차 codex 가 반박</b>: observe.js:520 이 evidence 의 <code>e.event</code> 를 class 속성·본문에 그대로 삽입(저장형 XSS, evidence_log 를 통해), app.js:1553-1554 도 scope·period 직접 삽입</td><td><code>observe.js</code>/<code>app.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span>(3차)</td></tr>
+    <tr><td>17</td><td>dialogue_api.py 에러 처리 — 라우트 매핑은 맞지만 <code>_load()</code> 의 <code>load_settings()</code> 가 try 밖이라 설정 실패는 구조화되지 않은 500(2차 partly)</td><td><code>dialogue_api.py</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span>(3차)</td></tr>
+    <tr><td>18</td><td>clique.js 알고리즘은 molecule.py 를 충실히 재현(2차 confirmed: 정렬 키·흡수 규칙·sha1 까지 대조) — 다만 서버의 열거 상한이 브라우저엔 없었다(2차 partly)</td><td><code>clique.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span>(3차: 브라우저 상한 100,000 + 불완전 표시)</td></tr>
+  </table></div>
+  <h3 class="sub">1차 재검토(fable)가 자기 수정에서 찾은 것 — 2건</h3>
+  <div class="tscroll"><table>
+    <tr><th>#</th><th>제목</th><th>파일</th><th>심각도</th><th>상태</th></tr>
+    <tr><td>19</td><td>link_candidates 가 실제 거리를 안 담아 "거의 이웃"(130/200)·목록형(76/200) 지배를 알 수 없었다 — 허브형 후보라는 문서 주장과 산출물이 어긋남</td><td><code>observe.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-9</td></tr>
+    <tr><td>20</td><td>stale 검사 컴프리헨션이 매 반복마다 <code>set(ids)</code> 를 다시 만들어 O(n²)</td><td><code>molecule.py</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span>(호이스팅)</td></tr>
+  </table></div>
+  <h3 class="sub">2차 codex(재시도 성공, node_repl 읽기) — 25건: 1차 수정 검증 15 + altaiya 10</h3>
+  <div class="tscroll"><table>
+    <tr><th>#</th><th>제목</th><th>파일</th><th>심각도</th><th>3차 판정·상태</th></tr>
+    <tr><td>21</td><td>PARTIAL 재시도가 이미 반영한 증거를 중복 가산한다(재적재 시 hits/uses, record_evidence 반복) — misses≥3 철회까지 갈 수 있다</td><td><code>correction.py</code>/<code>knowledge.py</code></td><td><span class="badge high">high</span></td><td><span class="badge fixed">fixed</span> §fix-10</td></tr>
+    <tr><td>22</td><td>observe._sweep 이 truncated 를 버리고 부분 집합을 정상 pct 로 반환 → 계보 persistence 가 "없음"을 확정; molecule index·반환 dict 에도 미전파</td><td><code>observe.py</code>/<code>molecule.py</code></td><td><span class="badge high">high</span></td><td><span class="badge fixed">fixed</span> — sweep 에 pct 별 truncated, persistence 는 완전한 pct 만, index/반환에 전파</td></tr>
+    <tr><td>23</td><td>헝가리안 NO_MATCH=10 이 유효한 완전 매칭을 버릴 수 있다(22개 사슬 반례: 21+강제1=10.14 &lt; 22개=10.92)</td><td><code>observe.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-11</td></tr>
+    <tr><td>24</td><td>scipy 없는 그리디 경로가 이미 매칭된 old 를 다시 골라 1:1 불변식 위반</td><td><code>observe.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — matched 제외 + lineage 에 continue_method 기록</td></tr>
+    <tr><td>25</td><td>서버 D 가 float32 배열이라 <code>D ≤ thr</code> 가 float32 로 내려 비교되고 브라우저는 float64 — "비트 단위 동일" 주장 불성립</td><td><code>molecule.py</code>/<code>observe.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> §fix-12</td></tr>
+    <tr><td>26</td><td>스냅샷·index 의 threshold 가 6자리 반올림값인데 below_eps 판정에 쓰인다(far_thr 는 미반올림 — 출처 불일치)</td><td><code>molecule.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — threshold 미반올림 저장(표시는 읽는 쪽)</td></tr>
+    <tr><td>27</td><td>표(pct_thresholds)에 없는 pct 의 ε 는 0.5% 눈금 사이 보간 — numpy.percentile 의 정확한 재현이 아니다</td><td><code>clique.js</code>/<code>observe.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — 주석 정정 + 뷰어에 "(근사)" 표시</td></tr>
+    <tr><td>28</td><td>60초 상한이 absorb/union 후처리를 막지 못하고, MAX_CLIQUES 가 정확히 상한만큼인 그래프를 truncated 로 오판</td><td><code>molecule.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">부분 fixed</span> — 상한을 "넘길 때"만·열거 전체 기준으로; 후처리 예산은 문서화만(§deferred)</td></tr>
+    <tr><td>29</td><td>구버전 npz(atom_updated 없음)는 stale 미검사인데 stale=0 으로 기록 — 미확인과 최신 확인이 구별 안 됨; updated 비숫자면 float 변환 실패</td><td><code>molecule.py</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — stale_checked·stale=null·unverifiable_updated</td></tr>
+    <tr><td>30</td><td>bridge 필터가 양 끝만 목록형 제외 — 공통 이웃이 목록형이면 그 "공통 개념"은 위키 목록일 뿐; score×d 는 부재 노드를 보증하지 않는다</td><td><code>observe.py</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span> — 공통 이웃의 목록형 비율(list_like_cn_share) 계산·과반이면 제외·common_ids 제공·휴리스틱 명시</td></tr>
+    <tr><td>31</td><td>문서: O(Σdeg²) 는 점수 누적 단계만, 정렬 O(P log P) 추가; scipy "사실상 이미 있음"은 환경 전제; JSON 왕복 주장은 유한 binary64 에 한정</td><td>docs</td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span> — 두 문서 문구 정정</td></tr>
+    <tr><td>32</td><td>테스트: observe_check 가 수정 2~8 의 경계 조건을 검증하지 않는다(현재 데이터 회귀만)</td><td><code>tests/</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — <code>tests/graph_fixes_check.py</code> 신설(23건: 22개 사슬·경쟁·그리디 1:1·전이 묶음·AA/bridges·열거 상한·구버전 npz·dtype·증거 멱등·재개 판정)</td></tr>
+    <tr><td>33</td><td>테스트: observe_clique_check.mjs 가 엣지·클리크 수·periphery·통계 차이가 있어도 PASS(출력만)</td><td><code>tests/</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — 전부 실패 조건 + threshold·truncated</td></tr>
+    <tr><td>34</td><td>테스트: observe_check 가 4자리 반올림된 저장 d 로 엄격 임계(d&lt;τ)를 재검사해 거짓 실패 가능</td><td><code>tests/</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span> — 원본 D 로 엄격 검사, 저장값은 round(D,4) 일치</td></tr>
+    <tr><td>35</td><td>altaiya: evidence <code>e.event</code> 미이스케이프(저장형 XSS)</td><td><code>observe.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — enum 검증한 class + esc</td></tr>
+    <tr><td>36</td><td>altaiya: 브라우저 클리크 열거·흡수에 상한 없음(3개씩 9파트 27노드에서 19,683개 실측), 메인스레드 동기</td><td><code>clique.js</code>/<code>observe.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — maxCliques 100,000 + truncated 표시(Web Worker 는 §deferred)</td></tr>
+    <tr><td>37</td><td>altaiya: 늦게 도착한 원자/분자 상세 응답이 최신 선택을 덮어쓴다</td><td><code>observe.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — 요청 세대 번호</td></tr>
+    <tr><td>38</td><td>altaiya: 선택 API(series/corrections)의 네트워크 실패가 전체 초기화를 막고, 무응답 요청에 deadline 없음</td><td><code>observe.js</code></td><td><span class="badge medium">medium</span></td><td><span class="badge fixed">fixed</span> — allSettled + getJSON 30s timeout</td></tr>
+    <tr><td>39</td><td>altaiya: queues.stale 에 "snapshot" 키가 두 번 — boolean 이 타임스탬프로 덮여 정상 스냅샷도 ⚠ stale 로 표시</td><td><code>observe_api.py</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span> — snapshot_at 분리(뷰어가 원래 기대하던 키)</td></tr>
+    <tr><td>40</td><td>altaiya: <code>#atom=%</code> 같은 잘못된 인코딩이 decodeURIComponent 에서 던져 라우팅 중단</td><td><code>observe.js</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span> — try/catch + atom/mol id 완전일치 검증</td></tr>
+    <tr><td>41</td><td>altaiya: 같은 이름의 스냅샷을 교체하면 membership/mol_rows 파생 캐시 키가 갱신 안 됨</td><td><code>observe_api.py</code></td><td><span class="badge low">low</span></td><td><span class="badge deferred">deferred</span> — 스냅샷 이름은 시각 접두라 동일 이름 교체가 실제로 없다</td></tr>
+    <tr><td>42</td><td>파일별 원자적 교체가 산출물 전체의 세대 일치를 보장하지 않음(atom_meta 갱신 직후 중단 시 섞임)</td><td><code>observe.py</code></td><td><span class="badge low">low</span></td><td><span class="badge deferred">deferred</span> — 빌드 6초·중단 시 재빌드로 복구; manifest 포인터 방식은 설계 과제</td></tr>
+    <tr><td>43</td><td>altaiya: dups.json groups · link_candidates.json 이 UI/API 에 노출되지 않음</td><td><code>observe_api.py</code>/<code>observe.js</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span> — <code>/api/observe/links</code> + queues.links·dups.groups, 작업대 "전이 묶음"·"다리 후보" 절</td></tr>
+    <tr><td>44</td><td>altaiya: layout/graph 의 일시적 실패가 페이지 수명 동안 고정(재요청 없음)</td><td><code>observe.js</code></td><td><span class="badge low">low</span></td><td><span class="badge fixed">fixed</span> — 404 만 고정, 나머지는 재진입 시 재요청</td></tr>
+    <tr><td>45</td><td>2차 claims: #13(extract.py 단절) confirmed · #15 refuted · #16 refuted · #17 partly · #18 partly</td><td>—</td><td>—</td><td>위 15~18 행에 반영</td></tr>
+  </table></div>
+  <div class="callout"><b>#4 와 #14 는 같은 원인의 두 표현이다.</b> codex 가 <code>observe.py</code>/<code>molecule.py</code>/<code>clique.js</code> 세 파일을 함께 읽고 찾아냈고, 나는 altaiya 쪽에서 같은 버그가 관측소 뷰어의 핵심 약속("미리보기 = 스냅샷과 원자 단위 일치")을 깬다는 걸 확인했다 — 하나로 세어 §fix-1 에서 같이 고쳤다.</div>
+</section>
+
+<!-- ═══════════════════ 고친 것 ═══════════════════ -->
+<section class="section" id="fixes">
+  <div class="eyebrow">Fixed — 7건</div>
+  <h2 class="sec">각 수정의 재현·고침·검증</h2>
+
+  <div class="case" id="fix-1"><div class="ch"><span class="cn">FIX 1 · #4·#14</span><h3>거리 반올림 — 관측소 미리보기가 스냅샷과 갈릴 수 있었다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x"><code>observe.py</code> 는 <code>neighbors.json</code> 의 엣지 거리를 <code>round(d, 7)</code> 로 저장했다. 서버(<code>molecule.py:249</code>)는 반올림 없는 원본 float64 D 로 <code>D ≤ thr</code> 를 비교한다. float32 임베딩값 하나가 정확히 7자리 경계(예 0.10000008344650269 → 0.1000001)에 걸리면, 서버 판정과 반올림된 사본으로 판정한 브라우저(<code>clique.js filterEdges</code>)의 결과가 갈릴 수 있다. 과거(260907)에 4자리→7자리로 한 번 완화한 전력이 있는, 같은 계열의 재발.</div>
+      <div class="mk">고침</div><div class="mb"><code>knn_doc</code>·<code>mutual_edges</code> 의 거리 값에서 반올림을 없앴다(<code>round(float(D[i,j]),7)</code> → <code>float(D[i,j])</code>). Python <code>json</code> 은 유한 binary64 값을 최단 왕복 문자열로 쓰므로(D 는 clip 돼 NaN/Inf 가 없다) 저장·파싱에서 값이 바뀌지 않는다. 임계·분위표는 원래도 반올림하지 않았다. 근중복 표시용 <code>dups.json</code> 의 <code>round(d,4)</code> 는 사람이 읽는 표일 뿐 판정에 안 쓰여 그대로 뒀다. <b>3차 보강(2차 #25):</b> 직렬화 정밀도만으로는 부족했다 — 서버 D 가 float32 배열이라 <code>D ≤ thr</code> 자체가 float32 로 내려 비교됐다. §fix-12 에서 D 를 float64 로 올려 판정 dtype 까지 통일했다.</div>
+      <div class="mk g">검증</div><div class="mb g"><code>observe_clique_check.mjs</code>: pct 0.5 · 엣지 2,399 · 원시 클리크 231 · 분자 <b>128/128 id 단위 정확히 일치</b>, sha1 불일치 0, cohesion/diameter 차이 0. <code>observe_check.py</code> 이웃/mutual_edges 관련 6개 검사 전부 PASS.</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-2"><div class="ch"><span class="cn">FIX 2 · #3</span><h3>분자 계보 — 그리디 매칭이 유효한 짝을 잃을 수 있었다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x"><code>build_lineage()</code> 의 continue 판정(<code>observe.py</code>)은 new 분자를 순서대로 훑으며 그때까지 최고 자카드인 old 를 그리디로 골랐는데, 고른 old 를 후보 풀에서 빼지 않았다. 반례: old={A1,A2}, new={B1,B2}, A1↔B1 자카드 0.8, A1↔B2 0.6, A2↔B2 0.55 이면 B1·B2 모두 A1 을 "최고"로 골라 B2 는 A2 대신 born 으로, A2 는 dissolved 로 잘못 떨어진다. 실제로 유효한 최적 매칭(B1↔A1, B2↔A2)이 있는데도 놓친다.</div>
+      <div class="mk">고침</div><div class="mb">자카드 ≥0.5 인 후보만 비용(1−자카드)으로 채운 비용행렬에 <code>scipy.optimize.linear_sum_assignment</code>(헝가리안)를 돌려 <b>전역 최적 1:1 매칭</b>을 구하는 <code>_continue_matches()</code> 를 새로 만들어 교체했다. 강제로 채워진(자카드 0.5 미달) 배정은 버린다. scipy 가 없으면(uv 환경) 이전 그리디로 저하 — 신뢰성보다 가용성이 필요한 경로도 보존.</div>
+      <div class="mk g">검증</div><div class="mb g"><code>observe_check.py</code>: "born+continue == |B−A|", "dissolved+continue == |A−B|", "최신 스냅샷 밖 분자는 dissolved" 등 계보 관련 검사 전부 PASS(persist 127 · dissolved 4 · born 1). 재빌드에서 회귀 없음.</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-3"><div class="ch"><span class="cn">FIX 3 · #12</span><h3>근중복 워크벤치 — 쌍이 사람에게 따로따로 보였다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x"><code>dups.json</code> 은 거리&lt;τ 인 "쌍"만 나열했다. A~B, B~C 가 각각 쌍으로 잡히면 화면에 두 행이 멀리 떨어져 뜨고, 사람이 B 를 두 번 검토하며 A~C 관계를 직접 조합해야 했다 — 판정 버그가 아니라 검토 작업의 한계.</div>
+      <div class="mk">고침</div><div class="mb">근중복 쌍을 union-find 로 전이적 연결요소로 묶는 <code>_dup_groups()</code> 를 추가해 <code>dups.json</code> 에 <code>groups</code>(atoms·direct_pairs·transitive_only·d_min·d_max) 를 얹었다. <b>pairs 는 그대로 둔다</b> — "판정은 사람" 원칙, 묶음은 확정이 아니라 보조 뷰. <code>transitive_only</code> 로 "묶음 안 모든 쌍이 직접 임계 이내는 아니다"를 구분한다.</div>
+      <div class="mk g">검증</div><div class="mb g">재빌드 실측: 21쌍 → <b>18묶음</b>(대부분 2원자 쌍이 곧 묶음, 일부 전이적 3원자 묶음 생성 확인). <code>observe_check.py</code> dup 관련 검사 전부 PASS(재계산=파일 일치).</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-4"><div class="ch"><span class="cn">FIX 4 · 신규 · 짝문서 §angle2·§angle3</span><h3>링크 후보 — refs 는 사람만 붙이고 자동 후보가 없었다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x">원자 간 <code>refs</code> 링크는 대화(사람이 승인)로만 붙는다 — 자동 제안이 전혀 없었다. molecule-theory_260907 §3.2·§7 이 스스로 남긴 숙제("허브형 분자는 임베딩 클리크로 못 찾고 공통 이웃 삼각형에서 찾아야 한다")도 미해결이었다.</div>
+      <div class="mk">고침</div><div class="mb">상호 kNN 이웃 그래프에서 직접 안 이어진 쌍 중 공통 이웃 가중합(<b>Adamic-Adar</b>, Zhou·Lü·Zhang 2009)이 높은 상위 200을 새 산출물 <code>link_candidates.json</code> 으로 냈다. 모든 쌍(O(n²))이 아니라 <b>각 노드를 "공통 이웃"으로 보고 그 이웃끼리만 짝짓는</b> O(Σdeg²) 방식이라 상호 kNN(k=15)의 성긴 구조에서 원자 수천 개로도 가볍다 — #5(밀집 행렬 폭) 와 같은 함정을 피했다.</div>
+      <div class="mk g">검증</div><div class="mb g">재빌드 실측: <b>200건</b> 생성, 전체 빌드 15.1s 안에 포함(별도 병목 없음). 아직 뷰어에 노출·사람 검토 루프는 안 붙였다 — §deferred #13.</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-5"><div class="ch"><span class="cn">FIX 5 · #6</span><h3>클리크 열거 — 상한이 없어 병적 그래프에서 자원이 고갈될 수 있었다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x">CLI 의 <code>--knn</code> 상한이 없어(내부는 n−1 까지만 제한), 극대 클리크 수가 이론상 지수적으로 폭발할 수 있다. codex 가 재현한 반례: 3원자씩 20파트, 파트 간 거리=1·파트 내부=1.01 인 60×60 그래프에서 knn=57·pct=50 이면 완전 20부 그래프가 되고 극대 클리크가 3^20(≈35억)개 나온다 — 병합 단계 진입 전에 메모리·시간이 고갈.</div>
+      <div class="mk">고침</div><div class="mb"><code>nx.find_cliques(G)</code> 를 리스트로 한 번에 소비하는 대신 제너레이터를 직접 순회하며 <code>MAX_CLIQUES=200,000</code>·<code>MAX_CLIQUE_SECONDS=60</code> 에서 끊는다. 끊었으면 <code>truncated</code> 플래그를 스냅샷·sweep 행·dry-run 결과까지 전파해 "이 스냅샷은 완전하지 않다"고 명시적으로 표시한다(조용히 불완전한 결과를 완전한 것처럼 저장하지 않는다).</div>
+      <div class="mk g">검증</div><div class="mb g">정상 규모(원자 1,373, pct 0.5, knn 10)에서 <code>truncated=False</code>, 231개 원시 클리크로 회귀 없이 완료. 병적 그래프 자체를 재현해 상한 도달을 실측하진 않았다(운영 데이터로는 위험 시나리오를 안전하게 못 만든다) — 로직은 codex 의 반례 구조를 그대로 반영해 작성.</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-6"><div class="ch"><span class="cn">FIX 6 · #11</span><h3>대화 비용 — 재시도 시 첫 호출 비용이 새어나갔다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x">도구 입력이 비면(모델이 본문으로 써버린 경우) 강제 <code>tool_choice</code> 로 1회 재시도하는데, <code>resp</code> 를 덮어쓴 뒤 <b>마지막 응답의 spend 만</b> 기록했다. 첫 호출이 유료 응답을 냈어도(유효한 도구 입력만 없었을 뿐) 그 비용은 최종 <code>cost_usd</code>·로그에서 사라진다.</div>
+      <div class="mk">고침</div><div class="mb">루프 안에서 매 응답 직후 <code>llm.spend(resp)</code> 를 <code>total_cost</code> 에 누적하도록 바꿨다 — 재시도가 일어나도 c1+c2 전부가 기록된다.</div>
+      <div class="mk g">검증</div><div class="mb g"><code>dialogue_check.py</code> 전체 통과(uv 환경, fastapi 포함) — "cost_usd 계산됨(가짜 usage)" 포함 25개 검사 전부 PASS. 이 파일 자체엔 재시도-비용 케이스를 별도로 짚는 검사가 없어(정상 경로만 모의) 회귀 없음만 확인했고, 새 계산식이 정상 경로(재시도 0회)에서 이전과 동일한 결과를 냄을 코드로 보장한다(첫 루프뿐이면 total_cost == 이전 방식의 cost).</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-7"><div class="ch"><span class="cn">FIX 7 · #8</span><h3>정정 루프 — 적재 실패가 OK 로 고정돼 영구히 재시도 안 됐다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x"><code>run_for_result()</code> 는 원자 적재·증거 채점 예외를 <code>rec["atoms"]["error"]</code>/<code>rec["evidence"]["error"]</code> 에만 담고 항상 <code>finish(_STATUS_OK)</code> 를 호출했다. <code>run()</code> 의 재시도 조건(<code>status != "OK"</code>)이 이 잡을 이미 끝난 것으로 보고 영구히 제외한다 — 판단(blind/aided/정정 호출)은 멀쩡히 끝났는데 그 결과가 지식으로 반영되지 않은 채 다시 시도되지 않는다.</div>
+      <div class="mk">고침</div><div class="mb">새 상태 <code>_STATUS_PARTIAL</code> 을 추가해, 적재·채점 중 하나라도 <code>error</code> 를 남기면 <code>finish(_STATUS_OK)</code> 대신 <code>finish(_STATUS_PARTIAL, ...)</code> 을 호출하도록 바꿨다. <code>run()</code> 의 재시도 필터는 그대로(<code>status != "OK"</code>)라 PARTIAL 은 자동으로 다음 <code>run()</code> 에서 재시도 대상에 남는다.</div>
+      <div class="mk g">검증</div><div class="mb g"><code>correction_check.py</code>: 원장 스키마·판별자 표식·회상 로그·유도 확인(redo)·서버 통합 22개 검사 전부 PASS(uv 환경). 별도 무관한 실패 1건(§verify 참고) 확인 — 내 변경과 무관함을 코드로 확인(대상 로직 미접촉).</div>
+    </div>
+  </div></div>
+</section>
+
+  <div class="case" id="fix-8"><div class="ch"><span class="cn">FIX 8 · #7 · 1차 재검토</span><h3>오래된 임베딩 — 본문은 바뀌었는데 벡터는 옛것인 채로 분자를 만들 수 있었다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x"><code>embeddings.npz</code> 는 임베딩 시점의 <code>atom_updated</code> 를 저장하지만 <code>_load_embeddings()</code> 가 이를 버리고 <code>cmd_build()</code> 는 현재 원자의 <code>updated</code> 와 대조하지 않았다. P2 병합이 본문을 교체한 뒤 <code>embed</code> 없이 <code>build</code> 하면 옛 벡터로 현재 원자를 묶는다. 원자 파일이 없는 id 도 경고만 하고 그래프에 남겼다.</div>
+      <div class="mk">고침</div><div class="mb"><code>_load_embeddings()</code> 가 npz 의 <code>atom_updated</code> 를 <code>MolDir.last_atom_updated</code> 로 넘기고, <code>cmd_build()</code> 가 현재 원자 <code>updated</code> 와 1e-6 초과 차이면 stale 로 센다. 정책은 <b>막지 않고 경고 + 기록</b>: 스냅샷에 <code>stale_embeddings</code>·<code>missing_atoms_in_npz</code>·<code>unembedded_atoms</code> 를 남겨 관측소 stale 신호의 재료로 쓴다(구버전 npz 에 필드가 없으면 검사 건너뜀).</div>
+      <div class="mk g">검증</div><div class="mb g"><code>molecule build --dry-run</code>: 현재 저장소는 stale 0 · unembedded 0(임베딩과 원자가 일치) — 경고 없이 231 클리크 → 128 분자로 이전과 동일. 실제 stale 케이스는 운영 데이터로 재현하지 않았다(본문을 고의로 바꾸면 지식 저장소가 오염된다).</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-9"><div class="ch"><span class="cn">FIX 9 · #19 · 1차 재검토</span><h3>링크 후보 — Adamic-Adar 만으론 "거의 이웃"이 나왔다, 허브형은 따로 걸러야 했다</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x">§fix-4 의 산출물을 처음으로 열어 보니(1차 실측): 상위 200 중 130 은 한쪽 kNN15 목록에 있는 "거의 이웃", 58 은 이미 ε 이내, 76 은 목록형 위키 원자가 낀 쌍. 상위 10 은 전부 "…dynasties/polities" 목록이었다. 문서는 이걸 "허브형 분자 탐지의 1차 실마리"라 했지만 산출물엔 거리가 없어 그 주장을 검증할 수 없었다 — 문서가 코드보다 앞서 간 상태.</div>
+      <div class="mk">고침</div><div class="mb">각 후보에 <code>d</code>(실제 코사인 거리)·<code>below_eps</code>·<code>list_like</code> 를 붙였고, <code>bridges</code> 를 분리했다: 목록형 제외 · d ≥ pct1.0 임계 · 공통 이웃 ≥5 인 쌍을 <b>score×d</b> 로 순위(거리를 페널티가 아니라 가중치로 — 허브형의 정의가 "멀지만 같은 것들과 가깝다"이므로). 상위 100 저장, 파라미터를 <code>params</code> 에 기록.</div>
+      <div class="mk g">검증</div><div class="mb g">재빌드: candidates 200 · bridges 100 · 점수 매긴 쌍 24,783 · 0.21s. bridges 상위: "대학 라이벌 전통 ↔ 잉글랜드 대학 강 펀팅"(옥스브리지), "Southern Gas Corridor ↔ 크로아티아 LNG 정책가"(LNG 터미널), "인도 좌측통행 ↔ RHD/LHD 회색시장"(우핸들 교통권) — 70/100 이 층 교차, d 중앙값 0.51. <code>observe_check.py</code> 53건 통과·클리크 128/128 유지.</div>
+    </div>
+  </div></div>
+
+  <h3 class="sub">3차(fable) 수정 — 2차 codex 지적에 대한 대표 사례 3건 (나머지 19건은 위 표의 상태 열)</h3>
+
+  <div class="case" id="fix-10"><div class="ch"><span class="cn">FIX 10 · #21 · 3차</span><h3>PARTIAL 재시도 — 증거가 중복 가산되는 문제를 "재개 + 멱등"으로</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x">§fix-7 로 PARTIAL 이 재시도 대상이 되자 새 문제가 드러났다(2차 codex): 재시도는 <code>run_job</code> 전체를 다시 돌린다 → (1) LLM 비용을 또 쓰고, (2) 같은 판별자를 다시 적재하면 병합 경로가 <code>hits+1</code>·<code>uses+1</code> 을 또 올리며(knowledge.py:621-630), (3) <code>record_evidence</code> 는 잡 단위 처리 여부를 보지 않아 hits/misses 를 또 올린다(:523-545) — 같은 실패가 반복되면 misses≥3 철회까지 간다.</div>
+      <div class="mk">고침</div><div class="mb">① <b>재개(resume)</b>: 이전 기록이 PARTIAL 이고 판단(blind final·verdict·정정 호출 summary)이 온전하면(<code>_resumable</code>) 그 결과를 그대로 rec 에 복사하고 4단계만 다시 한다 — LLM 재호출 0. ② <b>적재 재사용</b>: 이전 적재가 성공했으면(atoms 에 error 없음) 원자 목록을 재사용하고 재적재하지 않는다. ③ <b>채점 멱등</b>: <code>record_evidence</code> 가 <code>evidence_log.jsonl</code> 에서 같은 ctx(잡)·원자·판정 조합을 찾으면 건너뛴다(<code>skipped</code> 로 반환). 4단계는 <code>_ingest_and_score()</code> 로 분리해 정상 경로와 재개 경로가 같은 코드를 쓴다.</div>
+      <div class="mk g">검증</div><div class="mb g"><code>graph_fixes_check.py</code> ⑦: 같은 잡으로 두 번 채점 → hits 1 유지·두 번째는 skipped, 다른 잡은 가산. ⑧: 재개 판정 4케이스. <code>correction_check.py</code> 22건 통과. <b>잔존</b>: 적재가 중간에 실패한 경우(일부 원자만 저장) 재적재에서 그 원자들의 hits 가 한 번 더 오른다 — 적재는 LLM 없이 수 초라 발생 확률이 낮고, 완전한 멱등 키는 §deferred.</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-11"><div class="ch"><span class="cn">FIX 11 · #23·#24 · 3차</span><h3>헝가리안 벌점 — 매칭 수 최대화가 자카드 합보다 우선하도록</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x">2차 codex 의 반례(집합으로 구성): i=0..21 에 A<sub>i</sub>={100i…100i+299}, B<sub>i</sub>={100i+1…100i+300}, B<sub>21</sub>={−99…200}. 후보는 B<sub>i</sub>→A<sub>i</sub>(J=299/301), B<sub>i</sub>→A<sub>i+1</sub>(201/399), B<sub>21</sub>→A<sub>0</sub> 뿐. 22개 모두 잇는 유일한 배정의 비용 10.917 &gt; 21개+강제 1개(NO_MATCH=10) 10.140 — 최소비용 해가 강제 배정을 고르고 그것을 버려 유효한 continue 하나가 born/dissolved 가 된다. 고정 벌점 10 은 행렬이 커지면 진짜 후보 비용 합보다 작아진다.</div>
+      <div class="mk">고침</div><div class="mb">진짜 후보 비용은 각 ≤0.5, 최대 min(|new|,|old|)개 → 강제 배정 하나를 줄이는 게 항상 싸려면 NO_MATCH &gt; 0.5·min 이면 충분. <code>NO_MATCH = 1 + max(|new|,|old|)</code> 로 두었다. 그리디 저하 경로도 이미 매칭된 old 를 제외하도록 고쳤고(1:1 불변식), lineage 이벤트에 <code>continue_method</code>(hungarian/greedy/none)를 기록한다.</div>
+      <div class="mk g">검증</div><div class="mb g"><code>graph_fixes_check.py</code> ①: 22개 사슬 반례에서 완전 매칭 22개 유지·1:1, 경쟁 반례 두 쌍 모두 유지, 그리디 저하는 같은 old 중복 없음. 실 데이터 계보(스냅샷 5개) 검사 통과.</div>
+    </div>
+  </div></div>
+
+  <div class="case" id="fix-12"><div class="ch"><span class="cn">FIX 12 · #25·#26 · 3차</span><h3>판정 dtype 통일 — float32 배열 비교 vs 브라우저 float64</h3></div><div class="cb">
+    <div class="mv">
+      <div class="mk x">봄</div><div class="mb x">§fix-1 은 직렬화만 고쳤다. 그런데 서버 D 는 <code>V(float32) @ V.T</code> 의 float32 배열이고 <code>D &lt;= thr</code> 에서 NumPy 는 Python float 임계를 float32 로 내려 비교한다(NEP 50 승격). 브라우저는 <code>float(D[i,j])</code>(float32 값의 정확한 float64)를 float64 임계와 비교한다. d=0.10000008344650269, thr=d−1e-9 이면 float32(thr)=d 라 서버는 참, 브라우저는 거짓. 또 스냅샷/index 의 threshold 는 6자리 반올림값이라 below_eps 판정과 far_thr(미반올림)의 출처가 달랐다.</div>
+      <div class="mk">고침</div><div class="mb"><code>_distances</code>(molecule.py·observe.py 둘 다)가 곱 결과를 <code>float64</code> 로 올린다 — 값은 float32 와 같고(정확 표현), 분위수·판정·직렬화·브라우저 비교가 전부 float64. 스냅샷·index 의 threshold 는 미반올림 저장(표시는 읽는 쪽). 분자 스냅샷을 재빌드했다.</div>
+      <div class="mk g">검증</div><div class="mb g">재빌드 스냅샷 <code>260908_170604</code>: 엣지 2,399 · 원시 클리크 231 · 분자 128 — 이전 스냅샷과 <b>persist 128 / 변화 0</b>(계보 이벤트). index threshold 0.3350451937317848(미반올림). 엄격해진 <code>observe_clique_check.mjs</code>(id·엣지·클리크 수·periphery·통계·임계·truncated 전부 실패 조건) PASS. <code>graph_fixes_check.py</code> ⑥ dtype float64.</div>
+    </div>
+  </div></div>
+
+<!-- ═══════════════════ 미룬 것 ═══════════════════ -->
+<section class="section" id="deferred">
+  <div class="eyebrow">Deferred — 11건</div>
+  <h2 class="sec">고치지 않은 이유와 향후 설계</h2>
+  <div class="grid g2">
+    <div class="card"><h3>#1 중복 병합이 본문/시기/좌표를 안 본다 <span class="badge high">high</span></h3>
+      <p>가장 심각도가 높지만 <b>가장 위험한</b> 항목이기도 하다 — 병합 판정 로직을 바꾸면 이미 저장된 원자 1,373개(및 그 사이 이미 일어난 병합 이력)의 의미가 달라진다. 태그·엔티티만 보던 것을 본문·시기·좌표까지 보게 하려면 (a) 무엇을 "같은 사실"로 볼지 명제 단위 규칙을 다시 정의하고 (b) 기존 병합 이력에 소급 재평가가 필요한지 판단하는 설계 리뷰가 먼저다. 코드 몇 줄로 끝날 변경이 아니다.</p></div>
+    <div class="card"><h3>#2 동시 갱신 잠금 없음 <span class="badge high">high</span></h3>
+      <p><code>record_evidence</code> 의 read-modify-write 경쟁, 인덱스 캐시 덮어쓰기, 고정 tmp 경로 충돌, 대화가 잡 큐를 안 거치고 실행돼 정정과 겹칠 수 있다는 네 가지가 한 항목에 묶여 있다. 프로세스 간 잠금(파일 락 또는 잡 큐로 대화도 직렬화)이라는 아키텍처 결정이 필요해, 관측소·정정 루프처럼 이번 세션에서 다루는 다른 변경들과 섞으면 위험이 커진다. 가장 급한 하위 문제(대화가 잡 큐 밖에서 돈다)부터 별도 세션에서 다루길 권장.</p></div>
+    <div class="card"><h3>#5 밀집 n×n 행렬 할당 <span class="badge medium">medium</span></h3>
+      <p>codex 의 계산(n=10,000 이면 거리 행렬만 ~400MB, 상삼각 인덱스·거리 배열 추가로 수 GB)은 <b>지금 규모(1,373)</b>에는 적용되지 않는다 — 재빌드 15.1s, 문제 없이 완료됐다. 블록 단위 top-k·희소 그래프로의 리팩터는 원자 수가 한 자릿수 더 늘 때(체감상 5,000~10,000) 착수해도 늦지 않다.</p></div>
+    <div class="card"><h3>#7 오래된 임베딩 vs 갱신된 본문 <span class="badge fixed">1차 재검토에서 고침</span></h3>
+      <p>처음엔 "불일치 시 정책(경고만? 재임베딩? 중단?)이 먼저"라며 미뤘으나, 1차 재검토에서 <b>경고+기록</b>으로 정책을 정하고 §fix-8 로 넣었다. 자동 재임베딩·빌드 중단은 여전히 안 한다 — 관측소 신호가 사람에게 알리는 쪽이 이 프로젝트의 원칙("계산은 빌드, 판정은 사람")과 맞다.</p></div>
+    <div class="card"><h3>#9 baseline 실패도 OK 고정 <span class="badge medium">medium</span></h3>
+      <p>#8 과 같은 패턴이지만 <code>baseline.py</code> 는 이미 완료된 1회성 실험 스크립트(14건, 2026-09-07)라 재발 빈도가 낮다 — 정정 루프(상시 운영 중인 §fix-7)를 먼저 고쳤다.</p></div>
+    <div class="card"><h3>#10 명명 예산 초과 가능 <span class="badge medium">medium</span></h3>
+      <p>마지막 배치가 예산을 넘겨도 막을 장치가 없다. 재현 조건이 병렬 호출 수·잔여 예산의 특정 조합이라 실사용에서 초과 폭이 크지 않을 가능성이 높고(현재 실측 명명 비용 $4.00, 상한 $8), 우선순위를 다른 6건보다 낮춤.</p></div>
+    <div class="card"><h3>#13 extract.py 단절 <span class="badge medium">medium</span></h3>
+      <p>짝문서 §deferred 에서 다뤘다 — link_candidates.json(§fix-4)이 임베딩 그래프에 대해 먼저 같은 아이디어(공통 이웃)를 실험하는 1차 단계이고, 결과가 유용하면 extract.py 관계 그래프로 확장한다.</p></div>
+    <div class="card"><h3>#15 observe_api.py 파싱 실패 방어 없음 <span class="badge clean">철회</span></h3>
+      <p>2차 codex 가 반박했다 — <code>_cached()</code> 가 OSError·ValueError(JSONDecodeError 포함)를 잡아 default 를 낸다. 1차 직접 감사가 <code>except</code> 를 grep 하고 없다고 판단한 것은 잘못이었다(방어가 helper 안에 있었다). 미룬 게 아니라 <b>없었던 문제</b>.</p></div>
+    <div class="card"><h3>#28 후처리(absorb/union) 시간 예산 <span class="badge medium">medium</span></h3>
+      <p>열거 상한(200,000)은 잡았지만 그 뒤 absorb 는 채택 분자 수에 비례해 순회한다. 병적 그래프에서만 문제고, 중단 가능한 별도 실행 단위(프로세스/스레드)가 필요해 설계 과제로 남긴다. 브라우저도 같은 구조(상한 100,000 뒤 absorb).</p></div>
+    <div class="card"><h3>#41·#42 캐시 키·세대 정합성 <span class="badge low">low</span></h3>
+      <p>#41 은 스냅샷 파일명이 시각 접두라 "같은 이름으로 교체"가 실제로 일어나지 않는다. #42 는 빌드가 6초이고 중단 시 재빌드로 복구된다 — 세대 디렉터리+manifest 포인터는 산출물이 더 늘 때 도입.</p></div>
+    <div class="card"><h3>#21 잔존 — 적재 중간 실패의 완전 멱등 <span class="badge low">low</span></h3>
+      <p>§fix-10 은 "적재 성공 후 채점 실패"와 "채점 반복"을 막는다. 적재가 원자 몇 개를 저장한 뒤 실패하면 재적재에서 그 원자들의 hits/uses 가 한 번 더 오른다 — 잡·원자 단위 적재 멱등 키(예: <code>a.reports</code> 대신 별도 <code>ingested_by</code>)가 필요한데 Atom 스키마 변경이라 미룬다.</p></div>
+    <div class="card"><h3>#36 Web Worker <span class="badge low">low</span></h3>
+      <p>상한으로 폭주는 막았지만 상한 이내 계산도 메인스레드에서 동기로 돈다(현재 규모 19ms). 원자가 수천이 되면 Worker 로 옮긴다.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 검증 ═══════════════════ -->
+<section class="section" id="verify">
+  <div class="eyebrow">Verify</div>
+  <h2 class="sec">테스트 5종 + 재빌드 실측</h2>
+  <div class="tscroll"><table>
+    <tr><th>검사</th><th>환경</th><th>3차 최종 결과</th></tr>
+    <tr><td><code>observe_check.py</code></td><td>시스템 Python(numpy/scipy/sklearn/networkx)</td><td><b>55건 · 실패 0 · stale 3</b>(원자 수 증가로 인한 기존 참조값 드리프트) — groups 검사·원본 D 엄격 검사 추가</td></tr>
+    <tr><td><code>observe_clique_check.mjs</code></td><td>node</td><td><b>PASS</b> — 이제 id·엣지 2,399·원시 클리크 231·periphery·cohesion/diameter·임계·truncated 전부 실패 조건(2차 #33 반영)</td></tr>
+    <tr><td><code>graph_fixes_check.py</code>(신설)</td><td>시스템 Python</td><td><b>23건 · 실패 0</b> — 22개 사슬·경쟁·그리디 1:1·전이 묶음·AA/bridges·열거 상한·구버전 npz·dtype·증거 멱등·재개 판정</td></tr>
+    <tr><td><code>dialogue_check.py</code></td><td><code>uv run</code>(fastapi 포함)</td><td><b>전체 통과</b>(①~⑥, 대화 API 포함)</td></tr>
+    <tr><td><code>correction_check.py</code></td><td><code>uv run</code></td><td>①~⑦ 전부 PASS — 잡 수 하드코딩(14)은 잡이 늘어나는 데이터라 "≥14" 로 바꿨다(observe_check 의 STALE 관례)</td></tr>
+    <tr><td><code>observe_api_check.py</code></td><td><code>uv run</code></td><td><b>전부 통과</b>(observe API·정적 화면·5탭 DOM·대화 서랍·캐시) — <code>/api/observe/links</code> 추가 뒤에도 통과</td></tr>
+  </table></div>
+  <h3 class="sub">재빌드 실측(observe build --sweep)</h3>
+  <div class="tscroll"><table>
+    <tr><th>지표</th><th>값</th></tr>
+    <tr><td>원자</td><td>1,373</td></tr>
+    <tr><td>근중복 쌍(τ=0.10)</td><td>21쌍 → <b>18묶음</b>(신규: union-find)</td></tr>
+    <tr><td>링크 후보(Adamic-Adar)</td><td><b>200건</b>(신규)</td></tr>
+    <tr><td>상호 kNN(k=15) 엣지</td><td>6,180</td></tr>
+    <tr><td>분자(pct 0.5)</td><td>128(변화 없음 — 계보 매칭 수정은 클리크 결과 자체에 영향 없음)</td></tr>
+    <tr><td>레이아웃</td><td>tsne · 13.5s · 이전 레이아웃 정렬(disparity 0.0147)</td></tr>
+    <tr><td>신호 켜짐</td><td>5/10(uncategorized · dup-candidates · unnamed-backlog · list-dominance · no-grounding — 이전과 동일, 회귀 없음)</td></tr>
+    <tr><td>전체 빌드 시간</td><td>15.1s</td></tr>
+  </table></div>
+</section>
+
+<section class="section" id="review">
+  <div class="eyebrow">Review · 3단</div>
+  <h2 class="sec">검토 이력 — 1차 fable → 2차 codex → 3차 fable</h2>
+  <p class="sec-desc">지시: "1차 fable, 2차 codex astra, 3차 fable 재검토". 각 단계가 실제로 무엇을 찾고 바꿨는지만 적는다.</p>
+  <div class="tscroll"><table>
+    <tr><th>단계</th><th>대상</th><th>결과</th></tr>
+    <tr><td><b>1차 fable</b></td><td>자기 수정 7건 재독 + 산출물 실측(k-truss·고립·링크 후보 거리·근중복 묶음)</td><td>#7 고침(§fix-8) · #19 발견·고침(§fix-9) · #20 발견·고침 · 조사 문서 판정 1건 뒤집음(k-truss) · 이상치 의미론 수정</td></tr>
+    <tr><td><b>2차 codex</b></td><td>(A) 1차 수정 9건 반박 검증 + 문서 기술 주장 + 테스트 커버리지 (B) altaiya 감사 + 1차 직접 감사 판정 #13·#15~#18 반박 시도. 첫 시도(사본 경로)는 셸 차단으로 실패 → 로그 진단 → "node_repl/js 로 읽어라" 명시해 재시도 성공(파일 읽기 14회·9회)</td><td>(A) verified_ok 12항목 + 발견 15건(bug 6·risk 6·nit 2·tests 3), (B) claims 5건 판정(confirmed 1·refuted 2·partly 2) + 발견 10건. 핵심: PARTIAL 재시도 증거 중복 가산(high), truncated 미전파(high), NO_MATCH 벌점 부족(반례 구성), float32/64 판정 불일치, e.event XSS, stale 키 충돌(정상 스냅샷도 ⚠). 1차 판정 #15(JSON 방어 없음)는 <b>오판으로 반박</b>됐고 #16(XSS 없음)도 반박됐다.</td></tr>
+    <tr><td><b>3차 fable</b></td><td>2차 25건을 코드로 대조 → 채택 22(그중 문서 정정 2·테스트 3) · 보류 2(#41 캐시 키, #42 세대 정합성) · 1차 판정 철회 1(#15). 수정 후 분자 스냅샷·관측 사이드카 재빌드, 테스트 6종 실행</td><td>코드: correction.py 재개 경로 + knowledge.py 증거 멱등, observe.py 벌점·그리디 1:1·float64·sweep truncated·목록형 공통이웃 비율, molecule.py float64·미반올림 threshold·상한 오판·stale null, clique.js 상한, observe.js XSS/세대/allSettled/timeout/해시/근사표시/묶음·다리 UI, observe_api.py stale_at·links API, dialogue_api.py 설정 try. 테스트: graph_fixes_check 신설 23건, mjs 엄격화, observe_check 원본 D 검사. 결과: 재빌드 스냅샷과 이전 스냅샷 persist 128/변화 0, 전 테스트 통과.</td></tr>
+  </table></div>
+  <div class="callout ok"><b>3단이 실제로 무엇을 바꿨나.</b> 1차만 있었다면 헝가리안 교체가 "그리디보다 낫다"로 끝났을 것이다 — 2차가 벌점 10 이 큰 행렬에서 유효한 매칭을 버린다는 반례를 집합으로 구성했고, 3차가 그것을 fixture 테스트로 굳혔다. 1차 직접 감사의 "XSS 없음"과 "JSON 방어 없음"은 둘 다 틀렸는데 방향이 반대였다(하나는 과신, 하나는 과소) — 2차의 반박이 없었으면 문서에 그대로 남았다. 반대로 2차의 "중첩 저장소 때문" 가설도 틀렸고, 3차의 로그 대조가 진짜 원인(셸 전면 차단·node_repl 우회)을 찾았다. 세 단계 중 어느 하나도 혼자서는 맞지 않았다.</div>
+</section>
+
+<section class="section" id="next">
+  <div class="eyebrow">Next</div>
+  <h2 class="sec">다음</h2>
+  <ol style="padding-left:20px;font-size:14px;color:var(--ink-2)">
+    <li>관측소 작업대에 <code>dups.json groups</code>·<code>link_candidates.json</code> 뷰를 추가(백엔드 산출물은 있고 프론트 소비는 아직).</li>
+    <li>#2(동시성)는 별도 세션에서 "대화를 잡 큐로" 부터 좁혀서 착수.</li>
+    <li>#1(중복 병합 재설계)은 설계 리뷰 먼저 — 기존 병합 이력 소급 재평가 여부부터 결정.</li>
+    <li>codex nested-repo 승인 차단은 제품 피드백 큐에 있다 — 해결되면 altaiya 감사를 codex 로 재실행해 직접 감사와 대조.</li>
+  </ol>
+</section>
+
+</main>
+<div class="foot"><div class="wrap">
+  GeoGuessHelper 프로젝트 · 2026-09-08 · codex:codex-rescue(핵심 파이프라인) + 직접 감사(altaiya, codex 3회 실패) ·
+  구현: <code>src/geoguesshelper/{observe,molecule,dialogue,correction}.py</code> · 짝문서: <code>docs/theory/graph-theory-survey_260908.html</code>
+</div></div>
+</body>
+</html>

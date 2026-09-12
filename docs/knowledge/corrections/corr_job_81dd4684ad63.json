@@ -1,0 +1,948 @@
+{
+ "job_id": "job_81dd4684ad63",
+ "report_file": "report_cz_zelec-u-tabora_49.318_14.6477_260906_223536_ko-en-fr.html",
+ "label": "선택 장면 보고서 · teQ0fXUd…Lt9w",
+ "created": 1788762761.0208194,
+ "lang": "en",
+ "images": [
+  "capture_bf5706a90708.jpg",
+  "capture_9e7ef3698acd.jpg",
+  "capture_b9b9facf4b22.jpg",
+  "capture_ba0dc2b32379.jpg",
+  "capture_691a8a0c3fd6.jpg",
+  "capture_19cd1cb5631e.jpg"
+ ],
+ "image_panos": {
+  "capture_bf5706a90708.jpg": {
+   "pano_id": "teQ0fXUdtiK_75x-4mLt9w",
+   "lat": 49.317963182138115,
+   "lng": 14.647659662238253,
+   "heading": 44.97,
+   "pitch": -0.4099999999999966
+  },
+  "capture_9e7ef3698acd.jpg": {
+   "pano_id": "FtkD4oeMmhGDm4IM4VWATQ",
+   "lat": 49.31834254429395,
+   "lng": 14.64827194582191,
+   "heading": 40.31830898335325,
+   "pitch": 3.323556343025629
+  },
+  "capture_b9b9facf4b22.jpg": {
+   "pano_id": "ZUI1253EvcTaencOEXym1A",
+   "lat": 49.318937490192646,
+   "lng": 14.64955863666427,
+   "heading": 51.8114195031344,
+   "pitch": 1.7380967329188053
+  },
+  "capture_ba0dc2b32379.jpg": {
+   "pano_id": "2Rre9uFfobfS-9LBWPnabA",
+   "lat": 49.320807433761715,
+   "lng": 14.650381452729638,
+   "heading": 19.93563722183987,
+   "pitch": -5.551699101924186
+  },
+  "capture_691a8a0c3fd6.jpg": {
+   "pano_id": "0_vE5u0HzUUzNkDf_PDRYQ",
+   "lat": 49.322562387249256,
+   "lng": 14.653888177201223,
+   "heading": 345.40563319819375,
+   "pitch": -15.168430415417589
+  },
+  "capture_19cd1cb5631e.jpg": {
+   "pano_id": "-KChQeT4gDH8HZ6uoWX-zA",
+   "lat": 49.32277683246205,
+   "lng": 14.655598336902404,
+   "heading": 341.02337551055376,
+   "pitch": -3.3316806457100654
+  }
+ },
+ "truth": {
+  "lat": 49.32023164501629,
+  "lng": 14.650893035259616,
+  "iso": "CZ",
+  "country": "Czechia",
+  "region": "South Bohemian Region, Tábor District",
+  "city": "Želeč (Želeč u Tábora)",
+  "source": "aided_prior",
+  "file_lat": 49.318,
+  "file_lng": 14.6477,
+  "n_panos": 6
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Želeč (Tábor district area)",
+     "confidence": 0.5,
+     "coordinate_estimate": {
+      "lat": 49.35,
+      "lng": 14.72,
+      "radius_km": 20
+     },
+     "country": "Czechia",
+     "country_iso": "CZ",
+     "region_or_state": "South Bohemian Region"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.25,
+      "country": "Czechia",
+      "country_iso": "CZ"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Slovakia",
+      "country_iso": "SK"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Austria",
+      "country_iso": "AT"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Temperate continental Central European (Cfb/Dfb transition), deciduous trees, chestnuts in bloom, cereal fields",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Van lettering reads 'ZAKÁZKOVÁ VÝROBA', 'TRUHLÁŘSTVÍ PÍCHA ŽELEČ', 'OKNA - DVEŘE - SCHODY, KROVY - PERGOLY - PLOTY' — Czech orthography with ř, á, í and Czech vocabulary (truhlářství = joinery).",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Recycling igloos labelled PLASTY, PAPÍR, SKLO směs, KOVOVÉ odpady, 'DĚKUJEME VÁM, ŽE TŘÍDÍTE' — Czech (not Slovak, which would use 'sklo zmes / ďakujeme, že triedite').",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Yellow/blue/green/grey dome-shaped EKO-KOM style separation containers, the standard Czech municipal waste set (yellow=plastics, blue=paper).",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "phone_format",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Phone number '723 066 930' — 9-digit Czech mobile format beginning with 7, and an e-mail with .cz TLD.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Older Škoda Fabia/Octavia with the winged-arrow badge dominating traffic, plus VW T4 utility van — typical Czech village fleet.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Diamond-on-pole priority road sign and small white street-name plate on the corner house, standard Czech/Central European practice.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "admin_region",
+      "observation": "Large hipped-roof former manor/agricultural cooperative building with red clay tiles, painted cream render, adjoining barns with fibre-cement roofing — classic Bohemian village core built around a farmstead complex.",
+      "supports": [
+       "Bohemia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Renovated village houses with steep gables, sgraffito-style render decoration and heavy solar thermal/PV retrofits on the south slopes; wooden picket and concrete-panel fences.",
+      "supports": [
+       "South Bohemia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "landscape",
+      "image_index": 5,
+      "level": "macro_region",
+      "observation": "Broad rolling arable plateau at maybe 400-500 m with cereal strips, spruce/deciduous windbreaks and no mountains on the horizon — inner Bohemian upland (Central Bohemian/Tábor-type highland) rather than Alpine foreland or Moravian lowland.",
+      "supports": [
+       "Bohemian upland"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Horse chestnuts in full bloom and lilac flowering, plus clipped box/ligustrum spheres in front gardens — late-May Central European village.",
+      "supports": [
+       "Central Europe"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "level": "district",
+      "observation": "White globe/cone street lanterns on slim galvanised poles, small concrete sculpture on the green, brick-paved sidewalks with red edge strip — post-2010 EU-funded village-centre renewal typical of Czech obce.",
+      "supports": [
+       "Czech rural municipality"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "sport",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Village football pitch with two small covered dugouts and a raised timber commentary/referee box, fenced with panel mesh — standard Czech lower-league village ground, suggesting a village of a few hundred to ~1000 inhabitants.",
+      "supports": [
+       "small Czech village"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A well-kept, moderately prosperous Czech farming village: renovated single-family houses with solar panels, tidy clipped hedges, brick-paved footways and new lighting (EU/municipal grant era), a converted agricultural-cooperative building now housing a small firm, and local trades (joinery workshop advertising windows, doors, roofs, fences) serving the surrounding countryside. Car fleet is mid-age Czech/German mass-market, no visible poverty or luxury. Economy = mixed arable farming plus commuting to a nearby district town, with small artisan businesses.",
+    "languages_detected": [
+     {
+      "confidence": 0.96,
+      "evidence": "'TRUHLÁŘSTVÍ PÍCHA ŽELEČ', 'ZAKÁZKOVÁ VÝROBA', 'DĚKUJEME VÁM, ŽE TŘÍDÍTE', 'KOVOVÉ odpady'",
+      "language": "Czech",
+      "script": "Latin with carons/acutes"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.4,
+      "image_index": 2,
+      "name": "Former agricultural cooperative / manor building converted to offices",
+      "type": "building"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 5,
+      "name": "Village football ground with timber commentary box",
+      "type": "sports facility"
+     },
+     {
+      "confidence": 0.3,
+      "image_index": 1,
+      "name": "Abstract concrete sculpture on village green",
+      "type": "monument"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which continent and broad climate zone?",
+      "candidates": [
+       "Europe",
+       "North America",
+       "East Asia",
+       "Oceania"
+      ],
+      "observation": "Right-hand traffic, narrow curbed village street with brick-paved sidewalks, steep clay-tiled gable roofs, blooming horse chestnut, European compact cars and a VW T4 panel van.",
+      "discriminator": "North American suburbs would show wide setbacks, asphalt shingles, wooden utility poles with drum transformers and no roadside recycling igloos; East Asia would show different signage script and concrete block housing.",
+      "ruled_out": [
+       "North America - no wood-frame housing, no overhead wooden distribution poles",
+       "East Asia - Latin script only, European vehicle mix",
+       "Oceania - right-hand driving and Central European roof pitch"
+      ],
+      "conclusion": "Central European village, temperate northern hemisphere",
+      "confidence_after": 0.97,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Which Central European country: Czechia, Slovakia, Poland or Austria?",
+      "candidates": [
+       "Czechia",
+       "Slovakia",
+       "Poland",
+       "Austria",
+       "Hungary"
+      ],
+      "observation": "Text evidence: 'TRUHLÁŘSTVÍ PÍCHA ŽELEČ / ZAKÁZKOVÁ VÝROBA / OKNA - DVEŘE - SCHODY', a 9-digit mobile '723 066 930' and .cz e-mail; recycling domes reading PLASTY / PAPÍR / SKLO směs / KOVOVÉ odpady / DĚKUJEME VÁM, ŽE TŘÍDÍTE.",
+      "discriminator": "Slovak would read 'stolárstvo', 'sklo zmes', 'ďakujeme, že triedite' with ä/ô and 09xx numbers; Polish would show 'stolarstwo', 'szkło', 'papier' with ł/ż; Austrian German would read 'Tischlerei / Fenster - Türen'; Hungarian would be unmistakably agglutinative.",
+      "ruled_out": [
+       "Slovakia - Czech-only diacritic set (ř, ě) and 'směs' not 'zmes'",
+       "Poland - no ł/ś/ż, and different container labelling",
+       "Austria - no German at all despite German-style solar retrofits",
+       "Hungary - no Hungarian orthography"
+      ],
+      "conclusion": "Czechia",
+      "confidence_after": 0.96,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Bohemia or Moravia/Silesia?",
+      "candidates": [
+       "Bohemia",
+       "Moravia",
+       "Czech Silesia"
+      ],
+      "observation": "Village morphology: single-street settlement around a former farmstead courtyard, houses gable-to-street with fenced front gardens, no wine cellars/vineyard terraces, and a rolling arable plateau horizon with spruce belts and no Carpathian or Jeseníky ridges.",
+      "discriminator": "South Moravia would show press-house/vineyard cellar rows, wine-village facades and flatter Pannonian fields with maize; north Moravia/Silesia would show the Jeseníky or Beskydy skyline and brick-heavy former German housing stock.",
+      "ruled_out": [
+       "Moravia - no vineyard/cellar landscape, no Pannonian flatland",
+       "Czech Silesia - no mountain backdrop, no Prussian-era brick vernacular"
+      ],
+      "conclusion": "Bohemia, inner/southern part",
+      "confidence_after": 0.7,
+      "weight": "medium"
+     },
+     {
+      "level": "admin_region",
+      "question": "Which part of Bohemia — the Sudeten borderlands, the Elbe lowland, or the southern/central uplands?",
+      "candidates": [
+       "North Bohemian borderland",
+       "Elbe lowland (Central Bohemia)",
+       "South Bohemian / Tábor-Písek upland",
+       "West Bohemia (Plzeň)"
+      ],
+      "observation": "Continuously inhabited, non-resettled look (old family farmsteads, no abandoned German-era houses), gently undulating 400-500 m plateau with mixed cereals and small woodlots; village core keeps a former cooperative building; heavy solar-thermal uptake on south roofs typical of the sunnier southern Bohemian uplands.",
+      "discriminator": "Sudeten borderland villages show post-1945 depopulation, half-empty plots and Erzgebirge/Krkonoše ridges; the Elbe lowland would be nearly flat with sugar-beet and hop fields at 200 m; West Bohemia would show more granite outcrops and Plzeň-style brick barns.",
+      "ruled_out": [
+       "North Bohemian borderland - no expulsion-era ruins or mountain silhouette",
+       "Elbe lowland - terrain clearly rolling, not flat beet plain",
+       "West Bohemia - no granite/Šumava foothill relief"
+      ],
+      "conclusion": "South Bohemian Region, Tábor/Písek-type upland",
+      "confidence_after": 0.55,
+      "weight": "medium"
+     },
+     {
+      "level": "district",
+      "question": "Can the exact municipality be named?",
+      "candidates": [
+       "Želeč (Tábor district)",
+       "another small village served by a Želeč-based joinery"
+      ],
+      "observation": "The joinery van names its home village explicitly in the trading name ('PÍCHA ŽELEČ'), and the scene is a small village of exactly that scale; but tradesmen work a 20-30 km radius, so the village photographed may be a neighbour.",
+      "discriminator": "If the location were the firm's own village, a workshop yard with timber stacks would usually be visible; here the van is simply parked at a house, leaving both options open.",
+      "ruled_out": [],
+      "conclusion": "Village in the Tábor / Soběslav area of South Bohemia, most likely Želeč itself",
+      "confidence_after": 0.45,
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.6,
+    "place_slug": "zelec",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2339,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4520,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Czechia",
+    "country_iso": "CZ",
+    "country_correct": true,
+    "region": "South Bohemian Region",
+    "city": "Želeč (Tábor district area)",
+    "confidence": 0.5,
+    "overall_confidence": 0.6,
+    "error_km": 6.0,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 4,
+    "n_cues": 12,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "infrastructure",
+     "landscape",
+     "language",
+     "phone_format",
+     "signage",
+     "sport",
+     "vegetation",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Želeč (near Tábor)",
+     "confidence": 0.55,
+     "coordinate_estimate": {
+      "lat": 49.335,
+      "lng": 14.72,
+      "radius_km": 25
+     },
+     "country": "Czechia",
+     "country_iso": "CZ",
+     "region_or_state": "South Bohemian Region (Tábor district)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.18,
+      "country": "Czechia",
+      "country_iso": "CZ"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Slovakia",
+      "country_iso": "SK"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Austria",
+      "country_iso": "AT"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Temperate humid continental (Cfb/Dfb transition), deciduous-conifer mosaic with large cereal fields",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Recycling igloo labels read 'PLASTY', 'PAPÍR', 'SKLO směs', 'KOVOVÉ odpady' and 'DĚKUJEME VÁM, ŽE TŘÍDÍTE' — Czech orthography with ě/ř/í, not Slovak (which would use 'PLASTY/PAPIER/SKLO' and ľ, ô).",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 3,
+      "level": "district",
+      "observation": "Van livery: 'TRUHLÁŘSTVÍ PÍCHA ŽELEČ — ZAKÁZKOVÁ VÝROBA, OKNA-DVEŘE-SCHODY-KROVY-PERGOLY-PLOTY', with a 9-digit mobile number in 3x3 grouping and a .cz e-mail; 'Truhlářství' with ř confirms Czech, and 'Želeč' names the village.",
+      "supports": [
+       "Czechia",
+       "Želeč"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 4,
+      "level": "country",
+      "observation": "EKO-KOM style yellow/blue/green/grey fibreglass igloo containers with double lifting rings — the standard Czech municipal sorted-waste kit.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Oncoming car is a Škoda Fabia I; other frames show older VW Transporter T4 and Touareg — a Czech-typical middle-aged domestic/German fleet.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 1,
+      "level": "macro_region",
+      "observation": "Pastel-rendered detached houses with steep hipped/gabled tile roofs, rooftop PV arrays and solar thermal panels, brick-paver sidewalks, low concrete-and-render garden walls — post-1989 renovated Central European village stock.",
+      "supports": [
+       "Czechia",
+       "Slovakia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Concrete kerb with continuous white edge line, no painted centre line on a village through-road, thin galvanised sign posts, and low mushroom-head street lamps on slender steel poles — Czech village standard.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "admin_region",
+      "observation": "Large two-storey cream courtyard-style building with a vast low-pitch hipped tile roof and barred ground-floor windows — a former JZD cooperative/estate office now occupied by a small firm, typical successor-cooperative reuse.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "landscape",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Gently rolling plateau at roughly 400-500 m with very large consolidated cereal blocks, dark conifer woodlots and hedgerow lines; no vineyard rows or cellar streets anywhere.",
+      "supports": [
+       "South Bohemia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "sport",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Fenced village football pitch with two timber dugouts, a raised wooden commentary/scorer box and welded-mesh perimeter fence — classic Czech village TJ/Sokol ground.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Flowering horse chestnut avenue and clipped conifer/hedge topiary in front gardens; late-spring foliage indicates a continental interior, not a maritime or Mediterranean climate.",
+      "supports": [
+       "Central Europe"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "signage",
+      "image_index": 1,
+      "level": "district",
+      "observation": "Small blue directional arrow plate and a give-way triangle on a Y-junction with a landscaped island; house numbering with small enamel plates ('123' in image 3) matches Czech village descriptive numbering.",
+      "supports": [
+       "Czechia"
+      ],
+      "weight": "low"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Central Europe",
+       "Western Europe",
+       "Eastern Europe",
+       "North America"
+      ],
+      "conclusion": "Central European temperate village belt",
+      "confidence_after": 0.95,
+      "discriminator": "North American villages would show wide unkerbed asphalt, overhead wood-pole distribution and setback wood-frame houses; Mediterranean Europe would show flat-roofed masonry and olive/pine vegetation. Here: brick-paver sidewalks, render-and-tile houses, chestnut avenues, right-hand traffic.",
+      "level": "continent",
+      "observation": "Compact village street with paver sidewalks, rendered pastel houses with steep clay-tile roofs, chestnut avenue, EU-standard igloo recycling containers.",
+      "ruled_out": [
+       "North America — no overhead pole lines, kerbed paver footways, European vehicle sizes",
+       "Mediterranean Europe — no flat roofs, no dry-climate vegetation"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Czechia",
+       "Slovakia",
+       "Poland",
+       "Austria",
+       "Hungary"
+      ],
+      "conclusion": "Czechia",
+      "confidence_after": 0.95,
+      "discriminator": "Slovak would spell 'PAPIER' and use ľ/ô ('LEKÁREŇ', 'starosta obce'); Polish would show ł/ą/ę and 'MAKULATURA/SZKŁO'; Austrian German would read 'ALTPAPIER/ALTGLAS' and Hungarian 'PAPÍR/ÜVEG' with different orthography. The observed 'PAPÍR', 'SKLO směs', 'DĚKUJEME VÁM, ŽE TŘÍDÍTE' and 'TRUHLÁŘSTVÍ' use ě and ř, which exist only in Czech.",
+      "level": "country",
+      "observation": "Recycling-container labels and a joinery van livery are in Czech with ě/ř diacritics and a .cz e-mail address.",
+      "ruled_out": [
+       "Slovakia — no ľ/ô/ä forms; 'papír' not 'papier'",
+       "Poland — no Polish diacritics or vocabulary",
+       "Austria — no German text, no green-cross pharmacy or RSA roadwork kit",
+       "Hungary — no Hungarian text"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Bohemia",
+       "Moravia",
+       "Czech Silesia"
+      ],
+      "conclusion": "Bohemia (not Moravia/Silesia)",
+      "confidence_after": 0.72,
+      "discriminator": "Moravian wine country (Znojmo, Mikulov, Slovácko) would show vineyard rows, cellar streets ('vinné sklepy') and often unrendered brick vernacular; the Haná plain would be dead-flat black-soil arable. Silesia/Ostrava area would show mining-era brick colonies and industrial horizons. Here the horizon is a rolling 400-500 m plateau with conifer woodlots and cereal blocks, no vines and no industry.",
+      "level": "macro_region",
+      "observation": "Rolling plateau farmland with dark spruce woodlots, hedgerows and no vineyards or cellar architecture.",
+      "ruled_out": [
+       "Moravia (wine districts) — no vineyards or cellar streets",
+       "Haná plain — terrain is undulating, not flat black-soil",
+       "Czech Silesia — no mining/industrial landscape markers"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "South Bohemia",
+       "Central Bohemia",
+       "Vysočina",
+       "West Bohemia"
+      ],
+      "conclusion": "South Bohemian / Tábor–Vysočina border uplands, most likely South Bohemian Region",
+      "confidence_after": 0.6,
+      "discriminator": "Central Bohemia nearer Prague would show denser commuter development, more new-build estates and heavier traffic signage; West Bohemia (Sudeten fringe) would carry more former German-populated village layouts with larger scattered farmsteads. The mix of a courtyard JZD complex, modest but renovated houses, and an open plateau with cereal blocks and small woodlots fits the Tábor/Soběslav plateau.",
+      "level": "admin_region",
+      "observation": "Large courtyard cooperative building reused by a small firm, modest renovated village core, wide open cereal plateau visible from the football pitch.",
+      "ruled_out": [
+       "Central Bohemia near Prague — no commuter-belt densification or Prague-scale traffic infrastructure",
+       "West Bohemia borderland — settlement pattern is nucleated Czech-village, not resettled Sudeten dispersed"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Želeč (Tábor district)",
+       "another village named Želeč",
+       "neighbouring village served by a Želeč joinery"
+      ],
+      "conclusion": "Village of Želeč or its immediate neighbourhood, Tábor district",
+      "confidence_after": 0.55,
+      "discriminator": "A tradesman's van names its home base, so the capture is at or within a few km of Želeč; of the Czech Želeč villages, the one in the Tábor district sits exactly on the South Bohemian cereal plateau seen in the landscape frame, whereas the Moravian Želeč (Prostějov district) lies on the flat Haná plain, which contradicts the rolling horizon.",
+      "level": "district",
+      "observation": "Van reads 'TRUHLÁŘSTVÍ PÍCHA ŽELEČ' and the surrounding terrain is rolling plateau rather than flat plain.",
+      "ruled_out": [
+       "Želeč in Prostějov district (Moravia) — landscape would be flat Haná black-soil plain, not undulating plateau with conifer woodlots"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cues_note": "n/a",
+    "languages_detected": [
+     {
+      "confidence": 0.96,
+      "evidence": "'PAPÍR', 'SKLO směs', 'KOVOVÉ odpady', 'PLASTY', 'DĚKUJEME VÁM, ŽE TŘÍDÍTE'; 'TRUHLÁŘSTVÍ PÍCHA ŽELEČ', 'ZAKÁZKOVÁ VÝROBA', 'OKNA-DVEŘE-SCHODY-KROVY-PERGOLY-PLOTY'",
+      "language": "Czech",
+      "script": "Latin with caron/acute diacritics (ě, ř, í, á)"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 2,
+      "name": "Former agricultural cooperative (JZD) courtyard building reused by a local company",
+      "type": "institutional/agricultural building"
+     },
+     {
+      "confidence": 0.6,
+      "image_index": 5,
+      "name": "Village football pitch with timber dugouts and raised scorer's box",
+      "type": "sports ground"
+     },
+     {
+      "confidence": 0.4,
+      "image_index": 0,
+      "name": "Roadside monument/cross under chestnut avenue on village green",
+      "type": "memorial"
+     }
+    ],
+    "cultural_economic_read": "A prosperous, EU-integrated Czech village: rendered family houses in fresh pastel colours, rooftop photovoltaic and solar-thermal installations, tidy brick-paver footways, municipal EKO-KOM sorted-waste igloos and a fenced club football pitch. Employment mixes local micro-enterprise (a joinery workshop advertising bespoke windows, doors, roof trusses and fences) with commuting to a nearby district town; a large courtyard complex from the collectivised era survives as premises for a successor firm, while the surrounding consolidated cereal blocks are still worked at cooperative scale. Overall a middle-income, car-dependent rural commuter belt rather than a subsistence or depopulated periphery.",
+    "overall_confidence": 0.6,
+    "place_slug": "zelec",
+    "relied_on_atoms": [
+     "atm_7f1b78158b4f",
+     "atm_4839faddffa9",
+     "atm_38455d899c95",
+     "atm_f5d2c803c983",
+     "atm_fba72a044766"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1408,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2665,
+    "output": 4718,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Czechia",
+    "country_iso": "CZ",
+    "country_correct": true,
+    "region": "South Bohemian Region (Tábor district)",
+    "city": "Želeč (near Tábor)",
+    "confidence": 0.55,
+    "overall_confidence": 0.6,
+    "error_km": 5.27,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 11,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "infrastructure",
+     "landscape",
+     "language",
+     "signage",
+     "sport",
+     "vegetation",
+     "vehicles"
+    ]
+   },
+   "known_offered": [
+    "atm_4d08129bc533",
+    "atm_96d1691571d2",
+    "atm_7f1b78158b4f",
+    "atm_e47ce946001b",
+    "atm_78bb90bc7d1c",
+    "atm_4839faddffa9",
+    "atm_38455d899c95",
+    "atm_f5d2c803c983",
+    "atm_fba72a044766",
+    "atm_b2fe9975ad3d"
+   ],
+   "relied_on": [
+    "atm_7f1b78158b4f",
+    "atm_4839faddffa9",
+    "atm_38455d899c95",
+    "atm_f5d2c803c983",
+    "atm_fba72a044766"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "CZ",
+   "country": "Czechia",
+   "region": "South Bohemian Region (Tábor district)",
+   "city": "Želeč (near Tábor)",
+   "lat": 49.335,
+   "lng": 14.72,
+   "error_km": 5.27,
+   "reached_level": "district",
+   "confidence": 0.55,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 5.27,
+  "bucket": "<10"
+ },
+ "correction": {
+  "cost_usd": 0.20733375,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5308,
+   "output": 2583,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Full hit: Czechia / South Bohemian Region (Tábor District) / Želeč, 5.3 km error. The Czech-only orthography on the EKO-KOM igloo labels ('PAPÍR', 'SKLO směs', 'DĚKUJEME VÁM, ŽE TŘÍDÍTE') plus the joinery van's 'TRUHLÁŘSTVÍ PÍCHA ŽELEČ' with a .cz address pinned both country and settlement, and the rolling cereal plateau with conifer woodlots (no vineyards) correctly excluded Moravia. Slovakia and Austria were rightly excluded by the absence of ľ/ô/ä spellings and of any German-language waste labels ('ALTPAPIER/ALTGLAS').",
+  "misleading_cues": [
+   {
+    "observation": "Several offered atoms concerned German/Austrian pharmacy emblems and RSA roadwork barriers",
+    "why_misleading": "Nothing of the kind appears in these frames; attending to them could have pulled the analyst toward the German-speaking area despite Czech text."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "category": "signage-language",
+    "image_index": 4,
+    "observation": "Igloo container labels: 'PLASTY', 'PAPÍR', 'SKLO směs', 'KOVOVÉ odpady', 'DĚKUJEME VÁM, ŽE TŘÍDÍTE' — ě, ř, í diacritics.",
+    "why_decisive": "ě/ř occur only in Czech; Slovak would read 'PAPIER' and Polish 'MAKULATURA/SZKŁO'."
+   },
+   {
+    "category": "infrastructure-built",
+    "image_index": 4,
+    "observation": "Yellow/blue/green/grey fibreglass dome igloos with twin lifting rings and standardized instruction stickers.",
+    "why_decisive": "This four-stream EKO-KOM kit (including a separate grey metals igloo) is the Czech municipal standard."
+   },
+   {
+    "category": "toponymy",
+    "image_index": 3,
+    "observation": "Van livery names a joinery in 'ŽELEČ' with a 9-digit mobile in 3x3 grouping and a .cz e-mail.",
+    "why_decisive": "Local tradesmen advertise their home village, fixing the district-level location; .cz confirms Czechia."
+   },
+   {
+    "category": "landform",
+    "image_index": 5,
+    "observation": "Gently rolling plateau with very large consolidated cereal blocks, dark conifer woodlots and hedgerows; no vineyard rows.",
+    "why_decisive": "Matches the South Bohemian Tábor plateau and excludes the flat Haná plain and Moravian wine country."
+   },
+   {
+    "category": "industry",
+    "image_index": 2,
+    "observation": "Large two-storey cream courtyard building with vast low-pitch hipped tile roof, barred ground-floor windows, now used by a small firm.",
+    "why_decisive": "Typical reused JZD cooperative complex, marking a nucleated Czech farming village rather than a Sudeten dispersed settlement."
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Czech vs Slovak sorted-waste igloo lettering",
+    "body": "On Czech recycling igloos you read 'PAPÍR', 'SKLO', 'PLASTY', 'KOVOVÉ odpady' and 'DĚKUJEME VÁM, ŽE TŘÍDÍTE' with ě and ř. In Slovakia you would instead see 'PAPIER', 'SKLO', 'PLASTY' with ľ/ô/ä forms elsewhere on municipal signage and .sk contacts. The ě/ř pair is the single fastest CZ/SK split at village scale.",
+    "layer": "language",
+    "category": "signage-language",
+    "scope": "country",
+    "tags": [
+     "diacritics",
+     "recycling",
+     "eko-kom"
+    ],
+    "entities": [
+     "Czechia",
+     "Slovakia"
+    ],
+    "looks_like": {
+     "country_iso": "SK",
+     "country": "Slovakia"
+    },
+    "actually": {
+     "country_iso": "CZ",
+     "country": "Czechia"
+    },
+    "confidence": 0.9
+   },
+   {
+    "title": "Czech village waste bins vs Austrian German-labelled containers",
+    "body": "Czech villages place clustered fibreglass dome igloos with Czech stream names and EKO-KOM stickers behind a mesh fence. In Austria you would instead find rectangular wheeled or sunken containers labelled 'ALTPAPIER', 'ALTGLAS bunt/weiss' with the ARA logo, and village entry signs in the white-on-blue Austrian format. Absence of any German text rules Austria out even where the house typology looks identical.",
+    "layer": "culture",
+    "category": "infrastructure-built",
+    "scope": "country",
+    "tags": [
+     "waste",
+     "german",
+     "ara"
+    ],
+    "entities": [
+     "Czechia",
+     "Austria"
+    ],
+    "looks_like": {
+     "country_iso": "AT",
+     "country": "Austria"
+    },
+    "actually": {
+     "country_iso": "CZ",
+     "country": "Czechia"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "South Bohemian plateau vs Moravian vineyard lowland",
+    "body": "Around Tábor the horizon is an undulating 400-500 m plateau of large cereal blocks with dark spruce woodlots and hedgerows, and village cores show reused courtyard cooperative buildings. In south Moravia you would instead see vineyard rows on slopes, rows of wine cellars along a lane, and often flatter black-soil arable. No vines anywhere is a strong Bohemia signal.",
+    "layer": "geography",
+    "category": "agriculture",
+    "scope": "region",
+    "tags": [
+     "plateau",
+     "vineyard",
+     "bohemia"
+    ],
+    "entities": [
+     "South Bohemian Region",
+     "South Moravian Region"
+    ],
+    "looks_like": {
+     "country_iso": "CZ",
+     "country": "Czechia",
+     "region": "South Moravian Region"
+    },
+    "actually": {
+     "country_iso": "CZ",
+     "country": "Czechia",
+     "region": "South Bohemian Region"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Tradesman van toponym as district anchor in Czechia",
+    "body": "In Czech villages small joinery/roofing firms paint their base village name plus a .cz mail address on the van, and such vans usually park at their own yard. Use that name to pick the district rather than the country; where a name is duplicated (e.g. a Bohemian and a Moravian homonym), decide with the terrain — rolling plateau with conifer woodlots for Bohemia instead of a dead-flat black-soil plain for Haná.",
+    "layer": "economy",
+    "category": "toponymy",
+    "scope": "region",
+    "tags": [
+     "van-livery",
+     "homonym",
+     "district"
+    ],
+    "entities": [
+     "Tábor District",
+     "Prostějov District"
+    ],
+    "looks_like": {
+     "country_iso": "CZ",
+     "country": "Czechia",
+     "region": "Olomouc Region (Prostějov)"
+    },
+    "actually": {
+     "country_iso": "CZ",
+     "country": "Czechia",
+     "region": "South Bohemian Region (Tábor)"
+    },
+    "confidence": 0.6
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_7f1b78158b4f",
+   "atm_fba72a044766",
+   "atm_f5d2c803c983",
+   "atm_38455d899c95",
+   "atm_4839faddffa9"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_647da10d11f2",
+   "atm_db146264aff3",
+   "atm_302a89d8dbd0",
+   "atm_a4c8bfdf483f"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_647da10d11f2",
+   "atm_db146264aff3",
+   "atm_302a89d8dbd0",
+   "atm_a4c8bfdf483f"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_7f1b78158b4f",
+   "atm_fba72a044766",
+   "atm_f5d2c803c983",
+   "atm_38455d899c95",
+   "atm_4839faddffa9"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.582,
+ "status": "OK"
+}

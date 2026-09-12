@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeoGuessr 선수 — 결선 24강·챔피언·랭킹</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --ink:#1c2430; --sub:#5b6570; --line:#e3e7ec;
+  --accent:#0f766e; --accent-soft:#e6f2f1; --warn:#92400e; --warn-soft:#fef3c7;
+  --raw:#7c3aed; --raw-soft:#f3e8ff; --gold:#b45309;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#12161c; --card:#1a2029; --ink:#e8ecf1; --sub:#9aa5b1; --line:#2a323d;
+    --accent:#2dd4bf; --accent-soft:#123f3b; --warn:#fbbf24; --warn-soft:#3a2c0e;
+    --raw:#c4b5fd; --raw-soft:#2e2350; --gold:#fbbf24; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.65}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+nav a{padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);text-decoration:none;font-size:14px}
+nav a.here{background:var(--accent);border-color:var(--accent);color:#fff}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+h3{font-size:16px;margin:20px 0 8px}
+.sub{color:var(--sub);font-size:14px;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0}
+a{color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--sub);font-weight:600;font-size:13px}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.ok{background:var(--accent-soft);color:var(--accent)}
+.mid{background:var(--warn-soft);color:var(--warn)}
+.raw{background:var(--raw-soft);color:var(--raw)}
+.champ{color:var(--gold);font-weight:700}
+.note{font-size:13px;color:var(--sub)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+footer{margin-top:44px;font-size:13px;color:var(--sub);border-top:1px solid var(--line);padding-top:14px}
+.tablewrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a href="index.html">허브</a>
+  <a class="here" href="players.html">선수</a>
+  <a href="matches.html">경기·승부처</a>
+  <a href="schedule.html">대회 일정</a>
+  <a href="broadcasts.html">중계 채널</a>
+  <a href="teams.html">국가별 팀</a>
+</nav>
+
+<h1>선수 — 결선 24강 · 챔피언 · 랭킹</h1>
+<p class="sub">기준일 2026-09-03 · 출처: geoguessr.com/world-championship(공식) + Liquipedia GWC 2026 Finals(교차 확인)</p>
+
+<h2>역대 세계 챔피언 <span class="badge ok">검증됨 3-0</span></h2>
+<div class="tablewrap"><table>
+<tr><th>연도</th><th>대회명</th><th>우승</th><th>준우승·비고</th></tr>
+<tr><td>2023</td><td>GeoGuessr World Cup (스톡홀름 Space Arena, 10/13–14, $50,000)</td><td class="champ">Consus — Patrick Noordijk (네덜란드)</td><td>준우승 Blinky(프랑스) · 4강 Fau(캐나다), Radu C</td></tr>
+<tr><td>2024</td><td>GeoGuessr World Cup</td><td class="champ">Blinky — Mathieu Huet (프랑스)</td><td>—</td></tr>
+<tr><td>2025</td><td>GeoGuessr World Championship (코펜하겐 K.B. Hallen)</td><td class="champ">Radu C — Radu Casapu (미국)</td><td>결승 3-2로 Debre(헝가리) 격파 · 상금 약 $49,433 · 조지아텍 대학원생</td></tr>
+<tr><td>2026</td><td>GeoGuessr World Championship (베를린 Tempodrom, 9/2–5)</td><td colspan="2"><b>진행 중</b> — 그랜드 파이널 9/5 (작성 시점 미정)</td></tr>
+</table></div>
+<p class="note">※ “Blinky가 현 챔피언”이라는 일부 표기는 교차검증에서 0-3으로 기각됨. 현 디펜딩 챔피언은 Radu C.</p>
+
+<h2>2026 결선 24강 — 조별 명단 <span class="badge ok">검증됨 3-0</span></h2>
+<p>6인 4개조, 각 조 상위 4명이 16강 진출. 진출 경로: 월드 리그 16명(EMEA 8·Americas 4·APAC 4) + Play-In 6명 + 와일드카드 2명.</p>
+<div class="grid">
+<div class="card"><h3>Group A</h3><div class="tablewrap"><table>
+<tr><th>선수</th><th>국적</th><th>진출 경로</th></tr>
+<tr><td>manuelson</td><td>이탈리아</td><td>월드 리그 EMEA</td></tr>
+<tr><td>Blinky <span class="note">('24 챔피언)</span></td><td>프랑스</td><td>월드 리그 EMEA</td></tr>
+<tr><td>Lennli</td><td>독일</td><td>Play-In</td></tr>
+<tr><td>Moo</td><td>캐나다</td><td>월드 리그 Americas</td></tr>
+<tr><td>The Gymtimidator</td><td>미국</td><td>Play-In</td></tr>
+<tr><td>Lingding</td><td>중국</td><td>월드 리그 APAC</td></tr>
+</table></div></div>
+<div class="card"><h3>Group B</h3><div class="tablewrap"><table>
+<tr><th>선수</th><th>국적</th><th>진출 경로</th></tr>
+<tr><td>Ecal</td><td>미국</td><td>월드 리그 Americas</td></tr>
+<tr><td>Strefan</td><td>폴란드</td><td>Play-In</td></tr>
+<tr><td>Clement</td><td>덴마크</td><td>월드 리그 EMEA</td></tr>
+<tr><td>Shiina</td><td>일본</td><td>월드 리그 APAC</td></tr>
+<tr><td>Consus <span class="note">('23 챔피언)</span></td><td>네덜란드</td><td>월드 리그 EMEA</td></tr>
+<tr><td>Noksi</td><td>프랑스</td><td>Play-In</td></tr>
+</table></div></div>
+<div class="card"><h3>Group C</h3><div class="tablewrap"><table>
+<tr><th>선수</th><th>국적</th><th>진출 경로</th></tr>
+<tr><td>Radu C <span class="champ">('25 챔피언)</span></td><td>미국</td><td>월드 리그 Americas</td></tr>
+<tr><td>Finbarr</td><td>아일랜드</td><td>월드 리그 EMEA</td></tr>
+<tr><td>Debre <span class="note">('25 준우승)</span></td><td>헝가리</td><td>월드 리그 EMEA</td></tr>
+<tr><td>Kratsooo</td><td>프랑스</td><td>Play-In</td></tr>
+<tr><td>kfl</td><td>스웨덴</td><td>와일드카드</td></tr>
+<tr><td>Kirania</td><td>호주</td><td>월드 리그 APAC</td></tr>
+</table></div></div>
+<div class="card"><h3>Group D</h3><div class="tablewrap"><table>
+<tr><th>선수</th><th>국적</th><th>진출 경로</th></tr>
+<tr><td>BulgariaEnjoyer</td><td>불가리아</td><td>월드 리그 EMEA</td></tr>
+<tr><td>malfunctionn</td><td>룩셈부르크</td><td>와일드카드</td></tr>
+<tr><td>Jamabi</td><td>독일</td><td>Play-In</td></tr>
+<tr><td>Kapten</td><td>스웨덴</td><td>월드 리그 EMEA</td></tr>
+<tr><td>Trabota</td><td>싱가포르</td><td>월드 리그 APAC</td></tr>
+<tr><td>mk</td><td>미국</td><td>월드 리그 Americas</td></tr>
+</table></div></div>
+</div>
+<p class="note">한국(KOR) 선수는 24강에 없음 — APAC 4장은 일본(Shiina)·중국(Lingding)·호주(Kirania)·싱가포르(Trabota)가 가져감. 한국 선수 현황은 <a href="teams.html">국가별 팀</a> 페이지 참조.</p>
+
+<h2>2025 세계 랭킹 상위권 (월드 리그 초청 순위) <span class="badge mid">단일 출처 · 2-1</span></h2>
+<p>2026 월드 리그에 “World Ranking 2025” 기준으로 초청된 22명 — 사실상 2025 시즌 상위 랭킹으로 볼 수 있다. 출처는 Liquipedia 단일(위키텍스트 원문 대조 확인).</p>
+<div class="tablewrap"><table>
+<tr><th>랭킹</th><th>선수</th><th>랭킹</th><th>선수</th></tr>
+<tr><td>#1</td><td class="champ">Radu C</td><td>#13</td><td>Kapten</td></tr>
+<tr><td>#2</td><td>Blinky</td><td>#15</td><td>Harrier</td></tr>
+<tr><td>#3</td><td>Debre</td><td>#16</td><td>Kratsooo</td></tr>
+<tr><td>#4</td><td>MK</td><td>#17</td><td>Clement</td></tr>
+<tr><td>#5</td><td>Eamonn</td><td>#18</td><td>Fau</td></tr>
+<tr><td>#6</td><td>Consus</td><td>#24</td><td>Feneb</td></tr>
+<tr><td>#7</td><td>leero</td><td>#26</td><td>Gingey</td></tr>
+<tr><td>#8</td><td>Moo</td><td>#27</td><td>sp4ghet</td></tr>
+<tr><td>#9</td><td>Shiina</td><td>#29</td><td>Kirania</td></tr>
+<tr><td>#10</td><td>Finbarr</td><td>#30</td><td>Orlando</td></tr>
+<tr><td>#11</td><td>Lennli</td><td colspan="2" class="note">순번 공백은 문서화됨: zi8gzag 초청 거절, Jessore73 기권(maccem 대체), Kirania 복귀</td></tr>
+<tr><td>#12</td><td>Strefan</td><td colspan="2"></td></tr>
+</table></div>
+
+<h2>선수 승률 데이터에 대하여 — 정직한 결론</h2>
+<div class="card">
+<p><b>검증된 “선수별 통산 승률” 수치는 이번 조사에서 확보되지 않았다.</b> 교차검증을 통과한 25개 주장 중
+개인 승률·상대전적 집계에 해당하는 것은 없었고, GeoGuessr 공식이나 Liquipedia도 집계 승률 통계 페이지를 제공하지 않는다.</p>
+<p>대신 확인된 사실:</p>
+<ul>
+<li><b>경기 단위 기록은 Liquipedia 선수별 매치 페이지에 있다</b> — 패턴: <code>liquipedia.net/geoguessr/&lt;선수명&gt;/Matches</code>
+(예: <a href="https://liquipedia.net/geoguessr/Noksi/Matches">Noksi/Matches</a>, 최근 250경기 한도). 여기서 승률을 직접 집계할 수 있다. <span class="badge ok">검증됨</span></li>
+<li>예시 (Noksi, 2026 시즌 일부): Play-In 조별 3승 0패(Repler 2-0, Gingey 2-0, Strefan 2-1) → 결선 진출,
+결선 조별 9/2에 Ecal·Shiina에게 각각 1-2로 2연패. <span class="badge raw">수집 단계</span></li>
+<li>커뮤니티 도구로 듀얼 상대전적을 추적하는 유저스크립트가 존재한다(greasyfork “GeoGuessr Head-to-Head Duel Statistics”). <span class="badge raw">수집 단계</span></li>
+</ul>
+<p class="note">승률·상대전적의 본격 집계가 필요하면 Liquipedia 매치 페이지 스크레이핑이 다음 단계다(이번 산출물 범위 밖).</p>
+</div>
+
+<footer>선수 페이지 · 작성 2026-09-03 · 출처: geoguessr.com/world-championship, liquipedia.net/geoguessr, en.wikipedia.org, gatech.edu 보도자료</footer>
+</div>
+</body>
+</html>

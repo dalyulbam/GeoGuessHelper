@@ -1,6 +1,6 @@
 # 엔티티 · vienna
 
-원자 11개 · 이 엔티티를 다룬 보고서 1건
+원자 12개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_142d60e0141b]] **Vienna's Danube flood-management triple-channel system** (geography/city)
@@ -10,6 +10,7 @@
 - [[atm_56e8dca2f8e4]] **Engineers behind Vienna's Danube regulation projects** (geography/city)
 - [[atm_5d8136685090]] **Vienna's affluent Ringstraße-era 1st and Cottage districts** (economy/city)
 - [[atm_df3a31d14948]] **Vienna's UNESCO-protected historic center height restrictions** (architecture/city)
+- [[atm_e8c4d3d9d65a]] **Munich green tram reservations vs Vienna paved tram track** (geography/city)
 - [[atm_f16dfd0eeeac]] **Floridsdorf and Brigittenau as working-class/immigrant districts of Vienna** (economy/city)
 - [[atm_f4afa21fa970]] **Key architects and politicians of Red Vienna** (architecture/polity)
 - [[atm_f4e97ad3a62e]] **Austrofascist and Nazi-era dismantling of Red Vienna's political base** (history/polity)
@@ -17,3 +18,4 @@
 
 ## 보고서
 - `report_at_vienna_48.2518_16.3927_260814_111850_ko.html`
+- `report_de_munich_48.1691_11.5738_260906_215839_ko-en-fr.html`

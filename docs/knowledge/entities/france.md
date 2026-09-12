@@ -1,6 +1,6 @@
 # 엔티티 · france
 
-원자 14개 · 이 엔티티를 다룬 보고서 1건
+원자 15개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_19e7bb82b228]] **Romance-language street-naming conventions as a contrast case** (language/country)
@@ -13,6 +13,7 @@
 - [[atm_ad6ef340394d]] **Spanish 'Salida' vs Portuguese/French/Italian exit signage terms** (language/country)
 - [[atm_d77af7df6d03]] **Vienna Convention harmonization versus persistent national signage variants** (architecture/global)
 - [[atm_dad10402d915]] **Counter-urbanization and rural revival movements** (economy/global)
+- [[atm_ea64ccafd76b]] **Municipal fingerpost generics separate Italy from Spain and France** (language/country)
 - [[atm_ecb833635a0b]] **French dynasties (early to Bourbon)** (history/country)
 - [[atm_f84831b3eb8b]] **Historic town-center retail decline and high-street preservation movements** (economy/global)
 - [[atm_fb73bf27bdb5]] **European corporate legal-form suffixes as country identifiers** (economy/global)
@@ -20,3 +21,4 @@
 
 ## 보고서
 - `report_es_madrid-ifema_38.5714_-7.9135_260904_162146_ko.html`
+- `report_it_fornovo-di-taro_44.6943_10.0983_260906_205248_ko-en-fr.html`

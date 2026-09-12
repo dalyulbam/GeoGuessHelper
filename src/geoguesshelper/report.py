@@ -1,4 +1,4 @@
-"""분석 결과 + 캡처 이미지 → docs/report/*.html 리포트(장면 앨범).
+"""분석 결과 + 캡처 이미지 → docs/report/country/{iso2}/*.html 리포트(장면 앨범).
 
 캡처 이미지는 base64 로 임베드해 자기완결형(single-file) HTML 로 저장한다 —
 서버가 꺼져도 열리고, 개인 복기용으로 로컬 보관. (Google 로고/귀속은 캡처에 그대로 유지)
@@ -74,12 +74,29 @@ _A3 = {
 # (실측: 한 보고서에 15개). 독자에게는 의미 없는 기호이고, 링크로 바꾸면 근거로 이어진다.
 _ATOM_CITE = re.compile(r"\[\[(atm_[0-9a-zA-Z]{4,})\]\]")
 
+# 지식 저장소(docs/knowledge) 상대 경로의 **플레이스홀더**. 보고서는 놓이는 깊이가 다르다 —
+# 국가 폴더(docs/report/country/{iso2}/, 세 단계 위), 종합 보고서(docs/report/, 한 단계 위),
+# 아틀라스(docs/atlas/, 한 단계 위). 예전엔 '두 단계 위' 상대 경로를 렌더 함수마다 문자열로
+# 박아 두어 폴더를 한 단계만 옮겨도 링크가 통째로 깨졌다(실측: 국가 폴더 HTML 68건·2,397개).
+# 렌더 중에는 이 표식만 쓰고, 파일을 쓰기 직전 — out_dir 가 확정된 곳 — 에서
+# _resolve_kroot() 로 실제 상대 경로를 넣는다. atlas_report.py 도 같은 표식을 쓴다.
+_KROOT = "__KROOT__"
+
+
+def _resolve_kroot(text: str, out_dir: Path, knowledge_dir: Path) -> str:
+    """'__KROOT__' → out_dir 에서 본 knowledge_dir 의 POSIX 상대 경로(href 용)."""
+    try:
+        rel = Path(os.path.relpath(Path(knowledge_dir).resolve(), Path(out_dir).resolve())).as_posix()
+    except ValueError:                  # Windows 에서 드라이브가 다르면 상대 경로가 없다
+        rel = Path(knowledge_dir).resolve().as_uri()
+    return text.replace(_KROOT, rel)
+
 
 def _linkify_atoms(text) -> str:
     """이스케이프 후 인용 토큰만 링크로. 입력이 문자열이 아니면 그대로 이스케이프한다."""
     esc = _esc(text)
     return _ATOM_CITE.sub(
-        lambda m: f'<a class="katom" href="../../knowledge/atoms/{m.group(1)}.md">'
+        lambda m: f'<a class="katom" href="{_KROOT}/atoms/{m.group(1)}.md">'
                   f'<code>{m.group(1)}</code></a>',
         esc,
     )
@@ -396,7 +413,7 @@ def _knowledge_html(atoms, S: dict) -> str:
             continue
         chips = "".join(f'<span class="ktag">#{_esc(t)}</span>' for t in (tags or [])[:6])
         rows.append(
-            f'<li><a class="katom" href="../../knowledge/atoms/{_esc(aid)}.md">'
+            f'<li><a class="katom" href="{_KROOT}/atoms/{_esc(aid)}.md">'
             f'<code>{_esc(aid)}</code></a> <b>{_esc(title)}</b>'
             f' <span class="muted">{_esc(layer)}/{_esc(scope)}</span><br>{chips}</li>'
         )
@@ -934,6 +951,7 @@ def build_report(result: dict, files: list[str], settings: Settings, lang: str =
     html_doc = _document(lang, S["report_word"], body["title"], _BASE_CSS, body_inner)
 
     out_dir = report_subdir(settings, _country_tag(body["iso"], body["country"]))
+    html_doc = _resolve_kroot(html_doc, out_dir, settings.knowledge_dir)
     fname = _write_report_atomic(
         out_dir,
         _report_filename(body["iso"], body["country"], body["place_slug"],
@@ -1025,6 +1043,7 @@ def build_combined_report(sections: list[dict], files: list[str], settings: Sett
     _ = knowledge  # combined 본문에서 이미 렌더됨(각 언어 섹션마다)
     lang_tag = "-".join(langs)
     out_dir = report_subdir(settings, _country_tag(meta["iso"], meta["country"]))
+    html_doc = _resolve_kroot(html_doc, out_dir, settings.knowledge_dir)
     fname = _write_report_atomic(
         out_dir,
         _report_filename(meta["iso"], meta["country"], meta["place_slug"],
@@ -1066,7 +1085,7 @@ def build_synthesis_report(syn: dict, meta: dict, settings: Settings, lang: str 
         if not good:
             return ""
         return " ".join(
-            f'<a class="katom" href="../knowledge/atoms/{_esc(i)}.md"><code>{_esc(i)}</code></a>'
+            f'<a class="katom" href="{_KROOT}/atoms/{_esc(i)}.md"><code>{_esc(i)}</code></a>'
             for i in good[:8]
         )
 
@@ -1075,7 +1094,7 @@ def build_synthesis_report(syn: dict, meta: dict, settings: Settings, lang: str 
         out = _esc(text)
         return re.sub(
             r"\[\[(atm_[0-9a-f]{6,})\]\]",
-            lambda m: f'<a class="katom" href="../knowledge/atoms/{m.group(1)}.md"><code>{m.group(1)}</code></a>',
+            lambda m: f'<a class="katom" href="{_KROOT}/atoms/{m.group(1)}.md"><code>{m.group(1)}</code></a>',
             out,
         )
 
@@ -1120,6 +1139,8 @@ def build_synthesis_report(syn: dict, meta: dict, settings: Settings, lang: str 
                          f'<div class="wrap">{inner}</div>')
 
     base = f"synth_{_slug(title)[:40]}_{ymd}_{hms}_{lang}.html"
+    # 종합 보고서는 국가 폴더가 아니라 docs/report/ 최상위에 놓인다 — 깊이가 다르므로 여기서 푼다.
+    html_doc = _resolve_kroot(html_doc, settings.reports_dir, settings.knowledge_dir)
     fname = _write_report_atomic(settings.reports_dir, base, html_doc)
 
     # 같은 내용의 .md 를 지식 저장소에 남긴다 — 다음 종합의 재료.

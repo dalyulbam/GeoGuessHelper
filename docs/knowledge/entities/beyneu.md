@@ -1,0 +1,10 @@
+# 엔티티 · beyneu
+
+원자 2개 · 이 엔티티를 다룬 보고서 1건
+
+## 원자
+- [[atm_349a166db7f2]] **Beyneu-type rail-trunk crossing vs Mangystau chalk-scarp towns** (geography/region)
+- [[atm_9a557d0b3688]] **Beyneu as western Kazakhstan rail-and-oil transit node** (economy/region)
+
+## 보고서
+- `report_kz_beyneu_46.3143_54.4042_260906_223930_ko-en-fr.html`

@@ -1,0 +1,636 @@
+{
+ "job_id": "job_7974038fd53d",
+ "report_file": "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html",
+ "label": "선택 장면 보고서 · xG0zAd3N…Uo9A",
+ "created": 1789012220.7847638,
+ "lang": "en",
+ "images": [
+  "capture_adc26dd1b9f4.jpg",
+  "capture_1113fcd16b9f.jpg",
+  "capture_e8b898cb813f.jpg",
+  "capture_b52d2f4dfebe.jpg",
+  "capture_646bdfeacd76.jpg",
+  "capture_a0173e361801.jpg"
+ ],
+ "image_panos": {
+  "capture_adc26dd1b9f4.jpg": {
+   "pano_id": "xG0zAd3N17qEtNjO_xUo9A",
+   "lat": 6.659916369193586,
+   "lng": 8.80263943372408,
+   "heading": 37.28419198726678,
+   "pitch": 0.7026379686471245
+  },
+  "capture_1113fcd16b9f.jpg": {
+   "pano_id": "1isLIpdtzjLLkLY_WALpkg",
+   "lat": 6.660287367172176,
+   "lng": 8.803161189994812,
+   "heading": 74.74178097681227,
+   "pitch": 5.466681689289601
+  },
+  "capture_e8b898cb813f.jpg": {
+   "pano_id": "1isLIpdtzjLLkLY_WALpkg",
+   "lat": 6.660287367172176,
+   "lng": 8.803161189994812,
+   "heading": 67.27350756515531,
+   "pitch": 5.037918013930721
+  },
+  "capture_b52d2f4dfebe.jpg": {
+   "pano_id": "1isLIpdtzjLLkLY_WALpkg",
+   "lat": 6.660287367172176,
+   "lng": 8.803161189994812,
+   "heading": 67.27350756515531,
+   "pitch": 5.037918013930721
+  },
+  "capture_646bdfeacd76.jpg": {
+   "pano_id": "1isLIpdtzjLLkLY_WALpkg",
+   "lat": 6.660287367172176,
+   "lng": 8.803161189994812,
+   "heading": 132.9179603367228,
+   "pitch": 3.530639366849684
+  },
+  "capture_a0173e361801.jpg": {
+   "pano_id": "CN4P4TjqO1hEzCmoP_SERw",
+   "lat": 6.660211669850476,
+   "lng": 8.803096443256285,
+   "heading": 252.44869846509565,
+   "pitch": 9.485273596301028
+  }
+ },
+ "truth": {
+  "lat": 6.660212739654749,
+  "lng": 8.803068154316557,
+  "iso": "NG",
+  "country": "Nigeria",
+  "region": "Cross River State",
+  "city": "Ogoja",
+  "source": "aided_prior",
+  "file_lat": 6.6599,
+  "file_lng": 8.8026,
+  "n_panos": 7
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Ogoja",
+     "confidence": 0.55,
+     "coordinate_estimate": {
+      "lat": 6.655,
+      "lng": 8.797,
+      "radius_km": 25
+     },
+     "country": "Nigeria",
+     "country_iso": "NG",
+     "region_or_state": "Cross River State (northern senatorial district)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Nigeria",
+      "country_iso": "NG"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Cameroon",
+      "country_iso": "CM"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Ghana",
+      "country_iso": "GH"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Tropical humid / rainforest-savanna transition, wet season overcast, oil palms and raffia",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage_language",
+      "observation": "All signage in English ('COAL CITY ELECTRICAL', 'PET O. OIL AND GAS LIMITED', 'DIESEL', 'NO SMOKING', 'IN') — anglophone West Africa.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Nigeria",
+       "Ghana",
+       "Liberia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "language_register",
+      "observation": "Billboard slogan 'CAPACITY NO BE GUY NAME' is Nigerian Pidgin English, a register essentially unique to Nigeria.",
+      "image_index": 5,
+      "level": "country",
+      "supports": [
+       "Nigeria"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "political_signage",
+      "observation": "Campaign billboard for 'DIST. SEN. JARIGBE AGOM JARIGBE' — a Nigerian senator representing Cross River North; green party-style backdrop typical of Nigerian PDP/electoral posters.",
+      "image_index": 5,
+      "level": "admin_region",
+      "supports": [
+       "Cross River State"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "business_name",
+      "observation": "'COAL CITY ELECTRICAL' — 'Coal City' is the nickname of Enugu; such branding spreads through the south-east/Cross River trading zone.",
+      "image_index": 0,
+      "level": "macro_region",
+      "supports": [
+       "South-East / South-South Nigeria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "observation": "Solar-panel-topped street lights and a solar-powered countdown traffic signal at a small-town roundabout — a signature of state-government 'solar street light' projects in Nigerian secondary towns.",
+      "image_index": 1,
+      "level": "metro_area",
+      "supports": [
+       "Nigerian state capital or LGA headquarters"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "observation": "Mud/laterite-rendered shophouses with rusted corrugated iron roofs alongside a two-storey yellow colonial-style building with louvred shutters — southern Nigerian small-town core, not a large city.",
+      "image_index": 2,
+      "level": "district",
+      "supports": [
+       "small town / LGA headquarters"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation_soil",
+      "observation": "Deep red-orange lateritic soil, oil palms and raffia palms, tall rain-forest fringe trees; heavy overcast wet-season sky.",
+      "image_index": 1,
+      "level": "macro_region",
+      "supports": [
+       "humid southern Nigeria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "transport",
+      "observation": "Many Chinese-made commuter motorcycles (okada) parked at the filling station plus a green-and-white minibus — okada dominance is typical outside Lagos/Abuja bans.",
+      "image_index": 4,
+      "level": "metro_area",
+      "supports": [
+       "provincial Nigerian town"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "road_furniture",
+      "observation": "Vehicles keep right; roundabout with central planted island and painted concrete kerbs, no lane markings.",
+      "image_index": 1,
+      "level": "country",
+      "supports": [
+       "right-hand traffic anglophone Africa"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "commerce",
+      "observation": "Independent fuel marketer 'PET O. OIL AND GAS LIMITED' with painted canopy lettering — Nigeria's downstream sector is full of small independent branded stations.",
+      "image_index": 4,
+      "level": "country",
+      "supports": [
+       "Nigeria"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which continent and climate belt?",
+      "candidates": [
+       "Sub-Saharan Africa",
+       "South Asia",
+       "Caribbean/Latin America",
+       "Southeast Asia"
+      ],
+      "observation": "Red laterite soil, oil palms, corrugated-iron roofed mud shophouses, open-air roadside stalls, majority-Black population, overcast tropical sky.",
+      "discriminator": "South/Southeast Asia would show Devanagari/Thai/Latin-with-diacritic signage, tuk-tuks or trishaws and different roof forms; the Caribbean would show pastel timber housing and no oil-palm/raffia mix.",
+      "ruled_out": [
+       "South Asia — no Indic script, no auto-rickshaws",
+       "Caribbean/Latin America — no Spanish/Portuguese signage, no Latin American bus culture",
+       "Southeast Asia — no Buddhist/Islamic SE-Asian architecture or Latin-Thai script"
+      ],
+      "conclusion": "Humid tropical West/Central Africa",
+      "confidence_after": 0.95,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Which anglophone West African country?",
+      "candidates": [
+       "Nigeria",
+       "Ghana",
+       "Liberia",
+       "Sierra Leone",
+       "Cameroon (anglophone)"
+      ],
+      "observation": "Billboard reads 'CAPACITY NO BE GUY NAME' — pure Nigerian Pidgin; a Nigerian senatorial campaign board names 'DIST. SEN. JARIGBE AGOM JARIGBE'; independent marketer 'PET O. OIL AND GAS LIMITED'.",
+      "discriminator": "Ghana would show Twi/Ga business names, 'Ltd' plus GOIL/Shell branding and yellow-tinted taxis; Liberia/Sierra Leone would show Krio spelling conventions and far fewer solar traffic installations; anglophone Cameroon mixes French signage ('essence', 'Ets.') even in Bamenda.",
+      "ruled_out": [
+       "Ghana — no Akan naming, no GOIL/Star Oil branding",
+       "Liberia/Sierra Leone — Pidgin form and senatorial-district poster style are Nigerian, not Krio",
+       "Cameroon — zero French text anywhere"
+      ],
+      "conclusion": "Nigeria",
+      "confidence_after": 0.93,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Northern or southern Nigeria?",
+      "candidates": [
+       "North-West/North-East (Sahel)",
+       "Middle Belt",
+       "South-West (Yoruba)",
+       "South-East/South-South (Igbo/Cross River)"
+      ],
+      "observation": "Oil palms, raffia, dense evergreen canopy, deep red laterite, no minarets or Hausa-style mudbrick; 'Coal City' (Enugu nickname) business branding.",
+      "discriminator": "The Sahelian north would show flat-roofed mud compounds, neem trees, dust haze and Arabic/Ajami signage; the Yoruba South-West would carry Yoruba-language church and shop names ('Ile', 'Oluwa') and Lagos-style yellow danfos.",
+      "ruled_out": [
+       "Sahelian north — vegetation and architecture entirely wrong",
+       "South-West — no Yoruba orthography on any sign"
+      ],
+      "conclusion": "South-East / South-South humid Nigeria",
+      "confidence_after": 0.85,
+      "weight": "high"
+     },
+     {
+      "level": "admin_region",
+      "question": "Enugu/Ebonyi (Igbo heartland) or Cross River?",
+      "candidates": [
+       "Enugu State",
+       "Ebonyi State",
+       "Cross River State",
+       "Benue State"
+      ],
+      "observation": "The senatorial campaign poster names Jarigbe Agom Jarigbe, whose constituency is Cross River North; the name 'Jarigbe' is Bekwarra/Yala, not Igbo.",
+      "discriminator": "An Enugu or Ebonyi setting would carry Igbo-named politicians (Nwoye, Ogbuoji, Umahi) and Igbo-language church signage; Benue posters would name Tiv/Idoma figures (Akume, Abba Moro).",
+      "ruled_out": [
+       "Enugu State — 'Coal City' is only a brand reference here, and the poster's politician sits for Cross River",
+       "Ebonyi/Benue — different senatorial names and ethnic naming pattern"
+      ],
+      "conclusion": "Cross River State, northern senatorial district (Ogoja/Yala/Bekwarra sphere)",
+      "confidence_after": 0.62,
+      "weight": "high"
+     },
+     {
+      "level": "cultural_sphere",
+      "question": "Igbo core or the non-Igbo Cross River (Bekwarra/Yala/Mbembe) sphere?",
+      "candidates": [
+       "Igbo sphere",
+       "Upper Cross River minority-language sphere"
+      ],
+      "observation": "English-only commercial signage with no Igbo diacritics, personal name 'Jarigbe' (Bekwarra), and market-town layout on the Ogoja–Katsina-Ala corridor.",
+      "discriminator": "Deep Igbo territory would show 'Chukwu/Chi' theophoric shop names and Igbo-language church boards; here trade names are generic English imported from Enugu.",
+      "ruled_out": [
+       "Igbo core — absence of Igbo-language naming despite dense commercial signage"
+      ],
+      "conclusion": "Upper Cross River minority-language trading town with Igbo commercial influence",
+      "confidence_after": 0.55,
+      "weight": "medium"
+     },
+     {
+      "level": "metro_area",
+      "question": "Which town in Cross River North?",
+      "candidates": [
+       "Ogoja",
+       "Ikom",
+       "Obudu",
+       "Yala/Okpoma"
+      ],
+      "observation": "Solar-powered countdown traffic signal and a maintained roundabout, several independent petrol stations, a two-storey colonial-era administrative building — infrastructure level of an LGA headquarters/regional service centre rather than a village.",
+      "discriminator": "Obudu sits in visibly hilly terrain with cooler highland vegetation; Ikom lies on the Cross River with bridge/riverine cues; small Yala villages would lack traffic signals altogether.",
+      "ruled_out": [
+       "Obudu — flat terrain here, no ranch-country hills",
+       "Ikom — no river or bridge infrastructure visible",
+       "Small Yala villages — too much signalised infrastructure"
+      ],
+      "conclusion": "Ogoja town (or an immediately adjacent Cross River North centre)",
+      "confidence_after": 0.5,
+      "weight": "medium"
+     }
+    ],
+    "cues_note": "n/a",
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "'COAL CITY ELECTRICAL', 'PET O. OIL AND GAS LIMITED', 'DIESEL', 'NO SMOKING'",
+      "language": "English",
+      "script": "Latin"
+     },
+     {
+      "confidence": 0.9,
+      "evidence": "Billboard: 'CAPACITY NO BE GUY NAME'",
+      "language": "Nigerian Pidgin",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.8,
+      "image_index": 4,
+      "name": "Pet O. Oil and Gas Limited filling station",
+      "type": "independent petrol station"
+     },
+     {
+      "confidence": 0.7,
+      "image_index": 1,
+      "name": "Town-centre roundabout with solar countdown traffic signal",
+      "type": "road junction / civic island"
+     },
+     {
+      "confidence": 0.75,
+      "image_index": 5,
+      "name": "Senatorial campaign billboard (Cross River North)",
+      "type": "political billboard"
+     }
+    ],
+    "cultural_economic_read": "A provincial anglophone Nigerian market town: informal laterite-and-zinc shophouses lining an unpaved shoulder, okada motorcycle taxis as the main transport, an independent downstream fuel marketer rather than a major-brand station, and donor/state-funded solar street lighting and a solar countdown signal indicating unreliable grid power. Political life is visibly senatorial-district oriented (campaign billboard in Pidgin), and commerce carries Enugu ('Coal City') branding, marking the town as a node in the South-East trading network while ethnically belonging to the Upper Cross River minority-language sphere. Low-to-lower-middle income, cash-and-market economy, wet-season conditions.",
+    "overall_confidence": 0.55,
+    "place_slug": "ogoja",
+    "relied_on_atoms": [],
+    "revised_from": null
+   },
+   "cost_usd": 0.2308,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4394,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Nigeria",
+    "country_iso": "NG",
+    "country_correct": true,
+    "region": "Cross River State (northern senatorial district)",
+    "city": "Ogoja",
+    "confidence": 0.55,
+    "overall_confidence": 0.55,
+    "error_km": 0.89,
+    "reached_level": "metro_area",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 10,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "business_name",
+     "commerce",
+     "infrastructure",
+     "language_register",
+     "political_signage",
+     "road_furniture",
+     "signage_language",
+     "transport",
+     "vegetation_soil"
+    ]
+   }
+  },
+  "phase2": null,
+  "final": {
+   "country_iso": "NG",
+   "country": "Nigeria",
+   "region": "Cross River State (northern senatorial district)",
+   "city": "Ogoja",
+   "lat": 6.655,
+   "lng": 8.797,
+   "error_km": 0.89,
+   "reached_level": "metro_area",
+   "confidence": 0.55,
+   "from": "phase1"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 0.89,
+  "bucket": "<1"
+ },
+ "correction": {
+  "cost_usd": 0.20046375,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 3114,
+   "output": 2747,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Full hit: Nigeria / Cross River North / Ogoja pinned within 0.9 km. The decisive chain was the Nigerian Pidgin billboard slogan plus the named senatorial campaign board, which fixes the northern Cross River senatorial district; the alternatives Ghana, Cameroon and the Igbo heartland were correctly excluded by the absence of Akan/French/Igbo naming. Town-level narrowing rested on infrastructure level (solar countdown signal, roundabout, multiple independent filling stations) matching an LGA headquarters rather than a village, and on flat terrain excluding Obudu and no river excluding Ikom.",
+  "misleading_cues": [
+   {
+    "image_index": 0,
+    "observation": "'COAL CITY ELECTRICAL' shop sign, 'Coal City' being Enugu's nickname",
+    "why_misleading": "Tempts a jump to Enugu State; such trade names travel along the south-east commercial network and are common far outside Enugu."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Billboard slogan in Nigerian Pidgin ('CAPACITY NO BE GUY NAME')",
+    "why_decisive": "Pidgin of this orthographic register is essentially Nigeria-only; Krio (Sierra Leone/Liberia) and Cameroonian Pidgin spell and phrase differently.",
+    "category": "dialect",
+    "image_index": 5
+   },
+   {
+    "observation": "Campaign board titled 'DIST. SEN.' with a non-Igbo, non-Tiv personal name in a green party layout",
+    "why_decisive": "Nigerian senatorial-district posters localise the pano to one senatorial constituency; the name's ethnolinguistic form points to upper Cross River rather than Igbo or Benue.",
+    "category": "politics-civic",
+    "image_index": 5
+   },
+   {
+    "observation": "Solar-panel street lights and a solar-powered countdown traffic signal at a small roundabout with painted concrete kerbs",
+    "why_decisive": "Typical Nigerian state-government solar street-light retrofit in a secondary LGA headquarters town, not a village.",
+    "category": "infrastructure-built",
+    "image_index": 1
+   },
+   {
+    "observation": "Independent branded filling station with hand-painted canopy lettering, 'DIESEL', 'NO SMOKING', 'IN' in English only",
+    "why_decisive": "Nigeria's downstream market is dominated by small independent marketers; francophone Cameroon would show 'essence/gasoil'.",
+    "category": "business-chain",
+    "image_index": 4
+   },
+   {
+    "observation": "Deep red laterite ground, oil and raffia palms, mud-rendered shophouses with rusted corrugated roofs, two-storey yellow building with louvred shutters",
+    "why_decisive": "Humid southern Nigerian small-town core; excludes the Sahelian north and confirms the forest–savanna transition belt.",
+    "category": "roof-facade",
+    "image_index": 2
+   },
+   {
+    "observation": "Flat terrain around the junction, no river or bridge, many okada motorcycles",
+    "why_decisive": "Excludes hilly Obudu and riverine Ikom among Cross River North centres.",
+    "category": "landform",
+    "image_index": 3
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Nigerian Pidgin billboard copy vs Krio or Cameroonian Pidgin",
+    "body": "In Nigeria, advertising and campaign billboards freely use Pidgin phrasing such as 'no be ... name' rendered in standard English orthography alongside fully English business signage. In Sierra Leone or Liberia you would instead see Krio spellings ('na', 'dem', 'tinap') and far less signalised infrastructure; in anglophone Cameroon French words ('essence', 'Ets.', 'Sarl') would appear even in Pidgin-speaking towns.",
+    "layer": "language",
+    "category": "dialect",
+    "scope": "country",
+    "tags": [
+     "pidgin",
+     "billboard",
+     "signage"
+    ],
+    "entities": [
+     "Nigeria",
+     "Cameroon",
+     "Sierra Leone"
+    ],
+    "looks_like": {
+     "country_iso": "CM",
+     "country": "Cameroon"
+    },
+    "actually": {
+     "country_iso": "NG",
+     "country": "Nigeria",
+     "region": "Cross River State"
+    },
+    "confidence": 0.8
+   },
+   {
+    "title": "Senatorial-district campaign boards localise Nigerian panos to one district",
+    "body": "In Nigeria, roadside political billboards routinely carry 'DIST. SEN.'/'SEN.' plus the politician's full name, and each senator maps to exactly one of 109 senatorial districts, giving a region-level lock. In Ghana or Cameroon you would instead see party-colour boards for MPs or presidential figures without a district-tagged senator title.",
+    "layer": "culture",
+    "category": "politics-civic",
+    "scope": "region",
+    "tags": [
+     "campaign-poster",
+     "senator",
+     "district"
+    ],
+    "entities": [
+     "Nigeria",
+     "Ghana"
+    ],
+    "looks_like": {
+     "country_iso": "GH",
+     "country": "Ghana"
+    },
+    "actually": {
+     "country_iso": "NG",
+     "country": "Nigeria",
+     "region": "Cross River State"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Non-Igbo personal names in an English-only Nigerian south-east streetscape",
+    "body": "In the upper Cross River (Bekwarra/Yala/Mbembe) belt, commercial and political names are English or of local minority form with no Igbo theophorics, even though shop branding is imported from Enugu. In the Igbo heartland you would instead see abundant 'Chukwu-/Chi-/Nwa-' shop and church names.",
+    "layer": "language",
+    "category": "toponymy",
+    "scope": "region",
+    "tags": [
+     "igbo",
+     "cross-river",
+     "naming"
+    ],
+    "entities": [
+     "Cross River State",
+     "Enugu State"
+    ],
+    "looks_like": {
+     "country_iso": "NG",
+     "country": "Nigeria",
+     "region": "Enugu State"
+    },
+    "actually": {
+     "country_iso": "NG",
+     "country": "Nigeria",
+     "region": "Cross River State"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Solar countdown traffic signals mark Nigerian LGA headquarters towns",
+    "body": "In Nigeria, small towns that are LGA/administrative centres get state-funded solar street lights and solar countdown traffic heads at a single central roundabout, while the rest of the streets are unmarked laterite. In an ordinary rural village you would instead find no signal heads and only utility poles with no solar panels.",
+    "layer": "economy",
+    "category": "infrastructure-built",
+    "scope": "region",
+    "tags": [
+     "solar",
+     "traffic-signal",
+     "roundabout"
+    ],
+    "entities": [
+     "Ogoja",
+     "rural Cross River"
+    ],
+    "looks_like": {
+     "country_iso": "NG",
+     "country": "Nigeria",
+     "region": "rural village"
+    },
+    "actually": {
+     "country_iso": "NG",
+     "country": "Nigeria",
+     "region": "Cross River State"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Independent Nigerian fuel marketers vs Ghanaian chain branding",
+    "body": "In Nigeria, roadside stations are frequently one-off independents with hand-painted 'X OIL AND GAS LIMITED' canopy lettering and plain 'DIESEL' panels. In Ghana you would instead see standardised GOIL, Star Oil or Total livery in corporate colours at nearly every station.",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "country",
+    "tags": [
+     "fuel-station",
+     "branding"
+    ],
+    "entities": [
+     "Nigeria",
+     "Ghana"
+    ],
+    "looks_like": {
+     "country_iso": "GH",
+     "country": "Ghana"
+    },
+    "actually": {
+     "country_iso": "NG",
+     "country": "Nigeria"
+    },
+    "confidence": 0.7
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [],
+  "merged": [],
+  "error": "NameError: name 'knowledge' is not defined"
+ },
+ "evidence": {
+  "hits": [],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.4313,
+ "status": "PARTIAL",
+ "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+}

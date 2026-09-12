@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoGuessHelper — 원자 관측소(Observatory): 원자 1,297개와 분자 120개를 시간·품질·의미의 세 축으로 지켜본다 (260907)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{
+  --accent:hsl(232 62% 50%); --accent-deep:hsl(232 66% 36%); --accent-soft:hsl(232 60% 96%);
+  --accent2:hsl(28 92% 52%); --ink:#0f1220; --ink-2:#333a55; --muted:#6b7190;
+  --line:#e4e7f0; --bg:#f5f6fa; --card:#ffffff; --ok:#137a4d; --ok-soft:#e5f6ed;
+  --warn:#9a6b00; --warn-soft:#fbf3dd; --danger:#b3261e; --danger-soft:#fbe9e7;
+  --shadow:0 1px 2px rgba(15,18,32,.04),0 8px 24px -12px rgba(15,18,32,.16);
+  --radius:16px; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Malgun Gothic',system-ui,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.72;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--accent-deep);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.topnav{display:flex;gap:4px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.topnav a{color:var(--muted);padding:6px 10px;border-radius:8px;transition:.15s}
+.topnav a:hover{color:var(--ink);background:var(--accent-soft);text-decoration:none}
+.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+.hero p{color:var(--ink-2);font-size:16px;max-width:80ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.chip.ok{background:var(--ok-soft);border-color:#bfe6d1;color:var(--ok)}
+.chip.ac{background:var(--accent-soft);border-color:#cdd3f3;color:var(--accent-deep)}
+.chip.wn{background:var(--warn-soft);border-color:#eddca6;color:var(--warn)}
+.chip.dn{background:var(--danger-soft);border-color:#f3c6c1;color:var(--danger)}
+.section{padding:40px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h2.sec{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-bottom:22px;max-width:76ch}
+h3.sub{font-size:16.5px;font-weight:750;letter-spacing:-.02em;margin:26px 0 10px}
+.grid{display:grid;gap:15px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;font-weight:750;letter-spacing:-.02em;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card h3 .ic{flex:0 0 auto;font-size:17px}
+.card p,.card li{font-size:14px;color:var(--ink-2)}
+.card ul{margin:6px 0 0 2px;padding-left:16px} .card li{margin:3px 0}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+@media(max-width:860px){.kpi{grid-template-columns:repeat(2,1fr)}}
+.kpi .k{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.kpi .k .n{font-size:26px;font-weight:800;letter-spacing:-.03em;color:var(--accent-deep);line-height:1.1}
+.kpi .k .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+.kpi .k .s{font-size:12px;color:var(--ink-2);margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f7f8fc;font-weight:700;font-size:12.5px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+td b{color:var(--ink)}
+.tscroll{overflow-x:auto}
+code{font-family:var(--mono);font-size:12.5px;background:#eceef7;padding:1px 6px;border-radius:5px;color:#26305e}
+pre{background:#0f1220;color:#e6e8f3;border-radius:12px;padding:16px 18px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.58;margin-top:10px}
+pre.wire{background:#151a33;color:#cfd5ee;font-size:12px;line-height:1.45}
+pre .c{color:#8b92b3} pre .k{color:#9fb4ff} pre .s{color:#e5c07b}
+.sev{font-size:11px;font-weight:800;padding:2px 7px;border-radius:6px;white-space:nowrap;display:inline-block;vertical-align:1px}
+.sev.ok{color:var(--ok);background:var(--ok-soft)} .sev.h{color:var(--danger);background:var(--danger-soft)} .sev.m{color:var(--warn);background:var(--warn-soft)} .sev.l{color:var(--muted);background:#eef0f5} .sev.i{color:var(--accent-deep);background:var(--accent-soft)}
+.callout{background:var(--accent-soft);border:1px solid #cdd3f3;border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink-2);margin-top:14px}
+.callout.ok{background:var(--ok-soft);border-color:#bfe6d1}
+.callout.warn{background:var(--warn-soft);border-color:#eddca6}
+.callout.danger{background:var(--danger-soft);border-color:#f3c6c1}
+.callout b{color:var(--ink)}
+.principle{background:linear-gradient(135deg,#0f1220,#243064);color:#d5dbf5;border-radius:var(--radius);padding:20px 22px;font-size:14.5px;margin-top:16px;box-shadow:var(--shadow)}
+.principle b{color:#fff}
+.step{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:10px;box-shadow:var(--shadow)}
+.step .num{flex:0 0 34px;height:34px;border-radius:50%;background:var(--accent-deep);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step h4{font-size:15px;font-weight:750;margin-bottom:4px}
+.step p,.step li{font-size:13.5px;color:var(--ink-2)}
+.step ul{padding-left:16px;margin-top:4px}
+ul.plain{padding-left:18px;font-size:14px;color:var(--ink-2)} ul.plain li{margin:4px 0}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:22px;height:0;border-top:3px solid var(--accent-deep);display:inline-block}
+.sw.dash{border-top-style:dashed;border-color:var(--warn)}
+.sw.sign{border-top-style:double;border-top-width:4px;border-color:var(--ok)}
+footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><span class="dot"></span>GeoGuessHelper · 원자 관측소 기획</div>
+  <nav class="topnav">
+    <a href="#why">문제</a><a href="#audit">실측</a><a href="#questions">관측 질문</a><a href="#principles">원칙</a>
+    <a href="#where">위치</a><a href="#data">데이터</a><a href="#screens">화면</a><a href="#signals">신호</a>
+    <a href="#molecules">분자 관측</a><a href="#api">API</a><a href="#stages">단계</a><a href="#verify">검증</a><a href="#not">안 하는 것</a><a href="#status">구현 상태</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">ALTAIYA 지식 관측 기획 · 2026-09-07 · 선행: knowledge-atlas v2(260816) · atom-density(260829) · atom-dialogue(260906) · molecule-theory(260907)</div>
+  <h1>원자는 1,297개, 분자는 120개인데 —<br>그것이 <em>늘고 있는지, 썩고 있는지, 뭉치고 있는지</em>를 보는 화면이 없다</h1>
+  <p>지식 저장소는 지금 <b>파일 더미</b>다. 본체 웹 UI 는 칩 네 개(원자·엔티티·태그·보고서 수)를 보여주고, 아틀라스(altaiya)는 좌표가 있는 원자
+  506개 중 사료권 상자 안의 것만 점으로 찍는다. 분자 120개는 어디에도 보이지 않고, 오늘 매긴 추론 계층·범주·회상 사용도 보이지 않는다.
+  이 기획은 <b>관측소(Observatory)</b> 를 따로 둔다 — 아틀라스가 "어디에"를 답하는 지도라면, 관측소는 <b>"얼마나 · 어떻게 변하는가 · 서로 얼마나 가까운가"</b>를
+  답하는 계기판·대장·임베딩 지도·분자 서가·작업대 다섯 화면이다. 뷰어는 읽기만 하고, 계산은 빌드 단계가 사이드카에 남긴다.</p>
+  <div class="meta">
+    <span class="chip ac">읽기 전용 — 원자·분자 파일 불변</span>
+    <span class="chip ok">LLM 호출 0 · 임베딩 계산 0 (뷰어 안에서)</span>
+    <span class="chip ok">사실(실선) · 가설(점선) · 주장(서명) 세 등급을 한 문법으로</span>
+    <span class="chip wn">모든 화면은 "언제의 것"인지 시각을 단다 — 분자는 시점의 함수</span>
+    <span class="chip dn">미리보기(브라우저 계산) ≠ 기록(서버 빌드 스냅샷)</span>
+  </div>
+</div></header>
+
+<!-- ============================================================ -->
+<section class="section" id="why"><div class="wrap">
+  <div class="eyebrow">문제</div>
+  <h2 class="sec">보이는 것과 안 보이는 것 — 2026-09-07 기준</h2>
+  <p class="sec-desc">"모니터링"을 세 축으로 나누면 지금 무엇이 비어 있는지가 분명해진다. 시간(늘고 바뀌는가), 품질(쓸 만한가), 의미(서로 어떻게 가까운가).
+  세 축 어디에도 지금은 화면이 없고, 있는 표면은 좌표라는 한 축으로만 원자를 자른다.</p>
+  <div class="tscroll"><table>
+    <tr><th style="width:190px">표면</th><th>지금 보여주는 것</th><th>못 보여주는 것</th></tr>
+    <tr><td><b>본체 웹 UI</b><br><code>webui/app.js renderKnowledge()</code></td>
+      <td>칩 4개 — 원자 1,297 · 엔티티 2,735 · 태그 3,374 · 보고서 68. 종합 보고서 버튼.</td>
+      <td>어제 얼마나 늘었는지, 어느 층에 몰렸는지, 어떤 원자가 회상에 실렸는지 — 전부. <code>/api/knowledge/atoms</code> 는 검색 50건 목록뿐이고 UI 가 부르지 않는다.</td></tr>
+    <tr><td><b>아틀라스(altaiya)</b><br><code>/api/atoms?sphere=…</code></td>
+      <td>사료권 bbox 안의 city·point 원자를 마커로(범주 칩 필터), 클릭하면 원문·캡처 썸네일. 행위자·관계·시대·강역·공백·커버리지.</td>
+      <td><b>좌표 없는 791개(61%)</b> — global 303 · polity 155 · period 21 과 region 대다수. 분자 전부. 범주·계층·출처·사용 통계. 두 시점 비교.</td></tr>
+    <tr><td><b>분자 산출물</b><br><code>docs/knowledge/molecule/</code></td>
+      <td>README · index.json · 스냅샷 1개 · mol_*.md 62개 · links.jsonl 19줄. 전부 파일.</td>
+      <td>분자 목록을 훑을 화면, 멤버와 주변(periphery)·near-miss 를 나란히 볼 화면, 임계를 움직이면 무엇이 붙고 떨어지는지, 다음 스냅샷과 무엇이 달라졌는지.</td></tr>
+    <tr><td><b>기준선 실험</b><br><code>docs/knowledge/baseline/</code></td>
+      <td>README(자동) · FINDINGS · tiers.json(191/22/24) · 잡별 md 14건.</td>
+      <td>계층을 원자 위에 배지로. 본 저장소에는 <code>tier</code> 가 아직 0건이라 "어느 원자가 지도 의존인가"를 저장소 화면에서 볼 길이 없다.</td></tr>
+  </table></div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><h3><span class="ic">⏱</span>시간 — 늘고 바뀌는가</h3>
+      <p>원자는 열 번의 실행일에 나뉘어 쌓였고 그중 두 날(08-25 확장 617 · 08-27 위키 330)이 73% 다. 이 사실을 지금은 <code>created</code> 를 직접 집계해야 안다. 분자는 스냅샷이 하나라 "변했다"는 말 자체가 아직 성립하지 않는다.</p></div>
+    <div class="card"><h3><span class="ic">🧪</span>품질 — 쓸 만한가</h3>
+      <p>범주가 붙은 원자 53/1,297(4%), 출처 없는 원자 689, 회상 참고 원자 수는 기록조차 없다(<code>uses</code> 는 병합 횟수다). 임베딩으로 보면 거리 0.10 아래의 쌍 19개가 병합을 빠져나갔다("Dubrovnik 과잉관광 반발" 두 벌).</p></div>
+    <div class="card"><h3><span class="ic">🧬</span>의미 — 서로 얼마나 가까운가</h3>
+      <p>임베딩 1,297×768 이 있고 분자 120개가 나왔지만 <b>보는 사람은 표 한 장(README)</b>으로 읽는다. 명명 62개 중 27개가 위키 목록 원자만으로 된 분자(전 120개 중 64개)라는 사실도 문서를 넘겨 봐야 안다. 이것이 관측소가 채워야 할 가장 큰 구멍이다.</p></div>
+  </div>
+  <div class="principle"><b>요구의 재정의.</b> 사용자의 요청은 "새로 파악된 분자와 현재 원자 전체를 모니터링할 뷰어를 따로 기획하라"였다.
+  '모니터링'을 <b>관측 질문 13개</b>(§3)로 풀고, 그 질문에 답하는 <b>화면 5장</b>(§7)과 <b>신호 규칙 10개</b>(§8)를 정한다.
+  뷰어는 아틀라스와 같은 백엔드·같은 지식 스냅샷 위에 두 번째 화면으로 얹되(§5), 아틀라스의 사이드카(대장·관계·사료권)에는 <b>의존하지 않는다</b> — 관측소의 재료는 <code>index.json</code> · <code>molecule/</code> · <code>baseline/tiers.json</code> · 그리고 새로 두는 <code>observe/</code> 사이드카뿐이다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="audit"><div class="wrap">
+  <div class="eyebrow">실측 · 2026-09-07 index.json · molecule/index.json · embeddings.npz 직접 집계</div>
+  <h2 class="sec">관측소가 첫날 보여줄 숫자들</h2>
+  <p class="sec-desc">아래 숫자는 기획을 위해 한 번 뽑은 것이다. 관측소의 첫 검증(§12 V2)은 "계기판의 숫자가 이 집계와 1의 오차도 없이 같다"이다.</p>
+  <div class="kpi">
+    <div class="k"><div class="n">1,297</div><div class="l">원자</div><div class="s">history 492 · economy 291 · culture 154 · geography 134 · architecture 103 · language 74 · nature 49</div></div>
+    <div class="k"><div class="n">351 / 617 / 330</div><div class="l">출처 경로 — 보고서 / 확장(패스D) / 위키(패스W)</div><div class="s">셋의 합이 정확히 1,297 — 경로는 <code>reports</code>·<code>x-*</code> 태그·wikipedia 출처로 남김없이 갈린다</div></div>
+    <div class="k"><div class="n">53</div><div class="l">범주(category)가 있는 원자</div><div class="s">4%. 나머지 1,244는 <code>other</code> 로 읽힌다 — 밀도 기획 1단계의 재분류가 아직 안 돌았다</div></div>
+    <div class="k"><div class="n">506</div><div class="l">좌표 있는 원자</div><div class="s">셀 170개(1자 1 · 2자 54 · 3자 80 · 5자 34 · 7자 1). 좌표 없는 791개는 어느 지도에도 없다</div></div>
+    <div class="k"><div class="n">689 · 680 · 946</div><div class="l">출처 없음 · 참조 없음 · 보고서 없음</div><div class="s">확장·위키 원자 947개는 보고서 연결이 없다 — 정상이지만 화면이 "왜 없는가"를 경로로 설명해야 한다</div></div>
+    <div class="k"><div class="n">1,276 : 21</div><div class="l"><code>uses</code> 1 : 2</div><div class="s"><code>uses</code> 는 <code>_touch()</code> 가 병합 때만 올린다. <b>회상(recall) 사용은 기록되지 않는다</b> → §6 회상 로그</div></div>
+    <div class="k"><div class="n">19 · 98 · 429</div><div class="l">임베딩 거리 &lt;0.10 · &lt;0.15 · &lt;0.20 쌍</div><div class="s">병합 임계 밖에서 살아남은 근중복 후보. 0.079 "Overtourism backlash…" ×2, 0.065 "left-hand traffic" ×2</div></div>
+    <div class="k"><div class="n">2,735</div><div class="l">엔티티 노트(.md)</div><div class="s">원자보다 2배 많다. 원자 3개 이상 가진 엔티티는 232개 — 나머지 2,503개는 한두 원자짜리 파편</div></div>
+  </div>
+  <h3 class="sub">분자·실험·임베딩</h3>
+  <div class="tscroll"><table>
+    <tr><th style="width:200px">항목</th><th>값</th><th>관측소에서 어디에 보이는가</th></tr>
+    <tr><td>분자 스냅샷</td><td>1개 <code>260907_091951_p0.5_k10_s4</code> · 임계 0.328 · 엣지 2,193 · 원시 클리크 218 → 분자 120(흡수 98) · 원자 343 포함 · 크기 4:89 · 5:25 · 6:6</td><td>④ 분자 서가 머리, ③ 임베딩 지도 헐(hull)</td></tr>
+    <tr><td>분자의 주 층</td><td>history 70 · economy 15 · architecture 15 · culture 11 · language 6 · geography 3 · nature 0</td><td>④ 층 필터 · ① 계기판 "층별 분자화율"</td></tr>
+    <tr><td>명명</td><td>62 named(신뢰도 0.45–0.9) · 58 미명명(겹침 건너뜀 44 + 한도 밖 14) · 누적 $4.00 · web_search <b>0회</b> · 도구 입력 누출 21%→복구</td><td>⑤ 작업대 "미명명 58" · ⑧ 신호 <code>no-grounding</code></td></tr>
+    <tr><td>원자–분자 링크</td><td>19건 · 분자 4개 · 전부 <code>missing-atom-match</code></td><td>④ 상세 "빠진 원자 감시" · ② 대장 원자 행의 분자 배지</td></tr>
+    <tr><td>거리 분포</td><td>p1 0.380 · p2 0.432 · p5 0.506 · p10 0.569 · p25 0.665 · p50 0.754 (쌍 840,456)</td><td>③ 임계 슬라이더의 눈금 — pct ↔ ε 변환표</td></tr>
+    <tr><td>기준선 계층</td><td>unaided 191 · aided 22 · blind-only 24 (샌드박스 저장소) · 본 저장소 <code>tier</code> 0건 · 판정 leak 8 / helped 4 / sufficient 2</td><td>① 계기판 "실험" 타일 · ② 대장 tier 배지(본 저장소에 실리는 날부터)</td></tr>
+    <tr><td>임베딩</td><td><code>embeddings.npz</code> ids 1,297 · vectors 1,297×768 float32(≈4MB) · <code>atom_updated</code> 증분 키 · git 무시</td><td>뷰어는 npz 를 읽지 않는다 — 빌드가 <code>layout.json</code>·<code>neighbors.json</code> 으로 바꿔 놓는다(§6)</td></tr>
+    <tr><td>비용 원장(체크포인트에 흩어진 것)</td><td>확장 $3.53 · 위키 $4.38 · 분자 명명 $4.00 · 기준선 $8.95 · 아틀라스 패스A·B·C $0.66+$0.71+$1.56</td><td>⑤ 작업대 "비용" — 파일마다 다른 키(<code>cost_usd</code>·<code>spent_usd</code>)를 한 표로</td></tr>
+  </table></div>
+  <div class="callout warn"><b>지금 저장소의 모양이 관측소의 첫 화면을 정한다.</b> 원자의 73%가 이틀 만에 확장·위키로 들어왔고, 그 원자들은 좌표·보고서·범주가 없다.
+  좌표 중심의 아틀라스는 이 다수를 구조적으로 보지 못한다. 관측소의 첫 화면은 지도가 아니라 <b>대장(臺帳)과 임베딩 지도</b>여야 한다 — 좌표가 없어도 모든 원자가 자리를 갖는 유일한 두 표면이다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="questions"><div class="wrap">
+  <div class="eyebrow">관측 질문</div>
+  <h2 class="sec">뷰어가 답해야 할 질문 13개 — 질문이 화면을 정한다</h2>
+  <p class="sec-desc">화면부터 그리지 않고 질문부터 적는다. 각 질문은 어떤 재료로 답하는지, 재료가 아직 없으면 무엇을 만들어야 하는지가 붙어 있다.</p>
+  <div class="tscroll"><table>
+    <tr><th style="width:36px">#</th><th style="width:250px">질문</th><th>재료</th><th style="width:130px">화면</th><th style="width:90px">재료 상태</th></tr>
+    <tr><td colspan="5" style="background:#f7f8fc;font-weight:700;color:var(--accent-deep)">⏱ 시간 — 성장과 변화</td></tr>
+    <tr><td>Q1</td><td>이번 주에 원자가 몇 개 늘었고 어느 층·스코프·경로로 들어왔나</td><td><code>created</code>·<code>layer</code>·<code>scope</code> + 경로 판정(보고서/확장/위키)</td><td>① 계기판</td><td><span class="sev ok">있음</span></td></tr>
+    <tr><td>Q2</td><td>어떤 원자가 갱신(병합·touch)됐나, 병합률은 어떤가</td><td><code>updated≠created</code> 46건 · 패스별 <code>merged/created</code>(잡 결과 <code>knowledge</code> 필드)</td><td>① 계기판 · ② 대장</td><td><span class="sev ok">있음</span></td></tr>
+    <tr><td>Q3</td><td>분자가 지난 스냅샷과 비교해 무엇이 생기고·살고·사라졌나</td><td>스냅샷 2개 이상 + 내용 주소 id + 계보(Jaccard) 판정</td><td>④ 서가 계보</td><td><span class="sev m">스냅샷 1개</span></td></tr>
+    <tr><td colspan="5" style="background:#f7f8fc;font-weight:700;color:var(--accent-deep)">🧪 품질 — 위생과 사용</td></tr>
+    <tr><td>Q4</td><td>범주·좌표·출처·기간이 비어 있는 원자는 몇 개이고 어느 경로에 몰렸나</td><td>index 필드 결손 집계 × 경로</td><td>① 계기판 · ② 대장 패싯</td><td><span class="sev ok">있음</span></td></tr>
+    <tr><td>Q5</td><td>병합을 빠져나간 근중복 쌍은 무엇인가</td><td>임베딩 거리 &lt; τ_dup 쌍 목록(제목·거리·경로)</td><td>⑤ 작업대</td><td><span class="sev i">빌드로 생성</span></td></tr>
+    <tr><td>Q6</td><td>목록형(위키 리스트) 원자는 몇 개이고 분자를 얼마나 점유하나</td><td>경로·제목 패턴 판정(<code>list_like</code>, 1차 추정 217) + 분자 멤버 교차(위키 원자만으로 된 분자 64/120)</td><td>① · ④</td><td><span class="sev i">빌드로 생성</span></td></tr>
+    <tr><td>Q7</td><td>어느 원자가 지도(보조 지식) 의존인가 — 계층별 분포</td><td><code>tier</code>(본 저장소 0건 · 샌드박스 237건) · 잡별 판정</td><td>① 실험 타일 · ② 배지</td><td><span class="sev m">본 저장소 미적재</span></td></tr>
+    <tr><td>Q8</td><td>분석 프롬프트에 실제로 실린 원자는 무엇이고, 한 번도 안 실린 원자는 몇 개인가</td><td><b>없음</b> — <code>recall()</code> 은 결과를 기록하지 않는다 → 회상 로그(§6)</td><td>② 대장 정렬 · ⑤</td><td><span class="sev h">만들어야</span></td></tr>
+    <tr><td colspan="5" style="background:#f7f8fc;font-weight:700;color:var(--accent-deep)">🧬 의미 — 근접과 분자</td></tr>
+    <tr><td>Q9</td><td>원자 하나의 가장 가까운 이웃 10개는 무엇이고 거리는 얼마인가</td><td>kNN 이웃표(빌드가 npz 에서 미리 계산)</td><td>② 상세 서랍</td><td><span class="sev i">빌드로 생성</span></td></tr>
+    <tr><td>Q10</td><td>임계(pct)를 움직이면 어느 원자가 붙고 어느 분자가 깨지는가</td><td>상호 kNN 엣지 + 거리 분위표 → 브라우저에서 클리크 미리보기</td><td>③ 임베딩 지도</td><td><span class="sev i">빌드로 생성</span></td></tr>
+    <tr><td>Q11</td><td>분자 D 가 빠진 이유 — 어느 쌍이 얼마나 멀었나(near-miss)</td><td>주변 원자(periphery) + 멤버와의 거리 벡터</td><td>④ 상세</td><td><span class="sev i">빌드로 생성</span></td></tr>
+    <tr><td>Q12</td><td>분자가 예측한 "빠진 원자"가 나중에 실제로 들어왔나</td><td><code>missing_atoms</code> × <code>links.jsonl</code>(reify) 사건</td><td>④ 감시 · ⑤</td><td><span class="sev ok">있음</span></td></tr>
+    <tr><td colspan="5" style="background:#f7f8fc;font-weight:700;color:var(--accent-deep)">💸 운영</td></tr>
+    <tr><td>Q13</td><td>어느 파이프라인이 얼마를 썼고 남은 예산은 얼마인가</td><td>expansion/wiki.json <code>cost_usd</code> · molecule <code>spent_usd</code> · baseline runs · 잡 결과 비용</td><td>⑤ 비용 원장</td><td><span class="sev ok">있음(흩어짐)</span></td></tr>
+  </table></div>
+  <div class="callout"><b>재료가 없는 질문은 하나(Q8)다.</b> 나머지는 이미 있는 파일에서 읽거나(있음), npz 를 한 번 가공하면 나온다(빌드로 생성). Q8 의 회상 로그는 <code>knowledge.recall()</code> 끝에 20줄이면 된다 — 그러나 이것이 없으면 "원자 1,297개 중 몇 개가 실제로 쓰였는가"라는 <b>모니터링의 가장 기본적인 질문</b>에 영원히 답할 수 없다. 0단계에 넣는다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="principles"><div class="wrap">
+  <div class="eyebrow">원칙</div>
+  <h2 class="sec">여섯 가지 — 앞선 기획들의 원칙을 관측에 맞게 다시 쓴다</h2>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🔒</span>읽기 전용 · 사이드카</h3>
+      <p>뷰어와 빌드는 <code>atoms/</code>·<code>molecule/mol_*.md</code>·<code>index.json</code> 에 한 바이트도 쓰지 않는다. 파생물은 전부 <code>docs/knowledge/observe/</code> 에 간다. 아틀라스의 "원자 불변 · 사이드카" 원칙(260816)과 같다.</p></div>
+    <div class="card"><h3><span class="ic">🧮</span>계산은 빌드, 뷰어는 그림</h3>
+      <p>임베딩·투영·이웃·중복·계보는 <code>observe build</code>(파이썬)가 계산해 JSON 으로 둔다. 브라우저는 numpy 도 모델도 없이 그린다. 예외는 하나 — 임계 슬라이더의 클리크 <b>미리보기</b>(§7-③)는 미리 계산된 엣지 위에서 브라우저가 돈다.</p></div>
+    <div class="card"><h3><span class="ic">🕰</span>모든 화면에 시각</h3>
+      <p>분자는 시점의 함수다(이론 §2.2). 그래서 계기판·서가·지도 머리에 <b>"index.json 2026-09-06 22:39 · 스냅샷 260907_091951 · 관측 빌드 …"</b> 세 시각을 항상 단다. 원자가 스냅샷보다 새로우면 그 자체가 신호다(§8 <code>stale</code>).</p></div>
+    <div class="card"><h3><span class="ic">〰</span>세 등급 한 문법</h3>
+      <p>원자 = <b>사실</b>(실선), 분자·이웃·중복 후보 = <b>가설</b>(점선·회색), 사람이 서명한 것 = <b>주장</b>(이중선). 강역 스케치(260826)와 대화 기획(260906)이 정한 문법을 관측소도 그대로 쓴다.</p>
+      <div class="legend"><span><i class="sw"></i>사실</span><span><i class="sw dash"></i>가설</span><span><i class="sw sign"></i>주장</span></div></div>
+    <div class="card"><h3><span class="ic">👁</span>미리보기 ≠ 기록</h3>
+      <p>브라우저에서 임계를 돌려 본 결과는 <b>저장되지 않는다</b>. 기록은 서버 빌드가 만든 스냅샷만이다. 화면은 미리보기를 점선 헐로, 기록된 스냅샷을 실선 헐로 구분한다 — 두 개가 다르면 "이 pct 로 build 를 돌려라"는 명령어를 복사해 준다.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>구글 콘텐츠 로컬</h3>
+      <p>P1 원자의 캡처 썸네일은 아틀라스와 같이 로컬에서만 뜬다(배포본 404). 관측소는 어느 화면에도 캡처를 격자로 늘어놓지 않는다 — 원자 상세 서랍에서 한 장씩만.</p></div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="where"><div class="wrap">
+  <div class="eyebrow">위치 결정</div>
+  <h2 class="sec">어디에 두는가 — 아틀라스의 두 번째 화면으로, 그러나 아틀라스에 기대지 않는다</h2>
+  <div class="tscroll"><table>
+    <tr><th style="width:230px">선택지</th><th>장점</th><th>단점</th><th style="width:110px">판정</th></tr>
+    <tr><td><b>A. altaiya 백엔드에 라우트 + <code>observe.html</code></b><br>같은 오리진 8901, 같은 지식 스냅샷</td>
+      <td>백엔드가 이미 <code>index.json</code>·원자 md·보고서를 읽는다. Railway 배포·<code>sync-knowledge.ps1</code>·쓰기 토큰 패턴을 그대로 쓴다. 아틀라스 ↔ 관측소가 원자 id 하나로 서로 날아간다.</td>
+      <td>altaiya 는 중첩 저장소라 커밋이 따로 간다. 프론트 파일이 하나 더 늘어(빌드 도구 없음은 유지) app.js 2,058줄과 별도 파일로 가야 한다.</td>
+      <td><span class="sev ok">채택</span></td></tr>
+    <tr><td><b>B. 본체 웹 UI 카드 확장</b><br>8799 <code>webui/</code></td>
+      <td>캡처·잡·비용이 같은 화면에 있다. 회상 로그의 발원지(<code>server.py:175</code>)와 같은 프로세스.</td>
+      <td>본체 UI 는 <b>플레이 도구</b>다 — 상용화 검토(260906)에서 "인플레이 도구는 팔 수 없다"고 결론 낸 표면에 지식 관측을 얹으면 두 용도가 다시 섞인다. 배포되지 않는다.</td>
+      <td><span class="sev l">보류</span></td></tr>
+    <tr><td><b>C. 독립 앱</b><br>새 포트·새 배포</td>
+      <td>완전한 분리.</td>
+      <td>원자 md·보고서 서빙·토큰·런처를 세 번째로 복제한다. 얻는 것이 없다.</td>
+      <td><span class="sev l">기각</span></td></tr>
+  </table></div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><h3><span class="ic">🧭</span>아틀라스와의 관계</h3>
+      <ul>
+        <li><b>아틀라스</b>: 좌표 · 행위자 · 관계 · 시대 · 강역 — "어디에, 누가, 언제".</li>
+        <li><b>관측소</b>: 수 · 변화 · 결손 · 근접 · 분자 — "얼마나, 어떻게 변하는가, 무엇과 가까운가".</li>
+        <li>연결은 <b>원자 id 와 좌표</b> 두 가지뿐: 관측소 원자 행의 "지도에서" → <code>index.html#atom=atm_…</code>(flyTo), 아틀라스 원자 패널의 "관측소에서" → <code>observe.html#atom=atm_…</code>.</li>
+        <li>관측소는 <code>data/entities.json</code>·<code>relations.json</code>·<code>periods.json</code> 을 <b>읽지 않는다</b>. 아틀라스 사이드카가 비어도 관측소는 전부 뜬다.</li>
+      </ul></div>
+    <div class="card"><h3><span class="ic">📦</span>배포와 동기화</h3>
+      <ul>
+        <li><code>sync-knowledge.ps1</code> 의 제외 목록에 <code>embeddings.npz</code>(4MB, 뷰어 불필요)와 <code>baseline/store_*</code>(실험 샌드박스)를 더한다. <code>observe/*.json</code>·<code>molecule/*.md</code>·<code>baseline/tiers.json</code> 은 싣는다.</li>
+        <li><code>observe build</code> 는 <b>시스템 파이썬</b>(numpy·torch 가 있는 쪽)에서 돈다 — 분자 파이프라인과 같은 제약. 그래서 CLI 한 명령으로 묶지 못하고(uv 가상환경 ↔ 시스템 파이썬을 오가야 한다) 셸 스크립트가 필요하다: 본체 루트의 <code>snapshot-knowledge.ps1</code>(<code>run.ps1</code> 옆) 이 <code>embed → molecule build → observe build → altaiya\sync-knowledge.ps1</code> 을 잇는다.</li>
+        <li><b>이름이 <code>snapshot-</code> 인 이유</b>: 이 스크립트는 원자(지식)를 갱신하지 않는다 — 원자는 적재(ingest)가 만든다. 하는 일은 그 시점의 원자 집합을 <b>세 겹의 스냅샷</b>으로 고정하는 것이다: 분자 스냅샷(<code>molecule/snapshots/</code>) · 관측 스냅샷(<code>observe/series.jsonl</code> 한 줄) · 배포 스냅샷(<code>altaiya/knowledge/</code>). 초안의 <code>refresh-knowledge</code> 는 "지식을 새로 고친다"로 읽혀 틀린 이름이었다.</li>
+        <li>로컬(모노리포)에서는 사이드카가 없어도 <code>observe.html</code> 이 index.json 만으로 ①②를 띄우고, ③④는 "빌드 필요" 안내를 낸다 — 단계적 저하.</li>
+      </ul></div>
+  </div>
+
+  <h3 class="sub">내장인가, 별도인가 — 프로세스는 내장, 화면·코드·데이터는 별도</h3>
+  <p class="sec-desc">원자 대장·계기판·분자 서가는 <b>한 페이지의 탭 셋</b>이고(임베딩 지도·작업대까지 다섯), 그 페이지는 altaiya 서버가 낸다. 그러나 아틀라스 지도와 파일 하나도 공유하지 않는다. 층별로 나누면 다음과 같다.</p>
+  <div class="tscroll"><table>
+    <tr><th style="width:150px">층</th><th style="width:110px">판정</th><th>실체</th></tr>
+    <tr><td>프로세스 · 포트 · 배포</td><td><span class="sev ok">내장</span></td><td>같은 FastAPI(8901), 같은 Railway 서비스, 같은 <code>run.bat</code>. <code>app.py</code> 변경은 <code>include_router(observe.router)</code> 한 줄 — 관측 라우트는 <code>altaiya-backend/observe.py</code> 에 따로 산다.</td></tr>
+    <tr><td>지식 스냅샷</td><td><span class="sev ok">내장</span></td><td>같은 <code>altaiya/knowledge/</code>(sync 가 복사). 관측 사이드카 <code>observe/</code>·분자 문서·<code>baseline/tiers.json</code> 이 그 안에 함께 실린다.</td></tr>
+    <tr><td>화면</td><td><span class="sev i">별도</span></td><td><code>altaiya-frontend/observe.html</code> · <code>observe.js</code> · <code>observe.css</code>. <code>index.html</code>·<code>app.js</code>(2,058줄)·<code>styles.css</code> 는 건드리지 않는다 — 상단 브랜드 옆의 탭 링크 두 개(아틀라스 ↔ 관측소)만 양쪽에 더한다. 진입 URL: <code>http://localhost:8901/observe.html</code>.</td></tr>
+    <tr><td>데이터 의존</td><td><span class="sev i">별도</span></td><td>관측소는 <code>index.json</code>·<code>molecule/</code>·<code>baseline/tiers.json</code>·<code>observe/</code>·<code>recall_log.jsonl</code> 만 읽는다. 아틀라스의 <code>data/entities.json</code>·<code>relations.json</code>·<code>periods.json</code>·<code>territories/</code> 는 읽지 않는다. 반대로 아틀라스도 <code>observe/</code> 를 읽지 않는다.</td></tr>
+    <tr><td>빌드(계산)</td><td><span class="sev i">별도</span></td><td>본체 <code>src/geoguesshelper/observe.py</code>(분자 <code>molecule.py</code> 와 같은 자리). altaiya 는 산출물을 읽기만 한다 — 아틀라스 추출기 <code>extract.py</code> 와도 무관.</td></tr>
+    <tr><td>서로 건너가기</td><td><span class="sev l">id 링크</span></td><td>원자 id 하나로만: 관측소 → <code>index.html#atom=atm_…</code>(지도 flyTo), 아틀라스 → <code>observe.html#atom=atm_…</code>(대장 서랍). 이 해시 규약이 두 화면 사이의 유일한 계약이다.</td></tr>
+  </table></div>
+  <div class="callout"><b>왜 이렇게 자르는가.</b> 완전 내장(app.js 에 탭 추가)은 2,058줄짜리 지도 코드에 표·산점도·카드 UI 를 섞어 두 화면이 서로를 깨뜨리기 쉽고, 완전 별도(새 서버)는 원자 md·보고서 서빙·토큰·런처·배포를 세 번째로 복제한다. 그 사이 — <b>한 서버, 두 페이지, 두 사이드카</b> — 가 유지비가 가장 낮다. 나중에 관측소를 떼어내야 하면 <code>observe.py</code> 라우터와 <code>observe.*</code> 세 파일을 들어내면 끝이다.</div>
+
+  <div class="callout ok"><b>결정 기록 · 2026-09-07.</b>
+  ① <b>본체 수정 승인</b> — <code>knowledge.recall()</code> 끝의 회상 로그(<code>docs/knowledge/recall_log.jsonl</code>, 원자 파일 불변)를 0단계에 넣는다.
+  ② <b>sync 제외 목록 추가 승인</b> — <code>sync-knowledge.ps1</code> 이 <code>embeddings.npz</code>·<code>baseline/store_*</code> 를 싣지 않는다.
+  ③ <b>스냅샷 주기 확정</b> — 적재가 원자를 남긴 날 <code>snapshot-knowledge.ps1</code> 을 한 번 돈다(embed → molecule build → observe build → sync). 스크립트 이름은 초안의 <code>refresh-knowledge</code> 에서 바꿨다(위 이유).
+  ④ <b>위치</b> — 프로세스 내장·화면 별도(위 표).</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="data"><div class="wrap">
+  <div class="eyebrow">데이터</div>
+  <h2 class="sec">관측 사이드카 <code>docs/knowledge/observe/</code> — 빌드가 남기고 뷰어가 읽는 것</h2>
+  <p class="sec-desc">파일 여섯 개. 전부 JSON(한 개는 JSONL). 어느 것도 원자를 고치지 않고, 어느 것도 LLM 을 부르지 않는다. 명령은 <code>geoguesshelper observe build</code>(새 모듈 <code>observe.py</code>, CLI 는 <code>molecule</code> 과 같은 <code>runpy</code> 위임).</p>
+  <div class="tscroll"><table>
+    <tr><th style="width:190px">파일</th><th>내용</th><th style="width:150px">답하는 질문</th><th style="width:120px">갱신</th></tr>
+    <tr><td><code>atom_meta.json</code></td><td>원자별 파생 사실 — <code>origin</code>(report/expansion/wiki/baseline) · <code>has_coords</code> · <code>n_sources</code> · <code>n_refs</code> · <code>list_like</code> · <code>dup_of</code>(최근접 &lt; τ_dup) · <code>molecules</code>(멤버/주변) · <code>tier</code> · <code>recalls</code>(로그 집계) · <code>nn1</code>(최근접 거리). 원자 md 에 쓰면 될 것을 왜 따로 두나 — <b>파생이지 사실이 아니라서</b>.</td><td>Q1 Q2 Q4 Q6 Q7 Q8</td><td>매 빌드</td></tr>
+    <tr><td><code>series.jsonl</code></td><td>빌드마다 한 줄 — 시각 · 원자/층/스코프/경로/범주 수 · 결손 수 · 중복 후보 수 · 분자 수·명명 수 · 비용 합. <b>추가 전용</b>. 원자 수 곡선은 <code>created</code> 로 <b>소급</b> 재구성하고, 위생 지표는 관측 시작 이후만 있다 — 화면이 그 경계를 표시한다.</td><td>Q1 Q3</td><td>매 빌드 추가</td></tr>
+    <tr><td><code>layout.json</code></td><td>임베딩 2D 투영 — <code>{method, fitted_at, ref_layout, points:[[id,x,y],…]}</code>. umap-learn 이 있으면 UMAP(n_neighbors 15, min_dist 0.1), 없으면 PCA 2D(numpy SVD). <b>안정성</b>: 새 원자는 기존 모델의 <code>transform</code> 으로 얹고, 재적합 시에는 이전 레이아웃에 프로크루스테스 정렬해 점이 화면에서 튀지 않게 한다(V4).</td><td>Q9 Q10</td><td>npz 갱신 시</td></tr>
+    <tr><td><code>neighbors.json</code></td><td>원자별 상위 k=15 이웃 <code>[id, d]</code> · 상호 여부 · 전 쌍 거리 <b>분위표 200개</b>(pct → ε 변환용) · 임베딩 모델명·시각. 크기 ≈ 1,297×15×2 ≈ 0.6MB. 이것이 ③의 임계 미리보기 재료다.</td><td>Q9 Q10 Q11</td><td>npz 갱신 시</td></tr>
+    <tr><td><code>dups.json</code></td><td>거리 &lt; τ_dup(기본 0.10) 쌍 — 두 제목·경로·층·거리·같은 보고서 여부. 판정은 <b>사람</b>이 한다(§7-⑤). 현재 19쌍(0.12 로 올리면 41 · 0.15 면 98). 19쌍 중 13쌍이 확장/확장, 5쌍이 위키/위키 — 같은 패스 안의 중복이다.</td><td>Q5</td><td>npz 갱신 시</td></tr>
+    <tr><td><code>lineage.json</code></td><td>스냅샷 간 분자 계보 — 같은 id 는 <code>persist</code>, 자카드 ≥ 0.5 는 <code>continue</code>(id 변경), 한쪽만 있으면 <code>born</code>/<code>dissolved</code>, 다대일이면 <code>merged</code>/<code>split</code>. 선택적으로 <code>sweep</code>(pct 0.25·0.5·1·2·3 에서 각 분자의 생존) = <b>지속성 막대</b>(이론 (b)).</td><td>Q3 Q10</td><td>스냅샷 추가 시</td></tr>
+  </table></div>
+
+  <h3 class="sub">회상 로그 — 유일하게 본체 코드를 건드리는 곳</h3>
+  <div class="grid g2">
+    <div class="card"><h3><span class="ic">📝</span><code>knowledge.recall()</code> 끝에 20줄</h3>
+      <p>회상이 돌려준 원자마다 한 줄을 <code>docs/knowledge/recall_log.jsonl</code> 에 덧붙인다. 원자 파일은 건드리지 않는다.</p>
+<pre>{"at": 1788800000.1, "job": "j_…", "atom": "atm_7c89b761a51c",
+ "score": 5.83, "rank": 3, "place": "Barnaul, RU", "cell": "vc7x8",
+ "via": "geo+ent"}          <span class="c"># 점수에 기여한 항 — 3·geo / 2.5·ent / 1.5·tag</span></pre>
+      <p style="margin-top:8px">빌드가 이 파일을 집계해 <code>atom_meta.recalls</code>(횟수·최근·평균 순위)를 만든다. 로그가 커지면 빌드가 월별로 굴린다(<code>recall_log.2609.jsonl</code>).</p></div>
+    <div class="card"><h3><span class="ic">🎯</span>이 로그가 바꾸는 것</h3>
+      <ul>
+        <li>"한 번도 회상되지 않은 원자" 수가 처음 나온다 — 지금은 <b>알 수 없다</b>.</li>
+        <li>기준선 함의 4(FINDINGS)의 "<code>recall()</code> 은 aided 원자를 제외한다"가 실제로 작동하는지 로그로 검증된다.</li>
+        <li>대화 기획(260906)의 "회상 주입이 최대 단일 개선"이라는 주장을, 어느 원자가 어느 잡에 실렸는지로 사후 감사할 수 있다.</li>
+        <li>비용은 0. 파일 크기는 잡당 ≤12줄.</li>
+      </ul></div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="screens"><div class="wrap">
+  <div class="eyebrow">화면</div>
+  <h2 class="sec">다섯 화면 — 계기판 · 대장 · 임베딩 지도 · 분자 서가 · 작업대</h2>
+  <p class="sec-desc">한 페이지(<code>observe.html</code>) 안의 탭 다섯 개. 상단 띠에는 항상 세 시각(index · 스냅샷 · 관측 빌드)과 신호등이 있다. 아래 와이어프레임은 실제 숫자로 그렸다.</p>
+
+  <h3 class="sub">① 계기판 — 첫 화면, 30초 안에 "이번 주에 무슨 일이 있었나"</h3>
+<pre class="wire">┌ 관측소 ── index 09-06 22:39 · 스냅샷 260907_091951 · 빌드 09-07 14:10 ── 신호 ●5 ●2 ●3 ──────────────┐
+│ 원자 1,297 (+44 이번 주)   분자 120 · 명명 62   좌표 506 · 셀 170   범주 53 (4%) ▲   회상 —(로그 없음) │
+├────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 성장(일별, 소급)  ▁▁▂▂▁▁▁▁█▁▅▁▁▁▁▁▁▁▂  경로 ■보고서 351 ■확장 617 ■위키 330                          │
+│ 층별 원자 / 분자화율      history 492 ▓▓▓▓▓▓▓▓ 70분자(30%)   economy 291 ▓▓▓▓ 15(9%)   … nature 49 0  │
+│ 결손   범주 없음 1,244 ▲ · 좌표 없음 791 · 출처 없음 689 · 기간 없음 1,080 · 보고서 없음 946(경로상 정상)│
+│ 실험   tier(샌드박스) unaided 191 · aided 22 · blind-only 24  ·  판정 leak 8 / helped 4 / suff 2        │
+│ 신호   ● stale(없음) ● uncategorized 96% ● dup 19쌍 ● unnamed 58 ● wiki-only 27/62 ● no-grounding 62/62 │
+└────────────────────────────────────────────────────────────────────────────────────────────────────┘</pre>
+  <div class="callout danger" style="margin:0 0 14px"><b>추가 · 2026-09-07 결정 — 정정 루프 카드.</b> 사용자가 승인 관문을 없애고 자동 정정 루프(blind 판단 X → 실측 X2 → 판별자 원자 → 다음 판단 유도)로 바꿨으므로(<code>docs/plan/impl-spec_260907.md</code> §0), 계기판에 <b>정정 루프 카드</b>가 하나 더 붙는다: 국가/지역 적중률 · 오차 중앙값 · 2패스로 판단이 바뀐 건수 · 최근 5건 "X → X2" · 학습 곡선(시간순 적중·오차). 대장에는 <code>kind</code>(fact/discriminator/claim)·<code>status</code>(active/retracted)·<code>hits/misses</code> 열과 패싯이, 작업대에는 <b>정정 원장</b>과 <b>철회된 원자</b> 탭이 더해진다. 원자 서랍·분자 상세의 "대화" 버튼은 <code>POST /api/dialogue</code>(승인 없음 · 인용 관문만 · claim 등급 적재)로 이어진다.</div>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">📈</span>성장 띠</h3><p>일별 신규 원자(경로별 색). 소급 구간은 <code>created</code> 에서, 관측 시작 이후는 <code>series.jsonl</code> 에서 — 경계에 점선. 클릭하면 그 날 들어온 원자로 대장을 연다.</p></div>
+    <div class="card"><h3><span class="ic">📊</span>층 × 분자화율</h3><p>층별 원자 수 막대 위에 "분자에 속한 비율"을 겹친다. history 는 30%, nature 는 0% — 분자 파이프라인이 <b>어느 층의 지식을 개념으로 묶고 있는가</b>가 한눈에 보인다.</p></div>
+    <div class="card"><h3><span class="ic">🚦</span>신호등</h3><p>§8 규칙 10개의 현재 상태. 켜진 신호를 누르면 해당 작업대 목록으로 간다. 신호는 파일에서 재현 가능하게 계산된다(V6).</p></div>
+  </div>
+
+  <h3 class="sub">② 원자 대장 — 1,297행 전부, 좌표가 없어도 한 행씩</h3>
+<pre class="wire">패싯 ▸ 층 [history 492][economy 291]…  스코프 [region 436][global 303]…  경로 [보고서][확장][위키]  범주 [있음 53][없음 1,244]
+      좌표 [있음 506][없음 791]  tier [—]  분자 [멤버 343][주변][없음]  중복후보 [19]  목록형 [217 추정]  회상 [0회][1+]
+정렬 ▸ 생성↓ · 갱신 · 회상 수 · 최근접 거리↑ · 제목        검색 ▸ 제목·태그·엔티티                     1,297 / 1,297
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+ id            제목                                              층/스코프      경로   범주      좌표 분자  nn1   회상
+ atm_7c89b7…   Barnaul: Demidov silver-mining origins…          history/city   보고서 —         ●    —     .41   —
+ atm_ed…       Overtourism backlash and Dubrovnik's visitor…    economy/city   확장   —         ○    ◐     .08 ▲ —
+ atm_c15a31…   Minor Yunnan/Yao-Tibetan chiefdoms, 12–13c        history/region 위키   —         ○    ●mol_ed00 .12  —
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+▶ 상세 서랍(오른쪽): 프론트매터 · 본문 · 출처 · 보고서 · [이웃 10 — 거리 막대] · [분자 멤버/주변] · [tier·판정] · [회상 이력]
+  버튼: 지도에서(좌표 有) · 보고서 열기 · 아틀라스 행위자로 · (후속) 이 원자를 두고 대화 — atom-dialogue 진입점 ①</pre>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🧾</span>가상 스크롤 표</h3><p>패싯은 <code>atom_meta.json</code> 에서 브라우저가 계산한다(1,297 → 5,000 까지 지연 없이, V3). 서버 페이징은 두지 않는다 — 단순함이 이긴다.</p></div>
+    <div class="card"><h3><span class="ic">📐</span>nn1 열</h3><p>최근접 이웃 거리. <b>0.10 아래는 빨간 ▲</b>(중복 후보), 0.6 위는 회색(고립 — 지금은 0개). 정렬하면 저장소의 "너무 비슷한 것"과 "혼자인 것"이 양끝에 모인다.</p></div>
+    <div class="card"><h3><span class="ic">🗄</span>상세 서랍의 이웃</h3><p>이웃 10개를 거리 막대와 함께. 같은 분자 멤버는 실선, 주변(periphery)은 점선, 중복 후보는 빨간 테두리. 여기가 "왜 이 원자는 분자에 못 들어갔나"를 읽는 자리다.</p></div>
+  </div>
+
+  <h3 class="sub">③ 임베딩 지도 — 모든 원자가 자리를 갖는 유일한 지도</h3>
+<pre class="wire">┌ 색 ▸ (층) 경로 · 범주 · tier · 분자 ─ 헐 ▸ ☑ 스냅샷(실선) ☑ 미리보기(점선) ─ 시점 ▸ [260907_091951 ▾] ────────────┐
+│                                                                                                                │
+│        ·  ·      ╭───╮ history/위키 왕조 목록                                     · economy/확장                 │
+│      ·   ·  ·   ╱ ● ● ╲   ← 실선 헐 = 스냅샷의 mol_ed00…                 ·  ·   ╭╌╌╌╮ ← 점선 헐 = 미리보기      │
+│    ·   ·       │ ● ●  ● │                                             ·   ·   ╎ ● ● ╎   (pct 1.0 에서만 생김)   │
+│      ·    ·     ╲  ●  ╱      ○ ← 주변(periphery) — near-miss           ·      ╌╌╌╯                          │
+│   ·     ·   ·    ╰───╯                                                    ·   ·                                │
+│               architecture/보고서 P1 지붕·간판 …                                                                 │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 임계 pct ▸ 0.25 ─●─ 0.5 ── 1.0 ── 2.0 ── 3.0   ε=0.328   엣지 2,193 → 클리크(≥4) 120   [이 pct 로 build 명령 복사] │
+│ 호버: 제목 · 층/스코프 · 경로 · nn1     클릭: 서랍     올가미: 선택 → 대장으로     헐 클릭: 분자 서가              │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘</pre>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🖼</span>캔버스 2D · 점 1,297</h3><p>SVG 가 아니라 canvas — 5,000점에서도 60fps 팬·줌(V3). 색은 기본 층(7색), 전환으로 경로·범주·tier·"분자 소속 여부". 라벨은 줌 단계에 따라 분자 이름만 → 원자 제목까지(아틀라스의 LOD 규칙 재사용).</p></div>
+    <div class="card"><h3><span class="ic">🎚</span>임계 슬라이더 = 미리보기</h3><p><code>neighbors.json</code> 의 상호 kNN 엣지와 분위표로 pct → ε 를 바꾸고, ε 이하 엣지만 남긴 그래프에서 Bron–Kerbosch(피벗)로 크기 ≥4 극대 클리크를 <b>브라우저가</b> 구한다. 1,297노드 · ≤2만 엣지에서 수십 ms. 결과는 점선 헐 — <b>저장되지 않는다</b>. 스냅샷과 다르면 "이 pct 로 build" 명령을 복사해 준다.</p></div>
+    <div class="card"><h3><span class="ic">⚠</span>2D 는 안내도다</h3><p>768차원의 클리크가 2D 에서 뭉쳐 보이지 않을 수 있다(투영 왜곡). 그래서 헐마다 <b>diameter 배지</b>(768d 실제 최대 거리)를 달고, 판정은 늘 거리 행렬로 한다. 헐이 길게 찢어져 있으면 투영 탓이지 분자 탓이 아니다 — 범례에 그 문장을 적는다.</p></div>
+  </div>
+
+  <h3 class="sub">④ 분자 서가 — 120장의 카드, 그 뒤의 계보</h3>
+<pre class="wire">정렬 ▸ 응집↑ · 크기 · 신뢰도 · 비용 · 계보 나이     필터 ▸ [명명 62][미명명 58] 층 [history 70]… [목록형 제외] [링크 有 4]
+┌──────────────────────────┐ ┌──────────────────────────┐ ┌──────────────────────────┐
+│ 중국 서남부 토사(土司) 제도 │ │ 붉은 빈 시영주택            │ │ (미명명) mol_0272…        │
+│ 5원자 · coh .144 · Ø .178 │ │ 4원자 · coh .16 · Ø .21   │ │ 4원자 · coh .19 · Ø .24   │
+│ history ▓▓▓▓▓  hypothesis │ │ architecture ▓▓▓▓         │ │ economy ▓▓▓▓             │
+│ 신뢰 .82 · 근거 0 · $0.056│ │ 신뢰 .7 · 근거 0 · $0.05  │ │ 겹침으로 건너뜀(overlap 2)│
+│ 빠진 원자 2 · 링크 0      │ │ 빠진 원자 1               │ │ [name --only 명령 복사]   │
+│ 계보 ▸ ●(첫 스냅샷)        │ │ 지속성 ▸ ▓▓▓░░ 0.25–1.0   │ │                          │
+└──────────────────────────┘ └──────────────────────────┘ └──────────────────────────┘
+▶ 상세: 문서(md 렌더) · 멤버 5(제목·거리 행렬 5×5 히트) · 주변 3(near-miss: 어느 멤버와 얼마나 멀었나) ·
+       빠진 원자 감시(missing_atoms ↔ links.jsonl 사건) · 계보 띠(스냅샷별 born/persist/continue/dissolved) ·
+       지속성 막대(sweep) · 배지: 모델·web_search·parse_rescued·cost · [임베딩 지도에서 보기]</pre>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🃏</span>카드의 등급 표시</h3><p>모든 카드는 <code>status: hypothesis</code> 점선 테두리다. 사람이 서명해 주장으로 올린 것(후속, 대화 기획의 다섯 관문)만 이중선. 원자와 같은 실선은 <b>영원히 없다</b> — 분자는 사실이 되지 않는다(이론 §6).</p></div>
+    <div class="card"><h3><span class="ic">🔥</span>5×5 거리 히트</h3><p>멤버 쌍 거리를 작은 히트맵으로. 전부 임계 아래(클리크 정의)라 색이 고르다 — 주변 원자를 한 줄 더 붙이면 <b>어느 칸이 임계를 넘었는지</b>가 D 의 배제 이유다(이론 (g) near-miss).</p></div>
+    <div class="card"><h3><span class="ic">🧵</span>계보 띠와 지속성 막대</h3><p>계보는 스냅샷이 2개가 되는 날부터 산다(Q3). 지속성은 <code>lineage.sweep</code> 이 있을 때 pct 0.25–3.0 중 어디서 살아 있는지를 막대로 — 넓은 막대가 "임계에 덜 민감한 분자"다.</p></div>
+  </div>
+
+  <h3 class="sub">⑤ 작업대 — 신호를 일감으로, 일감을 명령으로</h3>
+<pre class="wire">[근중복 19] [미명명 58 ≈$3] [미분류 1,244] [목록형 217 추정] [빠진 원자 감시 137] [stale] [비용 원장]
+──────────────────────────────────────────────────────────────────────────────────────────────
+근중복 d&lt;0.10 (19)  · 판정은 사람 — 이 화면은 지우지 않는다
+ .043  Wangchuck dynasty (Bhutan)                    ↔  Wangchuck dynasty of Bhutan (1907–present)       위키/위키  [둘 다 열기]
+ .065  British colonial legacy of left-hand traffic  ↔  Left-hand traffic Commonwealth legacy pattern   확장/확장  [둘 다 열기]
+ .079  Overtourism backlash and Dubrovnik's visitor… ↔  Anti-overtourism backlash and regulation…        확장/확장  [둘 다 열기]
+ .097  Post-industrial decline of Upper Silesian…    ↔  Post-1989 deindustrialization of Upper Silesian… 확장/보고서 [둘 다 열기]
+ …                                                                          [목록 CSV 복사] [병합 검토 프롬프트 복사]
+비용 원장            확장 $3.53 · 위키 $4.38 · 분자 명명 $4.00(한도 $8) · 기준선 $8.95 · 아틀라스 $2.93 · 잡(기록분) $…  합계 $…</pre>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">📋</span>목록 + 명령 복사</h3><p>아틀라스 공백 화면(260829)의 방식 그대로 — 각 줄이 다음 일감이고, 버튼은 <b>명령어나 프롬프트를 복사</b>한다(<code>geoguesshelper categorize</code>, <code>molecule name --only …</code>, <code>observe build</code>). 뷰어는 실행하지 않는다.</p></div>
+    <div class="card"><h3><span class="ic">👀</span>빠진 원자 감시</h3><p>62개 분자의 <code>missing_atoms</code> 137줄이 감시 목록이다. <code>reify</code> 가 <code>missing-atom-match</code> 를 기록하면 그 줄이 "✓ 들어옴 — atm_…"으로 바뀐다. 이것이 이론 (e) "환원은 예측이다"의 채점표다.</p></div>
+    <div class="card"><h3><span class="ic">💸</span>비용 원장</h3><p>흩어진 키(<code>cost_usd</code>·<code>spent_usd</code>·잡 결과)를 한 표로. 예산 대비 막대. 분자 명명은 <code>--budget</code> 상한이 있으니 남은 폭도 보인다.</p></div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="signals"><div class="wrap">
+  <div class="eyebrow">신호</div>
+  <h2 class="sec">규칙 10개 — 조건이 파일에서 재현되고, 켜지면 일감으로 이어진다</h2>
+  <p class="sec-desc">모니터링의 핵심은 그래프가 아니라 <b>"지금 뭐가 이상한가"를 한 줄로 말하는 규칙</b>이다. 규칙은 <code>observe build</code> 가 계산해 <code>series.jsonl</code> 마지막 줄의 <code>signals</code> 에 남기고, 뷰어는 그것을 켠다. 임계는 설정값이고 아래는 초깃값이다.</p>
+  <div class="tscroll"><table>
+    <tr><th style="width:150px">신호</th><th>조건(초깃값)</th><th style="width:70px">등급</th><th>뜻 · 조치</th><th style="width:110px">2026-09-07</th></tr>
+    <tr><td><code>stale-snapshot</code></td><td>index.json 갱신 시각 &gt; 최신 분자 스냅샷 시각</td><td><span class="sev m">주의</span></td><td>분자가 원자보다 오래됐다 — <code>embed → build</code>. 시점성의 실체.</td><td><span class="sev ok">꺼짐</span></td></tr>
+    <tr><td><code>stale-observe</code></td><td>index.json 갱신 시각 &gt; 관측 빌드 시각</td><td><span class="sev m">주의</span></td><td>계기판이 옛 숫자다 — <code>observe build</code>.</td><td>—</td></tr>
+    <tr><td><code>uncategorized</code></td><td>범주 없는 원자 &gt; 20% (보고서 유래 원자 기준 &gt; 10%)</td><td><span class="sev h">경고</span></td><td>밀도 기획 1단계 미이행. <code>geoguesshelper categorize</code>. 확장·위키 원자는 기획상 <code>other</code> 허용이라 <b>보고서 유래만</b> 따로 센다.</td><td><span class="sev h">96% / 보고서 유래 85%</span></td></tr>
+    <tr><td><code>dup-candidates</code></td><td>거리 &lt; 0.10 쌍 &gt; 0</td><td><span class="sev m">주의</span></td><td>병합 임계 밖의 근중복. 사람이 판정 → 병합은 CLI.</td><td><span class="sev m">19쌍</span></td></tr>
+    <tr><td><code>unnamed-backlog</code></td><td>최신 스냅샷의 미명명 분자 &gt; 20%</td><td><span class="sev l">정보</span></td><td><code>molecule name --order cohesion</code>. 예상 비용 = 건수 × $0.05.</td><td><span class="sev l">58/120 · ≈$3</span></td></tr>
+    <tr><td><code>list-dominance</code></td><td>명명된 분자 중 위키 목록 원자만으로 된 것 &gt; 40%</td><td><span class="sev m">주의</span></td><td>응집이 가장 강한 무리가 가장 정보량 낮은 원자라는 뜻. 분자 빌드에 <code>--exclude list_like</code> 검토(이론 (h)). 목록형 판정은 경로=위키 + 제목의 복수 정치체 어휘(dynasties·kingdoms·states…)로 시작하고, 사람이 다듬는다.</td><td><span class="sev m">27/62 (전체 64/120)</span></td></tr>
+    <tr><td><code>no-grounding</code></td><td>명명 문서 중 <code>search_findings</code> 빈 것 &gt; 50%</td><td><span class="sev m">주의</span></td><td>이름이 멤버 원자만으로 지어졌다 — 가설 등급이 맞다는 확인. 명명 프롬프트에 "검색 1회 필수" 또는 2단계 호출.</td><td><span class="sev h">62/62</span></td></tr>
+    <tr><td><code>aided-in-p1</code></td><td>P1(point) 원자 중 <code>tier=aided</code> &gt; 10%</td><td><span class="sev h">경고</span></td><td>지도 라벨이 지점 단서로 굳고 있다(FINDINGS 결론 3). cue <code>panel</code> 필드 도입 전까지는 샌드박스 값으로만 계산.</td><td><span class="sev m">샌드박스 22/237</span></td></tr>
+    <tr><td><code>merge-rate</code></td><td>최근 10개 잡의 <code>merged/created</code> &gt; 25%</td><td><span class="sev l">정보</span></td><td>같은 장소를 반복 조사 중이거나 병합 임계가 느슨하다(밀도 기획 V1).</td><td>—(잡 결과 집계 필요)</td></tr>
+    <tr><td><code>never-recalled</code></td><td>회상 로그 30일 이상 · 회상 0회 원자 &gt; 80%</td><td><span class="sev l">정보</span></td><td>저장소 대부분이 죽은 재고다. 회상 점수식·차원 검토 재료.</td><td>—(로그 없음)</td></tr>
+  </table></div>
+  <div class="callout"><b>첫날 켜질 신호는 다섯 개다</b> — uncategorized · dup-candidates · unnamed-backlog · list-dominance · no-grounding. 이 다섯이 곧 지금 저장소의 상태 진단이고, 관측소 1단계(§11)의 완료 판정은 "이 다섯이 정확히 켜지고 나머지가 꺼져 있다"이다.</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="molecules"><div class="wrap">
+  <div class="eyebrow">분자 관측의 특수성</div>
+  <h2 class="sec">분자는 시점의 함수다 — 그래서 "같은 분자"부터 정의해야 한다</h2>
+  <div class="grid g2">
+    <div class="card"><h3><span class="ic">🧬</span>계보(lineage) 규칙</h3>
+      <ul>
+        <li><b>persist</b> — 같은 id(내용 주소 = 같은 멤버 집합). 이론 §2.2 의 "id 로 셀 수 있다".</li>
+        <li><b>continue</b> — id 가 달라졌지만 이전 스냅샷의 어느 분자와 자카드 ≥ 0.5. 멤버가 하나 들고 나간 경우. 계보 이름은 첫 분자의 것을 물려받는다(문서는 새로 안 쓴다 — 명명은 사람이 시킬 때만).</li>
+        <li><b>born / dissolved</b> — 한쪽에만. dissolved 는 문서를 지우지 않는다(같은 구성이 돌아오면 같은 id 로 이어진다).</li>
+        <li><b>merged / split</b> — 다대일·일대다. 이론 (f) 거대분자의 전조로 표시.</li>
+      </ul></div>
+    <div class="card"><h3><span class="ic">📏</span>지속성(persistence) — 임계 하나를 믿지 않기</h3>
+      <p><code>build --sweep</code> 은 이미 pct 별 분자 수를 낸다. 관측 빌드는 여기서 한 걸음 더 — pct 0.25·0.5·1·2·3 각각의 분자 집합을 저장하고, 분자마다 <b>어느 pct 에서 처음 생기고 어디서 깨지는지</b>를 막대로 만든다. 넓은 막대는 임계에 강건한 개념, 0.5 에서만 사는 좁은 막대는 임계 인공물일 수 있다(이론 (b)). 명명 예산은 넓은 막대부터 쓰는 것이 옳다.</p></div>
+    <div class="card"><h3><span class="ic">🎯</span>near-miss 는 판별자다</h3>
+      <p>분자 상세의 "주변 원자" 표는 흡수된 이웃 클리크에서 온 원자(현재 98개 클리크의 잔여)다. 관측 빌드는 여기에 <b>멤버 전원과의 거리</b>를 붙인다 — "이 원자는 4명 중 3명과 가깝고 1명과 0.41 로 멀다". 그 한 쌍이 D 를 배제한 이유이고, GeoGuessr 판별자로 쓰이는 "비슷하지만 다른 것"(이론 (g))이다. 대화 기획의 진입점 ③("두 원자는 같은 얘긴가")이 여기서 열린다.</p></div>
+    <div class="card"><h3><span class="ic">📮</span>환원(reification)은 예측 — 채점표</h3>
+      <p>62개 문서의 <code>missing_atoms</code> 137줄은 "이 개념이 실재하면 이런 원자가 들어올 것이다"라는 예측이다. 작업대의 감시 목록이 <code>links.jsonl</code> 의 <code>missing-atom-match</code> 사건으로 채점된다. 지금 19건·분자 4개가 맞았다(단, 15건이 <code>dalmatia</code> 한 엔티티에 걸린 것이라 <code>key</code> 를 보여줘 넓은 매칭을 사람이 걸러낼 수 있게 한다).</p></div>
+  </div>
+  <div class="callout warn"><b>스냅샷을 자주 만들어야 계보가 산다.</b> 지금은 하나다. 원칙: <b>P1·P2·P3 적재가 원자를 남긴 날은 그날 밤 <code>embed → build → observe build</code></b> 를 돈다(LLM 0, GPU 수십 초). 스냅샷 파일은 작다(120분자 ≈ 60KB). 이것을 <code>snapshot-knowledge.ps1</code> 로 한 번에 묶고, 신호 <code>stale-snapshot</code> 이 빠뜨린 날을 알려준다. (결정 2026-09-07: 이 주기로 간다 — 자동 스케줄러는 두지 않고, 적재를 돈 사람이 같은 자리에서 한 번 더 실행한다.)</div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="api"><div class="wrap">
+  <div class="eyebrow">API 표면</div>
+  <h2 class="sec">altaiya 백엔드에 얹는 읽기 라우트 8개 — 전부 사이드카·index 를 읽어 그대로 낸다</h2>
+  <div class="tscroll"><table>
+    <tr><th style="width:300px">라우트</th><th>반환</th><th style="width:120px">화면</th></tr>
+    <tr><td><code>GET /api/observe/summary</code></td><td>세 시각 · 원자/분자/좌표/범주 수 · 층·스코프·경로 분포 · 결손 · tier 요약 · <code>signals</code> · 비용 합</td><td>①</td></tr>
+    <tr><td><code>GET /api/observe/series</code></td><td><code>series.jsonl</code> 전체 + <code>created</code> 소급 일별 곡선(경로별)</td><td>①</td></tr>
+    <tr><td><code>GET /api/observe/atoms</code></td><td>index 의 원자 메타 + <code>atom_meta.json</code> 병합 — 한 번에 전부(1,297행 ≈ 700KB, gzip 시 ≈ 120KB). 페이징 없음.</td><td>② ③</td></tr>
+    <tr><td><code>GET /api/observe/atom/{id}</code></td><td>프론트매터·본문(기존 <code>/api/atom/{id}</code> 재사용) + 이웃 15(거리·상호·같은 분자 여부) + 분자 소속 + tier·판정 + 회상 이력</td><td>② 서랍</td></tr>
+    <tr><td><code>GET /api/observe/layout</code></td><td><code>layout.json</code> 그대로</td><td>③</td></tr>
+    <tr><td><code>GET /api/observe/graph?k=15</code></td><td>상호 kNN 엣지 <code>[i, j, d]</code> 압축 배열 + 거리 분위표 200 + 최신 스냅샷의 분자 멤버 목록 — 임계 미리보기 재료</td><td>③</td></tr>
+    <tr><td><code>GET /api/observe/molecules</code> · <code>/molecule/{id}</code></td><td>목록: index 의 분자 + 계보·지속성 요약. 상세: md 원문 + 멤버 거리 행렬 + 주변 거리 벡터 + 링크 사건 + 계보 띠</td><td>④</td></tr>
+    <tr><td><code>GET /api/observe/queues</code></td><td>근중복 · 미명명 · 미분류 · 목록형 · 빠진 원자 감시 · 비용 원장 — 각 항목에 복사용 명령 문자열 포함</td><td>⑤</td></tr>
+  </table></div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3><span class="ic">🧷</span>쓰기는 없다 (1차)</h3><p>강역 저장(<code>POST /api/territory</code>)이 유일한 쓰기 경로라는 아틀라스의 약속을 관측소가 깨지 않는다. "이 두 원자는 중복이다"·"이 분자를 검토했다" 같은 <b>사람의 판정</b>은 후속 단계(§11 6단계)에서 강역과 같은 <b>서명 + 토큰</b> 방식으로만 들어온다.</p></div>
+    <div class="card"><h3><span class="ic">⚙</span><code>GET /api/observe/rebuild</code> 는 두지 않는다</h3><p>아틀라스의 <code>/api/rebuild</code> 는 0.1초 조립이지만 관측 빌드는 GPU·시스템 파이썬이 필요하다. 웹 요청으로 띄우지 않고 CLI·스크립트로만 돈다. 화면은 <code>stale-observe</code> 신호로 "돌려라"만 말한다.</p></div>
+  </div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="stages"><div class="wrap">
+  <div class="eyebrow">개발 계획</div>
+  <h2 class="sec">7단계 — 0단계가 데이터, 1–5가 화면 하나씩, 6이 사람의 손</h2>
+  <div class="tscroll"><table>
+    <tr><th style="width:30px"></th><th style="width:170px">단계</th><th>산출물</th><th>끝났음을 아는 방법</th><th style="width:90px">규모</th></tr>
+    <tr><td><b>0</b></td><td><b>관측 사이드카 + 회상 로그</b></td>
+      <td><code>observe.py</code>(build: atom_meta·series·layout·neighbors·dups·lineage·signals) · CLI <code>observe</code> · <code>recall()</code> 로그 20줄 · <code>snapshot-knowledge.ps1</code> · sync 제외 목록</td>
+      <td>여섯 파일이 생기고 <code>atom_meta</code> 의 경로 합이 1,297. 신호 5개가 §8 예상대로 켜진다. 빌드 전후 <code>atoms/</code>·<code>mol_*.md</code> 해시 동일(V1). 잡 1건 뒤 <code>recall_log.jsonl</code> 에 줄이 생긴다</td><td>py ≈350줄</td></tr>
+    <tr><td><b>1</b></td><td><b>① 계기판 + 신호등</b></td>
+      <td><code>observe.html</code> 골격(탭·상단 띠·세 시각) · <code>observe.js</code> · <code>/api/observe/summary</code>·<code>/series</code></td>
+      <td>계기판 숫자 = §2 실측 집계와 일치(V2). 신호를 누르면 ⑤의 해당 목록으로 간다(⑤가 아직 없으면 자리표시)</td><td>js ≈300줄</td></tr>
+    <tr><td><b>2</b></td><td><b>② 원자 대장 + 서랍</b></td>
+      <td>가상 스크롤 표 · 패싯 12종 · 정렬 · 검색 · 상세 서랍(이웃 10·분자·tier·회상) · 아틀라스 왕복 링크(<code>#atom=</code>)</td>
+      <td>"확장 경로 · nn1 &lt; 0.10" 두 패싯을 켜면 Dubrovnik 과잉관광 쌍이 나온다. 5,000행 합성 데이터에서 첫 화면 &lt; 1.5s(V3)</td><td>js ≈400줄</td></tr>
+    <tr><td><b>3</b></td><td><b>③ 임베딩 지도 + 미리보기</b></td>
+      <td>canvas 산점 · 색 전환 5종 · 스냅샷 헐(실선) · 슬라이더 → 브라우저 클리크(점선) · diameter 배지 · 올가미 · build 명령 복사</td>
+      <td>pct 0.5 미리보기의 분자 수·멤버가 스냅샷과 <b>정확히 일치</b>(같은 규칙이므로). 60fps 팬·줌. 헐 클릭 → ④ 상세</td><td>js ≈450줄</td></tr>
+    <tr><td><b>4</b></td><td><b>④ 분자 서가 + 계보</b></td>
+      <td>카드·필터·정렬 · 상세(md 렌더·5×5 히트·near-miss·감시·계보 띠·지속성 막대) · <code>observe build --sweep</code></td>
+      <td>스냅샷을 하나 더 만든 뒤(다음 적재 후) 계보 띠에 born/persist/dissolved 수가 나오고 그 합이 두 id 집합의 차와 같다(V5)</td><td>js ≈350줄</td></tr>
+    <tr><td><b>5</b></td><td><b>⑤ 작업대 + 비용 원장</b></td>
+      <td>큐 7종 · 명령·프롬프트 복사 · 비용 표 · 신호 → 큐 연결 완성</td>
+      <td>미명명 58 · 근중복 19 · 미분류 1,244 · 감시 137 이 각 탭 수와 같다. 복사한 명령이 그대로 돈다</td><td>js ≈250줄</td></tr>
+    <tr><td><b>6</b></td><td><b>사람의 손(선택)</b></td>
+      <td>서명 판정 사이드카 <code>observe/decisions.jsonl</code>(dup: same/different · molecule: reviewed/rejected) · 토큰 보호 POST · 카드 이중선</td>
+      <td>판정이 강역과 같은 규칙(서명·토큰·rev)으로 저장되고, 다음 빌드가 그 판정을 신호 계산에서 존중한다(판정된 중복 쌍은 신호에서 빠진다)</td><td>py 80 · js 150</td></tr>
+  </table></div>
+  <p style="font-size:13px;color:var(--muted);margin-top:8px">비용: LLM 0. 계산은 npz 위 numpy(거리 행렬 1,297² ≈ 6.7MB, 즉시) + 선택적 UMAP(수 초). 새 의존성은 umap-learn 하나이고 없어도 PCA 로 돈다. 규모 합 ≈ py 430 · js 1,900 — 아틀라스 app.js(2,058줄)와 비슷한 크기의 두 번째 화면.</p>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="verify"><div class="wrap">
+  <div class="eyebrow">검증 기준</div>
+  <h2 class="sec">"됐다"를 판정 가능한 문장으로</h2>
+  <div class="tscroll"><table>
+    <tr><th style="width:40px">#</th><th style="width:130px">항목</th><th>기준</th></tr>
+    <tr><td>V1</td><td>읽기 전용</td><td><code>observe build</code> 와 뷰어 사용 전후 <code>docs/knowledge/atoms/</code>·<code>molecule/mol_*.md</code>·<code>index.json</code> 의 SHA-256 이 전부 같다. 쓴 파일은 <code>observe/</code>·<code>recall_log.jsonl</code> 뿐이다</td></tr>
+    <tr><td>V2</td><td>정합</td><td>계기판·패싯·큐의 모든 수가 index.json 을 독립 스크립트로 집계한 값과 1의 오차도 없이 같다(경로 351/617/330 · 범주 53 · 좌표 506 · 분자 120/62 · 링크 19 · 근중복 19 · 빠진 원자 137)</td></tr>
+    <tr><td>V3</td><td>성능</td><td>합성 5,000원자·400분자에서 대장 첫 화면 &lt; 1.5s, 임베딩 지도 팬·줌 60fps, 슬라이더 미리보기(클리크 재계산) &lt; 300ms</td></tr>
+    <tr><td>V4</td><td>레이아웃 안정성</td><td>원자 100개를 추가해 재빌드했을 때 기존 점의 평균 이동이 화면 폭의 2% 미만(프로크루스테스 후). 시점 슬라이더에서 점이 튀지 않는다</td></tr>
+    <tr><td>V5</td><td>계보 정합</td><td>스냅샷 2개 사이 born+persist+continue = 새 스냅샷 분자 수, dissolved+persist+continue(원본) = 옛 스냅샷 분자 수 — 자동 테스트</td></tr>
+    <tr><td>V6</td><td>신호 재현성</td><td>같은 파일에서 두 번 빌드 → <code>signals</code> 동일. 임계값을 바꾸면 그 신호만 바뀐다</td></tr>
+    <tr><td>V7</td><td>미리보기 = 규칙</td><td>브라우저 미리보기(pct 0.5)의 분자 집합이 서버 스냅샷 120개와 id 단위로 동일하다 — 브라우저 클리크 구현이 파이썬 구현과 같은 정의라는 증명</td></tr>
+    <tr><td>V8</td><td>배포본</td><td>Railway 배포에서 다섯 탭이 모두 뜬다. npz 없이, 캡처 없이(썸네일만 404). 기존 아틀라스 화면은 한 픽셀도 달라지지 않는다</td></tr>
+    <tr><td>V9</td><td>실사용</td><td>사용자가 "지난 적재에서 늘어난 원자가 어느 층에 몰렸고, 그중 어느 것이 새 분자를 만들었는가"를 <b>3클릭 안에</b> 읽는다(계기판 성장 띠 → 대장 → 서가 born). 통과/보완은 사용자가 판정</td></tr>
+  </table></div>
+</div></section>
+
+<!-- ============================================================ -->
+<section class="section" id="not"><div class="wrap">
+  <div class="eyebrow">이 기획이 하지 않는 것</div>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🚫</span>뷰어 안의 LLM</h3><p>설명·요약·명명을 화면에서 호출하지 않는다. "이 원자를 두고 대화"는 버튼만 두고 대화 기획(260906)의 계약으로 넘긴다.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>원자·분자 편집</h3><p>제목 고치기·병합·삭제 없음. 판정은 6단계의 서명 사이드카로만, 실행은 CLI 로만.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>웹에서 빌드 실행</h3><p><code>/api/observe/rebuild</code> 없음. GPU·시스템 파이썬이 필요한 계산은 스크립트가 돈다.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>아틀라스 사이드카 의존</h3><p>대장·관계·사료권을 읽지 않는다. 행위자 화면은 아틀라스의 것이고, 관측소는 원자 id 로만 건너간다.</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>3D 임베딩 · 실시간 임베딩</h3><p>2D 투영 하나, 빌드 시점의 것. 브라우저에서 모델을 돌리지 않는다(ONNX 포함).</p></div>
+    <div class="card"><h3><span class="ic">🚫</span>구글 콘텐츠 격자</h3><p>캡처 썸네일을 모아 보여주는 화면은 없다. 원자 서랍에서 한 장, 로컬에서만.</p></div>
+  </div>
+  <div class="callout" style="margin-top:18px"><b>선행 기획과의 자리.</b> 아틀라스 v2(260816)가 "지식을 지도에", 밀도 기획(260829)이 "원자를 촘촘히·지형 위에", 대화 기획(260906)이 "원자와 말하고 고치기", 분자 이론(260907)이 "원자 무리를 개념으로"였다면,
+  이 기획은 그 넷이 만든 것을 <b>지켜보는 눈</b>이다. 무엇도 새로 만들지 않고, 만든 것이 늘고·썩고·뭉치는지를 세 시각과 열 개의 신호로 말한다.</div>
+</div></section>
+
+<section class="section" id="status"><div class="wrap">
+  <div class="eyebrow">구현 상태 · 2026-09-07</div>
+  <h2 class="sec">만들어진 것 — 다섯 화면이 뜬다</h2>
+  <p class="sec-desc">명세 <code>docs/plan/impl-spec_260907.md</code> §5·§6. 실행: <code>altaiya/run.bat</code> → <code>http://localhost:8901/observe.html</code>. 스크린샷 7장: <code>docs/knowledge/observe/screens/</code>.</p>
+  <div class="grid g3">
+    <div class="card"><h3><span class="ic">🧮</span>관측 빌드 — <code>observe.py</code></h3>
+      <p><code>observe build [--sweep]</code>(시스템 Python, LLM 0, 4.5 s) → <code>docs/knowledge/observe/</code> 8개 파일(atom_meta·growth·series·layout·neighbors·dups·lineage·README). 투영은 UMAP 부재로 t-SNE + 프로크루스테스 정렬. 독립 재계산 검사 53항목 통과, 원자·분자·index 해시 불변. <code>snapshot-knowledge.ps1</code>(BOM UTF-8)이 embed → molecule build → observe build → sync 를 잇고, sync 는 npz·baseline 샌드박스를 싣지 않는다.</p></div>
+    <div class="card"><h3><span class="ic">🖥</span>뷰어 — <code>observe.html/js/css</code> + <code>observe_api.py</code></h3>
+      <p>altaiya 프로세스 내장·파일 별도(§5 결정). 읽기 라우트 12개(사이드카 없으면 index.json 즉석 집계, 500 없음). 계기판(신호 10·성장 띠·층×분자화율·정정 루프 카드) · 원자 대장(가상 스크롤·패싯 12·서랍: 이웃·분자·tier·hits/misses·회상·정정 이력) · 임베딩 지도(canvas·헐·임계 슬라이더 미리보기) · 분자 서가(계보·지속성·5×5 히트·near-miss·감시) · 작업대(근중복·미명명·미분류·정정 원장·비용). 헤드리스 콘솔 에러 0.</p></div>
+    <div class="card"><h3><span class="ic">✓</span>V7 미리보기 = 규칙</h3>
+      <p>브라우저 클리크(pct 0.5·상호 kNN 10·min 4·absorb)가 서버 스냅샷과 <b>120/120 → 재빌드 후 127/127 id 일치</b>(엣지 2,193=2,193 · 원시 클리크 218=218). 핵심은 k=15 이웃 파일에서 <code>max(ri,rj) &lt; 10</code> 순위 필터 — 이것을 빼면 스냅샷과 어긋난다.</p></div>
+  </div>
+  <div class="callout ok" style="margin-top:14px"><b>첫 관측(2026-09-07 15:40, 스냅샷 260907_154058).</b> 원자 1,366(보고서 351 · 확장 616 · 위키 330 · 정정 68 · 대화 1; kind=discriminator 는 69 — 기존 fact 1개가 병합으로 승격) · 분자 127(명명 60) · 신호 켜짐 5/10 = 기획 §8 의 예측 그대로(uncategorized 91% · dup 19쌍 · unnamed 67/127 · list-dominance 26/60 · no-grounding 60/60). 정정 루프 카드: 국가·지역 적중 100% · 오차 중앙값 1.2 km(15회) · 2패스로 바뀐 판단 0 · 판별자 69 · 철회 0.</div>
+  <div class="callout warn"><b>편차·미완.</b> 임베딩 지도의 시점 셀렉트는 최신 스냅샷만 그린다(다른 시점은 서가 계보로). 5,000행 성능은 1,366행에서만 실측. 6단계(사람 서명 판정 사이드카)는 사용자 결정으로 <b>만들지 않는다</b> — 판정은 정정 루프의 증거가 대신한다. 대화 서랍은 실제 호출 없이 DOM·health 만 확인(라이브 검증은 대화 모듈 쪽에서 2턴 실측).</div>
+</div></section>
+
+<footer><div class="wrap">GeoGuessHelper · 원자 관측소 기획 · 2026-09-07 — 원칙: 읽기 전용·사이드카 · 계산은 빌드, 뷰어는 그림 · 모든 화면에 시각 · 사실(실선)/가설(점선)/주장(서명) · 미리보기 ≠ 기록 · 구글 콘텐츠 로컬.<br>
+실측(docs/knowledge/index.json 2026-09-06 22:39 · molecule/index.json · embeddings.npz, 2026-09-07 집계): 원자 1,297(보고서 351 · 확장 617 · 위키 330) · 층 history 492 / economy 291 / culture 154 / geography 134 / architecture 103 / language 74 / nature 49 · 스코프 region 436 / global 303 / country 300 / polity 155 / city 79 / period 21 / point 3 · 범주 53 · 좌표 506 · 셀 170 · 출처 없음 689 · <code>uses</code> 2 인 원자 21 · 임베딩 거리 &lt;0.10/0.15/0.20 쌍 19/98/429 · 엔티티 노트 2,735(≥3원자 232) · 분자 120(명명 62 · $4.00 · web_search 0 · history 70 · 위키 원자만으로 된 분자 64, 명명 중 27) · 빠진 원자 137 · 링크 19 · 기준선 tier 191/22/24(샌드박스) · 본 저장소 tier 0.</div></footer>
+
+</body>
+</html>

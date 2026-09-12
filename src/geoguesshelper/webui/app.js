@@ -1595,6 +1595,9 @@ const STAGE_LABEL = {
   start: "시작", capture: "캡처", captured: "캡처 완료", analyze: "분석",
   analyzed: "식별", recall: "지식 회상", research: "웹 리서치", researched: "리서치 완료",
   translate: "번역", render: "보고서 작성", knowledge: "지식 적재",
+  // 자동 정정 루프(correction.py) — 보고서 잡 뒤에 예산 밖 후속 잡으로 붙는다.
+  // blind 판단 → 실측 정정 → 판별자 원자. 사람 승인 없음(docs/plan/impl-spec_260907.md §0).
+  correct: "정정 루프",
   canceling: "취소 중", done: "완료", failed: "실패", canceled: "취소됨",
 };
 

@@ -5,15 +5,20 @@ JavaScript API 키만 있으면 로드뷰 장면을 캡처할 수 있다. mdsear
 (카카오) 패턴을 구글로 재타깃:  LocalServer 로 HTML 서빙 → wait_for_function(__ready)
 → clip 스크린샷.  브라우저(Chromium)가 직접 타일을 받으므로 서버측 httpx/Static 과 무관.
 
-동기 Playwright 를 워커 스레드(asyncio.to_thread)에서 돌린다 — uvicorn 이벤트 루프 안에서
-async Playwright 를 중첩 실행할 때의 Windows Proactor 이슈를 피하기 위함.
+동기 Playwright 를 워커 스레드에서 돌린다 — uvicorn 이벤트 루프 안에서 async Playwright 를
+중첩 실행할 때의 Windows Proactor 이슈를 피하기 위함. 그 스레드는 _RenderWorker 가 하나만
+유지하며(아래), 브라우저도 거기서 한 번만 띄워 재사용한다.
 """
 from __future__ import annotations
 
+import atexit
+import queue
 import re
+import time
 import uuid
+from concurrent.futures import Future
 from pathlib import Path
-from threading import Thread
+from threading import Lock, Thread, current_thread
 
 from .config import Settings
 
@@ -210,6 +215,175 @@ function __init(){
 """
 
 
+# ── 헤드리스 브라우저 풀 ──────────────────────────────────────────────────────
+#
+# 예전에는 렌더 한 건마다 Chromium 을 띄웠다 닫았다. 그 close 가 느렸다.
+#
+# 실측(Windows 11 + Avast 실시간 보호, 2026-09-10): 렌더 자체는 4.60초에 끝나는데
+# 벽시계는 52.90초였다. 차이 47초가 전부 browser.close() 다. 페이지를 **하나도 열지 않은**
+# 빈 브라우저를 띄웠다 닫기만 해도 15.98초 / 65.55초가 걸렸다(3회 중 1회만 0.16초) —
+# 렌더·네트워크와 무관하다. 백신이 %TEMP% 의 크로미움 임시 프로필을 스캔·잠그는 동안
+# 삭제가 지연되는 것으로, 실제로 지워지지 못한 playwright_chromiumdev_profile-* 가
+# 47개 쌓여 있었다.
+#
+# 그래서 브라우저를 프로세스 수명 동안 재사용한다. 이 비용이 "캡처마다" 에서 "종료 시 1회"
+# 로 옮겨간다. 컨텍스트까지 재사용하면 HTTP 캐시가 살아 Maps JS(28건 468KB) 재다운로드도
+# 사라진다 — 실측 goto 1.65초 → 0.71초.
+#
+# Playwright 동기 API 객체는 **만든 스레드에 묶인다**. asyncio.to_thread 는 호출마다 다른
+# 스레드를 줄 수 있으므로, 전용 워커 스레드 하나에서 모든 브라우저 작업을 돌린다.
+# 데몬 스레드라 종료가 느려도 프로세스 종료를 막지 않는다.
+
+
+def _connected(browser) -> bool:
+    try:
+        return bool(browser.is_connected())
+    except Exception:  # noqa: BLE001 — 드라이버가 이미 죽었으면 연결도 물어볼 수 없다
+        return False
+
+
+class _RenderWorker:
+    """모든 동기 Playwright 호출을 담당하는 단일 데몬 스레드."""
+
+    def __init__(self) -> None:
+        self._q: queue.Queue = queue.Queue()
+        self._thr: Thread | None = None
+        self._lock = Lock()
+
+    def _loop(self) -> None:
+        while True:
+            fut, fn = self._q.get()
+            if not fut.set_running_or_notify_cancel():
+                continue
+            try:
+                fut.set_result(fn())
+            except BaseException as exc:  # noqa: BLE001 — 호출자에게 그대로 넘긴다
+                fut.set_exception(exc)
+
+    def submit(self, fn) -> Future:
+        with self._lock:
+            if self._thr is None or not self._thr.is_alive():
+                self._thr = Thread(target=self._loop, name="pw-render", daemon=True)
+                self._thr.start()
+        fut: Future = Future()
+        self._q.put((fut, fn))
+        return fut
+
+    def is_current(self) -> bool:
+        return current_thread() is self._thr
+
+
+def _one_shot(fn):
+    """재사용을 끈 경우(render_reuse_browser=False) — 예전처럼 매번 띄우고 닫는다."""
+    from playwright.sync_api import sync_playwright
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
+        try:
+            return fn(browser)
+        finally:
+            browser.close()
+
+
+class _BrowserPool:
+    """워커 스레드 위에서 Chromium 한 개(+ 컨텍스트)를 살려 둔다."""
+
+    def __init__(self) -> None:
+        self._worker = _RenderWorker()
+        self._pw = None
+        self._browser = None
+        self._ctx = None
+        self._ctx_key: tuple | None = None
+        self.launches = 0
+
+    # 아래 _* 메서드는 **워커 스레드 위에서만** 불린다.
+    def _browser_on_worker(self):
+        from playwright.sync_api import sync_playwright
+
+        if self._browser is not None and _connected(self._browser):
+            return self._browser
+        self._forget()
+        if self._pw is None:
+            self._pw = sync_playwright().start()
+        self._browser = self._pw.chromium.launch(headless=True, args=["--no-sandbox"])
+        self.launches += 1
+        return self._browser
+
+    def _forget(self) -> None:
+        """죽었다고 판단한 핸들을 버린다. close 는 시도만 하고 실패는 삼킨다."""
+        self._ctx = None
+        self._ctx_key = None
+        b, self._browser = self._browser, None
+        if b is not None:
+            try:
+                b.close()
+            except Exception:  # noqa: BLE001
+                pass
+
+    def context(self, browser, key: tuple, **kw):
+        """같은 설정이면 컨텍스트를 재사용한다 — 캐시가 살아 Maps JS 를 다시 안 받는다."""
+        if self._ctx is not None and self._ctx_key == key:
+            try:
+                if self._ctx in browser.contexts:
+                    return self._ctx
+            except Exception:  # noqa: BLE001
+                pass
+        if self._ctx is not None:
+            try:
+                self._ctx.close()
+            except Exception:  # noqa: BLE001
+                pass
+        self._ctx = browser.new_context(**kw)
+        self._ctx_key = key
+        return self._ctx
+
+    def run(self, settings: Settings, fn):
+        """fn(browser) 를 워커 스레드에서 실행한다.
+
+        브라우저가 죽어 있어서 실패한 경우에만 한 번 다시 띄워 재시도한다. 살아 있는데
+        난 예외(타임아웃 등)는 진짜 실패이므로 그대로 올린다 — 재시도하면 대기만 두 배다.
+        """
+        if not getattr(settings, "render_reuse_browser", True):
+            job = lambda: _one_shot(fn)  # noqa: E731
+        else:
+            def job():
+                browser = self._browser_on_worker()
+                try:
+                    return fn(browser)
+                except Exception:  # noqa: BLE001
+                    if _connected(browser):
+                        raise
+                    self._forget()
+                    return fn(self._browser_on_worker())
+
+        if self._worker.is_current():
+            return job()
+        return self._worker.submit(job).result()
+
+    def shutdown(self, timeout: float = 2.0) -> None:
+        """프로세스 종료 시 1회. 못 닫아도 붙잡지 않는다 — 드라이버가 브라우저를 정리한다."""
+        if self._browser is None and self._pw is None:
+            return
+
+        def _close():
+            self._forget()
+            pw, self._pw = self._pw, None
+            if pw is not None:
+                try:
+                    pw.stop()
+                except Exception:  # noqa: BLE001
+                    pass
+
+        try:
+            self._worker.submit(_close).result(timeout=timeout)
+        except Exception:  # noqa: BLE001
+            pass
+
+
+_POOL = _BrowserPool()
+atexit.register(_POOL.shutdown)
+
+
 def photo_token_for(pano: str, settings: Settings, key: str) -> str | None:
     """제3자 파노의 lh3 이미지 토큰(`…/gpms-cs-s/<토큰>`)을 알아낸다.
 
@@ -222,7 +396,7 @@ def photo_token_for(pano: str, settings: Settings, key: str) -> str | None:
     실측: 타일 429 인 바로 그 순간 photo 는 HTTP 200, 1280x800, 밝기 118.9.
     """
     try:
-        from playwright.sync_api import sync_playwright
+        import playwright  # type: ignore  # noqa: F401
     except ModuleNotFoundError:
         return None
     safe_pano = re.sub(r"[^A-Za-z0-9_.\-]", "", pano or "")
@@ -244,12 +418,14 @@ def photo_token_for(pano: str, settings: Settings, key: str) -> str | None:
     tmp.write_text(html, encoding="utf-8")
     server = _LocalServer(settings.captures_dir, tmp.name)
     found: list[str] = []
-    try:
-        server.start()
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
-            page = browser.new_context(viewport={"width": 660, "height": 420},
-                                       ignore_https_errors=True).new_page()
+
+    def work(browser):
+        # 토큰 수집은 **캐시가 없는 편이** 낫다(캐시 히트면 요청이 안 나가 토큰을 못 줍는다)
+        # → 캡처용 공용 컨텍스트를 쓰지 않고 매번 새로 만들고 닫는다. 컨텍스트 생성은 0.06초다.
+        ctx = browser.new_context(viewport={"width": 660, "height": 420},
+                                  ignore_https_errors=True)
+        try:
+            page = ctx.new_page()
 
             def _on_req(r):
                 if "gpms-cs-s" in r.url and not found:
@@ -260,7 +436,12 @@ def photo_token_for(pano: str, settings: Settings, key: str) -> str | None:
             page.on("request", _on_req)
             page.goto(f"{server.url}/{tmp.name}", wait_until="load", timeout=25000)
             page.wait_for_function("window.__done===true", timeout=30000)
-            browser.close()
+        finally:
+            ctx.close()
+
+    try:
+        server.start()
+        _POOL.run(settings, work)
     except Exception:  # noqa: BLE001
         return found[0] if found else None
     finally:
@@ -278,7 +459,7 @@ def render_locator_maps(lat: float, lng: float, settings: Settings, key: str) ->
     브라우저 1회 기동으로 N개 셀을 각각 찍는다.
     """
     try:
-        from playwright.sync_api import sync_playwright
+        import playwright  # type: ignore  # noqa: F401
     except ModuleNotFoundError:
         return []
 
@@ -302,28 +483,32 @@ def render_locator_maps(lat: float, lng: float, settings: Settings, key: str) ->
     tmp.write_text(html, encoding="utf-8")
     server = _LocalServer(settings.captures_dir, tmp.name)
     out: list[bytes] = []
+
+    def work(browser):
+        # 셀 개수·크기에 따라 뷰포트가 달라지므로 컨텍스트는 이 호출 전용으로 만들고 닫는다.
+        # 비싼 것은 브라우저 기동/종료이지 컨텍스트가 아니다(실측 0.06초).
+        ctx = browser.new_context(
+            viewport={"width": w + 40, "height": (h + 20) * len(levels) + 40},
+            device_scale_factor=2, bypass_csp=True, ignore_https_errors=True,
+        )
+        try:
+            page = ctx.new_page()
+            page.goto(f"{server.url}/{tmp.name}", wait_until="load", timeout=25000)
+            page.wait_for_function("window.__ready===true", timeout=30000)
+            if page.evaluate("window.__err || ''"):
+                return
+            page.wait_for_timeout(700)      # 라벨/타일 정착
+            for i in range(len(levels)):
+                try:
+                    out.append(page.locator(f"#m{i}").screenshot(type="jpeg", quality=82))
+                except Exception:  # noqa: BLE001
+                    out.append(b"")
+        finally:
+            ctx.close()
+
     try:
         server.start()
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
-            try:
-                ctx = browser.new_context(
-                    viewport={"width": w + 40, "height": (h + 20) * len(levels) + 40},
-                    device_scale_factor=2, bypass_csp=True, ignore_https_errors=True,
-                )
-                page = ctx.new_page()
-                page.goto(f"{server.url}/{tmp.name}", wait_until="load", timeout=25000)
-                page.wait_for_function("window.__ready===true", timeout=30000)
-                if page.evaluate("window.__err || ''"):
-                    return []
-                page.wait_for_timeout(700)      # 라벨/타일 정착
-                for i in range(len(levels)):
-                    try:
-                        out.append(page.locator(f"#m{i}").screenshot(type="jpeg", quality=82))
-                    except Exception:  # noqa: BLE001
-                        out.append(b"")
-            finally:
-                browser.close()
+        _POOL.run(settings, work)
     except Exception:  # noqa: BLE001 — 지도는 부가 정보. 실패해도 보고서는 나간다.
         return []
     finally:
@@ -445,7 +630,10 @@ def _build_html(pose: dict, settings: Settings, key: str, *, official_only: bool
         "__PITCH__": repr(_f(pose.get("pitch"), 0.0)),
         "__ZOOM__": repr(_zoom_from_pose(pose, settings)),
         "__RADIUS__": str(int(pose.get("radius") or settings.capture_radius_m)),
-        "__SETTLE__": "2600",
+        # 예전에는 여기가 2600 이었다 — 타일이 이미 다 와도 브라우저 안에서 2.6초를 버렸다.
+        # 이제 JS 는 최소 페인트 여유만 두고, 정착 판정은 파이썬이 타일 응답으로 한다
+        # (_wait_tiles_quiet). 느린 회선에서는 그쪽이 오히려 더 기다린다.
+        "__SETTLE__": str(max(0, int(settings.render_settle_ms))),
         "__OFFICIAL_ONLY__": "true" if official_only else "false",
     }
     html = _HTML
@@ -454,10 +642,35 @@ def _build_html(pose: dict, settings: Settings, key: str, *, official_only: bool
     return html
 
 
+def _wait_tiles_quiet(page, tiles: dict, *, quiet_ms: int, max_ms: int) -> float:
+    """타일 응답이 quiet_ms 동안 멎으면 '정착'으로 본다 — 고정 대기(예전 2.6초)의 대체.
+
+    타일 카운터는 이미 page.on("response") 가 채우고 있다. 이벤트는 wait_for_timeout 으로
+    양보하는 동안 배달되므로, 짧게 자면서 카운터가 멈추는 순간을 잡으면 된다.
+    빠른 회선에서는 0.5초 안에 끝나고, 느린 회선에서는 max_ms 까지 더 기다린다.
+    """
+    t0 = time.monotonic()
+    deadline = t0 + max(0.0, max_ms / 1000.0)
+    last_n = -1
+    last_change = t0
+    while time.monotonic() < deadline:
+        n = int(tiles.get("ok", 0)) + int(tiles.get("err", 0))
+        now = time.monotonic()
+        if n != last_n:
+            last_n, last_change = n, now
+        elif (now - last_change) * 1000.0 >= quiet_ms:
+            break
+        page.wait_for_timeout(40)
+    return time.monotonic() - t0
+
+
 def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool = False) -> dict:
-    """동기 Playwright 렌더(워커 스레드에서 호출). 반환 capture_static 과 동형의 dict."""
+    """동기 Playwright 렌더. 실제 브라우저 작업은 _POOL 의 워커 스레드에서 돈다.
+
+    반환은 capture_static 과 동형의 dict.
+    """
     try:
-        from playwright.sync_api import sync_playwright
+        import playwright  # type: ignore  # noqa: F401
     except ModuleNotFoundError:
         return {
             "status": "NO_DEP",
@@ -484,83 +697,105 @@ def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool
     # 던지면 finally 의 tmp 정리가 실행되지 않아 API 키가 든 .rv_*.html 이 계속 쌓였고,
     # 예외가 FastAPI 까지 올라가 클라이언트는 JSON 이 아닌 text/plain 500 을 받았다.
     server = _LocalServer(settings.captures_dir, tmp.name)
+    # 타일 응답 계측 — 제3자 파노는 lh3.googleusercontent.com(키 없는 CDN)에서 오고 IP 단위
+    # 레이트리밋에 걸리면 HTTP 429 로 검은 화면이 된다. 공식 파노는
+    # streetviewpixels-pa.googleapis.com(키 기반). 스크린샷 뒤의 판정에도 쓰므로 바깥에 둔다.
+    tiles: dict = {"ok": 0, "err": 0, "codes": {}}
+    # 제3자 파노의 gpms 토큰을 **요청 URL에서** 걷어 둔다. 응답이 429여도 요청은 나가므로
+    # 토큰은 확보된다 — 그 토큰의 photo 형식(=w..-h..-k-no-pi..-ya..)은 제한을 받지 않는다.
+    gpms: list[str] = []
+    info: dict = {}
+    settle_s = 0.0
+
+    def work(browser):
+        """브라우저 안에서 끝나는 일. 조기 종료할 결과가 있으면 그 dict 를 돌려준다."""
+        nonlocal info, settle_s
+        ctx_kw = dict(
+            viewport={"width": w, "height": total_h},
+            device_scale_factor=2,          # 표지판/문자 가독성 ↑ (분석 정확도)
+            bypass_csp=True,
+            ignore_https_errors=True,       # Avast TLS 가로채기 대비
+        )
+        # 컨텍스트를 재사용해야 HTTP 캐시가 살아 Maps JS 를 매번 다시 안 받는다(1.65s → 0.71s).
+        # 뷰포트 폭만 포즈마다 다르므로 페이지 쪽에서 따로 맞춘다.
+        reuse = getattr(settings, "render_reuse_browser", True)
+        context = (_POOL.context(browser, ("render", 2, total_h), **ctx_kw)
+                   if reuse else browser.new_context(**ctx_kw))
+        page = context.new_page()
+        try:
+            page.set_viewport_size({"width": w, "height": total_h})
+            logs: list[str] = []
+            page.on("console", lambda m: logs.append(f"{m.type}:{m.text}"))
+            page.on("pageerror", lambda e: logs.append(f"pageerror:{e}"))
+
+            def _on_req(r):
+                if "gpms-cs-s" in r.url and not gpms:
+                    m = _GPMS_RE.search(r.url)
+                    if m:
+                        gpms.append(m.group(1))
+
+            page.on("request", _on_req)
+
+            def _on_resp(r):
+                host = r.url.split("/")[2] if "//" in r.url else ""
+                if "lh3.googleusercontent" in host or "streetviewpixels" in host or "ggpht" in host:
+                    tiles["codes"][r.status] = tiles["codes"].get(r.status, 0) + 1
+                    if r.status >= 400:
+                        tiles["err"] += 1
+                    else:
+                        tiles["ok"] += 1
+
+            page.on("response", _on_resp)
+            page.goto(f"{server.url}/{tmp.name}", wait_until="load", timeout=25000)
+            try:
+                page.wait_for_function("window.__ready===true", timeout=28000)
+            except Exception:  # noqa: BLE001  — 준비 신호 타임아웃
+                stage = page.evaluate("window.__stage || '?'")
+                err = page.evaluate("window.__err || ''")
+                tail = " | ".join(logs[-6:])
+                return {
+                    "status": "RENDER_TIMEOUT",
+                    "message": f"브라우저 렌더가 준비 신호를 못 냈습니다(타임아웃, stage={stage})."
+                    + (f"  err={err}" if err else "")
+                    + (f"  console=[{tail}]" if tail else ""),
+                }
+            no_pano = page.evaluate("window.__noPano===true")
+            err = page.evaluate("window.__err || ''")
+            info = page.evaluate(
+                "({pano:window.__renderedPano||'',copyright:window.__copyright||'',"
+                "official:!!window.__official,lat:window.__renderedLat,lng:window.__renderedLng,"
+                "desc:window.__desc||''})"
+            )
+            if no_pano:
+                return {
+                    "status": "NO_PANO",
+                    "message": err or "이 위치에는 스트리트뷰 커버리지가 없습니다.",
+                }
+            # 타일이 실제로 멎을 때까지만 기다린다(예전에는 브라우저 안에서 무조건 2.6초).
+            settle_s = _wait_tiles_quiet(
+                page, tiles,
+                quiet_ms=int(settings.render_quiet_ms),
+                max_ms=int(settings.render_settle_max_ms),
+            )
+            shot: dict = {
+                "path": str(out),
+                "clip": {"x": 0, "y": 0, "width": w, "height": total_h},
+            }
+            if jpeg:
+                shot["type"] = "jpeg"
+                shot["quality"] = settings.capture_quality
+            page.screenshot(**shot)
+            return None
+        finally:
+            page.close()
+            if not reuse:
+                context.close()
+
     try:
         server.start()
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
-            try:
-                context = browser.new_context(
-                    viewport={"width": w, "height": total_h},
-                    device_scale_factor=2,          # 표지판/문자 가독성 ↑ (분석 정확도)
-                    bypass_csp=True,
-                    ignore_https_errors=True,       # Avast TLS 가로채기 대비
-                )
-                page = context.new_page()
-                logs: list[str] = []
-                page.on("console", lambda m: logs.append(f"{m.type}:{m.text}"))
-                page.on("pageerror", lambda e: logs.append(f"pageerror:{e}"))
-                # 타일 응답 계측 — 제3자 파노는 lh3.googleusercontent.com(키 없는 CDN)에서
-                # 오고 IP 단위 레이트리밋에 걸리면 HTTP 429 로 검은 화면이 된다.
-                # 공식 파노는 streetviewpixels-pa.googleapis.com(키 기반).
-                tiles = {"ok": 0, "err": 0, "codes": {}}
-                # 제3자 파노의 gpms 토큰을 **요청 URL에서** 걷어 둔다.
-                # 응답이 429여도 요청은 나가므로 토큰은 확보된다 — 그 토큰의
-                # photo 형식(=w..-h..-k-no-pi..-ya..)은 타일과 달리 제한을 받지 않는다.
-                gpms: list[str] = []
-
-                def _on_req(r):
-                    if "gpms-cs-s" in r.url and not gpms:
-                        m = _GPMS_RE.search(r.url)
-                        if m:
-                            gpms.append(m.group(1))
-
-                page.on("request", _on_req)
-
-                def _on_resp(r):
-                    host = r.url.split("/")[2] if "//" in r.url else ""
-                    if "lh3.googleusercontent" in host or "streetviewpixels" in host or "ggpht" in host:
-                        tiles["codes"][r.status] = tiles["codes"].get(r.status, 0) + 1
-                        if r.status >= 400:
-                            tiles["err"] += 1
-                        else:
-                            tiles["ok"] += 1
-
-                page.on("response", _on_resp)
-                page.goto(f"{server.url}/{tmp.name}", wait_until="load", timeout=25000)
-                try:
-                    page.wait_for_function("window.__ready===true", timeout=28000)
-                except Exception:  # noqa: BLE001  — 준비 신호 타임아웃
-                    stage = page.evaluate("window.__stage || '?'")
-                    err = page.evaluate("window.__err || ''")
-                    tail = " | ".join(logs[-6:])
-                    return {
-                        "status": "RENDER_TIMEOUT",
-                        "message": f"브라우저 렌더가 준비 신호를 못 냈습니다(타임아웃, stage={stage})."
-                        + (f"  err={err}" if err else "")
-                        + (f"  console=[{tail}]" if tail else ""),
-                    }
-                no_pano = page.evaluate("window.__noPano===true")
-                err = page.evaluate("window.__err || ''")
-                info = page.evaluate(
-                    "({pano:window.__renderedPano||'',copyright:window.__copyright||'',"
-                    "official:!!window.__official,lat:window.__renderedLat,lng:window.__renderedLng,"
-                    "desc:window.__desc||''})"
-                )
-                if no_pano:
-                    return {
-                        "status": "NO_PANO",
-                        "message": err or "이 위치에는 스트리트뷰 커버리지가 없습니다.",
-                    }
-                shot: dict = {
-                    "path": str(out),
-                    "clip": {"x": 0, "y": 0, "width": w, "height": total_h},
-                }
-                if jpeg:
-                    shot["type"] = "jpeg"
-                    shot["quality"] = settings.capture_quality
-                page.screenshot(**shot)
-            finally:
-                browser.close()
+        early = _POOL.run(settings, work)
+        if early is not None:
+            return early
     except Exception as exc:  # noqa: BLE001
         return {"status": "RENDER_ERROR", "message": f"브라우저 렌더 실패: {exc}"}
     finally:
@@ -627,4 +862,8 @@ def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool
         "pitch": pose.get("pitch"),
         "composited": True,
         "mode": "playwright",
+        # 성능 관찰용 — 정착에 실제로 쓴 시간과, 프로세스가 지금까지 브라우저를 몇 번 띄웠는지.
+        # 재사용이 동작 중이면 launches 는 캡처 수와 무관하게 1 근처에 머문다.
+        "settle_s": round(settle_s, 2),
+        "browser_launches": _POOL.launches,
     }

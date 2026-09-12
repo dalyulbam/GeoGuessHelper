@@ -1,0 +1,115 @@
+{
+ "built": 1788854785.242656,
+ "days": [
+  {
+   "day": "2026-08-10",
+   "report": 58,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 58
+  },
+  {
+   "day": "2026-08-12",
+   "report": 26,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 26
+  },
+  {
+   "day": "2026-08-13",
+   "report": 42,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 42
+  },
+  {
+   "day": "2026-08-14",
+   "report": 64,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 64
+  },
+  {
+   "day": "2026-08-17",
+   "report": 44,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 44
+  },
+  {
+   "day": "2026-08-25",
+   "report": 2,
+   "expansion": 615,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 617
+  },
+  {
+   "day": "2026-08-27",
+   "report": 0,
+   "expansion": 0,
+   "wiki": 330,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 330
+  },
+  {
+   "day": "2026-08-29",
+   "report": 63,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 63
+  },
+  {
+   "day": "2026-09-03",
+   "report": 9,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 9
+  },
+  {
+   "day": "2026-09-06",
+   "report": 44,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 0,
+   "dialogue": 0,
+   "baseline": 0,
+   "total": 44
+  },
+  {
+   "day": "2026-09-07",
+   "report": 6,
+   "expansion": 0,
+   "wiki": 0,
+   "correction": 69,
+   "dialogue": 1,
+   "baseline": 0,
+   "total": 76
+  }
+ ]
+}

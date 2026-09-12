@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeoGuessr 경기 — 방식·결과·승부처</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --ink:#1c2430; --sub:#5b6570; --line:#e3e7ec;
+  --accent:#0f766e; --accent-soft:#e6f2f1; --warn:#92400e; --warn-soft:#fef3c7;
+  --raw:#7c3aed; --raw-soft:#f3e8ff;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#12161c; --card:#1a2029; --ink:#e8ecf1; --sub:#9aa5b1; --line:#2a323d;
+    --accent:#2dd4bf; --accent-soft:#123f3b; --warn:#fbbf24; --warn-soft:#3a2c0e;
+    --raw:#c4b5fd; --raw-soft:#2e2350; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.65}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+nav a{padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);text-decoration:none;font-size:14px}
+nav a.here{background:var(--accent);border-color:var(--accent);color:#fff}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+h3{font-size:16px;margin:20px 0 8px}
+.sub{color:var(--sub);font-size:14px;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0}
+a{color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--sub);font-weight:600;font-size:13px}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.ok{background:var(--accent-soft);color:var(--accent)}
+.mid{background:var(--warn-soft);color:var(--warn)}
+.raw{background:var(--raw-soft);color:var(--raw)}
+.note{font-size:13px;color:var(--sub)}
+.mode{display:inline-block;padding:2px 10px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:13px;margin-right:4px}
+footer{margin-top:44px;font-size:13px;color:var(--sub);border-top:1px solid var(--line);padding-top:14px}
+.tablewrap{overflow-x:auto}
+ol.order{padding-left:20px}
+ol.order li{margin:2px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a href="index.html">허브</a>
+  <a href="players.html">선수</a>
+  <a class="here" href="matches.html">경기·승부처</a>
+  <a href="schedule.html">대회 일정</a>
+  <a href="broadcasts.html">중계 채널</a>
+  <a href="teams.html">국가별 팀</a>
+</nav>
+
+<h1>경기 — 방식 · 결과 · 승부처</h1>
+<p class="sub">기준일 2026-09-03 · 출처: 공식 룰북 + Liquipedia(위키텍스트 원문 대조)</p>
+
+<h2>경기 방식 <span class="badge ok">검증됨 3-0</span></h2>
+<div class="card">
+<p><b>1v1 듀얼(Duels)</b> — 두 선수가 같은 스트리트뷰 위치를 보고 지도를 찍는다. 상대보다 먼 추측을 하면 점수 차만큼 체력(HP)이 깎이고, 먼저 0이 되면 패배.</p>
+<ul>
+<li>한 게임 최대 <b>20라운드</b> (HP가 0이 되면 그 전에 종료)</li>
+<li><b>2라운드부터 데미지 멀티플라이어가 개별적으로 상승</b> — 후반 라운드일수록 한 번의 실수가 치명적</li>
+<li>3가지 모드: <span class="mode">Moving</span> 이동·줌·회전 모두 가능 / <span class="mode">No Move</span> 이동 금지 / <span class="mode">NMPZ</span> 이동·팬(회전)·줌 전부 금지</li>
+<li>월드 리그 예선(Qualifier)은 별도 방식: 5라운드 게임 9판(Move 3 · No Move 3 · NMPZ 3, 라운드당 최대 5,000점) 합산</li>
+</ul>
+</div>
+
+<h2>승패가 갈리는 곳 — 무엇이 검증됐나</h2>
+<div class="card">
+<h3>① 모드 순서가 구조적 승부처다 <span class="badge ok">검증됨 3-0</span></h3>
+<p>2026 결선 플레이오프의 모든 경기는 <b>Bo5(3선승)</b>이며 모드 순서가 고정돼 있다:</p>
+<ol class="order">
+<li><span class="mode">Moving</span></li>
+<li><span class="mode">No Move</span></li>
+<li><span class="mode">Moving</span></li>
+<li><span class="mode">No Move</span></li>
+<li><span class="mode">NMPZ</span> ← <b>풀세트 접전은 반드시 NMPZ에서 결판</b></li>
+</ol>
+<p>즉 접전일수록 순수 지리 지식과 순간 판단만으로 싸우는 NMPZ 실력이 우승을 가른다. 2-2까지 가면 이동도 회전도 줌도 없는 한 장면 승부다.</p>
+
+<h3>② 커뮤니티 대회도 같은 패턴 — 후반 모드가 결정전 <span class="badge raw">수집 단계</span></h3>
+<ul>
+<li>Nations Cup S1: Bo3는 Move→No Move→NMPZ, 상위 라운드 Bo5는 Move→No Move→NMPZ→No Move→NMPZ (4000HP, 60초, 0.3x 멀티플라이어)</li>
+<li>APAC Cup 동아시아 예선: 조별 Bo1 No Move, 플레이오프 Bo3 No Move→No Move→NMPZ — 결정 세트가 역시 NMPZ</li>
+</ul>
+
+<h3>③ 맵 풀 — “어디가 나오는 맵이냐”도 반쯤 고정 <span class="badge raw">수집 단계</span></h3>
+<div class="tablewrap"><table>
+<tr><th>모드</th><th>대표 경쟁 맵 (커뮤니티 대회 기준)</th></tr>
+<tr><td>Moving</td><td>An Informed World / An Extra-informed World</td></tr>
+<tr><td>No Move</td><td>A Pro World / A Competitive World</td></tr>
+<tr><td>NMPZ</td><td>An Arbitrary Rural World (시골 위주 — 표지판·건축·식생·도로 재질 판독력이 핵심)</td></tr>
+</table></div>
+
+<h3>④ 국가·지역 단위의 “승부처 통계”는 검증된 것이 없다</h3>
+<p class="note">“특정 국가가 나오면 누가 유리하다” 류의 <b>정량 데이터는 이번 조사에서 검증된 것이 없음</b>을 명시한다.
+이를 만들려면 Liquipedia 경기별 기록 + 방송 VOD의 라운드별 국가 로그를 별도 수집해야 한다(향후 과제).</p>
+</div>
+
+<h2>확인된 최근 경기 결과</h2>
+
+<h3>2026 결선 조별리그 스냅샷 (9/2, 진행 중) <span class="badge raw">수집 단계</span></h3>
+<div class="tablewrap"><table>
+<tr><th>일자</th><th>스테이지</th><th>경기</th><th>결과</th></tr>
+<tr><td>2026-09-02</td><td>결선 조별 (Group B)</td><td>Noksi vs Ecal</td><td>1 : 2 (Ecal 승)</td></tr>
+<tr><td>2026-09-02</td><td>결선 조별 (Group B)</td><td>Noksi vs Shiina</td><td>1 : 2 (Shiina 승)</td></tr>
+</table></div>
+<p class="note">Liquipedia 매치 테이블에서 확인된 예시 기록. 전체 조별 결과·플레이오프 대진은 결선 종료 후
+<a href="https://liquipedia.net/geoguessr/GeoGuessr_World_Championship/2026/Finals">Liquipedia Finals 페이지</a>에서 확정된다.</p>
+
+<h3>2026 Play-In (6/6–7) — Group B 예시 <span class="badge raw">수집 단계</span></h3>
+<div class="tablewrap"><table>
+<tr><th>일자</th><th>경기</th><th>결과</th></tr>
+<tr><td>2026-06-06</td><td>Noksi vs Repler</td><td>2 : 0</td></tr>
+<tr><td>2026-06-06</td><td>Noksi vs Gingey</td><td>2 : 0</td></tr>
+<tr><td>2026-06-07</td><td>Noksi vs Strefan</td><td>2 : 1</td></tr>
+</table></div>
+<p class="note">Noksi는 Play-In 3전 전승으로 결선 진출 — Play-In 6장 중 1장.</p>
+
+<h3>2025 결승 (참고) <span class="badge ok">검증됨 3-0</span></h3>
+<div class="tablewrap"><table>
+<tr><th>일자</th><th>경기</th><th>결과</th></tr>
+<tr><td>2025-09 (코펜하겐 K.B. Hallen)</td><td>Radu C (USA) vs Debre (HUN)</td><td><b>3 : 2</b> — Radu C 우승 (상금 약 $49,433)</td></tr>
+</table></div>
+
+<h3>Nations Cup S1 결승 (팀전, 4/5) <span class="badge raw">수집 단계</span></h3>
+<div class="tablewrap"><table>
+<tr><th>경기</th><th>결과</th></tr>
+<tr><td>그랜드 파이널: USA vs France</td><td>2 : 3 (France 승 → 브래킷 리셋 발동)</td></tr>
+<tr><td>브래킷 리셋: USA vs France</td><td><b>3 : 0 — USA 우승</b> ($700 / $300)</td></tr>
+</table></div>
+<p class="note">팀 로스터와 전체 대진은 <a href="teams.html">국가별 팀</a> 페이지 참조.</p>
+
+<h2>주의 — 기각된 정보</h2>
+<div class="card">
+<p class="note">결선 플레이오프의 <b>시간대별 상세 일정(“16강 14:00 CEST, 결승 22:00 CEST” 등)은 교차검증에서 기각(1-2)</b>됐다.
+신뢰 가능한 것은 일자 단위뿐: 조별 9/2–3(팬존), 플레이오프 9/4–5(아레나). 정확한 경기 시각은 공식 채널 공지를 따를 것.</p>
+</div>
+
+<footer>경기 페이지 · 작성 2026-09-03 · 출처: GWC 2026 공식 룰북, liquipedia.net/geoguessr (Finals·Play-In·Noksi/Matches·Nations Cup), geoguessr.com/world-championship/how-it-works</footer>
+</div>
+</body>
+</html>

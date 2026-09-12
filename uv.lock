@@ -118,7 +118,6 @@ wheels = [
 
 [[package]]
 name = "geoguesshelper"
-version = "0.2.2"
 source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
@@ -154,7 +153,7 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.0" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.30" },
 ]
-provides-extras = ["capture", "analyze", "all"]
+provides-extras = ["all", "analyze", "capture"]
 
 [[package]]
 name = "greenlet"

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeoGuessr 대회 리서치 — 허브</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --ink:#1c2430; --sub:#5b6570; --line:#e3e7ec;
+  --accent:#0f766e; --accent-soft:#e6f2f1; --warn:#92400e; --warn-soft:#fef3c7;
+  --raw:#7c3aed; --raw-soft:#f3e8ff;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#12161c; --card:#1a2029; --ink:#e8ecf1; --sub:#9aa5b1; --line:#2a323d;
+    --accent:#2dd4bf; --accent-soft:#123f3b; --warn:#fbbf24; --warn-soft:#3a2c0e;
+    --raw:#c4b5fd; --raw-soft:#2e2350; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.65}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+nav a{padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);text-decoration:none;font-size:14px}
+nav a.here{background:var(--accent);border-color:var(--accent);color:#fff}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+.sub{color:var(--sub);font-size:14px;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+a{color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--sub);font-weight:600;font-size:13px}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.ok{background:var(--accent-soft);color:var(--accent)}
+.mid{background:var(--warn-soft);color:var(--warn)}
+.raw{background:var(--raw-soft);color:var(--raw)}
+.note{font-size:13px;color:var(--sub)}
+footer{margin-top:44px;font-size:13px;color:var(--sub);border-top:1px solid var(--line);padding-top:14px}
+code{background:var(--accent-soft);padding:1px 5px;border-radius:4px;font-size:13px}
+.tablewrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a class="here" href="index.html">허브</a>
+  <a href="players.html">선수</a>
+  <a href="matches.html">경기·승부처</a>
+  <a href="schedule.html">대회 일정</a>
+  <a href="broadcasts.html">중계 채널</a>
+  <a href="teams.html">국가별 팀</a>
+</nav>
+
+<h1>경쟁 GeoGuessr 리서치 허브</h1>
+<p class="sub">기준일 2026-09-03 · 딥리서치 워크플로(검색 5각도 → 소스 18개 수집 → 주장 86건 추출 → 상위 25건 3인 교차검증: 23건 확인 / 2건 기각) 결과 정리</p>
+
+<div class="card">
+<b>한 줄 요약</b> — 2026년 경쟁 GeoGuessr의 중심은 <b>GeoGuessr 월드 챔피언십 2026</b>(4회째 공식 서킷)이다.
+온라인 <b>월드 리그</b>(1/18–5/24, EMEA·Americas·APAC 3개 지역, 44명, $88,000)와 Play-In·와일드카드를 거쳐
+24명이 <b>베를린 템포드롬(Tempodrom) 오프라인 결선(9/2–9/5, 기본 상금 $100,000+)</b>에 진출했다.
+디펜딩 챔피언은 <b>Radu C(미국)</b>. 공식 중계는 <a href="https://www.twitch.tv/geoguessr">twitch.tv/geoguessr</a>와
+<a href="https://www.youtube.com/@geoguessr">youtube.com/@geoguessr</a>.
+<span class="note">※ 이 문서 작성 시점에 베를린 결선이 진행 중이다(그랜드 파이널 9/5) — 우승자는 아직 미정.</span>
+</div>
+
+<h2>문서 구성</h2>
+<div class="grid">
+  <div class="card"><b><a href="players.html">players.html</a></b><br>
+    결선 24강 명단(조별·국적·진출 경로), 역대 챔피언, 2025 세계 랭킹 상위권, 승률 데이터의 현실(무엇이 검증됐고 무엇이 없는지)</div>
+  <div class="card"><b><a href="matches.html">matches.html</a></b><br>
+    경기 방식(듀얼·모드·멀티플라이어), 확인된 최근 경기 결과, 승패가 갈리는 지점(모드 순서·맵 풀) 분석</div>
+  <div class="card"><b><a href="schedule.html">schedule.html</a></b><br>
+    2026 시즌 전체 일정 — 월드 리그(지역별), Play-In, 와일드카드, 베를린 결선, 기타 대회(Nations Cup·APAC Cup)</div>
+  <div class="card"><b><a href="broadcasts.html">broadcasts.html</a></b><br>
+    공식 트위치/유튜브 URL, 보조·이벤트 채널, 커뮤니티 코스트림, 한국어 중계 유무</div>
+  <div class="card"><b><a href="teams.html">teams.html</a></b><br>
+    국가별 팀 — Nations Cup 시즌 1의 8개국 로스터와 결과, 한국 선수·팀 현황</div>
+</div>
+
+<h2>신뢰도 표기 안내</h2>
+<div class="card">
+<p>모든 페이지에서 정보 옆에 다음 배지를 붙였다.</p>
+<div class="tablewrap"><table>
+<tr><th>배지</th><th>의미</th></tr>
+<tr><td><span class="badge ok">검증됨</span></td><td>독립 검증자 3인 교차검증에서 3-0(또는 2-1) 확인. 공식 geoguessr.com + Liquipedia 등 복수 출처 일치.</td></tr>
+<tr><td><span class="badge mid">단일 출처</span></td><td>Liquipedia 등 단일 2차 출처에만 근거(원문 인용 확인됨). 대체로 정확하나 교차검증은 부분적.</td></tr>
+<tr><td><span class="badge raw">수집 단계</span></td><td>수집 단계에서 원문 인용과 함께 추출됐으나 별도 교차검증을 거치지 않은 정보.</td></tr>
+</table></div>
+<p class="note">교차검증에서 <b>기각</b>된 주장 2건: ① “Blinky가 현 세계 챔피언”(0-3 기각 — 현 챔피언은 Radu C),
+② 결선 플레이오프의 시간대별 세부 일정(1-2 기각 — 일자 단위 일정만 신뢰 가능).</p>
+</div>
+
+<h2>주요 출처</h2>
+<div class="card">
+<ul style="margin:0;padding-left:20px">
+<li>공식: <a href="https://www.geoguessr.com/world-championship">geoguessr.com/world-championship</a> · <a href="https://www.geoguessr.com/world-championship/berlin">/berlin</a> · <a href="https://www.geoguessr.com/world-championship/how-it-works">/how-it-works</a> · <a href="https://www.geoguessr.com/streams">/streams</a></li>
+<li>위키: <a href="https://liquipedia.net/geoguessr/GeoGuessr_World_Championship/2026">Liquipedia — GWC 2026</a> (Finals, World League, Group Stage 하위 페이지 포함) · <a href="https://en.wikipedia.org/wiki/GeoGuessr_World_Championship">Wikipedia — GeoGuessr World Championship</a></li>
+<li>채널: <a href="https://www.twitch.tv/geoguessr">twitch.tv/geoguessr</a> · <a href="https://www.youtube.com/@geoguessr">youtube.com/@geoguessr</a></li>
+</ul>
+</div>
+
+<footer>GeoGuessr 대회 리서치 · 작성 2026-09-03 · GeoGuessHelper/challenge · 데이터는 작성 시점 스냅샷이며 결선 진행에 따라 달라질 수 있음</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,978 @@
+{
+ "job_id": "job_8740554c450d",
+ "report_file": "report_de_munich_48.1691_11.5738_260906_215839_ko-en-fr.html",
+ "label": "선택 장면 보고서 · JbcjjIxd…-t9g",
+ "created": 1788762601.4565477,
+ "lang": "en",
+ "images": [
+  "capture_4a5548b17fdb.jpg",
+  "capture_6c5bf837687f.jpg",
+  "capture_321d573e138b.jpg",
+  "capture_7404d60e8f34.jpg",
+  "capture_aafa66be101e.jpg",
+  "capture_4dc96575f7e7.jpg"
+ ],
+ "image_panos": {
+  "capture_4a5548b17fdb.jpg": {
+   "pano_id": "JbcjjIxdIz79rVwa15-t9g",
+   "lat": 48.16914539937055,
+   "lng": 11.573780896000736,
+   "heading": 169.98173450863652,
+   "pitch": 0.23145417855643302
+  },
+  "capture_6c5bf837687f.jpg": {
+   "pano_id": "I5rhBo-rSLIVBFiDbmzEsg",
+   "lat": 48.16832336510465,
+   "lng": 11.573770844541128,
+   "heading": 165.15553615374793,
+   "pitch": 3.066830320125206
+  },
+  "capture_321d573e138b.jpg": {
+   "pano_id": "EVkOMiYGaeSpv5_78VC_aQ",
+   "lat": 48.16748163284603,
+   "lng": 11.57385633177782,
+   "heading": 165.15553615374793,
+   "pitch": 3.066830320125206
+  },
+  "capture_7404d60e8f34.jpg": {
+   "pano_id": "Xx3atfkJkDat42ExMf9NsA",
+   "lat": 48.1658053113174,
+   "lng": 11.574065439535183,
+   "heading": 185.33319759765598,
+   "pitch": 3.956221895382029
+  },
+  "capture_aafa66be101e.jpg": {
+   "pano_id": "Ht-g_R2YJ3snIAHhsx9fMw",
+   "lat": 48.16354543933218,
+   "lng": 11.574527313342267,
+   "heading": 117.49523593967741,
+   "pitch": 10.864651837718
+  },
+  "capture_4dc96575f7e7.jpg": {
+   "pano_id": "yL6RWc7DHJaZan2nZ_u0TA",
+   "lat": 48.16255861997427,
+   "lng": 11.574749870150455,
+   "heading": 96.88756406400472,
+   "pitch": 30.70050584511752
+  }
+ },
+ "truth": {
+  "lat": 48.165653938833735,
+  "lng": 11.574554377653765,
+  "iso": "DE",
+  "country": "Germany",
+  "region": "Bavaria (Schwabing-West, Belgradstrasse / Herzogstrasse)",
+  "city": "Munich",
+  "source": "aided_prior",
+  "file_lat": 48.1691,
+  "file_lng": 11.5738,
+  "n_panos": 7
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Munich",
+     "confidence": 0.72,
+     "coordinate_estimate": {
+      "lat": 48.1225,
+      "lng": 11.5545,
+      "radius_km": 3
+     },
+     "country": "Germany",
+     "country_iso": "DE",
+     "region_or_state": "Bavaria"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.1,
+      "country": "Germany",
+      "country_iso": "DE"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Austria",
+      "country_iso": "AT"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Switzerland",
+      "country_iso": "CH"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "temperate oceanic/continental transition, deciduous street trees, summer foliage",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage_language",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Red 'APOTHEKE' sign plus red stylized 'A' pharmacy logo, and 'Reinigung & Wäscherei', 'Pflege' — German-language retail signage with the German pharmacy 'A' mark.",
+      "supports": [
+       "Germany",
+       "Austria"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_furniture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Red-and-white diagonally striped construction barriers and orange lamp beacons of the German type; white circular signs with red border for traffic restriction.",
+      "supports": [
+       "Germany"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "transport",
+      "image_index": 0,
+      "level": "metro_area",
+      "observation": "Grassed (green-track) tram reservation in the centre of a wide urban boulevard with overhead catenary and pole-mounted span wires — a hallmark of large German tram cities.",
+      "supports": [
+       "Munich",
+       "Nuremberg",
+       "Augsburg"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "brand",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Huge painted gable advertisement for 'ERDINGER Weissbräu', a wheat-beer brewery from Erding near Munich; such murals cluster in Upper Bavaria.",
+      "supports": [
+       "Bavaria",
+       "Munich"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "metro_area",
+      "observation": "Long, uniform 4-5 storey post-war rendered blocks with small dormers and pale ochre/cream render, typical Munich 1950s reconstruction along arterial roads.",
+      "supports": [
+       "Munich"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Jugendstil/late-Historicist corner tenements with stucco garlands, oriels and copper-domed corner turrets — classic Munich Gründerzeit quarters (Haidhausen/Giesing/Schwabing type).",
+      "supports": [
+       "Munich inner-ring district"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage_language",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Shopfront lettering 'malermeister horst hubka' and 'Fahrradhaus' / 'Fahrradstraße' plate, plus blue P-sign with 'Parkausweis / Anwohner' residential permit text — German inner-city parking regime.",
+      "supports": [
+       "Germany, large city with resident parking zones"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "traffic_control",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Slim vertical 3-aspect traffic lights on mast arms with separate small pedestrian heads, plus blue round mandatory-lane and bicycle signs of German design.",
+      "supports": [
+       "Germany"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Long white/black EU-format plates, heavy share of German makes (Audi, VW, Mercedes vans), scooter traffic.",
+      "supports": [
+       "Germany"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "urban_form",
+      "image_index": 1,
+      "level": "district",
+      "observation": "Continuous kerbside parking, bicycle racks packed with bikes, scaffolded renovation blocks and construction site containers — dense, high-demand, well-off inner-city residential corridor.",
+      "supports": [
+       "Munich inner city"
+      ],
+      "weight": "low"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "APOTHEKE, Reinigung & Wäscherei, Pflege, Fahrradhaus, malermeister, Indisches Restaurant, Weissbräu",
+      "language": "German",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.85,
+      "image_index": 3,
+      "name": "Erdinger Weissbräu gable mural",
+      "type": "painted advertisement"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 0,
+      "name": "Prinz-Eugen-Apotheke (pharmacy)",
+      "type": "business signage"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which continent and broad cultural zone?",
+      "candidates": [
+       "Europe",
+       "North America",
+       "Latin America",
+       "East Asia"
+      ],
+      "observation": "German-language shopfronts, EU-format long plates, grassed tram track, 4-6 storey perimeter-block housing.",
+      "discriminator": "North America would show wide setbacks, wooden utility poles with transformers and yellow-on-black plates; East Asia would show CJK script and overhead cable clutter on concrete poles.",
+      "ruled_out": [
+       "North America — no overhead wood-pole distribution, no strip-mall setbacks",
+       "East Asia — Latin script only",
+       "Latin America — no informal signage, no barred windows"
+      ],
+      "conclusion": "Central Europe, German-speaking sphere",
+      "confidence_after": 0.97,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Germany, Austria or Switzerland?",
+      "candidates": [
+       "Germany",
+       "Austria",
+       "Switzerland"
+      ],
+      "observation": "Red 'APOTHEKE' with the German red 'A' pharmacy logo; red/white striped barrier boards and orange flashing beacons in the German road-works standard; blue resident-permit parking signs in German federal layout.",
+      "discriminator": "Austria would use a green pharmacy cross/'Apotheke' with the Austrian A-shield and a different red-white-red barrier tape motif; Switzerland would show green pharmacy crosses, yellow-tipped bollards, four-digit postcode plaques and CH white plates with cantonal shields.",
+      "ruled_out": [
+       "Austria — pharmacy branding and barrier hardware are German type",
+       "Switzerland — no cantonal/CH plate shields, no Swiss yellow road-works markers"
+      ],
+      "conclusion": "Germany",
+      "confidence_after": 0.93,
+      "weight": "high"
+     },
+     {
+      "level": "admin_region",
+      "question": "Which German state?",
+      "candidates": [
+       "Bavaria",
+       "Baden-Württemberg",
+       "Saxony",
+       "North Rhine-Westphalia",
+       "Berlin"
+      ],
+      "observation": "A whole gable wall painted with the 'ERDINGER Weissbräu' roundel; Bavarian wheat-beer advertising and beer-garden umbrellas at street level.",
+      "discriminator": "In NRW or Berlin the analogous mural would advertise a local pilsner (Krombacher, Berliner Kindl) and the housing stock would be brick or GDR Plattenbau; Saxony would show Dresden/Leipzig-style tram poles and different sandstone facades.",
+      "ruled_out": [
+       "North Rhine-Westphalia — no brick Gründerzeit or pilsner branding",
+       "Saxony/Berlin — no Plattenbau, no eastern-style tram infrastructure",
+       "Baden-Württemberg — Erdinger wheat-beer mural is an Upper Bavarian signature"
+      ],
+      "conclusion": "Bavaria, Upper Bavaria",
+      "confidence_after": 0.86,
+      "weight": "high"
+     },
+     {
+      "level": "metro_area",
+      "question": "Munich, Nuremberg or Augsburg (the Bavarian tram cities)?",
+      "candidates": [
+       "Munich",
+       "Nuremberg",
+       "Augsburg"
+      ],
+      "observation": "Very wide multi-lane arterial with a central grassed tram reservation, long uniform cream 1950s blocks with slate dormers, dense Jugendstil corner blocks with copper turrets, and heavy scaffolded renovation — the scale and density exceed Augsburg/Nuremberg corridors.",
+      "discriminator": "Nuremberg's inner corridors show red sandstone and Franconian half-timber remnants plus 'Nürnberger' brewery ads; Augsburg trams run on narrower streets with Renaissance-era gabled facades and far less continuous 5-storey wall. Munich alone combines green-track boulevards of this width with this monotone post-war Reihenbau plus stucco Jugendstil.",
+      "ruled_out": [
+       "Nuremberg — no red sandstone masonry, no Franconian gables",
+       "Augsburg — street cross-section far too wide, building density too high"
+      ],
+      "conclusion": "Munich metropolitan core",
+      "confidence_after": 0.75,
+      "weight": "medium"
+     },
+     {
+      "level": "district",
+      "question": "Which Munich tram corridor?",
+      "candidates": [
+       "Haidhausen/Berg am Laim east axis",
+       "Giesing/Tegernseer Landstraße south",
+       "Schwabing/Leopoldstraße north",
+       "Westend/Gollierstraße west"
+      ],
+      "observation": "Grassed central tram track on a broad arterial flanked by 1950s reconstruction rows that transition into Jugendstil corner houses, with a large construction/scaffolding site opposite; frames also show a lower-key mix of kebab shops, laundry, bike shop and Indian restaurant rather than boutique retail.",
+      "discriminator": "Leopoldstraße/Schwabing would show a much grander boulevard with mature plane avenues, upscale cafes and no green track of this rough grassed type; Westend lacks a green-track arterial of this width. The mixed working-class/gentrifying retail plus green tram track fits the eastern/southern radials (Einsteinstraße-Berg am Laim or Tegernseer Landstraße-Giesing) better.",
+      "ruled_out": [
+       "Schwabing/Leopoldstraße — retail mix and building quality too modest",
+       "Westend — no comparable grassed tram median arterial"
+      ],
+      "conclusion": "An eastern or southern Munich tram radial (Haidhausen/Berg am Laim or Giesing area); cannot be pinned to one street without a legible street plate",
+      "confidence_after": 0.5,
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A wealthy, high-density Western European city: continuous perimeter-block apartment housing, no vacancy signs, extensive scaffolded refurbishment and new-build sites, dense cycling infrastructure (Fahrradstraße sign, packed bike racks), resident permit parking, and a modern mid-to-high-end car fleet. The retail is everyday and slightly multicultural (pharmacy, laundry, kebab, Indian restaurant, bike shop), suggesting a gentrifying but still mixed inner-city corridor rather than a luxury core. Public transport is a mature grassed-track tramway, indicating strong municipal transit investment typical of Munich.",
+    "overall_confidence": 0.7,
+    "place_slug": "munich",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2182,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 3892,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Germany",
+    "country_iso": "DE",
+    "country_correct": true,
+    "region": "Bavaria",
+    "city": "Munich",
+    "confidence": 0.72,
+    "overall_confidence": 0.7,
+    "error_km": 5.02,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 10,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "brand",
+     "road_furniture",
+     "signage_language",
+     "traffic_control",
+     "transport",
+     "urban_form",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Munich",
+     "confidence": 0.82,
+     "coordinate_estimate": {
+      "lat": 48.1478,
+      "lng": 11.5498,
+      "radius_km": 2.5
+     },
+     "country": "Germany",
+     "country_iso": "DE",
+     "region_or_state": "Bavaria (Upper Bavaria) — Schwabing-West / Maxvorstadt tram corridor"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.07,
+      "country": "Germany",
+      "country_iso": "DE"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Austria",
+      "country_iso": "AT"
+     },
+     {
+      "confidence": 0.03,
+      "country": "Switzerland",
+      "country_iso": "CH"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "temperate oceanic/continental transition (Cfb), deciduous street trees, lush late-summer grass in tram bed",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Red 'APOTHEKE' sign plus the German red stylized 'A' pharmacy emblem (vessel-and-snake) on a window decal — the Bundesvereinigung Deutscher Apothekerverbände mark used only in Germany.",
+      "supports": [
+       "Germany"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 0,
+      "level": "country",
+      "observation": "German shop wording without Swiss orthography: 'Reinigung & Wäscherei', 'PFLEGE'; ß-using German norms implied elsewhere ('-straße' style naming).",
+      "supports": [
+       "Germany",
+       "Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road furniture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Red/white diagonally striped RSA barrier boards with amber blinker lamps on orange bases — the German standardized roadworks kit.",
+      "supports": [
+       "Germany"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "advertising",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Huge painted 'ERDINGER WEISSBRÄU' roundel mural on a firewall gable — Upper Bavarian wheat-beer brand advertising, typical of Munich-area facades.",
+      "supports": [
+       "Bavaria",
+       "Munich"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "metro_area",
+      "observation": "Long uniform 4-6 storey ochre/cream rendered perimeter blocks with shallow mansard roofs and small dormers, ground-floor retail — Munich's Gründerzeit-to-1950s block fabric rather than north-German clinker brick.",
+      "supports": [
+       "Munich"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "transport",
+      "image_index": 1,
+      "level": "district",
+      "observation": "Grass-bedded double-track tram reservation in the median of a wide radial avenue with overhead catenary suspended on span wires from building facades — MVG tram corridor style (e.g. Nordring/Barer–Hohenzollern axis).",
+      "supports": [
+       "Munich tram network"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "traffic signs",
+      "image_index": 4,
+      "level": "district",
+      "observation": "German 30 km/h round sign with 'werktags Mo-Fr 7-18h / Kinder' supplementary plate and blue resident-parking 'P' sign with Parkausweis text — German inner-city Tempo-30 zone regulation.",
+      "supports": [
+       "Germany",
+       "large German city"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Blue round bicycle sign with 'Fahrradstraße' plate and painted-on-facade trade advertisement 'malermeister horst hubka' — German craft-trade signage in a dense urban district.",
+      "supports": [
+       "Germany"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Jugendstil corner buildings with stucco garlands and an onion-ish corner turret/cupola, next to an Indian restaurant — inner Munich Schwabing/Neuhausen Altbau character.",
+      "supports": [
+       "Munich Schwabing"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "urban economy",
+      "image_index": 1,
+      "level": "metro_area",
+      "observation": "Extensive scaffolding, tower silos and site-office containers on a whole block; dense, well-maintained cars (Audi, VW, Volvo, vans) — high-cost redevelopment pressure of a prosperous German metro core.",
+      "supports": [
+       "Munich"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "White EU-format plates with long single-line layout typical of Germany; no yellow rear plates or Swiss-style short plates.",
+      "supports": [
+       "Germany"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "Dense, prosperous German metropolitan inner ring: continuous perimeter-block apartment housing with ground-floor small retail (pharmacy, dry cleaner, bicycle shop, kebab, Indian restaurant), tram-based transit in a grassed median, strong cycling policy (Fahrradstraße, resident-permit parking, Tempo 30), and block-scale scaffolded refurbishment signalling very high land values. Bavarian brewery branding and Jugendstil/mansard stock place it in the Altbayern cultural sphere.",
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "APOTHEKE, Reinigung & Wäscherei, PFLEGE, Fahrradhaus, Fahrradstraße, werktags, Kinder, ERDINGER WEISSBRÄU, Indisches Restaurant",
+      "language": "German",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.8,
+      "image_index": 3,
+      "name": "Erdinger Weissbräu painted gable mural",
+      "type": "advertising mural"
+     },
+     {
+      "confidence": 0.6,
+      "image_index": 2,
+      "name": "Tram stop shelter on grassed median of a radial avenue (MVG)",
+      "type": "tram infrastructure"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Europe",
+       "North America",
+       "Latin America",
+       "East Asia"
+      ],
+      "conclusion": "Central/Western Europe, German-speaking",
+      "confidence_after": 0.97,
+      "discriminator": "North American arterials would show wide setbacks, wooden utility poles and mast-arm signals; East Asia would show vertical multilingual signage and different catenary masts. Here: 5-6 storey continuous stucco perimeter blocks, span-wire tram catenary anchored to facades, and German-language shopfronts.",
+      "level": "continent",
+      "observation": "German-language retail signage, grass-bedded tram median, European hatchbacks/vans, right-hand traffic.",
+      "ruled_out": [
+       "North America — no wooden poles, no strip-mall setbacks",
+       "East Asia — Latin script only, no CJK",
+       "Latin America — no informal signage or barred windows"
+      ],
+      "question": "Which continent and language sphere?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Germany",
+       "Austria",
+       "Switzerland"
+      ],
+      "conclusion": "Germany",
+      "confidence_after": 0.94,
+      "discriminator": "Austria's pharmacies use the green Apotheke cross/snake sign and its roadworks barriers differ; Switzerland writes 'strasse' without ß, uses green motorway signage and a green-cross pharmacy mark. Here the pharmacy carries the German red 'A' vessel-and-snake emblem and roadworks use the German RSA red/white striped boards with amber blinkers.",
+      "level": "country",
+      "observation": "Red 'APOTHEKE' with the German red-A emblem decal; RSA-standard red/white barrier boards and amber blinker lamps; German supplementary sign wording ('werktags Mo-Fr').",
+      "ruled_out": [
+       "Austria — green cross pharmacy sign absent, no blue B-road shields",
+       "Switzerland — no 'strasse' spelling, no Swiss pharmacy green cross, no Swiss white-on-blue local signage"
+      ],
+      "question": "Which German-speaking country?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Bavaria",
+       "North Rhine-Westphalia",
+       "Hesse",
+       "Saxony",
+       "Berlin"
+      ],
+      "conclusion": "Bavaria (Upper Bavaria)",
+      "confidence_after": 0.9,
+      "discriminator": "NRW/Hamburg/Saxony would show clinker-brick Gründerzeit gables and Kölsch/Radeberger brewery branding; Berlin would show taller 5-storey brick-and-plaster Mietskasernen with distinct green tram/BVG livery and different roof dormers. Here: warm ochre/cream stucco with shallow mansard roofs, small standing dormers, and an ERDINGER WEISSBRÄU firewall mural — an Upper Bavarian wheat-beer brand.",
+      "level": "admin_region",
+      "observation": "Erdinger Weissbräu gable mural; ochre stucco mansard-roofed blocks; Jugendstil corner houses with onion-ish cupola.",
+      "ruled_out": [
+       "NRW/Hesse — no clinker brick, no regional Kölsch/Bitburger branding",
+       "Saxony/Berlin — no Mietskaserne brick, no East-German era infill typology"
+      ],
+      "question": "Which German federal state?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Munich",
+       "Nuremberg",
+       "Augsburg",
+       "Würzburg"
+      ],
+      "conclusion": "Munich",
+      "confidence_after": 0.84,
+      "discriminator": "Nuremberg's tram corridors sit in narrower streets with heavy sandstone/half-timber survivals and VAG stop furniture; Augsburg's trams run through a much smaller centre with distinctive Fuggerei-era stock and fewer 6-storey blocks; Würzburg has no tram median of this scale. Munich uniquely combines multi-kilometre grassed tram reservations on radial avenues with kilometre-long uniform 5-6 storey rendered perimeter blocks and massive scaffolded refurbishment.",
+      "level": "metro_area",
+      "observation": "Very wide radial avenue with grassed double-track tram bed, span-wire catenary off facades, dense unbroken block frontages, MVG-style shelter, extensive tower-silo construction site.",
+      "ruled_out": [
+       "Nuremberg — street proportions and sandstone facades absent",
+       "Augsburg — city scale too small for this continuous 6-storey wall",
+       "Würzburg/Regensburg — no tram system of this type"
+      ],
+      "question": "Which Bavarian tram city?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Schwabing-West / Maxvorstadt northern tram axis",
+       "Neuhausen",
+       "Giesing/Ostbahnhof area",
+       "Sendling"
+      ],
+      "conclusion": "Northern inner Munich, most likely the Schwabing-West / Maxvorstadt tram axis (Hohenzollern–Nordring–Karl-Theodor area)",
+      "confidence_after": 0.66,
+      "discriminator": "Giesing/Sendling south of the Isar would show steeper terrain, more 1960s-70s slab infill and fewer intact Jugendstil corner blocks; Neuhausen's tram runs mostly on paved track without long grassed reservation and has a different mix with the Nymphenburg canal axis. The frames show a long straight north-side avenue with grassed reservation, Jugendstil corner houses with cupolas, and 1950s postwar infill next to Gründerzeit — the classic Schwabing-West layering.",
+      "level": "district",
+      "observation": "Flat topography, straight long avenue, mix of Jugendstil corner blocks, 1930s-50s ochre infill, Fahrradstraße side street, dense small-retail plinth.",
+      "ruled_out": [
+       "Giesing/Sendling — no slope, no south-side typology",
+       "Neuhausen — grassed reservation and block rhythm do not match"
+      ],
+      "question": "Which Munich district along the tram corridor?",
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.8,
+    "place_slug": "munich",
+    "relied_on_atoms": [
+     "atm_e47ce946001b",
+     "atm_78bb90bc7d1c",
+     "atm_d4219be3d4fb",
+     "atm_039d544faf25",
+     "atm_4a1632fab69b"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1397,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2616,
+    "output": 4683,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Germany",
+    "country_iso": "DE",
+    "country_correct": true,
+    "region": "Bavaria (Upper Bavaria) — Schwabing-West / Maxvorstadt tram corridor",
+    "city": "Munich",
+    "confidence": 0.82,
+    "overall_confidence": 0.8,
+    "error_km": 2.7,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 11,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "advertising",
+     "architecture",
+     "language",
+     "road furniture",
+     "signage",
+     "traffic signs",
+     "transport",
+     "urban economy",
+     "vehicles"
+    ]
+   },
+   "known_offered": [
+    "atm_e47ce946001b",
+    "atm_039d544faf25",
+    "atm_78bb90bc7d1c",
+    "atm_d4219be3d4fb",
+    "atm_2ab20230403f",
+    "atm_e4e3e2300015",
+    "atm_278ce6fc5e3b",
+    "atm_7f1b78158b4f",
+    "atm_4a1632fab69b",
+    "atm_4839faddffa9"
+   ],
+   "relied_on": [
+    "atm_e47ce946001b",
+    "atm_78bb90bc7d1c",
+    "atm_d4219be3d4fb",
+    "atm_039d544faf25",
+    "atm_4a1632fab69b"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "DE",
+   "country": "Germany",
+   "region": "Bavaria (Upper Bavaria) — Schwabing-West / Maxvorstadt tram corridor",
+   "city": "Munich",
+   "lat": 48.1478,
+   "lng": 11.5498,
+   "error_km": 2.7,
+   "reached_level": "district",
+   "confidence": 0.82,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 2.7,
+  "bucket": "<10"
+ },
+ "correction": {
+  "cost_usd": 0.21845875,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5228,
+   "output": 3044,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "HIT: Germany / Bavaria / Munich confirmed, and the analyst even landed in Schwabing-West with only 2.7 km error. The German red 'A' Apotheke emblem, RSA red/white barrier boards with amber blinkers, and an ERDINGER WEISSBRÄU firewall mural excluded Austria and Switzerland and fixed Upper Bavaria; the grassed double-track tram reservation on a long straight radial avenue with kilometre-long 5-6 storey rendered perimeter blocks pinned Munich over Nuremberg/Augsburg. A visible 'Karl-Theodor-Str.' style street-name plate in image 2 was consistent with the true Schwabing-West corridor.",
+  "misleading_cues": [
+   {
+    "observation": "Span-wire tram catenary anchored to facades and dense stucco perimeter blocks",
+    "why_misleading": "This fabric is shared with Vienna and parts of Switzerland/Czechia, so on its own it could have dragged the guess to Austria; only the pharmacy emblem and roadworks kit settled the country.",
+    "image_index": 1
+   },
+   {
+    "observation": "Jugendstil corner house with onion-like cupola (img 5)",
+    "why_misleading": "Onion domes and Jugendstil corner turrets are equally typical of Vienna and Prague, so this cue does not by itself discriminate Munich."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Red 'APOTHEKE' box sign with the stylized red 'A' vessel-and-snake decal in the window",
+    "why_decisive": "The BVDA red-A mark is used only in Germany; Austria and Switzerland use green cross/serpent marks.",
+    "category": "business-chain",
+    "image_index": 0
+   },
+   {
+    "observation": "Red/white diagonally striped barrier boards on orange bases with amber blinker lamps",
+    "why_decisive": "German RSA roadworks kit, distinct from Austrian and Swiss temporary traffic furniture.",
+    "category": "street-furniture",
+    "image_index": 0
+   },
+   {
+    "observation": "Large painted ERDINGER WEISSBRÄU roundel on a firewall gable",
+    "why_decisive": "Upper Bavarian wheat-beer brand whose gable murals cluster around Munich, pinning the federal state.",
+    "category": "business-chain",
+    "image_index": 3
+   },
+   {
+    "observation": "Grassed double-track tram reservation running the full length of a straight wide radial avenue, with catenary on span wires from facades",
+    "why_decisive": "Munich's MVG green-track radial corridors are the only Bavarian tram network with this scale and continuity.",
+    "category": "infrastructure-built",
+    "image_index": 1
+   },
+   {
+    "observation": "Kilometre-long uniform 5-6 storey cream/ochre rendered perimeter blocks with shallow mansard roofs, small standing dormers and retail plinths",
+    "why_decisive": "Munich Gründerzeit-to-1950s block fabric, unlike Nuremberg sandstone or north-German clinker brick.",
+    "category": "housing-typology",
+    "image_index": 2
+   },
+   {
+    "observation": "Blue 'Fahrradstraße' round bicycle sign and blue resident-parking P sign with Parkausweis wording, plus a Tempo-30 sign with 'werktags Mo-Fr' plate",
+    "why_decisive": "German StVO sign vocabulary and supplementary-plate wording, confirming Germany over Austria/Switzerland.",
+    "category": "road-signage",
+    "image_index": 4
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Pharmacy emblem separates Germany from Austria and Switzerland",
+    "body": "In Germany a pharmacy shows a red 'APOTHEKE' sign with the stylized red 'A' containing a vessel and snake. In Austria you would instead see a green-and-white cross with serpent-and-bowl and often 'Apotheke zum …' naming; in Switzerland a plain green cross with 'Apotheke/Pharmacie'. Treat the red A as near-conclusive for Germany.",
+    "layer": "culture",
+    "category": "business-chain",
+    "scope": "country",
+    "tags": [
+     "pharmacy",
+     "apotheke",
+     "dach"
+    ],
+    "entities": [
+     "Germany",
+     "Austria",
+     "Switzerland"
+    ],
+    "looks_like": {
+     "country_iso": "AT",
+     "country": "Austria"
+    },
+    "actually": {
+     "country_iso": "DE",
+     "country": "Germany",
+     "region": "Bavaria"
+    },
+    "confidence": 0.9,
+    "image_index": 0
+   },
+   {
+    "title": "German RSA roadworks boards vs Austrian/Swiss site furniture",
+    "body": "In Germany construction zones use red/white diagonally striped rectangular barrier boards on orange plastic bases with small amber flashing lamps, plus blue-and-white site container fences. In Austria you would more often see red/white striped tubular barriers with reflective panels and yellow warning beacons of a different shape; Switzerland uses orange-red barriers with black-yellow chevrons. Roadworks kit is a fast DACH discriminator.",
+    "layer": "culture",
+    "category": "street-furniture",
+    "scope": "country",
+    "tags": [
+     "roadworks",
+     "rsa",
+     "barrier"
+    ],
+    "entities": [
+     "Germany",
+     "Austria",
+     "Switzerland"
+    ],
+    "looks_like": {
+     "country_iso": "AT",
+     "country": "Austria"
+    },
+    "actually": {
+     "country_iso": "DE",
+     "country": "Germany"
+    },
+    "confidence": 0.75,
+    "image_index": 0
+   },
+   {
+    "title": "Munich green tram reservations vs Vienna paved tram track",
+    "body": "In Munich radial avenues the tram runs on a long grassed, kerbed reservation in the median with catenary hung on span wires. In Vienna, which looks similarly Gründerzeit, trams usually share the asphalt carriageway or run on paved track, and catenary is carried on ornate wall rosettes with far more overhead crossing wires. Grass track over kilometres plus rendered Bavarian blocks points to Munich.",
+    "layer": "geography",
+    "category": "infrastructure-built",
+    "scope": "city",
+    "tags": [
+     "tram",
+     "green-track",
+     "catenary"
+    ],
+    "entities": [
+     "Munich",
+     "Vienna"
+    ],
+    "looks_like": {
+     "country_iso": "AT",
+     "country": "Austria",
+     "region": "Vienna"
+    },
+    "actually": {
+     "country_iso": "DE",
+     "country": "Germany",
+     "region": "Bavaria (Munich)"
+    },
+    "confidence": 0.7,
+    "image_index": 1
+   },
+   {
+    "title": "Bavarian brewery firewall murals localise the state",
+    "body": "In Upper Bavaria firewall gables carry painted wheat-beer roundels (Erdinger, Paulaner, Augustiner). In Rhineland or Saxony you would instead see Kölsch, Bitburger or Radeberger branding, and the surrounding facades would be clinker brick rather than ochre stucco. Brewery advertising is a reliable federal-state cue.",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "region",
+    "tags": [
+     "brewery",
+     "mural",
+     "bavaria"
+    ],
+    "entities": [
+     "Bavaria",
+     "North Rhine-Westphalia",
+     "Saxony"
+    ],
+    "looks_like": {
+     "country_iso": "DE",
+     "country": "Germany",
+     "region": "North Rhine-Westphalia"
+    },
+    "actually": {
+     "country_iso": "DE",
+     "country": "Germany",
+     "region": "Bavaria"
+    },
+    "confidence": 0.75,
+    "image_index": 3
+   },
+   {
+    "title": "Munich vs Nuremberg/Augsburg tram-city street proportions",
+    "body": "In Munich the tram corridors are very wide radials flanked by continuous 5-6 storey rendered blocks with retail plinths and heavy scaffolded refurbishment. In Nuremberg you would instead see narrower streets with red sandstone and postwar reconstruction detail, and in Augsburg a much smaller-scale 3-4 storey centre. Street width plus block height settles the Bavarian tram city.",
+    "layer": "architecture",
+    "category": "urban-form",
+    "scope": "city",
+    "tags": [
+     "perimeter-block",
+     "tram-city",
+     "bavaria"
+    ],
+    "entities": [
+     "Munich",
+     "Nuremberg",
+     "Augsburg"
+    ],
+    "looks_like": {
+     "country_iso": "DE",
+     "country": "Germany",
+     "region": "Nuremberg"
+    },
+    "actually": {
+     "country_iso": "DE",
+     "country": "Germany",
+     "region": "Munich"
+    },
+    "confidence": 0.7,
+    "image_index": 2
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_e47ce946001b",
+   "atm_78bb90bc7d1c",
+   "atm_d4219be3d4fb",
+   "atm_039d544faf25",
+   "atm_4a1632fab69b"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_96d1691571d2",
+   "atm_4d08129bc533",
+   "atm_e8c4d3d9d65a",
+   "atm_3a306a118800",
+   "atm_46082e3a6ba5"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_96d1691571d2",
+   "atm_4d08129bc533",
+   "atm_e8c4d3d9d65a",
+   "atm_3a306a118800",
+   "atm_46082e3a6ba5"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_e47ce946001b",
+   "atm_78bb90bc7d1c",
+   "atm_d4219be3d4fb",
+   "atm_039d544faf25",
+   "atm_4a1632fab69b"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.5764,
+ "status": "OK"
+}

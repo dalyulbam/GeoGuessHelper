@@ -214,6 +214,20 @@ _TOOL = {
             },
             "cultural_economic_read": {"type": "string"},
             "overall_confidence": {"type": "number"},
+            "relied_on_atoms": {
+                "type": "array", "items": {"type": "string"},
+                "description": (
+                    "atm_ ids from the KNOWN ATOMS block (if one was given) that you actually checked "
+                    "against the image and that changed or confirmed a narrowing step. Empty if none applied."
+                ),
+            },
+            "revised_from": {
+                "type": ["string", "null"],
+                "description": (
+                    "Only when a KNOWN ATOMS block made you change your best guess: the previous guess "
+                    "(country/region) you moved away from, e.g. 'Finland → Norway'. Null otherwise."
+                ),
+            },
             "place_slug": {
                 "type": ["string", "null"],
                 "description": (
@@ -237,10 +251,42 @@ def _b64(path: Path) -> tuple[str, str]:
     return data, media
 
 
-def analyze_captures(image_paths: list[Path], settings: Settings, lang: str = "ko") -> dict:
+def _known_block(known: list) -> str:
+    """회상된 원자를 장면 분석 프롬프트에 넣는 텍스트(이미지 **뒤**에 붙여 캐시 접두사를 깨지 않는다).
+
+    판별자(kind=discriminator)는 "X 처럼 보이지만 사실 X2" 형식이라 먼저, 그다음 일반 사실.
+    모델은 각 원자를 이미지와 대조해 **적용되는 것만** 따르고 relied_on_atoms 에 id 를 적는다 —
+    적용되지 않는 원자를 억지로 따르는 것은 새 오염이다(기획 260906 §prompt).
+    """
+    if not known:
+        return ""
+    discs = [a for a in known if getattr(a, "kind", "fact") == "discriminator"]
+    facts = [a for a in known if getattr(a, "kind", "fact") != "discriminator"]
+    lines = ["", "KNOWN ATOMS — recalled from past analyses and corrections. These are hypotheses to CHECK against",
+             "the image, not facts to obey. For each: does the described pattern actually appear here? If a",
+             "discriminator applies ('looks like X but is actually Y'), follow it, revise the affected narrowing",
+             "step, and list its id in `relied_on_atoms` (and set `revised_from` if your best guess changed).",
+             "If it does not apply, ignore it silently. Never cite an atom you did not verify in the image."]
+    if discs:
+        lines.append("DISCRIMINATORS (looks-like → actually):")
+        for a in discs:
+            conf = ",".join(a.confusions[:3]) if getattr(a, "confusions", None) else ""
+            lines.append(f"- [[{a.id}]] {('[' + conf + '] ') if conf else ''}**{a.title}** — {a.body}")
+    if facts:
+        lines.append("FACTS:")
+        for a in facts:
+            lines.append(f"- [[{a.id}]] ({a.layer}/{a.scope}) **{a.title}** — {a.body}")
+    return "\n".join(lines)
+
+
+def analyze_captures(image_paths: list[Path], settings: Settings, lang: str = "ko", *,
+                     known: list | None = None, mode: str | None = None) -> dict:
     """캡처 이미지들을 Claude 비전으로 분석 → 구조화 dict. 예산 캡 적용.
 
     lang: 자연어 필드(관찰/문화경제 서술 등)를 쓸 출력 언어 코드(ko/en/ja/...).
+    known: knowledge.recall() 이 돌려준 원자 — 이미지 뒤 텍스트 블록으로 주입된다(회상 주입,
+           기획 260906 "최대 단일 개선"). 결과의 relied_on_atoms 로 어느 원자가 실제로 쓰였는지 안다.
+    mode:  "blind" = 로드뷰 패널만 있는 이미지(하단 지도 없음)라고 알려준다(정정 루프 1-1 패스).
     """
     from . import i18n
 
@@ -272,13 +318,19 @@ def analyze_captures(image_paths: list[Path], settings: Settings, lang: str = "k
         if i == len(paths) - 1:
             block["cache_control"] = {"type": "ephemeral"}
         content.append(block)
+    mode_note = ""
+    if mode == "blind":
+        mode_note = (" 이 이미지들은 로드뷰 패널만 있고 하단 지도가 없습니다(blind). 지도 라벨을 인용하지 말고 "
+                     "장면 증거만으로 판별하세요; 좌표 추정(coordinate_estimate)도 반드시 내세요.")
     content.append(
         {
             "type": "text",
             "text": (
                 f"위 {len(paths)}장의 스트리트뷰 캡처를 분석해 report_location 도구를 호출하세요. "
                 "단서(cues)를 먼저 근거로 나열하고, 모든 confidence 를 cue 로 정당화하세요."
+                + mode_note
                 + i18n.claude_language_directive(lang)
+                + _known_block(known or [])
             ),
         }
     )
@@ -314,6 +366,8 @@ def analyze_captures(image_paths: list[Path], settings: Settings, lang: str = "k
         "used_model": llm.used_model(resp),
         "cache": llm.cache_stats(usage),
         "model": settings.model,
+        "mode": mode or "aided",
+        "known_offered": [a.id for a in (known or [])],
         "privacy": {
             "individuals_identified": False,
             "note": "얼굴·번호판은 블러 처리됨 — 개인 식별 안 함.",

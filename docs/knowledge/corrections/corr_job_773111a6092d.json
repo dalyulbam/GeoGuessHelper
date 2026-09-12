@@ -1,0 +1,978 @@
+{
+ "job_id": "job_773111a6092d",
+ "report_file": "report_kz_beyneu_46.3143_54.4042_260906_223930_ko-en-fr.html",
+ "label": "선택 장면 보고서 · BXnBEWDj…uzig",
+ "created": 1788762925.6863165,
+ "lang": "en",
+ "images": [
+  "capture_d0121d8fde28.jpg",
+  "capture_cc25e31a8126.jpg",
+  "capture_848cfd1bed2d.jpg",
+  "capture_d6115a51ff47.jpg",
+  "capture_0275f28547dd.jpg"
+ ],
+ "image_panos": {
+  "capture_d0121d8fde28.jpg": {
+   "pano_id": "BXnBEWDj-A_RoXmcrruzig",
+   "lat": 46.31430910049432,
+   "lng": 54.40420401921901,
+   "heading": 241.79164044119017,
+   "pitch": -2.351967572110439
+  },
+  "capture_cc25e31a8126.jpg": {
+   "pano_id": "0Cv44x6y_8GhhQD4qgeZZA",
+   "lat": 46.313991150262254,
+   "lng": 54.40306347358484,
+   "heading": 76.56500330290667,
+   "pitch": 3.4792732037118412
+  },
+  "capture_848cfd1bed2d.jpg": {
+   "pano_id": "DKzolCXN1U3-AhO7h-0P0Q",
+   "lat": 46.314537968204824,
+   "lng": 54.40480235455531,
+   "heading": 248.0864849785466,
+   "pitch": 1.8322692975342534
+  },
+  "capture_d6115a51ff47.jpg": {
+   "pano_id": "XDn6vkdTaf9UUKxKjGoawA",
+   "lat": 46.33968877686534,
+   "lng": 54.39190263578144,
+   "heading": 330.75567705387266,
+   "pitch": -2.079631692526931
+  },
+  "capture_0275f28547dd.jpg": {
+   "pano_id": "KPi3J3Ezu0y1lDN3aHJJ_Q",
+   "lat": 45.31408752369681,
+   "lng": 55.157116554377524,
+   "heading": 155.01500452619965,
+   "pitch": -0.38448311996215523
+  }
+ },
+ "truth": {
+  "lat": 46.11932290390471,
+  "lng": 54.552217807503624,
+  "iso": "KZ",
+  "country": "Kazakhstan",
+  "region": "Mangystau Region",
+  "city": "Beyneu",
+  "source": "aided_prior",
+  "file_lat": 46.3143,
+  "file_lng": 54.4042,
+  "n_panos": 5
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Beyneu",
+     "confidence": 0.42,
+     "coordinate_estimate": {
+      "lat": 45.32,
+      "lng": 55.2,
+      "radius_km": 180
+     },
+     "country": "Kazakhstan",
+     "country_iso": "KZ",
+     "region_or_state": "Mangystau / Aktobe region (Caspian desert belt)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Cold desert / semi-desert clay-sand steppe (Turan lowland), hot dry summer",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "road_furniture",
+      "observation": "Black-and-white banded concrete delineator posts (Soviet-standard 'stolbiki') with chevron black bands lining the shoulder",
+      "weight": "high",
+      "level": "country",
+      "image_index": 0,
+      "supports": [
+       "post-Soviet road standard"
+      ]
+     },
+     {
+      "category": "signage",
+      "observation": "Octagonal red STOP sign in Latin 'STOP' plus red-bordered triangular warning signs — GOST/Vienna convention style, no local script visible",
+      "weight": "medium",
+      "level": "country",
+      "image_index": 2,
+      "supports": [
+       "CIS road sign system"
+      ]
+     },
+     {
+      "category": "rail",
+      "observation": "Single-track non-electrified railway on high ballast with Soviet-style X (crossbuck) sign and twin red flashing lights on a lattice mast",
+      "weight": "high",
+      "level": "macro_region",
+      "image_index": 2,
+      "supports": [
+       "Kazakh/Central Asian mainline through desert"
+      ]
+     },
+     {
+      "category": "utility",
+      "observation": "A-frame (portal) wooden/concrete pole with braced legs plus separate single concrete poles — typical Kazakh/Russian rural 6-10 kV line hardware",
+      "weight": "medium",
+      "level": "macro_region",
+      "image_index": 1,
+      "supports": [
+       "post-Soviet steppe electrification"
+      ]
+     },
+     {
+      "category": "vegetation",
+      "observation": "Sparse saxaul-like shrubs and grey-green halophytic bushes over pale reddish-tan sandy clay — Turan desert / Ustyurt-Aral vegetation",
+      "weight": "high",
+      "level": "admin_region",
+      "image_index": 3,
+      "supports": [
+       "western Kazakhstan desert, not northern grain steppe"
+      ]
+     },
+     {
+      "category": "terrain",
+      "observation": "Absolutely flat horizon with no mountains in any frame; low bare plateau edge in the distance",
+      "weight": "medium",
+      "level": "admin_region",
+      "image_index": 3,
+      "supports": [
+       "Caspian depression / Ustyurt, rules out southeast Kazakhstan"
+      ]
+     },
+     {
+      "category": "road",
+      "observation": "Narrow two-lane asphalt with no center line in one frame, patched and oil-bled surface, gravel shoulders — long-distance low-traffic republican road",
+      "weight": "medium",
+      "level": "admin_region",
+      "image_index": 0,
+      "supports": [
+       "remote western corridor"
+      ]
+     },
+     {
+      "category": "architecture",
+      "observation": "Settlement of new one/two-storey brick and rendered houses with red-brown hipped metal roofs behind solid brick perimeter walls, on bare sand",
+      "weight": "high",
+      "level": "metro_area",
+      "image_index": 4,
+      "supports": [
+       "Kazakh oil-region boomtown suburb"
+      ]
+     },
+     {
+      "category": "infrastructure",
+      "observation": "Modern dual-carriageway with steel W-beam guardrail and rows of tall street lamps entering the settlement — recently upgraded corridor",
+      "weight": "medium",
+      "level": "metro_area",
+      "image_index": 4,
+      "supports": [
+       "upgraded Aktau/Beyneu-area highway"
+      ]
+     },
+     {
+      "category": "vehicles",
+      "observation": "White Lada Largus-type estate and sedans, right-hand-traffic driving",
+      "weight": "low",
+      "level": "country",
+      "image_index": 2,
+      "supports": [
+       "CIS vehicle market"
+      ]
+     }
+    ],
+    "cultural_economic_read": "A thinly populated desert transport corridor in the post-Soviet Turkic sphere: Soviet-era road and rail hardware (banded concrete posts, crossbuck plus twin-light crossing, A-frame poles) coexisting with clearly recent investment — fresh asphalt, guardrails, street lighting and a rash of newly built walled brick houses with metal hipped roofs on raw sand. That combination of extreme emptiness plus visible new private wealth is the signature of Kazakhstan's western oil-and-gas belt, where transit revenue and hydrocarbon jobs fund settlement growth far from any agricultural base.",
+    "languages_detected": [
+     {
+      "language": "None legible (Latin 'STOP' only)",
+      "script": "Latin",
+      "confidence": 0.5,
+      "evidence": "Standard red octagon reading STOP at the level crossing; no Cyrillic or Kazakh text resolvable in any frame"
+     }
+    ],
+    "landmarks": [
+     {
+      "name": "Single-track desert railway level crossing",
+      "type": "rail crossing",
+      "confidence": 0.9,
+      "image_index": 2
+     },
+     {
+      "name": "New walled housing district on the highway edge",
+      "type": "settlement",
+      "confidence": 0.7,
+      "image_index": 4
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which arid landmass is this — Central Asia, North Africa/Middle East, or interior Australia/Americas?",
+      "candidates": [
+       "Central Asia (post-Soviet)",
+       "North Africa / Middle East",
+       "Australia",
+       "US Southwest / Argentina"
+      ],
+      "observation": "Black-and-white chevron-banded concrete delineator posts, GOST-style crossbuck with twin red lamps on a lattice mast, A-frame timber/concrete power poles.",
+      "discriminator": "Australia would show white plastic flexible guide posts with red/white reflectors and Roman-alphabet distance signs in km on green; the US Southwest would use yellow-fluorescent diamond warning signs and wooden round poles with transformers; the Maghreb would show French/Arabic bilingual panels and blue-and-white kilometre stones. None appear; the hardware kit is unmistakably Soviet-derived.",
+      "ruled_out": [
+       "Australia — no reflective flexible guideposts or fauna signage",
+       "US Southwest — no yellow diamond MUTCD signs",
+       "North Africa — no Arabic script, no French-style kilometre markers"
+      ],
+      "conclusion": "Post-Soviet Central Asia / Caspian arid zone",
+      "confidence_after": 0.9,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Within the post-Soviet desert belt: Kazakhstan, Uzbekistan, Turkmenistan, or Russian Kalmykia/Astrakhan?",
+      "candidates": [
+       "Kazakhstan",
+       "Uzbekistan",
+       "Turkmenistan",
+       "Russia (Astrakhan/Kalmykia)"
+      ],
+      "observation": "Wide clean two-lane asphalt with fresh paint plus, in another frame, an upgraded dual carriageway with W-beam guardrail and continuous lamp columns; a Lada Largus-type car; no cotton irrigation, no roadside checkpoints or ornamental arches.",
+      "discriminator": "Uzbekistan's desert roads carry heavy Chevrolet/Daewoo-only traffic, frequent police posts and cotton/irrigation canals near settlements; Turkmenistan shows white marble-clad public buildings, ubiquitous white cars and near-zero Street View coverage; Astrakhan/Kalmykia would show Russian blue road signs with Cyrillic place names and denser reed-lined water. Here we get an empty, well-funded transit corridor with Russian-market cars and brand-new private brick housing — the Kazakh oil-region pattern.",
+      "ruled_out": [
+       "Turkmenistan — essentially no Street View, and no marble/white-car signature",
+       "Uzbekistan — no irrigated cotton land or dense mixed traffic",
+       "Russia (Astrakhan) — no Cyrillic-labelled blue directional panels, landscape too saline-desert"
+      ],
+      "conclusion": "Kazakhstan",
+      "confidence_after": 0.78,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Northern grain steppe, southeastern piedmont, or the western Caspian desert?",
+      "candidates": [
+       "North Kazakhstan (Petropavl-Kostanay)",
+       "Southeast (Almaty-Shymkent piedmont)",
+       "West (Mangystau-Atyrau-Aktobe desert)"
+      ],
+      "observation": "Pale reddish sand with saxaul-type shrubs and wormwood, no tilled fields, no trees, no mountains on any horizon; heat haze and low plateau edge.",
+      "discriminator": "North Kazakhstan would give black-soil ploughland, birch copses and grain elevators; the southeast would show the Tien Shan/Zhetysu Alatau wall on the horizon, poplar windbreaks and irrigation ditches. Neither exists — this is Turan/Ustyurt desert.",
+      "ruled_out": [
+       "North Kazakhstan — no chernozem cropland or birch belts",
+       "Southeast Kazakhstan — no mountains, no poplar lines or canals"
+      ],
+      "conclusion": "Western Kazakhstan desert belt",
+      "confidence_after": 0.72,
+      "weight": "high"
+     },
+     {
+      "level": "cultural_sphere",
+      "question": "Slavic-settled steppe or Kazakh-majority Turkic sphere?",
+      "candidates": [
+       "Russian/Slavic settler zone",
+       "Kazakh Turkic sphere"
+      ],
+      "observation": "Settlement consists of large walled compounds with hipped metal roofs, no Orthodox church, no izba-style timber cottages or picket fences; construction is brick-and-render behind full-height boundary walls.",
+      "discriminator": "A Slavic settler village would show wooden or slate-blue painted single-storey houses with carved window frames, low fences, garden plots and often a church cupola. The walled courtyard house on bare sand is the Kazakh/Central Asian pattern.",
+      "ruled_out": [
+       "Russian/Slavic settler zone — no timber izbas, no church, no garden allotments"
+      ],
+      "conclusion": "Kazakh-majority Turkic settlement culture",
+      "confidence_after": 0.72,
+      "weight": "medium"
+     },
+     {
+      "level": "admin_region",
+      "question": "Which western oblast — Atyrau delta, Aktobe desert, or Mangystau plateau?",
+      "candidates": [
+       "Atyrau",
+       "Aktobe (south)",
+       "Mangystau"
+      ],
+      "observation": "Single non-electrified track running dead straight beside the road through saxaul desert; ground is sandy-red rather than white salt crust; a settlement with visibly new prosperity sits directly on a lit dual carriageway.",
+      "discriminator": "Atyrau's surroundings are lower, wetter and salt-white with reed and delta channels; Mangystau proper shows chalk-white cliffs, limestone escarpments and lighter grey gravel. The red-sand saxaul plain with a lone mainline railway matches the Beyneu–Shalkar corridor on the Mangystau/Aktobe border.",
+      "ruled_out": [
+       "Atyrau — no salt flats, reeds or delta channels",
+       "Mangystau coastal escarpment — no white chalk cliffs or limestone plateau edges"
+      ],
+      "conclusion": "Beyneu–Shalkar rail-and-road corridor, Mangystau/Aktobe border desert",
+      "confidence_after": 0.45,
+      "weight": "medium"
+     },
+     {
+      "level": "metro_area",
+      "question": "Which settlement does the lit, guard-railed dual carriageway serve?",
+      "candidates": [
+       "Beyneu",
+       "Shalkar",
+       "Aktau outskirts",
+       "Zhanaozen"
+      ],
+      "observation": "Lit four-lane approach with guardrail and a large tract of brand-new walled houses, but still surrounded by empty sand — a district-centre-sized town, not a city.",
+      "discriminator": "Aktau's outskirts would show Caspian light, apartment microdistricts and the sea haze; Zhanaozen would be ringed by oilfield pump jacks and pipelines. Here there is only bare desert and a railway, consistent with the rail junction town of Beyneu; Shalkar cannot be fully excluded on the imagery alone.",
+      "ruled_out": [
+       "Aktau — no coastal microdistrict blocks or sea horizon",
+       "Zhanaozen — no visible oilfield infrastructure"
+      ],
+      "conclusion": "A rail-junction desert town, most likely Beyneu",
+      "confidence_after": 0.4,
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.62,
+    "place_slug": "beyneu",
+    "alternatives": [
+     {
+      "country": "Kazakhstan",
+      "country_iso": "KZ",
+      "confidence": 0.3
+     },
+     {
+      "country": "Uzbekistan",
+      "country_iso": "UZ",
+      "confidence": 0.12
+     },
+     {
+      "country": "Turkmenistan",
+      "country_iso": "TM",
+      "confidence": 0.05
+     }
+    ],
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2147,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4394,
+    "cacheWrite": 16427,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Kazakhstan",
+    "country_iso": "KZ",
+    "country_correct": true,
+    "region": "Mangystau / Aktobe region (Caspian desert belt)",
+    "city": "Beyneu",
+    "confidence": 0.42,
+    "overall_confidence": 0.62,
+    "error_km": 102.12,
+    "reached_level": "metro_area",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 10,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "infrastructure",
+     "rail",
+     "road",
+     "road_furniture",
+     "signage",
+     "terrain",
+     "utility",
+     "vegetation",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Beyneu",
+     "confidence": 0.5,
+     "coordinate_estimate": {
+      "lat": 45.32,
+      "lng": 55.19,
+      "radius_km": 45
+     },
+     "country": "Kazakhstan",
+     "country_iso": "KZ",
+     "region_or_state": "Mangystau Region"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Kazakhstan",
+      "country_iso": "KZ"
+     },
+     {
+      "confidence": 0.15,
+      "country": "Uzbekistan",
+      "country_iso": "UZ"
+     },
+     {
+      "confidence": 0.07,
+      "country": "Turkmenistan",
+      "country_iso": "TM"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Cold arid desert / saline clay-sand shrub desert (BWk), saxaul and wormwood cover",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "cultural_sphere",
+      "observation": "Black-and-white striped concrete delineator posts of the Soviet GOST pattern flank the road edge, plus a small triangular warning sign with a red diagonal 'narrowing/edge' pictogram.",
+      "supports": [
+       "former USSR",
+       "Central Asia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 2,
+      "level": "cultural_sphere",
+      "observation": "Level crossing furniture is fully post-Soviet: St Andrew's cross (red X) plate, two-lamp electric flashers on a braced wooden mast, and a red-bordered triangle with a 'uneven road / hump' pictogram.",
+      "supports": [
+       "former USSR"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 2,
+      "level": "country",
+      "observation": "The octagonal stop sign reads 'STOP' in Latin letters, not Cyrillic 'СТОП' — the mixed Latin/Cyrillic transitional signage typical of Kazakhstan rather than Russia's exclusively Cyrillic СТОП.",
+      "supports": [
+       "Kazakhstan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "utility_hardware",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Rural distribution poles are A-frame braced timber/concrete structures with additional angled kicker legs — the reinforced pattern used in high-wind, low-frost desert lines of western Kazakhstan rail corridors.",
+      "supports": [
+       "western Kazakhstan",
+       "rail corridor"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "transport",
+      "image_index": 1,
+      "level": "metro_area",
+      "observation": "A single-track, unelectrified, well-ballasted mainline runs dead straight parallel to the highway across open desert, with signal/relay cabinets — a long-haul freight trunk line, not a branch.",
+      "supports": [
+       "Beyneu–Aktau/Uzbekistan rail trunk"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 3,
+      "level": "macro_region",
+      "observation": "Ground cover is sparse saxaul-type woody shrubs and wormwood tufts on reddish-tan sandy-saline soil; absolutely no trees, no cultivation, dead-flat horizon.",
+      "supports": [
+       "Ustyurt / Caspian depression desert"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Town edge shows brand-new single-family brick and rendered villas with metal hipped roofs (red/brown) behind solid painted perimeter walls on freshly graded bare sand plots — no izbas, no khrushchevkas, no mud-brick mahalla courtyards.",
+      "supports": [
+       "Mangystau Kazakh oil/rail boomtown"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Approach road is upgraded: W-beam guardrail, crisp lane markings and a long row of tall street-light masts, contrasting sharply with the unshouldered, patched two-lane desert road outside town.",
+      "supports": [
+       "town approach of a funded transit node"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "weather",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Wet asphalt from a brief convective shower under cumulus with dry desert soil beside it — continental desert summer storm, not maritime climate.",
+      "supports": [
+       "interior Central Asia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 2,
+      "level": "country",
+      "observation": "A white Lada Largus-type estate (Russian-market model widely sold across Kazakhstan) with a rectangular light-coloured plate, driving on the right.",
+      "supports": [
+       "post-Soviet",
+       "right-hand traffic"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which continent/roadside-furniture family does this belong to?",
+      "candidates": [
+       "former USSR / Central Asia",
+       "North America",
+       "Australia",
+       "North Africa",
+       "Middle East"
+      ],
+      "observation": "Black-white striped concrete delineators, GOST triangular warnings, braced wooden power poles, narrow shoulderless asphalt.",
+      "discriminator": "North America would show green mileposts, W-beam guardrail everywhere and wide gravel shoulders; Australia yellow diamond warnings and wire-rope barrier; North Africa bilingual Arabic-French panels and blue-white kilometre stones; Gulf states would have wide multi-lane blacktop with Arabic gantries.",
+      "ruled_out": [
+       "North America — no green mileposts or wide shoulders",
+       "Australia — no yellow diamond signs",
+       "North Africa/Middle East — no Arabic script anywhere"
+      ],
+      "conclusion": "Post-Soviet space, arid belt",
+      "confidence_after": 0.95,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Russia, Uzbekistan, Turkmenistan or Kazakhstan?",
+      "candidates": [
+       "Russia (Kalmykia/Astrakhan)",
+       "Uzbekistan",
+       "Turkmenistan",
+       "Kazakhstan"
+      ],
+      "observation": "Latin 'STOP' octagon on a GOST-template post; no Cyrillic-only СТОП; Lada Largus in service; no Uzbek-style blue-white kilometre obelisks or Turkmen white marble/green trim furniture.",
+      "discriminator": "Russia uses СТОП in Cyrillic on its stop signs and would show Lukoil/Tatneft/Gazprom Neft branding at any approach; Uzbekistan (Latin since 1995) pairs Latin text with distinctive light-blue framed information panels and dense cotton irrigation near settlements; Turkmenistan shows green-and-white nationalist roadside decor and far emptier private-car fleet. Here the mixed Latin-on-GOST vocabulary with a Russian-market fleet is the Kazakh transitional signature.",
+      "ruled_out": [
+       "Russia — stop sign is Latin STOP, not СТОП",
+       "Uzbekistan — no irrigated cotton/mahalla fabric at the town edge",
+       "Turkmenistan — no marble/green state-decor furniture"
+      ],
+      "conclusion": "Kazakhstan",
+      "confidence_after": 0.86,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Which desert/steppe macro-region of Kazakhstan?",
+      "candidates": [
+       "northern cereal forest-steppe",
+       "central granite-outcrop steppe (Karaganda)",
+       "southeastern Tien Shan foothills",
+       "western Ustyurt/Caspian depression desert"
+      ],
+      "observation": "Dead-flat horizon in every direction, reddish-tan saline sand, saxaul shrubs, zero trees, zero cultivation, zero relief.",
+      "discriminator": "Northern Kazakhstan would show wheat fields and birch shelterbelts; Karaganda-area steppe rolling terrain with granite tors and grass rather than woody saxaul; the southeast would show poplar rows, irrigation ditches and mountain silhouettes on the horizon. None of these are present.",
+      "ruled_out": [
+       "north — no cereal fields/birch",
+       "central — no relief or granite outcrops",
+       "southeast — no mountains, no poplars/irrigation"
+      ],
+      "conclusion": "Western Kazakhstan: Ustyurt / Caspian-depression desert margin (Mangystau–Atyrau)",
+      "confidence_after": 0.8,
+      "weight": "high"
+     },
+     {
+      "level": "admin_region",
+      "question": "Atyrau/Aktobe side or Mangystau side of the western desert?",
+      "candidates": [
+       "Atyrau Region",
+       "Aktobe Region south",
+       "Mangystau Region"
+      ],
+      "observation": "An unelectrified single-track trunk railway runs straight beside the highway with proper crossing signals; the settlement is a brand-new brick-villa grid with walled compounds on raw sand, plus heavily upgraded lighting and guardrail on approach.",
+      "discriminator": "Atyrau-side roads run through delta/reed and oilfield flare infrastructure with Soviet-era apartment blocks in towns; southern Aktobe would show plough-land patches and older whitewashed cottages. The combination of a lone desert rail trunk plus oil/rail-wage new-build villa grid is the Mangystau (Adai / Junior Zhuz Kazakh) pattern.",
+      "ruled_out": [
+       "Atyrau — no delta reeds, flares or Soviet blocks",
+       "Aktobe south — no cultivation or older settler housing"
+      ],
+      "conclusion": "Mangystau Region, along the rail-and-highway corridor",
+      "confidence_after": 0.62,
+      "weight": "medium"
+     },
+     {
+      "level": "metro_area",
+      "question": "Which node on the Mangystau rail corridor — Beyneu, Shetpe/Zhanaozen, or Aktau outskirts?",
+      "candidates": [
+       "Beyneu",
+       "Shetpe",
+       "Zhanaozen",
+       "Aktau outskirts"
+      ],
+      "observation": "Highway crosses the railway at grade in totally open flat desert, then a few kilometres later a low-rise walled-villa town edge with new street lighting; no Caspian escarpment, no chalk cliffs, no sea haze, no oilfield derrick clusters.",
+      "discriminator": "Shetpe sits under the white chalk Aktau/Karatau ridges — a scarp would dominate the horizon; Zhanaozen would be ringed by nodding donkeys and pipeline racks; Aktau's outskirts would show mid-rise apartment blocks and Caspian humidity/salt haze. A flat crossing of the Aral–Caspian rail trunk on a dead-flat plain fits the Beyneu junction approach.",
+      "ruled_out": [
+       "Shetpe — no chalk scarp on horizon",
+       "Zhanaozen — no oil pumping infrastructure",
+       "Aktau — no apartment blocks or sea"
+      ],
+      "conclusion": "Beyneu rail-junction area, approach on the A-27/Aktobe–Beyneu axis",
+      "confidence_after": 0.5,
+      "weight": "medium"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.9,
+      "evidence": "Octagonal red sign reading 'STOP' in Latin capitals at the level crossing (image 2)",
+      "language": "Kazakh/Russian roadway signage using Latin loanword",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.75,
+      "image_index": 1,
+      "name": "Single-track desert trunk railway (Aral–Caspian / Beyneu corridor)",
+      "type": "railway line"
+     },
+     {
+      "confidence": 0.6,
+      "image_index": 2,
+      "name": "Unbarriered signalled level crossing",
+      "type": "transport infrastructure"
+     },
+     {
+      "confidence": 0.55,
+      "image_index": 4,
+      "name": "New-build walled villa quarter on bare sand grid",
+      "type": "settlement edge"
+     }
+    ],
+    "cultural_economic_read": "A Turkic-Muslim Kazakh desert corridor economy, not an agrarian one: no fields, no trees, no irrigation — subsistence is impossible here, so the visible wealth comes from elsewhere. Two arteries carry it: the single-track freight trunk line running dead straight beside the highway (rail transit, wagon crews, junction employment) and hydrocarbon wages from Mangystau. The signature is the contrast between the frames: outside town the road is a patched, shoulderless two-lane strip with 1970s-era GOST delineators and hand-braced timber power poles, while the town approach suddenly has W-beam guardrail, fresh paint and a long line of street lights. The housing confirms the source: brand-new single-family brick and rendered villas with metal hipped roofs behind solid painted perimeter walls, on freshly surveyed bare-sand plots — Junior Zhuz/Adai Kazakh family-compound typology funded by oil and rail cash, with none of the Russian-settler izba or khrushchevka fabric and none of the Karakalpak/Uzbek mud-brick mahalla courtyards. Signage is in the transitional Kazakh register: a Soviet-template sign carrying Latin 'STOP', a state still mid-way between Cyrillic and Latin.",
+    "overall_confidence": 0.62,
+    "place_slug": "beyneu",
+    "relied_on_atoms": [
+     "atm_df67f805f8ad",
+     "atm_7a93556dc671",
+     "atm_5d726c3f561e",
+     "atm_191ca560edf9",
+     "atm_9a557d0b3688"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1384,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2970,
+    "output": 4615,
+    "cacheWrite": 0,
+    "cacheRead": 16427
+   },
+   "metrics": {
+    "country": "Kazakhstan",
+    "country_iso": "KZ",
+    "country_correct": true,
+    "region": "Mangystau Region",
+    "city": "Beyneu",
+    "confidence": 0.5,
+    "overall_confidence": 0.62,
+    "error_km": 101.74,
+    "reached_level": "metro_area",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 10,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "architecture",
+     "infrastructure",
+     "language",
+     "transport",
+     "utility_hardware",
+     "vegetation",
+     "vehicles",
+     "weather"
+    ]
+   },
+   "known_offered": [
+    "atm_df67f805f8ad",
+    "atm_296c5163328d",
+    "atm_7a93556dc671",
+    "atm_9a557d0b3688",
+    "atm_191ca560edf9",
+    "atm_5d726c3f561e",
+    "atm_c2c5ced5d1a1",
+    "atm_a5822442b0ee",
+    "atm_ef1e5540144e",
+    "atm_cf38712e2c3e"
+   ],
+   "relied_on": [
+    "atm_df67f805f8ad",
+    "atm_7a93556dc671",
+    "atm_5d726c3f561e",
+    "atm_191ca560edf9",
+    "atm_9a557d0b3688"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "KZ",
+   "country": "Kazakhstan",
+   "region": "Mangystau Region",
+   "city": "Beyneu",
+   "lat": 45.32,
+   "lng": 55.19,
+   "error_km": 101.74,
+   "reached_level": "metro_area",
+   "confidence": 0.5,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 101.74,
+  "bucket": ">=100"
+ },
+ "correction": {
+  "cost_usd": 0.21006,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5412,
+   "output": 3316,
+   "cacheWrite": 16016,
+   "cacheRead": 0
+  },
+  "summary": "Kazakhstan / Mangystau / Beyneu was confirmed at country, region and city level; only the coordinate estimate was ~100 km off along the same rail-and-highway corridor. The decisive visible cues were the Latin 'STOP' octagon on a GOST-template post, black-white striped concrete delineators and A-frame braced timber poles, the unelectrified single-track desert trunk railway crossed at grade, saxaul/wormwood on reddish-tan saline sand, and the new walled brick-villa grid with upgraded lighting and W-beam guardrail on the town approach. Russia, Uzbekistan and Turkmenistan were correctly excluded on script, settlement fabric and roadside decor.",
+  "misleading_cues": [
+   {
+    "observation": "Level crossing sits in dead-flat open desert with no scarp, no oil derricks and no sea haze (img 1-2)",
+    "why_misleading": "Such featureless flats repeat for hundreds of kilometres along the Ustyurt/Caspian-depression corridor, so they give no leverage on distance along the corridor — the analyst pinned the point ~100 km off despite naming the right town."
+   },
+   {
+    "observation": "Faint tall masts on the horizon in img 3 read as generic desert infrastructure",
+    "why_misleading": "Distant vertical structures in this haze cannot be reliably resolved and give no directional constraint; treating them as neutral cost a chance to bracket the town side."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Octagonal red sign reading 'STOP' in Latin letters, mounted on a GOST-style thin steel post next to a Cyrillic-free GOST warning triangle",
+    "why_decisive": "Kazakhstan uses Latin 'STOP' on otherwise Soviet-standard sign templates, whereas Russia uses Cyrillic СТОП — this fixes the country inside the post-Soviet desert belt.",
+    "category": "signage-language",
+    "image_index": 2
+   },
+   {
+    "observation": "Black-and-white striped concrete delineator posts and short striped guide posts lining the shoulderless two-lane asphalt",
+    "why_decisive": "Classic GOST roadside vocabulary, confining the scene to the former USSR and excluding North America/Australia/North Africa.",
+    "category": "bollard-guardrail",
+    "image_index": 0
+   },
+   {
+    "observation": "Braced A-frame timber/concrete distribution poles with angled kicker legs carrying a bare-wire line along the rail",
+    "why_decisive": "Reinforced A-frame rural lines are characteristic of windy, low-frost western Kazakh rail corridors, supporting the macro-region call.",
+    "category": "utility-pole",
+    "image_index": 1
+   },
+   {
+    "observation": "Single-track, unelectrified, well-ballasted mainline running dead straight parallel to the road with relay cabinets, crossed at grade with two-lamp flashers and St Andrew's cross",
+    "why_decisive": "A long-haul freight trunk in empty desert matches the Aral–Caspian rail axis through Beyneu rather than a local branch.",
+    "category": "logistics",
+    "image_index": 2
+   },
+   {
+    "observation": "Sparse woody saxaul shrubs and wormwood tufts on reddish-tan saline sand, no trees, no cultivation, perfectly flat horizon",
+    "why_decisive": "This is the Ustyurt/Caspian-depression signature, excluding the cereal-and-birch north and the irrigated/mountain southeast.",
+    "category": "vegetation-cue",
+    "image_index": 3
+   },
+   {
+    "observation": "Town edge of brand-new single-family brick and rendered villas with red/brown metal hipped roofs behind solid painted perimeter walls on freshly graded bare sand",
+    "why_decisive": "Oil/rail-wage new-build villa grids on raw sand are the Mangystau Kazakh desert-town pattern, not Soviet blocks or mud-brick mahalla courtyards.",
+    "category": "housing-typology",
+    "image_index": 4
+   },
+   {
+    "observation": "Sharp contrast between patched unshouldered desert road and the town approach with W-beam guardrail, crisp markings and a long row of tall lighting masts",
+    "why_decisive": "Locally upgraded approach infrastructure marks a funded transit/boomtown node rather than a village.",
+    "category": "infrastructure-built",
+    "image_index": 4
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Latin STOP on GOST posts means Kazakhstan, not Russia",
+    "body": "In Kazakhstan the octagonal stop sign carries Latin 'STOP' while the rest of the roadside kit stays Soviet-standard (striped concrete delineators, red-bordered triangles). In Russia you would instead see Cyrillic 'СТОП' on the octagon, plus Lukoil/Gazprom Neft/Tatneft branding at any roadside service point.",
+    "layer": "language",
+    "category": "signage-language",
+    "scope": "country",
+    "tags": [
+     "stop-sign",
+     "script",
+     "gost"
+    ],
+    "entities": [
+     "Kazakhstan",
+     "Russia"
+    ],
+    "looks_like": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Astrakhan/Kalmykia"
+    },
+    "actually": {
+     "country_iso": "KZ",
+     "country": "Kazakhstan",
+     "region": "Mangystau Region"
+    },
+    "confidence": 0.85
+   },
+   {
+    "title": "Mangystau new-build walled villas vs Uzbek mahalla courtyards",
+    "body": "In western Kazakhstan desert towns the edge is a grid of new brick/rendered single-family villas with metal hipped roofs behind solid painted walls on bare graded sand. In Uzbekistan you would instead see mud-brick or plastered mahalla courtyard fabric with flat roofs, dense poplar rows and irrigation ditches right up to the town edge.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "region",
+    "tags": [
+     "villa",
+     "perimeter-wall",
+     "desert-town"
+    ],
+    "entities": [
+     "Kazakhstan",
+     "Uzbekistan"
+    ],
+    "looks_like": {
+     "country_iso": "UZ",
+     "country": "Uzbekistan",
+     "region": "Karakalpakstan"
+    },
+    "actually": {
+     "country_iso": "KZ",
+     "country": "Kazakhstan",
+     "region": "Mangystau Region"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Saxaul flats without state decor exclude Turkmenistan",
+    "body": "In Kazakh Ustyurt desert corridors roadside furniture is plain Soviet-legacy: striped concrete posts, weathered timber A-frames, patched asphalt. In Turkmenistan you would instead find white-and-green painted state furniture, ornamental marble-clad gateways at settlement edges and a much sparser private car fleet.",
+    "layer": "culture",
+    "category": "street-furniture",
+    "scope": "country",
+    "tags": [
+     "ustyurt",
+     "state-decor"
+    ],
+    "entities": [
+     "Kazakhstan",
+     "Turkmenistan"
+    ],
+    "looks_like": {
+     "country_iso": "TM",
+     "country": "Turkmenistan",
+     "region": "Balkan"
+    },
+    "actually": {
+     "country_iso": "KZ",
+     "country": "Kazakhstan",
+     "region": "Mangystau Region"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Beyneu-type rail-trunk crossing vs Mangystau chalk-scarp towns",
+    "body": "Around Beyneu the highway meets an unelectrified single-track freight trunk at grade on a dead-flat plain with no relief in any direction. Near Shetpe or Aktau you would instead see white chalk escarpments or Karatau ridges on the horizon, and towards Zhanaozen pump-jack and pipeline clusters beside the road.",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "tags": [
+     "level-crossing",
+     "flat-horizon",
+     "mangystau"
+    ],
+    "entities": [
+     "Beyneu",
+     "Shetpe/Aktau"
+    ],
+    "looks_like": {
+     "country_iso": "KZ",
+     "country": "Kazakhstan",
+     "region": "Mangystau (Shetpe/Aktau escarpment belt)"
+    },
+    "actually": {
+     "country_iso": "KZ",
+     "country": "Kazakhstan",
+     "region": "Mangystau Region, Beyneu District"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Reinforced A-frame timber poles mark windy western Kazakh corridors",
+    "body": "Along western Kazakhstan rail-and-road corridors distribution poles are often A-frames with extra angled kicker legs to resist wind on loose saline sand. In northern or central Kazakhstan you would more often see plain single concrete poles with simple pin insulators plus birch or shelterbelt vegetation behind them.",
+    "layer": "economy",
+    "category": "utility-pole",
+    "scope": "region",
+    "tags": [
+     "a-frame",
+     "wind",
+     "rail-corridor"
+    ],
+    "entities": [
+     "Western Kazakhstan",
+     "Northern Kazakhstan"
+    ],
+    "looks_like": {
+     "country_iso": "KZ",
+     "country": "Kazakhstan",
+     "region": "Northern Kazakhstan"
+    },
+    "actually": {
+     "country_iso": "KZ",
+     "country": "Kazakhstan",
+     "region": "Mangystau Region"
+    },
+    "confidence": 0.55
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_df67f805f8ad",
+   "atm_7a93556dc671",
+   "atm_5d726c3f561e",
+   "atm_191ca560edf9",
+   "atm_9a557d0b3688"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_3d749d8750f5",
+   "atm_a17b789438ca",
+   "atm_cbb4d80090b5",
+   "atm_349a166db7f2",
+   "atm_d1aae5dd7a36"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_3d749d8750f5",
+   "atm_a17b789438ca",
+   "atm_cbb4d80090b5",
+   "atm_349a166db7f2",
+   "atm_d1aae5dd7a36"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_df67f805f8ad",
+   "atm_7a93556dc671",
+   "atm_5d726c3f561e",
+   "atm_191ca560edf9",
+   "atm_9a557d0b3688"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": []
+ },
+ "cost_usd": 0.5632,
+ "status": "OK"
+}

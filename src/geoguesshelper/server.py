@@ -129,6 +129,7 @@ def _build_reports_sync(
     job.raise_if_canceled()
     base_result: dict | None = None
     analysis_lang = base
+    pre_known: list = []       # 분석 전 회상(시작 좌표) — 결과 knowledge.pre_recalled 로 남긴다
     if isinstance(primary, dict) and (primary.get("analysis") or primary.get("best_guess")):
         # 클라이언트가 이미 분석 결과를 갖고 있으면 재분석하지 않는다(비전 호출 절약).
         if not primary.get("analysis") and primary.get("best_guess"):
@@ -139,7 +140,22 @@ def _build_reports_sync(
     else:
         job.emit("analyze", f"장면 분석 중… ({len(files)}장 · {i18n.native_name(base)})", 10)
         paths = [settings.captures_dir / Path(f).name for f in files]
-        base_result = analyze_captures(paths, settings, base)
+        # 분석 **전에** 시작 좌표로 회상해 프롬프트에 넣는다(기획 260906 §prompt "analyze_captures 에 회상 주입" —
+        # 장면 분석이 유일하게 원자를 안 보던 단계였다). 정정 루프가 만든 "X 처럼 보이지만 X2" 판별자가
+        # 여기서 다음 판단을 유도한다. aided 계층(지도가 있어야만 나온 사실)은 recall 이 기본으로 뺀다.
+        # 회상 실패는 분석을 막지 않는다.
+        if settings.knowledge_enabled and start_lat is not None and start_lng is not None:
+            try:
+                pre_known = knowledge.recall(
+                    settings, lat=start_lat, lng=start_lng, kinds=None, exclude_tiers=("aided",),
+                    limit=settings.knowledge_recall_limit, ctx={"job": job.id, "mode": "aided"},
+                )
+            except Exception as exc:  # noqa: BLE001
+                job.emit("analyze", f"⚠ 사전 회상 실패(무시): {type(exc).__name__}", 10)
+                pre_known = []
+            if pre_known:
+                job.emit("analyze", f"사전 회상 {len(pre_known)}건 — 분석 프롬프트에 주입", 12)
+        base_result = analyze_captures(paths, settings, base, known=pre_known)
         if base_result.get("status") == "OK":
             total_cost += base_result.get("cost_usd") or 0.0
 
@@ -441,6 +457,9 @@ def _build_reports_sync(
         },
         "knowledge": {
             "recalled": [a.id for a in known],
+            # 분석 프롬프트에 실린 원자와 모델이 실제로 대조해 썼다고 적은 원자 — 관측소 "쓰이고 있다" 의 근거.
+            "pre_recalled": [a.id for a in pre_known],
+            "relied_on": [i for i in (analysis.get("relied_on_atoms") or []) if isinstance(i, str)],
             "created": kb.get("created", 0),
             "merged": kb.get("merged", 0),
             "skipped": kb.get("skipped"),
@@ -462,6 +481,42 @@ def _make_handlers(settings: Settings):
             raise jobs.JobFailure((result or {}).get("message") or "작업 실패", result)
         return result
 
+    async def _queue_correction(job: jobs.Job, result: dict) -> None:
+        """보고서 잡 성공 직후 — 정정 루프를 **예산 밖 후속 잡**으로 큐에 넣는다(impl-spec §3.5).
+
+        보고서 잡 자체는 그대로 끝난다. 재료(primaryAnalysis.image_panos·images)가 없으면 아무것도
+        하지 않고, 등록 실패는 삼키고 로그만 남긴다 — 정정은 부가 학습이지 보고서의 일부가 아니다.
+        client_key 로 같은 보고서에 정정이 두 번 걸리지 않게 한다.
+        """
+        if not settings.correction_enabled or _QUEUE is None:
+            job.emit("correct", "정정 생략 — correction_enabled 꺼짐" if not settings.correction_enabled
+                     else "정정 생략 — 큐 없음", job.pct)
+            return
+        pa = (result or {}).get("primaryAnalysis") or {}
+        if not isinstance(pa, dict):
+            job.emit("correct", "정정 생략 — 분석 결과 없음", job.pct)
+            return
+        # 클라이언트가 분석 결과를 재사용시키면(payload.analysis) base_result 에 images 가 없다 —
+        # 캡처 목록은 payload.files 에, pano 좌표는 payload.panos 에 있으므로 거기서 보충한다.
+        # (e2e 실측 260907: images 없음 → 정정이 조용히 건너뛰어졌다.)
+        if not pa.get("images") and job.payload.get("files"):
+            pa["images"] = [Path(f).name for f in job.payload["files"]]
+        if not pa.get("image_panos") and isinstance(job.payload.get("panos"), dict):
+            pa["image_panos"] = {Path(k).name: v for k, v in job.payload["panos"].items()
+                                 if isinstance(v, dict) and Path(k).name}
+        if not (pa.get("image_panos") and pa.get("images")):
+            job.emit("correct", "정정 생략 — 캡처별 pano 좌표(image_panos) 없음: 정답을 모르면 정정할 수 없다", job.pct)
+            return
+        try:
+            cj = await _QUEUE.submit(
+                "correct",
+                {"source_job_id": job.id, "result": result, "label": job.label, "tabId": job.payload.get("tabId")},
+                label=f"정정 · {job.label}", client_key=f"correct:{job.id}",
+            )
+            job.emit("correct", f"정정 잡 등록 {cj.id} (예산 밖 후속)", job.pct)
+        except Exception as exc:  # noqa: BLE001 — 정정 등록 실패가 보고서 잡을 실패로 만들면 안 된다
+            job.emit("correct", f"⚠ 정정 잡 등록 실패(무시): {type(exc).__name__}: {exc}", job.pct)
+
     async def report_job(job: jobs.Job) -> dict:
         p = job.payload
         files = p.get("files") or []
@@ -469,11 +524,27 @@ def _make_handlers(settings: Settings):
             raise ValueError("리포트 생성에는 캡처(files)가 필요합니다.")
         start = p.get("start") or {}
         elev = await _fetch_elevation(settings, start.get("lat"), start.get("lng"))
-        return _checked(await _in_pool(
+        result = _checked(await _in_pool(
             _build_reports_sync, job, files, _norm_langs(p.get("langs")), settings,
             p.get("analysis"), bool(p.get("research", True)),
             start.get("lat"), start.get("lng"), p.get("panos") or {}, elev,
         ))
+        await _queue_correction(job, result)
+        return result
+
+    async def correct_job(job: jobs.Job) -> dict:
+        """자동 정정 루프(correction.py) — payload {source_job_id, result(보고서 잡 반환 dict), label}."""
+        import functools
+
+        from . import correction
+
+        p = job.payload
+        fn = functools.partial(
+            correction.run_for_result, settings,
+            source_job_id=p.get("source_job_id") or job.id, result=p.get("result") or {},
+            label=p.get("label") or "", log=lambda m: job.emit("correct", str(m)),
+        )
+        return _checked(await _in_pool(fn))
 
     async def scene_report_job(job: jobs.Job) -> dict:
         p = job.payload
@@ -507,7 +578,9 @@ def _make_handlers(settings: Settings):
             None, bool(p.get("research", True)), start_lat, start_lng, cap_panos, elev,
         )
         result["capture"] = cap
-        return _checked(result)
+        result = _checked(result)
+        await _queue_correction(job, result)     # 장면 보고서도 image_panos(cap_panos)가 있다
+        return result
 
     async def atlas_report_job(job: jobs.Job) -> dict:
         """어드바이저 보고서 — 아틀라스 슬라이스(테마 × 범위)를 원자만으로 서술한다.
@@ -528,7 +601,8 @@ def _make_handlers(settings: Settings):
         )
         return _checked(await _in_pool(fn))
 
-    return {"report": report_job, "scene-report": scene_report_job, "atlas-report": atlas_report_job}
+    return {"report": report_job, "scene-report": scene_report_job, "atlas-report": atlas_report_job,
+            "correct": correct_job}
 
 
 # ── 앱 ───────────────────────────────────────────────────────────
@@ -906,6 +980,30 @@ def build_app(settings: Settings) -> FastAPI:
         result = await _in_pool(_synthesize_sync, settings, selector, langs)
         return JSONResponse(result)
 
+    # ── 원자 대화 (docs/plan/atom-dialogue_260906.html · impl-spec §4) ──────────
+    # altaiya 의 관측소가 같은 계약(dialogue_api.py)을 낸다 — 본체는 로컬 개발·in-app 진입용.
+    # 사람 승인 없음: 제안은 인용 관문(문맥 원자·이미지 ≥1)만 통과하면 kind=claim 원자가 된다.
+    @app.post("/api/dialogue")
+    async def api_dialogue(body: dict):
+        from . import dialogue, llm
+
+        body = body or {}
+        try:
+            return JSONResponse(await _in_pool(
+                lambda: dialogue.chat(
+                    settings, atom_ids=body.get("atoms") or [], molecule_id=body.get("molecule"),
+                    images=body.get("images") or [], messages=body.get("messages") or [],
+                    effort=body.get("effort"), lang=body.get("lang") or settings.report_lang,
+                    session=body.get("session"),
+                ),
+            ))
+        except ValueError as exc:
+            return JSONResponse({"error": str(exc)}, status_code=422)
+        except llm.LLMUnavailable as exc:
+            return JSONResponse({"error": str(exc), "available": False}, status_code=503)
+        except llm.LLMTimeout as exc:
+            return JSONResponse({"error": str(exc)}, status_code=504)
+
     # ── 저장소 정리 ─────────────────────────────────────────────
     @app.get("/api/cleanup")
     async def api_cleanup_scan(older_than: float = 0.0, keep_last: int = 0):
@@ -944,7 +1042,8 @@ def build_app(settings: Settings) -> FastAPI:
 
     @app.get("/reports/{name}")
     async def get_report(name: str):
-        # 보고서는 docs/report/{국가}/ 하위 폴더에 놓인다 — 이름으로 찾는다(find_report).
+        # 보고서는 docs/report/country/{iso2}/ 에, 어드바이저 보고서는 docs/atlas/ 에 놓인다 —
+        # 이름으로 찾는다(find_report 가 두 곳을 다 본다).
         # is_file() — 예전 exists() 는 디렉터리에도 True 라 FileResponse 가 500 을 냈다.
         path = find_report(settings, name)
         if path is None or not path.is_file():

@@ -1,0 +1,1072 @@
+{
+ "job_id": "job_f374e57f1b56",
+ "report_file": "report_ae_al-dhaid_25.2947_55.8809_260903_100319_ko-en-fr.html",
+ "label": "선택 장면 보고서 · AnMykD_h…iIKg",
+ "lang": "en",
+ "images": [
+  "capture_e1a85c842441.jpg",
+  "capture_fc11ac7c077d.jpg",
+  "capture_b17caa795e59.jpg",
+  "capture_4c10430f4c02.jpg",
+  "capture_24b03c73aa48.jpg",
+  "capture_a8811c3be0e4.jpg"
+ ],
+ "blind_cut_px": [
+  960,
+  960,
+  960,
+  960,
+  960,
+  960
+ ],
+ "image_panos": {
+  "capture_e1a85c842441.jpg": {
+   "pano_id": "AnMykD_hCUk_s-yxe1iIKg",
+   "lat": 25.29473470195003,
+   "lng": 55.88093560641497,
+   "heading": 272.58860032260816,
+   "pitch": -1.5139913700716363
+  },
+  "capture_fc11ac7c077d.jpg": {
+   "pano_id": "AnMykD_hCUk_s-yxe1iIKg",
+   "lat": 25.29473470195003,
+   "lng": 55.88093560641497,
+   "heading": 351.7865591466162,
+   "pitch": 4.033304979185203
+  },
+  "capture_b17caa795e59.jpg": {
+   "pano_id": "sO-xuaZxyg3Ltj4Eej9GUA",
+   "lat": 25.295047611720197,
+   "lng": 55.8804420664403,
+   "heading": 2.08873559266317,
+   "pitch": 3.307202998401422
+  },
+  "capture_4c10430f4c02.jpg": {
+   "pano_id": "nvVZJGNrpV7l2xB6I8R-CQ",
+   "lat": 25.295200727185225,
+   "lng": 55.8803253903154,
+   "heading": 4.84686540668804,
+   "pitch": 6.218682206222056
+  },
+  "capture_24b03c73aa48.jpg": {
+   "pano_id": "eeGRzOd4IY_1smE3ha5T3w",
+   "lat": 25.295543807600183,
+   "lng": 55.880067412634645,
+   "heading": 58.34163001802895,
+   "pitch": 3.7525839099502036
+  },
+  "capture_a8811c3be0e4.jpg": {
+   "pano_id": "LeZSUX9kPgR8Crw-BLR2Ag",
+   "lat": 25.295835317489274,
+   "lng": 55.879823277093635,
+   "heading": 201.05769772692844,
+   "pitch": 3.389245825574406
+  },
+  "capture_e07c70cb8296.jpg": {
+   "pano_id": "wfN65knchpdBHh7fTvPO0A",
+   "lat": 25.295983419143543,
+   "lng": 55.87970745093179,
+   "heading": 353.09717992589896,
+   "pitch": 1.4368968147460635
+  }
+ },
+ "truth": {
+  "lat": 25.29529718386264,
+  "lng": 55.88031954432081,
+  "iso": "AE",
+  "file_lat": 25.2947,
+  "file_lng": 55.8809,
+  "n_panos": 7
+ },
+ "created": 1788740281.4242637,
+ "blind": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Al Dhaid",
+    "confidence": 0.9,
+    "coordinate_estimate": {
+     "lat": 25.288,
+     "lng": 55.881,
+     "radius_km": 4
+    },
+    "country": "United Arab Emirates",
+    "country_iso": "AE",
+    "region_or_state": "Sharjah Emirate (inland Central Region)"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.05,
+     "country": "United Arab Emirates",
+     "country_iso": "AE"
+    },
+    {
+     "confidence": 0.03,
+     "country": "Oman",
+     "country_iso": "OM"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Hot hyper-arid desert with irrigated date-palm oasis agriculture; hazy sky, dusty ground",
+    "driving_side": "right",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "language",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Shop signs explicitly state 'AL DHAID SHARJAH, U.A.E.' and 'BAB AL DHAID A/C & REF. REP.' with P.O. Box 14623",
+     "supports": [
+      "Al Dhaid, Sharjah, UAE"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "language",
+     "image_index": 3,
+     "level": "district",
+     "observation": "Construction consultant board reads 'Arabian Danah Engineering Consultants, Dhaid - Sharjah - UAE' and the Arabic project line names the district 'حي البستان / الذيد' (Al Bustan neighbourhood, Al Dhaid)",
+     "supports": [
+      "Al Dhaid town, Al Bustan district"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Landline prefix 06 and mobile prefixes 050/055/056/052/058 — the UAE numbering plan; 06 is the Sharjah-area code",
+     "supports": [
+      "UAE, Sharjah emirate"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Wide multi-lane roundabout with landscaped green centre, white gravel edging, yellow/black painted kerbs and slender bent street-light masts — classic Gulf municipal roadscape, right-hand traffic",
+     "supports": [
+      "Arabian Gulf states",
+      "right-hand drive"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Low sand/ochre rendered compound walls, flat roofs, rooftop white water tanks, single slender minaret with small onion cap",
+     "supports": [
+      "Gulf desert town"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "culture",
+     "image_index": 2,
+     "level": "country",
+     "observation": "UAE flag bunting (red-green-white-black) strung across shopfronts, typical of National Day season decoration",
+     "supports": [
+      "UAE"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Mature date palms and ghaf/acacia trees, irrigated flowerbeds along a divided avenue — characteristic of the Al Dhaid inland oasis rather than a coastal city",
+     "supports": [
+      "inland oasis town, Sharjah Central Region"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "economy",
+     "image_index": 3,
+     "level": "district",
+     "observation": "'AL HASABI FEEDS TR.' animal-feed trading shop plus building contractors and hospitality (coffee-pot/dallah) suppliers — agricultural service-town economy",
+     "supports": [
+      "farming hinterland town"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Red-triangle 'traffic signals ahead' warning sign with a 200 m distance plate in the GCC/UK-derived sign style",
+     "supports": [
+      "UAE road authority"
+     ],
+     "weight": "low"
+    },
+    {
+     "category": "commerce",
+     "image_index": 1,
+     "level": "district",
+     "observation": "Ladies salon, tailoring & embroidery and building-contractor offices in a two-storey villa-shophouse hybrid — small-town mixed-use pattern, not a dense city block",
+     "supports": [
+      "small inland town"
+     ],
+     "weight": "low"
+    }
+   ],
+   "cultural_economic_read": "A small, prosperous but distinctly provincial Emirati oasis town: government-standard road engineering (landscaped roundabouts, LED masts, painted kerbs, flag bunting) coexisting with low-rise ochre shophouses, feed traders, tailors and small building contractors. The workforce mix implied by signage (Arabic + English, South Asian-run laundries, salons and A/C repair shops) is the typical UAE hinterland pattern: Emirati landowners and farms, expatriate service traders. Active construction with 2025 permits shows continued state-backed growth outside the coastal metros.",
+   "landmarks": [
+    {
+     "confidence": 0.5,
+     "image_index": 0,
+     "name": "Neighbourhood mosque with slender single minaret",
+     "type": "religious building"
+    },
+    {
+     "confidence": 0.5,
+     "image_index": 5,
+     "name": "Crenellated-wall mosque on Al Dhaid main avenue",
+     "type": "religious building"
+    },
+    {
+     "confidence": 0.8,
+     "image_index": 5,
+     "name": "Ghadah Al Dhaid Grocery",
+     "type": "shop"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.97,
+     "evidence": "صالون الوردة, دلة الواحة لخدمات الضيافة, حي البستان/الذيد",
+     "language": "Arabic",
+     "script": "Arabic"
+    },
+    {
+     "confidence": 0.95,
+     "evidence": "LAUNDRY, LADIES SALON, FEEDS TR., BLDG. CONT. LLC — bilingual sign convention",
+     "language": "English",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Arabian Peninsula",
+      "North Africa",
+      "Levant",
+      "Iran/Pakistan"
+     ],
+     "conclusion": "Arabian Peninsula (Gulf littoral)",
+     "confidence_after": 0.93,
+     "discriminator": "North African towns would show French co-signage and Maghrebi tiled/pitched detailing; Levantine towns would have stone facades, dense balconies and hill terrain; Iran would use Persian script and no English duplication.",
+     "level": "continent",
+     "observation": "Arabic-script signage systematically paired with English transliteration, hyper-arid dust haze, date palms, flat-roof rendered blocks with rooftop water tanks.",
+     "ruled_out": [
+      "North Africa — no French bilingual signage",
+      "Levant — no stone construction or hilly relief",
+      "Iran — Latin co-signage and Gulf phone format absent there"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "UAE",
+      "Oman",
+      "Saudi Arabia",
+      "Qatar",
+      "Kuwait"
+     ],
+     "conclusion": "United Arab Emirates",
+     "confidence_after": 0.97,
+     "discriminator": "Saudi shops would show 05x mobiles but a 01x/013 landline and far stricter signage conventions plus no flag bunting of this palette; Oman uses 9xxx 8-digit mobiles and 'Sultanate of Oman' addressing with distinctive terracotta wilayat aesthetics; Qatar/Kuwait would show maroon or Kuwaiti flag colours and 4xxx/9xxx numbers.",
+     "level": "country",
+     "observation": "Phone numbers in the 050/052/055/056/058 mobile and 06 landline format; red-green-white-black flag bunting; sign text 'U.A.E.'.",
+     "ruled_out": [
+      "Oman — different numbering and no UAE flag colours",
+      "Saudi Arabia — landline/format and signage style mismatch",
+      "Qatar/Kuwait — flag palette and numbering mismatch"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Abu Dhabi emirate",
+      "Dubai",
+      "Sharjah",
+      "Ras Al Khaimah",
+      "Fujairah"
+     ],
+     "conclusion": "Sharjah emirate",
+     "confidence_after": 0.95,
+     "discriminator": "Dubai/Abu Dhabi businesses print 04 or 02 landlines; RAK uses 07, Fujairah 09. Only Sharjah (and Ajman/UAQ) shares 06, and the boards spell 'Sharjah' outright.",
+     "level": "admin_region",
+     "observation": "Landline prefix 06 on the feed store and consultant boards, and explicit 'Dhaid - Sharjah - UAE' address.",
+     "ruled_out": [
+      "Dubai (04)",
+      "Abu Dhabi (02)",
+      "Ras Al Khaimah (07)",
+      "Fujairah (09)"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Sharjah city (coast)",
+      "Khor Fakkan/Kalba (east coast enclaves)",
+      "Al Dhaid (Central Region)",
+      "Al Madam"
+     ],
+     "conclusion": "Al Dhaid, Sharjah's inland Central Region",
+     "confidence_after": 0.94,
+     "discriminator": "Coastal Sharjah city would be dense mid-rise with corniche traffic and no feed traders; Khor Fakkan/Kalba sit against the Hajar mountains, which would fill the horizon; Al Madam is smaller with no mosque-lined divided avenue or multi-branch commercial strip.",
+     "level": "metro_area",
+     "observation": "Flat horizon with no mountains, irrigated date-palm oasis planting, agricultural feed trading, low-rise 1-2 storey town fabric — and signage naming Al Dhaid repeatedly.",
+     "ruled_out": [
+      "Sharjah city — urban density absent",
+      "Khor Fakkan/Kalba — no Hajar mountain backdrop",
+      "Al Madam — scale and named signage mismatch"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Al Dhaid town centre (souk/main avenue)",
+      "Al Bustan residential district",
+      "outer farm belt"
+     ],
+     "conclusion": "Around the Al Bustan / town-centre fringe of Al Dhaid, on the main mosque-lined avenue and its feeder roundabouts",
+     "confidence_after": 0.75,
+     "discriminator": "The pure farm belt would show fenced date plantations and no shopfront rows; the deep town centre would show the Al Dhaid Souq and municipality buildings rather than single-storey feed and tailoring shops beside vacant sand lots.",
+     "level": "district",
+     "observation": "Construction hoarding board names the project location as 'حي البستان / الذيد' (Al Bustan district, Al Dhaid), with new 2025-permit low-rise construction next to established shop rows and a landscaped avenue with mosque.",
+     "ruled_out": [
+      "outer farm belt — continuous commercial frontage present",
+      "core souk — no market hall or municipal architecture visible"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "overall_confidence": 0.89,
+   "place_slug": "al-dhaid"
+  },
+  "cost_usd": 0.2162,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "United Arab Emirates",
+   "country_iso": "AE",
+   "country_correct": true,
+   "region": "Sharjah Emirate (inland Central Region)",
+   "city": "Al Dhaid",
+   "confidence": 0.9,
+   "overall_confidence": 0.89,
+   "error_km": 0.81,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "culture",
+    "economy",
+    "infrastructure",
+    "language",
+    "signage",
+    "vegetation"
+   ]
+  },
+  "atoms": [
+   "atm_95e27ee95e3a",
+   "atm_8cb15971f2d4",
+   "atm_784bad586d2b",
+   "atm_32db37decb23",
+   "atm_39e39b68ba22",
+   "atm_addbb5a0a768",
+   "atm_03d184ced8ff",
+   "atm_fee0252b62d3",
+   "atm_687081bd24b2",
+   "atm_4a1b6967c0ba",
+   "atm_bf6e77132d52",
+   "atm_4976518cd9d3",
+   "atm_c59eeb470af1",
+   "atm_bf2a442eac6d"
+  ],
+  "ingest": {
+   "created": 14,
+   "merged": 1,
+   "cost_usd": 0.0657,
+   "passes": {
+    "p2": {
+     "created": 5,
+     "merged": 0,
+     "cost_usd": 0.035,
+     "n": 5
+    },
+    "p1": {
+     "created": 9,
+     "merged": 1,
+     "cost_usd": 0.0307,
+     "n": 10
+    }
+   }
+  }
+ },
+ "aided": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Al Dhaid",
+    "confidence": 0.9,
+    "coordinate_estimate": {
+     "lat": 25.288,
+     "lng": 55.884,
+     "radius_km": 3
+    },
+    "country": "United Arab Emirates",
+    "country_iso": "AE",
+    "region_or_state": "Sharjah Emirate (Central Region)"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.05,
+     "country": "United Arab Emirates",
+     "country_iso": "AE"
+    },
+    {
+     "confidence": 0.03,
+     "country": "Oman",
+     "country_iso": "OM"
+    },
+    {
+     "confidence": 0.02,
+     "country": "Saudi Arabia",
+     "country_iso": "SA"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Hot hyper-arid desert (BWh), oasis agriculture with date palms and irrigated ghaf/acacia",
+    "driving_side": "right",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "language",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Shop signs give addresses explicitly as 'AL DHAID SHARJAH U.A.E.' and 'Al Dhaid Sharjah' — direct textual confirmation of emirate and town.",
+     "supports": [
+      "UAE",
+      "Sharjah",
+      "Al Dhaid"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "language",
+     "image_index": 3,
+     "level": "district",
+     "observation": "Construction permit board reads 'المنطقة: حي البستان / الذيد' (Area: Al Bustan district / Al Dhaid) with permit number 2025/149, and consultant address 'Dhaid - Sharjah - UAE'.",
+     "supports": [
+      "Al Dhaid town",
+      "recent 2025 imagery"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Mobile prefixes 050 / 055 / 056 / 052 and landline 06- are UAE Etisalat/du formats; 06 is the Sharjah/Northern Emirates area code.",
+     "supports": [
+      "UAE",
+      "Sharjah emirate"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "flags",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Red-green-white-black bunting (UAE national colors) strung across shopfronts, typical around National Day.",
+     "supports": [
+      "UAE"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "road_infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Wide asphalt roundabout with black-and-yellow painted kerbs, manicured turf island and white gravel border — standard Gulf municipal landscaping; traffic keeps right.",
+     "supports": [
+      "Gulf states",
+      "right-hand traffic"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vehicles",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Fleet dominated by large white/beige Japanese SUVs (Patrol/Land Cruiser/X-Trail class) — Gulf vehicle mix.",
+     "supports": [
+      "Gulf"
+     ],
+     "weight": "low"
+    },
+    {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Sand-colored boundary-walled villa compounds, a single slender white minaret with small dome, low-rise commercial blocks — inland Emirati oasis town rather than coastal high-rise city.",
+     "supports": [
+      "inland UAE town"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Mature date palms and irrigated ghaf/acacia trees, plus dense farm plots visible on the map east of town — Al Dhaid is the UAE's main inland agricultural oasis.",
+     "supports": [
+      "Al Dhaid oasis"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "economy",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Active reinforced-concrete shell construction with local contractor hoarding ('Al Mustashar Bldg. Cont.') and new retail brand 'Mezzlay' — small-town commercial expansion along the main highway strip.",
+     "supports": [
+      "growing secondary town"
+     ],
+     "weight": "low"
+    },
+    {
+     "category": "toponymy",
+     "image_index": 0,
+     "level": "district",
+     "observation": "Map labels around the pin: Al Hosn 1, Hay Al Seweah, Tawi Qafan, Tawi Fatimah, Al Suwaih Park — 'Tawi' (well) place names typify Sharjah's Central Region oasis.",
+     "supports": [
+      "Al Dhaid / Al Suwaih area"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "European-style red-triangle 'traffic signals ahead' warning sign with metric '200 m' supplementary plate — UAE/Gulf sign standard.",
+     "supports": [
+      "UAE"
+     ],
+     "weight": "low"
+    }
+   ],
+   "cultural_economic_read": "A modest inland Emirati oasis town: Arabic-first bilingual signage with English transliteration, family-run service trades (ladies' salon, gents' tailoring, laundry, A/C repair, animal feed, Arabic coffee/hospitality supplies) rather than international chains. South Asian expatriate labour is implied by the trade mix and construction activity, while the villa compounds and farm plots belong to Emirati landowning families. Wealth level is middle-income provincial UAE — heavily subsidised infrastructure (wide roads, streetlights, landscaped roundabouts) with low-rise, low-density building stock; ongoing 2025 permits show steady municipal growth.",
+   "landmarks": [
+    {
+     "confidence": 0.5,
+     "image_index": 0,
+     "name": "Neighbourhood mosque minaret near the roundabout",
+     "type": "religious building"
+    },
+    {
+     "confidence": 0.6,
+     "image_index": 5,
+     "name": "Ghadah Bel Dhaid Grocery on the main Al Dhaid strip",
+     "type": "local business"
+    },
+    {
+     "confidence": 0.7,
+     "image_index": 2,
+     "name": "Mezzlay storefront",
+     "type": "retail brand"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.99,
+     "evidence": "صالون الوردة المخملية للسيدات, دلة الواحة لخدمات الضيافة, المستشار لمقاولات البناء",
+     "language": "Arabic",
+     "script": "Arabic"
+    },
+    {
+     "confidence": 0.95,
+     "evidence": "AL WARDA LADIES SALON, DALLAT AL WAHA HOSPITALITY SERVICES L.L.C, ARABIAN DANAH ENGINEERING CONSULTANTS, LAUNDRY",
+     "language": "English",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Middle East / Arabian Peninsula",
+      "North Africa",
+      "South Asia",
+      "Central Asia"
+     ],
+     "conclusion": "Arabian Peninsula, Gulf side",
+     "confidence_after": 0.96,
+     "discriminator": "North African Arabic towns would show French secondary text and older colonial-era masonry; South Asia would have Devanagari/Urdu and dense informal frontage; Central Asia would show Cyrillic and Soviet-era blocks.",
+     "level": "continent",
+     "observation": "Arabic-English bilingual commercial signage, hyper-arid sand plain, date palms, air-conditioned single-storey concrete shops, oversized SUVs on wide roads.",
+     "ruled_out": [
+      "North Africa - no French bilingual layer, wrong urban fabric",
+      "South Asia - no Indic script, no motorcycle/rickshaw traffic",
+      "Central Asia - no Cyrillic, wrong climate"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "UAE",
+      "Oman",
+      "Saudi Arabia",
+      "Qatar",
+      "Kuwait"
+     ],
+     "conclusion": "United Arab Emirates",
+     "confidence_after": 0.98,
+     "discriminator": "Saudi shops would print 05x numbers without the 06 landline code and often show Hijri-only permits; Oman uses 9xxx eight-digit mobiles and distinctive khanjar-crested signage plus far more mountain-stone building; Qatar/Kuwait mobiles start 3/5/6/9 with different formatting and no 'Sharjah' emirate references.",
+     "level": "country",
+     "observation": "Signs give '050-…', '055-…', '056-…' mobiles and '06-88…' landlines, plus literal address text 'AL DHAID SHARJAH U.A.E.'; UAE tricolour bunting on shopfronts.",
+     "ruled_out": [
+      "Saudi Arabia - phone/address format and emirate name wrong",
+      "Oman - different numbering plan and building idiom",
+      "Qatar & Kuwait - no emirate subdivision, different phone prefixes"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Coastal Gulf strip (Dubai/Sharjah city/Ajman)",
+      "East coast (Fujairah/Khor Fakkan)",
+      "Interior oasis belt (Al Dhaid/Falaj Al Mualla/Al Ain)",
+      "Western Region (Al Dhafra)"
+     ],
+     "conclusion": "Interior oasis belt of the Northern Emirates",
+     "confidence_after": 0.93,
+     "discriminator": "The coastal strip would show mid/high-rise towers, sabkha flats and sea-influenced haze; the east coast sits against dark Hajar ophiolite ridges visible on the skyline; Al Dhafra would be pure open dune with almost no continuous shop rows.",
+     "level": "macro_region",
+     "observation": "Flat gravel-sand plain with no mountains on the horizon, no towers, extensive irrigated farm plots on the satellite basemap, low villa compounds and a linear highway shop strip.",
+     "ruled_out": [
+      "Coastal Gulf cities - no towers or coast",
+      "East coast - no Hajar mountain backdrop",
+      "Al Dhafra - too much greenery and continuous settlement"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "Sharjah Central Region",
+      "Umm Al Quwain (Falaj Al Mualla)",
+      "Ras Al Khaimah interior",
+      "Abu Dhabi (Al Ain)"
+     ],
+     "conclusion": "Sharjah emirate, Central Region",
+     "confidence_after": 0.96,
+     "discriminator": "Al Ain businesses print '03-' landlines and Abu Dhabi addresses; Umm Al Quwain and RAK use '06-'/'07-' with their own emirate names on signage; here the printed emirate is explicitly Sharjah with the '06' Sharjah landline code.",
+     "level": "admin_region",
+     "observation": "Multiple independent signs give 'Al Dhaid Sharjah' and 'Dhaid - Sharjah - UAE'; landlines are 06-8826042 / 06-8829680, the Sharjah interior exchange.",
+     "ruled_out": [
+      "Al Ain (Abu Dhabi) - 03 area code, different emirate name",
+      "Umm Al Quwain / RAK - emirate name absent from all signage"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Al Dhaid town centre",
+      "Al Madam",
+      "Al Suwaih / Al Hosn periphery of Al Dhaid"
+     ],
+     "conclusion": "Northern edge of Al Dhaid, the Al Hosn 1 / Al Suwaih quarter along the main north-south road (S105 corridor)",
+     "confidence_after": 0.85,
+     "discriminator": "Al Madam lies on the Dubai-Hatta axis with dune encroachment and no such farm belt; the historic Al Dhaid core would show the fort/souq and denser older blocks rather than new 2025-permit villas and a landscaped roundabout on the town's outskirts.",
+     "level": "district",
+     "observation": "Map labels Al Hosn 1, Hay Al Seweah, Al Suwaih Park, Tawi Qafan and Tawi Fatimah cluster around the pin; the roundabout, single-minaret mosque and new-build strip sit at the transition from villas to open farm plots.",
+     "ruled_out": [
+      "Al Madam - wrong toponyms and no oasis farm belt",
+      "Historic Al Dhaid core - no fort/souq, buildings too new"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "overall_confidence": 0.9,
+   "place_slug": "al-dhaid"
+  },
+  "cost_usd": 0.2794,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "United Arab Emirates",
+   "country_iso": "AE",
+   "country_correct": true,
+   "region": "Sharjah Emirate (Central Region)",
+   "city": "Al Dhaid",
+   "confidence": 0.9,
+   "overall_confidence": 0.9,
+   "error_km": 0.89,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 11,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "economy",
+    "flags",
+    "language",
+    "road_infrastructure",
+    "signage",
+    "toponymy",
+    "vegetation",
+    "vehicles"
+   ]
+  },
+  "atoms": [
+   "atm_3442ee1ad8cb",
+   "atm_5cc4510c4496",
+   "atm_578d812f8fe0",
+   "atm_3fc388837b06",
+   "atm_246e7aa66747",
+   "atm_9b8029dce141",
+   "atm_a1b62fca5c6c",
+   "atm_beca3f11d166",
+   "atm_87c2eed5e461",
+   "atm_78c09ca3794e",
+   "atm_398543fd4ed0",
+   "atm_eaee427413af",
+   "atm_74afdbeb4e06",
+   "atm_3c8cf21653bf",
+   "atm_6bf56b22ed48",
+   "atm_67c4c23c7fa8"
+  ],
+  "ingest": {
+   "created": 16,
+   "merged": 0,
+   "cost_usd": 0.0704,
+   "passes": {
+    "p2": {
+     "created": 5,
+     "merged": 0,
+     "cost_usd": 0.0376,
+     "n": 5
+    },
+    "p1": {
+     "created": 11,
+     "merged": 0,
+     "cost_usd": 0.0328,
+     "n": 11
+    }
+   }
+  }
+ },
+ "aided_prior": {
+  "lang": "en",
+  "metrics": {
+   "country": "United Arab Emirates",
+   "country_iso": "AE",
+   "country_correct": true,
+   "region": "Sharjah Emirate (Central Region)",
+   "city": "Al Dhaid (Al Hosn / Al Suwaih area)",
+   "confidence": 0.93,
+   "overall_confidence": 0.9,
+   "error_km": 0.85,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "map_toponyms",
+    "national_symbols",
+    "road_infrastructure",
+    "road_signage",
+    "signage_language",
+    "telephone_format",
+    "vegetation"
+   ]
+  },
+  "best_guess": {
+   "city": "Al Dhaid (Al Hosn / Al Suwaih area)",
+   "confidence": 0.93,
+   "coordinate_estimate": {
+    "lat": 25.288,
+    "lng": 55.883,
+    "radius_km": 3
+   },
+   "country": "United Arab Emirates",
+   "country_iso": "AE",
+   "region_or_state": "Sharjah Emirate (Central Region)"
+  }
+ },
+ "cues": {
+  "unaided": [
+   {
+    "blind": {
+     "category": "culture",
+     "image_index": 2,
+     "level": "country",
+     "observation": "UAE flag bunting (red-green-white-black) strung across shopfronts, typical of National Day season decoration",
+     "supports": [
+      "UAE"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "flags",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Red-green-white-black bunting (UAE national colors) strung across shopfronts, typical around National Day.",
+     "supports": [
+      "UAE"
+     ],
+     "weight": "medium"
+    },
+    "sim": 1.34
+   },
+   {
+    "blind": {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Landline prefix 06 and mobile prefixes 050/055/056/052/058 — the UAE numbering plan; 06 is the Sharjah-area code",
+     "supports": [
+      "UAE, Sharjah emirate"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "signage",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Mobile prefixes 050 / 055 / 056 / 052 and landline 06- are UAE Etisalat/du formats; 06 is the Sharjah/Northern Emirates area code.",
+     "supports": [
+      "UAE",
+      "Sharjah emirate"
+     ],
+     "weight": "high"
+    },
+    "sim": 1.34
+   },
+   {
+    "blind": {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Red-triangle 'traffic signals ahead' warning sign with a 200 m distance plate in the GCC/UK-derived sign style",
+     "supports": [
+      "UAE road authority"
+     ],
+     "weight": "low"
+    },
+    "aided": {
+     "category": "signage",
+     "image_index": 3,
+     "level": "country",
+     "observation": "European-style red-triangle 'traffic signals ahead' warning sign with metric '200 m' supplementary plate — UAE/Gulf sign standard.",
+     "supports": [
+      "UAE"
+     ],
+     "weight": "low"
+    },
+    "sim": 1.32
+   },
+   {
+    "blind": {
+     "category": "vegetation",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Mature date palms and ghaf/acacia trees, irrigated flowerbeds along a divided avenue — characteristic of the Al Dhaid inland oasis rather than a coastal city",
+     "supports": [
+      "inland oasis town, Sharjah Central Region"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "vegetation",
+     "image_index": 5,
+     "level": "admin_region",
+     "observation": "Mature date palms and irrigated ghaf/acacia trees, plus dense farm plots visible on the map east of town — Al Dhaid is the UAE's main inland agricultural oasis.",
+     "supports": [
+      "Al Dhaid oasis"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.93
+   },
+   {
+    "blind": {
+     "category": "language",
+     "image_index": 3,
+     "level": "district",
+     "observation": "Construction consultant board reads 'Arabian Danah Engineering Consultants, Dhaid - Sharjah - UAE' and the Arabic project line names the district 'حي البستان / الذيد' (Al Bustan neighbourhood, Al Dhaid)",
+     "supports": [
+      "Al Dhaid town, Al Bustan district"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "language",
+     "image_index": 3,
+     "level": "district",
+     "observation": "Construction permit board reads 'المنطقة: حي البستان / الذيد' (Area: Al Bustan district / Al Dhaid) with permit number 2025/149, and consultant address 'Dhaid - Sharjah - UAE'.",
+     "supports": [
+      "Al Dhaid town",
+      "recent 2025 imagery"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.91
+   },
+   {
+    "blind": {
+     "category": "language",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Shop signs explicitly state 'AL DHAID SHARJAH, U.A.E.' and 'BAB AL DHAID A/C & REF. REP.' with P.O. Box 14623",
+     "supports": [
+      "Al Dhaid, Sharjah, UAE"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "language",
+     "image_index": 4,
+     "level": "country",
+     "observation": "Shop signs give addresses explicitly as 'AL DHAID SHARJAH U.A.E.' and 'Al Dhaid Sharjah' — direct textual confirmation of emirate and town.",
+     "supports": [
+      "UAE",
+      "Sharjah",
+      "Al Dhaid"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.9
+   },
+   {
+    "blind": {
+     "category": "infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Wide multi-lane roundabout with landscaped green centre, white gravel edging, yellow/black painted kerbs and slender bent street-light masts — classic Gulf municipal roadscape, right-hand traffic",
+     "supports": [
+      "Arabian Gulf states",
+      "right-hand drive"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "road_infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Wide asphalt roundabout with black-and-yellow painted kerbs, manicured turf island and white gravel border — standard Gulf municipal landscaping; traffic keeps right.",
+     "supports": [
+      "Gulf states",
+      "right-hand traffic"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.79
+   },
+   {
+    "blind": {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Low sand/ochre rendered compound walls, flat roofs, rooftop white water tanks, single slender minaret with small onion cap",
+     "supports": [
+      "Gulf desert town"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Sand-colored boundary-walled villa compounds, a single slender white minaret with small dome, low-rise commercial blocks — inland Emirati oasis town rather than coastal high-rise city.",
+     "supports": [
+      "inland UAE town"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.63
+   }
+  ],
+  "aided_only": [
+   {
+    "category": "vehicles",
+    "image_index": 0,
+    "level": "country",
+    "observation": "Fleet dominated by large white/beige Japanese SUVs (Patrol/Land Cruiser/X-Trail class) — Gulf vehicle mix.",
+    "supports": [
+     "Gulf"
+    ],
+    "weight": "low"
+   },
+   {
+    "category": "economy",
+    "image_index": 2,
+    "level": "district",
+    "observation": "Active reinforced-concrete shell construction with local contractor hoarding ('Al Mustashar Bldg. Cont.') and new retail brand 'Mezzlay' — small-town commercial expansion along the main highway strip.",
+    "supports": [
+     "growing secondary town"
+    ],
+    "weight": "low"
+   },
+   {
+    "category": "toponymy",
+    "image_index": 0,
+    "level": "district",
+    "observation": "Map labels around the pin: Al Hosn 1, Hay Al Seweah, Tawi Qafan, Tawi Fatimah, Al Suwaih Park — 'Tawi' (well) place names typify Sharjah's Central Region oasis.",
+    "supports": [
+     "Al Dhaid / Al Suwaih area"
+    ],
+    "weight": "high"
+   }
+  ],
+  "blind_only": [
+   {
+    "category": "economy",
+    "image_index": 3,
+    "level": "district",
+    "observation": "'AL HASABI FEEDS TR.' animal-feed trading shop plus building contractors and hospitality (coffee-pot/dallah) suppliers — agricultural service-town economy",
+    "supports": [
+     "farming hinterland town"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "commerce",
+    "image_index": 1,
+    "level": "district",
+    "observation": "Ladies salon, tailoring & embroidery and building-contractor offices in a two-storey villa-shophouse hybrid — small-town mixed-use pattern, not a dense city block",
+    "supports": [
+     "small inland town"
+    ],
+    "weight": "low"
+   }
+  ]
+ },
+ "narrative": {
+  "blind_logic": "The blind chain relied entirely on street-level cues: bilingual Arabic-English signage, phone number prefixes (050/052/06), UAE flag colors, and explicit text signs reading 'Dhaid - Sharjah - UAE' to work down from continent to country to emirate. For the metro/district level it used physical scene cues (flat horizon, date palms, low-rise fabric, feed shops) plus a construction hoarding board naming 'Al Bustan / Al Dhaid' to settle on the town-centre fringe of Al Dhaid.",
+  "aided_logic": "The aided chain follows the same trajectory through continent/country using nearly identical signage and phone-code evidence. However, at the macro_region and district levels it shifts to citing the satellite/basemap directly — irrigated farm plots visible 'on the satellite basemap', and specific map toponyms like Al Hosn 1, Hay Al Seweah, Al Suwaih Park, Tawi Qafan/Fatimah clustered around the pin — to pinpoint the Al Hosn 1/Al Suwaih quarter along the S105 corridor.",
+  "delta": "The country and emirate-level reasoning is essentially unchanged, both grounded in genuine street-view signage (phone prefixes, explicit emirate names). The divergence appears at finer granularity: the blind chain's district conclusion came from a construction hoarding reading 'Al Bustan/Al Dhaid,' a plausible street-level artifact, while the aided chain's district conclusion is built by reading toponyms directly off the map panel around the marker (Al Hosn 1, Al Suwaih Park, Tawi Qafan/Fatimah) — these are not things visible in street-level photos and constitute post-hoc labeling from the answer location itself. The macro_region step also introduces 'visible on the satellite basemap' as direct evidence rather than inference from street scenery.",
+  "verdict": "map-leaked-answer",
+  "map_dependent_steps": [
+   "macro_region: irrigated farm plots identified via satellite basemap rather than street-level horizon cues",
+   "district: naming of Al Hosn 1, Hay Al Seweah, Al Suwaih Park, Tawi Qafan and Tawi Fatimah as toponyms clustered around the map pin"
+  ],
+  "cost_usd": 0.0241,
+  "model": "claude-sonnet-5"
+ },
+ "cost_usd": 0.6558,
+ "status": "OK"
+}

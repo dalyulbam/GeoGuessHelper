@@ -1,6 +1,6 @@
 # 엔티티 · japan
 
-원자 24개 · 이 엔티티를 다룬 보고서 1건
+원자 28개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_0de705b1aa28]] **National highway numbering and driving-side as geolocation cues** (geography/global)
@@ -9,6 +9,8 @@
 - [[atm_2893ef2e3a1c]] **Japanese telephone area codes as fine-grained geographic identifiers** (economy/country)
 - [[atm_29aac8d5f161]] **Morihiko Hiramatsu, originator of One Village One Product** (economy/country)
 - [[atm_31b06bbe84f4]] **National administrative-unit vocabularies as toponymic fingerprints** (language/global)
+- [[atm_39acbbf97e17]] **Basin morphology cannot separate inland Kinki valleys** (geography/region)
+- [[atm_50a2614e4a4c]] **Kyoto Kitayama forestry valley vs Tanba farming basin** (economy/region)
 - [[atm_5d0db7397579]] **Single-pylon cable-stayed bridges spanning drowned river mouths worldwide** (architecture/global)
 - [[atm_609755d083a1]] **Meiji abolition of the han system and daimyo domains** (history/period)
 - [[atm_6f9fc96c5833]] **Left-hand traffic countries of the former British Empire** (geography/global)
@@ -26,7 +28,10 @@
 - [[atm_c5683d7f6a32]] **Japan as global exporter of used RHD vehicles** (economy/country)
 - [[atm_dad10402d915]] **Counter-urbanization and rural revival movements** (economy/global)
 - [[atm_dcc3f946acb2]] **One-Village-One-Product (OVOP) movement and its global descendants** (economy/global)
+- [[atm_e0e0e7bcfbe4]] **Japanese U-ditch and amado shutters vs Korean/Taiwanese village fabric** (architecture/country)
 - [[atm_e75b1bf2f7fa]] **Masuda Report and Japan's 'disappearing municipalities' debate** (economy/country)
+- [[atm_fbc7a5e5e104]] **Kyoto City's mountain wards look like deep countryside** (geography/region)
 
 ## 보고서
 - `report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html`
+- `report_jp_keihoku-shimoyuge-kyoto_35.1932_135.6345_260906_204347_ko-en-fr.html`

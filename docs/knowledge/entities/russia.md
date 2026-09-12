@@ -1,10 +1,11 @@
 # 엔티티 · russia
 
-원자 15개 · 이 엔티티를 다룬 보고서 2건
+원자 16개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_1cf9913c8381]] **Post-Soviet renovation and demolition programs replacing panelki** (architecture/country)
 - [[atm_2480ce1ef18a]] **National toponymic suffix systems as script/language identifiers** (language/global)
+- [[atm_3d749d8750f5]] **Latin STOP on GOST posts means Kazakhstan, not Russia** (language/country)
 - [[atm_41abb4a57c7a]] **M7 'Volga' federal highway and Middle Volga-Kama forest-steppe** (geography/region)
 - [[atm_532ae8610bb9]] **Soviet-era shared postal and retail branding across USSR successor states** (language/country)
 - [[atm_585940dbb92e]] **Post-socialist rural periphery decline across Eastern Europe** (economy/global)
@@ -20,5 +21,6 @@
 - [[atm_fe3149f63023]] **Cyrillic-script administrative lexicon variation across Slavic states** (language/global)
 
 ## 보고서
+- `report_kz_beyneu_46.3143_54.4042_260906_223930_ko-en-fr.html`
 - `report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html`
 - `report_rus_barnaul_53.3793_83.6802_260810_002518_ko-en-fr.html`

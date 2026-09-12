@@ -1,0 +1,1076 @@
+{
+ "job_id": "job_da4b902eaf1e",
+ "report_file": "report_jo_jerash_32.288_35.8899_260903_095803_ko-en-fr.html",
+ "label": "선택 장면 보고서 · 9e4BujI9…O-1A",
+ "lang": "en",
+ "images": [
+  "capture_15cbd57d0f74.jpg",
+  "capture_36c6d89fe547.jpg",
+  "capture_12125914b84a.jpg",
+  "capture_400e57e0168b.jpg",
+  "capture_bd53331c0e54.jpg",
+  "capture_5b97a6d31fd3.jpg"
+ ],
+ "blind_cut_px": [
+  960,
+  960,
+  960,
+  960,
+  960,
+  960
+ ],
+ "image_panos": {
+  "capture_15cbd57d0f74.jpg": {
+   "pano_id": "9e4BujI905xhKJvx-yO-1A",
+   "lat": 32.28798194628722,
+   "lng": 35.88986458216515,
+   "heading": 65.4992420253195,
+   "pitch": 2.8630003023667996
+  },
+  "capture_36c6d89fe547.jpg": {
+   "pano_id": "OJeUOOBCVwIbHKPTDUWbeA",
+   "lat": 32.2878679357662,
+   "lng": 35.8896188669921,
+   "heading": 358.36059458421215,
+   "pitch": 4.3873590652435865
+  },
+  "capture_12125914b84a.jpg": {
+   "pano_id": "OJeUOOBCVwIbHKPTDUWbeA",
+   "lat": 32.2878679357662,
+   "lng": 35.8896188669921,
+   "heading": 314.55512877530015,
+   "pitch": 3.524009434633996
+  },
+  "capture_400e57e0168b.jpg": {
+   "pano_id": "21t6DntH09q50TkNP_pVDw",
+   "lat": 32.2877728555153,
+   "lng": 35.889398845243356,
+   "heading": 134.52122903851858,
+   "pitch": 4.509615889560607
+  },
+  "capture_bd53331c0e54.jpg": {
+   "pano_id": "fMwhq1I-2cQS9X_BWbF5rA",
+   "lat": 32.28731850093864,
+   "lng": 35.88851559227272,
+   "heading": 173.0739188596296,
+   "pitch": 4.408179328589867
+  },
+  "capture_5b97a6d31fd3.jpg": {
+   "pano_id": "OSBWx8KseV653q3OUX8w1Q",
+   "lat": 32.28638606653561,
+   "lng": 35.885724906903334,
+   "heading": 205.2790438230297,
+   "pitch": 5.823142734270746
+  },
+  "capture_bb0b1f8649ee.jpg": {
+   "pano_id": "BzzNN43-rHhqV2MdCqUUZQ",
+   "lat": 32.28796768437686,
+   "lng": 35.88454565466935,
+   "heading": 32.82230111426691,
+   "pitch": 8.834187062812035
+  }
+ },
+ "truth": {
+  "lat": 32.287594703598,
+  "lng": 35.88818390217687,
+  "iso": "JO",
+  "file_lat": 32.288,
+  "file_lng": 35.8899,
+  "n_panos": 7
+ },
+ "created": 1788740154.3301928,
+ "blind": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Jerash (Wadi al-Deir / outskirts village)",
+    "confidence": 0.62,
+    "coordinate_estimate": {
+     "lat": 32.2745,
+     "lng": 35.8935,
+     "radius_km": 12
+    },
+    "country": "Jordan",
+    "country_iso": "JO",
+    "region_or_state": "Jerash Governorate"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.18,
+     "country": "Jordan",
+     "country_iso": "JO"
+    },
+    {
+     "confidence": 0.12,
+     "country": "Palestine",
+     "country_iso": "PS"
+    },
+    {
+     "confidence": 0.05,
+     "country": "Syria",
+     "country_iso": "SY"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Eastern Mediterranean semi-arid highland; olive groves, pale limestone hills, dry grass",
+    "driving_side": "right",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "language",
+     "image_index": 1,
+     "level": "country",
+     "observation": "All shop signage in Arabic (Naskh/modern display faces) with Latin transliteration secondary — 'Adam & Kenan market', 'Shawarma'.",
+     "supports": [
+      "Arab Levant"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "phone_numbers",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Mobile numbers printed as 0779644224, 0779885566, 0791519494 — the Jordanian 077/079/078 mobile prefix pattern (10 digits starting 07).",
+     "supports": [
+      "Jordan"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "phone_numbers",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Furniture shop lists 0778 190 195 with WhatsApp icon — again Jordanian 078 prefix, not Palestinian 059/056 or Syrian 093/094.",
+     "supports": [
+      "Jordan"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "toponym",
+     "image_index": 3,
+     "level": "admin_region",
+     "observation": "Building-materials banner reads 'إعمار جرش لمواد البناء' (I'mar Jerash Building Materials) — the firm names itself after Jerash.",
+     "supports": [
+      "Jerash Governorate"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "toponym",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Shawarma sign sub-line reads 'وادي الدير' (Wadi al-Deir), a locality name used in the Jerash/Ajloun hill belt.",
+     "supports": [
+      "Jerash area village"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Two- to three-storey buildings faced in pale cream limestone cladding with concrete frames and rebar left for future floors — standard Jordanian/Levantine incremental construction.",
+     "supports": [
+      "Levant"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "utilities",
+     "image_index": 3,
+     "level": "macro_region",
+     "observation": "Large blue polyethylene rooftop water tanks plus rooftop solar/steel water drums — hallmark of intermittent municipal water supply in Jordan/Palestine.",
+     "supports": [
+      "Jordan",
+      "Palestine"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "admin_region",
+     "observation": "Dense olive groves and scattered pines on the hillside, greener than typical Jordanian steppe — matches the higher-rainfall Ajloun/Jerash highlands rather than Amman's east or the Badia.",
+     "supports": [
+      "northwest Jordan highlands"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "terrain",
+     "image_index": 0,
+     "level": "admin_region",
+     "observation": "Rolling limestone ridges with dispersed white villages across the valley, road descending steeply — northwest Jordan hill country topography.",
+     "supports": [
+      "Jerash/Ajloun hills"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "road_infrastructure",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Right-hand traffic, no lane markings, informal gravel shoulders, no Israeli-style yellow-and-black plates or Hebrew signage.",
+     "supports": [
+      "Jordan not Israel"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "commerce",
+     "image_index": 5,
+     "level": "metro_area",
+     "observation": "Local pharmacy, paint/decor shop, small supermarket cluster under a stone arcade with pale ashlar columns — small provincial town commercial strip, not a capital-city district.",
+     "supports": [
+      "small town"
+     ],
+     "weight": "low"
+    },
+    {
+     "category": "signage",
+     "image_index": 4,
+     "level": "district",
+     "observation": "Older 2017 imagery with vaulted stone arch shopfront ('Al-Mokhtar' events hall) on a narrow steep lane — traditional Ottoman-era stone vernacular common in Jerash-area villages.",
+     "supports": [
+      "historic village core"
+     ],
+     "weight": "low"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.97,
+     "evidence": "مفروشات حمزة، مطعم الليث، صيدلية نهر الذهب، مؤسسة المختار",
+     "language": "Arabic",
+     "script": "Arabic"
+    },
+    {
+     "confidence": 0.8,
+     "evidence": "'AZAD CLEAN', 'Modern Style', 'Adam & Kenan market', 'Baker Street Shawarma'",
+     "language": "English (secondary/commercial)",
+     "script": "Latin"
+    }
+   ],
+   "landmarks": [
+    {
+     "confidence": 0.5,
+     "image_index": 3,
+     "name": "I'mar Jerash Building Materials (local firm naming Jerash)",
+     "type": "business signage toponym"
+    },
+    {
+     "confidence": 0.45,
+     "image_index": 2,
+     "name": "Wadi al-Deir locality reference on shawarma sign",
+     "type": "business signage toponym"
+    }
+   ],
+   "narrowing": [
+    {
+     "level": "continent",
+     "question": "Which macro-region does this arid limestone hill town with Arabic-only signage belong to?",
+     "candidates": [
+      "Middle East / Levant",
+      "North Africa",
+      "Central Asia",
+      "Southern Europe"
+     ],
+     "observation": "Arabic Naskh signage, pale limestone construction, olive groves, rooftop water tanks, right-hand traffic.",
+     "discriminator": "North Africa (Maghreb) would show French bilingual signage and different plate colours; Central Asia would use Cyrillic/Latin Turkic; Southern Europe would show Latin script and tiled pitched roofs.",
+     "ruled_out": [
+      "North Africa: no French co-signage",
+      "Central Asia: no Cyrillic/Turkic",
+      "Southern Europe: no Latin-script civic signage or tiled roofs"
+     ],
+     "conclusion": "Eastern Mediterranean / Levant",
+     "confidence_after": 0.95,
+     "weight": "high"
+    },
+    {
+     "level": "country",
+     "question": "Jordan, Palestine, Syria or Lebanon?",
+     "candidates": [
+      "Jordan",
+      "Palestine (West Bank)",
+      "Syria",
+      "Lebanon"
+     ],
+     "observation": "Multiple shop phone numbers begin 077, 078, 079 in ten-digit local format (0779644224, 0778190195, 0776471458, 0779233366).",
+     "discriminator": "West Bank Palestinian mobiles run 059x/056x; Syrian mobiles run 093/094/098; Lebanese run 03/70/71/76/81 (8 digits). Only Jordan uses the 077/078/079 Zain/Orange/Umniah block. Palestinian towns would also show Arabic+Hebrew traces, martyr posters or PA-style green plates; Lebanon would show heavy French signage.",
+     "ruled_out": [
+      "Palestine: wrong mobile prefixes, no Hebrew/PA visual markers",
+      "Syria: wrong prefixes, no Syrian regime-era signage or Baath iconography",
+      "Lebanon: no French co-signage, wrong number format"
+     ],
+     "conclusion": "Jordan",
+     "confidence_after": 0.93,
+     "weight": "high"
+    },
+    {
+     "level": "macro_region",
+     "question": "Northwestern highlands, Amman metro, or the arid south/east of Jordan?",
+     "candidates": [
+      "Ajloun/Jerash/Irbid highlands",
+      "Amman-Zarqa metro",
+      "Karak/Tafilah south",
+      "Badia east"
+     ],
+     "observation": "Hillsides carry continuous olive orchards and pines; deep valleys with dispersed white villages; only low-rise stone buildings, no dense urban fabric or highway furniture.",
+     "discriminator": "Amman would show six-plus-storey blocks, blue directional signs, traffic lights and dense continuous frontage; the southern plateau (Karak/Ma'an) is treeless with red-brown soil and no olive canopy; the eastern Badia is basalt desert without any orchard cover.",
+     "ruled_out": [
+      "Amman-Zarqa: no urban density, no signalised junctions",
+      "Southern Jordan: too much olive/pine cover for that rainfall",
+      "Eastern Badia: no basalt, no desert steppe"
+     ],
+     "conclusion": "Northwest Jordan rain-fed highland belt",
+     "confidence_after": 0.85,
+     "weight": "high"
+    },
+    {
+     "level": "admin_region",
+     "question": "Irbid, Ajloun or Jerash governorate?",
+     "candidates": [
+      "Jerash Governorate",
+      "Ajloun Governorate",
+      "Irbid Governorate"
+     ],
+     "observation": "A building-materials banner is branded 'I'mar Jerash' — local suppliers overwhelmingly name their own town — and a shawarma sign carries the sub-locality 'Wadi al-Deir'.",
+     "discriminator": "An Irbid-based location would carry 'Irbid' branding and sit on flatter, more built-up Houran plain terrain; Ajloun town centre is more forested with denser evergreen oak and steeper streets. The Jerash reference plus moderately open olive slopes fits Jerash Governorate.",
+     "ruled_out": [
+      "Irbid: no Irbid branding, terrain too dissected",
+      "Ajloun: oak forest cover absent, and local firm names Jerash instead"
+     ],
+     "conclusion": "Jerash Governorate, hillside village on a valley road",
+     "confidence_after": 0.68,
+     "weight": "medium"
+    },
+    {
+     "level": "district",
+     "question": "Which settlement within Jerash Governorate?",
+     "candidates": [
+      "Wadi al-Deir / Deir al-Liyat area",
+      "Souf",
+      "Jerash city outskirts",
+      "Burma/Balila"
+     ],
+     "observation": "'Wadi al-Deir' appears as the branch identifier on the shawarma chain sign; the scene is a single sloping commercial strip in a village overlooking a broad settled valley.",
+     "discriminator": "Jerash city proper would show the Roman ruins, tourist signage and multi-lane streets; Souf is a larger refugee-camp-adjacent town with denser continuous shopfronts. A one-strip village on a descending valley road matches the Wadi al-Deir side of Jerash.",
+     "ruled_out": [
+      "Jerash city centre: no Roman ruins, tourism signage or urban width",
+      "Souf: fabric too sparse and rural"
+     ],
+     "conclusion": "Small village strip in the Wadi al-Deir vicinity west/north of Jerash city",
+     "confidence_after": 0.5,
+     "weight": "medium"
+    }
+   ],
+   "cultural_economic_read": "A Sunni Arab, rain-fed highland village economy in northwest Jordan: family-run shawarma stands, a used/new furniture shop, a paint-and-decor store, small pharmacy and mini-market, plus a car-detailing and oil-change garage. Buildings are owner-built in stages — concrete frames with rebar stubs awaiting a future floor — and clad in the cheap local limestone that dominates Jordanian vernacular. Blue rooftop water tanks everywhere indicate rationed municipal water. Vehicles are 15-25 year old Japanese/Korean sedans, several rebuilt-import types, consistent with modest middle-to-lower income and high used-car tariffs. Olive cultivation on the surrounding slopes supplies a supplementary agricultural income typical of the Jerash-Ajloun belt. Signage is Arabic-first with token English for prestige, and one shop uses an unfortunate imported English phrase, showing the branding is copied visually rather than translated.",
+   "overall_confidence": 0.62,
+   "place_slug": "jerash"
+  },
+  "cost_usd": 0.2237,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "Jordan",
+   "country_iso": "JO",
+   "country_correct": true,
+   "region": "Jerash Governorate",
+   "city": "Jerash (Wadi al-Deir / outskirts village)",
+   "confidence": 0.62,
+   "overall_confidence": 0.62,
+   "error_km": 1.54,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 12,
+   "n_landmarks": 2,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "language",
+    "phone_numbers",
+    "road_infrastructure",
+    "signage",
+    "terrain",
+    "toponym",
+    "utilities",
+    "vegetation"
+   ]
+  },
+  "atoms": [
+   "atm_42b912b26bbf",
+   "atm_5421397182ee",
+   "atm_3ed1a91ef487",
+   "atm_632345065d73",
+   "atm_057a30b768a5",
+   "atm_1acadd8b27f7",
+   "atm_5c1e191a8ab8",
+   "atm_51a0d20a5490",
+   "atm_63c3ad64dad6",
+   "atm_a9f3f24c8706",
+   "atm_83f9484293d2",
+   "atm_7b5b6b12f4d5",
+   "atm_36ed6445c8a6",
+   "atm_03d35c9a338e",
+   "atm_38169a37b400"
+  ],
+  "ingest": {
+   "created": 15,
+   "merged": 2,
+   "cost_usd": 0.0668,
+   "passes": {
+    "p2": {
+     "created": 5,
+     "merged": 0,
+     "cost_usd": 0.0323,
+     "n": 5
+    },
+    "p1": {
+     "created": 10,
+     "merged": 2,
+     "cost_usd": 0.0345,
+     "n": 12
+    }
+   }
+  }
+ },
+ "aided": {
+  "status": "OK",
+  "analysis": {
+   "best_guess": {
+    "city": "Jerash (western outskirts, Wadi al-Deir area)",
+    "confidence": 0.9,
+    "coordinate_estimate": {
+     "lat": 32.2765,
+     "lng": 35.865,
+     "radius_km": 2
+    },
+    "country": "Jordan",
+    "country_iso": "JO",
+    "region_or_state": "Jerash Governorate"
+   },
+   "alternatives": [
+    {
+     "confidence": 0.05,
+     "country": "Jordan",
+     "country_iso": "JO"
+    },
+    {
+     "confidence": 0.03,
+     "country": "Palestine (West Bank)",
+     "country_iso": "PS"
+    },
+    {
+     "confidence": 0.02,
+     "country": "Syria",
+     "country_iso": "SY"
+    }
+   ],
+   "coarse_filters": {
+    "approx_climate_biome": "Mediterranean semi-arid highland; olive groves on limestone/terra rossa hills, dry pale soils",
+    "driving_side": "right",
+    "hemisphere": "northern"
+   },
+   "cues": [
+    {
+     "category": "language",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Shop signage exclusively in Arabic script with occasional English transliteration (Adam & Kenan market, Baker Street Shawarma), Levantine commercial vocabulary (مفروشات, مطعم)",
+     "supports": [
+      "Arab Levant"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "phone_numbers",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Mobile numbers begin 077 / 0779 / 0791 / 0778 — Jordanian mobile prefixes (Orange/Umniah/Zain 077, 078, 079)",
+     "supports": [
+      "Jordan"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage_text",
+     "image_index": 3,
+     "level": "admin_region",
+     "observation": "Building-materials shop named 'إعمار جرش' (Jerash Construction), i.e. a business branded with the city of Jerash",
+     "supports": [
+      "Jerash Governorate"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "signage_text",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Shawarma sign reads 'وادي الدير' (Wadi al-Deir), a named neighbourhood/valley on the western side of Jerash",
+     "supports": [
+      "Wadi al-Deir, Jerash"
+     ],
+     "weight": "high"
+    },
+    {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Buildings faced with cut pale cream limestone over concrete frames, flat roofs, rebar left protruding for future floors, blue polyethylene water tanks on roofs",
+     "supports": [
+      "Jordan/Levant hill towns"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "macro_region",
+     "observation": "Dense olive groves on stony terraced slopes right up to the roadside, dry grass, no irrigation-dependent tropical growth",
+     "supports": [
+      "northern Jordan highlands"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "roads",
+     "image_index": 0,
+     "level": "district",
+     "observation": "Narrow unmarked asphalt street with no curbs on one side, wooden/concrete utility poles carrying low-slung bare conductors across the road",
+     "supports": [
+      "small provincial town, not Amman"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "vehicles",
+     "image_index": 0,
+     "level": "country",
+     "observation": "Older 1990s-2000s Japanese sedans (Civic, Camry) and small pickups, right-hand traffic, white rectangular plates",
+     "supports": [
+      "Jordan used-car fleet"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "topography",
+     "image_index": 0,
+     "level": "admin_region",
+     "observation": "Town sprawling over rolling limestone ridges at moderate elevation with white flat-roofed houses spreading across facing hillsides",
+     "supports": [
+      "Ajloun-Jerash highlands"
+     ],
+     "weight": "medium"
+    },
+    {
+     "category": "commerce",
+     "image_index": 5,
+     "level": "district",
+     "observation": "Local mix of pharmacy, decor shop, mini-market and furniture store under stone arcades with columns — self-contained neighbourhood high street rather than tourist strip",
+     "supports": [
+      "residential outskirt of Jerash"
+     ],
+     "weight": "low"
+    }
+   ],
+   "landmarks": [
+    {
+     "confidence": 0.5,
+     "image_index": 0,
+     "name": "Wadi al-Deir / Al Rayyan area of western Jerash",
+     "type": "neighbourhood"
+    }
+   ],
+   "languages_detected": [
+    {
+     "confidence": 0.97,
+     "evidence": "مفروشات حمزة، مطعم الليث، شاورما وادي الدير، مؤسسة المختار",
+     "language": "Arabic",
+     "script": "Arabic"
+    },
+    {
+     "confidence": 0.6,
+     "evidence": "'Adam & Kenan market', 'Modern Style', 'AZAD CLEAN', 'THE FINAL SOLUTION'",
+     "language": "English (secondary commercial)",
+     "script": "Latin"
+    }
+   ],
+   "narrowing": [
+    {
+     "candidates": [
+      "Middle East / Levant",
+      "North Africa",
+      "Central Asia",
+      "Southern Europe"
+     ],
+     "conclusion": "Arabic-speaking Middle East, Levantine highland belt",
+     "confidence_after": 0.95,
+     "discriminator": "North African Arabic streets would show heavy French bilingual signage and different plate style; Central Asia would show Cyrillic/Turkic Latin; southern Europe would show Latin-script signage and tiled pitched roofs instead of flat concrete slabs with roof water tanks.",
+     "level": "continent",
+     "observation": "All commercial signage is Arabic-only with sparse English, buildings are pale limestone-clad concrete frames with flat roofs and black/blue roof water tanks.",
+     "ruled_out": [
+      "North Africa: no French bilingual signage",
+      "Central Asia: no Cyrillic/Turkic script",
+      "Southern Europe: no Latin script, no pitched tiled roofs"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Jordan",
+      "Palestine/West Bank",
+      "Syria",
+      "Lebanon",
+      "Israel"
+     ],
+     "conclusion": "Jordan",
+     "confidence_after": 0.93,
+     "discriminator": "West Bank shops would carry 059/056 Palestinian mobile prefixes and often Hebrew-influenced products; Syria would use 093/094/098 prefixes and show war-damaged concrete plus Assad-era municipal signage; Lebanon would show 03/70/71 prefixes and much French usage. Here every advertised mobile number is 077x/079x, the exact Jordanian mobile block.",
+     "level": "country",
+     "observation": "Shop phone numbers: 0778190195, 0779885566, 0791519494, 0779644224, 0776471458, 0779233366 — all Jordanian mobile prefixes; no Hebrew anywhere; Google coverage is continuous (full official Street View, unlike Syria/Lebanon).",
+     "ruled_out": [
+      "Palestine: wrong mobile prefixes, no Hebrew co-signage",
+      "Syria: prefix mismatch, official StreetView car coverage absent there",
+      "Lebanon: no French, prefix mismatch",
+      "Israel: no Hebrew signage at all"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Amman metro",
+      "Irbid/Ajloun/Jerash northern highlands",
+      "Zarqa/Mafraq basalt steppe",
+      "Karak/Tafilah south",
+      "Jordan Valley / Aqaba"
+     ],
+     "conclusion": "Northern highland belt (Ajloun-Jerash-Irbid), not the desert or Rift floor",
+     "confidence_after": 0.88,
+     "discriminator": "Mafraq/Zarqa would show black basalt fields and treeless steppe; the Jordan Valley or Aqaba would show banana/palm plantations, sub-sea-level haze and no olive terraces; Karak would show deeper red sandstone and more sparse settlement. Here mature olive groves cover stony terra-rossa terraces between white hilltop villages — the classic 400-600 mm rainfall northern highlands.",
+     "level": "macro_region",
+     "observation": "Rolling limestone ridges covered in olive orchards, valley-side dense white housing, cool clear winter light with green grass in one capture.",
+     "ruled_out": [
+      "Zarqa/Mafraq: no basalt desert steppe",
+      "Jordan Valley/Aqaba: no palms/bananas, terrain is upland",
+      "Karak/Tafilah: rock and settlement pattern differ",
+      "Amman metro: no high-rise or wide dual carriageways, village-scale infrastructure"
+     ],
+     "weight": "medium"
+    },
+    {
+     "candidates": [
+      "Irbid Governorate",
+      "Ajloun Governorate",
+      "Jerash Governorate"
+     ],
+     "conclusion": "Jerash Governorate",
+     "confidence_after": 0.9,
+     "discriminator": "An Irbid or Ajloun business would brand itself 'إعمار إربد' or reference Ajloun/Kufranja; the hardware store here is explicitly 'إعمار جرش' (Jerash Construction), and local naming 'وادي الدير' matches the Wadi al-Deir valley immediately west of Jerash city, not any Ajloun or Irbid locality.",
+     "level": "admin_region",
+     "observation": "Business names reference Jerash directly, and adjacent map-context features (Jerash cultural centre, Jerash DMV, Jerash archaeological site) appear in the same frame band.",
+     "ruled_out": [
+      "Irbid: no Irbid-branded businesses, terrain more open plateau there",
+      "Ajloun: denser pine/oak forest and steeper relief, different local toponyms"
+     ],
+     "weight": "high"
+    },
+    {
+     "candidates": [
+      "Jerash city centre",
+      "Western outskirts (Wadi al-Deir / Al Rayyan)",
+      "Souf",
+      "Sakib"
+     ],
+     "conclusion": "Western fringe of Jerash city along the ridge road toward Wadi al-Deir / Al Rayyan Dairy area",
+     "confidence_after": 0.82,
+     "discriminator": "Jerash city centre would show the Roman colonnaded ruins, Hadrian's Arch, hotel/tourist signage and multi-lane through roads; Souf and Sakib are separate hill villages further west with much thinner commercial strips. Here the strip is a single-sided ridge road of building-materials, dairy, furniture and shawarma shops, with olive terraces starting directly across the road — a transition zone where urban Jerash meets farmland.",
+     "level": "district",
+     "observation": "Continuous low commercial parade on one side, open olive terraces and unpaved shoulders on the other; local shawarma branded 'Wadi al-Deir'; road narrows to a steep single-lane lane in one capture.",
+     "ruled_out": [
+      "Jerash city centre: no ruins, no tourist signage, road too narrow",
+      "Souf/Sakib: commercial density here is too high for those villages"
+     ],
+     "weight": "medium"
+    }
+   ],
+   "cultural_economic_read": "A lower-middle-income Jordanian provincial suburb: family-run micro-businesses (shawarma, used-furniture, dry-cleaning, building materials, decor, pharmacy, mini-markets) advertising by mobile number and WhatsApp rather than websites. Construction is incremental — stone-clad frames with rebar left up for future storeys, rooftop water tanks indicating intermittent municipal water supply. Vehicle fleet is old imported Japanese sedans and pickups. Olive cultivation on the surrounding terraces links the settlement to a traditional agrarian economy, while the shop mix and English-flavoured branding ('Baker Street', 'Modern Style') show aspirational urban consumer culture. Population is Sunni Muslim Levantine Arab with likely Palestinian-refugee-descended and Circassian/Syrian-refugee elements typical of Jerash Governorate.",
+   "overall_confidence": 0.87,
+   "place_slug": "jerash"
+  },
+  "cost_usd": 0.2751,
+  "model": "claude-opus-5",
+  "metrics": {
+   "country": "Jordan",
+   "country_iso": "JO",
+   "country_correct": true,
+   "region": "Jerash Governorate",
+   "city": "Jerash (western outskirts, Wadi al-Deir area)",
+   "confidence": 0.9,
+   "overall_confidence": 0.87,
+   "error_km": 2.5,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 1,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "language",
+    "phone_numbers",
+    "roads",
+    "signage_text",
+    "topography",
+    "vegetation",
+    "vehicles"
+   ]
+  },
+  "atoms": [
+   "atm_faf3cc9c19c5",
+   "atm_906f0a8ec152",
+   "atm_763dad0b483b",
+   "atm_0ca411f13c11",
+   "atm_42c9e515cae9",
+   "atm_f289a4c130dc",
+   "atm_b5ef6b7d9aba",
+   "atm_3b30220b728e",
+   "atm_299e8c648a34",
+   "atm_4e6e4c5ff981",
+   "atm_245e9114586c",
+   "atm_3610eb884197",
+   "atm_7283dbf59d3f",
+   "atm_47ecc5947961",
+   "atm_e6d9f0345977",
+   "atm_d647ea52463d"
+  ],
+  "ingest": {
+   "created": 16,
+   "merged": 0,
+   "cost_usd": 0.0662,
+   "passes": {
+    "p2": {
+     "created": 6,
+     "merged": 0,
+     "cost_usd": 0.0376,
+     "n": 6
+    },
+    "p1": {
+     "created": 10,
+     "merged": 0,
+     "cost_usd": 0.0286,
+     "n": 10
+    }
+   }
+  }
+ },
+ "aided_prior": {
+  "lang": "en",
+  "metrics": {
+   "country": "Jordan",
+   "country_iso": "JO",
+   "country_correct": true,
+   "region": "Jerash Governorate",
+   "city": "Jerash (Wadi Al-Deir / Al-Rayyan area, west of city centre)",
+   "confidence": 0.88,
+   "overall_confidence": 0.87,
+   "error_km": 1.67,
+   "reached_level": "district",
+   "n_steps": 5,
+   "n_steps_with_cut": 5,
+   "n_cues": 10,
+   "n_landmarks": 3,
+   "cue_categories": [
+    "architecture",
+    "commerce",
+    "infrastructure",
+    "language",
+    "map_labels",
+    "phone_numbers",
+    "terrain",
+    "toponym",
+    "vegetation"
+   ]
+  },
+  "best_guess": {
+   "city": "Jerash (Wadi Al-Deir / Al-Rayyan area, west of city centre)",
+   "confidence": 0.88,
+   "coordinate_estimate": {
+    "lat": 32.2775,
+    "lng": 35.875,
+    "radius_km": 1.5
+   },
+   "country": "Jordan",
+   "country_iso": "JO",
+   "region_or_state": "Jerash Governorate"
+  }
+ },
+ "cues": {
+  "unaided": [
+   {
+    "blind": {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Two- to three-storey buildings faced in pale cream limestone cladding with concrete frames and rebar left for future floors — standard Jordanian/Levantine incremental construction.",
+     "supports": [
+      "Levant"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "architecture",
+     "image_index": 0,
+     "level": "macro_region",
+     "observation": "Buildings faced with cut pale cream limestone over concrete frames, flat roofs, rebar left protruding for future floors, blue polyethylene water tanks on roofs",
+     "supports": [
+      "Jordan/Levant hill towns"
+     ],
+     "weight": "medium"
+    },
+    "sim": 1.03
+   },
+   {
+    "blind": {
+     "category": "language",
+     "image_index": 1,
+     "level": "country",
+     "observation": "All shop signage in Arabic (Naskh/modern display faces) with Latin transliteration secondary — 'Adam & Kenan market', 'Shawarma'.",
+     "supports": [
+      "Arab Levant"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "language",
+     "image_index": 1,
+     "level": "country",
+     "observation": "Shop signage exclusively in Arabic script with occasional English transliteration (Adam & Kenan market, Baker Street Shawarma), Levantine commercial vocabulary (مفروشات, مطعم)",
+     "supports": [
+      "Arab Levant"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.94
+   },
+   {
+    "blind": {
+     "category": "phone_numbers",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Mobile numbers printed as 0779644224, 0779885566, 0791519494 — the Jordanian 077/079/078 mobile prefix pattern (10 digits starting 07).",
+     "supports": [
+      "Jordan"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "phone_numbers",
+     "image_index": 3,
+     "level": "country",
+     "observation": "Mobile numbers begin 077 / 0779 / 0791 / 0778 — Jordanian mobile prefixes (Orange/Umniah/Zain 077, 078, 079)",
+     "supports": [
+      "Jordan"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.84
+   },
+   {
+    "blind": {
+     "category": "commerce",
+     "image_index": 5,
+     "level": "metro_area",
+     "observation": "Local pharmacy, paint/decor shop, small supermarket cluster under a stone arcade with pale ashlar columns — small provincial town commercial strip, not a capital-city district.",
+     "supports": [
+      "small town"
+     ],
+     "weight": "low"
+    },
+    "aided": {
+     "category": "commerce",
+     "image_index": 5,
+     "level": "district",
+     "observation": "Local mix of pharmacy, decor shop, mini-market and furniture store under stone arcades with columns — self-contained neighbourhood high street rather than tourist strip",
+     "supports": [
+      "residential outskirt of Jerash"
+     ],
+     "weight": "low"
+    },
+    "sim": 0.73
+   },
+   {
+    "blind": {
+     "category": "toponym",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Shawarma sign sub-line reads 'وادي الدير' (Wadi al-Deir), a locality name used in the Jerash/Ajloun hill belt.",
+     "supports": [
+      "Jerash area village"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "signage_text",
+     "image_index": 2,
+     "level": "district",
+     "observation": "Shawarma sign reads 'وادي الدير' (Wadi al-Deir), a named neighbourhood/valley on the western side of Jerash",
+     "supports": [
+      "Wadi al-Deir, Jerash"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.6
+   },
+   {
+    "blind": {
+     "category": "toponym",
+     "image_index": 3,
+     "level": "admin_region",
+     "observation": "Building-materials banner reads 'إعمار جرش لمواد البناء' (I'mar Jerash Building Materials) — the firm names itself after Jerash.",
+     "supports": [
+      "Jerash Governorate"
+     ],
+     "weight": "high"
+    },
+    "aided": {
+     "category": "signage_text",
+     "image_index": 3,
+     "level": "admin_region",
+     "observation": "Building-materials shop named 'إعمار جرش' (Jerash Construction), i.e. a business branded with the city of Jerash",
+     "supports": [
+      "Jerash Governorate"
+     ],
+     "weight": "high"
+    },
+    "sim": 0.54
+   },
+   {
+    "blind": {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "admin_region",
+     "observation": "Dense olive groves and scattered pines on the hillside, greener than typical Jordanian steppe — matches the higher-rainfall Ajloun/Jerash highlands rather than Amman's east or the Badia.",
+     "supports": [
+      "northwest Jordan highlands"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "vegetation",
+     "image_index": 2,
+     "level": "macro_region",
+     "observation": "Dense olive groves on stony terraced slopes right up to the roadside, dry grass, no irrigation-dependent tropical growth",
+     "supports": [
+      "northern Jordan highlands"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.44
+   },
+   {
+    "blind": {
+     "category": "terrain",
+     "image_index": 0,
+     "level": "admin_region",
+     "observation": "Rolling limestone ridges with dispersed white villages across the valley, road descending steeply — northwest Jordan hill country topography.",
+     "supports": [
+      "Jerash/Ajloun hills"
+     ],
+     "weight": "medium"
+    },
+    "aided": {
+     "category": "topography",
+     "image_index": 0,
+     "level": "admin_region",
+     "observation": "Town sprawling over rolling limestone ridges at moderate elevation with white flat-roofed houses spreading across facing hillsides",
+     "supports": [
+      "Ajloun-Jerash highlands"
+     ],
+     "weight": "medium"
+    },
+    "sim": 0.43
+   }
+  ],
+  "aided_only": [
+   {
+    "category": "roads",
+    "image_index": 0,
+    "level": "district",
+    "observation": "Narrow unmarked asphalt street with no curbs on one side, wooden/concrete utility poles carrying low-slung bare conductors across the road",
+    "supports": [
+     "small provincial town, not Amman"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "vehicles",
+    "image_index": 0,
+    "level": "country",
+    "observation": "Older 1990s-2000s Japanese sedans (Civic, Camry) and small pickups, right-hand traffic, white rectangular plates",
+    "supports": [
+     "Jordan used-car fleet"
+    ],
+    "weight": "medium"
+   }
+  ],
+  "blind_only": [
+   {
+    "category": "phone_numbers",
+    "image_index": 1,
+    "level": "country",
+    "observation": "Furniture shop lists 0778 190 195 with WhatsApp icon — again Jordanian 078 prefix, not Palestinian 059/056 or Syrian 093/094.",
+    "supports": [
+     "Jordan"
+    ],
+    "weight": "high"
+   },
+   {
+    "category": "utilities",
+    "image_index": 3,
+    "level": "macro_region",
+    "observation": "Large blue polyethylene rooftop water tanks plus rooftop solar/steel water drums — hallmark of intermittent municipal water supply in Jordan/Palestine.",
+    "supports": [
+     "Jordan",
+     "Palestine"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "road_infrastructure",
+    "image_index": 0,
+    "level": "country",
+    "observation": "Right-hand traffic, no lane markings, informal gravel shoulders, no Israeli-style yellow-and-black plates or Hebrew signage.",
+    "supports": [
+     "Jordan not Israel"
+    ],
+    "weight": "medium"
+   },
+   {
+    "category": "signage",
+    "image_index": 4,
+    "level": "district",
+    "observation": "Older 2017 imagery with vaulted stone arch shopfront ('Al-Mokhtar' events hall) on a narrow steep lane — traditional Ottoman-era stone vernacular common in Jerash-area villages.",
+    "supports": [
+     "historic village core"
+    ],
+    "weight": "low"
+   }
+  ]
+ },
+ "narrative": {
+  "blind_logic": "The blind chain relies entirely on street-level cues: Arabic-only signage and limestone construction place it in the Levant; Jordanian mobile prefixes (077/078/079) confirm Jordan over Palestine/Syria/Lebanon; olive/pine cover and low-rise stone buildings point to the northwest highlands rather than Amman, the south, or the Badia; a hardware banner reading 'I'mar Jerash' and a shawarma sign labeled 'Wadi al-Deir' narrow it to Jerash Governorate and specifically the Wadi al-Deir vicinity. All discriminators are grounded in visible text, architecture, vegetation, and phone number formats.",
+  "aided_logic": "The aided chain reaches the same conclusion using nearly identical signage, phone-prefix, and vegetation reasoning for continent/country/macro_region, but at the admin_region step it explicitly invokes 'adjacent map-context features (Jerash cultural centre, Jerash DMV, Jerash archaeological site) appear in the same frame band' — i.e., labels visible in the map panel — to confirm Jerash Governorate, rather than relying solely on the business-name banner. The district step also references the ridge road location and 'Al Rayyan Dairy area' in a way that suggests map-panel place names were consulted, not just street signage.",
+  "delta": "The first three levels (continent, country, macro_region) are unchanged and remain evidence-driven from street-level cues alone. The delta appears at admin_region, where the aided chain adds explicit mention of map-context POIs (Jerash cultural centre, DMV, archaeological site) as corroborating discriminators — these are only accessible via the map panel, not the street-view images. The district-level conclusion also gains a specific named feature ('Al Rayyan Dairy area') that likely comes from map labels rather than derivable from the shawarma-sign photo alone. This inflates confidence from 0.62 to 0.9 without truly new street-level evidence.",
+  "map_dependent_steps": [
+   "admin_region: citing 'Jerash cultural centre, Jerash DMV, Jerash archaeological site' appearing in the same frame band as corroboration for Jerash Governorate",
+   "district: naming 'Al Rayyan Dairy area' as the specific fringe location toward Wadi al-Deir"
+  ],
+  "verdict": "map-helped",
+  "cost_usd": 0.0255,
+  "model": "claude-sonnet-5"
+ },
+ "cost_usd": 0.6573,
+ "status": "OK"
+}

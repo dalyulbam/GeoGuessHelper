@@ -1,0 +1,2229 @@
+{
+ "created": 1788742066.6694176,
+ "summary": {
+  "unaided": 191,
+  "aided": 22,
+  "blind-only": 24
+ },
+ "by_layer": {
+  "economy": {
+   "unaided": 41,
+   "aided": 3,
+   "blind-only": 5
+  },
+  "geography": {
+   "unaided": 23,
+   "aided": 4,
+   "blind-only": 5
+  },
+  "architecture": {
+   "unaided": 76,
+   "aided": 11,
+   "blind-only": 8
+  },
+  "culture": {
+   "unaided": 27,
+   "aided": 3,
+   "blind-only": 3
+  },
+  "nature": {
+   "unaided": 16,
+   "blind-only": 3
+  },
+  "language": {
+   "unaided": 6
+  },
+  "history": {
+   "unaided": 2,
+   "aided": 1
+  }
+ },
+ "tiers": {
+  "unaided": [
+   {
+    "blind": "atm_3e5ea4ef2aa8",
+    "aided": "atm_b02b8946f8bd",
+    "title": "Red 'HÓTEL HVAMMSTANGI' sign on dark timber building",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_95a455e26485",
+    "aided": "atm_c9bff285bebc",
+    "title": "White Lada Largus-type estate car",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_632935d3db21",
+    "aided": "atm_5ae4b2b4c52a",
+    "title": "Wide braided gravel riverbed with low late-summer flow",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_37843dbfaafb",
+    "aided": "atm_72a693c945bc",
+    "title": "Painted 'ERDINGER Weissbräu' gable advertisement",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_0bb59e38afd7",
+    "aided": "atm_01d391c3cb31",
+    "title": "Blue directional sign to Phu Binh and commune office",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_4a1b6967c0ba",
+    "aided": "atm_87c2eed5e461",
+    "title": "UAE flag bunting across shopfronts",
+    "layer": "culture",
+    "category": "flag-emblem",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_04a9697b5c64",
+    "aided": "atm_15e6b514f3ac",
+    "title": "Italian-language municipal direction signs",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_53362c8b573e",
+    "aided": "atm_5906c221f78b",
+    "title": "Italian town-entry sign 'FORNOVO DI TARO' with coat of arms",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_a99e40bf809d",
+    "aided": "atm_ddd4b5526ad0",
+    "title": "Brown tourist sign for Taro river regional park and Via Francigena marker",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_8297bbdf977b",
+    "aided": "atm_38cde84abacb",
+    "title": "PO Box-only address on bottle store signage",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_4d9407145355",
+    "aided": "atm_380443fe78e0",
+    "title": "Bilingual Finnish/Swedish parking sign 'AUTOMAATTI/AUTOMAT'",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_3576bd565590",
+    "aided": "atm_93ae00602fa3",
+    "title": "South African Autoweek billboard with Eastern Cape provincial logo",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_2d4f8ff84a72",
+    "aided": "atm_63b6301d07cd",
+    "title": "German 'Apotheke' pharmacy signage with red 'A' logo",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_d67f78aec497",
+    "aided": "atm_15d27df8934f",
+    "title": "A-frame braced rural power poles beside single-track railway",
+    "layer": "architecture",
+    "category": "utility-pole",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_76597c6a1141",
+    "aided": "atm_1825a27f26c3",
+    "title": "Afrikaans surname property rental business signage",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_6ba78bd9fe0d",
+    "aided": "atm_cd2f5bc223d3",
+    "title": "Czech carpentry van livery with local phone/email",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_449c38b56efa",
+    "aided": "atm_840faefb9e67",
+    "title": "FANCESA/CONCRETEC cement banner",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_622964ae0629",
+    "aided": "atm_4edb790f53c9",
+    "title": "Small concrete batching plant with orange silos at town edge",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_38e580b3e592",
+    "aided": "atm_db792d2ba619",
+    "title": "Woman in pollera and straw hat",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_6c4210941e8d",
+    "aided": "atm_e902f025ba3d",
+    "title": "Blue Nissan Civilian micro with route number",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_c4cfed02d247",
+    "aided": "atm_dfb56aea683c",
+    "title": "Grass-track tram reservation with catenary",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_31c9cb601191",
+    "aided": "atm_21a099361f93",
+    "title": "Orange-filled triangular pedestrian warning sign",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_9ef7af912dd0",
+    "aided": "atm_7ead35a5930c",
+    "title": "Bolivia's three macro-terrain zones: altiplano, inter-Andean valleys, lowlands",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_a4589fc02684",
+    "aided": "atm_6c65a1b4b47a",
+    "title": "Planted Canary Island date palm rows along highway",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_94781f625372",
+    "aided": "atm_33a086c448c0",
+    "title": "Exposed mossy granite/gneiss bedrock beside urban street",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_4c607523c3e1",
+    "aided": "atm_7367990a35b4",
+    "title": "Black-and-white banded concrete delineator posts",
+    "layer": "architecture",
+    "category": "bollard-guardrail",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_15547af09d3b",
+    "aided": "atm_aa84b5204d8e",
+    "title": "EKO-KOM style bell-shaped waste-sorting containers",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_42b912b26bbf",
+    "aided": "atm_763dad0b483b",
+    "title": "Jordanian mobile number prefixes (077/078/079)",
+    "layer": "language",
+    "category": "other",
+    "scope": "country",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_5987dea44314",
+    "aided": "atm_61d20323b2e2",
+    "title": "Informal roadside tuckshop with flour brand ads and cement blocks",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_ea9184850059",
+    "aided": "atm_69cf3e067eb1",
+    "title": "Slender concrete poles with stacked crossarms and pole-top transformers",
+    "layer": "architecture",
+    "category": "utility-pole",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_f45df579b5f0",
+    "aided": "atm_26eb253d5903",
+    "title": "Walled brick houses with metal hip roofs on sand plots",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_d243ab0dafa1",
+    "aided": "atm_b4d088060df6",
+    "title": "Tswana lolwapa homestead layout with rondavels and block houses",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_b1e39f97b1ae",
+    "aided": "atm_485c2d6fdc8b",
+    "title": "Rustic wooden-post W-beam guardrail on rock cut",
+    "layer": "architecture",
+    "category": "bollard-guardrail",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_e74b18b19959",
+    "aided": "atm_1d76c352db67",
+    "title": "MRB Building Materials Suppliers on Cuyler Street with 041 area code",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_c071859102ab",
+    "aided": "atm_a27840abde06",
+    "title": "Blue-bordered street sign with Icelandic ð letter",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_c59eeb470af1",
+    "aided": "atm_67c4c23c7fa8",
+    "title": "Red-triangle traffic-signal warning sign with distance plate",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_5bdd8c914eef",
+    "aided": "atm_6c1ea2666e7b",
+    "title": "Rows of red socialist and national flags on shopfronts",
+    "layer": "culture",
+    "category": "flag-emblem",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_03d184ced8ff",
+    "aided": "atm_beca3f11d166",
+    "title": "UAE phone numbering plan on shopfront signage",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_e2517fdd0987",
+    "aided": "atm_fc74a28b967b",
+    "title": "Concrete-post W-beam guardrail with red reflectors and km marker",
+    "layer": "architecture",
+    "category": "bollard-guardrail",
+    "scope": "point",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_8cb15971f2d4",
+    "aided": "atm_3442ee1ad8cb",
+    "title": "UAE landline area codes map to emirates",
+    "layer": "culture",
+    "category": "infrastructure-built",
+    "scope": "country",
+    "sim": 1.0
+   },
+   {
+    "blind": "atm_1f13b3e189ab",
+    "aided": "atm_d1b2b2e3856d",
+    "title": "South African bakkie-dominant vehicle mix",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "sim": 0.99
+   },
+   {
+    "blind": "atm_4470109c57eb",
+    "aided": "atm_4b100318f64a",
+    "title": "South African 'h' time notation on municipal office sign",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.99
+   },
+   {
+    "blind": "atm_63c3ad64dad6",
+    "aided": "atm_245e9114586c",
+    "title": "Cream limestone cladding with exposed rebar on unfinished floors",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.98
+   },
+   {
+    "blind": "atm_f4c18ec7c784",
+    "aided": "atm_0b78ac9e3b85",
+    "title": "Post-Soviet road furniture: black-and-white stolbiki and GOST signage",
+    "layer": "culture",
+    "category": "road-signage",
+    "scope": "polity",
+    "sim": 0.96
+   },
+   {
+    "blind": "atm_1acadd8b27f7",
+    "aided": "atm_b5ef6b7d9aba",
+    "title": "Arabic-primary shop signage with Latin transliteration",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.96
+   },
+   {
+    "blind": "atm_6a92b0b513ea",
+    "aided": "atm_ada53c39a7be",
+    "title": "Škoda and VW-group cars with long EU plates",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "sim": 0.96
+   },
+   {
+    "blind": "atm_3f25d15c9c7a",
+    "aided": "atm_8f619551c429",
+    "title": "Yellow-black striped concrete bollards on rough pavement",
+    "layer": "architecture",
+    "category": "bollard-guardrail",
+    "scope": "point",
+    "sim": 0.96
+   },
+   {
+    "blind": "atm_bf6e77132d52",
+    "aided": "atm_74afdbeb4e06",
+    "title": "Date palms and ghaf trees along irrigated avenue",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.95
+   },
+   {
+    "blind": "atm_ef5e724a7611",
+    "aided": "atm_591a11f91086",
+    "title": "Narrow tube houses with ornate balustrades and tile roofs",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.94
+   },
+   {
+    "blind": "atm_7c2d2c10b559",
+    "aided": "atm_797dbf60a8cd",
+    "title": "Eastern hardveld corridor of Botswana (Gaborone-Francistown A1)",
+    "layer": "geography",
+    "category": "settlement-pattern",
+    "scope": "region",
+    "sim": 0.92
+   },
+   {
+    "blind": "atm_8f9a10f3f941",
+    "aided": "atm_93ac36e44a7e",
+    "title": "Southern African savanna belt visual signature",
+    "layer": "geography",
+    "category": "vegetation-cue",
+    "scope": "region",
+    "sim": 0.92
+   },
+   {
+    "blind": "atm_921c08c0346c",
+    "aided": "atm_99efae10621e",
+    "title": "'AL PONTE' bar-trattoria-locanda and 'IN'S mercato' supermarket signage",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.92
+   },
+   {
+    "blind": "atm_49e5d481af9e",
+    "aided": "atm_fc4ad70e42cc",
+    "title": "Motorbike-dominant right-hand traffic with helmets",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "sim": 0.91
+   },
+   {
+    "blind": "atm_fee0252b62d3",
+    "aided": "atm_78c09ca3794e",
+    "title": "Gulf-style roundabout with yellow/black kerbs",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "sim": 0.91
+   },
+   {
+    "blind": "atm_cb3f69cd015e",
+    "aided": "atm_f1a297800559",
+    "title": "Yellow-and-white Sprinter ambulance, Canarian livery",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "sim": 0.9
+   },
+   {
+    "blind": "atm_6f73082405c4",
+    "aided": "atm_29076a843665",
+    "title": "Botswana beer and telecom brands as national identifiers",
+    "layer": "culture",
+    "category": "business-chain",
+    "scope": "country",
+    "sim": 0.9
+   },
+   {
+    "blind": "atm_e84d4e933277",
+    "aided": "atm_8557bb61fc9b",
+    "title": "Canary Island date palms with eucalyptus and dry winter grass",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.88
+   },
+   {
+    "blind": "atm_748a772c568c",
+    "aided": "atm_876d6bf0bef6",
+    "title": "Red-white striped roadworks barriers with orange lamps",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.88
+   },
+   {
+    "blind": "atm_f8e7be7b0d9e",
+    "aided": "atm_4667f14444c1",
+    "title": "Dark scoria/basalt volcanic hillside with lapilli soil",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "sim": 0.87
+   },
+   {
+    "blind": "atm_bc0aeec257a2",
+    "aided": "atm_a232a1faddbb",
+    "title": "Via Francigena as Apennine crossing route",
+    "layer": "history",
+    "category": "pass-corridor",
+    "scope": "polity",
+    "sim": 0.86
+   },
+   {
+    "blind": "atm_40448a0ecbbf",
+    "aided": "atm_b401049cca34",
+    "title": "Flooded paddies in narrow valley during rice transplanting season",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.86
+   },
+   {
+    "blind": "atm_fa4a01097cb0",
+    "aided": "atm_450eea9e8a41",
+    "title": "Circular red-rimmed white 90 km/h speed sign",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.85
+   },
+   {
+    "blind": "atm_addbb5a0a768",
+    "aided": "atm_9b8029dce141",
+    "title": "Shop signage naming Al Dhaid, Sharjah, UAE",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.84
+   },
+   {
+    "blind": "atm_11daed1badc9",
+    "aided": "atm_8e06fb770087",
+    "title": "Swiss vs Italian roadside signage typography as border tell",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "country",
+    "sim": 0.84
+   },
+   {
+    "blind": "atm_0d9b2cae465b",
+    "aided": "atm_9e79657a4730",
+    "title": "Brigade vocational training institutions in Botswana",
+    "layer": "economy",
+    "category": "education",
+    "scope": "country",
+    "sim": 0.84
+   },
+   {
+    "blind": "atm_7311df0e4fa3",
+    "aided": "atm_351ebc433361",
+    "title": "Uitenhage/Kariega automotive manufacturing legacy",
+    "layer": "history",
+    "category": "industry",
+    "scope": "city",
+    "sim": 0.83
+   },
+   {
+    "blind": "atm_03d35c9a338e",
+    "aided": "atm_d647ea52463d",
+    "title": "Stone arcade commercial strip with small provincial shops",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.82
+   },
+   {
+    "blind": "atm_7a43df241d1e",
+    "aided": "atm_fd3c9b60fe36",
+    "title": "Canary Islands resort monoculture economy pattern",
+    "layer": "economy",
+    "category": "tourism-economy",
+    "scope": "region",
+    "sim": 0.82
+   },
+   {
+    "blind": "atm_44fbbe024250",
+    "aided": "atm_21db7b4f3c80",
+    "title": "Barrel-vaulted sheet-metal industrial sheds with 'elevatori' signage",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.82
+   },
+   {
+    "blind": "atm_5eb0cfb170dc",
+    "aided": "atm_1ae5153d8cf0",
+    "title": "Vietnamese social-insurance banner with VSS logo",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.81
+   },
+   {
+    "blind": "atm_baf1e926f4c7",
+    "aided": "atm_bc95517ffb39",
+    "title": "Vietnam flag and Social Security banners as national visual markers",
+    "layer": "culture",
+    "category": "flag-emblem",
+    "scope": "country",
+    "sim": 0.81
+   },
+   {
+    "blind": "atm_da3b0e5e0aba",
+    "aided": "atm_979edc0aa637",
+    "title": "Transmec Group curtain-side semitrailer on Kögel chassis, right-hand traffic",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "sim": 0.8
+   },
+   {
+    "blind": "atm_687081bd24b2",
+    "aided": "atm_eaee427413af",
+    "title": "Sand-rendered compound walls with rooftop water tanks",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.8
+   },
+   {
+    "blind": "atm_7f05e696dca7",
+    "aided": "atm_3658ba918b70",
+    "title": "'Unica' student restaurant window graphic",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.79
+   },
+   {
+    "blind": "atm_026a8abf04fa",
+    "aided": "atm_ed7bff2b58c2",
+    "title": "Golden rice paddies with low hills and banana clumps",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.79
+   },
+   {
+    "blind": "atm_4d0653c0ca1b",
+    "aided": "atm_fe3b2e3e0f1f",
+    "title": "Czech-labelled recycling containers",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.78
+   },
+   {
+    "blind": "atm_990ab226093b",
+    "aided": "atm_068acca14763",
+    "title": "South African phone number area codes as regional locator",
+    "layer": "geography",
+    "category": "infrastructure-built",
+    "scope": "country",
+    "sim": 0.77
+   },
+   {
+    "blind": "atm_65dffb9b81a4",
+    "aided": "atm_cc3ba62400cd",
+    "title": "Whitewashed cubic resort blocks with pantile hipped roofs",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.77
+   },
+   {
+    "blind": "atm_3b89499a7ce5",
+    "aided": "atm_d11dc0371075",
+    "title": "Gascor LPG distributor with Air Products/ESAB accreditation",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.77
+   },
+   {
+    "blind": "atm_51a0d20a5490",
+    "aided": "atm_299e8c648a34",
+    "title": "Building-materials firm named after Jerash",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.75
+   },
+   {
+    "blind": "atm_25332e14bba2",
+    "aided": "atm_4ca3496cbb50",
+    "title": "Bolivia's carrier/brand signage set distinguishes it from neighbors",
+    "layer": "culture",
+    "category": "business-chain",
+    "scope": "country",
+    "sim": 0.75
+   },
+   {
+    "blind": "atm_74724491d068",
+    "aided": "atm_efe5abe23746",
+    "title": "Nissan Civilian micros and second-hand Japanese vehicle fleets in Bolivian cities",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "country",
+    "sim": 0.75
+   },
+   {
+    "blind": "atm_1e966fd9e942",
+    "aided": "atm_f74be1a8388d",
+    "title": "Parma province Apennine torrents named by tributary",
+    "layer": "geography",
+    "category": "hydrology",
+    "scope": "region",
+    "sim": 0.75
+   },
+   {
+    "blind": "atm_5858623b487c",
+    "aided": "atm_65ae8c41082b",
+    "title": "Fennoscandian shield bedrock outcrops in urban streetscapes",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "sim": 0.74
+   },
+   {
+    "blind": "atm_a76e46519aa6",
+    "aided": "atm_efddaf53b70d",
+    "title": "Northern Vietnam midland/delta fringe distinguished by undulating terrain and forested hills",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "sim": 0.74
+   },
+   {
+    "blind": "atm_16658dd9369b",
+    "aided": "atm_9dbfd378ca82",
+    "title": "Yellow-orange birch stand in low autumn sun",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.74
+   },
+   {
+    "blind": "atm_5c1e191a8ab8",
+    "aided": "atm_3b30220b728e",
+    "title": "Jordanian mobile phone prefix pattern on printed signage",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.74
+   },
+   {
+    "blind": "atm_b53060335cc6",
+    "aided": "atm_fd9d8709c559",
+    "title": "Uniform post-war render apartment blocks on arterial street",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.74
+   },
+   {
+    "blind": "atm_10390a34b8ad",
+    "aided": "atm_da57b5d10645",
+    "title": "Blue-and-white 'WELCOME TO MAHALAPYE BRIGADE' sign",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.73
+   },
+   {
+    "blind": "atm_7a2109fba073",
+    "aided": "atm_47ecc5947961",
+    "title": "Modern crossovers/SUVs with EU-format plates, right-hand traffic",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "sim": 0.73
+   },
+   {
+    "blind": "atm_3656e8246b18",
+    "aided": "atm_60703eb15be5",
+    "title": "Mixed deciduous woodland with early-autumn reddening and mown hay hills",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.73
+   },
+   {
+    "blind": "atm_f10353f07da8",
+    "aided": "atm_b8de25e28831",
+    "title": "South African national retail/hardware chains as locator signal",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "country",
+    "sim": 0.72
+   },
+   {
+    "blind": "atm_9e72548dcc26",
+    "aided": "atm_ba54d40fa3af",
+    "title": "Irimoya farmhouse with kawara tile roof and ogre-tile ridge ends",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.72
+   },
+   {
+    "blind": "atm_104f9cab1454",
+    "aided": "atm_918e736a395e",
+    "title": "Sparse saxaul/saltbush shrubs on tan sandy-gravel soil",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.72
+   },
+   {
+    "blind": "atm_1d9255908236",
+    "aided": "atm_c359a43496ca",
+    "title": "Shop sign with full commune/district/province address",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.72
+   },
+   {
+    "blind": "atm_36ed6445c8a6",
+    "aided": "atm_0e2fc8a8c48f",
+    "title": "Unmarked right-hand traffic road with gravel shoulders",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "sim": 0.71
+   },
+   {
+    "blind": "atm_4fbaa0d62307",
+    "aided": "atm_fe8a7311c859",
+    "title": "Inverted triangular yield sign on leaning pole with left-hand traffic",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.71
+   },
+   {
+    "blind": "atm_8ed448618a1a",
+    "aided": "atm_5abefb204d28",
+    "title": "Snow-belt vs Pacific-side Honshu roof and road infrastructure divide",
+    "layer": "geography",
+    "category": "climate",
+    "scope": "polity",
+    "sim": 0.71
+   },
+   {
+    "blind": "atm_0d447e3b5fa0",
+    "aided": "atm_ec839e70fb69",
+    "title": "Flat-topped treeless basalt plateau across a wide fjord",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "sim": 0.71
+   },
+   {
+    "blind": "atm_389f0dd06c39",
+    "aided": "atm_090148a56409",
+    "title": "HVE health institution building with Lyfja pharmacy branding",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.7
+   },
+   {
+    "blind": "atm_3e618af0fb76",
+    "aided": "atm_5f0efc563610",
+    "title": "Finnish 'Oy' company decal with 0400 mobile prefix",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.7
+   },
+   {
+    "blind": "atm_55c619a2fd7c",
+    "aided": "atm_ed0c493bd396",
+    "title": "Regional student-restaurant branding as a Finnish city discriminator",
+    "layer": "culture",
+    "category": "education",
+    "scope": "country",
+    "sim": 0.68
+   },
+   {
+    "blind": "atm_b521001caba5",
+    "aided": "atm_86c1a18b7ec3",
+    "title": "ENTEL sidewalk A-frame sign",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.68
+   },
+   {
+    "blind": "atm_8d9090a680e1",
+    "aided": "atm_ac43acfa5aa9",
+    "title": "Sucre's mandated whitewashed colonial facades with red tile roofs",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "city",
+    "sim": 0.68
+   },
+   {
+    "blind": "atm_fe5cb80f595c",
+    "aided": "atm_2a3b83cfa4b2",
+    "title": "Two-storey wooden townhouse with board cladding and glazed stair bay",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.67
+   },
+   {
+    "blind": "atm_b9f9acc6e47b",
+    "aided": "atm_139f103b0a37",
+    "title": "Post-Soviet GOST road sign family (STOP, saltire crossing, hump warning)",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.66
+   },
+   {
+    "blind": "atm_6d448096edda",
+    "aided": "atm_c91fbe903481",
+    "title": "Turanian desert saxaul-saltbush biome (Ustyurt/pre-Aral)",
+    "layer": "culture",
+    "category": "vegetation",
+    "scope": "region",
+    "sim": 0.66
+   },
+   {
+    "blind": "atm_1c92be9992bc",
+    "aided": "atm_aaa1c7775fd3",
+    "title": "Vietnamese Latin orthography with diacritics distinguishes it regionally",
+    "layer": "language",
+    "category": "script",
+    "scope": "country",
+    "sim": 0.65
+   },
+   {
+    "blind": "atm_613346678886",
+    "aided": "atm_4bdc388432e8",
+    "title": "Village football pitch with hunting-tower-style timekeeper stand",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.65
+   },
+   {
+    "blind": "atm_750f242fcef4",
+    "aided": "atm_8374b755fcb5",
+    "title": "Large hipped-roof communal building dominating village centre",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.64
+   },
+   {
+    "blind": "atm_ebbe59448ba1",
+    "aided": "atm_4276aa2cad23",
+    "title": "Drought-stressed street trees at altitude",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.64
+   },
+   {
+    "blind": "atm_b2c82e37b550",
+    "aided": "atm_c5a9d6db8cb1",
+    "title": "Wilhelmine/Jugendstil corner tenement with onion-domed turret",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.64
+   },
+   {
+    "blind": "atm_a8c4e8984baa",
+    "aided": "atm_776fae9c5baa",
+    "title": "Icelandic orthography uses eth (ð) and thorn (þ)",
+    "layer": "language",
+    "category": "script",
+    "scope": "country",
+    "sim": 0.64
+   },
+   {
+    "blind": "atm_32db37decb23",
+    "aided": "atm_578d812f8fe0",
+    "title": "Sharjah's inland Central Region vs Hajar-backed east coast enclaves",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "sim": 0.63
+   },
+   {
+    "blind": "atm_d21b9177933b",
+    "aided": "atm_a9a3e96ab964",
+    "title": "Blue Bavarian dynastic street-name plate",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.63
+   },
+   {
+    "blind": "atm_32a347b0ab5e",
+    "aided": "atm_f408e92482a5",
+    "title": "Afrikaans-English commercial layer over isiXhosa-majority Eastern Cape population",
+    "layer": "culture",
+    "category": "demography",
+    "scope": "region",
+    "sim": 0.62
+   },
+   {
+    "blind": "atm_480bec883360",
+    "aided": "atm_2dab6c336a4e",
+    "title": "Face-brick municipal building with palisade fencing and burglar bars",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.62
+   },
+   {
+    "blind": "atm_7b5b6b12f4d5",
+    "aided": "atm_e6d9f0345977",
+    "title": "Rolling limestone ridges with dispersed white hilltop villages",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "sim": 0.62
+   },
+   {
+    "blind": "atm_9d8cb0a4a832",
+    "aided": "atm_c6a66df886c0",
+    "title": "Regional beer brand advertising as a sub-national marker in Germany",
+    "layer": "culture",
+    "category": "other",
+    "scope": "region",
+    "sim": 0.61
+   },
+   {
+    "blind": "atm_27dd826ac0a0",
+    "aided": "atm_9165ee64810b",
+    "title": "Czech recycling bell labels and phrasing distinguish Czech from Slovak/Polish",
+    "layer": "language",
+    "category": "signage-language",
+    "scope": "country",
+    "sim": 0.61
+   },
+   {
+    "blind": "atm_2c4033fcfa68",
+    "aided": "atm_83ee0745db63",
+    "title": "Orange-branded shop wall advertising airtime in Setswana",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.61
+   },
+   {
+    "blind": "atm_eb2713acd17a",
+    "aided": "atm_608f8351fd90",
+    "title": "Tile-capped plaster walls with red-lacquer lattice panels",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.61
+   },
+   {
+    "blind": "atm_83f9484293d2",
+    "aided": "atm_3610eb884197",
+    "title": "Dense olive groves and scattered pines on hillside",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.61
+   },
+   {
+    "blind": "atm_378a44694146",
+    "aided": "atm_d15e67cd832b",
+    "title": "Corrugated-metal-clad houses with bright roofs",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.6
+   },
+   {
+    "blind": "atm_bac94de44581",
+    "aided": "atm_e541bfeb0278",
+    "title": "Icelandic rural service village economic profile",
+    "layer": "economy",
+    "category": "tourism-economy",
+    "scope": "country",
+    "sim": 0.6
+   },
+   {
+    "blind": "atm_b354f06442e5",
+    "aided": "atm_7f96c83090a5",
+    "title": "Rainbow crosswalk with triangular yield sign",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "sim": 0.6
+   },
+   {
+    "blind": "atm_0bf221a0e7a7",
+    "aided": "atm_c63f66871a34",
+    "title": "German StVO 30 km/h, resident parking, and Fahrradstraße signs",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.59
+   },
+   {
+    "blind": "atm_627f83101bf7",
+    "aided": "atm_dda2b6a44d6d",
+    "title": "Ochre/pink render apartment blocks on hillside with rail line below",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.59
+   },
+   {
+    "blind": "atm_abe9a61a8811",
+    "aided": "atm_80d847cfe73f",
+    "title": "Semi-arid hardveld vegetation mix",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.59
+   },
+   {
+    "blind": "atm_5421397182ee",
+    "aided": "atm_0ca411f13c11",
+    "title": "Northwest Jordan rain-fed highland belt (Ajloun-Jerash-Irbid)",
+    "layer": "geography",
+    "category": "climate",
+    "scope": "region",
+    "sim": 0.58
+   },
+   {
+    "blind": "atm_7d9c41a0defd",
+    "aided": "atm_eab8c2a63bc3",
+    "title": "Pastel gable houses with solar retrofits and low garden walls",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.58
+   },
+   {
+    "blind": "atm_19e377666f4d",
+    "aided": "atm_76f2fd9651f7",
+    "title": "Bohemia vs Moravia vs Czech Silesia vernacular landscape contrasts",
+    "layer": "geography",
+    "category": "settlement-pattern",
+    "scope": "region",
+    "sim": 0.58
+   },
+   {
+    "blind": "atm_9f7bb3a18878",
+    "aided": "atm_07fa627a987f",
+    "title": "Aging satoyama hamlet economic signature",
+    "layer": "economy",
+    "category": "demography",
+    "scope": "country",
+    "sim": 0.57
+   },
+   {
+    "blind": "atm_fff07015d4fe",
+    "aided": "atm_f3d78fa6d45b",
+    "title": "Icelandic public institution branding as regional identifier",
+    "layer": "culture",
+    "category": "civic-building",
+    "scope": "country",
+    "sim": 0.57
+   },
+   {
+    "blind": "atm_0376c82f45e0",
+    "aided": "atm_365268f3df54",
+    "title": "Kazakh oil-belt suburban housing pattern",
+    "layer": "culture",
+    "category": "housing-typology",
+    "scope": "region",
+    "sim": 0.57
+   },
+   {
+    "blind": "atm_3ed1a91ef487",
+    "aided": "atm_906f0a8ec152",
+    "title": "Jordanian vernacular owner-built concrete-and-limestone housing",
+    "layer": "culture",
+    "category": "housing-typology",
+    "scope": "country",
+    "sim": 0.57
+   },
+   {
+    "blind": "atm_fbd568bc4194",
+    "aided": "atm_66b0777fc853",
+    "title": "Modernist white-rendered campus building with green-tile banding",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.56
+   },
+   {
+    "blind": "atm_be86ac80e53b",
+    "aided": "atm_98db82871e69",
+    "title": "Rebuilt highway with W-beam guardrail and tall streetlights",
+    "layer": "architecture",
+    "category": "bollard-guardrail",
+    "scope": "point",
+    "sim": 0.56
+   },
+   {
+    "blind": "atm_f1601133c107",
+    "aided": "atm_faf3cc9c19c5",
+    "title": "Diagnostic road/traffic signage cues for continent-level discrimination",
+    "layer": "geography",
+    "category": "road-marking",
+    "scope": "global",
+    "sim": 0.55
+   },
+   {
+    "blind": "atm_2dd6bcd16393",
+    "aided": "atm_2221d637527e",
+    "title": "Icelandic coastal landform contrast: south coast vs east fjords vs northwest shallow fjords",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "sim": 0.55
+   },
+   {
+    "blind": "atm_bf2a442eac6d",
+    "aided": "atm_46445d5620e0",
+    "title": "Villa-shophouse mixed commercial units",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.55
+   },
+   {
+    "blind": "atm_595b46dd9dad",
+    "aided": "atm_fe4ccb43cd3c",
+    "title": "Irimoya kawara tiled minka as Japan-specific rural roof marker",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "country",
+    "sim": 0.55
+   },
+   {
+    "blind": "atm_33b56f8338e9",
+    "aided": "atm_0cee76290c85",
+    "title": "Finnish company suffix 'Oy' vs Scandinavian equivalents",
+    "layer": "language",
+    "category": "toponymy",
+    "scope": "country",
+    "sim": 0.55
+   },
+   {
+    "blind": "atm_9d11a0729daf",
+    "aided": "atm_f903b7530a09",
+    "title": "Flat sand plain with reddish-tan soil and low plateau edges",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "sim": 0.54
+   },
+   {
+    "blind": "atm_cd144acc6aa6",
+    "aided": "atm_63ea8d048ee1",
+    "title": "Two-lane tarred highway with white edge lines, no yellow centre line",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "sim": 0.54
+   },
+   {
+    "blind": "atm_a428bc42f357",
+    "aided": "atm_4e6e4c5ff981",
+    "title": "BUCO hardware directional sign with local phone code",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "sim": 0.54
+   },
+   {
+    "blind": "atm_e1eb736eb2bb",
+    "aided": "atm_f8676f72c0af",
+    "title": "German StVO signage and pharmacy branding markers",
+    "layer": "culture",
+    "category": "road-signage",
+    "scope": "country",
+    "sim": 0.53
+   },
+   {
+    "blind": "atm_883deca8c1f2",
+    "aided": "atm_af7e62df3ef3",
+    "title": "Planted conifer shelterbelt rows on otherwise treeless slopes",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.53
+   },
+   {
+    "blind": "atm_0bc1b4908126",
+    "aided": "atm_5b0700d55bd7",
+    "title": "Terraced white apartment bungalow tourist urbanización",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.53
+   },
+   {
+    "blind": "atm_940b5be8e5c4",
+    "aided": "atm_deb24ab03c1a",
+    "title": "Aymara vs Quechua highland dress cues in Bolivia",
+    "layer": "culture",
+    "category": "demography",
+    "scope": "polity",
+    "sim": 0.52
+   },
+   {
+    "blind": "atm_77045e0f39b2",
+    "aided": "atm_7283dbf59d3f",
+    "title": "Narrow unmarked road with paver sidewalk and wheelie bin",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "sim": 0.52
+   },
+   {
+    "blind": "atm_97b9e9af8db3",
+    "aided": "atm_403b5713f17b",
+    "title": "Italian bridge fit-out: cobra-head lamp posts and low steel guardrail",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.52
+   },
+   {
+    "blind": "atm_39e39b68ba22",
+    "aided": "atm_0639df589f8d",
+    "title": "UAE hinterland town economic pattern: Emirati landowners, expatriate service trades",
+    "layer": "economy",
+    "category": "demography",
+    "scope": "region",
+    "sim": 0.51
+   },
+   {
+    "blind": "atm_7f34513ae8d1",
+    "aided": "atm_b658bf05032d",
+    "title": "European vs North American vs East Asian arterial road cues",
+    "layer": "culture",
+    "category": "urban-form",
+    "scope": "region",
+    "sim": 0.51
+   },
+   {
+    "blind": "atm_2a015b546cd1",
+    "aided": "atm_58f43e4b4c67",
+    "title": "South Bohemian Tábor/Soběslav basin fringe vs Vysočina highlands",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "sim": 0.51
+   },
+   {
+    "blind": "atm_ce2996d5c07d",
+    "aided": "atm_0d81bd3cfcbe",
+    "title": "Unmarked narrow farm lane with concrete block retaining walls",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "sim": 0.5
+   },
+   {
+    "blind": "atm_057a30b768a5",
+    "aided": "atm_398543fd4ed0",
+    "title": "Aged Japanese/Korean used-car fleet in Jordan",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "country",
+    "sim": 0.49
+   },
+   {
+    "blind": "atm_14083abe94c9",
+    "aided": "atm_bc3afc52dae7",
+    "title": "Eastern vs western Canary Islands: aridity gradient",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "polity",
+    "sim": 0.49
+   },
+   {
+    "blind": "atm_cba423bb5a1d",
+    "aided": "atm_6c858d088f01",
+    "title": "Northern Vietnamese tube houses and tile roofs in ribbon village form",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "region",
+    "sim": 0.48
+   },
+   {
+    "blind": "atm_657115f2405b",
+    "aided": "atm_9fa2691b575b",
+    "title": "Spain vs Portugal Atlantic island infrastructure cues",
+    "layer": "geography",
+    "category": "infrastructure-built",
+    "scope": "country",
+    "sim": 0.48
+   },
+   {
+    "blind": "atm_4b9340e6861a",
+    "aided": "atm_fdbdb86f5bf4",
+    "title": "Munich inner-ring districts show patchy post-war reconstruction pattern",
+    "layer": "culture",
+    "category": "urban-form",
+    "scope": "city",
+    "sim": 0.47
+   },
+   {
+    "blind": "atm_784bad586d2b",
+    "aided": "atm_5cc4510c4496",
+    "title": "Gulf state flag bunting and phone-format as national identifiers",
+    "layer": "culture",
+    "category": "flag-emblem",
+    "scope": "country",
+    "sim": 0.47
+   },
+   {
+    "blind": "atm_9ff649a1c3e6",
+    "aided": "atm_f2464cb3539d",
+    "title": "Tuscan vs Emilian vernacular landscape contrast",
+    "layer": "culture",
+    "category": "roof-facade",
+    "scope": "region",
+    "sim": 0.47
+   },
+   {
+    "blind": "atm_91929140289a",
+    "aided": "atm_a6d5140fc961",
+    "title": "Macaronesian islands: volcanic Atlantic archipelagos share flora signatures",
+    "layer": "nature",
+    "category": "vegetation",
+    "scope": "polity",
+    "sim": 0.47
+   },
+   {
+    "blind": "atm_451bd69c8185",
+    "aided": "atm_22d5f21e026d",
+    "title": "Large branded all-inclusive beach resort complex",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.47
+   },
+   {
+    "blind": "atm_1c8fc0ae2828",
+    "aided": "atm_510dc24480ae",
+    "title": "Low rounded hills with cedar plantation and yellow-flushing bamboo",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "sim": 0.46
+   },
+   {
+    "blind": "atm_1827c3b83cbe",
+    "aided": "atm_407184178ce6",
+    "title": "Dark glazed kawara roofing with occasional red-brown Sekishu tiles",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.46
+   },
+   {
+    "blind": "atm_b25072b97c43",
+    "aided": "atm_a0c094988a31",
+    "title": "Administrative address signage convention in Vietnam names commune-district-province",
+    "layer": "culture",
+    "category": "toponymy",
+    "scope": "country",
+    "sim": 0.46
+   },
+   {
+    "blind": "atm_65012271441e",
+    "aided": "atm_05c35d0c82ed",
+    "title": "NJ concrete median barrier with tapered edge barriers",
+    "layer": "architecture",
+    "category": "bollard-guardrail",
+    "scope": "point",
+    "sim": 0.46
+   },
+   {
+    "blind": "atm_92d3cbda7793",
+    "aided": "atm_6bf56b22ed48",
+    "title": "EU-style white-front/yellow-rear plate proportions",
+    "layer": "economy",
+    "category": "license-plate",
+    "scope": "point",
+    "sim": 0.46
+   },
+   {
+    "blind": "atm_cdf02553d9d6",
+    "aided": "atm_5deb7454d27d",
+    "title": "South African security hardening as vernacular marker",
+    "layer": "culture",
+    "category": "bollard-guardrail",
+    "scope": "country",
+    "sim": 0.45
+   },
+   {
+    "blind": "atm_e96af76498e5",
+    "aided": "atm_ee55d4f8f848",
+    "title": "1970s-80s stucco house with aluminium balcony beside older minka",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.44
+   },
+   {
+    "blind": "atm_507a054ac2f3",
+    "aided": "atm_ca1989d4a766",
+    "title": "Ryukyuan vernacular architecture markers",
+    "layer": "culture",
+    "category": "roof-facade",
+    "scope": "country",
+    "sim": 0.44
+   },
+   {
+    "blind": "atm_89ac14883da5",
+    "aided": "atm_dfc3c80b67e3",
+    "title": "Tswana lolwapa homestead and rondavel housing typology",
+    "layer": "culture",
+    "category": "housing-typology",
+    "scope": "polity",
+    "sim": 0.44
+   },
+   {
+    "blind": "atm_4976518cd9d3",
+    "aided": "atm_3c8cf21653bf",
+    "title": "Animal-feed and building-contractor shopfronts",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.44
+   },
+   {
+    "blind": "atm_ad33b9eed939",
+    "aided": "atm_1924282465f9",
+    "title": "Single-arm streetlights and wooden distribution poles on main road",
+    "layer": "architecture",
+    "category": "utility-pole",
+    "scope": "point",
+    "sim": 0.43
+   },
+   {
+    "blind": "atm_3a9a71af27c1",
+    "aided": "atm_1c256cfd7ae9",
+    "title": "'LA TEGOLAIA – DIVISIONE EMILIA' business board",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.43
+   },
+   {
+    "blind": "atm_38b7a6b3d306",
+    "aided": "atm_246e7aa66747",
+    "title": "Small white parish church with pointed steeple near sports pitch and fuel canopy",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.43
+   },
+   {
+    "blind": "atm_09d010308dc1",
+    "aided": "atm_dc414804f7af",
+    "title": "Prosperous Czech rural village socioeconomic markers",
+    "layer": "economy",
+    "category": "tourism-economy",
+    "scope": "country",
+    "sim": 0.43
+   },
+   {
+    "blind": "atm_88962bc03b9e",
+    "aided": "atm_909c8f7afa07",
+    "title": "Emilia vs Romagna river basin identity",
+    "layer": "geography",
+    "category": "hydrology",
+    "scope": "region",
+    "sim": 0.43
+   },
+   {
+    "blind": "atm_632345065d73",
+    "aided": "atm_754a69bcc866",
+    "title": "Local business self-branding with town/sub-locality names in rural Jordan",
+    "layer": "economy",
+    "category": "toponymy",
+    "scope": "region",
+    "sim": 0.42
+   },
+   {
+    "blind": "atm_09d13c38eea4",
+    "aided": "atm_449ba46f8440",
+    "title": "Kinai/Sanyo satoyama clustered hamlet pattern",
+    "layer": "culture",
+    "category": "settlement-pattern",
+    "scope": "region",
+    "sim": 0.42
+   },
+   {
+    "blind": "atm_03d15747400a",
+    "aided": "atm_230338cca43d",
+    "title": "Munich MVG grass-track tram radials distinguish it from other Bavarian cities",
+    "layer": "culture",
+    "category": "infrastructure-built",
+    "scope": "city",
+    "sim": 0.41
+   },
+   {
+    "blind": "atm_95e27ee95e3a",
+    "aided": "atm_8dee7bcb05f0",
+    "title": "Bilingual Arabic-English signage as Gulf littoral marker",
+    "layer": "language",
+    "category": "signage-language",
+    "scope": "region",
+    "sim": 0.41
+   },
+   {
+    "blind": "atm_38169a37b400",
+    "aided": "atm_4cba25b5f7f6",
+    "title": "Ottoman-era stone vaulted shopfront on steep lane",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.41
+   },
+   {
+    "blind": "atm_32b3e5bf4107",
+    "aided": "atm_d0fe3afbaeb3",
+    "title": "Emilian foothill town economic profile: SME manufacturing plus heritage tourism",
+    "layer": "economy",
+    "category": "industry",
+    "scope": "region",
+    "sim": 0.41
+   },
+   {
+    "blind": "atm_8c9293b9bd3a",
+    "aided": "atm_5499d82ecd5b",
+    "title": "Bavarian Jugendstil stucco Altbau with onion-dome turrets",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "region",
+    "sim": 0.41
+   },
+   {
+    "blind": "atm_c8d0ba7586d6",
+    "aided": "atm_f46c7001747b",
+    "title": "Local landline numbers with 64x prefix",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "sim": 0.4
+   },
+   {
+    "blind": "atm_ace3b619ddf6",
+    "aided": "atm_e07821aa0a58",
+    "title": "Lanzarote's César Manrique aesthetic building code",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "region",
+    "sim": 0.4
+   },
+   {
+    "blind": "atm_406b4e8b2392",
+    "aided": "atm_60401ce26d6d",
+    "title": "PO Box-only addressing in Botswana",
+    "layer": "culture",
+    "category": "infrastructure-built",
+    "scope": "country",
+    "sim": 0.4
+   },
+   {
+    "blind": "atm_1d46d78c94ea",
+    "aided": "atm_7e4d7df04b9d",
+    "title": "'St Louis Lager' beer branding",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "sim": 0.4
+   }
+  ],
+  "aided": [
+   {
+    "aided": "atm_0ae381f64a19",
+    "title": "Map inset showing Route 711 through town",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "reports": [
+     "baseline_job_959e71524c52_aided"
+    ]
+   },
+   {
+    "aided": "atm_0cca5b8ee290",
+    "title": "Spanish-only shop signage, no Portuguese/indigenous script",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "reports": [
+     "baseline_job_41090529fe0b_aided"
+    ]
+   },
+   {
+    "aided": "atm_3fc388837b06",
+    "title": "Emirati inland oasis towns: family-run trades and villa/farm land tenure",
+    "layer": "culture",
+    "category": "tourism-economy",
+    "scope": "region",
+    "reports": [
+     "baseline_job_f374e57f1b56_aided"
+    ]
+   },
+   {
+    "aided": "atm_42c9e515cae9",
+    "title": "Jordanian provincial micro-business economy via mobile/WhatsApp advertising",
+    "layer": "economy",
+    "category": "retail",
+    "scope": "country",
+    "reports": [
+     "baseline_job_da4b902eaf1e_aided"
+    ]
+   },
+   {
+    "aided": "atm_4a3a6d7cf5aa",
+    "title": "Map overlay naming FV-2 road and local landmarks",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "reports": [
+     "baseline_job_1a2be2d9d7ff_aided"
+    ]
+   },
+   {
+    "aided": "atm_4bb8314680c3",
+    "title": "Single-lane concrete-edged farm lane with no guardrail, wire mesh fencing",
+    "layer": "architecture",
+    "category": "bollard-guardrail",
+    "scope": "point",
+    "reports": [
+     "baseline_job_5f8644e78b2c_aided"
+    ]
+   },
+   {
+    "aided": "atm_538f2004237c",
+    "title": "Rolling upland plateau at ~450-500m with arable/woodland mosaic",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "reports": [
+     "baseline_job_81dd4684ad63_aided"
+    ]
+   },
+   {
+    "aided": "atm_594cf63e7cfd",
+    "title": "Bavarian mansard/dormer roofscape vs north German brick Gründerzeit",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "region",
+    "reports": [
+     "baseline_job_8740554c450d_aided"
+    ]
+   },
+   {
+    "aided": "atm_68d536a3a07f",
+    "title": "Canary Islands road-code prefixes identify individual islands",
+    "layer": "geography",
+    "category": "road-signage",
+    "scope": "polity",
+    "reports": [
+     "baseline_job_1a2be2d9d7ff_aided"
+    ]
+   },
+   {
+    "aided": "atm_873d66a2fd8a",
+    "title": "Northern Apennine river valleys draining to the Po vs Adriatic-draining Marche torrents",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "reports": [
+     "baseline_job_950227aac52b_aided"
+    ]
+   },
+   {
+    "aided": "atm_9082c2d8a2c0",
+    "title": "Field consolidation legacy shaping large-block arable land in Czechia",
+    "layer": "economy",
+    "category": "agriculture",
+    "scope": "region",
+    "reports": [
+     "baseline_job_81dd4684ad63_aided"
+    ]
+   },
+   {
+    "aided": "atm_91ae73ff4837",
+    "title": "Turku as historically Swedish-influenced, now Finnish-majority coastal city",
+    "layer": "history",
+    "category": "polity-rule",
+    "scope": "city",
+    "reports": [
+     "baseline_job_cab0458cd29c_aided"
+    ]
+   },
+   {
+    "aided": "atm_92a6dec05984",
+    "title": "Tutoring-centre sign referencing 'Viet Bac' region name",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "reports": [
+     "baseline_job_e1df2b6f7aeb_aided"
+    ]
+   },
+   {
+    "aided": "atm_9f1c08f628a4",
+    "title": "Map labels for QL37 corridor near Thuong Dinh",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "reports": [
+     "baseline_job_e1df2b6f7aeb_aided"
+    ]
+   },
+   {
+    "aided": "atm_a0ea3ea8631b",
+    "title": "Crossover/SUV-dominant hotel parking fleet",
+    "layer": "economy",
+    "category": "vehicle-fleet",
+    "scope": "point",
+    "reports": [
+     "baseline_job_959e71524c52_aided"
+    ]
+   },
+   {
+    "aided": "atm_a1b62fca5c6c",
+    "title": "Construction permit board naming Al Bustan/Al Dhaid district",
+    "layer": "architecture",
+    "category": "road-signage",
+    "scope": "point",
+    "reports": [
+     "baseline_job_f374e57f1b56_aided"
+    ]
+   },
+   {
+    "aided": "atm_c39ce167bad3",
+    "title": "Map panel with Munich district place names",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "reports": [
+     "baseline_job_8740554c450d_aided"
+    ]
+   },
+   {
+    "aided": "atm_d6b58e4ec80e",
+    "title": "Left-hand traffic flow",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "reports": [
+     "baseline_job_b2b72f38b424_aided"
+    ]
+   },
+   {
+    "aided": "atm_db8ae33593c0",
+    "title": "Map label for Beyneu settlement",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "reports": [
+     "baseline_job_773111a6092d_aided"
+    ]
+   },
+   {
+    "aided": "atm_f289a4c130dc",
+    "title": "Jerash Governorate population composition",
+    "layer": "culture",
+    "category": "demography",
+    "scope": "region",
+    "reports": [
+     "baseline_job_da4b902eaf1e_aided"
+    ]
+   },
+   {
+    "aided": "atm_f7c9410af07d",
+    "title": "Kitayama forestry landscape north of Kyoto",
+    "layer": "geography",
+    "category": "vegetation",
+    "scope": "region",
+    "reports": [
+     "baseline_job_5f8644e78b2c_aided"
+    ]
+   },
+   {
+    "aided": "atm_ffb46338e3da",
+    "title": "Standardized recycling igloo labelling across Czechia",
+    "layer": "culture",
+    "category": "infrastructure-built",
+    "scope": "country",
+    "reports": [
+     "baseline_job_81dd4684ad63_aided"
+    ]
+   }
+  ],
+  "blind-only": [
+   {
+    "blind": "atm_036be6c811e8",
+    "title": "Light-industrial fringe corridor vs CBD retail core visual distinction",
+    "layer": "geography",
+    "category": "urban-form",
+    "scope": "city",
+    "reports": [
+     "baseline_job_72caf482d49b_blind"
+    ]
+   },
+   {
+    "blind": "atm_0dd664b70ce5",
+    "title": "Faded white markings on older asphalt resort street",
+    "layer": "architecture",
+    "category": "road-marking",
+    "scope": "point",
+    "reports": [
+     "baseline_job_1a2be2d9d7ff_blind"
+    ]
+   },
+   {
+    "blind": "atm_14ebe6893af6",
+    "title": "Nhua Tien Phong plastic pipe dealership signage",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "reports": [
+     "baseline_job_e1df2b6f7aeb_blind"
+    ]
+   },
+   {
+    "blind": "atm_228ec96b5b73",
+    "title": "Transit-and-hydrocarbon economy of the Mangystau/Aktobe desert corridor",
+    "layer": "economy",
+    "category": "industry",
+    "scope": "region",
+    "reports": [
+     "baseline_job_773111a6092d_blind"
+    ]
+   },
+   {
+    "blind": "atm_2e471e3e4e9a",
+    "title": "Elevated steel salt/aggregate silo at depot yard",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "reports": [
+     "baseline_job_cab0458cd29c_blind"
+    ]
+   },
+   {
+    "blind": "atm_542f0a666c21",
+    "title": "Blooming horse chestnut and lilac indicating late spring",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "reports": [
+     "baseline_job_81dd4684ad63_blind"
+    ]
+   },
+   {
+    "blind": "atm_57bd6a972b66",
+    "title": "Icelandic corrugated-metal vernacular housing",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "country",
+    "reports": [
+     "baseline_job_959e71524c52_blind"
+    ]
+   },
+   {
+    "blind": "atm_730596de7169",
+    "title": "Truck-service signage: 'TYRE JUNCTION CAR WASH & UPHOLSTERY' and 'Puncture Man'",
+    "layer": "economy",
+    "category": "business-chain",
+    "scope": "point",
+    "reports": [
+     "baseline_job_b2b72f38b424_blind"
+    ]
+   },
+   {
+    "blind": "atm_7e2820c6616b",
+    "title": "Nordic-style blue pedestrian crossing sign on grey aluminium post",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "reports": [
+     "baseline_job_cab0458cd29c_blind"
+    ]
+   },
+   {
+    "blind": "atm_82dc52ba9e94",
+    "title": "Loose volcanic rubble hillside cut beside street",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "reports": [
+     "baseline_job_1a2be2d9d7ff_blind"
+    ]
+   },
+   {
+    "blind": "atm_94d6953713f7",
+    "title": "Hillside barrio with unrendered brick infill",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "reports": [
+     "baseline_job_41090529fe0b_blind"
+    ]
+   },
+   {
+    "blind": "atm_98ed14758646",
+    "title": "Plastic-film greenhouse tunnels beside kitchen gardens",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "reports": [
+     "baseline_job_5f8644e78b2c_blind"
+    ]
+   },
+   {
+    "blind": "atm_a9f3f24c8706",
+    "title": "Rooftop blue polyethylene water tanks and steel drums",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "reports": [
+     "baseline_job_da4b902eaf1e_blind"
+    ]
+   },
+   {
+    "blind": "atm_ac8b0b542531",
+    "title": "Wet asphalt from isolated convective desert rain",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "reports": [
+     "baseline_job_773111a6092d_blind"
+    ]
+   },
+   {
+    "blind": "atm_ca5ccb4a1395",
+    "title": "Rounded ochre hills without deep ravines by open ocean",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "point",
+    "reports": [
+     "baseline_job_1a2be2d9d7ff_blind"
+    ]
+   },
+   {
+    "blind": "atm_d879d49dcf41",
+    "title": "White-poled lantern streetlights at a Y-junction",
+    "layer": "architecture",
+    "category": "street-furniture",
+    "scope": "point",
+    "reports": [
+     "baseline_job_81dd4684ad63_blind"
+    ]
+   },
+   {
+    "blind": "atm_ddf31e7785e4",
+    "title": "Thai Nguyen Province industrial growth linked to Samsung manufacturing complex",
+    "layer": "economy",
+    "category": "industry",
+    "scope": "region",
+    "reports": [
+     "baseline_job_e1df2b6f7aeb_blind"
+    ]
+   },
+   {
+    "blind": "atm_de9524f5331d",
+    "title": "Czech tradesman van signage convention (TRUHLÁŘSTVÍ, ZAKÁZKOVÁ VÝROBA, .cz domain)",
+    "layer": "culture",
+    "category": "business-chain",
+    "scope": "country",
+    "reports": [
+     "baseline_job_81dd4684ad63_blind"
+    ]
+   },
+   {
+    "blind": "atm_dffca897bcc1",
+    "title": "Self-built floor-by-floor brick housing typical of informal Andean urban growth",
+    "layer": "economy",
+    "category": "housing-typology",
+    "scope": "country",
+    "reports": [
+     "baseline_job_41090529fe0b_blind"
+    ]
+   },
+   {
+    "blind": "atm_e6493a33635c",
+    "title": "Tamba belt dark ibushi-gawara tile and dark sedimentary stone palette",
+    "layer": "geography",
+    "category": "roof-facade",
+    "scope": "region",
+    "reports": [
+     "baseline_job_5f8644e78b2c_blind"
+    ]
+   },
+   {
+    "blind": "atm_edefd1a377d3",
+    "title": "Whitewashed houses transitioning to brick construction",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "point",
+    "reports": [
+     "baseline_job_41090529fe0b_blind"
+    ]
+   },
+   {
+    "blind": "atm_f10b1ed3277f",
+    "title": "Aalto-school institutional modernism on Finnish campuses",
+    "layer": "architecture",
+    "category": "other",
+    "scope": "country",
+    "reports": [
+     "baseline_job_cab0458cd29c_blind"
+    ]
+   },
+   {
+    "blind": "atm_f1bfe154be60",
+    "title": "Finland's bilingual coastal municipalities (Finnish/Swedish)",
+    "layer": "culture",
+    "category": "politics-civic",
+    "scope": "country",
+    "reports": [
+     "baseline_job_cab0458cd29c_blind"
+    ]
+   },
+   {
+    "blind": "atm_fe84b8e08af6",
+    "title": "Turku's Yliopistonmäki/Kerttuli/Martti belt: campus meets wooden quarter",
+    "layer": "culture",
+    "category": "urban-form",
+    "scope": "city",
+    "reports": [
+     "baseline_job_cab0458cd29c_blind"
+    ]
+   }
+  ]
+ },
+ "method": "same layer + title similarity >= 0.72 (difflib) between store_blind and store_aided"
+}
