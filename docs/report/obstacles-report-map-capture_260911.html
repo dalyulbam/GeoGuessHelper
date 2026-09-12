@@ -146,9 +146,9 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
   <div class="tblwrap"><table>
     <thead><tr><th>#</th><th>무엇</th><th>영향</th><th>누가</th><th>비용</th></tr></thead>
     <tbody>
-      <tr><td class="id">C-2</td><td>Street View Static API 가 프로젝트에 <b>미활성</b> (<code>REQUEST_DENIED</code>)</td><td>모든 캡처가 브라우저 렌더로 폴백 → 정상 4~5초. 켜면 0.5~2초</td><td>사용자 (Cloud Console)</td><td>5분</td></tr>
+      <tr><td class="id">C-2</td><td>Street View Static API 가 프로젝트에 <b>미활성</b> (<code>REQUEST_DENIED</code>)</td><td>Static 이 선택되는 캡처가 전부 브라우저 렌더로 폴백 → 정상 4~5초. 켜면 <b>추정</b> 0.5~2초(<code>photo_url</code>·수평&gt;120° 경로는 무관)</td><td>사용자 (Cloud Console)</td><td>5분</td></tr>
       <tr><td class="id">C-20</td><td>캡처에 <b>데드라인이 없다</b> — 서버 <code>await</code> 무한(<code>server.py:679</code>), 클라이언트 <code>fetch</code> 무타임아웃(<code>app.js:379</code>), 렌더는 <b>단일 워커 스레드</b>로 직렬화</td><td>한 건이 막히면 뒤의 모든 캡처가 표시 없이 멈춤(실측 236.8초). 세마포어를 올려도 안 풀린다 — 워커가 하나다</td><td>코드</td><td>30분</td></tr>
-      <tr><td class="id">I-5</td><td>Avast 실시간 보호가 Chromium <b>종료를 16~66초</b> 잡는다</td><td>풀링으로 캡처 경로에선 제거. 프로세스 종료 시 1회는 남음</td><td>환경 (예외 등록)</td><td>5분</td></tr>
+      <tr><td class="id">I-5</td><td>Avast 실시간 보호가 Chromium <b>종료를 16~66초</b> 잡는다</td><td>풀링으로 캡처 경로에선 제거. 프로세스 종료 시 1회는 남음. 인과는 아직 <b>추정</b> — 대조군 미측정</td><td>환경 (예외 등록)</td><td>5분</td></tr>
       <tr><td class="id">I-2</td><td>Avast TLS 가로채기 → 인증서 검증 실패 → <code>verify=False</code> 폴백</td><td>Anthropic·Google 연결이 검증 없이 나간다(보안)</td><td>환경 (HTTPS 스캐닝 해제 또는 CA 신뢰)</td><td>10분</td></tr>
       <tr><td class="id">C-21</td><td>캡처의 남은 4초 — 하단 지도 <code>tilesloaded</code> 대기(7초 폴백)가 임계경로</td><td>Static <b>이 선택되는 캡처에 한해</b> 사라진다. 와이드 화각·명시적 playwright·보고서 지도는 그대로</td><td>코드</td><td>1시간</td></tr>
       <tr><td class="id">I-10</td><td>Claude <b>Connection error</b> → 정정 잡 <code>API_ERROR</code>. 다음 <code>run()</code> 에서 대상이 되긴 하지만 <b>재개가 아니라 처음부터</b> 전체 재실행</td><td>09-10 실제 발생 1건($0). SDK 재시도 2회를 다 쓰고도 실패한 것 — 그 뒤 백오프가 없다</td><td>코드</td><td>20분</td></tr>
