@@ -17,10 +17,18 @@ import re
 import time
 import uuid
 from concurrent.futures import Future
+from concurrent.futures import TimeoutError as FuturesTimeout
 from pathlib import Path
 from threading import Lock, Thread, current_thread
 
 from .config import Settings
+
+
+class RenderStalled(RuntimeError):
+    """렌더가 워커 상한을 넘겼다 — 호출부가 RENDER_TIMEOUT 으로 바꿔 돌려준다."""
+
+
+_STOP = object()   # _RenderWorker 은퇴 sentinel
 
 # lh3 의 사용자 기여 이미지 토큰. 타일 URL 이든 photo URL 이든 이 접두는 같다.
 _GPMS_RE = re.compile(r"(https://lh3\.googleusercontent\.com/gpms-cs-s/[A-Za-z0-9_\-]+)")
@@ -50,6 +58,44 @@ window.gm_authFailure=function(){ __fail('JS 키 인증 실패 (InvalidKey/Refer
 var USE_PANO=__USE_PANO__, PANO="__PANO__", HAS_LOC=__HAS_LOC__;
 var LAT=__LAT__, LNG=__LNG__, HEADING=__HEADING__, PITCH=__PITCH__, ZOOM=__ZOOM__;
 var RADIUS=__RADIUS__, SETTLE=__SETTLE__, OFFICIAL_ONLY=__OFFICIAL_ONLY__;
+var MAPWAIT=__MAPWAIT__;
+
+// 하단 지도는 로드뷰와 **동시에** 띄운다.
+// 예전에는 getPanorama 가 돌아온 뒤에야 지도를 만들었다. 그래서 지도 타일 시간이
+// 파노 조회 시간 **뒤에** 붙어 임계경로가 됐고, ready 조건이 그 둘의 합이었다.
+// 좌표를 이미 알고 있으면(HAS_LOC) 기다릴 이유가 없다 — 먼저 띄우고, 실제 파노 위치가
+// 나오면 그때 중심만 옮긴다. 옮겨도 같은 줌의 인접 타일이라 대개 이미 받아 둔 것이다.
+var __map=null, __mapCenter=null, __mapDone=false, __panoSettled=false;
+function __mapReady(){ __mapDone=true; __maybeReady(); }
+function __maybeReady(){
+  if(__panoSettled && __mapDone){ window.__stage="ready"; window.__ready=true; }
+}
+function __near(a,b){                 // 같은 자리로 볼 만한가(약 20m)
+  try{
+    var la=(typeof a.lat==='function')?a.lat():a.lat, ln=(typeof a.lng==='function')?a.lng():a.lng;
+    var lb=(typeof b.lat==='function')?b.lat():b.lat, nb=(typeof b.lng==='function')?b.lng():b.lng;
+    return Math.abs(la-lb)<2e-4 && Math.abs(ln-nb)<2e-4;
+  }catch(e){ return false; }
+}
+function __startMap(center){
+  if(__map){
+    // 실제 위치가 달라졌으면(스테일 pano 좌표 폴백·공식 파노 대체) 이전 '준비됨'을
+    // 재사용하면 안 된다 — 새 타일이 오기 전에 찍힌다. 준비 상태를 다시 세운다.
+    if(center && !__near(center,__mapCenter)){
+      __mapCenter=center; __mapDone=false; __map.setCenter(center);
+      google.maps.event.addListenerOnce(__map,'tilesloaded',__mapReady);
+      setTimeout(__mapReady, MAPWAIT);
+    }
+    return __map;
+  }
+  __mapCenter=center;
+  __map=new google.maps.Map(document.getElementById('map'),{
+    center:center, zoom:15, mapTypeId:'hybrid', disableDefaultUI:true, gestureHandling:'none'
+  });
+  google.maps.event.addListenerOnce(__map,'tilesloaded',__mapReady);
+  setTimeout(__mapReady, MAPWAIT);   // 지도 타일 지연 상한 — 이제 병렬 경로의 상한일 뿐이다
+  return __map;
+}
 
 function __init(){
   try{
@@ -59,6 +105,7 @@ function __init(){
       disableDefaultUI:true, showRoadLabels:false, motionTracking:false,
       linksControl:false, addressControl:false, zoomControl:false, zoom:ZOOM
     });
+    if(HAS_LOC) __startMap({lat:LAT,lng:LNG});   // ← 파노 조회를 기다리지 않는다
     function locReq(){ return {location:{lat:LAT,lng:LNG}, radius:RADIUS,
       preference:google.maps.StreetViewPreference.NEAREST,
       sources:[google.maps.StreetViewSource.OUTDOOR]}; }
@@ -69,15 +116,9 @@ function __init(){
       pano.setPano(data.location.pano);
       pano.setPov({heading:HEADING, pitch:PITCH});
       pano.setZoom(ZOOM);
-      var map=new google.maps.Map(document.getElementById('map'),{
-        center:loc, zoom:15, mapTypeId:'hybrid', disableDefaultUI:true, gestureHandling:'none'
-      });
+      var map=__startMap(loc);          // 이미 떠 있으면 중심만 옮긴다
       new google.maps.Marker({position:loc, map:map});
-      var panoSettled=false, mapDone=false;
-      function ready(){ if(panoSettled && mapDone){ window.__stage="ready"; window.__ready=true; } }
-      google.maps.event.addListenerOnce(map,'tilesloaded',function(){ mapDone=true; ready(); });
-      setTimeout(function(){ mapDone=true; ready(); }, 7000);   // 지도 타일 지연 대비 폴백
-      setTimeout(function(){ panoSettled=true; ready(); }, SETTLE); // 로드뷰 타일 정착 대기
+      setTimeout(function(){ __panoSettled=true; __maybeReady(); }, SETTLE);
     }
     // 제3자(사용자 기여) 파노도 **정상적으로 렌더된다**. 다만 타일이 구글 공식 파노와 다른
     // 곳에서 온다: 공식은 streetviewpixels-pa.googleapis.com(키 기반, HTTP 200), 제3자는
@@ -249,10 +290,23 @@ class _RenderWorker:
         self._q: queue.Queue = queue.Queue()
         self._thr: Thread | None = None
         self._lock = Lock()
+        self._retired = False
 
     def _loop(self) -> None:
         while True:
             fut, fn = self._q.get()
+            if fn is _STOP:
+                # 은퇴 신호. 남아 있는(아직 시작도 안 한) 일은 실행하지 않고 실패로 끝낸다 —
+                # 예전에는 그대로 실행돼, 호출부가 이미 임시파일·로컬서버를 정리한 뒤에
+                # 뒤늦게 캡처 파일을 만들 수 있었다.
+                while True:
+                    try:
+                        f2, _ = self._q.get_nowait()
+                    except queue.Empty:
+                        break
+                    if f2.set_running_or_notify_cancel():
+                        f2.set_exception(RenderStalled("렌더 워커가 은퇴해 이 작업은 실행되지 않았습니다."))
+                return
             if not fut.set_running_or_notify_cancel():
                 continue
             try:
@@ -262,12 +316,28 @@ class _RenderWorker:
 
     def submit(self, fn) -> Future:
         with self._lock:
+            if self._retired:
+                raise RenderStalled("은퇴한 렌더 워커에는 작업을 넣지 않는다.")
             if self._thr is None or not self._thr.is_alive():
                 self._thr = Thread(target=self._loop, name="pw-render", daemon=True)
                 self._thr.start()
         fut: Future = Future()
         self._q.put((fut, fn))
         return fut
+
+    def retire(self) -> None:
+        """더는 받지 않고, 지금 도는 일이 끝나면 스레드를 끝낸다.
+
+        막힌 일은 취소할 수 없다(동기 Playwright). 그래서 '죽이기'가 아니라 '끝나면
+        나가기'다 — 그 일이 언젠가 끝나면 남은 큐를 비우고 스레드가 반환된다.
+        예전 판은 sentinel 이 없어 스레드가 queue.get() 에서 영구 대기했고,
+        타임아웃 한 번마다 하나씩 쌓였다.
+        """
+        with self._lock:
+            if self._retired:
+                return
+            self._retired = True
+        self._q.put((Future(), _STOP))
 
     def is_current(self) -> bool:
         return current_thread() is self._thr
@@ -295,6 +365,9 @@ class _BrowserPool:
         self._ctx = None
         self._ctx_key: tuple | None = None
         self.launches = 0
+        self.stalls = 0          # 워커 상한에 걸려 브라우저를 버린 횟수(진단용)
+        self._gen = 0            # 워커 세대 — 은퇴가 한 번만 일어나게 한다
+        self._gen_lock = Lock()
 
     # 아래 _* 메서드는 **워커 스레드 위에서만** 불린다.
     def _browser_on_worker(self):
@@ -320,6 +393,49 @@ class _BrowserPool:
             except Exception:  # noqa: BLE001
                 pass
 
+    def _retire(self, gen: int) -> None:
+        """막힌 워커를 통째로 은퇴시키고 새 워커를 세운다.
+
+        `gen` 은 호출자가 **작업을 넣을 때** 본 세대다. 그 사이 다른 호출자가 이미
+        교체했다면 아무것도 하지 않는다 — 예전 판은 세대 검사가 없어서, 같은 막힌
+        워커를 기다리던 두 호출 중 두 번째가 **멀쩡한 새 워커를 은퇴시켰다**.
+        stalls 도 실제 멎은 워커 수가 아니라 대기 호출 수만큼 부풀었다.
+
+        동기 Playwright 객체는 **만든 스레드에 묶여** 있어서 밖에서 그 브라우저를 닫을 수
+        없다. 그 스레드에 정리 작업을 넣어 봐야 막힌 일 **뒤에 줄을 설 뿐**이다 —
+        실측(260912): 그렇게 했더니 다음 캡처가 31.69초를 기다렸다. 앞의 일이 끝나기를
+        기다린 것이고, 상한을 둔 의미가 없어진다.
+
+        그래서 참조를 끊고 새 워커·새 브라우저로 간다. 옛 워커는 버려지지 않는다 —
+        큐에 정리 작업을 하나 넣어 두므로, 막힌 일이 언젠가 끝나면 그때 스스로 닫는다.
+        """
+        with self._gen_lock:
+            if gen != self._gen:
+                return                  # 이미 다른 호출자가 갈아 끼웠다
+            old, pw, browser = self._worker, self._pw, self._browser
+            self._gen += 1
+            self.stalls += 1
+            self._worker = _RenderWorker()
+            self._pw = None
+            self._browser = None
+            self._ctx = None
+            self._ctx_key = None
+
+        def _close_old():
+            for obj, meth in ((browser, "close"), (pw, "stop")):
+                if obj is None:
+                    continue
+                try:
+                    getattr(obj, meth)()
+                except Exception:  # noqa: BLE001
+                    pass
+
+        try:
+            old.submit(_close_old)      # 막힌 일이 끝나는 순간 실행된다
+        except Exception:  # noqa: BLE001
+            pass
+        old.retire()                    # 그 뒤 스레드를 끝낸다(누수 방지)
+
     def context(self, browser, key: tuple, **kw):
         """같은 설정이면 컨텍스트를 재사용한다 — 캐시가 살아 Maps JS 를 다시 안 받는다."""
         if self._ctx is not None and self._ctx_key == key:
@@ -342,6 +458,10 @@ class _BrowserPool:
 
         브라우저가 죽어 있어서 실패한 경우에만 한 번 다시 띄워 재시도한다. 살아 있는데
         난 예외(타임아웃 등)는 진짜 실패이므로 그대로 올린다 — 재시도하면 대기만 두 배다.
+
+        상한을 거는 이유 — 워커는 **한 개**다. 한 건이 브라우저 안에서 멎으면 뒤의 모든
+        캡처가 이 큐에서 영원히 기다린다. 서버 쪽 asyncio.wait_for 는 그 요청만 풀어 줄 뿐
+        워커는 그대로 잡혀 있으므로, 여기서도 끊고 **그 브라우저를 버려야** 다음이 산다.
         """
         if not getattr(settings, "render_reuse_browser", True):
             job = lambda: _one_shot(fn)  # noqa: E731
@@ -358,7 +478,23 @@ class _BrowserPool:
 
         if self._worker.is_current():
             return job()
-        return self._worker.submit(job).result()
+
+        limit = float(getattr(settings, "render_worker_timeout_s", 0) or 0)
+        with self._gen_lock:
+            gen, worker = self._gen, self._worker
+        fut = worker.submit(job)
+        if limit <= 0:
+            return fut.result()
+        try:
+            return fut.result(timeout=limit)
+        except FuturesTimeout as exc:
+            # 아직 시작도 안 한 경우가 있다 — 그때는 취소가 실제로 먹는다.
+            fut.cancel()
+            self._retire(gen)
+            raise RenderStalled(
+                f"브라우저 렌더가 {limit:.0f}초 안에 끝나지 않아 중단했습니다"
+                " — 브라우저를 버리고 다시 띄웁니다."
+            ) from exc
 
     def shutdown(self, timeout: float = 2.0) -> None:
         """프로세스 종료 시 1회. 못 닫아도 붙잡지 않는다 — 드라이버가 브라우저를 정리한다."""
@@ -634,6 +770,7 @@ def _build_html(pose: dict, settings: Settings, key: str, *, official_only: bool
         # 이제 JS 는 최소 페인트 여유만 두고, 정착 판정은 파이썬이 타일 응답으로 한다
         # (_wait_tiles_quiet). 느린 회선에서는 그쪽이 오히려 더 기다린다.
         "__SETTLE__": str(max(0, int(settings.render_settle_ms))),
+        "__MAPWAIT__": str(max(0, int(getattr(settings, "render_map_wait_ms", 2500)))),
         "__OFFICIAL_ONLY__": "true" if official_only else "false",
     }
     html = _HTML
@@ -796,6 +933,9 @@ def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool
         early = _POOL.run(settings, work)
         if early is not None:
             return early
+    except RenderStalled as exc:
+        # 워커가 상한에 걸려 브라우저를 버린 경우 — 실패 사유를 뭉뚱그리지 않는다.
+        return {"status": "RENDER_TIMEOUT", "message": str(exc), "stalled": True}
     except Exception as exc:  # noqa: BLE001
         return {"status": "RENDER_ERROR", "message": f"브라우저 렌더 실패: {exc}"}
     finally:
@@ -866,4 +1006,5 @@ def render_sync(pose: dict, settings: Settings, key: str, *, official_only: bool
         # 재사용이 동작 중이면 launches 는 캡처 수와 무관하게 1 근처에 머문다.
         "settle_s": round(settle_s, 2),
         "browser_launches": _POOL.launches,
+        "render_stalls": _POOL.stalls,
     }

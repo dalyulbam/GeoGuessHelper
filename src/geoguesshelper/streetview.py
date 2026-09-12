@@ -117,14 +117,18 @@ def fetch_bytes_sync(url: str, *, timeout: float = 20.0) -> bytes:
     """
     import httpx
 
-    from .tls import _forced, _host_of, httpx_verify, is_cert_error, mark_insecure
+    from .tls import (_forced, _host_of, decide_tls, httpx_verify, is_cert_error,
+                      mark_insecure, system_ssl_context)
 
     host = _host_of(url)
     verifies = [httpx_verify(host)]
     if verifies[0] is not False and _forced() is not False:
+        # 검증을 끄기 전에 규격 완화를 한 칸 거친다(tls.aget 과 같은 사다리).
+        if decide_tls() == "secure":
+            verifies.append(system_ssl_context(strict=False))
         verifies.append(False)
     last: BaseException | None = None
-    for verify in verifies:
+    for i, verify in enumerate(verifies):
         try:
             with httpx.Client(verify=verify, follow_redirects=True, timeout=timeout) as c:
                 resp = c.get(url)
@@ -133,7 +137,8 @@ def fetch_bytes_sync(url: str, *, timeout: float = 20.0) -> bytes:
         except Exception as exc:  # noqa: BLE001
             last = exc
             if verify is not False and is_cert_error(exc):
-                mark_insecure(host)
+                if i == len(verifies) - 2:
+                    mark_insecure(host)
                 continue
             raise
     assert last is not None

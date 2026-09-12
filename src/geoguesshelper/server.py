@@ -39,6 +39,7 @@ import json
 import re
 import socket
 import threading
+import time
 import webbrowser
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
@@ -654,6 +655,10 @@ def build_app(settings: Settings) -> FastAPI:
     async def api_config():
         cfg = settings.public_config()
         cfg["knowledge"] = knowledge.store_for(settings).stats() if settings.knowledge_enabled else {}
+        # Static 경로가 지금 쓸 수 있는지 화면이 알아야 한다. 예전에는 서버가 매 캡처마다
+        # 거부당하고 조용히 브라우저로 넘어갔고, 그 사실이 화면 어디에도 없었다.
+        cfg["staticHealth"] = capture_mod.static_health(settings)
+        cfg["captureTimeoutS"] = settings.capture_timeout_s
         return JSONResponse(cfg)
 
     @app.post("/api/extract")
@@ -674,13 +679,49 @@ def build_app(settings: Settings) -> FastAPI:
         if not pose or pose.get("lat") is None and not pose.get("pano"):
             raise HTTPException(status_code=422, detail="유효한 pose(lat/lng 또는 pano)가 필요합니다.")
         assert _CAPTURE_SEM is not None
-        async with _CAPTURE_SEM:
+        # 대기부터 마감 안에 든다. 세마포어가 1이라 앞 건이 막히면 여기서 먼저 걸리는데,
+        # 그 사실을 사용자에게 말해 줘야 "눌렀는데 아무 일도 없다"가 안 된다.
+        limit = float(getattr(settings, "capture_timeout_s", 75.0) or 75.0)
+        t0 = time.monotonic()
+        try:
+            await asyncio.wait_for(_CAPTURE_SEM.acquire(), timeout=limit)
+        except asyncio.TimeoutError:
+            return JSONResponse({
+                "status": "CAPTURE_TIMEOUT",
+                "message": f"앞선 캡처가 {limit:.0f}초 안에 끝나지 않아 대기를 포기했습니다."
+                           " 잠시 후 다시 눌러 주세요.",
+                "waited_s": round(time.monotonic() - t0, 1), "phase": "queue",
+            })
+        try:
+            # 절대 마감이다. 예전 판의 max(5.0, …) 은 마감 직전에 큐를 잡으면 5초를
+            # 더 줘서 "전체 벽시계 상한"이라는 설명과 어긋났다(75초 상한에 79.9초).
+            rest = limit - (time.monotonic() - t0)
+            if rest <= 0:
+                return JSONResponse({
+                    "status": "CAPTURE_TIMEOUT",
+                    "message": f"대기만으로 {limit:.0f}초를 써 캡처를 시작하지 못했습니다.",
+                    "waited_s": round(time.monotonic() - t0, 1), "phase": "queue",
+                })
             try:
-                result = await capture_mod.capture(pose, settings, mode=mode)
+                result = await asyncio.wait_for(
+                    capture_mod.capture(pose, settings, mode=mode), timeout=rest)
+            except asyncio.TimeoutError:
+                # 예전에는 상한이 없어 막힌 렌더 하나가 뒤의 모든 캡처를 표시 없이 세웠다
+                # (실측 236.78초). 워커 쪽 상한(render_worker_timeout_s)이 브라우저를
+                # 버려 큐를 풀고, 이쪽은 사용자에게 사유를 돌려준다.
+                result = {
+                    "status": "CAPTURE_TIMEOUT",
+                    "message": f"캡처가 {limit:.0f}초 안에 끝나지 않아 중단했습니다."
+                               " 브라우저 렌더가 막힌 것이며, 다음 캡처를 위해 렌더러를 다시 띄웁니다.",
+                    "waited_s": round(time.monotonic() - t0, 1), "phase": "render",
+                }
             except Exception as exc:  # noqa: BLE001
                 # 예전에는 여기서 예외가 그대로 올라가 클라이언트가 JSON 이 아닌
                 # text/plain "Internal Server Error" 를 받아 .json() 파싱에서 터졌다.
                 result = {"status": "CAPTURE_ERROR", "message": f"{type(exc).__name__}: {exc}"}
+        finally:
+            _CAPTURE_SEM.release()
+        result.setdefault("elapsed_s", round(time.monotonic() - t0, 1))
         return JSONResponse(result)
 
     _photo_tokens: dict[str, str | None] = {}
@@ -1112,8 +1153,31 @@ def _safe_stdout() -> None:
 def main() -> None:
     import uvicorn
 
+    from . import tls as _tls
     from .tls import decide_tls, keylog_removed, neutralize_keylog
     from .winquirks import neutralize_wmi, wmi_neutralized
+
+    def _static_banner(s) -> str:
+        """Static 경로의 **실제** 상태. '키 설정됨'만으로는 쓸 수 있다는 뜻이 아니다."""
+        h = capture_mod.static_health(s)
+        if not h["key"]:
+            return "없음 (모든 캡처가 브라우저 렌더)"
+        if h["denied"] == "REQUEST_DENIED":
+            return ("거부됨 - Cloud Console 에서 'Street View Static API'·'Maps Static API' 활성화 필요"
+                    " (그전까지 브라우저 렌더로 폴백)")
+        if h["denied"]:
+            return f"막힘({h['denied']}) - 브라우저 렌더로 폴백"
+        if not h["dedicated_key"]:
+            return "설정됨 (JS 키 폴백 - 리퍼러 제한이면 서버측 GET 은 403)"
+        return "설정됨"
+
+    # 세 모드를 구분해 말한다. 예전 배너는 relaxed 를 표현할 방법이 없어서, 검증이
+    # 살아 있는 상태와 꺼진 상태가 똑같이 "켬"/"끔" 둘로만 보였다.
+    _TLS_BANNER = {
+        "secure": "켬 (엄격)",
+        "relaxed": "켬 (규격 완화 - 가로채기 CA 의 Basic Constraints 비-critical)",
+        "insecure": "끔 (verify=False) - GEOHELPER_INSECURE_TLS 로 명시 해제됨",
+    }
 
     _safe_stdout()
     # platform.uname() 캐시가 차기 전에. 이 PC 의 WMI 조회는 멈추고, SDK 는 요청 헤더를
@@ -1134,9 +1198,10 @@ def main() -> None:
         "  == GeoGuessHelper ===============================",
         f"   브라우저 : {url}",
         f"   JS 지도 키   : {'설정됨' if settings.has_js_key else '없음 (지도/로드뷰 비활성, 추출은 동작)'}",
-        f"   Static 캡처  : {'설정됨' if settings.has_static_key else '없음 (캡처 비활성)'}",
+        f"   Static 캡처  : {_static_banner(settings)}",
         f"   Claude 분석  : {'설정됨' if settings.has_anthropic else '없음 (분석 비활성)'}",
-        f"   TLS 검증     : {'끔 (사내 프록시 감지 - verify=False)' if tls_mode == 'insecure' else '켬'}",
+        f"   TLS 검증     : {_TLS_BANNER.get(tls_mode, '켬')}"
+        + (" · 시작 프로브는 실패(호스트별로 판정한다)" if _tls.probe_unverified() else ""),
         *([f"   SSLKEYLOGFILE: 제거함 ({keylog_removed()}) - 백신 TLS 감청 지시"] if keylog_removed() else []),
         *(["   WMI 조회     : 끔 - 이 PC 에서 멈춤 (platform.uname 폴백 사용)"] if wmi_neutralized() else []),
         f"   작업 큐      : 동시 {settings.job_concurrency}건 (대기 최대 {settings.job_max_pending})",

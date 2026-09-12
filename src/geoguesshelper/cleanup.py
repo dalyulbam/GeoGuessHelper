@@ -19,7 +19,9 @@
 안전 규칙 — 지우면 안 되는 것을 코드로 막는다:
   · docs/knowledge/ 는 **절대** 건드리지 않는다. .gitignore 가 명시하듯 의도적으로 커밋하는
     자산이고, 보고서를 만들수록 쌓이는 유일한 비복구 데이터다.
-  · 프로젝트 루트 밖은 건드리지 않는다(경로 탈출 방어).
+  · **이 설치의 트리 밖은 건드리지 않는다**(_install_anchors). 260911 감사 전까지 이 검사가
+    없어서, GEOHELPER_CAPTURES 로 엉뚱한 폴더를 주면 그 아래 미참조 이미지가 삭제 후보가
+    됐다. 제외한 경로는 스캔 결과의 outsideRoot 로 밝힌다(침묵하지 않는다).
   · git 이 추적 중인 파일은 기본적으로 건너뛴다.
   · `_GRACE_S` 안에 생성된 파일은 진행 중인 작업이 쓰는 중일 수 있으므로 건너뛴다.
   · 큐에 살아 있는(비종료) 작업이 참조하는 캡처는 건너뛴다.
@@ -54,7 +56,7 @@ class Item:
         try:
             rel = str(self.path.relative_to(root))
         except ValueError:
-            rel = str(self.path)
+            rel = str(self.path)          # 루트 밖(예: %TEMP% 프로필)은 절대경로 그대로
         return {
             "path": rel,
             "size": self.size,
@@ -87,6 +89,71 @@ class Category:
             "sizeHuman": human(self.size),
             "sample": [i.public(root) for i in self.items[:sample]],
         }
+
+
+def _install_anchors(settings: Settings, root: Path) -> list[Path]:
+    """"이 설치의 것"으로 인정할 상위 경로들.
+
+    ① 프로젝트 루트 — 보통의 경우.
+    ② 지식 저장소에서 위로 올라가며 찾은 **설치 표지(pyproject.toml)** 의 디렉터리 —
+       앱 데이터를 통째로 옮긴 설치(와 테스트 픽스처)다. project_root() 는 *모듈* 위치에서
+       올라가므로 옮긴 데이터 트리를 못 본다. 지식 저장소는 이 앱에서 유일한 비복구 자산이라
+       어디로 옮기든 같이 가므로, 그쪽에서 한 번 더 찾는 것이 정확하다.
+    ③ 지식 저장소의 바로 위 디렉터리 — 표지가 없는 순수 데이터 트리(`<base>/knowledge`,
+       `<base>/captures`)를 위한 최소 허용.
+
+    캡처 디렉터리 **하나만** 엉뚱한 곳을 가리키는 경우가 위험한 경우인데, 그때는 셋 중
+    어느 기준도 통과하지 못한다.
+
+    조부모(kd.parent.parent)는 **일부러 넣지 않는다**. 처음엔 넣었다가 자체 점검에서
+    깨졌다 — 지식을 <X>/a/b/kb 로 옮기면 <X>/a 전체가 열려 <X>/a/unrelated 까지
+    사정권에 들어왔다. ②가 표지를 요구하므로 그런 우연한 확장이 생기지 않는다.
+    """
+    out = [root]
+
+    def push(p) -> None:
+        # p.anchor 는 **문자열**이다 — Path 와 직접 비교하면 언제나 참이라
+        # 드라이브 루트 제외가 통째로 무효였다(260912 Codex 검토).
+        if p and p not in out and p != Path(p.anchor):
+            out.append(p)
+
+    try:
+        kd = settings.knowledge_dir.resolve()
+    except OSError:
+        return out
+    for parent in kd.parents:               # ② 표지를 만나면 거기까지가 이 설치다
+        if (parent / "pyproject.toml").exists():
+            push(parent)
+            break
+    push(kd.parent)                          # ③
+    return out
+
+
+_PW_TEMP_PREFIX = ("playwright_chromiumdev_profile-", "playwright-artifacts-")
+
+
+def _stale_playwright_dirs(before_ts: float) -> list[Path]:
+    """%TEMP% 에 남은 헤드리스 잔여 프로필. 이름이 정확히 맞는 것만 돌려준다.
+
+    지금 도는 브라우저의 프로필을 지우면 그 렌더가 깨지므로, 최근에 손댄 것은 제외한다
+    (before_ts 보다 오래된 것만). 열려 있는 파일은 어차피 Windows 가 삭제를 거부한다.
+    """
+    import tempfile
+
+    out: list[Path] = []
+    try:
+        base = Path(tempfile.gettempdir())
+        for d in base.iterdir():
+            if not d.is_dir() or not d.name.startswith(_PW_TEMP_PREFIX):
+                continue
+            try:
+                if d.stat().st_mtime < before_ts:
+                    out.append(d)
+            except OSError:
+                continue
+    except OSError:
+        pass
+    return out
 
 
 def human(n: float) -> str:
@@ -178,15 +245,26 @@ def scan(
 
     # 손댈 수 있는 디렉터리를 **화이트리스트로** 고정한다. "프로젝트 안이면 OK" 로 두면
     # src/ 나 .env 까지 사정권에 들어온다 — 지울 수 있는 곳만 명시적으로 연다.
+    anchors = _install_anchors(settings, root)
     allowed: list[Path] = []
+    outside: list[str] = []
     for d in (settings.captures_dir, settings.reports_dir, settings.jobs_dir,
               root / "src", root / "tests"):
         try:
             rd = Path(d).resolve()
         except OSError:
             continue
-        if rd != protected_dir and protected_dir not in rd.parents:
-            allowed.append(rd)
+        if rd == protected_dir or protected_dir in rd.parents:
+            continue
+        # 이 디렉터리가 **이 설치의 것인가**를 실제로 검사한다. 260911 감사 전까지 이 검사가
+        # 없어서, GEOHELPER_CAPTURES 로 엉뚱한 경로(예: 사진 폴더)를 주면 그 아래 미참조
+        # 이미지가 기본 삭제 후보가 됐다 — 외부 경로는 git 저장소도 아니라 '추적 중' 방어도
+        # 빈 집합이 된다. 기준을 "프로젝트 루트 안"으로만 두면 통째로 옮긴 설치가 막히므로,
+        # 지식 저장소와 같은 트리에 있는지도 함께 본다(_install_anchors).
+        if not any(rd == a or a in rd.parents for a in anchors):
+            outside.append(str(rd))
+            continue
+        allowed.append(rd)
 
     probe = next((d for d in (settings.captures_dir, settings.reports_dir) if d.exists()), root)
     tracked = _git_tracked(probe)
@@ -314,10 +392,40 @@ def scan(
             if ok:
                 c.items.append(mk(p, c.key, "바이트코드"))
 
+    # 9) Playwright 임시 프로필 — 우리가 만든 것인데 우리가 안 지웠다.
+    #    브라우저 종료 때 Playwright 가 지우게 돼 있지만, 이 PC 에서는 실시간 백신이
+    #    삭제를 붙잡는 동안 프로세스가 먼저 끝나 그대로 남는다(260910 실측 47개).
+    #    %TEMP% 는 프로젝트 루트 밖이라 usable() 의 허용목록을 통과하지 못하므로
+    #    여기서만 별도 규칙으로 다룬다 — 이름이 정확히 일치하는 우리 소산만.
+    #    %TEMP% 는 **머신 전역**이라, 옮겨 놓은 설치나 테스트 픽스처가 거기까지 손대면
+    #    안 된다. 진짜 프로젝트 루트에서 도는 경우에만 이 범주를 채운다.
+    #    소유권을 증명할 수 없다는 점이 중요하다 — 접두사는 Playwright 공용이라 다른
+    #    프로젝트·자동화 도구가 만든 프로필도 같은 이름을 쓴다. 그래서 **기본 정리에서
+    #    빼고**(명시 선택해야 지운다) 하루 이상 손대지 않은 것만 올린다. 살아 있는
+    #    브라우저의 프로필은 잠겨 있어 삭제가 거부되고 failed 로 남는다.
+    c = add("playwright-temp", "브라우저 임시 프로필",
+            "%TEMP%/playwright_chromiumdev_profile-* · playwright-artifacts-* — "
+            "헤드리스 종료 시 지워져야 하는데 백신이 붙잡으면 남는다. "
+            "접두사가 Playwright 공용이라 다른 도구의 잔여도 섞일 수 있어 기본에서 제외한다",
+            False)
+    in_real_install = root in Path(settings.captures_dir).resolve().parents \
+        or Path(settings.captures_dir).resolve() == root
+    _PW_MIN_AGE_S = 86400.0      # 하루 — 지금 도는 브라우저를 건드리지 않기 위한 하한
+    pw_before = min(now - _PW_MIN_AGE_S, cutoff if older_than_days > 0 else now)
+    for d in (_stale_playwright_dirs(pw_before) if in_real_install else []):
+        try:
+            size = sum(f.stat().st_size for f in d.rglob("*") if f.is_file())
+            c.items.append(Item(path=d, size=size, mtime=d.stat().st_mtime,
+                                category=c.key, reason="헤드리스 잔여 프로필"))
+        except OSError:
+            continue
+
     total = sum(x.size for x in cats.values())
     default_size = sum(x.size for x in cats.values() if x.default)
     return {
         "root": str(root),
+        # 허용목록에서 제외된 외부 경로가 있으면 숨기지 않는다 — 왜 안 지워지는지 알려 준다.
+        "outsideRoot": outside,
         "categories": [c.public(root) for c in cats.values()],
         "_cats": cats,                     # 내부용(sweep 이 재사용)
         "totalFiles": sum(len(x.items) for x in cats.values()),
@@ -365,7 +473,14 @@ def sweep(
                 freed += item.size
                 continue
             try:
-                item.path.unlink()
+                if item.path.is_dir():
+                    # 브라우저 임시 프로필은 디렉터리다. 쓰는 중이면 Windows 가 거부하는데,
+                    # 그건 실패가 아니라 "지금은 안 된다"이므로 그대로 failed 에 남긴다.
+                    import shutil
+
+                    shutil.rmtree(item.path)
+                else:
+                    item.path.unlink()
             except OSError as exc:
                 failed.append({**item.public(root), "error": str(exc)})
                 continue
@@ -406,9 +521,21 @@ def sweep_pos(
 
 
 def _prune_empty_dirs(settings: Settings) -> None:
-    """캡처 하위에 빈 디렉터리가 남으면 정리한다(최상위는 유지)."""
+    """캡처 하위에 빈 디렉터리가 남으면 정리한다(최상위는 유지).
+
+    scan() 이 허용목록에서 제외한 외부 경로는 여기서도 건드리지 않는다 — 예전에는 이
+    함수만 경계를 안 봐서, 삭제 후보가 0건이어도 무관한 외부 폴더의 구조를 바꿨다
+    (260912 Codex 검토).
+    """
     base = settings.captures_dir
     if not base.exists():
+        return
+    try:
+        rb = base.resolve()
+    except OSError:
+        return
+    if not any(rb == a or a in rb.parents
+               for a in _install_anchors(settings, project_root().resolve())):
         return
     for d in sorted((p for p in base.rglob("*") if p.is_dir()), key=lambda p: -len(p.parts)):
         try:

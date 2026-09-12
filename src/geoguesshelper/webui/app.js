@@ -376,13 +376,63 @@ function wireUI() {
 /** 항상 res.ok 를 확인한다. 서버가 text/plain 500 을 주면 .json() 이 던지고,
  *  예전에는 그게 전부 "네트워크 오류"로 뭉개져 원인을 알 수 없었다. */
 async function api(url, opts) {
+  // 타임아웃이 없으면 서버가 막혔을 때 화면이 영원히 "…중"으로 남는다(실측 236.8초).
+  // opts.timeoutMs 를 주면 그 시간에 끊고, opts.signal 을 주면 취소 버튼이 연결된다.
+  const o = Object.assign({}, opts);
+  const ms = o.timeoutMs;
+  delete o.timeoutMs;
+  const outer = o.signal || null;      // 취소 버튼 등 호출부의 신호
+  let timer = null;
+  let ac = null;
+  // 예전 판은 `ms && !o.signal` 이었다. doCapture 는 둘 다 주므로 **타이머가 한 번도
+  // 만들어지지 않았고**, 클라이언트 타임아웃이 사실상 없었다(Codex 검토에서 잡혔다).
+  // 두 신호를 합친다: 마감은 항상 걸고, 바깥 취소는 그대로 전달한다.
+  if (ms && typeof AbortController !== "undefined") {
+    ac = new AbortController();
+    o.signal = ac.signal;
+    timer = setTimeout(() => ac.abort(new DOMException(
+      `${Math.round(ms / 1000)}초 안에 응답이 없었습니다`, "TimeoutError")), ms);
+    if (outer) {
+      if (outer.aborted) ac.abort(outer.reason);
+      else outer.addEventListener("abort", () => ac.abort(outer.reason), { once: true });
+    }
+  }
+  const aborted = () => (ac && ac.signal.aborted) || (outer && outer.aborted);
+  try {
+    return await apiRaw(url, o);
+  } catch (e) {
+    // 사유가 일반 Error 여도 취소로 알아본다 — 이름만 보면 사용자 취소가 '실패'로 뜬다.
+    if (aborted() || (e && (e.name === "AbortError" || e.name === "TimeoutError"))) {
+      const reason = (ac && ac.signal.reason) || (outer && outer.reason) || e;
+      const err = new Error((reason && reason.message) || "요청이 취소되었습니다");
+      err.aborted = true;
+      err.timedOut = !!(reason && reason.name === "TimeoutError");
+      throw err;
+    }
+    throw e;
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
+async function apiRaw(url, opts) {
   const res = await fetch(url, opts);
   const ct = res.headers.get("content-type") || "";
   let body = null;
   if (ct.includes("application/json")) {
-    try { body = await res.json(); } catch (e) { body = null; }
+    try {
+      body = await res.json();
+    } catch (e) {
+      if (e && (e.name === "AbortError" || e.name === "TimeoutError")) throw e;
+      body = null;
+    }
   } else {
-    const txt = await res.text().catch(() => "");
+    const txt = await res.text().catch((e) => {
+      // 헤더를 받은 뒤 본문 읽는 중의 취소까지 삼키면 호출부가 null 을 받아
+      // r.status 에서 TypeError 로 죽는다 — 버튼 복구도 건너뛴다.
+      if (e && (e.name === "AbortError" || e.name === "TimeoutError")) throw e;
+      return "";
+    });
     body = txt ? { detail: txt.slice(0, 300) } : null;
   }
   if (!res.ok) {
@@ -1257,18 +1307,37 @@ async function doCapture() {
   btn.disabled = true;                       // 더블클릭으로 중복 캡처가 쌓이던 것 차단
   const mode = ($("#capture-mode") && $("#capture-mode").value) || "auto";
   const modeLabel = mode === "playwright" ? "브라우저 렌더" : mode === "static" ? "Static API 합성" : "자동";
+  // 경과 초를 보여 준다. 예전에는 "캡처 중…" 한 줄뿐이라 5초든 4분이든 화면이 같았다.
+  const ac = (typeof AbortController !== "undefined") ? new AbortController() : null;
+  const t0 = Date.now();
+  const tick = setInterval(() => {
+    const s = Math.round((Date.now() - t0) / 1000);
+    setStatus(`캡처 중… (${modeLabel}) ${s}초` + (ac && s >= 3 ? " — 클릭하면 취소" : ""), "", 0);
+  }, 1000);
   setStatus(`캡처 중… (${modeLabel})`, "", 0);
+  const onCancel = () => { if (ac) ac.abort(
+    typeof DOMException !== "undefined"
+      ? new DOMException("사용자가 취소했습니다", "AbortError")
+      : new Error("사용자가 취소했습니다")); };
+  const bar = $("#status");
+  if (bar && ac) bar.addEventListener("click", onCancel);
   let r;
   try {
     r = await api("/api/capture", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ pose, mode }),
+      signal: ac ? ac.signal : undefined,
+      // 서버 마감(capture_timeout_s, 기본 75초)보다 넉넉히 — 서버가 먼저 사유를 말하게 둔다.
+      timeoutMs: Math.round(((CONFIG && CONFIG.captureTimeoutS) || 75) * 1000) + 15000,
     });
   } catch (e) {
-    setStatus("캡처 실패: " + e.message, "err", 7000);
+    setStatus((e.aborted ? "캡처 취소됨: " : "캡처 실패: ") + e.message, "err", 7000);
     updateActionButtons();
     return;
+  } finally {
+    clearInterval(tick);
+    if (bar && ac) bar.removeEventListener("click", onCancel);
   }
   if (r.status === "OK") {
     const dup = addToAlbum(r, originId);
@@ -1302,6 +1371,11 @@ async function doCapture() {
       "err", 12000);
   } else if (r.status === "BLACK_RENDER") {
     setStatus("로드뷰가 검게 렌더됐습니다. 잠시 후 다시 시도하거나 조금 이동해 보세요.", "err", 9000);
+  } else if (r.status === "CAPTURE_TIMEOUT" || r.status === "RENDER_TIMEOUT") {
+    // 침묵하지 않는다 — 예전에는 이 경우 화면이 그냥 "캡처 중…"으로 남아 있었다.
+    setStatus((r.message || "캡처가 제한 시간 안에 끝나지 않았습니다")
+      + (r.waited_s ? ` (${r.waited_s}초 대기)` : "")
+      + (r.phase === "queue" ? " · 앞선 캡처가 큐를 잡고 있었습니다" : ""), "err", 12000);
   } else {
     setStatus("캡처 실패: " + (r.message || r.status), "err", 7000);
   }

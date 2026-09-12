@@ -49,6 +49,16 @@ class Settings:
     # 헤드리스 Chromium 을 프로세스 수명 동안 재사용한다. 캡처마다 close 하면 Windows +
     # 실시간 백신 환경에서 close 하나가 16~66초씩 걸렸다(실측). 끄면 예전처럼 매번 띄우고 닫는다.
     render_reuse_browser: bool = True
+    # 하단 지도(hybrid)의 tilesloaded 폴백. 예전 7000ms 는 ready 조건에 그대로 얹혀 있어
+    # 지도가 느리면 캡처 전체가 7초를 기다렸다. 이제 지도는 getPanorama 와 **동시에** 만들고
+    # 이 값은 그 병렬 경로의 상한일 뿐이다.
+    render_map_wait_ms: int = 2500
+    # 캡처 한 건의 벽시계 상한. 예전에는 상한이 없어서 막힌 렌더 하나가 뒤의 모든 캡처를
+    # 표시 없이 세웠다(실측 236.78초). 서버가 이 시간에 끊고 CAPTURE_TIMEOUT 을 돌려준다.
+    capture_timeout_s: float = 75.0
+    # 렌더 워커(단일 스레드) 쪽 상한. 서버 상한보다 짧아야 워커가 먼저 풀린다 —
+    # 넘으면 그 브라우저를 버리고 다시 띄운다(다음 캡처가 살아나는 유일한 길).
+    render_worker_timeout_s: float = 60.0
 
     # ── 모델 라우팅 ───────────────────────────────────────────────
     # 한 모델로 전부 돌리지 않는다. 일의 성격에 맞는 모델을 쓴다:
@@ -263,6 +273,9 @@ def load_settings() -> Settings:
     _env_int(s, "GEOHELPER_RENDER_SETTLE_MS", "render_settle_ms", lo=0, hi=10000)
     _env_int(s, "GEOHELPER_RENDER_QUIET_MS", "render_quiet_ms", lo=50, hi=5000)
     _env_int(s, "GEOHELPER_RENDER_SETTLE_MAX_MS", "render_settle_max_ms", lo=200, hi=20000)
+    _env_int(s, "GEOHELPER_RENDER_MAP_WAIT_MS", "render_map_wait_ms", lo=0, hi=20000)
+    _env_float(s, "GEOHELPER_CAPTURE_TIMEOUT_S", "capture_timeout_s", lo=10.0, hi=600.0)
+    _env_float(s, "GEOHELPER_RENDER_WORKER_TIMEOUT_S", "render_worker_timeout_s", lo=10.0, hi=600.0)
     if os.environ.get("GEOHELPER_RENDER_REUSE_BROWSER", "").strip().lower() in ("0", "false", "no", "off"):
         s.render_reuse_browser = False
     if os.environ.get("GEOHELPER_CAPTURE_FORMAT", "").strip().lower() in ("png", "jpeg", "jpg"):
@@ -283,6 +296,16 @@ def _env_int(s: Settings, env: str, attr: str, *, lo: int, hi: int) -> None:
         return
     try:
         setattr(s, attr, max(lo, min(hi, int(raw))))
+    except ValueError:
+        pass
+
+
+def _env_float(s: Settings, env: str, attr: str, *, lo: float, hi: float) -> None:
+    raw = os.environ.get(env, "").strip()
+    if not raw:
+        return
+    try:
+        setattr(s, attr, max(lo, min(hi, float(raw))))
     except ValueError:
         pass
 

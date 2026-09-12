@@ -49,6 +49,10 @@ _LEDGER_DIR = "corrections"
 _JSONL = "corrections.jsonl"
 _STATUS_OK = "OK"
 _STATUS_PARTIAL = "PARTIAL"   # 판단(blind/aided/정정 호출)은 끝났지만 적재나 채점이 실패했다 — run() 이 재시도 대상으로 삼는다(260908)
+_STATUS_API_ERROR = "API_ERROR"
+# 연결 오류 뒤 물러섰다 다시 거는 간격(초). 지속적인 장애면 세 번 만에 포기하고 넘어간다 —
+# 한 잡 때문에 배치 전체를 붙잡지 않는다.
+_API_ERROR_BACKOFF_S = (5.0, 20.0, 60.0)
 # 잡 1건 비용 추정(dry-run 용). 실측이 쌓이면 원장 평균으로 대체한다.
 _EST_JOB_USD = 0.8
 
@@ -1005,11 +1009,19 @@ def run(settings: Settings, *, limit: int = 0, only: list[str] | None = None, re
     total = 0.0
     aborted = None
     for j in jobs:
-        rec = run_job(j, settings, lang=lang, phase2=phase2, log=log)
-        c = float(rec.get("cost_usd") or 0.0)
+        rec, c, tries = _run_with_backoff(
+            j, settings, lang=lang, phase2=phase2, log=log,
+            budget_left=(None if max_job_usd is None else max_job_usd),
+        )
         total += c
-        done.append({k: rec.get(k) for k in ("job_id", "status", "cost_usd", "message")})
-        log(f"    → {rec.get('status')} · ${c:.3f} (누적 ${total:.3f})")
+        item = {k: rec.get(k) for k in ("job_id", "status", "message")}
+        # 비용은 **모든 시도의 합**이다. 마지막 시도 값만 쓰면 전체 합계와 어긋난다.
+        item["cost_usd"] = round(c, 4)
+        item["last_attempt_usd"] = rec.get("cost_usd")
+        item["attempts"] = tries
+        done.append(item)
+        log(f"    → {rec.get('status')} · ${c:.3f} (누적 ${total:.3f}"
+            + (f", 시도 {tries}회" if tries > 1 else "") + ")")
         if max_job_usd is not None and c > max_job_usd:
             aborted = f"잡 {j['job_id']} 비용 ${c:.3f} > 상한 ${max_job_usd:.2f}"
             log(f"[correct] 중단: {aborted}")
@@ -1033,13 +1045,47 @@ def job_from_result(source_job_id: str, result: dict, label: str = "") -> dict |
     }
 
 
+def _run_with_backoff(job: dict, settings: Settings, *, lang: str, phase2: bool, log,
+                      budget_left: float | None = None) -> tuple[dict, float, int]:
+    """run_job + 연결 오류 백오프. 반환 (마지막 기록, 시도 비용 합, 시도 횟수).
+
+    연결 오류는 이 잡의 결함이 아니라 그 순간의 네트워크다. SDK 재시도(max_retries=2)와
+    _correction_call 의 1회 재시도를 **다 쓰고도** 실패한 상태이므로, 여기서는 시간을 두고
+    다시 건다. (260910 실측: corr_job_737cae606637 이 "Connection error" 로 $0 에 끝났다.)
+
+    비용 상한은 **매 시도 직후** 본다 — 나중에 한 번만 보면 이미 넘긴 뒤에도 유료 실행을
+    세 번 더 하게 된다(260912 Codex 검토).
+    """
+    rec = run_job(job, settings, lang=lang, phase2=phase2, log=log)
+    spent = float(rec.get("cost_usd") or 0.0)
+    tries = 1
+    for attempt, delay in enumerate(_API_ERROR_BACKOFF_S, start=1):
+        if rec.get("status") != _STATUS_API_ERROR:
+            break
+        if budget_left is not None and spent > budget_left:
+            log(f"    ⏹ 비용 ${spent:.3f} > 상한 ${budget_left:.2f} — 재시도 중단")
+            break
+        log(f"    ⏳ API 오류 — {delay:.0f}초 뒤 재시도 {attempt}/{len(_API_ERROR_BACKOFF_S)}")
+        time.sleep(delay)
+        rec = run_job(job, settings, lang=lang, phase2=phase2, log=log)
+        spent += float(rec.get("cost_usd") or 0.0)
+        tries += 1
+    return rec, spent, tries
+
+
 def run_for_result(settings: Settings, *, source_job_id: str, result: dict, label: str = "", log=print) -> dict:
     """서버 훅용 — 보고서 잡의 반환 dict 에서 잡 재료를 꺼내 run_job. jobs.jsonl 을 다시 읽지 않는다."""
     job = job_from_result(source_job_id, result, label)
     if job is None:
         return {"job_id": source_job_id, "status": "NO_IMAGES", "message": "primaryAnalysis.image_panos/images 가 없습니다.",
                 "cost_usd": 0.0}
-    rec = run_job(job, settings, lang="en", phase2=True, log=log)
+    # 백오프는 여기에도 있어야 한다 — 260910 에 실제로 죽은 것이 **이 경로**(서버가 보고서
+    # 뒤에 자동 등록하는 정정 잡)였다. CLI 배치에만 넣으면 그 사례는 그대로 재발한다.
+    rec, spent, tries = _run_with_backoff(job, settings, lang="en", phase2=True, log=log)
+    if tries > 1:
+        rec = dict(rec)
+        rec["cost_usd"] = round(spent, 4)
+        rec["attempts"] = tries
     try:
         report(settings, log=log)
     except Exception as exc:  # noqa: BLE001 — README 는 부가물이다

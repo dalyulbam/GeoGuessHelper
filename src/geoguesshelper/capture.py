@@ -11,6 +11,7 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import io
+import json
 import math
 import re
 import time
@@ -321,6 +322,59 @@ _STATIC_KEY_LEVEL = {"REQUEST_DENIED", "NO_KEY"}
 # TTL 을 두는 이유 — 사용자가 콘솔에서 API 를 켰을 때 서버 재시작 없이 스스로 회복해야 한다.
 _STATIC_DENY_TTL_S = 600.0
 _static_denied: dict[str, tuple[float, str]] = {}
+# 기억을 **디스크에도** 남긴다. 260911 까지는 프로세스 메모리에만 있어서 서버를 다시 켤
+# 때마다 처음 몇 캡처가 같은 거부를 다시 사고 0.5초씩 버렸다. 남기는 것은 키 지문과 사유뿐
+# — 키 값은 절대 쓰지 않는다.
+_DENY_FILE = "static_deny.json"
+# **경로별로** 적재 여부를 기억한다. 예전에는 모듈 전역 불리언 하나여서, 한 프로세스에서
+# captures_dir 이 바뀌면(테스트·다중 설정) 두 번째 파일을 영영 읽지 않고 첫 설정의 캐시를
+# 그대로 썼다(260912 Codex 검토).
+_deny_loaded: set[str] = set()
+
+
+def _deny_path(settings: Settings):
+    return settings.captures_dir / _DENY_FILE
+
+
+def _load_deny(settings: Settings) -> None:
+    p = _deny_path(settings)
+    key = str(p)
+    if key in _deny_loaded:
+        return
+    _deny_loaded.add(key)
+    # 파싱뿐 아니라 **스키마 해석까지** 보호 안에 둔다. `[]` 나 {"denied":[1]} 같은
+    # 문법상 멀쩡한 파일 하나가 서버 기동이나 첫 /api/config 를 죽이면 안 된다.
+    try:
+        raw = json.loads(p.read_text(encoding="utf-8"))
+        if not isinstance(raw, dict):
+            return
+        denied = raw.get("denied")
+        if not isinstance(denied, dict):
+            return
+        now, mono = time.time(), time.monotonic()
+        for kid, ent in denied.items():
+            if not isinstance(ent, dict):
+                continue
+            age = now - float(ent.get("at") or 0)
+            if 0 <= age < _STATIC_DENY_TTL_S:
+                # 디스크에는 벽시계를, 메모리에는 monotonic 을 쓴다 — 남은 TTL 로 환산한다.
+                _static_denied[str(kid)] = (mono - age, str(ent.get("why") or "REQUEST_DENIED"))
+    except Exception:  # noqa: BLE001 — 없거나 깨졌으면 그냥 빈 상태로 시작한다
+        return
+
+
+def _save_deny(settings: Settings) -> None:
+    try:
+        now, mono = time.time(), time.monotonic()
+        body = {"denied": {k: {"at": now - (mono - ts), "why": why}
+                           for k, (ts, why) in _static_denied.items()}}
+        p = _deny_path(settings)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        tmp = p.with_suffix(".json.tmp")
+        tmp.write_text(json.dumps(body, ensure_ascii=False), encoding="utf-8")
+        tmp.replace(p)
+    except Exception:  # noqa: BLE001 — 기억을 못 남겨도 캡처는 계속돼야 한다
+        pass
 
 
 def _static_key_id(settings: Settings) -> str:
@@ -330,6 +384,7 @@ def _static_key_id(settings: Settings) -> str:
 
 
 def _static_denied_reason(settings: Settings) -> str | None:
+    _load_deny(settings)
     kid = _static_key_id(settings)
     ent = _static_denied.get(kid)
     if not ent:
@@ -337,16 +392,36 @@ def _static_denied_reason(settings: Settings) -> str | None:
     ts, why = ent
     if time.monotonic() - ts > _STATIC_DENY_TTL_S:
         _static_denied.pop(kid, None)
+        _save_deny(settings)
         return None
     return why
 
 
 def _note_static_status(settings: Settings, status: str) -> None:
+    _load_deny(settings)
     kid = _static_key_id(settings)
+    before = dict(_static_denied)
     if status in _STATIC_KEY_LEVEL:
         _static_denied[kid] = (time.monotonic(), status)
     elif status:
         _static_denied.pop(kid, None)   # 한 번이라도 통했으면 기억을 지운다
+    if set(before) != set(_static_denied):
+        _save_deny(settings)
+
+
+def static_health(settings: Settings) -> dict:
+    """Static 경로가 지금 쓸 수 있는 상태인가 — 배너·UI 가 읽는다.
+
+    "캡처가 느리다"의 절반은 이 상태를 아무도 모르는 데서 왔다. 서버는 매번 거부당하고
+    조용히 브라우저로 넘어갔고, 화면에는 그 사실이 어디에도 없었다.
+    """
+    reason = _static_denied_reason(settings)
+    return {
+        "key": bool(settings.effective_static_key),
+        "dedicated_key": bool(getattr(settings, "static_api_key", "") or ""),
+        "denied": reason,
+        "usable": bool(settings.effective_static_key) and not reason,
+    }
 
 
 def _playwright_ready(settings: Settings) -> bool:
@@ -429,7 +504,11 @@ async def capture(pose: dict, settings: Settings, *, mode: str = "auto") -> dict
     if mode == "playwright":
         return await render_playwright(pose, settings)
     if mode == "static":
-        return await capture_static(pose, settings)
+        res = await capture_static(pose, settings)
+        # 명시 모드의 결과도 기록한다. 예전에는 auto 경로에서만 기록해서, static 으로
+        # 성공해도 낡은 거부 기억이 남아 auto 와 배너가 계속 "막힘"을 말했다.
+        _note_static_status(settings, str(res.get("status") or ""))
+        return res
 
     # auto —
     # 링크가 직접 이미지 URL(!6s)을 줬다면 그 길을 **먼저** 쓴다.
