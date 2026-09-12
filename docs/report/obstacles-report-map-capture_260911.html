@@ -114,11 +114,11 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
   <div class="kicker">260911 · v0.5.1 · HEAD 9fbc59b 기준</div>
   <h1>보고서 생성·구글맵 로드·화면 캡처를 방해한 것들 — 전수 정리</h1>
   <p class="lede">2026-07-08 기획부터 2026-09-10 캡처 지연 수리까지, 커밋 65건·오류 기록 7건·구현 기록 2건·코드 주석에
-  남은 <b>방해 요소 87건</b>을 한 자리에 모았다. 한 건마다 <b>무엇이 막았나 → 증거(실측·출처) → 조치 → 지금 상태</b>를 적고,
+  남은 <b>방해 요소 88건</b>을 한 자리에 모았다. 한 건마다 <b>무엇이 막았나 → 증거(실측·출처) → 조치 → 지금 상태</b>를 적고,
   상태는 HEAD 코드에 대고 다시 확인했다. 이 문서의 목적은 회고가 아니라 <b>아직 남은 9건과 사용자 조치 3건</b>을 정확히 짚는 것이다.</p>
   <div class="meta">
-    <span class="chip ac">방해 요소 87건</span>
-    <span class="chip ok">해결 52</span>
+    <span class="chip ac">방해 요소 88건</span>
+    <span class="chip ok">해결 53</span>
     <span class="chip wn">완화 17</span>
     <span class="chip dn">미해결 9</span>
     <span class="chip ev">환경(사용자 조치) 3</span>
@@ -136,7 +136,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
   코드가 아니라 <b>이 PC 의 백신(Avast)</b>과 <b>구글 프로젝트의 API 미활성</b>이었다 — 그 둘은 지금도 남아 있다.</p>
 
   <div class="grid g4">
-    <div class="stat"><div class="n">10</div><div class="l">공통 인프라 — 셋 모두를 막은 것</div></div>
+    <div class="stat"><div class="n">11</div><div class="l">공통 인프라 — 셋 모두를 막은 것</div></div>
     <div class="stat"><div class="n">19</div><div class="l">구글맵 로드 — 브라우저 뷰어</div></div>
     <div class="stat"><div class="n">32</div><div class="l">화면 캡처 — 서버 재렌더</div></div>
     <div class="stat"><div class="n">26</div><div class="l">보고서 생성 — 분석·리서치·번역·렌더</div></div>
@@ -209,8 +209,8 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
 
 <!-- ───────────────────────── §2 ───────────────────────── -->
 <section id="s2">
-  <h2>2. 공통 인프라 — 셋 모두를 막은 것 (10건)</h2>
-  <p class="sec-desc">한 파이프라인만 고쳐서는 안 풀리던 것들. 절반이 <b>이 PC 의 Avast</b> 한 곳에서 나왔다 — 키로그 주입·TLS 가로채기·웹실드·프로필 잠금, 네 가지 다른 얼굴로.</p>
+  <h2>2. 공통 인프라 — 셋 모두를 막은 것 (11건)</h2>
+  <p class="sec-desc">한 파이프라인만 고쳐서는 안 풀리던 것들. 절반이 <b>이 PC 의 환경</b>에서 나왔다 — Avast 가 키로그 주입·TLS 가로채기·웹실드·프로필 잠금 네 얼굴로, 거기에 Windows 의 WMI 조회 정지가 하나 더.</p>
   <div class="tblwrap"><table>
     <thead><tr><th>ID</th><th>무엇이 막았나</th><th>증거 · 출처</th><th>조치</th><th>상태</th></tr></thead>
     <tbody>
@@ -223,6 +223,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
       <tr><td class="id">I-7</td><td><b>포트가 옮겨가면 JS 키가 죽는다.</b> 기본 8799 가 사용 중이면 다음 빈 포트로 자동 이동(<code>_find_free_port</code>)인데, JS 키의 HTTP 리퍼러 제한은 포트까지 본다</td><td><code>server.py:1090</code>. <b><code>.env.example:8</code> 은 “헤드리스 캡처까지 쓰면 8080/8000 도 추가”라고 지시하는데 그 지시는 지금 무효다</b> — <code>render_google.py:546</code> 의 로컬 서버는 <b>매번 포트 0 으로 임의 바인드</b>한다. 포트별 등록으로는 원리적으로 못 따라간다</td><td>1순위 처방은 <b>리퍼러를 <code>http://localhost:*</code> 한 줄(포트 와일드카드)로 등록</b>하는 것. 옛 서버가 살아 있어 새 서버가 8802 로 밀린 뒤 curl 이 옛 서버를 때린 거짓 음성 사례도 있었다(recovery §7)</td><td class="st"><span class="des">설계</span></td></tr>
       <tr><td class="id">I-8</td><td><b>탭 N개 → Chromium N개 → 스레드풀 20슬롯 고갈 → 21번째부터 영원히 대기.</b> 동시성 제어가 프론트의 탭별 불리언뿐이라 새로고침·두 번째 창이면 통째로 우회</td><td><code>jobs.py</code> 머리 주석 · <span class="hash">b8f36d1</span></td><td>서버 작업 큐(순차·멱등·취소·백프레셔·SSE) + 캡처 세마포어(<code>capture_concurrency=1</code>)</td><td class="st"><span class="ok">해결</span></td></tr>
       <tr><td class="id">I-9</td><td><b>실패의 흔적이 사라진다.</b> 260813 밤 배치 9건의 번역 실패가 429 였는지 스트림 마감이었는지 “서버 재시작으로 로그가 남아 있지 않아” 단정 못 함</td><td><code>docs/error/report-missing-korean_260814</code> §3. 지금은 <code>docs/jobs/jobs.jsonl</code> 1개가 있고 인메모리 이력은 200건 상한(<code>jobs.py:132</code>)</td><td>jsonl 은 남는다. 다만 gitignore 라 저장소에는 없고, 이력 상한을 넘으면 메모리에서 밀려난다</td><td class="st"><span class="mit">완화</span></td></tr>
+      <tr><td class="id">I-11</td><td><b>SDK 호출이 20분 넘게 끝나지 않았다 — 네트워크가 아니라 요청을 <u>만들다가</u> 멈춘 것이다.</b> anthropic SDK 는 <code>x-stainless-os</code> <b>텔레메트리 헤더 한 줄</b>을 채우려고 <code>platform.system()</code> 을 부르고, 그것이 <code>win32_ver()</code>→<code>_win32_ver()</code>→<code>platform._wmi_query('OS')</code> 로 내려가 이 PC 에서 멈춘다</td><td>260904 실측(스택으로 특정). <b>이것이 R-3 의 잔여 리스크가 실제로 터진 사례다</b> — 스트림이 시작조차 못 했으므로 <code>deadline_s</code>·<code>LLMTimeout</code> 이 걸리지 않았다(벽시계 마감은 스트림을 도는 동안만 잰다). 오래 “httpx 가 느리다”로 오진됐다 — 같은 순간 curl 은 2.4초에 돌아왔는데, curl 은 파이썬 <code>platform</code> 을 안 거치기 때문이다</td><td><code>winquirks.neutralize_wmi()</code> — <code>platform.uname()</code> 캐시가 차기 전에 꺼야 해서 <code>cli.main()</code>·<code>server.main()</code> 맨 앞에서 부른다(<code>server.py:1121</code>). <code>_win32_ver</code> 은 WMI 실패 시 레지스트리·<code>sys.getwindowsversion()</code> 으로 폴백하고 이 PC 값은 정확했다(<code>Windows-11-10.0.26200-SP0</code>). <b>우회 후 순정 httpx 로 2.7초</b> — httpx 는 처음부터 멀쩡했다. 되돌리려면 <code>GEOHELPER_WMI=1</code></td><td class="st"><span class="ok">해결</span></td></tr>
       <tr><td class="id">I-10</td><td><b>Claude 연결 오류가 잡을 통째로 죽인다.</b> <code>Connection error</code> → 정정 잡 <code>API_ERROR</code>. 다음 <code>run()</code> 에서 <b>대상이 되기는 한다</b>(<code>correction.py:988</code> 은 OK 만 제외) — 그러나 <code>PARTIAL</code> 전용인 <b>재개</b> 경로(<code>_resumable</code>, <code>correction.py:687</code>)를 못 타므로 blind 2패스·정정 호출을 <b>처음부터 다시</b> 돌려 비용을 또 쓴다</td><td>260910 <code>corr_job_737cae606637</code> — “Claude 호출 실패: Connection error.” $0. SDK <code>max_retries=2</code>(<code>llm.py:112</code>)와 <code>_correction_call</code> 의 자체 1회 재시도(<code>correction.py:484-509</code>)는 정정 잡에도 적용된다 — <b>그것을 다 쓰고도 실패한 것</b></td><td>없음. 필요한 것은 재시도의 부재가 아니라 <b>연결 오류 뒤 백오프 + 판단 결과 재사용</b>이다</td><td class="st"><span class="open">미해결</span></td></tr>
     </tbody>
   </table></div>
@@ -231,7 +232,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
 
 <!-- ───────────────────────── §3 ───────────────────────── -->
 <section id="s3">
-  <h2>3. 구글맵 로드 — 브라우저 뷰어 (18건)</h2>
+  <h2>3. 구글맵 로드 — 브라우저 뷰어 (19건)</h2>
   <p class="sec-desc">“검은 로드뷰” 하나에 <b>세 개의 다른 원인</b>이 숨어 있었다 — ⓐ 타일 429, ⓑ SDK 가 모르는 사진구체, ⓒ 엉뚱한 파노를 들고 있는 상태. 같은 증상을 같은 원인으로 설명하려다 여섯 번 빗나갔다(<code>docs/error/six-times-wrong-diagnosis_260812</code>).</p>
   <div class="tblwrap"><table>
     <thead><tr><th>ID</th><th>무엇이 막았나</th><th>증거 · 출처</th><th>조치</th><th>상태</th></tr></thead>
@@ -261,7 +262,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
 
 <!-- ───────────────────────── §4 ───────────────────────── -->
 <section id="s4">
-  <h2>4. 화면 캡처 — 서버 재렌더 (30건)</h2>
+  <h2>4. 화면 캡처 — 서버 재렌더 (32건)</h2>
   <p class="sec-desc">캡처는 화면을 찍는 것이 아니라 <b>서버가 다시 그리는 것</b>이다(C-1). 그래서 방해 요소도 두 겹이다 — 화면과 <b>같은 장면</b>을 그리는가(포즈·프레임), 그리고 <b>제때</b> 그리는가(경로·시간).</p>
 
   <h3 class="sub">4.1 같은 장면을 그리는가 — 포즈·프레임·출처</h3>
@@ -314,14 +315,14 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
 
 <!-- ───────────────────────── §5 ───────────────────────── -->
 <section id="s5">
-  <h2>5. 보고서 생성 — 분석·리서치·번역·렌더 (24건)</h2>
+  <h2>5. 보고서 생성 — 분석·리서치·번역·렌더 (26건)</h2>
   <p class="sec-desc">이쪽의 병은 하나로 요약된다 — <b>조용한 폴백</b>. 실패했는데 그럴듯한 값을 돌려주면 그 위의 모든 것이 정상처럼 흐르고, 로그에도 화면에도 흔적이 없다. 번역에서만 두 번(R-5, R-6) 같은 병을 앓았다.</p>
   <div class="tblwrap"><table>
     <thead><tr><th>ID</th><th>무엇이 막았나</th><th>증거 · 출처</th><th>조치</th><th>상태</th></tr></thead>
     <tbody>
       <tr><td class="id">R-1</td><td><b>“보고서 실패: Not Found”.</b> 작업 큐를 도입하며 <code>/api/report</code>·<code>/api/scene-report</code> 를 지웠다 — docstring 엔 “호환 래퍼로 남긴다”고 써 놓고 구현 안 함 — 그리고 캐시된 옛 app.js 가 사라진 경로에 POST(I-6)</td><td>“캡처 6장”이 <code>max_analyze_images=6</code> 과 같아 엉뚱한 곳을 팔 뻔. 라우트 덤프로 즉시 특정 (<code>docs/error/report-404-not-found_260810</code>)</td><td>구 경로를 큐 경유 동기 래퍼(<code>_run_sync</code>)로 복원. 공개 API 경로는 지우지 말고 위임</td><td class="st"><span class="ok">해결</span></td></tr>
       <tr><td class="id">R-2</td><td><b>보고서가 사라진다.</b> ① 같은 초·같은 좌표(4자리≈11m)의 두 보고서가 같은 파일명 → <code>write_text</code> 가 존재 확인 없이 덮어씀 ② truncate 후 기록이라 그 사이 GET 이 빈/잘린 HTML 을 200 으로 ③ <code>country_iso</code> 가 비고 국가명이 비ASCII(대한민국)면 슬러그가 통째로 <code>location</code></td><td>스레드 5개 동시 쓰기 재현 — 예전엔 1개만 남음 (<code>methodology</code> 사례 3) · <code>report.py:108·127</code></td><td><code>O_CREAT|O_EXCL</code> 선점(-2,-3…) + 임시 파일 후 <code>os.replace</code> + 국가명 해시. <b>각주</b>: 선점은 최종 경로에 <b>빈 파일을 먼저 만든다</b>(<code>report.py:143→147</code>). 그 창은 마이크로초이고 파일명은 쓰기 완료 뒤에야 공개되므로 실사용 노출은 없지만, <code>os.replace</code> 가 실패하면 0바이트 파일이 남는다(<code>finally</code> 는 tmp 만 정리)</td><td class="st"><span class="ok">해결</span></td></tr>
-      <tr><td class="id">R-3</td><td><b>1181초짜리 보고서.</b> 리서치 단일 호출 418.7초, 22분 넘게 안 끝남. <code>httpx.Timeout(600)</code> 은 <b>청크 간격</b>이지 총 소요가 아니다 — 서버측 web_search 가 도는 동안 keepalive 가 계속 와서 영영 안 걸림. 취소도 단계 경계에서만 봐서 못 멈춤. <code>concurrency=1</code> 이라 뒤 3건이 통째로 막힘</td><td>TCP 연결 생성 시각 = 작업 시작 시각, CPU 46초/22분(대기), 재연결 없음(SDK 재시도 아님). 서버 시작 00:18 vs llm.py 수정 01:02 → 핫리로드 없음(모델 교체 가설 폐기) — 내가 스트리밍 전환하며 만든 구멍</td><td>스트림 이벤트를 직접 돌며 벽시계 상한·취소 확인(<code>llm.py:222</code>). 리서치 4샤드 병렬. 단계별 마감(<code>config.py:95-104</code>). <b>잔여 리스크</b>: 검사는 <b>이벤트를 받은 시점에만</b> 돈다 — 스트림 진입이나 이벤트 공백 구간에는 독립 타이머가 없고 httpx read 600초(+<code>max_retries=2</code>)가 유일한 백스톱이라 단계 마감(90~100초)을 훨씬 넘길 수 있다. 비스트리밍 경로(<code>llm.py:219</code>)는 검사 자체가 없다(현재 호출자 없음)</td><td class="st"><span class="ok">해결</span></td></tr>
+      <tr><td class="id">R-3</td><td><b>1181초짜리 보고서.</b> 리서치 단일 호출 418.7초, 22분 넘게 안 끝남. <code>httpx.Timeout(600)</code> 은 <b>청크 간격</b>이지 총 소요가 아니다 — 서버측 web_search 가 도는 동안 keepalive 가 계속 와서 영영 안 걸림. 취소도 단계 경계에서만 봐서 못 멈춤. <code>concurrency=1</code> 이라 뒤 3건이 통째로 막힘</td><td>TCP 연결 생성 시각 = 작업 시작 시각, CPU 46초/22분(대기), 재연결 없음(SDK 재시도 아님). 서버 시작 00:18 vs llm.py 수정 01:02 → 핫리로드 없음(모델 교체 가설 폐기) — 내가 스트리밍 전환하며 만든 구멍</td><td>스트림 이벤트를 직접 돌며 벽시계 상한·취소 확인(<code>llm.py:222</code>). 리서치 4샤드 병렬. 단계별 마감(<code>config.py:95-104</code>). <b>잔여 리스크 — 그리고 그것이 실제로 터졌다</b>: 검사는 <b>이벤트를 받은 시점에만</b> 돈다. 스트림 진입 전에 막히면 아무 마감도 안 걸린다 — <b>I-11 이 정확히 그 경우였다</b>(WMI 조회가 요청 조립 단계에서 멈춰 20분+). 그 밖에도 이벤트 공백 구간에는 독립 타이머가 없어 httpx read 600초(+<code>max_retries=2</code>)가 유일한 백스톱이라 단계 마감(90~100초)을 훨씬 넘길 수 있다. 비스트리밍 경로(<code>llm.py:219</code>)는 검사 자체가 없다(현재 호출자 없음)</td><td class="st"><span class="ok">해결</span></td></tr>
       <tr><td class="id">R-4</td><td><b>300초 예산 초과 → 지식 적재 생략.</b> 나베레즈니예첼니 305초·엔카르나시온 309초 2건이 HTML 만 남김. 예산 초과 시 선택적 단계를 건너뛰는 설계인데 <b>건너뛴 사실이 어디에도 표시되지 않았다</b></td><td><span class="hash">33fb18e</span> · <span class="hash">9bb62b8</span> “침묵 손실 셋”</td><td><code>geoguesshelper ingest --apply</code> 백필 + <code>result.knowledge.skipped</code> 표식. <b>남음:</b> 잡 로그 자체가 없는 27건은 영구 결손(<span class="hash">54c4aed</span>)</td><td class="st"><span class="mit">완화</span></td></tr>
       <tr><td class="id">R-5</td><td><b>한국어 탭이 통째로 영어.</b> 139개 문자열·21,123자를 한 호출에 → 131.2초, 마감 60초 → 타임아웃 → <code>except Exception: return dict(texts)</code> 원문 반환 → 서버는 <code>if isinstance(res, Exception): continue</code> 로 예외마저 삼킴 → 로그 <code>errors:[]</code></td><td>6개 보고서의 <b>한국어 탭이 전면 영어</b>. 신고보다 넓었다 (<span class="hash">9a4b199</span> v0.3.3). “다섯 번째 조용한 폴백”. <b>1차 서술 정정</b>: “6건 전부 불어 절도 영어”는 과장이었고 후속 기록(<code>260812</code> §6)이 <b>실제 1건</b>으로 정정했다 — 다만 <code>aria-label</code> 은 6건 전부 영어였다</td><td>30개·6000자 덩이로 나눠 동시 전송(131.2초·0/139 → 40.7초·131/139). 실제 번역 건수를 검사. 세 곳에서 말한다 — 로그·진행 메시지·보고서 상단 경고. <b>단 상단 경고는 번역률 50% 미만일 때만 뜬다</b>(<code>report.py:916</code>) — 일부 실패는 로그·진행 메시지에만 남는다</td><td class="st"><span class="ok">해결</span></td></tr>
       <tr><td class="id">R-6</td><td><b>병상일지만 고친 수리.</b> v0.3.3 은 실패를 <b>알리게</b> 했지 <b>다시 시도</b>하지 않았다. 260813 밤 21:22~23:22 두 시간에 9건을 연달아 돌리자 일시 오류(429 또는 스트림 마감)가 아홉 번 반복 — 로그의 경고를 볼 사람이 없는 시간대라 알림 채널이 곧 침묵</td><td>크로아티아 폴더 전수 스캔: 9건 전부 ko 미번역 114~153개/건, 신고 파일은 서술 9,180자 전부 영어, 1건은 fr 까지(<code>docs/error/report-missing-korean_260814</code>). 수리 $1.168</td><td>실패 청크만 3초 뒤 <b>순차</b> 1회 재시도(<code>translate.py:222</code>) + <code>retranslate</code> CLI. <b>남음:</b> 라틴 문자 언어는 이환을 자동 감지 못 함(fr 은 표지어 밀도로 찾음) · 재시도 1회/3초 고정 · 실패한 채 저장된 보고서에 탭 배지 없음</td><td class="st"><span class="mit">완화</span></td></tr>
@@ -380,7 +381,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
 
 <!-- ───────────────────────── §7 ───────────────────────── -->
 <section id="s7">
-  <h2>7. 되풀이된 패턴 — 87건을 여섯 개로 접으면</h2>
+  <h2>7. 되풀이된 패턴 — 88건을 여섯 개로 접으면</h2>
   <p class="sec-desc">같은 병이 자리만 바꿔 재발했다. 새 결함을 만나면 먼저 이 여섯에 대 보는 것이 빠르다.</p>
   <div class="grid g3">
     <div class="card"><h3>① 조용한 폴백 — 7회</h3><p>실패했는데 그럴듯한 값을 돌려준다. v0.2.3 너무 일찍 지움 · v0.2.4 영원히 안 지움 · v0.2.5 고정 이미지 · v0.2.6 브라우저에서만 막힘 · 번역 원문 반환(R-5) · pano-photo <code>except</code>(C-26) · 스크립트 SKIP(R-20) · 예산 초과 적재 생략(R-4).</p><p class="mt"><b>처방:</b> 실패를 구조화해 반환하고, 반환값이 아니라 효과(실제 번역 건수)를 검사하고, 독자에게도 말한다.</p></div>
@@ -388,7 +389,7 @@ ul.warn-li li::before{content:"!";color:var(--danger);font-weight:800}
     <div class="card"><h3>③ 내가 만든 것과 대조 — 2회</h3><p>구형 뷰어를 우리 서버 URL 과 대조해 “일치 1.29” — 둘 다 같은 부호 오류(M-14). 거울(currentPose)로 거울을 검사(C-9).</p><p class="mt"><b>처방:</b> 대조 대상은 내가 만든 것이 아니어야 한다. 정답은 구글이 준 <code>!6s</code>, 화면의 표시 상태.</p></div>
     <div class="card"><h3>④ 축·규약 혼동 — 4회</h3><p>수직/수평 FOV 를 두 경로에서(C-4, C-5) · pitch 부호(C-7) · heading 좌표계(M-14). 중심이 맞으니 캡처는 늘 그럴듯했고, 틀린 것은 가장자리 — 단서가 가장 자주 걸치는 곳.</p><p class="mt"><b>처방:</b> 렌더 표면을 추가하면 <code>view_aspect()</code> 를 지나는지부터. 규약은 문서가 아니라 실측으로.</p></div>
     <div class="card"><h3>⑤ 한 값이 두 곳에 — 3회</h3><p><code>syncWantPano</code> 전역 vs 클로저 지역(C-9) · 손으로 나열한 키 목록(C-8) · 버전 문자열 네 곳(I-6). 한 곳만 고치면 조용히 어긋난다.</p><p class="mt"><b>처방:</b> 단일 출처. <code>Object.assign</code>, <code>__version__</code>, SDK 가 돌려준 id.</p></div>
-    <div class="card"><h3>⑥ 환경이 코드처럼 보임 — Avast 4회</h3><p>키로그 주입(I-1) · TLS 가로채기(I-2) · 웹실드 차단(M-5) · 프로필 잠금(I-5). 매번 “내 변경 탓인가”부터 의심했고, 매번 아니었다.</p><p class="mt"><b>처방:</b> worktree 로 변경 이전 커밋을 1분 안에 돌려 본다. 종료 코드를 읽는다. 프로세스 밖(TCP·CPU·mtime)을 본다.</p></div>
+    <div class="card"><h3>⑥ 환경이 코드처럼 보임 — 5회</h3><p>Avast 넷: 키로그 주입(I-1) · TLS 가로채기(I-2) · 웹실드 차단(M-5) · 프로필 잠금(I-5). 여기에 Windows 하나가 더 있다 — <b>WMI 조회 정지(I-11)</b>. 매번 “내 변경 탓인가”, “라이브러리가 느린가”부터 의심했고 매번 아니었다.</p><p class="mt"><b>가장 비싼 오진:</b> I-11 은 오래 “httpx 가 느리다”로 읽혔다. 같은 순간 curl 이 2.4초에 돌아온다는 사실이 그 가설을 뒷받침하는 것처럼 보였지만, 실은 curl 이 파이썬 <code>platform</code> 을 안 거친다는 뜻이었다.</p><p class="mt"><b>처방:</b> worktree 로 변경 이전 커밋을 1분 안에 돌려 본다. 종료 코드를 읽는다. 프로세스 밖(TCP·CPU·mtime)을 본다. <b>느린 호출은 네트워크만 보지 말고 스택을 뜬다</b> — 요청을 보내다 막힌 것과 만들다 막힌 것은 다르다.</p></div>
   </div>
   <div class="callout ok"><b>가장 값싸고 가장 많이 일한 장치</b> — 화면 우하단 버전 배지 + <code>index.html no-store</code>(I-6). 신고 스크린샷 한 장으로 “무슨 코드가 도는가”가 결정된다. 사진구체 봉투(M-2)를 찾은 날, 첫 가설(버전 문제)을 즉시 지운 것이 이것이었다.</div>
 </section>
