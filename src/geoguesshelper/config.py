@@ -203,7 +203,6 @@ class Settings:
     # 비어 있으면 지금까지처럼 **단독 소유자 모드**다 — 인증도, 사용자별 분리도 없다.
     # 로컬에서 매일 쓰는 흐름을 깨지 않기 위한 기본값이다.
     database_url: str = ""               # 있으면 다중 사용자 모드
-    session_secret: str = ""             # 세션 쿠키 서명
     key_enc_secret: str = ""             # 사용자 API 키 암호화(없으면 키 보관 자체를 거부한다)
     google_client_id: str = ""
     google_client_secret: str = ""
@@ -306,7 +305,6 @@ def load_settings() -> Settings:
     elif db.startswith("postgresql://"):
         db = "postgresql+psycopg://" + db[len("postgresql://"):]
     s.database_url = db
-    s.session_secret = os.environ.get("GEOHELPER_SESSION_SECRET", "").strip()
     s.key_enc_secret = os.environ.get("GEOHELPER_KEY_SECRET", "").strip()
     s.google_client_id = os.environ.get("GOOGLE_OAUTH_CLIENT_ID", "").strip()
     s.google_client_secret = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET", "").strip()

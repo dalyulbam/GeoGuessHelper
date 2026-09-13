@@ -271,9 +271,20 @@ def _decode_id_token(jwt: str) -> dict[str, Any]:
     return json.loads(base64.urlsafe_b64decode(pad).decode("utf-8"))
 
 
-def cookie_kwargs(settings: Settings) -> dict:
-    """세션 쿠키 옵션. 로컬 http 에서도 동작해야 하므로 secure 는 공개 주소일 때만."""
+def cookie_kwargs(settings: Settings, request=None) -> dict:
+    """세션 쿠키 옵션.
+
+    secure 는 **요청에서** 알아낸다. 예전 판은 GEOHELPER_PUBLIC_URL 에만 의존해서,
+    그 변수를 안 넣은 HTTPS 배포에서는 세션 쿠키에 Secure 가 안 붙었다 — 설정 하나를
+    빠뜨린 대가가 조용한 보안 약화였다. 지금은 설정이 없어도 스킴을 보고 붙인다.
+
+    Railway·Render 같은 리버스 프록시 뒤에서는 request.url.scheme 이 http 로 보일 수
+    있으므로 x-forwarded-proto 도 함께 본다.
+    """
     https = (settings.public_base_url or "").startswith("https://")
+    if request is not None and not https:
+        proto = (request.headers.get("x-forwarded-proto", "") or "").split(",")[0].strip().lower()
+        https = proto == "https" or request.url.scheme == "https"
     return {"httponly": True, "samesite": "lax", "secure": https,
             "max_age": _SESSION_TTL_S, "path": "/"}
 

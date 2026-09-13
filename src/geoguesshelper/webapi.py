@@ -122,7 +122,7 @@ def build_router(settings: Settings) -> APIRouter:
         except auth.AuthError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         resp = JSONResponse({"ok": True, "user": body})
-        resp.set_cookie(auth.SESSION_COOKIE, token, **auth.cookie_kwargs(settings))
+        resp.set_cookie(auth.SESSION_COOKIE, token, **auth.cookie_kwargs(settings, request))
         return resp
 
     @r.post("/auth/login")
@@ -136,7 +136,7 @@ def build_router(settings: Settings) -> APIRouter:
         except auth.AuthError as exc:
             raise HTTPException(status_code=401, detail=str(exc)) from exc
         resp = JSONResponse({"ok": True, "user": body})
-        resp.set_cookie(auth.SESSION_COOKIE, token, **auth.cookie_kwargs(settings))
+        resp.set_cookie(auth.SESSION_COOKIE, token, **auth.cookie_kwargs(settings, request))
         return resp
 
     @r.post("/auth/logout")
@@ -172,7 +172,7 @@ def build_router(settings: Settings) -> APIRouter:
         except auth.AuthError as exc:
             return RedirectResponse(f"/?auth_error={exc}", status_code=302)
         resp = RedirectResponse("/", status_code=302)
-        resp.set_cookie(auth.SESSION_COOKIE, token, **auth.cookie_kwargs(settings))
+        resp.set_cookie(auth.SESSION_COOKIE, token, **auth.cookie_kwargs(settings, request))
         return resp
 
     # ── 내 키 ────────────────────────────────────────────────────
