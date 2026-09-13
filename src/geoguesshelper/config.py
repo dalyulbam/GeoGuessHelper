@@ -208,9 +208,10 @@ class Settings:
     google_client_secret: str = ""
     public_base_url: str = ""            # OAuth 리디렉션에 쓰는 외부 주소
     admin_emails: list[str] = field(default_factory=list)
-    # 무료 회원이 DB 에 쌓을 수 있는 원자 수. 넘으면 적재를 멈추고 그 사실을 알린다.
-    free_atom_limit: int = 200
-    # 사용자별 데이터가 쌓이는 뿌리(회원별 지식 저장소·캡처).
+    # 과금 단위는 **보고서**다(원자가 아니다). 가입 전 방문자와 무료 회원이 받을 수 있는
+    # 보고서 수. 원자는 공용 지식이라 세어서 막을 대상이 아니다 — 260913 정정.
+    free_reports: int = 1
+    # 사용자별 데이터가 쌓이는 뿌리(회원별 캡처·보고서·작업 기록). 지식은 여기가 아니다.
     data_dir: Path = field(default_factory=lambda: project_root() / "data")
 
     @property
@@ -311,7 +312,7 @@ def load_settings() -> Settings:
     s.public_base_url = os.environ.get("GEOHELPER_PUBLIC_URL", "").strip().rstrip("/")
     s.admin_emails = [e.strip().lower() for e in
                       os.environ.get("GEOHELPER_ADMIN_EMAILS", "").split(",") if e.strip()]
-    _env_int(s, "GEOHELPER_FREE_ATOM_LIMIT", "free_atom_limit", lo=0, hi=100000)
+    _env_int(s, "GEOHELPER_FREE_REPORTS", "free_reports", lo=0, hi=1000)
     _env_int(s, "GEOHELPER_JOB_CONCURRENCY", "job_concurrency", lo=1, hi=8)
     _env_int(s, "GEOHELPER_CAPTURE_CONCURRENCY", "capture_concurrency", lo=1, hi=4)
     _env_int(s, "GEOHELPER_WEB_SEARCH_MAX", "web_search_max_uses", lo=0, hi=10)

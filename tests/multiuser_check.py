@@ -1,7 +1,11 @@
-"""다중 사용자 계층 검사 — 가입·세션·키 보관·저장소 격리·무료 상한.
+"""다중 사용자 계층 검사 — 가입·세션·키 보관·작업공간 분리·공유 지식·무료 1건.
 
-이 파일이 있는 이유: 여기서 조용히 틀리면 **남의 키로 남의 돈을 쓰거나 남의 원자를
-읽는다**. 이 앱에서 가장 나쁜 실패이고, 화면으로는 티가 안 난다.
+이 파일이 있는 이유: 여기서 조용히 틀리면 **남의 키로 남의 돈을 쓴다**. 이 앱에서 가장
+나쁜 실패이고, 화면으로는 티가 안 난다.
+
+④⑤ 는 260913 에 뒤집혔다. 앞선 판은 "회원마다 지식 저장소가 다르다"를 검사했는데, 그건
+원자 id 가 내용 주소라는 성질(knowledge.py:164)을 깨는 설계였다. 지금은 반대를 검사한다 —
+**지식은 하나고, 회원마다 다른 것은 그것을 가리키는 참조뿐이다.**
 
 실행:  uv run --extra server python tests/multiuser_check.py
        sqlalchemy 가 없으면 전체를 skip 한다(단독 소유자 모드에서는 필요 없다).
@@ -40,7 +44,8 @@ def main() -> int:
     s.data_dir = tmp / "data"
     s.key_enc_secret = "test-secret-that-is-long-enough"
     s.admin_emails = ["boss@example.com"]
-    s.free_atom_limit = 3
+    s.knowledge_dir = tmp / "knowledge"
+    s.free_reports = 1
     db.reset_engine()
     tenancy.forget_hydration()
 
@@ -118,25 +123,26 @@ def main() -> int:
     except secretbox.SecretUnavailable:
         check(True, "암호화 비밀이 없으면 키를 아예 받지 않는다")
 
-    print("\n④ 저장소 격리")
+    print("\n④ 작업공간은 나누고 지식은 나누지 않는다")
     sa = tenancy.settings_for_user(s, a_id)
     sb = tenancy.settings_for_user(s, b_id)
-    check(sa.knowledge_dir != sb.knowledge_dir, "회원마다 지식 저장소가 다르다")
-    check(str(a_id) in str(sa.knowledge_dir), "경로에 그 회원의 id 가 들어간다")
+    check(sa.knowledge_dir == sb.knowledge_dir == s.knowledge_dir,
+          "지식 저장소는 하나다 — 회원마다 나누지 않는다")
     check(sa.captures_dir != sb.captures_dir and sa.reports_dir != sb.reports_dir,
-          "캡처·보고서도 분리된다")
-    check(s.knowledge_dir != sa.knowledge_dir, "원본 Settings 는 바뀌지 않는다")
+          "캡처·보고서·작업기록은 회원마다 나뉜다")
+    check(str(a_id) in str(sa.captures_dir), "작업공간 경로에는 그 회원의 id 가 들어간다")
+    check(s.captures_dir != sa.captures_dir, "원본 Settings 는 바뀌지 않는다")
     try:
         tenancy.settings_for_user(s, "../../etc")
         check(False, "경로 조작 id 는 거부돼야 한다")
     except ValueError:
         check(True, "경로가 될 수 없는 id 를 거부한다")
 
-    print("\n⑤ write-through 와 무료 상한")
+    print("\n⑤ 공유 원자 + 개별 참조 — 회원이 늘어도 지식 총량은 그대로")
     from geoguesshelper.knowledge import Atom
 
-    def put(us, n: int, who: str) -> None:
-        d = us.knowledge_dir / "atoms"
+    def put(n: int, who: str) -> None:
+        d = s.knowledge_dir / "atoms"
         d.mkdir(parents=True, exist_ok=True)
         for i in range(n):
             a = Atom(id=f"atm_{who}{i:08x}", layer="history", scope="country",
@@ -144,38 +150,96 @@ def main() -> int:
                      entities=[who], tags=["t"], cell="wydm9qq")
             (d / f"{a.id}.md").write_text(a.to_md(), encoding="utf-8")
 
-    put(sa, 5, "aa")            # 무료 상한 3 < 5
-    r = tenancy.sync_atoms(s, a_id, plan="free")
-    check(r["synced"] == 3 and r["skipped"] == 2,
-          f"무료는 상한 3 에서 멈추고 넘긴 수를 알린다 {r}")
-    with db.session_for(ses_s := s) as ses:
-        check(db.atom_count(ses, a_id) == 3, "DB 에 3개만 들어갔다")
-        check(db.atom_count(ses, b_id) == 0, "B 의 저장소는 비어 있다(격리)")
-    put(sb, 2, "bb")
-    tenancy.sync_atoms(s, b_id, plan="free")
+    before = tenancy.atom_ids_now(s)
+    put(5, "aa")
+    r = tenancy.sync_atoms(s, a_id, before=before)
+    check(r["created"] == 5 and r["reused"] == 0, f"A 가 새 원자 5개를 만들었다 {r}")
     with db.session_for(s) as ses:
-        ids_a = {r.atom_id for r in db.all_atom_rows(ses, a_id)}
-        ids_b = {r.atom_id for r in db.all_atom_rows(ses, b_id)}
-    check(ids_a.isdisjoint(ids_b), "두 회원의 원자가 섞이지 않는다")
-    check(all(i.startswith("atm_bb") for i in ids_b), "B 는 자기 원자만 갖는다")
+        check(db.atom_total(ses) == 5, "공용 저장소에 5개")
+        check(db.ref_count(ses, a_id) == 5, "A 의 참조 5개")
+        check(db.ref_count(ses, b_id) == 0, "B 는 아직 아무것도 참조하지 않는다")
 
+    # B 가 **같은 원자**에 닿는다 — 같은 사실이면 id 가 같으므로 새로 만들어지지 않는다.
+    r_b = tenancy.sync_atoms(s, b_id, before=tenancy.atom_ids_now(s))
     with db.session_for(s) as ses:
-        ses.get(db.User, a_id).plan = "pro"
-    r2 = tenancy.sync_atoms(s, a_id, plan="pro")
-    check(r2["skipped"] == 0, f"pro 는 상한이 없다 {r2}")
+        total_after = db.atom_total(ses)
+        refs_b = db.ref_count(ses, b_id)
+    check(total_after == 5, f"B 가 와도 지식 총량은 그대로 (={total_after})")
+    check(refs_b == 5 and r_b["created"] == 0 and r_b["reused"] == 5,
+          f"B 는 참조만 늘었다 (refs={refs_b}, {r_b})")
+
+    # 한 원자를 두 회원이 가리킨다 — 그게 '창'이 다르다는 것의 전부다.
     with db.session_for(s) as ses:
-        check(db.atom_count(ses, a_id) == 5, "pro 로 올리면 나머지도 올라간다")
+        ids_a = set(db.user_atom_ids(ses, a_id))
+        ids_b = set(db.user_atom_ids(ses, b_id))
+        rows = db.all_atom_rows(ses)
+        firsts = {r.first_user_id for r in rows}
+        view = db.user_view(ses, b_id)
+        exported = db.export_atoms(ses, b_id)
+    check(ids_a == ids_b, "둘이 같은 원자를 본다(사본이 아니다)")
+    check(firsts == {a_id}, "처음 만든 사람은 A 로 남고 B 가 덮어쓰지 않는다")
+    check(len(view) == 5 and view[0]["relation"] == "used", "B 의 창은 'used' 관계로 보인다")
+    check(len(exported) == 5, "내려받기는 내가 참조하는 원자만 준다")
 
     print("\n⑥ 복원(hydrate) — 파일이 날아가도 원자는 산다")
     import shutil
 
-    shutil.rmtree(sa.knowledge_dir, ignore_errors=True)
-    tenancy.forget_hydration(a_id)
-    n = tenancy.hydrate(s, a_id)
+    shutil.rmtree(s.knowledge_dir, ignore_errors=True)
+    tenancy.forget_hydration()
+    n = tenancy.hydrate(s)
     check(n == 5, f"DB 에서 .md 5개를 복원했다 (={n})")
-    files = sorted(p.name for p in (sa.knowledge_dir / "atoms").glob("atm_*.md"))
+    files = sorted(p.name for p in (s.knowledge_dir / "atoms").glob("atm_*.md"))
     check(len(files) == 5, "파일이 실제로 돌아왔다")
-    check(tenancy.hydrate(s, a_id) == 0, "두 번째 호출은 다시 쓰지 않는다")
+    check(tenancy.hydrate(s) == 0, "두 번째 호출은 다시 쓰지 않는다(프로세스당 1회)")
+
+    print("\n⑥-2 과금 단위는 보고서 1건")
+    from geoguesshelper import quota
+
+    class Req:                       # 최소한의 가짜 요청 — 쿠키와 헤더만 본다
+        def __init__(self, cookie="", ip="1.2.3.4"):
+            self.cookies = {quota.VISITOR_COOKIE: cookie} if cookie else {}
+            self.headers = {"x-forwarded-for": ip}
+            self.client = type("C", (), {"host": ip})()
+
+    s.free_reports = 1
+    s.anthropic_api_key = "sk-ant-server-for-free-tier"
+    anon = Req(cookie="a" * 32)
+    d = quota.decide(s, anon, None)
+    check(d.allowed and d.plan == "anon", f"가입 전 첫 1건은 무료 {d.as_dict()}")
+    with db.session_for(s) as ses:
+        db.record_report(ses, anon_key="a" * 32, anon_ip=quota.ip_key(s, anon),
+                         report_file="r1.html", cost_usd=0.12, atoms_new=5, atoms_reused=0)
+    d = quota.decide(s, anon, None)
+    check(not d.allowed and d.reason == "signup", f"그 다음은 가입 요구 {d.reason}")
+    d = quota.decide(s, Req(cookie="b" * 32), None)     # 쿠키를 지운 같은 IP
+    check(not d.allowed, "쿠키를 갈아도 같은 IP 면 이미 쓴 것으로 센다")
+    d = quota.decide(s, Req(cookie="a" * 32, ip="9.9.9.9"), None)   # IP 만 바꿈
+    check(not d.allowed, "IP 를 갈아도 같은 쿠키면 이미 쓴 것으로 센다")
+    check(quota.decide(s, Req(cookie="c" * 32, ip="5.5.5.5"), None).allowed,
+          "둘 다 처음인 방문자는 무료 1건을 받는다")
+
+    with db.session_for(s) as ses:
+        u_a = ses.get(db.User, a_id)
+        check(quota.decide(s, anon, u_a).allowed, "회원의 첫 1건도 무료")
+        db.record_report(ses, user_id=a_id, report_file="r2.html")
+    with db.session_for(s) as ses:
+        u_a = ses.get(db.User, a_id)
+        u_a.plan = "free"
+        d = quota.decide(s, anon, u_a)
+        check(not d.allowed and d.reason == "pay", f"다 쓴 회원은 유료 안내 {d.reason}")
+        u_a.plan = "pro"
+        check(quota.decide(s, anon, ses.get(db.User, a_id)).allowed, "pro 는 한도가 없다")
+        u_a.plan = "free"
+    tok_byo = llm.set_credentials(llm.Creds("anthropic", "sk-ant-visitor", "byo"))
+    try:
+        with db.session_for(s) as ses:
+            d = quota.decide(s, anon, ses.get(db.User, a_id))
+        check(d.allowed and d.plan == "byo", "자기 키를 넣으면 한도가 없다")
+    finally:
+        llm.reset_credentials(tok_byo)
+    s_solo = Settings()
+    check(quota.decide(s_solo, anon, None).allowed, "단독 소유자 모드는 한도 자체가 없다")
+    s.anthropic_api_key = ""
 
     print("\n⑦ 자격증명 컨텍스트")
     s3 = Settings()

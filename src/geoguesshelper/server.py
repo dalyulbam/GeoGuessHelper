@@ -51,7 +51,8 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Streamin
 from fastapi.staticfiles import StaticFiles
 
 from . import capture as capture_mod
-from . import cleanup, i18n, jobs, knowledge, linkresolver, llm, streetview, tenancy, translate
+from . import (cleanup, i18n, jobs, knowledge, linkresolver, llm, quota, streetview, tenancy,
+               translate)
 from . import report as report_mod
 from . import research as research_mod
 from .analyze import analyze_captures
@@ -69,6 +70,11 @@ _QUEUE: jobs.JobQueue | None = None
 # 이 요청의 주인. 라우트 시그니처를 전부 고치지 않고 _submit 이 읽을 수 있게 한다
 # (미들웨어가 설정하고, 요청이 끝나면 되돌린다).
 _CURRENT_USER_ID: contextvars.ContextVar[str] = contextvars.ContextVar("ggh_user", default="")
+
+# 가입 전 방문자의 지문 (쿠키 id, 소금 친 IP 해시). 같은 이유로 미들웨어가 설정한다 —
+# 무료 1건을 누가 썼는지는 잡이 끝난 뒤에 기록되는데, 그때는 request 가 이미 없다.
+_CURRENT_ANON: contextvars.ContextVar[tuple[str, str]] = contextvars.ContextVar(
+    "ggh_anon", default=("", ""))
 
 # 브라우저가 자기 키를 실어 보내는 헤더. 값은 **어디에도 저장하지 않는다** —
 # 로그에도 jobs.jsonl 에도 남기지 않고, 그 요청/그 잡 동안만 메모리에 든다.
@@ -640,6 +646,36 @@ def build_app(settings: Settings) -> FastAPI:
         history=settings.job_history,
         log_path=settings.jobs_dir / "jobs.jsonl",
     )
+    def _record_work(settings, owner, kind, job, out, before, plan="free") -> None:
+        """잡 하나가 끝났다 — 남길 것은 셋이다.
+
+          ① 이번에 생긴 원자를 **공용** 저장소에 올린다.
+          ② 이 회원의 참조를 남긴다(만든 것/가져다 쓴 것을 구분해서).
+          ③ 보고서였다면 1건으로 기록한다 — 과금 단위이자 원가 계측의 원천.
+
+        새 원자 수·재사용 수·실비를 같이 남기는 이유: 값을 짐작으로 정하지 않기 위해서다.
+        지식이 쌓일수록 재사용 비율이 올라가고 건당 원가가 내려가는데, 그 곡선을 보려면
+        건마다 실제로 몇 개가 새로 만들어졌는지가 있어야 한다.
+        """
+        from . import db as _db
+
+        res = out if isinstance(out, dict) else {}
+        files = [str(f) for f in (res.get("reports") or [])]
+        stat = tenancy.sync_atoms(settings, owner, plan=plan,
+                                  report_file=files[0] if files else "", before=before)
+        if kind not in ("report", "scene-report") or res.get("status") != "OK":
+            return
+        pl = job.payload or {}
+        with _db.session_for(settings) as s:
+            _db.record_report(
+                s, user_id=owner,
+                anon_key="" if owner else str(pl.get("_anon") or ""),
+                anon_ip="" if owner else str(pl.get("_anonip") or ""),
+                report_file=files[0] if files else "",
+                label=str(pl.get("label") or ""),
+                cost_usd=float(res.get("cost_usd") or 0.0),
+                atoms_new=stat.get("created", 0), atoms_reused=stat.get("reused", 0))
+
     def _tenant_handler(kind: str, base_fn):
         """잡을 **그 회원의 것으로** 돌린다 — 저장소도 키도 그 사람 것이다.
 
@@ -648,8 +684,20 @@ def build_app(settings: Settings) -> FastAPI:
         """
         async def run(job):
             owner = str((job.payload or {}).get("_owner") or "")
-            if not (settings.multi_user and owner):
-                return await base_fn(job)
+            if not owner:
+                # 가입 전 방문자의 무료 1건 — 운영자 키로, 운영자 저장소에서 돈다.
+                # 그래도 만들어진 원자는 공용 지식에 남기고 1건을 기록한다. 이 사람이
+                # 나중에 가입하든 안 하든, 그 돈으로 얻은 지식은 남는다.
+                before = tenancy.atom_ids_now(settings)
+                out = None
+                try:
+                    out = await _byo_job(base_fn)(job)
+                    return out
+                finally:
+                    try:
+                        _record_work(settings, "", kind, job, out, before)
+                    except Exception:  # noqa: BLE001 — 기록 실패가 결과를 버리지 않는다
+                        pass
             byo = _JOB_CREDS.pop(str((job.payload or {}).get("_credref") or ""), None)
             if byo is not None:      # 방문자가 직접 넣은 키가 회원 키보다 우선한다
                 t = llm.set_credentials(byo)
@@ -667,15 +715,20 @@ def build_app(settings: Settings) -> FastAPI:
             plan = getattr(user, "plan", "free")
             creds = _webapi.credentials_for(settings, user) if user is not None else None
             token = llm.set_credentials(creds) if creds is not None else None
+            # 이 잡 **전에** 있던 원자. 끝나고 비교해야 새로 만든 것과 가져다 쓴 것이
+            # 갈린다 — 새 원자만 돈이 들었고, 그 구분이 곧 원가다.
+            before = tenancy.atom_ids_now(settings)
+            out = None
             try:
-                return await _make_handlers(us)[kind](job)
+                out = await _make_handlers(us)[kind](job)
+                return out
             finally:
                 if token is not None:
                     llm.reset_credentials(token)
-                # 이 잡이 만든 원자를 DB 로 올린다(write-through). 무료 회원은 상한에서
-                # 멈추고, 멈춘 사실은 sync_atoms 의 반환값에 남는다.
+                # 이 잡이 만진 원자를 공용 저장소로 올리고(write-through) 이 회원의
+                # 참조를 남긴다. 저장소가 갈라지는 게 아니라 보는 창이 늘어난다.
                 try:
-                    tenancy.sync_atoms(settings, owner, plan=plan)
+                    _record_work(settings, owner, kind, job, out, before, plan)
                 except Exception:  # noqa: BLE001 — 적재 실패가 보고서를 실패로 만들지 않는다
                     pass
         return run
@@ -735,7 +788,7 @@ def build_app(settings: Settings) -> FastAPI:
     # DATABASE_URL 이 없으면 이 블록은 통째로 지나간다 — 로컬 단독 소유자 모드는
     # 이 코드를 한 줄도 실행하지 않는다.
     if settings.multi_user:
-        from . import webapi
+        from . import auth, webapi
 
         app.include_router(webapi.build_router(settings))
 
@@ -750,6 +803,10 @@ def build_app(settings: Settings) -> FastAPI:
             request.state.user = user
             token = None
             uid_token = _CURRENT_USER_ID.set(user.id if user is not None else "")
+            # 방문자 지문 — 무료 1건을 누구에게 줬는지 기억하기 위한 최소한.
+            vid = quota.visitor_of(request)
+            fresh_vid = "" if vid else quota.new_visitor()
+            anon_token = _CURRENT_ANON.set((vid or fresh_vid, quota.ip_key(settings, request)))
             if user is not None:
                 creds = webapi.credentials_for(settings, user)
                 if creds is not None:
@@ -759,11 +816,19 @@ def build_app(settings: Settings) -> FastAPI:
                 except Exception:  # noqa: BLE001 — 복원 실패가 요청을 막지 않는다
                     pass
             try:
-                return await call_next(request)
+                resp = await call_next(request)
+                if fresh_vid:
+                    # 처음 온 브라우저에만 새로 심는다. 이미 있는 값을 덮어쓰면 시크릿
+                    # 창을 안 열고도 무료분이 계속 되살아난다.
+                    resp.set_cookie(quota.VISITOR_COOKIE, fresh_vid,
+                                    **{**auth.cookie_kwargs(settings, request),
+                                       "max_age": quota._COOKIE_MAX_AGE})
+                return resp
             finally:
                 if token is not None:
                     llm.reset_credentials(token)
                 _CURRENT_USER_ID.reset(uid_token)
+                _CURRENT_ANON.reset(anon_token)
 
     @app.get("/")
     async def index():
@@ -989,6 +1054,13 @@ def build_app(settings: Settings) -> FastAPI:
         owner = _CURRENT_USER_ID.get()
         if owner:
             payload = {**payload, "_owner": owner}
+        else:
+            # 비회원의 무료 1건 — 누구의 1건이었는지 잡이 끝난 뒤에도 알아야 한다.
+            # 둘 다 값이 아니라 지문이므로(쿠키는 난수, IP 는 소금 친 해시) 잡 기록에
+            # 남아도 되돌릴 것이 없다.
+            vid, ipk = _CURRENT_ANON.get()
+            if vid or ipk:
+                payload = {**payload, "_anon": vid, "_anonip": ipk}
         # 헤더로 온 키는 DB 에 없다 — 잡이 쓸 수 있게 **메모리로만** 넘긴다.
         #
         # job.id 로 넣으면 경합이 난다: submit 을 await 하는 순간 워커가 그 잡을 집어
@@ -1007,11 +1079,30 @@ def build_app(settings: Settings) -> FastAPI:
         return await _QUEUE.submit(kind, payload, label=label,
                                    client_key=str(payload.get("clientKey") or ""))
 
+    def _gate(request: Request) -> None:
+        """무료 한도 검사 — 보고서를 만드는 경로에서만. 402 는 '돈이 필요하다'는 뜻이고,
+        화면은 reason 으로 가입 창을 띄울지 결제 창을 띄울지 고른다."""
+        if not settings.multi_user:
+            return
+        d = quota.decide(settings, request, getattr(request.state, "user", None))
+        if not d.allowed:
+            raise HTTPException(status_code=402, detail=d.message,
+                                headers={"X-Quota-Reason": d.reason})
+
+    @app.get("/api/quota")
+    async def api_quota(request: Request):
+        """지금 몇 건 남았는가 — 화면이 버튼을 누르기 **전에** 알 수 있게."""
+        if not settings.multi_user:
+            return JSONResponse(quota.Decision(True, plan="owner").as_dict())
+        return JSONResponse(
+            quota.decide(settings, request, getattr(request.state, "user", None)).as_dict())
+
     @app.post("/api/jobs/report")
-    async def api_job_report(payload: dict):
+    async def api_job_report(payload: dict, request: Request):
         payload = payload or {}
         if not (payload.get("files") or []):
             raise HTTPException(status_code=422, detail="리포트 생성에는 캡처(files)가 필요합니다.")
+        _gate(request)
         try:
             job = await _submit("report", payload, payload.get("label") or "보고서")
         except RuntimeError as exc:
@@ -1020,11 +1111,12 @@ def build_app(settings: Settings) -> FastAPI:
                              "queue": _QUEUE.stats()})
 
     @app.post("/api/jobs/scene-report")
-    async def api_job_scene_report(payload: dict):
+    async def api_job_scene_report(payload: dict, request: Request):
         payload = payload or {}
         pose = payload.get("pose")
         if not pose or (pose.get("lat") is None and not pose.get("pano")):
             raise HTTPException(status_code=422, detail="유효한 pose(lat/lng 또는 pano)가 필요합니다.")
+        _gate(request)
         try:
             job = await _submit("scene-report", payload, payload.get("label") or "바로 보고서")
         except RuntimeError as exc:

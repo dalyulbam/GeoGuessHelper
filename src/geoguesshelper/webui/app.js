@@ -443,6 +443,9 @@ async function apiRaw(url, opts) {
     const err = new Error(msg);
     err.status = res.status;
     err.body = body;
+    // 서버가 헤더로만 주는 사유(예: X-Quota-Reason)를 호출부가 읽을 수 있게 옮긴다.
+    // 본문에 넣지 않는 이유는 detail 이 문자열이어야 화면이 그대로 띄울 수 있어서다.
+    err.headers = { reason: res.headers.get("x-quota-reason") || "" };
     throw err;
   }
   return body;
@@ -1500,6 +1503,7 @@ async function submitJob(kind, payload, originId, label) {
       body: JSON.stringify(payload),
     });
   } catch (e) {
+    if (e.status === 402) { onQuotaBlocked(e); return null; }
     setStatus((e.status === 429 ? "대기열이 가득 찼습니다: " : "작업 등록 실패: ") + e.message, "err", 7000);
     return null;
   }
@@ -2004,6 +2008,17 @@ async function refreshAccount() {
   if (!me.authenticated) {
     anon.hidden = false; user.hidden = true;
     $("#acct-label").textContent = "로그인";
+    // 몇 건 남았는지는 **누르기 전에** 알아야 한다. 보고서를 만들다 막히면 그때까지의
+    // 캡처·대기가 헛수고가 된다.
+    try {
+      const q = await api("/api/quota", { timeoutMs: 10000 });
+      const el = $("#acct-quota");
+      if (el) {
+        el.innerHTML = q.allowed
+          ? `가입 없이 <b>${q.remaining}</b>건 더 만들어 볼 수 있습니다.`
+          : `<b>무료 ${q.free}건을 모두 사용했습니다.</b> 가입하거나 🔑 에 본인 API 키를 넣어 주세요.`;
+      }
+    } catch (e) { /* 한도 표시는 부가 정보다 — 실패해도 로그인 창은 떠야 한다 */ }
     return;
   }
   anon.hidden = true; user.hidden = false;
@@ -2031,12 +2046,13 @@ async function refreshAccount() {
     });
   });
 
+  // 전체 지식과 내가 닿은 부분을 **나란히** 보여 준다. 그게 이 제품의 설계다 —
+  // 저장소가 사람마다 갈라지는 게 아니라, 하나의 그래프를 저마다 다른 창으로 본다.
   const u = me.usage || {};
-  $("#acct-usage").innerHTML = u.limit == null
-    ? `원자 <b>${u.atoms || 0}</b>개 · 무제한`
-    : `원자 <b>${u.atoms || 0}</b> / ${u.limit}개`
-      + (u.atoms >= u.limit
-          ? ` — <b>상한에 도달했습니다.</b> 새 원자는 저장되지 않습니다.` : "");
+  const left = u.remaining == null ? "무제한"
+    : (u.remaining > 0 ? `무료 <b>${u.remaining}</b>건 남음` : "<b>무료분 소진</b>");
+  $("#acct-usage").innerHTML =
+    `내 참조 <b>${u.refs || 0}</b> · 전체 지식 <b>${u.atoms || 0}</b>개 · ${left}`;
 
   if (!me.keyStorage) {
     setStatus("서버에 키 암호화 비밀(GEOHELPER_KEY_SECRET)이 없어 키를 보관할 수 없습니다.",
@@ -2102,6 +2118,30 @@ const BYO_STORE = "ggh_llm_key";
 
 function byoKey() {
   try { return sessionStorage.getItem(BYO_STORE) || ""; } catch (e) { return ""; }
+}
+
+/* 무료분을 다 썼을 때 — 막았다고만 하면 사용자는 무엇을 해야 할지 모른다.
+ *
+ * 서버가 이유(X-Quota-Reason)를 같이 주므로, 그 이유에 맞는 창을 **열어 준다**.
+ *   signup → 가입 창(👤),  pay → 같은 창의 등급 안내,  nokey → 키 입력 창(🔑)
+ * 둘 중 어느 쪽이든 자기 키를 넣으면 한도가 사라지므로, 키 안내는 항상 덧붙인다.
+ */
+function onQuotaBlocked(e) {
+  const why = (e.body && e.body.reason) || (e.headers && e.headers.reason) || "";
+  const msg = e.message || "무료 사용분을 모두 사용했습니다.";
+  setStatus(msg, "err", 12000);
+  const acct = $("#acct-menu"), key = $("#key-menu");
+  if (why === "nokey") {
+    if (key) key.open = true;
+  } else if (acct && !acct.hidden) {
+    acct.open = true;
+  } else if (key) {
+    key.open = true;
+  }
+  const st = $("#byo-state");
+  if (st && !byoKey()) {
+    st.textContent = "본인 API 키를 넣으면 한도 없이 쓸 수 있습니다.";
+  }
 }
 
 function byoProvider(k) {

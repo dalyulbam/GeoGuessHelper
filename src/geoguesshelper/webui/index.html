@@ -55,7 +55,12 @@
           <button id="btn-login" class="primary">로그인</button>
           <button id="btn-signup">가입</button>
         </div>
-        <div class="lang-base-hint">가입하면 나만의 지식 저장소가 생깁니다.</div>
+        <div id="acct-quota" class="lang-base-hint"></div>
+        <div class="lang-base-hint">
+          가입하면 내가 만든 지식과 연결고리가 계정에 남습니다.
+          지식 자체는 <b>모두가 함께 쌓는 하나의 그래프</b>이고, 계정에 남는 것은
+          그중 내가 닿은 부분입니다.
+        </div>
       </div>
 
       <div id="acct-user" hidden>
@@ -73,7 +78,7 @@
           이 키로 회원님 계정에 요금이 청구됩니다.
         </div>
 
-        <div class="lang-pop-h" style="margin-top:10px">내 지식 저장소</div>
+        <div class="lang-pop-h" style="margin-top:10px">내가 보는 지식</div>
         <div id="acct-usage" class="lang-base-hint"></div>
         <div class="acct-row">
           <a id="btn-export" href="/api/my/knowledge/export">원자 내려받기</a>

@@ -216,16 +216,24 @@ def build_router(settings: Settings) -> APIRouter:
                 s.delete(row)
         return JSONResponse({"ok": True})
 
-    # ── 내 지식 ──────────────────────────────────────────────────
+    # ── 내가 보는 창 ─────────────────────────────────────────────
     @r.get("/my/knowledge")
     async def my_knowledge(request: Request):
+        """내 참조 — 저장소가 아니라 **창**이다.
+
+        지식은 하나다. 여기 보이는 것은 그 하나의 그래프 중 내가 닿은 부분이고,
+        usage.atoms(전체)와 usage.refs(내 것)를 나란히 내려보내 그 차이를 화면이
+        말할 수 있게 한다.
+        """
         u = require_user(settings, request)
         tenancy.hydrate(settings, u.id)
-        return JSONResponse(tenancy.usage(settings, u.id, plan=u.plan))
+        with db.session_for(settings) as s:
+            view = db.user_view(s, u.id, limit=200)
+        return JSONResponse({**tenancy.usage(settings, u.id, plan=u.plan), "refs_list": view})
 
     @r.get("/my/knowledge/export")
     async def my_export(request: Request):
-        """내려받기 — 저장 한도에 걸린 회원도 자기 것을 가져갈 수 있어야 한다."""
+        """내려받기 — 내가 참조하는 원자만. 공용 그래프 전체가 아니다."""
         u = require_user(settings, request)
         with db.session_for(settings) as s:
             rows = db.export_atoms(s, u.id)
@@ -239,7 +247,8 @@ def build_router(settings: Settings) -> APIRouter:
         require_admin(settings, request)
         with db.session_for(settings) as s:
             users = s.query(db.User).order_by(db.User.created.desc()).limit(500).all()
-            out = [{**u.public(settings), "atoms": db.atom_count(s, u.id)} for u in users]
+            out = [{**u.public(settings), "refs": db.ref_count(s, u.id),
+                    "reports": db.report_count(s, user_id=u.id)} for u in users]
         return JSONResponse({"users": out, "count": len(out)})
 
     @r.post("/admin/users/{user_id}/plan")
