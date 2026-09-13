@@ -51,6 +51,11 @@ def reset_credentials(token) -> None:
         pass
 
 
+def current_credentials_or_none() -> Creds | None:
+    """지금 컨텍스트의 자격증명(없으면 None). 예외를 던지지 않는다 — 호출부가 판단한다."""
+    return _creds.get()
+
+
 def current_credentials(settings: Settings) -> Creds:
     """지금 쓸 자격증명. 컨텍스트에 없으면 서버 설정(단독 소유자 모드)으로 물러선다."""
     c = _creds.get()

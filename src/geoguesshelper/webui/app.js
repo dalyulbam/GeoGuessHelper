@@ -381,6 +381,9 @@ async function api(url, opts) {
   const o = Object.assign({}, opts);
   const ms = o.timeoutMs;
   delete o.timeoutMs;
+  // 방문자가 넣은 키를 요청마다 실어 보낸다. 한 곳에서 얹어야 빠뜨리는 경로가 없다.
+  const byo = byoKey();
+  if (byo) o.headers = Object.assign({}, o.headers, { "X-Llm-Key": byo });
   const outer = o.signal || null;      // 취소 버튼 등 호출부의 신호
   let timer = null;
   let ac = null;
@@ -2084,4 +2087,78 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", wireAccount, { once: true });
 } else {
   wireAccount();
+}
+
+/* ── API 키 (계정과 무관, 항상 보이는 칸) ────────────────────────────────────
+ *
+ *  왜 별도인가 — 계정 메뉴 안에 두었더니 DATABASE_URL 이 없는 서버에서는 메뉴가 통째로
+ *  숨어 **키를 넣을 방법 자체가 없었다**. 분석·보고서는 키가 있어야 도는데 화면에
+ *  들어갈 자리가 없는 것은 기능이 없는 것과 같다.
+ *
+ *  값은 sessionStorage 에만 둔다(탭을 닫으면 사라진다). 서버는 저장하지 않고
+ *  그 요청 동안만 쓴다. 로그인한 회원은 계정에 암호화 저장하는 쪽을 쓰면 된다.
+ */
+const BYO_STORE = "ggh_llm_key";
+
+function byoKey() {
+  try { return sessionStorage.getItem(BYO_STORE) || ""; } catch (e) { return ""; }
+}
+
+function byoProvider(k) {
+  const v = (k || "").trim();
+  if (v.startsWith("sk-ant-")) return "Claude";
+  if (v.startsWith("sk-proj-") || v.startsWith("sk-svcacct-") || (v.startsWith("sk-") && v.length > 40)) return "ChatGPT";
+  return "";
+}
+
+function renderByo() {
+  const k = byoKey();
+  const label = $("#key-label"), state = $("#byo-state");
+  if (!label) return;
+  if (!k) {
+    label.textContent = "API 키 없음";
+    label.style.color = "";
+    if (state) state.textContent = "키가 없으면 분석·보고서가 동작하지 않습니다.";
+    return;
+  }
+  const p = byoProvider(k) || "알 수 없음";
+  const masked = k.length > 12 ? k.slice(0, 7) + "…" + k.slice(-4) : "…" + k.slice(-2);
+  label.textContent = p + " 키";
+  label.style.color = "#127a4b";
+  if (state) state.textContent = `적용 중: ${p} · ${masked}`;
+}
+
+function wireByoKey() {
+  const input = $("#byo-key");
+  if (!input) return;
+
+  const save = () => {
+    const v = (input.value || "").trim();
+    if (!v) { setStatus("키를 입력하세요", "err"); return; }
+    if (!byoProvider(v)) {
+      setStatus("키 형식을 알 수 없습니다. Claude 는 sk-ant-…, ChatGPT 는 sk-… 입니다.", "err", 8000);
+      return;
+    }
+    try { sessionStorage.setItem(BYO_STORE, v); } catch (e) {
+      setStatus("이 브라우저가 저장을 막고 있습니다(시크릿 모드?)", "err", 8000); return;
+    }
+    input.value = "";
+    renderByo();
+    setStatus(`${byoProvider(v)} 키를 적용했습니다 — 이 브라우저에만 저장됩니다`, "ok");
+  };
+
+  $("#btn-byo-save").addEventListener("click", save);
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") save(); });
+  $("#btn-byo-clear").addEventListener("click", () => {
+    try { sessionStorage.removeItem(BYO_STORE); } catch (e) { /* 무시 */ }
+    renderByo();
+    setStatus("키를 지웠습니다", "ok");
+  });
+  renderByo();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", wireByoKey, { once: true });
+} else {
+  wireByoKey();
 }

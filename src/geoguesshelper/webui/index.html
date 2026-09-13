@@ -21,6 +21,27 @@
     <button id="btn-paste" class="icon" title="클립보드에서 붙여넣기">📋</button>
     <button id="btn-extract" class="primary">추출</button>
   </div>
+  <!-- API 키 — 계정과 무관하게 **항상** 보인다.
+       로그인도 DB 도 없이 붙여넣고 바로 쓸 수 있어야 한다. 값은 이 브라우저에만 있고,
+       요청마다 헤더로 실려 가며 서버는 저장하지 않는다. -->
+  <details id="key-menu" class="lang-menu">
+    <summary id="key-summary" title="분석·보고서에 쓸 API 키">🔑 <b id="key-label">API 키 없음</b> <span class="caret">▾</span></summary>
+    <div class="lang-pop acct-pop">
+      <div class="lang-pop-h">API 키 <span class="muted">(Claude 또는 ChatGPT)</span></div>
+      <input id="byo-key" type="password" autocomplete="off" spellcheck="false"
+             placeholder="sk-ant-… 또는 sk-…">
+      <div class="acct-row">
+        <button id="btn-byo-save" class="primary">적용</button>
+        <button id="btn-byo-clear">지우기</button>
+      </div>
+      <div id="byo-state" class="lang-base-hint"></div>
+      <div class="lang-base-hint">
+        이 키는 <b>이 브라우저에만</b> 저장되고 요청마다 서버로 전달됩니다.
+        서버는 저장하지 않습니다. 이 키로 회원님 계정에 요금이 청구됩니다.
+        <span id="byo-acct-hint" hidden><br>로그인하면 계정에 <b>암호화 저장</b>할 수 있습니다.</span>
+      </div>
+    </div>
+  </details>
   <!-- 계정·내 키. 단독 소유자 모드(서버에 DATABASE_URL 없음)에서는 app.js 가 통째로 숨긴다. -->
   <details id="acct-menu" class="lang-menu" hidden>
     <summary id="acct-summary" title="계정과 API 키">👤 <b id="acct-label">로그인</b> <span class="caret">▾</span></summary>

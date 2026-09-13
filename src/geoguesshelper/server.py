@@ -70,6 +70,21 @@ _QUEUE: jobs.JobQueue | None = None
 # (미들웨어가 설정하고, 요청이 끝나면 되돌린다).
 _CURRENT_USER_ID: contextvars.ContextVar[str] = contextvars.ContextVar("ggh_user", default="")
 
+# 브라우저가 자기 키를 실어 보내는 헤더. 값은 **어디에도 저장하지 않는다** —
+# 로그에도 jobs.jsonl 에도 남기지 않고, 그 요청/그 잡 동안만 메모리에 든다.
+_KEY_HEADER = "x-llm-key"
+
+# 잡은 요청 컨텍스트 밖에서 돈다. 회원 키는 DB 에서 다시 풀면 되지만, 헤더로 온 키는
+# 그럴 데가 없다. 그렇다고 payload 에 넣으면 jobs.jsonl 에 평문으로 남는다 —
+# 그래서 **메모리에만** 들고 잡이 끝나면 지운다.
+_JOB_CREDS: dict[str, object] = {}
+
+
+def _secret_provider(raw: str) -> str:
+    from . import secretbox
+
+    return secretbox.provider_of(raw)
+
 
 def _norm_langs(value) -> list[str]:
     """문자열/리스트 → 정규화·중복제거된 언어코드 리스트(비면 기본 언어)."""
@@ -635,6 +650,13 @@ def build_app(settings: Settings) -> FastAPI:
             owner = str((job.payload or {}).get("_owner") or "")
             if not (settings.multi_user and owner):
                 return await base_fn(job)
+            byo = _JOB_CREDS.pop(str((job.payload or {}).get("_credref") or ""), None)
+            if byo is not None:      # 방문자가 직접 넣은 키가 회원 키보다 우선한다
+                t = llm.set_credentials(byo)
+                try:
+                    return await base_fn(job)
+                finally:
+                    llm.reset_credentials(t)
             from . import db as _db
             from . import webapi as _webapi
 
@@ -658,8 +680,21 @@ def build_app(settings: Settings) -> FastAPI:
                     pass
         return run
 
+    def _byo_job(base_fn):
+        """단독 소유자 모드에서도 헤더로 온 키가 잡까지 가게 한다."""
+        async def run(job):
+            byo = _JOB_CREDS.pop(str((job.payload or {}).get("_credref") or ""), None)
+            if byo is None:
+                return await base_fn(job)
+            t = llm.set_credentials(byo)
+            try:
+                return await base_fn(job)
+            finally:
+                llm.reset_credentials(t)
+        return run
+
     for kind, fn in _make_handlers(settings).items():
-        _QUEUE.register(kind, _tenant_handler(kind, fn) if settings.multi_user else fn)
+        _QUEUE.register(kind, _tenant_handler(kind, fn) if settings.multi_user else _byo_job(fn))
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -677,6 +712,24 @@ def build_app(settings: Settings) -> FastAPI:
             llm.close_client()
 
     app = FastAPI(title="GeoGuessHelper", version=__version__, lifespan=lifespan)
+
+    # ── 요청에 실려 온 키 ─────────────────────────────────────────
+    # 회원가입도 DB 도 없이, 방문자가 자기 키를 붙여넣고 바로 쓰게 한다.
+    # 서버는 이 키를 **저장하지 않는다** — 그 요청 동안만 컨텍스트에 얹고 버린다.
+    # (로그인한 회원의 저장된 키는 아래 _tenant 미들웨어가 따로 얹는다.)
+    @app.middleware("http")
+    async def _byo_key(request: Request, call_next):
+        raw = (request.headers.get(_KEY_HEADER, "") or "").strip()
+        token = None
+        if raw and 20 <= len(raw) <= 300:
+            provider = _secret_provider(raw)
+            if provider:
+                token = llm.set_credentials(llm.Creds(provider, raw, "byo"))
+        try:
+            return await call_next(request)
+        finally:
+            if token is not None:
+                llm.reset_credentials(token)
 
     # ── 다중 사용자 ──────────────────────────────────────────────
     # DATABASE_URL 이 없으면 이 블록은 통째로 지나간다 — 로컬 단독 소유자 모드는
@@ -929,14 +982,30 @@ def build_app(settings: Settings) -> FastAPI:
         return JSONResponse(result)
 
     # ── 작업 큐 ─────────────────────────────────────────────────
-    def _submit(kind: str, payload: dict, label: str):
+    async def _submit(kind: str, payload: dict, label: str):
         assert _QUEUE is not None
         # 이 잡이 누구의 것인지 **id 만** 새긴다. 키를 payload 에 넣으면 jobs.jsonl 에
         # 평문으로 남는다 — 잡 시작 시 DB 에서 다시 푼다(_tenant_handler).
         owner = _CURRENT_USER_ID.get()
         if owner:
             payload = {**payload, "_owner": owner}
-        return _QUEUE.submit(kind, payload, label=label, client_key=str(payload.get("clientKey") or ""))
+        # 헤더로 온 키는 DB 에 없다 — 잡이 쓸 수 있게 **메모리로만** 넘긴다.
+        #
+        # job.id 로 넣으면 경합이 난다: submit 을 await 하는 순간 워커가 그 잡을 집어
+        # 실행할 수 있고, 그러면 우리가 사전에 넣기 **전에** 핸들러가 키를 찾는다.
+        # 그래서 난수 핸들을 먼저 등록하고 payload 에는 **그 핸들만** 싣는다 —
+        # 핸들은 의미 없는 난수라 jobs.jsonl 에 남아도 무해하다(키는 메모리에만 있다).
+        byo = llm.current_credentials_or_none()
+        if byo is not None and byo.label == "byo":
+            import secrets as _secrets
+
+            ref = _secrets.token_hex(8)
+            if len(_JOB_CREDS) > 256:       # 취소된 잡의 핸들이 무한히 쌓이지 않게
+                _JOB_CREDS.pop(next(iter(_JOB_CREDS)), None)
+            _JOB_CREDS[ref] = byo
+            payload = {**payload, "_credref": ref}
+        return await _QUEUE.submit(kind, payload, label=label,
+                                   client_key=str(payload.get("clientKey") or ""))
 
     @app.post("/api/jobs/report")
     async def api_job_report(payload: dict):
