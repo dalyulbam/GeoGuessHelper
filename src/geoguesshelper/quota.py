@@ -41,10 +41,17 @@ class Decision:
     free: int = 0
     plan: str = "anon"
 
+    @property
+    def unlimited(self) -> bool:
+        return self.plan in ("owner", "byo", "pro")
+
     def as_dict(self) -> dict:
+        # 한도가 **없는** 경우의 remaining 은 0 이 아니라 null 이다. 0 으로 내려보내면
+        # 화면이 "0건 남음"으로 읽어, 무제한인 사람에게 다 썼다고 말한다.
         return {"allowed": self.allowed, "reason": self.reason, "message": self.message,
                 "used": self.used, "free": self.free, "plan": self.plan,
-                "remaining": max(0, self.free - self.used)}
+                "unlimited": self.unlimited,
+                "remaining": None if self.unlimited else max(0, self.free - self.used)}
 
 
 def new_visitor() -> str:

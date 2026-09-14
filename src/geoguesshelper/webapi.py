@@ -77,14 +77,8 @@ def build_router(settings: Settings) -> APIRouter:
     def _base(request: Request) -> str:
         return settings.public_base_url or str(request.base_url).rstrip("/")
 
-    # ── 상태 ─────────────────────────────────────────────────────
-    @r.get("/health")
-    async def health():
-        """배포 헬스체크. DB 가 붙었는지까지 본다 — 뜬 것과 동작하는 것은 다르다."""
-        info = db.healthy(settings)
-        code = 200 if info.get("ok") else 503
-        return JSONResponse({"status": "ok" if info.get("ok") else "degraded", **info},
-                            status_code=code)
+    # /health 는 여기 있으면 안 된다 — 이 라우터는 DATABASE_URL 이 있을 때만 붙는데,
+    # 헬스체크는 **그때도 아닐 때도** 응답해야 한다(server.py 로 옮겼다, 260914).
 
     @r.get("/me")
     async def me(request: Request):

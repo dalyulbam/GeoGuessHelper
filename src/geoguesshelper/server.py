@@ -841,6 +841,30 @@ def build_app(settings: Settings) -> FastAPI:
         return HTMLResponse(html.replace("__ASSET_V__", __version__),
                             headers={"Cache-Control": "no-store, must-revalidate"})
 
+    @app.get("/api/health")
+    async def api_health():
+        """배포 헬스체크 — **어떤 설정에서도** 응답한다.
+
+        전에는 다중 사용자 라우터 안에 있었다. 그래서 DATABASE_URL 없이 띄우면 이 경로가
+        404 였고, railway.json 이 가리키는 healthcheckPath 가 그대로 빈 곳을 가리켰다.
+        헬스체크는 앱이 가장 단순한 모습일 때 가장 확실히 살아 있어야 하는 것이므로,
+        기능이 켜질 때만 생기는 자리에 두면 안 된다.
+
+        DB 가 붙어 있으면 실제로 질의해 본다 — 뜬 것과 동작하는 것은 다르다.
+        """
+        info = {"mode": "single-user", "ok": True}
+        if settings.multi_user:
+            try:
+                from . import db as _db
+
+                info = _db.healthy(settings)
+            except Exception as exc:  # noqa: BLE001 — 헬스체크가 예외로 죽으면 안 된다
+                info = {"mode": "multi-user", "ok": False,
+                        "error": f"{type(exc).__name__}: {exc}"}
+        body = {"status": "ok" if info.get("ok") else "degraded",
+                "version": __version__, **info}
+        return JSONResponse(body, status_code=200 if info.get("ok") else 503)
+
     @app.get("/api/config")
     async def api_config():
         cfg = settings.public_config()

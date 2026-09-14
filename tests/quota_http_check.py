@@ -137,6 +137,15 @@ def main() -> int:
         r = c.post("/api/jobs/report", json={"files": ["e.jpg"], "label": "내키"},
                    headers={"X-Llm-Key": "sk-ant-api03-" + "Z" * 60})
         check(r.status_code == 200, f"BYO 키 요청은 한도를 지나간다 ({r.status_code})")
+        q = c.get("/api/quota", headers={"X-Llm-Key": "sk-ant-api03-" + "Z" * 60}).json()
+        check(q["remaining"] is None and q["unlimited"],
+              f"한도가 없으면 remaining 은 0 이 아니라 null 이다 {q}")
+
+    print("\n⑦ 헬스체크는 어떤 설정에서도 응답한다")
+    with TestClient(app) as c:
+        r = c.get("/api/health")
+        check(r.status_code == 200 and r.json()["mode"] == "multi-user",
+              f"DB 가 붙었으면 실제로 질의해 본다 {r.status_code} {r.json().get('mode')}")
 
     import shutil
 

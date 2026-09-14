@@ -2014,9 +2014,11 @@ async function refreshAccount() {
       const q = await api("/api/quota", { timeoutMs: 10000 });
       const el = $("#acct-quota");
       if (el) {
-        el.innerHTML = q.allowed
-          ? `가입 없이 <b>${q.remaining}</b>건 더 만들어 볼 수 있습니다.`
-          : `<b>무료 ${q.free}건을 모두 사용했습니다.</b> 가입하거나 🔑 에 본인 API 키를 넣어 주세요.`;
+        el.innerHTML = !q.allowed
+          ? `<b>무료 ${q.free}건을 모두 사용했습니다.</b> 가입하거나 🔑 에 본인 API 키를 넣어 주세요.`
+          : q.remaining == null
+            ? `본인 API 키로 동작 중 — 건수 제한이 없습니다.`
+            : `가입 없이 <b>${q.remaining}</b>건 더 만들어 볼 수 있습니다.`;
       }
     } catch (e) { /* 한도 표시는 부가 정보다 — 실패해도 로그인 창은 떠야 한다 */ }
     return;
