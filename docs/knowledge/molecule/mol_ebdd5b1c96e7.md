@@ -53,7 +53,7 @@
   ],
   "retries": 0,
   "slug": "recovered-territories-polonization",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -61,7 +61,7 @@
 
 # 폴란드 '수복영토'와 1945년 이후 독일계 주민 축출/폴란드화 · Poland's Recovered Territories: Post-1945 Ethnic Replacement over German Architectural Continuity
 
-`mol_ebdd5b1c96e7` · 원자 4개 · cohesion 0.1794 · diameter 0.255 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.88
+`mol_ebdd5b1c96e7` · 원자 4개 · cohesion 0.1794 · diameter 0.255 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.88
 
 > 2차대전 후 독일 동부 영토가 폴란드로 넘어가면서 주민은 완전히 교체되었지만 독일식 건축·경관은 그대로 남아 이어진 현상을 다루는 분자이다.
 

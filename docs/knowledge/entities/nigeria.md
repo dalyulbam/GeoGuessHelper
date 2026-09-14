@@ -1,8 +1,9 @@
 # 엔티티 · nigeria
 
-원자 8개 · 이 엔티티를 다룬 보고서 2건
+원자 9개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
+- [[atm_4f06d267683b]] **Inland laterite motor-park town vs Niger Delta creek settlement** (geography/region)
 - [[atm_52d9e7fe3865]] **Guinea savanna–rainforest transition zone of Nigeria's Middle Belt/South-South border** (geography/region)
 - [[atm_643367ff9498]] **Provincial Nigerian market-town core: roundabout, motor park, mission institutions** (culture/city)
 - [[atm_73e57a387697]] **Nigerian Pidgin billboard copy vs Krio or Cameroonian Pidgin** (language/country)

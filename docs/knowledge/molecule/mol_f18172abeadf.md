@@ -49,7 +49,7 @@
   ],
   "retries": 1,
   "slug": "mexico-regional-terrain-vegetation-discriminators",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -57,7 +57,7 @@
 
 # 멕시코 지역별 지형·식생 판별 지표 · Mexico Regional Terrain and Vegetation Discriminators
 
-`mol_f18172abeadf` · 원자 4개 · cohesion 0.2507 · diameter 0.2958 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_f18172abeadf` · 원자 4개 · cohesion 0.2507 · diameter 0.2958 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 멕시코의 여러 거시 지역(태평양 연안, 바히오, 화산대, 치와와/소노라 사막 등)을 지형·토양·식생 신호로 구분하는 지리적 판별법에 관한 분자이다.
 

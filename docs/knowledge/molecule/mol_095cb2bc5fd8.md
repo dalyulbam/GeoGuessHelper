@@ -48,7 +48,7 @@
   ],
   "retries": 0,
   "slug": "20th-century-mass-worker-housing-estates",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -56,7 +56,7 @@
 
 # 20세기 대규모 노동자 주택단지 · 20th-Century Mass Working-Class Housing Estates
 
-`mol_095cb2bc5fd8` · 원자 5개 · cohesion 0.2111 · diameter 0.3043 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.62
+`mol_095cb2bc5fd8` · 원자 5개 · cohesion 0.2111 · diameter 0.3043 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.62
 
 > 전간기 유럽의 사회주택 운동과 사회주의권의 조립식 판넬 주택단지를 아우르는, 20세기 국가·지자체 주도 대규모 노동자 주거단지 현상이다.
 

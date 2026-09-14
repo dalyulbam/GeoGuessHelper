@@ -30,7 +30,7 @@
     "Late Qing-era ethnic chiefdoms (tusi) of Yunnan/Tibet borderlands"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -83,7 +83,7 @@
     "Late Qing-era ethnic chiefdoms (tusi) of Yunnan/Tibet borderlands"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -116,7 +116,7 @@
     "Chinese dynasties (Han to Qing)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -174,7 +174,7 @@
     "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [
     "atm_044bad726c72",
     "atm_e215e3f70c5d"
@@ -239,7 +239,7 @@
     "Qing dynasty and Later Jin"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -295,7 +295,7 @@
     "Post-1989 deindustrialization of Upper Silesian coal/steel cities"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -347,7 +347,7 @@
     "Chinese dynasties (Han to Qing)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -378,7 +378,7 @@
     "Xianbei and steppe polities (AD 93-490)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -434,7 +434,7 @@
     "Key architects and politicians of Red Vienna"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -484,7 +484,7 @@
     "Pre-Qin dynastic fiefs / ancient Chinese states (21st century–3rd century BC)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -514,7 +514,7 @@
     "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -545,7 +545,7 @@
     "Phagmodrupa dynasty of Tibet (1354-1618)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -601,7 +601,7 @@
     "Xia dynasty (2070-1600 BC)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -631,7 +631,7 @@
     "Kingdom of Tungning and Wu Zhou"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -659,7 +659,7 @@
     "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -689,7 +689,7 @@
     "Ancient Chinese peripheral polities: Beidi, Dongyi, Xirong tribes"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -741,7 +741,7 @@
     "Pre-Qin dynastic fiefs / ancient Chinese states (21st century–3rd century BC)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -774,7 +774,7 @@
     "Post-WWII forced population transfers and territorial reassignment in Central/Eastern Europe"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -836,7 +836,7 @@
     "Overtourism backlash and the appeal of unglamorous transit towns"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -890,7 +890,7 @@
     "Ottoman, Turkic and Central Asian khanates/empires"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -943,7 +943,7 @@
     "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -996,7 +996,7 @@
     "Left-hand traffic Commonwealth legacy pattern"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1051,7 +1051,7 @@
     "Napoleonic-era and revolutionary Italian states"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1106,7 +1106,7 @@
     "Pre-Columbian and Colonial American periods"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1162,7 +1162,7 @@
     "Caribbean former states (1706-1969)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1214,7 +1214,7 @@
     "Yunnan chiefdoms established under early Ming (1372-1382)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1248,7 +1248,7 @@
     "Nepal dynasties and kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1279,7 +1279,7 @@
     "Ottoman, Turkic and Central Asian khanates/empires"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1335,7 +1335,7 @@
     "Rural depopulation belts in Southern and Eastern Europe"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1391,7 +1391,7 @@
     "National and provincial highway-shield design as cartographic identifiers"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1446,7 +1446,7 @@
     "Oceania - modern short-lived states and Hawaii transitional governments (1871-1988)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1556,7 +1556,7 @@
     "BC provincial highway shield distinct from US state highway markers"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1593,7 +1593,7 @@
     "Informal incremental construction with exposed rebar across the developing world"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1649,7 +1649,7 @@
     "North Caucasus and Circassia former polities (13th c.-2000)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1701,7 +1701,7 @@
     "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1729,7 +1729,7 @@
     "Post-Mauryan north Indian dynasties (2nd century BC - AD 4th century)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1784,7 +1784,7 @@
     "Bolivia former polities (1100-1839)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1814,7 +1814,7 @@
     "Afghanistan dynasties, emirates and republics"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1867,7 +1867,7 @@
     "Rural depopulation belts in Southern and Eastern Europe"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1898,7 +1898,7 @@
     "Global family of socialist prefabricated housing estates"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1955,7 +1955,7 @@
     "Western Africa 20th-century post-colonial short-lived states"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2006,7 +2006,7 @@
     "Dynasties of medieval Bosnia"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2058,7 +2058,7 @@
     "Dynasties/khanates of Azerbaijan"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2088,7 +2088,7 @@
     "Historical states and republics of Ukraine"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2140,7 +2140,7 @@
     "Dynasties/khanates of Azerbaijan"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2174,7 +2174,7 @@
     "Fishing villages pivoting to tourism worldwide"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2230,7 +2230,7 @@
     "Mexican historical periods"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2361,7 +2361,7 @@
     "Global family of socialist prefabricated housing estates"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2415,7 +2415,7 @@
     "Danish dynasties"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2469,7 +2469,7 @@
     "Post-Soviet industrial decline and diversification struggles in Siberian cities"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2522,7 +2522,7 @@
     "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2552,7 +2552,7 @@
     "Ragusan (Dubrovnik Republic) littoral cultural sphere"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2663,7 +2663,7 @@
     "Russian states from Tsardom to Soviet Union"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2694,7 +2694,7 @@
     "Dinaric karst coastal profile: abrupt limestone wall behind narrow littoral strip"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [
     "atm_020ef391a7c6",
     "atm_0625509c4e13",
@@ -2781,7 +2781,7 @@
     "Bolivia former polities (1100-1839)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2811,7 +2811,7 @@
     "Historical states of Albania"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2869,7 +2869,7 @@
     "Coastal tourism boom versus karst hinterland depopulation in Dalmatia"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2924,7 +2924,7 @@
     "Historical polities of the Russian North"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2954,7 +2954,7 @@
     "Cambodian royal dynasties (1080–present)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3007,7 +3007,7 @@
     "Historical polities of the Russian Far East"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3040,7 +3040,7 @@
     "Municipal short-term rental caps as anti-depopulation policy response"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3121,7 +3121,7 @@
     "Panama, Trinidad and Tobago, and U.S. indigenous dynasties"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3149,7 +3149,7 @@
     "Nepal dynasties and kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3177,7 +3177,7 @@
     "Historical polities of the Ural Mountains"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3211,7 +3211,7 @@
     "Roman villae maritimae layered beneath Adriatic and Mediterranean coastal towns"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3262,7 +3262,7 @@
     "Post-1993 Slovak-Czech linguistic divergence after Czechoslovak split"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3313,7 +3313,7 @@
     "Serbia and Montenegro (dissolved 2006)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3341,7 +3341,7 @@
     "Historical states of Serbia and Yugoslavia"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3372,7 +3372,7 @@
     "Siberia steppe and Ob-Ugric polities"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3404,7 +3404,7 @@
     "Overtourism and diversification pushback in island economies"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3485,7 +3485,7 @@
     "Mexico former states and empires (c.700 BC-2023)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3515,7 +3515,7 @@
     "Bulgarian rural depopulation pattern: satellite villages serving nearby cities"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3573,7 +3573,7 @@
     "Bolivia former polities (1100-1839)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3626,7 +3626,7 @@
     "Former textile/industrial cities undergoing service-sector regeneration"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3731,7 +3731,7 @@
     "Cambodian royal dynasties (1080–present)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3761,7 +3761,7 @@
     "Venezuelan independence-era republics (1810-1831)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3790,7 +3790,7 @@
     "Aging and shrinking towns across Southern and Eastern Europe"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3842,7 +3842,7 @@
     "Western Africa 20th-century post-colonial short-lived states"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3902,7 +3902,7 @@
     "Peruvian breakaway states (1821-1900)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3961,7 +3961,7 @@
     "Albanian youth emigration and aging population"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3989,7 +3989,7 @@
     "Early-20th-century Philippine municipal consolidation under Executive Order 64 (1904)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4097,7 +4097,7 @@
     "Pre-Columbian and Colonial American periods"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -4175,7 +4175,7 @@
     "Victorian-era speculative builders and housing reformers"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4223,7 +4223,7 @@
     "Informal incremental construction with exposed rebar across the developing world"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -4256,7 +4256,7 @@
     "Tourism-core / industrial-satellite metropolitan split"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4362,7 +4362,7 @@
     "Gruž retains genuine year-round residential character unlike Old Town"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4470,7 +4470,7 @@
     "Mexican telephone area codes as sub-national geolocation markers"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [
     "atm_769bef8463f0"
    ],
@@ -4527,7 +4527,7 @@
     "Yemen dynasties and states"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4578,7 +4578,7 @@
     "Dynasties of Bulgaria and the Odrysian Kingdom"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4628,7 +4628,7 @@
     "Marathi in Devanagari script in Maharashtra"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4680,7 +4680,7 @@
     "Shared supranational highway numbering systems"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4731,7 +4731,7 @@
     "Leatherback turtle nesting sites on Peninsular Malaysia's east coast"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4783,7 +4783,7 @@
     "Global hippie-trail beach towns"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -4811,7 +4811,7 @@
     "Algeria and Tunisia (Central Maghreb) historical states"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4861,7 +4861,7 @@
     "Southern Africa historical kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4969,7 +4969,7 @@
     "Yemen dynasties and states"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -4997,7 +4997,7 @@
     "Horn of Africa sultanates and kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5026,7 +5026,7 @@
     "Yugoslav-era coastal tourism planners"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -5106,7 +5106,7 @@
     "Decline of piracy and shift to open coastal settlement"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5189,7 +5189,7 @@
     "Icelandic language and orthography"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5248,7 +5248,7 @@
     "Barbarian successor-state dynasties of early medieval Europe"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -5358,7 +5358,7 @@
     "Volcanic treeless landscapes of the North Atlantic and beyond"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -5468,7 +5468,7 @@
     "Roman villae maritimae layered beneath Adriatic and Mediterranean coastal towns"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5527,7 +5527,7 @@
     "Post-Soviet homogenization pressure on Latvia's regional distinctiveness"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5555,7 +5555,7 @@
     "Oman dynasties"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5584,7 +5584,7 @@
     "Ottoman Arabic-script toponymy replaced by Turkish Latin alphabet reform"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5641,7 +5641,7 @@
     "IFEMA Madrid as Spain's major international trade fair venue"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -5698,7 +5698,7 @@
     "Global family of socialist prefabricated housing estates"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5729,7 +5729,7 @@
     "Post-1989 deindustrialization of Upper Silesian coal/steel cities"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5760,7 +5760,7 @@
     "Global historic-core hollowing-out from tourism/short-term rental conversion"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -5814,7 +5814,7 @@
     "Former textile/industrial cities undergoing service-sector regeneration"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5847,7 +5847,7 @@
     "United Arab Emirates ruling houses"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -5901,7 +5901,7 @@
     "Icelandic language and orthography"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -5953,7 +5953,7 @@
     "African Great Lakes kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -5986,7 +5986,7 @@
     "Bajío basalt clearance piles vs Altiplano pale calcareous soil"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6034,7 +6034,7 @@
     "Non-standard national road-sign systems outside the Vienna Convention"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6083,7 +6083,7 @@
     "Global historic-core hollowing-out from tourism/short-term rental conversion"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6111,7 +6111,7 @@
     "Baltic-German manorial estates and the von Tiesenhausen/von Wolff families"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6165,7 +6165,7 @@
     "Romanian orthography and toponymic generics as a country discriminator"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6222,7 +6222,7 @@
     "Slovenian and Bosnian road signage overlap with Croatian conventions"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6278,7 +6278,7 @@
     "National highway systems resisting regional standardization"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6309,7 +6309,7 @@
     "Vernacular-to-concrete-block housing transitions in developing regions"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6339,7 +6339,7 @@
     "Southern and Eastern European demographic decline belt"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6392,7 +6392,7 @@
     "State-built social housing programs vs self-built informal housing"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6421,7 +6421,7 @@
     "Soviet mikroraion urban-fringe pattern: panel high-rises abutting unpaved private-house lanes"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6450,7 +6450,7 @@
     "Hungarian language and toponymic suffixes",
     "Romanian orthography and toponymic generics as a country discriminator"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
@@ -6479,7 +6479,7 @@
     "Snæfellsnes peninsula road numbering and geology (Western Iceland)"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6527,7 +6527,7 @@
     "Latin American regional dance-music genres tied to city identity"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6578,7 +6578,7 @@
     "Coahuila semi-arid highland basin setting"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6606,7 +6606,7 @@
     "Cyrillic-script administrative lexicon variation across Slavic states"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6636,7 +6636,7 @@
     "Highland Maya cultural dominance in Guatemala's altiplano"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6688,7 +6688,7 @@
     "Serbia's bilingual Latin-Cyrillic signage practice"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6717,7 +6717,7 @@
     "Global hippie-trail beach towns"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6746,7 +6746,7 @@
     "CA (Central American) highway route numbering and signage system"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -6775,7 +6775,7 @@
     "Post-socialist capital cities as national economic outliers"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6827,7 +6827,7 @@
     "Reykjavík Capital Region municipal structure"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6880,7 +6880,7 @@
     "Interwar land reform and nationalization of Baltic-German estates"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6932,7 +6932,7 @@
     "National highway systems resisting regional standardization"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -6983,7 +6983,7 @@
     "Bohemian pond-and-plateau landscape vs Moravian vineyard lowlands"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -7035,7 +7035,7 @@
     "Bulgarian Cyrillic administrative and toponymic lexicon markers"
    ],
    "in_latest": true,
-   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -7060,6 +7060,37 @@
    "named_at": 1789362216.4138975,
    "error": null,
    "atom_link_how": {}
+  },
+  "mol_e802ac28bb15": {
+   "id": "mol_e802ac28bb15",
+   "named": false,
+   "atoms": [
+    "atm_2480ce1ef18a",
+    "atm_931c0da62f9c",
+    "atm_9d45a7bad7f9",
+    "atm_d5d073d080fc",
+    "atm_f32a9d025eca"
+   ],
+   "n": 5,
+   "cohesion": 0.2946,
+   "diameter": 0.3458,
+   "merged_from": 2,
+   "periphery": [
+    "atm_85656101e754"
+   ],
+   "layers": {
+    "language": 5
+   },
+   "titles": [
+    "National toponymic suffix systems as script/language identifiers",
+    "Toponym suffixes as linguistic-region markers worldwide",
+    "Hungarian language and toponymic suffixes",
+    "Latvian rural-parish terminology and orthography",
+    "Romanian orthography and toponymic generics as a country discriminator"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_152104_p0.5_k10_s4.json",
+   "atom_links": []
   }
  },
  "atom_to_molecules": {
@@ -8106,8 +8137,8 @@
   ],
   "atm_2480ce1ef18a": [
    "mol_b180c50d7120",
-   "mol_eba27f11bd89",
-   "mol_92c2e73ad8ea"
+   "mol_92c2e73ad8ea",
+   "mol_e802ac28bb15"
   ],
   "atm_9a486159e361": [
    "mol_b180c50d7120",
@@ -8119,7 +8150,7 @@
   ],
   "atm_f32a9d025eca": [
    "mol_b180c50d7120",
-   "mol_eba27f11bd89"
+   "mol_e802ac28bb15"
   ],
   "atm_ab0d2c977afc": [
    "mol_2f4506fde9b8"
@@ -8248,13 +8279,6 @@
   ],
   "atm_d146af6844dc": [
    "mol_a6df355c031d"
-  ],
-  "atm_931c0da62f9c": [
-   "mol_eba27f11bd89",
-   "mol_4bc9218cbb64"
-  ],
-  "atm_9d45a7bad7f9": [
-   "mol_eba27f11bd89"
   ],
   "atm_979160e118e7": [
    "mol_45c8a8950017"
@@ -8429,6 +8453,16 @@
   "atm_fd0c7f79f1c7": [
    "mol_6a291219fe23"
   ],
+  "atm_931c0da62f9c": [
+   "mol_e802ac28bb15",
+   "mol_4bc9218cbb64"
+  ],
+  "atm_9d45a7bad7f9": [
+   "mol_e802ac28bb15"
+  ],
+  "atm_d5d073d080fc": [
+   "mol_e802ac28bb15"
+  ],
   "atm_9a043a4cd035": [
    "mol_7eb7ae364e22"
   ],
@@ -8446,7 +8480,7 @@
   ]
  },
  "spent_usd": 5.6387,
- "latest_snapshot": "snapshots/260914_135904_p0.5_k10_s4.json",
+ "latest_snapshot": "snapshots/260914_152104_p0.5_k10_s4.json",
  "params": {
   "pct": 0.5,
   "knn": 10,
@@ -8456,22 +8490,22 @@
   "mutual": true
  },
  "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
- "threshold": 0.345714880824089,
- "n_atoms": 1481,
+ "threshold": 0.3458228349685669,
+ "n_atoms": 1482,
  "n_molecules": 140,
  "distance_percentiles": {
-  "1": 0.397,
-  "2": 0.4481,
+  "1": 0.3971,
+  "2": 0.4482,
   "5": 0.5218,
-  "10": 0.5834,
+  "10": 0.5835,
   "25": 0.677,
   "50": 0.7652
  },
- "updated": 1789362243.1205473,
+ "updated": 1789366881.118171,
  "links": {
   "n": 19,
   "molecules_with_links": 4,
-  "at": 1789362242.7370808
+  "at": 1789366880.9556074
  },
  "truncated": false,
  "stale_embeddings": 0

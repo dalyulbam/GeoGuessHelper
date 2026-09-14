@@ -51,7 +51,7 @@
   ],
   "retries": 0,
   "slug": "ancient-near-east-mediterranean-dynasty-lists",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -59,7 +59,7 @@
 
 # 고대 지중해 동부 및 근동 지역 제국·왕조 목록형 자료 · Wikipedia "List of Empires/Dynasties" reference compilations for the Ancient Eastern Mediterranean and Near East
 
-`mol_4fce5b631eeb` · 원자 4개 · cohesion 0.1849 · diameter 0.2482 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.55
+`mol_4fce5b631eeb` · 원자 4개 · cohesion 0.1849 · diameter 0.2482 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.55
 
 > 아나톨리아, 근동, 그리스-마케도니아, 지중해 지역의 고대 제국과 왕조들을 나열한 위키형 목록 자료들의 묶음이다.
 

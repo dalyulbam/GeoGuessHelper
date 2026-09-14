@@ -44,7 +44,7 @@
   ],
   "retries": 0,
   "slug": "devanagari-script-language-politics-india",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -52,7 +52,7 @@
 
 # 데바나가리 문자와 인도의 언어 정치 · Devanagari Script and Language Politics in India
 
-`mol_0fc6e9ae3b8e` · 원자 4개 · cohesion 0.2782 · diameter 0.3153 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
+`mol_0fc6e9ae3b8e` · 원자 4개 · cohesion 0.2782 · diameter 0.3153 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
 
 > 인도에서 데바나가리 문자가 힌디어·마라티어의 공식 표기 수단으로 채택되고 영어 및 지역어와 경쟁하며 도시 경관과 정책을 형성하는 현상.
 

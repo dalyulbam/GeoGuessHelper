@@ -48,7 +48,7 @@
   ],
   "retries": 0,
   "slug": "cuarteto-cordoba-identity",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -56,7 +56,7 @@
 
 # 쿠아르테토와 코르도바 정체성 · Cuarteto and Córdoba Identity
 
-`mol_10301e9edea2` · 원자 4개 · cohesion 0.2749 · diameter 0.345 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
+`mol_10301e9edea2` · 원자 4개 · cohesion 0.2749 · diameter 0.345 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
 
 > 아르헨티나 코르도바를 발상지로 하는 대중음악 장르 쿠아르테토가 지역 정체성 및 부에노스아이레스 중심 문화 위계와 맺는 관계를 다루는 분자이다.
 

@@ -1,8 +1,9 @@
 # 엔티티 · cross-river-state
 
-원자 5개 · 이 엔티티를 다룬 보고서 2건
+원자 6개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
+- [[atm_4f06d267683b]] **Inland laterite motor-park town vs Niger Delta creek settlement** (geography/region)
 - [[atm_52d9e7fe3865]] **Guinea savanna–rainforest transition zone of Nigeria's Middle Belt/South-South border** (geography/region)
 - [[atm_73e57a387697]] **Nigerian Pidgin billboard copy vs Krio or Cameroonian Pidgin** (language/country)
 - [[atm_c9e4132840cf]] **Ethnic naming patterns in southern Nigerian toponyms signal sub-regional identity** (language/region)

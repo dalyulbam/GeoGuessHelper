@@ -53,7 +53,7 @@
   ],
   "retries": 0,
   "slug": "chinese-dynasties-chronology",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -61,7 +61,7 @@
 
 # 중국 왕조 연대기 · Chronological List of Chinese Dynasties
 
-`mol_f60c5b404af2` · 원자 4개 · cohesion 0.1537 · diameter 0.1858 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.62
+`mol_f60c5b404af2` · 원자 4개 · cohesion 0.1537 · diameter 0.1858 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.62
 
 > 전설적 하나라부터 청나라까지 이어지는 중국 역대 왕조들의 연대기적 목록을 이루는 분자이다.
 

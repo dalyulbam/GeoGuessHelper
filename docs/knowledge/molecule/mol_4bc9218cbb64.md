@@ -48,7 +48,7 @@
   ],
   "retries": 1,
   "slug": "balkan-toponymic-linguistic-markers",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -56,7 +56,7 @@
 
 # 발칸 지역의 지명·표지판을 통한 언어권 식별 · Toponymic and Signage Markers of Linguistic Regions in the Balkans
 
-`mol_4bc9218cbb64` · 원자 4개 · cohesion 0.3053 · diameter 0.3324 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_4bc9218cbb64` · 원자 4개 · cohesion 0.3053 · diameter 0.3324 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 지도와 도로표지판에 나타나는 지명 어휘·문자 체계가 발칸 및 세계 각지의 언어권 경계를 식별하는 단서가 된다는 개념이다.
 

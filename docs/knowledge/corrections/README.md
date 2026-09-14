@@ -1,6 +1,6 @@
 # 자동 정정 루프 — 정정 원장
 
-생성 2026-09-14 13:46 · 잡 28건(최신 기록, 그중 OK 27) · 실행 41회(corrections.jsonl) · 이번 기록 비용 $8.482 · 누적 실행 비용 $15.734 · 기획: docs/plan/impl-spec_260907.md §3
+생성 2026-09-14 15:17 · 잡 28건(최신 기록, 그중 OK 28) · 실행 42회(corrections.jsonl) · 이번 기록 비용 $9.065 · 누적 실행 비용 $16.317 · 기획: docs/plan/impl-spec_260907.md §3
 
 같은 캡처를 지도 없이(blind) 다시 판단하고(회상 원자가 있으면 2패스), 실측 pano 좌표·aided 분석과 대조해 "X 는 사실 X2 였다"는 정정을 만들어 kind=discriminator 원자로 적재한다. 사람 승인은 없다 — 회상돼 쓰인 원자는 confirming/misled 로 채점되어 hits/misses 가 오르내리고, 오답만 뒷받침한 원자는 retracted(회상 제외)된다.
 
@@ -8,17 +8,17 @@
 
 | 지표 | 값 |
 |---|---|
-| 국가 적중률(blind 최종) | 27/27 (100%) |
-| 지역 적중률 | 24/27 (89%) |
-| 도시 적중률 | 20/27 (74%) |
-| 좌표 오차 km 중앙값 | 2.80 (n=27) |
-| 오차 분포 | <1 9 · <10 6 · <100 9 · >=100 3 · na 0 |
-| 2패스 사용(회상 원자 있음) | 26/27 |
+| 국가 적중률(blind 최종) | 28/28 (100%) |
+| 지역 적중률 | 25/28 (89%) |
+| 도시 적중률 | 21/28 (75%) |
+| 좌표 오차 km 중앙값 | 2.80 (n=28) |
+| 오차 분포 | <1 10 · <10 6 · <100 9 · >=100 3 · na 0 |
+| 2패스 사용(회상 원자 있음) | 27/28 |
 | 2패스로 판단이 바뀐 건수(revised) | 0 |
-| 판별자 원자 — 이번 기록에서 신규 / 병합 | 111 / 15 |
-| 저장소의 kind=discriminator 원자(누적) | 119 |
+| 판별자 원자 — 이번 기록에서 신규 / 병합 | 112 / 20 |
+| 저장소의 kind=discriminator 원자(누적) | 120 |
 | 철회된 원자 — 이번 기록 / 저장소 현재 status=retracted | 0 / 0 |
-| 총비용(최신 기록 합) | $8.482 |
+| 총비용(최신 기록 합) | $9.065 |
 
 ## 잡별
 
@@ -39,7 +39,6 @@
 | 09-07 15:32 | `report_cz_zelec-u-tabora_49.318_14.6477_260906_223536_ko-en-fr.html` | CZ · Želeč (Želeč u Tábora) | CZ · Želeč (near Tábor) | hit | hit | hit | 5.27 | 10/5 | 4 (4+0) | $0.582 | OK |
 | 09-07 15:35 | `report_kz_beyneu_46.3143_54.4042_260906_223930_ko-en-fr.html` | KZ · Beyneu | KZ · Beyneu | hit | hit | hit | 101.74 | 10/5 | 5 (5+0) | $0.563 | OK |
 | 09-07 16:24 | `report_is_hvammstangi_65.399_-20.9452_260907_162408_en.html` | IS · Hvammstangi | IS · Hvammstangi | hit | hit | hit | 0.42 | 10/9 | 5 (1+4) | $0.571 | OK |
-| 09-10 13:14 | `report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html` | NG · Ogoja | — · — | — | — | — | — | — | 0 (0+0) | $0.000 | API_ERROR |
 | 09-14 13:46 | `report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html` | MX · Colonia El Palomar / Yóstiro (near Irapuato) | MX · Rural highway between Pénjamo and Cuerámaro area, Bajío lowlands | hit | hit | miss | 22.87 | 10/0 | 4 (4+0) | $0.000 | OK |
 | 09-14 13:46 | `report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html` | NG · Ogoja | NG · Ogoja | hit | hit | hit | 0.89 | — | 5 (4+1) | $0.000 | OK |
 | 09-14 13:46 | `report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html` | CO · Cumaral | CO · Cumaral | hit | hit | hit | 0.24 | 1/1 | 5 (4+1) | $0.000 | OK |
@@ -52,6 +51,7 @@
 | 09-14 13:46 | `report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html` | IT · Casalsaglio / Casalvecchio, near Rivanazzano Terme–Voghera | IT · foothill plain south of Parma/Reggio Emilia (e.g. Traversetolo–Montecchio belt) | hit | miss | miss | 118.04 | 10/5 | 4 (4+0) | $0.000 | OK |
 | 09-14 13:46 | `report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html` | JP · Wajima (Monzenmachi Susukino, Noto Peninsula) | JP · rural hill village (likely Kanto/Tokai hinterland) | hit | miss | miss | 359.38 | 10/3 | 6 (6+0) | $0.000 | OK |
 | 09-14 13:46 | `report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html` | ES · Dos Hermanas | ES · Dos Hermanas (Seville metropolitan area) | hit | hit | hit | 0.74 | 10/2 | 5 (4+1) | $0.000 | OK |
+| 09-14 15:14 | `report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html` | NG · Ogoja | NG · Ogoja | hit | hit | hit | 0.89 | 8/8 | 6 (1+5) | $0.583 | OK |
 
 ## 이번 기록의 판별자 원자
 
@@ -208,6 +208,13 @@
   - `atm_b0dafbf62e75` [geography/landform/region] ES>ES **Flat closed street-end horizon separates Seville plain from Granada/Malaga**
   - `atm_7f58247de8e3` [architecture/urban-form/region] ES>ES **Metro-satellite signature: brick bloques with garage fronts next to adosado estates**
   - `atm_e11e2807a7c5` [culture/road-marking/country] IT>ES **Spanish kerb-and-apron colour coding vs Italian street furniture**
+- **job_737cae606637** (NG) — HIT at ~0.9 km: Nigeria / Cross River North / Ogoja was confirmed. The chain worked from the Pidgin campaign billboard with the 'DIST. SEN.' title and a non-Igbo, non-Yoruba surname, an independent hand-lettered 'PET O. OIL AND GAS LIMITED' canopy, and a single solar-lit countdown-signal roundabout 
+  - `atm_7e5c0b47c99a` (병합) [economy/business-chain/country] GH>NG **Hand-lettered independent fuel canopies (NG) vs uniform chain livery (GH)**
+  - `atm_d97630c7288f` (병합) [culture/politics-civic/region] GH>NG **'DIST. SEN.' billboards lock a pano to one Nigerian senatorial district**
+  - `atm_73e57a387697` (병합) [language/signage-language/country] CM>NG **Nigerian Pidgin ad copy vs Krio or francophone-tinged Cameroonian Pidgin**
+  - `atm_e15595eeb416` (병합) [economy/infrastructure-built/city] NG>NG **Solar countdown signals at one roundabout = Nigerian LGA headquarters**
+  - `atm_c9e4132840cf` (병합) [language/toponymy/region] NG>NG **Minority-ethnic names on boards mark the Cross River–Benue belt, not Igbo core**
+  - `atm_4f06d267683b` [geography/landform/region] NG>NG **Inland laterite motor-park town vs Niger Delta creek settlement**
 
 ## 유도 확인 (redo)
 
@@ -218,6 +225,7 @@
   - `atm_895143231e7c` relied via ent,geo
   - `atm_efacbff46c0c` not offered via —
   - `atm_88ae5884a999` relied via conf,ent,geo
+- **job_737cae606637** (NG) · 직전 실행 09-10 13:14 판별자 0개 → 이번 2패스 offered **0** · relied **0** · 이번 blind 판단 NG (국가 hit)
 
 ## 학습 곡선 (시간순, corrections.jsonl)
 
@@ -264,6 +272,7 @@
 | 09-14 13:46 | job_75b28777ae09 | IT | IT | hit | 118.04 | 10/5 |  | 4 | 1/3 | $0.000 |
 | 09-14 13:46 | job_265023c0c00f | JP | JP | hit | 359.38 | 10/3 |  | 6 | 2/1 | $0.000 |
 | 09-14 13:46 | job_22e8bfa81b66 | ES | ES | hit | 0.74 | 10/2 |  | 5 | 2/0 | $0.000 |
+| 09-14 15:14 | job_737cae606637 | NG | NG | hit | 0.89 | 8/8 |  | 6 | 8/0 | $0.583 |
 
 ## 파일
 

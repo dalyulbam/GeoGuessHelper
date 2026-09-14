@@ -45,7 +45,7 @@
   ],
   "retries": 0,
   "slug": "ifema-madrid",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -53,7 +53,7 @@
 
 # IFEMA 마드리드 (Feria de Madrid) 전시복합단지 · IFEMA Madrid (Feria de Madrid) exhibition complex
 
-`mol_39bc58c5fba5` · 원자 4개 · cohesion 0.1917 · diameter 0.2726 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
+`mol_39bc58c5fba5` · 원자 4개 · cohesion 0.1917 · diameter 0.2726 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
 
 > 스페인 마드리드 Campo de las Naciones에 위치한 IFEMA 전시·컨벤션 복합단지 하나를 다각도(인프라, 관광경제, 지리, 국가적 위상)에서 다룬 원자들의 모음이다.
 

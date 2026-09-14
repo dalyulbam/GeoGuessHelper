@@ -49,7 +49,7 @@
   ],
   "retries": 1,
   "slug": "dalmatian-coast-tourism-architecture",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -57,7 +57,7 @@
 
 # 달마티아 해안의 관광 주도 건축 변형 · Tourism-driven transformation of the Dalmatian coastal built environment
 
-`mol_588a3c6a3c1a` · 원자 4개 · cohesion 0.2746 · diameter 0.3278 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.50
+`mol_588a3c6a3c1a` · 원자 4개 · cohesion 0.2746 · diameter 0.3278 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.50
 
 > 20세기 중반 이후 대중 관광 산업이 달마티아·아드리아 해안의 전통 건축 경관을 어떻게 대체하거나 보존했는지를 다루는 분자이다.
 

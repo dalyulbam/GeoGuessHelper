@@ -51,7 +51,7 @@
   ],
   "retries": 0,
   "slug": "pacific-island-monarchies",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -59,7 +59,7 @@
 
 # 태평양 섬 왕조와 군주국 · Pre-colonial and colonial-era Pacific Island monarchies
 
-`mol_5ffa5b07b553` · 원자 5개 · cohesion 0.2032 · diameter 0.2612 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.75
+`mol_5ffa5b07b553` · 원자 5개 · cohesion 0.2032 · diameter 0.2612 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.75
 
 > 오세아니아 각 섬 지역에 존재했던 토착 왕조·왕국들과 그들이 식민 통치 및 근대 국가로 이행한 과정을 다루는 분자이다.
 

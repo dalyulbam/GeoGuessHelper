@@ -50,7 +50,7 @@
   ],
   "retries": 0,
   "slug": "post-1989-deindustrialization-upper-silesia",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -58,7 +58,7 @@
 
 # 1989년 이후 어퍼실레지아 탈산업화 · Post-1989 Deindustrialization of Upper Silesia
 
-`mol_e288ddd2351f` · 원자 5개 · cohesion 0.1683 · diameter 0.2513 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
+`mol_e288ddd2351f` · 원자 5개 · cohesion 0.1683 · diameter 0.2513 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
 
 > 폴란드 어퍼실레지아 석탄·철강 지역이 1989년 체제전환 이후 겪은 탈산업화와 EU 주도 전환 정책을 다루는 분자이다.
 

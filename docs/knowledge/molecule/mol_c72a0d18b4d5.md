@@ -54,7 +54,7 @@
   ],
   "retries": 0,
   "slug": "khrushchyovka-panel-housing",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -62,7 +62,7 @@
 
 # 흐루쇼프카와 소비에트 패널주택 프로그램 · Khrushchyovka and the Soviet Panel-Housing Program
 
-`mol_c72a0d18b4d5` · 원자 5개 · cohesion 0.2227 · diameter 0.3189 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
+`mol_c72a0d18b4d5` · 원자 5개 · cohesion 0.2227 · diameter 0.3189 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
 
 > 1950년대 흐루쇼프의 대량주택 정책에서 비롯된 표준화 콘크리트 패널 주택 시스템과 그 동구권 확산을 다루는 분자이다.
 

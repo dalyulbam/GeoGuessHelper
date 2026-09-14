@@ -53,7 +53,7 @@
   ],
   "retries": 1,
   "slug": "gulf-arab-ruling-dynasties",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -61,7 +61,7 @@
 
 # 걸프 아랍 왕가 (나즈드 기원 족장가문) · Gulf Arab Ruling Dynasties (Najd-origin Sheikhdoms)
 
-`mol_ad2bb0fd65d1` · 원자 5개 · cohesion 0.2344 · diameter 0.3387 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
+`mol_ad2bb0fd65d1` · 원자 5개 · cohesion 0.2344 · diameter 0.3387 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
 
 > 아라비아반도 나즈드 지역에서 기원해 걸프 연안 소국들을 세습 통치해온 아랍 왕가들의 집합이다.
 

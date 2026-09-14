@@ -22067,12 +22067,12 @@
    ],
    "uses": 1,
    "created": 1789013490.9073498,
-   "updated": 1789013490.9075048,
+   "updated": 1789366646.2030036,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -26703,12 +26703,12 @@
    ],
    "uses": 1,
    "created": 1789013490.9302726,
-   "updated": 1789013490.9304242,
+   "updated": 1789366646.0825157,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -45300,12 +45300,12 @@
    ],
    "uses": 1,
    "created": 1789013490.8498917,
-   "updated": 1789013490.8501472,
+   "updated": 1789366645.6674118,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -51295,6 +51295,7 @@
     "minority-languages",
     "naming",
     "nigeria",
+    "onomastics",
     "toponymy",
     "yoruba"
    ],
@@ -51318,14 +51319,14 @@
     "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html",
     "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
    ],
-   "uses": 2,
+   "uses": 3,
    "created": 1789013490.8833787,
-   "updated": 1789361188.2281353,
+   "updated": 1789366645.8198833,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 1,
+   "hits": 3,
    "misses": 0,
    "confusions": []
   },
@@ -65750,9 +65751,11 @@
     "billboard",
     "dialect",
     "discriminator",
+    "krio",
     "looks-like-cm",
     "pidgin",
-    "signage"
+    "signage",
+    "signage-language"
    ],
    "entities": [
     "cameroon",
@@ -65771,16 +65774,17 @@
    "sources": [],
    "refs": [],
    "reports": [
-    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html",
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1789361188.0145884,
-   "updated": 1789361188.0191517,
+   "updated": 1789366645.5124197,
    "tier": "unaided",
    "kind": "discriminator",
    "status": "active",
    "origin": "correction",
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
    "confusions": [
     "CM>NG"
@@ -65794,9 +65798,11 @@
    "category": "politics-civic",
    "tags": [
     "actually-ng",
+    "billboard",
     "campaign-poster",
     "discriminator",
     "district",
+    "election",
     "looks-like-gh",
     "politics-civic",
     "senator"
@@ -65817,16 +65823,17 @@
    "sources": [],
    "refs": [],
    "reports": [
-    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html",
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1789361188.1227224,
-   "updated": 1789361188.1229103,
+   "updated": 1789366645.329361,
    "tier": "unaided",
    "kind": "discriminator",
    "status": "active",
    "origin": "correction",
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
    "confusions": [
     "GH>NG"
@@ -65865,16 +65872,17 @@
    "sources": [],
    "refs": [],
    "reports": [
-    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html",
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1789361188.3394012,
-   "updated": 1789361188.3396282,
+   "updated": 1789366645.9713833,
    "tier": "unaided",
    "kind": "discriminator",
    "status": "active",
    "origin": "correction",
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
    "confusions": []
   },
@@ -65890,7 +65898,9 @@
     "business-chain",
     "discriminator",
     "fuel-station",
-    "looks-like-gh"
+    "looks-like-gh",
+    "signage",
+    "west-africa"
    ],
    "entities": [
     "ghana",
@@ -65907,16 +65917,17 @@
    "sources": [],
    "refs": [],
    "reports": [
-    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html",
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1789361188.4465477,
-   "updated": 1789361188.4467707,
+   "updated": 1789366645.0255034,
    "tier": "unaided",
    "kind": "discriminator",
    "status": "active",
    "origin": "correction",
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
    "confusions": [
     "GH>NG"
@@ -67618,6 +67629,50 @@
    "confusions": [
     "IT>ES"
    ]
+  },
+  "atm_4f06d267683b": {
+   "id": "atm_4f06d267683b",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Inland laterite motor-park town vs Niger Delta creek settlement",
+   "category": "landform",
+   "tags": [
+    "actually-ng",
+    "delta",
+    "discriminator",
+    "landform",
+    "laterite",
+    "looks-like-ng",
+    "motor-park"
+   ],
+   "entities": [
+    "cross-river-state",
+    "niger-delta",
+    "nigeria"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.660212917955461,
+   "lng": 8.80306343949327,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "s1nmbk6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789366644.8138738,
+   "updated": 1789366644.821428,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
   }
  },
  "cells": {
@@ -68405,7 +68460,16 @@
    "atm_c9e4132840cf",
    "atm_d97630c7288f",
    "atm_c9e4132840cf",
-   "atm_e15595eeb416"
+   "atm_e15595eeb416",
+   "atm_d97630c7288f",
+   "atm_e15595eeb416",
+   "atm_c9e4132840cf",
+   "atm_4f06d267683b",
+   "atm_d97630c7288f",
+   "atm_b0c0a8fcab45",
+   "atm_c9e4132840cf",
+   "atm_e15595eeb416",
+   "atm_52d9e7fe3865"
   ],
   "xn": [
    "atm_52fa8fc7482a",
@@ -68443,6 +68507,7 @@
    "atm_99a388995ff6"
   ],
   "s1nmb": [
+   "atm_643367ff9498",
    "atm_643367ff9498"
   ],
   "sxj": [
@@ -68742,7 +68807,11 @@
   ],
   "s1": [
    "atm_73e57a387697",
-   "atm_7e5c0b47c99a"
+   "atm_7e5c0b47c99a",
+   "atm_7e5c0b47c99a",
+   "atm_73e57a387697",
+   "atm_7e5c0b47c99a",
+   "atm_73e57a387697"
   ],
   "eye": [
    "atm_288c6a410e97",
@@ -73646,7 +73715,8 @@
    "atm_c9e4132840cf",
    "atm_73e57a387697",
    "atm_d97630c7288f",
-   "atm_e15595eeb416"
+   "atm_e15595eeb416",
+   "atm_4f06d267683b"
   ],
   "nigeria": [
    "atm_52d9e7fe3865",
@@ -73656,7 +73726,8 @@
    "atm_73e57a387697",
    "atm_d97630c7288f",
    "atm_e15595eeb416",
-   "atm_7e5c0b47c99a"
+   "atm_7e5c0b47c99a",
+   "atm_4f06d267683b"
   ],
   "dpwh": [
    "atm_52db6220e238"
@@ -79461,6 +79532,9 @@
   ],
   "seville-metropolitan-belt": [
    "atm_7f58247de8e3"
+  ],
+  "niger-delta": [
+   "atm_4f06d267683b"
   ]
  },
  "tags": {
@@ -80470,7 +80544,8 @@
    "atm_288c6a410e97",
    "atm_b0dafbf62e75",
    "atm_7f58247de8e3",
-   "atm_e11e2807a7c5"
+   "atm_e11e2807a7c5",
+   "atm_4f06d267683b"
   ],
   "license-plate": [
    "atm_014560901a69"
@@ -81622,7 +81697,8 @@
    "atm_74796dd40908",
    "atm_b0c0a8fcab45",
    "atm_e59c7f2b8d16",
-   "atm_fac0ba79eb97"
+   "atm_fac0ba79eb97",
+   "atm_7e5c0b47c99a"
   ],
   "wiki-group": [
    "atm_0237c9c3ebba",
@@ -82867,7 +82943,8 @@
    "atm_e605fa30bf62",
    "atm_e8b3ce9a64be",
    "atm_73e57a387697",
-   "atm_58cde6ebbc3d"
+   "atm_58cde6ebbc3d",
+   "atm_7e5c0b47c99a"
   ],
   "tavern": [
    "atm_080c7ca4a29f"
@@ -83934,7 +84011,8 @@
    "atm_98d192cb04cf",
    "atm_b227ef35bd59",
    "atm_ea64ccafd76b",
-   "atm_ad6ef340394d"
+   "atm_ad6ef340394d",
+   "atm_73e57a387697"
   ],
   "caribbean-slope": [
    "atm_1270c7cffadd"
@@ -86798,7 +86876,8 @@
    "atm_efacbff46c0c",
    "atm_69c0077521d3",
    "atm_b905eb4795d9",
-   "atm_b0dafbf62e75"
+   "atm_b0dafbf62e75",
+   "atm_4f06d267683b"
   ],
   "level-crossing": [
    "atm_349a166db7f2"
@@ -89100,7 +89179,8 @@
   ],
   "laterite": [
    "atm_52d9e7fe3865",
-   "atm_735a7287ad2c"
+   "atm_735a7287ad2c",
+   "atm_4f06d267683b"
   ],
   "middle-belt": [
    "atm_52d9e7fe3865"
@@ -90052,7 +90132,8 @@
    "atm_643367ff9498"
   ],
   "motor-park": [
-   "atm_643367ff9498"
+   "atm_643367ff9498",
+   "atm_4f06d267683b"
   ],
   "nigeria": [
    "atm_643367ff9498",
@@ -94714,7 +94795,8 @@
    "atm_dbf795f532fa"
   ],
   "delta": [
-   "atm_dbf7cd33fdfa"
+   "atm_dbf7cd33fdfa",
+   "atm_4f06d267683b"
   ],
   "cathedral": [
    "atm_dc1c985d5299"
@@ -96064,10 +96146,12 @@
    "atm_d97630c7288f",
    "atm_c9e4132840cf",
    "atm_e15595eeb416",
-   "atm_7e5c0b47c99a"
+   "atm_7e5c0b47c99a",
+   "atm_4f06d267683b"
   ],
   "billboard": [
-   "atm_73e57a387697"
+   "atm_73e57a387697",
+   "atm_d97630c7288f"
   ],
   "dialect": [
    "atm_73e57a387697"
@@ -96093,7 +96177,8 @@
   ],
   "looks-like-ng": [
    "atm_c9e4132840cf",
-   "atm_e15595eeb416"
+   "atm_e15595eeb416",
+   "atm_4f06d267683b"
   ],
   "naming": [
    "atm_c9e4132840cf"
@@ -96388,6 +96473,15 @@
   ],
   "kerb-paint": [
    "atm_e11e2807a7c5"
+  ],
+  "election": [
+   "atm_d97630c7288f"
+  ],
+  "krio": [
+   "atm_73e57a387697"
+  ],
+  "onomastics": [
+   "atm_c9e4132840cf"
   ]
  },
  "categories": {
@@ -96805,7 +96899,8 @@
    "atm_e5538c73518c",
    "atm_69c0077521d3",
    "atm_b905eb4795d9",
-   "atm_b0dafbf62e75"
+   "atm_b0dafbf62e75",
+   "atm_4f06d267683b"
   ],
   "memory-monument": [
    "atm_136ca6c5fec1",

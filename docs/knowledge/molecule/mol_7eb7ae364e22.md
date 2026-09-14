@@ -49,7 +49,7 @@
   ],
   "retries": 1,
   "slug": "rural-settlement-agrarian-landscape-contrasts-europe",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -57,7 +57,7 @@
 
 # 유럽의 농촌 정주 및 농업 경관 대비 · Rural Settlement and Agrarian Landscape Contrasts in Europe
 
-`mol_7eb7ae364e22` · 원자 4개 · cohesion 0.3031 · diameter 0.3436 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.55
+`mol_7eb7ae364e22` · 원자 4개 · cohesion 0.3031 · diameter 0.3436 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.55
 
 > 지형·역사·토지제도에 따라 유럽 각지에서 나타나는 농촌 정주형태와 농업경관의 지역적 대비를 다루는 분자이다.
 

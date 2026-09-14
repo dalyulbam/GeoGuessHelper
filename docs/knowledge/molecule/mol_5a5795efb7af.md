@@ -52,7 +52,7 @@
   ],
   "retries": 1,
   "slug": "non-han-frontier-tribal-polities-china",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -60,7 +60,7 @@
 
 # 고대~중세 초 중국 변방의 비한족 부족국가 · Non-Han Frontier Tribal Polities of Ancient and Early Medieval China
 
-`mol_5a5795efb7af` · 원자 4개 · cohesion 0.1705 · diameter 0.1986 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_5a5795efb7af` · 원자 4개 · cohesion 0.1705 · diameter 0.1986 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 중국 역사서에 기록된, 한족 왕조 주변부에 존재했던 Xianbei·Xirong·Xishan 등 다수의 소규모 비한족 부족국가 목록들을 아우르는 분자이다.
 

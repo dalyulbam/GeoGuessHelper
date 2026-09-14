@@ -53,7 +53,7 @@
   ],
   "retries": 0,
   "slug": "african-empires-and-kingdoms-by-region",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -61,7 +61,7 @@
 
 # 아프리카 지역별 역사 왕국·제국 목록 · List of historical African states and kingdoms (by region)
 
-`mol_e455f7cea5f2` · 원자 6개 · cohesion 0.212 · diameter 0.2746 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_e455f7cea5f2` · 원자 6개 · cohesion 0.212 · diameter 0.2746 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 아프리카 대륙을 서부·중부·동부(스와힐리 해안)·남부 등 지역별로 나누어 전근대부터 20세기까지 존재한 왕국·제국·근대 국가를 나열한 위키형 목록 분자이다.
 

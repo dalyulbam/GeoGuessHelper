@@ -47,7 +47,7 @@
   ],
   "retries": 0,
   "slug": "medieval-dynasties-eastern-southeastern-europe",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -55,7 +55,7 @@
 
 # 중세 동유럽 및 남동유럽의 지배 왕조 · Medieval Ruling Dynasties of Eastern and Southeastern Europe
 
-`mol_2f4506fde9b8` · 원자 4개 · cohesion 0.2593 · diameter 0.2746 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.55
+`mol_2f4506fde9b8` · 원자 4개 · cohesion 0.2593 · diameter 0.2746 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.55
 
 > 발칸 및 동유럽 지역 국가들(세르비아, 우크라이나, 불가리아 등)의 왕조 계보와 그들이 속한 중세 유럽 제국·국가 목록을 다루는 분자이다.
 

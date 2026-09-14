@@ -47,7 +47,7 @@
   ],
   "retries": 0,
   "slug": "executive-order-64-philippine-municipal-consolidation",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -55,7 +55,7 @@
 
 # 행정명령 64호와 필리핀 지방자치단체 통폐합·재분화 · Executive Order No. 64 and Philippine Municipal Consolidation/Re-fragmentation
 
-`mol_dc4655e3e5be` · 원자 4개 · cohesion 0.2428 · diameter 0.3116 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
+`mol_dc4655e3e5be` · 원자 4개 · cohesion 0.2428 · diameter 0.3116 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
 
 > 1904년 미군정 행정명령 64호로 촉발된 필리핀 지방자치단체 통폐합과 이후 독립 이후 재분화 과정을 중심으로 한 분자이다.
 

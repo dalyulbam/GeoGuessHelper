@@ -47,7 +47,7 @@
   ],
   "retries": 1,
   "slug": "historical-states-of-north-africa",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -55,7 +55,7 @@
 
 # 북아프리카의 역사적 국가와 왕조 · Historical States and Dynasties of North Africa
 
-`mol_dfb63e6e441d` · 원자 4개 · cohesion 0.2685 · diameter 0.3261 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_dfb63e6e441d` · 원자 4개 · cohesion 0.2685 · diameter 0.3261 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 고대부터 근현대까지 마그레브와 나일 계곡 일대에 존재했던 국가·왕조들을 지역별로 정리한 목록형 지식 묶음이다.
 

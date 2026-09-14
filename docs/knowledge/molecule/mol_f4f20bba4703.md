@@ -53,7 +53,7 @@
   ],
   "retries": 0,
   "slug": "script-signage-ex-yugoslav-border-markers",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -61,7 +61,7 @@
 
 # 스크립트와 도로표지판을 통한 구유고슬라비아 국경 식별 · Script and Signage as Ex-Yugoslav Border Markers
 
-`mol_f4f20bba4703` · 원자 4개 · cohesion 0.2598 · diameter 0.3037 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_f4f20bba4703` · 원자 4개 · cohesion 0.2598 · diameter 0.3037 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 크로아티아를 중심으로 한 구유고슬라비아 지역에서 문자 체계(라틴/키릴)와 도로표지판 관습이 국경 및 민족 경계를 식별하는 단서로 작동하는 방식을 다루는 분자이다.
 

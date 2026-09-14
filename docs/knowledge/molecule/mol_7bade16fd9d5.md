@@ -50,7 +50,7 @@
   ],
   "retries": 0,
   "slug": "post-socialist-deindustrialization",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -58,7 +58,7 @@
 
 # 탈사회주의 탈산업화와 지역 쇠퇴 · Post-Socialist Deindustrialization and Regional Decline
 
-`mol_7bade16fd9d5` · 원자 4개 · cohesion 0.2187 · diameter 0.2971 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.82
+`mol_7bade16fd9d5` · 원자 4개 · cohesion 0.2187 · diameter 0.2971 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.82
 
 > 1989~1991년 공산주의 체제 붕괴 이후 동유럽·구소련 전역에서 나타난 농촌·산업도시의 탈산업화와 인구 감소 현상을 다루는 분자이다.
 

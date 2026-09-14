@@ -46,7 +46,7 @@
   ],
   "retries": 1,
   "slug": "baltic-german-noble-estate-system",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -54,7 +54,7 @@
 
 # 발트-독일 귀족 장원 체제 · Baltic-German Noble Estate System
 
-`mol_a64af2d6de31` · 원자 4개 · cohesion 0.2562 · diameter 0.3445 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
+`mol_a64af2d6de31` · 원자 4개 · cohesion 0.2562 · diameter 0.3445 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
 
 > 발트해 연안(에스토니아·라트비아)에서 수세기 동안 지속된 발트-독일 귀족의 장원 지배 체제와 그 문화적 유산을 다루는 분자이다.
 

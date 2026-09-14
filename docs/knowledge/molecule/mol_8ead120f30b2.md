@@ -55,7 +55,7 @@
   ],
   "retries": 0,
   "slug": "chinese-dynastic-succession",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -63,7 +63,7 @@
 
 # 중국 왕조 계보(중국 역대 왕조 목록) · Chinese Dynastic Succession (List of Chinese Dynasties)
 
-`mol_8ead120f30b2` · 원자 5개 · cohesion 0.1627 · diameter 0.2179 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_8ead120f30b2` · 원자 5개 · cohesion 0.1627 · diameter 0.2179 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 중국사에서 왕조가 흥망하며 이어진 계보적 정치체들을 다루는 분자이다.
 

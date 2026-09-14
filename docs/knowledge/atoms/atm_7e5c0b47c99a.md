@@ -12,7 +12,7 @@
     "nigeria"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 2,
   "id": "atm_7e5c0b47c99a",
   "kind": "discriminator",
   "lang": "en",
@@ -26,7 +26,8 @@
   "radius_km": 1200,
   "refs": [],
   "reports": [
-    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html",
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
   ],
   "scope": "country",
   "sources": [],
@@ -37,12 +38,14 @@
     "business-chain",
     "discriminator",
     "fuel-station",
-    "looks-like-gh"
+    "looks-like-gh",
+    "signage",
+    "west-africa"
   ],
   "tier": "unaided",
   "title": "Independent Nigerian fuel marketers vs Ghanaian chain branding",
-  "updated": 1789361188.4467707,
-  "uses": 1
+  "updated": 1789366645.0255034,
+  "uses": 2
 }
 ---
 
@@ -52,7 +55,8 @@
 
 In Nigeria, roadside stations are frequently one-off independents with hand-painted 'X OIL AND GAS LIMITED' canopy lettering and plain 'DIESEL' panels. In Ghana you would instead see standardised GOIL, Star Oil or Total livery in corporate colours at nearly every station.
 
-**태그**: #actually-ng #branding #business-chain #discriminator #fuel-station #looks-like-gh
+**태그**: #actually-ng #branding #business-chain #discriminator #fuel-station #looks-like-gh #signage #west-africa
 
 ## 이 원자를 쓴 보고서
 - `report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html`
+- `report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html`

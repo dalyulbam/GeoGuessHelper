@@ -11,7 +11,7 @@
     "nigeria"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_b0c0a8fcab45",
   "kind": "fact",
   "lang": "en",
@@ -39,7 +39,7 @@
   ],
   "tier": null,
   "title": "Nigerian Pidgin and regional fuel-brand cues distinguish anglophone West African countries",
-  "updated": 1789013490.8501472,
+  "updated": 1789366645.6674118,
   "uses": 1
 }
 ---

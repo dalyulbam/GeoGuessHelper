@@ -52,7 +52,7 @@
   ],
   "retries": 0,
   "slug": "overtourism-historic-center-depopulation",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -60,7 +60,7 @@
 
 # 오버투어리즘으로 인한 역사지구 공동화 · Overtourism-Driven Historic Center Depopulation
 
-`mol_18a73a25a7ee` · 원자 4개 · cohesion 0.2203 · diameter 0.2742 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
+`mol_18a73a25a7ee` · 원자 4개 · cohesion 0.2203 · diameter 0.2742 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
 
 > 단기 관광임대(Airbnb)와 크루즈 관광 확대가 지중해·유럽 역사도심의 상주인구를 공동화시키는 전 세계적 현상을 다루는 분자이다.
 

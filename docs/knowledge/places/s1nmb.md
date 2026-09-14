@@ -16,3 +16,4 @@
 - [[atm_e15595eeb416]] **Solar countdown traffic signals mark Nigerian LGA headquarters towns** (economy/region)
 - [[atm_7e5c0b47c99a]] **Independent Nigerian fuel marketers vs Ghanaian chain branding** (economy/country)
 - `report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html`
+- [[atm_4f06d267683b]] **Inland laterite motor-park town vs Niger Delta creek settlement** (geography/region)

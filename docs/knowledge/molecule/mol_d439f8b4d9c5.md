@@ -57,7 +57,7 @@
   ],
   "retries": 0,
   "slug": "chinese-dynastic-princely-fiefdoms",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -65,7 +65,7 @@
 
 # 중국 왕조별 제후국·번왕 봉지 목록 · Chinese Dynastic Princely Fiefdoms (Pre-Qin to Southern Dynasties)
 
-`mol_d439f8b4d9c5` · 원자 5개 · cohesion 0.1554 · diameter 0.1763 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
+`mol_d439f8b4d9c5` · 원자 5개 · cohesion 0.1554 · diameter 0.1763 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
 
 > 진秦 통일 이전부터 남조 시대까지 중국 각 왕조가 황족·공신에게 분봉한 제후국(번왕국)들을 나열한 위키형 목록 분자이다.
 

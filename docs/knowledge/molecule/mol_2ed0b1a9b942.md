@@ -50,7 +50,7 @@
   ],
   "retries": 0,
   "slug": "list-of-dynasties-arabia-nile-sahara",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -58,7 +58,7 @@
 
 # 아라비아·나일강·사하라 지역의 왕조 목록(위키백과 인덱스) 문서 · Wikipedia "List of dynasties" region-index pages (Arabia, Nile Valley & Sahara)
 
-`mol_2ed0b1a9b942` · 원자 4개 · cohesion 0.2578 · diameter 0.277 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.45
+`mol_2ed0b1a9b942` · 원자 4개 · cohesion 0.2578 · diameter 0.277 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.45
 
 > 예멘·남아라비아, 수단, 이집트·리비아 지역의 군주국·왕조를 시대순으로 나열한 위키백과류 인덱스 문서들의 묶음이다.
 

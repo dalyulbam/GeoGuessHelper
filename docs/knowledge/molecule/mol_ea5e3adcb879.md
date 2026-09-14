@@ -49,7 +49,7 @@
   ],
   "retries": 0,
   "slug": "precolonial-african-kingdoms",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -57,7 +57,7 @@
 
 # 아프리카 전근대 왕국 및 술탄국 · Pre-colonial African Kingdoms and Sultanates
 
-`mol_ea5e3adcb879` · 원자 4개 · cohesion 0.269 · diameter 0.308 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_ea5e3adcb879` · 원자 4개 · cohesion 0.269 · diameter 0.308 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 아프리카 대륙 각 지역(서아프리카, 수단, 아프리카의 뿔, 남부 아프리카)에 존재했던 전근대 왕국·제국·술탄국들을 지역별로 정리한 위키형 목록 분자이다.
 

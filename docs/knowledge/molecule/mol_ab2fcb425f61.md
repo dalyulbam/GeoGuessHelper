@@ -49,7 +49,7 @@
   ],
   "retries": 0,
   "slug": "ragusan-noble-villa-culture",
-  "snapshot": "260914_135904_p0.5_k10_s4.json",
+  "snapshot": "260914_152104_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -57,7 +57,7 @@
 
 # 라구사 귀족 별장 문화 (ljetnikovac) · Ragusan Noble Villa Culture (ljetnikovac)
 
-`mol_ab2fcb425f61` · 원자 4개 · cohesion 0.2197 · diameter 0.2931 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.88
+`mol_ab2fcb425f61` · 원자 4개 · cohesion 0.2197 · diameter 0.2931 · 스냅샷 `260914_152104_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.88
 
 > 두브로브니크(라구사) 공화국 귀족 가문들이 해안 지역에 조성한 여름 별장(ljetnikovac) 문화와 그로 형성된 정주 경관을 다루는 분자이다.
 
