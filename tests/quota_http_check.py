@@ -47,6 +47,12 @@ def main() -> int:
     from geoguesshelper.knowledge import Atom
 
     s = load_settings()
+    # jobs_dir 은 환경변수가 없다 — **여기서 직접** 옮겨야 한다. 이걸 빠뜨렸더니 검사가
+    # 실제 docs/jobs/jobs.jsonl 에 "무료"·"회원1"·"내키" 행을 36개 남겼다(260914).
+    # 검사는 자기가 만든 것 말고는 아무것도 건드리지 않아야 한다 — 특히 사람이 계속
+    # 쓰는 기록은. 아래 ⑦ 에서 그 약속을 실제로 검사한다.
+    s.jobs_dir = TMP / "jobs"
+    s.jobs_dir.mkdir(parents=True, exist_ok=True)
     s.anthropic_api_key = "sk-ant-server-key-for-free-tier"   # 무료 1건이 쓸 운영자 키
     db.reset_engine()
     tenancy.forget_hydration()
@@ -146,6 +152,18 @@ def main() -> int:
         r = c.get("/api/health")
         check(r.status_code == 200 and r.json()["mode"] == "multi-user",
               f"DB 가 붙었으면 실제로 질의해 본다 {r.status_code} {r.json().get('mode')}")
+
+    print("\n⑧ 이 검사가 진짜 기록을 건드리지 않았는가")
+    # 한 번 실제로 오염시킨 적이 있어서 검사로 못 박는다(260914).
+    real = Path(__file__).resolve().parents[1] / "docs" / "jobs" / "jobs.jsonl"
+    check(s.jobs_dir == TMP / "jobs", f"작업 로그가 임시 폴더에 있다 ({s.jobs_dir})")
+    if real.exists():
+        body = real.read_text(encoding="utf-8", errors="ignore")
+        check(not any(f'"label": "{x}"' in body or f'"label":"{x}"' in body
+                      for x in ("무료", "회원1", "내키")),
+              "실제 docs/jobs/jobs.jsonl 에 이 검사의 흔적이 없다")
+    else:
+        check(True, "실제 작업 로그가 없는 환경 — 건드릴 것도 없다")
 
     import shutil
 
