@@ -11,3 +11,8 @@
 
 ## 보고서
 - `report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html`
+- [[atm_73e57a387697]] **Nigerian Pidgin billboard copy vs Krio or Cameroonian Pidgin** (language/country)
+- [[atm_d97630c7288f]] **Senatorial-district campaign boards localise Nigerian panos to one district** (culture/region)
+- [[atm_e15595eeb416]] **Solar countdown traffic signals mark Nigerian LGA headquarters towns** (economy/region)
+- [[atm_7e5c0b47c99a]] **Independent Nigerian fuel marketers vs Ghanaian chain branding** (economy/country)
+- `report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html`

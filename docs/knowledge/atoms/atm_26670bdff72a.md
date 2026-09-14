@@ -1,7 +1,9 @@
 ---
 {
   "body": "Left-hand traffic is a marker of former British colonial influence, retained in Malaysia, Singapore, India, Australia, South Africa, Kenya, and Japan (via different historical path), while former Dutch, French, and American-influenced territories like Indonesia, Vietnam, and the Philippines drive on the right.",
+  "category": null,
   "cell": "",
+  "confusions": [],
   "created": 1787609794.9582224,
   "entities": [
     "australia",
@@ -10,11 +12,16 @@
     "malaysia",
     "singapore"
   ],
+  "heading": null,
+  "hits": 1,
   "id": "atm_26670bdff72a",
+  "kind": "fact",
   "lang": "en",
   "lat": null,
   "layer": "geography",
   "lng": null,
+  "misses": 0,
+  "origin": null,
   "period_end": null,
   "period_start": null,
   "radius_km": 0,
@@ -24,6 +31,7 @@
   "reports": [],
   "scope": "global",
   "sources": [],
+  "status": "active",
   "tags": [
     "british-empire",
     "colonial-legacy",
@@ -32,8 +40,9 @@
     "traffic-side",
     "x-worldwide"
   ],
+  "tier": null,
   "title": "British colonial legacy of left-hand traffic",
-  "updated": 1787609794.9586267,
+  "updated": 1789361197.9781935,
   "uses": 1
 }
 ---

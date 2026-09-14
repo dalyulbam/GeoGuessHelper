@@ -2,7 +2,7 @@
  "job_id": "job_2567d62419b9",
  "report_file": "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html",
  "label": "선택 장면 보고서 · zh0baQKY…-7pQ",
- "created": 1789053414.8710544,
+ "created": 1789361195.277133,
  "lang": "en",
  "images": [
   "capture_7967c1efa85f.jpg",
@@ -957,18 +957,34 @@
   "retract_candidates": []
  },
  "atoms": {
-  "created": [],
-  "merged": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "created": [
+   "atm_e452dc6b1629",
+   "atm_4b98d01184f6",
+   "atm_6073bba1ba34"
+  ],
+  "merged": [
+   "atm_82d74b56e40b"
+  ],
+  "ordered": [
+   "atm_e452dc6b1629",
+   "atm_4b98d01184f6",
+   "atm_6073bba1ba34",
+   "atm_82d74b56e40b"
+  ]
  },
  "evidence": {
-  "hits": [],
+  "hits": [
+   "atm_8dca31d7924e",
+   "atm_b2fcdcfac982",
+   "atm_424413bdfad8",
+   "atm_0f5685ec7286"
+  ],
   "misses": [],
   "retracted": [],
   "restored": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "skipped_idempotent": []
  },
- "cost_usd": 0.5991,
- "status": "PARTIAL",
- "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789053414.8710544
 }

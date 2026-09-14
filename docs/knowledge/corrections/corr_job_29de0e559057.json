@@ -2,7 +2,7 @@
  "job_id": "job_29de0e559057",
  "report_file": "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html",
  "label": "선택 장면 보고서 · Y2Mf1bMA…Oc6g",
- "created": 1789053258.6732154,
+ "created": 1789361193.6325216,
  "lang": "en",
  "images": [
   "capture_8e57fe431bc7.jpg",
@@ -957,18 +957,36 @@
   "retract_candidates": []
  },
  "atoms": {
-  "created": [],
-  "merged": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "created": [
+   "atm_735a7287ad2c",
+   "atm_a1b98b03e41a",
+   "atm_9a93da5618de"
+  ],
+  "merged": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "ordered": [
+   "atm_e2c9a9aafaf4",
+   "atm_735a7287ad2c",
+   "atm_a1b98b03e41a",
+   "atm_9a93da5618de"
+  ]
  },
  "evidence": {
-  "hits": [],
+  "hits": [
+   "atm_e2c9a9aafaf4",
+   "atm_309c39141fcb",
+   "atm_c6a252ad0c50",
+   "atm_a410bcb0d577",
+   "atm_31b06bbe84f4",
+   "atm_68509cfdf0f6"
+  ],
   "misses": [],
   "retracted": [],
   "restored": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "skipped_idempotent": []
  },
- "cost_usd": 0.5756,
- "status": "PARTIAL",
- "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789053258.6732154
 }

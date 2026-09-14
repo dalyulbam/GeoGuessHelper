@@ -2,7 +2,7 @@
  "job_id": "job_40a2fbc96793",
  "report_file": "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html",
  "label": "선택 장면 보고서 · LQ4-ChLf…uVVQ",
- "created": 1789052933.4518008,
+ "created": 1789361190.9732208,
  "lang": "en",
  "images": [
   "capture_63dd3b689b52.jpg",
@@ -846,18 +846,34 @@
   "retract_candidates": []
  },
  "atoms": {
-  "created": [],
-  "merged": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "created": [
+   "atm_fe1fabd7b881",
+   "atm_ca536dbdc238",
+   "atm_173fb47af208"
+  ],
+  "merged": [
+   "atm_e591fce7975b"
+  ],
+  "ordered": [
+   "atm_e591fce7975b",
+   "atm_fe1fabd7b881",
+   "atm_ca536dbdc238",
+   "atm_173fb47af208"
+  ]
  },
  "evidence": {
-  "hits": [],
+  "hits": [
+   "atm_e591fce7975b",
+   "atm_bb66dca32eda",
+   "atm_47d9d151a778",
+   "atm_71667f856f45"
+  ],
   "misses": [],
   "retracted": [],
   "restored": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "skipped_idempotent": []
  },
- "cost_usd": 0.552,
- "status": "PARTIAL",
- "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789052933.4518008
 }

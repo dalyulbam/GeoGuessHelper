@@ -1,0 +1,941 @@
+{
+ "job_id": "job_75b28777ae09",
+ "report_file": "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html",
+ "label": "선택 장면 보고서 · WSeo7W_D…Ty5w",
+ "created": 1789361198.130949,
+ "lang": "en",
+ "images": [
+  "capture_92744b0ffc95.jpg",
+  "capture_11dd4599f676.jpg",
+  "capture_864212643132.jpg",
+  "capture_df5132b1524e.jpg",
+  "capture_eed9542d5db9.jpg",
+  "capture_60115ba3e67a.jpg"
+ ],
+ "image_panos": {
+  "capture_92744b0ffc95.jpg": {
+   "pano_id": "WSeo7W_DFxysXl6J-QTy5w",
+   "lat": 44.92718809325291,
+   "lng": 8.968296425772063,
+   "heading": 148.38606378029965,
+   "pitch": -1.5902866203659158
+  },
+  "capture_11dd4599f676.jpg": {
+   "pano_id": "17JVW5GWxrwbHldz6DUyZw",
+   "lat": 44.926520037371255,
+   "lng": 8.969118860802318,
+   "heading": 125.58930327661129,
+   "pitch": 1.5367680534300234
+  },
+  "capture_864212643132.jpg": {
+   "pano_id": "S1TBT1dImoE9VQmB0WPAFQ",
+   "lat": 44.925897137173024,
+   "lng": 8.970839335349476,
+   "heading": 108.5590033045463,
+   "pitch": 0.17372138437436035
+  },
+  "capture_df5132b1524e.jpg": {
+   "pano_id": "zuzsMuiMfs2Ppl3Mk-m2zg",
+   "lat": 44.92583949507586,
+   "lng": 8.970938426600874,
+   "heading": 85.33753833129607,
+   "pitch": -1.8144005697484715
+  },
+  "capture_eed9542d5db9.jpg": {
+   "pano_id": "ftRWXoqikjv45A7DsooWfQ",
+   "lat": 44.92235289857513,
+   "lng": 8.974376380097622,
+   "heading": 157.92022915059906,
+   "pitch": -1.4220298716280126
+  },
+  "capture_60115ba3e67a.jpg": {
+   "pano_id": "J7LcKDCKQwgDZYnrH-Kn4Q",
+   "lat": 44.91935306008939,
+   "lng": 8.974439301227015,
+   "heading": 180.44705525977218,
+   "pitch": 5.454053711998867
+  }
+ },
+ "truth": {
+  "lat": 44.924525120256256,
+  "lng": 8.971334788308228,
+  "iso": "IT",
+  "country": "Italy",
+  "region": "Lombardy (Oltrepò Pavese, Province of Pavia)",
+  "city": "Casalsaglio / Casalvecchio, near Rivanazzano Terme–Voghera",
+  "source": "aided_prior",
+  "file_lat": 44.9272,
+  "file_lng": 8.9683,
+  "n_panos": 6
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Castelvetro/Spilamberto area (Po plain edge south of Modena)",
+     "confidence": 0.42,
+     "coordinate_estimate": {
+      "lat": 44.55,
+      "lng": 10.98,
+      "radius_km": 35
+     },
+     "country": "Italy",
+     "country_iso": "IT",
+     "region_or_state": "Emilia-Romagna"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Italy",
+      "country_iso": "IT"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Italy",
+      "country_iso": "IT"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Slovenia",
+      "country_iso": "SI"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Humid subtropical / temperate continental alluvial plain, intensive cereal and forage agriculture, late spring (wisteria in bloom, green wheat)",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Slim round reinforced-concrete utility poles carrying low-voltage lines on small insulator racks — the standard Italian rural ENEL pole type, distinct from wooden poles used in France/Germany or lattice poles in the Balkans.",
+      "supports": [
+       "Italy"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Farmstead complex of thin flat 'pianella' clay bricks with lime render peeling off, low-pitch roofs of coppo (barrel) tiles and a courtyard arch — classic Po valley 'corte' farmhouse typology.",
+      "supports": [
+       "Po plain, Italy"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage_objects",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Three wheeled bins with red-and-white diagonal hazard striping and Italian-language waste labels (secco non riciclabile / plastica e lattine / carta), the standard Italian separate-collection kit.",
+      "supports": [
+       "Italy"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Large Cedrus atlantica 'glauca' planted beside a villa — a very common ornamental in northern Italian plain gardens; no olives, cypress rows or holm oak that would indicate central/southern Italy.",
+      "supports": [
+       "northern Italy"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "landform",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Dead-flat cultivated plain in the foreground meeting an abrupt line of rounded 300-700 m foothills, with a higher snow-flecked ridge behind — the classic Apennine 'pedecollina' front rather than an Alpine wall of bare rock.",
+      "supports": [
+       "Emilia-Romagna Apennine foothills"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "agriculture",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Mosaic of freshly harrowed bare brown fields and green winter wheat/forage, no rice paddies, no vine rows, drained by shallow grassy ditches beside single-lane asphalt farm roads.",
+      "supports": [
+       "Emilian plain cereal/forage belt"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Recent house with low-pitched tile roof, exposed brick quoins and wide overhanging eaves on brackets, plus dark green palisade fencing on a concrete plinth — contemporary Emilian/Veneto rural building idiom.",
+      "supports": [
+       "northern Italy"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "equipment",
+      "image_index": 3,
+      "level": "district",
+      "observation": "Bright green rotary hay tedder parked behind the wall and old iron cartwheels used as decoration — mixed livestock/forage farming consistent with a Parmigiano/hay-producing district.",
+      "supports": [
+       "Emilia dairy-forage area"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "climate",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Wisteria in full bloom over a ruined wall, poplars and pollarded willows along the lane — humid continental plain, late April/early May capture.",
+      "supports": [
+       "Po valley"
+      ],
+      "weight": "low"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.35,
+      "image_index": 0,
+      "name": "Northern Apennine foothill front with higher snow-dusted ridge behind",
+      "type": "mountain range"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.6,
+      "evidence": "Italian waste-stream wording on the wheelie bins (secco / plastica e lattine / carta)",
+      "language": "Italian",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Europe",
+       "North America",
+       "South America",
+       "East Asia"
+      ],
+      "conclusion": "Southern/central Europe",
+      "confidence_after": 0.95,
+      "discriminator": "North American rural roads would be wider with wooden poles and gravel shoulders; East Asia would show concrete box culverts and different pole hardware. Here: 3 m single-lane asphalt with no centre line, narrow ditch, slim concrete poles, coppo-tiled masonry farm buildings.",
+      "level": "continent",
+      "observation": "Very narrow unmarked asphalt lane, slender concrete utility poles, clay barrel-tile roofs, brick-and-lime farm ruins.",
+      "question": "Which continent / broad building tradition?",
+      "ruled_out": [
+       "North America - no wooden poles, mailboxes or wide shoulders",
+       "East Asia - no concrete drainage channels or CJK signage"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Italy",
+       "France",
+       "Spain",
+       "Slovenia",
+       "Croatia",
+       "Hungary"
+      ],
+      "conclusion": "Italy",
+      "confidence_after": 0.9,
+      "discriminator": "French rural bins are grey/yellow-lidded without the red-white reflective stripe; Slovenian/Croatian farmhouses use steeper roofs and rendered blockwork; Spanish plains would show olive/almond groves and whitewash. The flat pianella brick, low-pitch coppo roofs and striped Italian recycling bins are diagnostic.",
+      "level": "country",
+      "observation": "Italian-labelled striped wheelie bins, thin flat bricks with lime plaster, low-pitch coppo roofs, Italian ENEL concrete poles.",
+      "question": "Which country in the Latin/Alpine belt?",
+      "ruled_out": [
+       "France - different bin livery and mostly wooden/steel poles",
+       "Slovenia/Croatia - steeper alpine roofs, different brick module",
+       "Spain - vegetation and rendering style do not match"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Po valley plain",
+       "Tuscany/Umbria hills",
+       "Veneto plain",
+       "Southern Italy"
+      ],
+      "conclusion": "Po-valley plain at the foot of the Apennines",
+      "confidence_after": 0.82,
+      "discriminator": "Tuscany would give continuous rolling clay hills with cypress and vineyards, not a table-flat foreground; Southern Italy would show olives, prickly pear and dry stony ground. Here the plain is absolutely flat up to a sharp foothill line, with poplars and willows.",
+      "level": "macro_region",
+      "observation": "Flat alluvial cereal plain ending abruptly against rounded green foothills; poplars, pollarded willows, no olives or vines.",
+      "question": "Which Italian macro-landscape?",
+      "ruled_out": [
+       "Tuscany/Umbria - no rolling vine-and-cypress hills",
+       "Southern Italy - no Mediterranean xeric vegetation"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Emilia-Romagna (southern Po edge)",
+       "Veneto/Friuli (northern plain)",
+       "Lombardy (Ticino/Po centre)",
+       "Piedmont"
+      ],
+      "conclusion": "Southern edge of the Po plain, i.e. Emilia-Romagna pedecollina",
+      "confidence_after": 0.7,
+      "discriminator": "If this were Veneto or Friuli the backing relief would be the Prealps/Dolomite front - steeper, rockier, with the Colli Euganei as isolated cones on a flat plain; Lombardy near the Po has no hills on the horizon at all, and Piedmont would show the Alps as a high jagged snow wall plus vineyards on the hills. Here the hills are low, smooth, cultivated to the top and arranged as a continuous parallel ridge line with a higher blue crest behind - the Apennine front seen from the north.",
+      "level": "admin_region",
+      "observation": "Continuous low, smooth, farmed foothill ridge running parallel to the plain with a slightly snow-flecked higher ridge behind it; plain to the north is dead flat and treeless.",
+      "question": "Which side/edge of the Po basin?",
+      "ruled_out": [
+       "Veneto/Friuli - would show Prealpine rock faces or isolated Euganean cones",
+       "Lombardy central plain - no hill horizon",
+       "Piedmont - Alps would appear as a high jagged snow barrier"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Modena/Reggio pedecollina",
+       "Bologna pedecollina",
+       "Parma/Piacenza pedecollina",
+       "Rimini/Romagna"
+      ],
+      "conclusion": "Modena–Reggio Emilia / Bologna foothill belt; Modena area preferred",
+      "confidence_after": 0.45,
+      "discriminator": "Romagna near Rimini would put the sea-facing hills much closer and show sandy soils and vineyards; Piacenza-Parma foothills are more vine-covered with scattered castles on knolls. The mixed forage/cereal fields with hay tedders and dispersed brick courtyard farms 3-6 km out from the hill front match the Modena-Reggio dairy plain, though this cannot be settled precisely without signage.",
+      "level": "metro_area",
+      "observation": "Dispersed courtyard farms with hay-making machinery, forage and cereal, hill front roughly 5-10 km away, scattered ribbon village on the hill edge.",
+      "question": "Which stretch of the Emilian foothill belt?",
+      "ruled_out": [
+       "Romagna coast - hills would be closer and drier, vines dominant",
+       "Piacenza - foothills there are more vineyard-terraced"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A prosperous but ordinary northern Italian agricultural district: intensive mechanised cereal and forage farming on flat alluvial soils, with an aging stock of brick courtyard farmsteads — some decaying, some replaced by modern concrete-block sheds and newly built, well-fenced detached houses. The presence of a modern rotary tedder, tidy municipal separate-waste collection even on a farm track, and recent construction signals a well-capitalised rural economy tied to dairy/forage and to commuting into the nearby plain cities of the Via Emilia corridor. Culturally squarely Emilian (Gallo-Italic dialect area), not Venetian or Tuscan.",
+    "overall_confidence": 0.62,
+    "place_slug": "modena",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.217,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 3843,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Italy",
+    "country_iso": "IT",
+    "country_correct": true,
+    "region": "Emilia-Romagna",
+    "city": "Castelvetro/Spilamberto area (Po plain edge south of Modena)",
+    "confidence": 0.42,
+    "overall_confidence": 0.62,
+    "error_km": 164.03,
+    "reached_level": "metro_area",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 9,
+    "n_landmarks": 1,
+    "cue_categories": [
+     "agriculture",
+     "architecture",
+     "climate",
+     "equipment",
+     "infrastructure",
+     "landform",
+     "signage_objects",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "foothill plain south of Parma/Reggio Emilia (e.g. Traversetolo–Montecchio belt)",
+     "confidence": 0.5,
+     "coordinate_estimate": {
+      "lat": 44.72,
+      "lng": 10.44,
+      "radius_km": 30
+     },
+     "country": "Italy",
+     "country_iso": "IT",
+     "region_or_state": "Emilia-Romagna (Emilian Apennine foothill fringe)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Humid subtropical/continental Po basin margin; cereal and forage cropping with deciduous hedgerows",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "infrastructure",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Three kerbside wheeled bins with red-and-white reflective hazard striping and Italian-language fraction labels ('SECCO NON RICICLABILE', 'IMBALLAGGI IN PLASTICA E LATTINE', 'CARTA E ...')",
+      "supports": [
+       "Italy"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Waste-fraction wording is Italian, not Spanish or French",
+      "supports": [
+       "Italy"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Old farm complex in flat-format 'pianura' brick with lime render peeling off, clay pantile roofs, and a brick gatepost — Emilian/Lombard plain courtyard-farm (corte) typology rather than Tuscan stone or Alpine timber",
+      "supports": [
+       "Po plain margin"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Large blue Atlas cedars planted beside a plain farmhouse — a classic Po-valley villa/farmhouse ornamental habit",
+      "supports": [
+       "Po plain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "geomorphology",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Dead-flat cultivated plain in the foreground rising abruptly into low rounded marl/clay hills, with a higher snow-dusted ridge behind — the Apennine foothill step, not the Alpine front (no rock walls, no conifer belt, no avalanche works)",
+      "supports": [
+       "Northern Apennine foothills"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "agriculture",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Alternating dark-brown freshly seeded plots and dense green forage/cereal in spring — mixed fodder economy typical of the Parmigiano-Reggiano dairy belt rather than Romagna's orchards/vineyards",
+      "supports": [
+       "Emilia dairy plain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utilities",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Slim tapered prestressed-concrete poles with short cross-arms carrying low-voltage lines across open fields — standard Italian rural ENEL distribution hardware",
+      "supports": [
+       "Italy"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Very narrow single-lane asphalt lane with a white edge line on one side only, deep grass ditches, no centre line — Italian 'strada vicinale/comunale' farm road",
+      "supports": [
+       "rural minor road"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "machinery",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Bright green rotary hay tedder (fodder machine) parked in the yard, plus cart wheels used as wall decoration — hay-based dairy farming",
+      "supports": [
+       "Parmigiano-Reggiano forage belt"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Recently renovated house with pale render, brick quoins, dark-green shutters and shallow-pitch pantile roof with wide eaves plus green palisade fence on a concrete plinth — contemporary Emilian rural build",
+      "supports": [
+       "Emilia-Romagna"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "landform",
+      "image_index": 5,
+      "level": "metro_area",
+      "observation": "Hill front is continuous and low (300-700 m) with cultivated/hay slopes right up to the crest and no bare limestone — the Emilian pede-Apennine hills, not Monte Titano-style limestone monolith",
+      "supports": [
+       "Emilian foothills, not San Marino"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "Prosperous but unglamorous commercial farmland at the very edge of the Po plain: consolidated fields of forage and cereal supporting a dairy economy, older courtyard farmsteads partly derelict while their functions move into modern cinder-block sheds, and new or renovated single-family houses with iron palisade fences indicating a commuter overlay from nearby provincial towns. Separated waste collection with three labelled bins on a farm lane shows a well-developed municipal service typical of northern Italy.",
+    "languages_detected": [
+     {
+      "confidence": 0.85,
+      "evidence": "Waste bin labels for non-recyclable, plastic/cans and paper fractions in Italian",
+      "language": "Italian",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.4,
+      "image_index": 0,
+      "name": "Northern Apennine ridge with late-spring snow",
+      "type": "mountain range"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 3,
+      "name": "Abandoned brick courtyard farmstead (corte)",
+      "type": "vernacular building"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Southern Europe",
+       "Western Europe",
+       "Central Europe",
+       "North America"
+      ],
+      "conclusion": "Mediterranean/Southern Europe, Latin-language sphere",
+      "confidence_after": 0.93,
+      "discriminator": "Central European rural roads would show galvanised igloo glass banks or EKO-KOM style containers and steeper, deeply eaved roofs; North America would have wooden utility poles, mailboxes and far larger field units.",
+      "level": "continent",
+      "observation": "Clay pantile roofs, lime-rendered brick, concrete utility poles, narrow unmarked lanes, and Latin-script Italian text on bins.",
+      "ruled_out": [
+       "Central Europe: no igloo glass banks, no steep dark roofs",
+       "North America: no wooden poles, no ditched gravel shoulders of US type"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Italy",
+       "Spain",
+       "France",
+       "Portugal",
+       "San Marino"
+      ],
+      "conclusion": "Italy",
+      "confidence_after": 0.94,
+      "discriminator": "Spanish kerbside bins are large communal contenedores in green/yellow/blue without reflective hazard stripes; French bins are lidded bacs with coloured lids and commune stickers. Only Italy routinely applies red/white reflective chevron tape to the flanks of rural wheelie bins, and the fraction names are Italian ('secco non riciclabile', 'imballaggi in plastica e lattine').",
+      "level": "country",
+      "observation": "Trio of kerbside wheelie bins with red-and-white reflective hazard striping and Italian waste-fraction labels; Italian farm-courtyard brickwork.",
+      "ruled_out": [
+       "Spain: different container typology and Castilian labels",
+       "France: different bin design and wording",
+       "Portugal: no such foothill-plain morphology with this architecture"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Alpine foreland (Piedmont/Lombardy/Veneto)",
+       "Po plain interior",
+       "Northern Apennine foothill fringe",
+       "Central Italy hills",
+       "Southern Italy"
+      ],
+      "conclusion": "Northern Apennine foothill fringe, Po-plain side",
+      "confidence_after": 0.82,
+      "discriminator": "The Alpine foreland would present an abrupt wall of grey rock and conifer with snow sheds; the Po plain interior would be dead flat to the horizon with poplar rows and irrigation canals only; Central/Southern Italy would show olive, vine terraces, stone houses and no early-May snow patches on a modest ridge.",
+      "level": "macro_region",
+      "observation": "Flat cultivated plain giving way within a few kilometres to low rounded, fully cultivated marl/clay hills backed by a higher ridge holding residual snow in a leafy spring scene.",
+      "ruled_out": [
+       "Alps: no rock walls, no conifer belt, no avalanche/snow infrastructure",
+       "Po plain interior: hills are visible in every frame",
+       "Central/Southern Italy: no olives, no stone vernacular, deciduous hedgerow landscape instead"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Emilia (Piacenza/Parma/Reggio)",
+       "Romagna (Forlì/Rimini)",
+       "Lunigiana (Tuscany)",
+       "San Marino",
+       "Lombardy Oltrepò"
+      ],
+      "conclusion": "Emilian cultural sphere — Parma/Reggio pede-Apennine belt",
+      "confidence_after": 0.66,
+      "discriminator": "Lunigiana south of the Cisa would show Ligurian slate roofing and stone villages on the Magra side, not flat-brick plain farms; Romagna would front the Adriatic plain with orchard/vineyard mosaics and torrent gravel beds like the Marecchia; San Marino would supply Sammarinese emblems, blue-white plates and a limestone monolith skyline instead of this soft rolling hay-slope front; the Lombard Oltrepò hill front is vine-dominated rather than forage-dominated.",
+      "level": "cultural_sphere",
+      "observation": "Flat lime-rendered brick courtyard farm (corte) with pantile roof, hay tedder in the yard, and large fodder/cereal plots feeding a dairy economy; hills are grassy and cultivated, no slate, no vine terraces.",
+      "ruled_out": [
+       "Lunigiana: no slate roofs, no stone hamlets",
+       "Romagna: no orchard/vineyard mosaic, wrong drainage setting",
+       "San Marino: no Sammarinese hardware or limestone monolith (atm_2ade05f79dfe)",
+       "Oltrepò Pavese: viticulture absent"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Piacenza province",
+       "Parma province",
+       "Reggio Emilia province",
+       "Modena province",
+       "Bologna province"
+      ],
+      "conclusion": "Parma–Reggio Emilia foothill belt (Traversetolo / Montecchio / Quattro Castella area), leaning Reggio-Parma boundary",
+      "confidence_after": 0.5,
+      "discriminator": "Bologna's foothill front is closer and steeper with visible ridge villages and the via Emilia's dense urbanisation right at the hill toe; Piacenza's hill front sits further west with more vine cover on the Colli Piacentini; Modena's belt shows more Lambrusco vineyard rows. Here the fields are pure forage/cereal with a wide 5-10 km plain strip between the road and a very low, uniform hill front — the classic Parmigiano-Reggiano fodder plain.",
+      "level": "admin_region",
+      "observation": "Broad forage-and-cereal plain with scattered isolated farms, a low uninterrupted hill front, and no vineyards at all.",
+      "ruled_out": [
+       "Bologna: hill front too far and too uniform here",
+       "Piacenza/Modena: vineyard cover expected on the visible slopes"
+      ],
+      "weight": "low"
+     },
+     {
+      "candidates": [
+       "village edge",
+       "isolated farm cluster on a vicinal lane"
+      ],
+      "conclusion": "Isolated farm cluster on a municipal/vicinal lane, 1-2 km from a small village",
+      "confidence_after": 0.6,
+      "discriminator": "A village edge would show a kerb, street lighting, a comune entry sign and a footway; instead the lane is single-track with grass ditches and only occasional houses, yet has scheduled kerbside bin collection.",
+      "level": "district",
+      "observation": "Unmarked single-lane asphalt with ditches, isolated houses, a short concrete sidewalk only in front of the newest house.",
+      "ruled_out": [
+       "village edge: no lighting, kerbs or entry signage"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "traversetolo",
+    "relied_on_atoms": [
+     "atm_36953f364595",
+     "atm_cce9194ad055",
+     "atm_4bd89fdef0f9",
+     "atm_2ade05f79dfe",
+     "atm_27a2ec66d515"
+    ],
+    "revised_from": null,
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Italy",
+      "country_iso": "IT"
+     },
+     {
+      "confidence": 0.15,
+      "country": "Italy",
+      "country_iso": "IT"
+     },
+     {
+      "confidence": 0.07,
+      "country": "Slovenia",
+      "country_iso": "SI"
+     }
+    ]
+   },
+   "cost_usd": 0.1325,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2473,
+    "output": 4424,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Italy",
+    "country_iso": "IT",
+    "country_correct": true,
+    "region": "Emilia-Romagna (Emilian Apennine foothill fringe)",
+    "city": "foothill plain south of Parma/Reggio Emilia (e.g. Traversetolo–Montecchio belt)",
+    "confidence": 0.5,
+    "overall_confidence": 0.55,
+    "error_km": 118.04,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 11,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "agriculture",
+     "architecture",
+     "geomorphology",
+     "infrastructure",
+     "landform",
+     "language",
+     "machinery",
+     "road",
+     "utilities",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_4244e1fe682d",
+    "atm_27a2ec66d515",
+    "atm_2ade05f79dfe",
+    "atm_a26ee42e2c47",
+    "atm_4bd89fdef0f9",
+    "atm_a5c9084accfd",
+    "atm_36953f364595",
+    "atm_cce9194ad055",
+    "atm_0a129b3d0032",
+    "atm_aba4cb4ab431"
+   ],
+   "relied_on": [
+    "atm_36953f364595",
+    "atm_cce9194ad055",
+    "atm_4bd89fdef0f9",
+    "atm_2ade05f79dfe",
+    "atm_27a2ec66d515"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "IT",
+   "country": "Italy",
+   "region": "Emilia-Romagna (Emilian Apennine foothill fringe)",
+   "city": "foothill plain south of Parma/Reggio Emilia (e.g. Traversetolo–Montecchio belt)",
+   "lat": 44.72,
+   "lng": 10.44,
+   "error_km": 118.04,
+   "reached_level": "district",
+   "confidence": 0.5,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "miss",
+  "city": "miss",
+  "error_km": 118.04,
+  "bucket": ">=100"
+ },
+ "correction": {
+  "cost_usd": 0.21537375,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5396,
+   "output": 2887,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Italy was correctly identified from the striped kerbside bins, concrete ENEL poles and plain-brick courtyard farm, but the region was placed ~118 km too far east: the pano is in the Lombard Oltrepò Pavese near Voghera/Rivanazzano, not the Parma–Reggio foothill belt. The analyst explicitly excluded the Oltrepò because \"viticulture is absent\", yet the Oltrepò's northern strip between Voghera and the Staffora/Curone torrents is flat cereal-and-forage plain with vines confined to the hills a few kilometres back — exactly what the images show. Nothing in the imagery actually distinguishes Parma from Pavia; the correct move was to keep the whole Emilian/Lombard pede-Apennine arc open rather than to commit to the Parmigiano-Reggiano belt on the basis of forage fields alone.",
+  "misleading_cues": [
+   {
+    "image_index": 1,
+    "observation": "Green forage/cereal plots alternating with freshly seeded dark plots, read as 'Parmigiano-Reggiano fodder plain'.",
+    "why_misleading": "Cereal and forage on the flat plain strip is generic to the entire southern Po-plain margin from Pavia to Bologna; it carries no province-level information."
+   },
+   {
+    "image_index": 0,
+    "observation": "Low rounded cultivated hills with no visible vineyard rows, taken as proof that the Oltrepò Pavese wine hills were excluded.",
+    "why_misleading": "From a plain road several kilometres out, Oltrepò vineyards sit on the inner hill flanks and are not resolvable; absence of visible vines at this distance cannot exclude a wine region."
+   },
+   {
+    "image_index": 0,
+    "observation": "Snow-dusted higher ridge behind the foothills interpreted as the Parma/Reggio Apennine crest.",
+    "why_misleading": "Residual spring snow on the ridge line is equally consistent with the Ligurian/Piedmontese Apennine and even distant Alpine skyline visible from the Oltrepò plain."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "image_index": 0,
+    "observation": "A very wide, flat cultivated plain strip in the foreground with a low, continuous hill front rising only a few kilometres away and a higher snowy ridge behind it.",
+    "why_decisive": "This narrow plain-to-hill step is the signature of the southern Po-plain margin generally; it fits the Voghera–Rivanazzano strip as well as Emilia, so it should have been treated as macro-regional, not provincial, evidence.",
+    "category": "landform"
+   },
+   {
+    "image_index": 2,
+    "observation": "Courtyard farm (cascina) of flat-format brick with peeling lime render, pantile roofs and a brick gatepost, adjoined by a modern breeze-block shed.",
+    "why_decisive": "The brick cascina with attached modern block shed is the standard Lombard/lower-Po farm typology, present across Pavia province as much as in Emilia.",
+    "category": "housing-typology"
+   },
+   {
+    "image_index": 3,
+    "observation": "Kerbside wheelie bins with red-and-white reflective striping and Italian fraction labels.",
+    "why_decisive": "Confirms Italy at country level, which was the part of the judgement that held.",
+    "category": "street-furniture"
+   },
+   {
+    "image_index": 1,
+    "observation": "Slim tapered prestressed-concrete distribution poles with short cross-arms standing in open fields.",
+    "why_decisive": "Standard Italian rural ENEL hardware; supports Italy but is uniform nationwide and gives no regional signal.",
+    "category": "utility-pole"
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Oltrepò Pavese plain looks vine-free: vines sit behind the first hill line",
+    "body": "In the Lombard Oltrepò Pavese the flat strip between Voghera and the Apennine front is pure cereal/forage with cascine and poplar-lined ditches, and the vineyards only begin on the inner slopes several kilometres back, invisible from the plain road. If you were genuinely in the Parma–Reggio fodder belt you would instead expect a much wider (10-20 km) plain with very long straight canalised ditches and larger dairy stalle, not a hill front this close. Absence of visible vines from a plain lane therefore does not exclude a wine province.",
+    "layer": "geography",
+    "category": "agriculture",
+    "scope": "region",
+    "tags": [
+     "oltrepo",
+     "viticulture",
+     "po-plain-margin"
+    ],
+    "entities": [
+     "Oltrepò Pavese (Lombardy)",
+     "Parma–Reggio Emilia foothill belt"
+    ],
+    "looks_like": {
+     "country_iso": "IT",
+     "country": "Italy",
+     "region": "Emilia-Romagna (Parma/Reggio foothills)"
+    },
+    "actually": {
+     "country_iso": "IT",
+     "country": "Italy",
+     "region": "Lombardy, Oltrepò Pavese"
+    },
+    "confidence": 0.6,
+    "image_index": 0
+   },
+   {
+    "title": "Pede-Apennine step is pan-regional: don't convert hill-front proximity into a province",
+    "body": "A dead-flat cultivated foreground rising within a few kilometres into low rounded marl/clay hills with a snow-streaked ridge behind occurs continuously from Pavia through Piacenza, Parma and Modena to Bologna. Treat it as macro-region evidence only; to move to a province you need man-made anchors (SP shields, comune signs, road numbering), not field crops. Without such signage, keep the whole arc, which spans ~200 km, as the answer envelope.",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "tags": [
+     "apennine-front",
+     "po-plain",
+     "scale-discipline"
+    ],
+    "entities": [
+     "Lombardy",
+     "Emilia-Romagna"
+    ],
+    "looks_like": {
+     "country_iso": "IT",
+     "country": "Italy",
+     "region": "Emilia-Romagna"
+    },
+    "actually": {
+     "country_iso": "IT",
+     "country": "Italy",
+     "region": "Lombardy, Oltrepò Pavese"
+    },
+    "confidence": 0.65,
+    "image_index": 0
+   },
+   {
+    "title": "Brick cascina with block shed is Lombard-to-Emilian, not diagnostic of Emilia",
+    "body": "Flat-format brick with lime render, pantile roofs, a brick pillar gate and an attached grey breeze-block barn is the common lower-Po courtyard-farm build from Pavia and Lodi through Piacenza to Modena. In Tuscany or the Marche you would instead see rubble-stone or mixed stone-brick walls and steeper roofs, which is the real discrimination this typology supports. Using it to pick Parma over Pavia over-reads the cue.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "region",
+    "tags": [
+     "cascina",
+     "corte",
+     "brick"
+    ],
+    "entities": [
+     "Lombardy",
+     "Emilia-Romagna",
+     "Tuscany"
+    ],
+    "looks_like": {
+     "country_iso": "IT",
+     "country": "Italy",
+     "region": "Emilia (Parma)"
+    },
+    "actually": {
+     "country_iso": "IT",
+     "country": "Italy",
+     "region": "Lombardy (Pavia)"
+    },
+    "confidence": 0.55,
+    "image_index": 2
+   },
+   {
+    "title": "Hay tedder and forage plots mean dairy, not specifically Parmigiano-Reggiano",
+    "body": "Rotary hay tedders and mixed forage/cereal plots appear across the whole northern Italian dairy belt, including Lombardy's Grana Padano zone, which lies north and west of the Parmigiano-Reggiano DOP area. If you rely on this cue you will systematically drift east into Emilia; instead require an explicit place-name or road-shield anchor before assigning the DOP belt.",
+    "layer": "economy",
+    "category": "agriculture",
+    "scope": "region",
+    "tags": [
+     "dairy",
+     "grana-padano",
+     "forage"
+    ],
+    "entities": [
+     "Grana Padano zone (Lombardy)",
+     "Parmigiano-Reggiano belt (Emilia)"
+    ],
+    "looks_like": {
+     "country_iso": "IT",
+     "country": "Italy",
+     "region": "Parma/Reggio Emilia"
+    },
+    "actually": {
+     "country_iso": "IT",
+     "country": "Italy",
+     "region": "Lombardy, Pavia"
+    },
+    "confidence": 0.5,
+    "image_index": 3
+   }
+  ],
+  "misled_atoms": [
+   "atm_27a2ec66d515",
+   "atm_4bd89fdef0f9",
+   "atm_cce9194ad055"
+  ],
+  "confirming_atoms": [
+   "atm_36953f364595"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_ec115d67939d",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9",
+   "atm_3c739719836a"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_ec115d67939d",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9",
+   "atm_3c739719836a"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_36953f364595"
+  ],
+  "misses": [
+   "atm_27a2ec66d515",
+   "atm_4bd89fdef0f9",
+   "atm_cce9194ad055"
+  ],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789359227.4651597
+}

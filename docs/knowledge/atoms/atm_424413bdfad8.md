@@ -11,7 +11,7 @@
     "otomi"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_424413bdfad8",
   "kind": "fact",
   "lang": "en",
@@ -40,7 +40,7 @@
   ],
   "tier": null,
   "title": "Chichimeca frontier and Guachichil/Otomí resettlement zone of the Altiplano Potosino",
-  "updated": 1789052625.9253564,
+  "updated": 1789361196.3989832,
   "uses": 1
 }
 ---

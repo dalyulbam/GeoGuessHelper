@@ -10,7 +10,7 @@
     "turkey"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_cb0c83bea310",
   "kind": "fact",
   "lang": "en",
@@ -39,7 +39,7 @@
   ],
   "tier": null,
   "title": "Muğla Büyükşehir Belediyesi branding on rural bus shelters",
-  "updated": 1789051865.128855,
+  "updated": 1789361192.9121404,
   "uses": 1
 }
 ---

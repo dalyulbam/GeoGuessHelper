@@ -13,7 +13,7 @@
     "taiwan"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_e0e0e7bcfbe4",
   "kind": "discriminator",
   "lang": "en",
@@ -46,7 +46,7 @@
   ],
   "tier": "unaided",
   "title": "Japanese U-ditch and amado shutters vs Korean/Taiwanese village fabric",
-  "updated": 1788761927.5515149,
+  "updated": 1789361200.3653538,
   "uses": 1
 }
 ---

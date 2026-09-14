@@ -2,7 +2,7 @@
  "job_id": "job_84ae6f5d2adb",
  "report_file": "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html",
  "label": "선택 장면 보고서 · DqMkMifG…R_vQ",
- "created": 1789052156.1914344,
+ "created": 1789361189.6382627,
  "lang": "en",
  "images": [
   "capture_09d60e1d7abd.jpg",
@@ -920,18 +920,35 @@
   "retract_candidates": []
  },
  "atoms": {
-  "created": [],
-  "merged": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "created": [
+   "atm_0c63c014b962",
+   "atm_a4c8d01b5267"
+  ],
+  "merged": [
+   "atm_457ca0cf526a",
+   "atm_91b8f6217bd1"
+  ],
+  "ordered": [
+   "atm_457ca0cf526a",
+   "atm_0c63c014b962",
+   "atm_91b8f6217bd1",
+   "atm_a4c8d01b5267"
+  ]
  },
  "evidence": {
-  "hits": [],
-  "misses": [],
+  "hits": [
+   "atm_91b8f6217bd1",
+   "atm_8eff91373f39",
+   "atm_3641a82e3cde"
+  ],
+  "misses": [
+   "atm_c8c9936aabeb"
+  ],
   "retracted": [],
   "restored": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "skipped_idempotent": []
  },
- "cost_usd": 0.586,
- "status": "PARTIAL",
- "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789052156.1914344
 }

@@ -1,9 +1,10 @@
 # 엔티티 · japan
 
-원자 28개 · 이 엔티티를 다룬 보고서 2건
+원자 34개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_0de705b1aa28]] **National highway numbering and driving-side as geolocation cues** (geography/global)
+- [[atm_18dfb917ecd9]] **Moso bamboo thrives on the Sea-of-Japan coast up to Noto** (nature/region)
 - [[atm_252f5171f26d]] **Imperial House of Japan** (history/polity)
 - [[atm_26670bdff72a]] **British colonial legacy of left-hand traffic** (geography/global)
 - [[atm_2893ef2e3a1c]] **Japanese telephone area codes as fine-grained geographic identifiers** (economy/country)
@@ -15,11 +16,13 @@
 - [[atm_609755d083a1]] **Meiji abolition of the han system and daimyo domains** (history/period)
 - [[atm_6f9fc96c5833]] **Left-hand traffic countries of the former British Empire** (geography/global)
 - [[atm_726f0d1570b0]] **Hokkaido's poteito (potato-shaped) snow poles** (geography/country)
+- [[atm_76095061912d]] **Dark tarred board cladding + metal roof vs Kanto's kawara farm shed** (architecture/region)
 - [[atm_811342082c50]] **National road-signage families as country identifiers** (architecture/global)
 - [[atm_8f4166ec8daf]] **Kei-class yellow-plate cars as a uniquely Japanese vehicle category** (economy/country)
 - [[atm_9590fe7cadd2]] **Global pattern of shrinking industrial regional cities** (economy/global)
 - [[atm_9b58a70e7561]] **National and provincial highway-shield design as cartographic identifiers** (culture/global)
 - [[atm_9dd182ac73ec]] **Synchronized firefly tourism sites worldwide** (nature/global)
+- [[atm_9f4060f146e8]] **Kanto loam is dark/reddish, not pale brown** (geography/region)
 - [[atm_a20a2bd85dc2]] **Setouchi/Inland Sea housing lacks snow-country roof features** (architecture/region)
 - [[atm_a78bf6ec32f7]] **Grey-market RHD/LHD import mismatches worldwide** (culture/global)
 - [[atm_a919b2d25025]] **Left-hand traffic Commonwealth legacy pattern** (culture/global)
@@ -27,11 +30,15 @@
 - [[atm_ad557b503715]] **Decline of Japanese traditional crafts and successor shortage** (economy/country)
 - [[atm_c5683d7f6a32]] **Japan as global exporter of used RHD vehicles** (economy/country)
 - [[atm_dad10402d915]] **Counter-urbanization and rural revival movements** (economy/global)
+- [[atm_dca606fecd4d]] **Grated concrete U-ditch and orange-post convex mirror fix Japan, not the region** (culture/country)
 - [[atm_dcc3f946acb2]] **One-Village-One-Product (OVOP) movement and its global descendants** (economy/global)
 - [[atm_e0e0e7bcfbe4]] **Japanese U-ditch and amado shutters vs Korean/Taiwanese village fabric** (architecture/country)
 - [[atm_e75b1bf2f7fa]] **Masuda Report and Japan's 'disappearing municipalities' debate** (economy/country)
+- [[atm_eba3dc758411]] **Missing snowmelt sprinklers do not rule out Hokuriku on minor lanes** (geography/region)
+- [[atm_ebc7c2ef6ce2]] **Depopulating peninsula hamlet vs commuter-belt Kanto satoyama** (economy/region)
 - [[atm_fbc7a5e5e104]] **Kyoto City's mountain wards look like deep countryside** (geography/region)
 
 ## 보고서
 - `report_jp_fukuyama_34.4836_133.3951_260829_093734_ko-en-fr.html`
 - `report_jp_keihoku-shimoyuge-kyoto_35.1932_135.6345_260906_204347_ko-en-fr.html`
+- `report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html`

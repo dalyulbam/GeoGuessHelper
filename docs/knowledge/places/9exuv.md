@@ -12,3 +12,7 @@
 
 ## 보고서
 - `report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html`
+- [[atm_f3fb02fa3be5]] **Bajío basalt clearance piles vs Altiplano pale calcareous soil** (geography/region)
+- [[atm_9aae63fb6cc3]] **Mexican rural two-lane: dashed centre line only, no edge lines** (geography/country)
+- [[atm_82d74b56e40b]] **Bajío linear colonia sits close to big cities, not only deep countryside** (geography/region)
+- [[atm_e5dc061fdb33]] **CFE rural wooden poles with small transformers vs US rural distribution** (economy/country)

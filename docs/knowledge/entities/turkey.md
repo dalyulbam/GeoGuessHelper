@@ -1,21 +1,25 @@
 # 엔티티 · turkey
 
-원자 15개 · 이 엔티티를 다룬 보고서 2건
+원자 19개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_062228b64e03]] **Islamist-leaning municipal renaming and re-Islamization of Turkish public space** (culture/country)
 - [[atm_15c884566bad]] **Kocaeli/İzmit as Turkey's core heavy-industry cluster** (economy/polity)
+- [[atm_1c6af51b0fc1]] **Aegean olive-maquis hinterland vs Taurus/Antalya front** (nature/region)
 - [[atm_310e2cb423dc]] **Otoyol network as Turkey's controlled-access counterpart to D-roads** (culture/country)
 - [[atm_3399a29c8934]] **Bedrettin Dalan and Turkish highway-era ministers** (history/country)
 - [[atm_4a66ab569c4f]] **Mustafa Kemal Atatürk and Turkish secular nation-building** (history/country)
 - [[atm_4f6928e8ab4d]] **Republican-era secular street naming alongside Ottoman/Islamic landmarks in Turkish cities** (culture/country)
 - [[atm_590816a2ad04]] **Turkish road infrastructure markers: D-100 highway and right-hand traffic** (history/country)
 - [[atm_5a0a958e8c06]] **Vehbi Koç, founder of Ford Otosan's parent conglomerate** (economy/country)
+- [[atm_676b94e88700]] **Muğla dual-carriageway legs: inland Söke road vs Bodrum coastal corridor** (economy/region)
 - [[atm_91bb4809c09e]] **Aegean Turkey olive-maquis hinterland vegetation signature** (nature/region)
 - [[atm_9a486159e361]] **Turkish toponymic lexicon markers (Camii, Bulvarı, Sokak, Caddesi)** (language/country)
+- [[atm_ad4651f749ac]] **Turkish KGM warning triangle + rain sub-plate vs Greek sign style** (language/country)
 - [[atm_af77a40342bd]] **Ottoman Arabic-script toponymy replaced by Turkish Latin alphabet reform** (language/country)
 - [[atm_c2c5ced5d1a1]] **Script simplification and Latinization reforms** (language/global)
 - [[atm_cb0c83bea310]] **Muğla Büyükşehir Belediyesi branding on rural bus shelters** (culture/region)
+- [[atm_e0ddecfde4f8]] **'T.C. … BÜYÜKŞEHİR BELEDİYESİ' shelters pin the province in rural Turkey** (culture/region)
 - [[atm_e81470498de1]] **North Anatolian Fault seismic risk to Marmara industrial corridor** (geography/region)
 - [[atm_fc22ca49a31d]] **Marmara region coastal-industrial corridor east of Istanbul** (geography/region)
 

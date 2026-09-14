@@ -1,0 +1,963 @@
+{
+ "job_id": "job_22e8bfa81b66",
+ "report_file": "report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html",
+ "label": "선택 장면 보고서 · 0bRxZ_p8…p5OQ",
+ "created": 1789361200.9089065,
+ "lang": "en",
+ "images": [
+  "capture_68f4e6966452.jpg",
+  "capture_c598fa10aa44.jpg",
+  "capture_6dea285d5841.jpg",
+  "capture_7ea9df2824dc.jpg",
+  "capture_f876489ecfe0.jpg",
+  "capture_0d5bdb2f1be7.jpg"
+ ],
+ "image_panos": {
+  "capture_68f4e6966452.jpg": {
+   "pano_id": "0bRxZ_p8Qu47FQB4ZMp5OQ",
+   "lat": 37.28744905218298,
+   "lng": -5.9170010380465055,
+   "heading": 149.67445070254965,
+   "pitch": 0.41667828783741356
+  },
+  "capture_c598fa10aa44.jpg": {
+   "pano_id": "u1pK0f8miuzNEmePqGy-cw",
+   "lat": 37.28741526398083,
+   "lng": -5.916843796884023,
+   "heading": 84.83995563060668,
+   "pitch": 1.8381474459012423
+  },
+  "capture_6dea285d5841.jpg": {
+   "pano_id": "2hP0pamZTDzN_JbCNM3YnA",
+   "lat": 37.2872730342408,
+   "lng": -5.91690521034927,
+   "heading": 155.72049699763446,
+   "pitch": -2.070310972072022
+  },
+  "capture_7ea9df2824dc.jpg": {
+   "pano_id": "ug_fjVaV_qu-rSp2Q3QPIw",
+   "lat": 37.28594254680782,
+   "lng": -5.916656413665627,
+   "heading": 160.7876787462861,
+   "pitch": 5.425319248028558
+  },
+  "capture_f876489ecfe0.jpg": {
+   "pano_id": "gxFHnO_HztiXySjU4If6GA",
+   "lat": 37.28574958249339,
+   "lng": -5.916872085755923,
+   "heading": 209.02945151147088,
+   "pitch": 2.4223542289714857
+  },
+  "capture_0d5bdb2f1be7.jpg": {
+   "pano_id": "cwU2MMcUow0fo5IhppUoxQ",
+   "lat": 37.28573414598319,
+   "lng": -5.9175669806695,
+   "heading": 1.9136401545783883,
+   "pitch": 3.2526816270544003
+  }
+ },
+ "truth": {
+  "lat": 37.286309667436875,
+  "lng": -5.917794805105353,
+  "iso": "ES",
+  "country": "Spain",
+  "region": "Andalusia, Province of Seville",
+  "city": "Dos Hermanas",
+  "source": "aided_prior",
+  "file_lat": 37.2874,
+  "file_lng": -5.917,
+  "n_panos": 9
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Dos Hermanas (Seville metropolitan area)",
+     "confidence": 0.45,
+     "coordinate_estimate": {
+      "lat": 37.2833,
+      "lng": -5.925,
+      "radius_km": 12
+     },
+     "country": "Spain",
+     "country_iso": "ES",
+     "region_or_state": "Andalusia, Province of Seville"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.22,
+      "country": "Spain",
+      "country_iso": "ES"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Portugal",
+      "country_iso": "PT"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Italy",
+      "country_iso": "IT"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Hot-summer Mediterranean (Csa) - bleached sun, no lawns, drought-tolerant cypress hedges, clear deep-blue sky",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Hand-painted ceramic azulejo street plaque reading 'COSTURERA' set into the plastered corner wall - Spanish word, and the glazed-tile street-name plaque is a strongly Andalusian convention.",
+      "supports": [
+       "Spain",
+       "Andalusia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Spanish road signs: round white-bordered red 'no entry' disc, blue square one-way arrow, blue pedestrian-crossing square with red-bordered outline - EU/Spanish design set.",
+      "supports": [
+       "Spain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Two-storey terraced 'adosados' in cream/ochre/salmon lime-wash with Arabic barrel roof tiles, round oculus windows, small wrought-iron Juliet balconies - classic Lower Guadalquivir vernacular pastiche.",
+      "supports": [
+       "Andalusia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "district",
+      "observation": "A row of mock-Tudor / 'alpine' half-timbered gables with deep eaves and green-and-red striped awnings - an odd themed 1990s-2000s urbanization typical of Seville-belt speculative housing estates.",
+      "supports": [
+       "Seville metropolitan estate"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Curved swan-neck aluminium street lamps on slim galvanised poles plus brick-paved sidewalk bands with red-painted kerb restrictions - standard Andalusian municipal kit.",
+      "supports": [
+       "Andalusia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "climate",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Solar thermal hot-water panels on rooftops, ubiquitous split-unit air conditioners on every facade, heavy window grilles - hot-summer southern Spain rather than the wetter north.",
+      "supports": [
+       "Southern Spain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Clipped cypress/thuja privacy hedges over brick garden walls, no grass verges, dusty street edges - dry Mediterranean lowland planting.",
+      "supports": [
+       "Andalusia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "urban_form",
+      "image_index": 4,
+      "level": "metro_area",
+      "observation": "Four-storey red-brick 1970s-80s bloques with garage doors at street level next to newer low-rise estates and a landscaped traffic island - a growing satellite town, not a historic city core.",
+      "supports": [
+       "Seville commuter belt"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "topography",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Street horizon is dead flat with no hills or sea in any view - consistent with the Guadalquivir plain rather than coastal Malaga/Cadiz or hilly interior.",
+      "supports": [
+       "Guadalquivir lowland"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Dense on-street parking of European compacts (Opel, Peugeot, Seat/VW) with long white EU-format plates; traffic keeps to the right.",
+      "supports": [
+       "Spain"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "Lower-middle to middle-income Spanish suburb: mass-produced terraced housing and 1970s-80s brick apartment blocks, near-total car dependence with saturated kerbside parking, security grilles on every ground-floor window, solar thermal panels and retrofitted split AC units. No tourist infrastructure, no commercial frontage beyond garage doors - a purely residential commuter neighbourhood of a mid-sized Andalusian town or a satellite of a provincial capital.",
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 3,
+      "name": "Calle Costurera (ceramic street plaque)",
+      "type": "street nameplate"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.9,
+      "evidence": "'COSTURERA' painted on a glazed ceramic street plaque (image 4); graffiti tags in Latin script.",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Southern Europe",
+       "Latin America",
+       "North Africa",
+       "Middle East"
+      ],
+      "conclusion": "Southern Europe, Mediterranean western basin",
+      "confidence_after": 0.93,
+      "discriminator": "Latin America would show utility poles with overhead cable spaghetti, flat concrete roofs, and barred windows on 1-storey lots; North Africa would show Arabic-script signage and satellite dishes en masse with unfinished brick upper floors. Here: tidy EU-format kerbs, buried utilities, EU-proportion plates, Arabic roof tiles on finished plastered houses.",
+      "level": "continent",
+      "observation": "Uniform plastered terraced housing with barrel roof tiles, EU-standard long white licence plates, buried electrical service, clean EU traffic sign geometry.",
+      "ruled_out": [
+       "Latin America - overhead distribution wiring and different plate proportions absent",
+       "North Africa - no Arabic script anywhere",
+       "Middle East - no minarets, no Arabic signage"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Spain",
+       "Portugal",
+       "Italy",
+       "Southern France"
+      ],
+      "conclusion": "Spain",
+      "confidence_after": 0.93,
+      "discriminator": "Portugal would show black-on-white enamel street plates with 'Rua', calcada mosaic sidewalks, and different no-entry placement; Italy would use 'Via' plaques in white marble/enamel and far more shutter-box facades; France would show 'Rue' plates and different lamp standards. The glazed hand-painted azulejo nameplate in a plaster field plus the Spanish word 'Costurera' is diagnostic.",
+      "level": "country",
+      "observation": "Ceramic azulejo street plaque with the Spanish noun 'COSTURERA'; Spanish-style blue one-way and pedestrian-crossing signs.",
+      "ruled_out": [
+       "Portugal - no calcada paving, no 'Rua' plate",
+       "Italy - no 'Via' plate, roof/facade grammar differs",
+       "France - no 'Rue' plate, no French lamp/bollard kit"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Andalusia",
+       "Extremadura",
+       "Castilla-La Mancha",
+       "Valencia/Murcia",
+       "Northern Spain"
+      ],
+      "conclusion": "Andalusia (Guadalquivir lowland)",
+      "confidence_after": 0.85,
+      "discriminator": "Northern Spain (Galicia/Asturias/Basque) would show steep slate or dark-tile roofs, granite trim, glazed galerias and lush green vegetation. Castilian meseta towns use more exposed brick and stone plinths with far fewer solar thermal panels. Valencia/Murcia would show more white-and-blue palettes and palm street planting. The salmon/ochre lime-wash with white trim, oculus windows and cypress hedges is the Seville-Cadiz pastiche vocabulary.",
+      "level": "macro_region",
+      "observation": "Cream-to-salmon washed terraced houses with white-framed openings, round oculus windows, Arabic curved roof tiles, ubiquitous rooftop solar thermal collectors, dead-flat horizon, dry dusty street margins.",
+      "ruled_out": [
+       "Northern Spain - no galerias, no slate, climate too dry",
+       "Castilla-La Mancha - colour palette and tile type differ",
+       "Valencia/Murcia - no palms, different facade colour code"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Castilian-Andalusian sphere",
+       "Catalan sphere",
+       "Basque sphere",
+       "Galician sphere"
+      ],
+      "conclusion": "Castilian-speaking Andalusian sphere",
+      "confidence_after": 0.9,
+      "discriminator": "In Catalonia the street plaque would read 'Carrer' and signage be bilingual; in the Basque Country 'Kalea' with Euskara; in Galicia 'Rúa'. Here the nameplate is a bare Castilian noun on painted ceramic, with no co-official second language anywhere - monolingual Castilian, and the azulejo medium is Andalusian.",
+      "level": "cultural_sphere",
+      "observation": "Monolingual Castilian toponym on a painted-tile plaque; no bilingual signage of any kind.",
+      "ruled_out": [
+       "Catalan sphere - 'Carrer' absent",
+       "Basque sphere - no Euskara",
+       "Galician sphere - no 'Rúa'"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Seville province",
+       "Cordoba province",
+       "Cadiz province",
+       "Huelva province",
+       "Malaga province"
+      ],
+      "conclusion": "Seville province, Guadalquivir plain",
+      "confidence_after": 0.6,
+      "discriminator": "Cadiz and Malaga coastal towns would show sea-facing whitewash, palms, hotel/tourist frontage and hilly street gradients; Cordoba's older barrios use more patio-house and stone-plinth typology. The relentlessly flat grid of late-20th-century adosados with brick-and-iron garden walls and mixed brick bloques is the archetypal Seville-belt growth pattern.",
+      "level": "admin_region",
+      "observation": "Perfectly flat terrain, large-scale uniform estate housing of 1990s-2000s vintage adjoining 1970s-80s brick apartment blocks, no coastal or hill cues.",
+      "ruled_out": [
+       "Malaga/Cadiz - no coastal or relief cues, no palms",
+       "Cordoba - different historic house typology",
+       "Huelva - less dense estate-building pattern"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Seville city outskirts",
+       "Dos Hermanas",
+       "Alcala de Guadaira",
+       "Utrera",
+       "Mairena del Aljarafe"
+      ],
+      "conclusion": "A Seville-belt satellite town; Dos Hermanas / Alcala de Guadaira most likely",
+      "confidence_after": 0.42,
+      "discriminator": "Seville city proper would show taller 5-8 storey blocks, tram/bus lane hardware and more commercial ground floors; a small rural pueblo like Utrera would not sustain this volume of themed developer estates next to 1970s workers' bloques. The mix of a mock-Tudor themed urbanization beside older red-brick bloques points to a fast-grown commuter town of 70k-130k in the immediate Seville ring.",
+      "level": "metro_area",
+      "observation": "Low-rise residential-only fabric, wide quiet secondary streets, landscaped roundabout island, large stock of near-identical developer estates, no city-centre density.",
+      "ruled_out": [
+       "Seville city core - building heights and street furniture too modest",
+       "Small rural pueblo - estate volume far too large"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "dos-hermanas",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2295,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4341,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Spain",
+    "country_iso": "ES",
+    "country_correct": true,
+    "region": "Andalusia, Province of Seville",
+    "city": "Dos Hermanas (Seville metropolitan area)",
+    "confidence": 0.45,
+    "overall_confidence": 0.55,
+    "error_km": 0.72,
+    "reached_level": "metro_area",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 10,
+    "n_landmarks": 1,
+    "cue_categories": [
+     "architecture",
+     "climate",
+     "infrastructure",
+     "language",
+     "signage",
+     "topography",
+     "urban_form",
+     "vegetation",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Dos Hermanas (Seville metropolitan area)",
+     "confidence": 0.4,
+     "coordinate_estimate": {
+      "lat": 37.283,
+      "lng": -5.925,
+      "radius_km": 25
+     },
+     "country": "Spain",
+     "country_iso": "ES",
+     "region_or_state": "Andalusia (province of Seville)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.25,
+      "country": "Spain",
+      "country_iso": "ES"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Portugal",
+      "country_iso": "PT"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Italy",
+      "country_iso": "IT"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Mediterranean, hot-summer (Csa) — bleached sky, intense sun, no lawns, drought-tolerant cypress hedges",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "language",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Hand-painted ceramic street-name tile reading 'COSTURERA' set flush into a rendered corner wall — Spanish word, and the azulejo plaque format is the Andalusian standard rather than the enamelled blue rectangles used in France or the marble slabs of Italy.",
+      "supports": [
+       "Spain",
+       "Andalusia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Circular white-on-red 'no entry' disc with thin rim and a small square street plate on the building corner; blue circular mandatory arrow disc on a slim grey pole — DGT hardware style.",
+      "supports": [
+       "Spain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_markings",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Zebra crossings of wide white bars without preceding shark-teeth, kerbs painted with yellow/ochre restriction bands, and brick-red pigmented sidewalk aprons at corners — typical Spanish municipal practice.",
+      "supports": [
+       "Spain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Two-storey terraced 'adosados' in cream and salmon lime-wash render with barrel-tile hipped roofs, small round oculus windows and wrought-iron reja grilles over ground-floor openings — the standard 1990s-2000s Sevillian/lower Guadalquivir suburban vernacular.",
+      "supports": [
+       "Andalusia",
+       "Seville province"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "district",
+      "observation": "A row of pseudo-Alpine/'estilo tirolés' townhouses with decorative half-timbering and deep tiled eaves — a fashion found in speculative Andalusian urbanizaciones of the 1980s-90s, indicating a planned suburban extension rather than a historic core.",
+      "supports": [
+       "suburban urbanizacion"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "climate_vegetation",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Clipped Cupressus/thuja hedges over brick-pillar fences, no street trees on the residential streets, parched light, dust film on facades — dry interior Guadalquivir lowland rather than humid Atlantic north Spain.",
+      "supports": [
+       "southern Spain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Solar thermal collector panel mounted on a flat roof terrace; almost every window has an external split-AC condenser unit — high cooling demand consistent with Seville-area summers.",
+      "supports": [
+       "Andalusia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "urban_form",
+      "image_index": 4,
+      "level": "metro_area",
+      "observation": "Adjacent 4-storey red-brick 1970s-80s bloques with garage doors at street level and enclosed balconies, immediately abutting low terraced housing — a growth-town profile of a large satellite municipality in a metropolitan belt, not a small village.",
+      "supports": [
+       "Seville metro belt"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "topography",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Flat horizon at the end of every street with no mountain backdrop — rules out Granada/Malaga basins, fits the Guadalquivir plain.",
+      "supports": [
+       "Lower Guadalquivir"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Dense on-street parking of European compacts (Opel, Peugeot, Ford, Seat-class) with long-rectangular EU plates, driving on the right.",
+      "supports": [
+       "Western Europe",
+       "Spain"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A middle-income, car-dependent Spanish suburban neighbourhood: owner-occupied terraced houses with garages, gated forecourts, satellite dishes and solar water heaters, mixed with older red-brick apartment blocks. Modest but well-maintained; graffiti tags and worn render suggest an ordinary working/middle-class barrio in a large metropolitan satellite town rather than a tourist or elite area.",
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 3,
+      "name": "Calle Costurera (ceramic street plaque)",
+      "type": "street nameplate"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.9,
+      "evidence": "'COSTURERA' ceramic street tile; Spanish street-plate conventions",
+      "language": "Spanish",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Southern Europe",
+       "Latin America",
+       "North Africa",
+       "Middle East"
+      ],
+      "conclusion": "Southern Europe, Mediterranean Iberia/Italy",
+      "confidence_after": 0.93,
+      "discriminator": "Latin American suburbs of this type would show overhead low-voltage spaghetti wiring, concrete-block walls with razor wire and pickup-heavy fleets; North Africa would show flat-roof concrete shells and different plate shapes. Here: buried utilities, EU-format long plates, European compact hatchbacks.",
+      "level": "continent",
+      "observation": "EU-proportioned licence plates, right-hand traffic, uniform barrel-tile roofs, tidy asphalt with painted parking restrictions.",
+      "ruled_out": [
+       "Latin America — no overhead cable clutter or pickup fleet",
+       "North Africa — European plates and vehicle mix"
+      ],
+      "question": "Which continent/broad region?",
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Spain",
+       "Portugal",
+       "Italy",
+       "France"
+      ],
+      "conclusion": "Spain",
+      "confidence_after": 0.94,
+      "discriminator": "Portugal would give a street plaque with 'RUA ...' and typically black-on-white enamel plus calçada portuguesa limestone paving; Italy would use a marble/travertine 'VIA ...' slab and municipal fingerposts reading 'Impianti sportivi'; France would show 'Rue ...' enamel plates and 'toutes directions' panels. Here the corner plaque is a painted azulejo tile with the bare Spanish noun 'COSTURERA' and no generic prefix, plus concrete-slab sidewalks with red-pigmented crossing aprons.",
+      "level": "country",
+      "observation": "Ceramic corner tile 'COSTURERA'; DGT-style thin-rimmed circular prohibition discs and blue mandatory discs.",
+      "ruled_out": [
+       "Portugal — no 'Rua' prefix, no calçada paving",
+       "Italy — no marble via-slab, no Italian fingerposts",
+       "France — no enamel rue plaque, no French sign typography"
+      ],
+      "question": "Which Romance-language country?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Atlantic/Green Spain",
+       "Meseta / Castile",
+       "Mediterranean Levante",
+       "Andalusia"
+      ],
+      "conclusion": "Andalusia (Guadalquivir lowland sphere)",
+      "confidence_after": 0.85,
+      "discriminator": "Green Spain (Galicia/Asturias/Basque) would show steep dark-slate or fibre-cement roofs, granite plinths, glazed galerías and lush green vegetation; Castile would show sober brick or stone with fewer white/ochre lime-washed renders and no cypress hedging; the Levante would favour flatter roofs, more palms and beach-town apartment massing. Here every terrace is lime-washed cream/salmon with a two-tone painted plinth, barrel tiles, wrought-iron rejas and glazed-tile street names — the classic Sevillian/Bajo Guadalquivir palette.",
+      "level": "macro_region",
+      "observation": "Cream-and-salmon rendered adosados, painted skirting bands, rejas, azulejo nameplate, bleached hot light, no slate.",
+      "ruled_out": [
+       "Green Spain — no slate roofs, no galerías, arid look",
+       "Castile — colour palette and tile type wrong",
+       "Levante — no palms/beach-block morphology"
+      ],
+      "question": "Which macro-region of Spain?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Seville plain",
+       "Cordoba",
+       "Granada Vega",
+       "Malaga coast",
+       "Cadiz bay"
+      ],
+      "conclusion": "Lower Guadalquivir plain, Seville province",
+      "confidence_after": 0.7,
+      "discriminator": "Granada's Vega and Malaga would put a sierra silhouette at the end of at least one street view; Cadiz bay towns show salt-air corroded ironwork, whiter lime-wash and often sea/marsh horizon; Cordoba's suburbs use more exposed brick. Every vista here terminates flat with hazy sky and low rooflines, and the palette is the salmon/ochre 'sevillano' render.",
+      "level": "admin_region",
+      "observation": "Completely flat street-end horizons in images 1, 2 and 4; hazy heat sky; no relief anywhere.",
+      "ruled_out": [
+       "Granada Vega — mountains would be visible",
+       "Malaga — no coastal relief or hillside blocks",
+       "Cordoba — different brick-dominant suburb texture"
+      ],
+      "question": "Which Andalusian basin?",
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Seville city district",
+       "Dos Hermanas / Alcala de Guadaira / Mairena belt",
+       "Utrera / rural town"
+      ],
+      "conclusion": "A large satellite town of the Seville metropolitan belt (Dos Hermanas / Alcala de Guadaira / Mairena del Aljarafe type)",
+      "confidence_after": 0.45,
+      "discriminator": "Central Seville districts would show narrower historic streets with continuous 3-4 storey facades and no gated single-family adosados with front gardens; a genuinely rural town would not have this volume of uniform 1990s developer terraces, garage-fronted brick blocks and pseudo-Tyrolean urbanizacion housing side by side. The mix of a 1970s brick bloque quarter grading straight into a large planned adosado estate is the signature of a fast-grown metropolitan satellite.",
+      "level": "metro_area",
+      "observation": "Rows of identical developer-built adosados with gated forecourts and mailbox banks (image 5), adjoining older red-brick apartment blocks with street-level garages (images 3-4).",
+      "ruled_out": [
+       "Seville historic centre — no historic dense fabric, plots too suburban",
+       "Small rural pueblo — scale and estate uniformity too large"
+      ],
+      "question": "City core, metropolitan satellite, or rural town?",
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Dos Hermanas",
+       "Alcala de Guadaira",
+       "Mairena del Aljarafe",
+       "Utrera"
+      ],
+      "conclusion": "Cannot be separated further — no municipal crest, bus livery or business sign is legible",
+      "confidence_after": 0.35,
+      "discriminator": "A municipal logo on the electrical cabinet, a Tussam/Consorcio bus stop, or a local business fascia would have split these; none is readable in any frame, so the cut is not available.",
+      "level": "district",
+      "observation": "The only text visible is a generic street tile and an unreadable street plate; no shopfronts, bus stops or municipal branding.",
+      "ruled_out": [],
+      "question": "Which specific municipality of the belt?",
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.62,
+    "place_slug": "dos-hermanas",
+    "relied_on_atoms": [
+     "atm_a8965343eeda",
+     "atm_ea64ccafd76b"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1337,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2514,
+    "output": 4467,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Spain",
+    "country_iso": "ES",
+    "country_correct": true,
+    "region": "Andalusia (province of Seville)",
+    "city": "Dos Hermanas (Seville metropolitan area)",
+    "confidence": 0.4,
+    "overall_confidence": 0.62,
+    "error_km": 0.74,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 5,
+    "n_cues": 10,
+    "n_landmarks": 1,
+    "cue_categories": [
+     "architecture",
+     "climate_vegetation",
+     "infrastructure",
+     "language",
+     "road_markings",
+     "signage",
+     "topography",
+     "urban_form",
+     "vehicles"
+    ]
+   },
+   "known_offered": [
+    "atm_ad6ef340394d",
+    "atm_d09f20285662",
+    "atm_be07aa622f34",
+    "atm_a8fd0dd52605",
+    "atm_63230a15ee6e",
+    "atm_a8965343eeda",
+    "atm_c57fe98938af",
+    "atm_dc6f04f6a1d0",
+    "atm_ea64ccafd76b",
+    "atm_a26ee42e2c47"
+   ],
+   "relied_on": [
+    "atm_a8965343eeda",
+    "atm_ea64ccafd76b"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "ES",
+   "country": "Spain",
+   "region": "Andalusia (province of Seville)",
+   "city": "Dos Hermanas (Seville metropolitan area)",
+   "lat": 37.283,
+   "lng": -5.925,
+   "error_km": 0.74,
+   "reached_level": "district",
+   "confidence": 0.4,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "hit",
+  "error_km": 0.74,
+  "bucket": "<1"
+ },
+ "correction": {
+  "cost_usd": 0.21711875,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5285,
+   "output": 2979,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "HIT at city level (0.74 km error): Spain / Seville province / Dos Hermanas was correctly read from the azulejo corner street tile with a bare Spanish noun ('COSTURERA'), Sevillian cream-and-salmon adosados with barrel tiles and rejas, DGT-style thin-rimmed prohibition discs, and a completely flat street-end horizon. The alternatives Portugal and Italy were correctly excluded (no 'Rua'/'Via' generic prefix, no calçada paving, no marble via-slab), and Granada/Malaga were excluded by the absence of any sierra silhouette. The exact municipality was not separable from the images; the correct pick rested on the metropolitan-satellite morphology (1970s brick bloques with street-level garages abutting a large 1990s adosado estate).",
+  "misleading_cues": [
+   {
+    "observation": "No legible municipal crest, bus-stop livery or shop fascia in any frame.",
+    "why_misleading": "Left the municipality choice to morphology alone; the analyst's own confidence at district level (0.35) reflects that the final pinpoint was partly luck rather than evidence."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Hand-painted ceramic (azulejo) street-name plaque set flush into a rendered corner wall, bearing a bare noun with no 'Calle/Rua/Via' generic.",
+    "why_decisive": "The flush ceramic tile without a generic prefix is the Andalusian street-naming standard and excludes Portugal, Italy and France at once.",
+    "category": "signage-language",
+    "image_index": 3
+   },
+   {
+    "observation": "Two-storey terraced adosados in cream/salmon lime render with painted two-tone plinth bands, barrel-tile hipped roofs, round oculus windows and wrought-iron rejas.",
+    "why_decisive": "This palette and detailing is the lower Guadalquivir/Seville suburban vernacular, not Levante flat-roof or Green Spain slate typology.",
+    "category": "housing-typology",
+    "image_index": 0
+   },
+   {
+    "observation": "Every street vista terminates in flat hazy sky with no mountain backdrop, with clipped cypress/thuja hedges and heavy dust film.",
+    "why_decisive": "Rules out the Granada Vega and Malaga basins where a sierra silhouette nearly always closes the view; fits the Guadalquivir plain.",
+    "category": "landform",
+    "image_index": 2
+   },
+   {
+    "observation": "Four-storey red-brick 1970s-80s blocks with street-level garage doors and grilled ground floors directly abutting large uniform estates of gated adosados.",
+    "why_decisive": "This abrupt juxtaposition of a growth-era brick quarter with a huge planned terrace estate is the profile of a large Seville-belt satellite town rather than the historic core or a village.",
+    "category": "urban-form",
+    "image_index": 4
+   },
+   {
+    "observation": "Circular white-on-red prohibition disc with thin rim and blue circular mandatory arrow on slim grey poles; yellow-painted kerb restriction bands and brick-red pigmented corner aprons.",
+    "why_decisive": "DGT hardware and Spanish municipal paving/marking practice confirm Spain over Portugal and Italy.",
+    "category": "road-signage",
+    "image_index": 0
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Andalusian azulejo street plaque vs Portuguese enamel 'RUA' plate",
+    "body": "In Andalusia street names appear on hand-painted ceramic tiles cemented flush into the rendered corner wall, usually giving only the bare name with no generic word. In Portugal you would instead see a rectangular enamel or tiled plate that almost always begins with 'RUA/AVENIDA/LARGO', and the pavement would be calçada portuguesa limestone mosaic rather than poured concrete slabs with red-pigmented crossing aprons.",
+    "layer": "language",
+    "category": "signage-language",
+    "scope": "region",
+    "tags": [
+     "street-plaque",
+     "azulejo",
+     "iberia"
+    ],
+    "entities": [
+     "Spain",
+     "Portugal"
+    ],
+    "looks_like": {
+     "country_iso": "PT",
+     "country": "Portugal"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Andalusia"
+    },
+    "confidence": 0.83
+   },
+   {
+    "title": "Sevillian salmon-render adosados vs Levante flat-roof suburbia",
+    "body": "Around Seville and the lower Guadalquivir, 1990s terraces are lime-rendered cream/ochre with a contrasting painted skirting band, hipped barrel-tile roofs, small oculus windows and heavy wrought-iron rejas. In the Levante (Valencia/Murcia/Alicante coast) you would instead see flatter roofs or terraced azoteas, more white or pastel-blue render, palms in the street and beach-town apartment massing.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "region",
+    "tags": [
+     "adosados",
+     "barrel-tile",
+     "rejas"
+    ],
+    "entities": [
+     "Andalusia",
+     "Valencian Community"
+    ],
+    "looks_like": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Levante"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Andalusia (Seville)"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Flat closed street-end horizon separates Seville plain from Granada/Malaga",
+    "body": "In the Guadalquivir lowland around Seville every long street view ends in flat hazy sky and low rooflines. In the Vega de Granada or the Malaga basin at least one street axis would frame a sierra silhouette, and hillside terracing or stepped blocks would appear on the skyline instead.",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "tags": [
+     "horizon",
+     "sierra",
+     "guadalquivir"
+    ],
+    "entities": [
+     "Seville province",
+     "Granada",
+     "Malaga"
+    ],
+    "looks_like": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Granada / Malaga"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Lower Guadalquivir, Seville"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Metro-satellite signature: brick bloques with garage fronts next to adosado estates",
+    "body": "Large Seville-belt satellites (Dos Hermanas, Alcala de Guadaira, Mairena) show 1970s four-storey red-brick blocks with street-level garage doors grading directly into vast uniform gated adosado estates, often including pseudo-Tyrolean half-timbered rows from speculative 80s-90s urbanizaciones. In the historic Seville core you would instead find continuous 3-4 storey facades on narrow streets with no front gardens or garage aprons, and in a genuine rural pueblo the estate uniformity and volume would be absent.",
+    "layer": "architecture",
+    "category": "urban-form",
+    "scope": "region",
+    "tags": [
+     "satellite-town",
+     "urbanizacion",
+     "garage-front"
+    ],
+    "entities": [
+     "Dos Hermanas",
+     "Seville city centre"
+    ],
+    "looks_like": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Seville historic centre / rural pueblo"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain",
+     "region": "Seville metropolitan belt"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Spanish kerb-and-apron colour coding vs Italian street furniture",
+    "body": "Spanish municipalities mark parking restrictions with yellow-painted kerb bands and lay brick-red pigmented concrete aprons at crossings and corners, with thin-rimmed DGT discs on slim grey poles. In Italy you would instead see blue/white/yellow painted parking bays on the carriageway, marble or stone street-name slabs on facades, and municipal fingerposts with generics like 'Impianti sportivi'.",
+    "layer": "culture",
+    "category": "road-marking",
+    "scope": "country",
+    "tags": [
+     "kerb-paint",
+     "dgt",
+     "crossing-apron"
+    ],
+    "entities": [
+     "Spain",
+     "Italy"
+    ],
+    "looks_like": {
+     "country_iso": "IT",
+     "country": "Italy"
+    },
+    "actually": {
+     "country_iso": "ES",
+     "country": "Spain"
+    },
+    "confidence": 0.72
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_a8965343eeda",
+   "atm_ea64ccafd76b"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_288c6a410e97",
+   "atm_b0dafbf62e75",
+   "atm_7f58247de8e3",
+   "atm_e11e2807a7c5"
+  ],
+  "merged": [
+   "atm_ad6ef340394d"
+  ],
+  "ordered": [
+   "atm_ad6ef340394d",
+   "atm_288c6a410e97",
+   "atm_b0dafbf62e75",
+   "atm_7f58247de8e3",
+   "atm_e11e2807a7c5"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_a8965343eeda",
+   "atm_ea64ccafd76b"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789359567.0667195
+}

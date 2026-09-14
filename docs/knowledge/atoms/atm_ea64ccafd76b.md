@@ -13,7 +13,7 @@
     "spain"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_ea64ccafd76b",
   "kind": "discriminator",
   "lang": "en",
@@ -43,7 +43,7 @@
   ],
   "tier": "unaided",
   "title": "Municipal fingerpost generics separate Italy from Spain and France",
-  "updated": 1788762271.7772963,
+  "updated": 1789361201.9929376,
   "uses": 1
 }
 ---

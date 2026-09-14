@@ -11,7 +11,7 @@
     "thailand"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_c6a252ad0c50",
   "kind": "fact",
   "lang": "en",
@@ -39,7 +39,7 @@
   ],
   "tier": null,
   "title": "Khorat Plateau (Isan) defined by red laterite soil and flat terrain",
-  "updated": 1789052155.9603126,
+  "updated": 1789361194.82619,
   "uses": 1
 }
 ---

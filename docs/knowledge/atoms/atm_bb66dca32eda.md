@@ -10,7 +10,7 @@
     "chile"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_bb66dca32eda",
   "kind": "fact",
   "lang": "en",
@@ -38,7 +38,7 @@
   ],
   "tier": null,
   "title": "Legacy mining railway viaducts in Chile's Norte Chico",
-  "updated": 1789051574.1893103,
+  "updated": 1789361191.8895445,
   "uses": 1
 }
 ---

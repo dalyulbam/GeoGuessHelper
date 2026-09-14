@@ -12,7 +12,7 @@
     "vietnam"
   ],
   "heading": null,
-  "hits": 1,
+  "hits": 2,
   "id": "atm_31b06bbe84f4",
   "kind": "fact",
   "lang": "en",
@@ -41,7 +41,7 @@
   ],
   "tier": null,
   "title": "National administrative-unit vocabularies as toponymic fingerprints",
-  "updated": 1788762601.3986857,
+  "updated": 1789361195.030018,
   "uses": 1
 }
 ---

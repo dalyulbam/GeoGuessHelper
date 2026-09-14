@@ -3,16 +3,21 @@
   "body": "Spain's DGT (Dirección General de Tráfico) traffic signage uses metric circular speed-limit discs with thin red rims (often without a full black border) and blue circular mandatory/informational discs (e.g., combined moped-and-car symbols for restricted-access residential streets), distinguishing it from French or Italian sign typography and post/collar hardware styles.",
   "category": "road-signage",
   "cell": "sp3ebxf",
+  "confusions": [],
   "created": 1787964154.868895,
   "entities": [
     "spain"
   ],
   "heading": null,
+  "hits": 1,
   "id": "atm_a8965343eeda",
+  "kind": "fact",
   "lang": "en",
   "lat": 41.4835407,
   "layer": "culture",
   "lng": 2.1348995,
+  "misses": 0,
+  "origin": null,
   "period_end": null,
   "period_start": null,
   "radius_km": 1200,
@@ -33,14 +38,16 @@
     "https://www.barcelonasynchrotronpark.com/EN/2099/BSP/news/catalonia-confirms-itself-as-pole-of-attraction-for-foreign-investments.html",
     "https://barcelonacatalonia.eu/en/project/cerdanyola-del-valles-parc-de-lalba-barcelona-synchrotron-park/"
   ],
+  "status": "active",
   "tags": [
     "dgt",
     "road-signage",
     "spain",
     "traffic-signs"
   ],
+  "tier": null,
   "title": "Spanish DGT road signage conventions",
-  "updated": 1788506020.0378852,
+  "updated": 1789361201.766177,
   "uses": 1
 }
 ---

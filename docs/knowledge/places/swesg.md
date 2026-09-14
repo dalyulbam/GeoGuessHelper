@@ -12,3 +12,7 @@
 
 ## 보고서
 - `report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html`
+- [[atm_ad4651f749ac]] **Turkish KGM warning triangle + rain sub-plate vs Greek sign style** (language/country)
+- [[atm_e0ddecfde4f8]] **'T.C. … BÜYÜKŞEHİR BELEDİYESİ' shelters pin the province in rural Turkey** (culture/region)
+- [[atm_1c6af51b0fc1]] **Aegean olive-maquis hinterland vs Taurus/Antalya front** (nature/region)
+- [[atm_676b94e88700]] **Muğla dual-carriageway legs: inland Söke road vs Bodrum coastal corridor** (economy/region)

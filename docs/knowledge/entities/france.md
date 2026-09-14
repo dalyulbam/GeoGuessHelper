@@ -1,6 +1,6 @@
 # 엔티티 · france
 
-원자 15개 · 이 엔티티를 다룬 보고서 2건
+원자 15개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_19e7bb82b228]] **Romance-language street-naming conventions as a contrast case** (language/country)
@@ -20,5 +20,6 @@
 - [[atm_fcd1da2c1009]] **Company-form suffixes as national linguistic fingerprints** (language/global)
 
 ## 보고서
+- `report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html`
 - `report_es_madrid-ifema_38.5714_-7.9135_260904_162146_ko.html`
 - `report_it_fornovo-di-taro_44.6943_10.0983_260906_205248_ko-en-fr.html`

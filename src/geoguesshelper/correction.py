@@ -42,7 +42,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-from . import baseline
+from . import baseline, knowledge
 from .config import Settings, load_settings
 
 _LEDGER_DIR = "corrections"
@@ -188,7 +188,6 @@ def _recall_for(settings: Settings, analysis: dict, job_id: str) -> list:
     confusion_isos 에 X 와 대안들의 ISO 를 넣어 "X 처럼 보이지만 X2" 판별자가 지리 접점 없이도
     들어오게 한다(knowledge.recall 의 conf 경로). aided 계층 원자는 장면 분석에 싣지 않는다.
     """
-    from . import knowledge
 
     g = analysis.get("best_guess") or {}
     est = g.get("coordinate_estimate") if isinstance(g.get("coordinate_estimate"), dict) else {}
@@ -535,7 +534,6 @@ def _phase_record(res: dict, truth: dict) -> dict:
 
 def run_job(job: dict, settings: Settings, *, lang: str = "en", phase2: bool = True, log=print) -> dict:
     """잡 1건: blind 판단 → 실측 대조 → 정정 호출 → 판별자 적재·채점 → 기록. 항상 corr_<job>.json 을 쓴다."""
-    from . import knowledge
     from .analyze import _b64, analyze_captures
 
     job_id = job["job_id"]
@@ -830,8 +828,6 @@ def _rate(rows: list[dict], key: str) -> str:
 
 
 def _readme(settings: Settings, recs: list[dict], ledger: list[dict]) -> str:
-    from . import knowledge
-
     ok = [r for r in recs if r.get("status") == _STATUS_OK]
     verdicts = [r.get("verdict") or {} for r in ok]
     errs = sorted(v["error_km"] for v in verdicts if isinstance(v.get("error_km"), (int, float)))

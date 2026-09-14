@@ -12,7 +12,7 @@
     "trans-mexican-volcanic-belt"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_8dca31d7924e",
   "kind": "fact",
   "lang": "en",
@@ -41,7 +41,7 @@
   ],
   "tier": null,
   "title": "Sonoran vs Chihuahuan vs Bajío vs Trans-Mexican Volcanic Belt landscape discriminators",
-  "updated": 1789052625.8999205,
+  "updated": 1789361196.064072,
   "uses": 1
 }
 ---

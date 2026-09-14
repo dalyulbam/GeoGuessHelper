@@ -1,6 +1,6 @@
 # 엔티티 · malaysia
 
-원자 21개 · 이 엔티티를 다룬 보고서 2건
+원자 22개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_065d923adab8]] **Light pollution and boat traffic threats to firefly tourism sites** (nature/region)
@@ -19,6 +19,7 @@
 - [[atm_69a406f23cf1]] **Administrative boundary reforms to match functional regions** (geography/region)
 - [[atm_74acd4f10fb8]] **Malaysian urban high-rise housing displacing kampung vernacular** (architecture/country)
 - [[atm_9f241d0453c6]] **Malay kampung house: stilted timber construction with wide eaves** (architecture/polity)
+- [[atm_a1b98b03e41a]] **Hardwood-over-masonry Isan houses vs stilted Malay kampung houses** (architecture/region)
 - [[atm_a346128efb21]] **West coast industrial corridor as the counterpart to the east coast's tourism belt** (economy/region)
 - [[atm_a60aa4ae835e]] **Decline of traditional Malay fishing amid coastal tourism growth** (economy/region)
 - [[atm_be5beb4f44d0]] **Malaysian tourism policy under Visit Malaysia campaigns** (economy/country)
@@ -28,3 +29,4 @@
 ## 보고서
 - `report_my_cherating_4.1206_103.3815_260814_024200_ko.html`
 - `report_my_cherating_4.1206_103.3815_260814_105834_ko.html`
+- `report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html`

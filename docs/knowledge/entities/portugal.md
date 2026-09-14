@@ -1,6 +1,6 @@
 # 엔티티 · portugal
 
-원자 5개 · 이 엔티티를 다룬 보고서 2건
+원자 5개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_36aae0a58891]] **Canarian desert coast vs Madeira: palms in gravel, not laurisilva** (nature/region)
@@ -10,5 +10,6 @@
 - [[atm_b4155eafc9ab]] **Fishing villages pivoting to tourism worldwide** (economy/global)
 
 ## 보고서
+- `report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html`
 - `report_es_esquinzo-fuerteventura_28.0717_-14.3123_260906_204807_ko-en-fr.html`
 - `report_es_madrid-ifema_38.5714_-7.9135_260904_162146_ko.html`

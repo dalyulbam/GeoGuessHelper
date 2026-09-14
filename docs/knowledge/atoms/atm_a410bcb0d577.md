@@ -11,7 +11,7 @@
     "lao-isan-culture"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_a410bcb0d577",
   "kind": "fact",
   "lang": "en",
@@ -40,7 +40,7 @@
   ],
   "tier": null,
   "title": "Lao-Isan toponymy and vernacular housing distinguish Isan from Central Thai and Khmer-Surin zones",
-  "updated": 1789052155.9932344,
+  "updated": 1789361194.9315014,
   "uses": 1
 }
 ---

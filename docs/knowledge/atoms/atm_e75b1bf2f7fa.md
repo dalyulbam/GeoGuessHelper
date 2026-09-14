@@ -10,7 +10,7 @@
     "japan"
   ],
   "heading": null,
-  "hits": 1,
+  "hits": 2,
   "id": "atm_e75b1bf2f7fa",
   "kind": "fact",
   "lang": "en",
@@ -39,7 +39,7 @@
   ],
   "tier": null,
   "title": "Masuda Report and Japan's 'disappearing municipalities' debate",
-  "updated": 1788761927.630665,
+  "updated": 1789361200.6351898,
   "uses": 1
 }
 ---

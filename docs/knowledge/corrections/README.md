@@ -1,6 +1,6 @@
 # 자동 정정 루프 — 정정 원장
 
-생성 2026-09-11 00:22 · 잡 24건(최신 기록, 그중 OK 15) · 실행 25회(corrections.jsonl) · 이번 기록 비용 $12.907 · 누적 실행 비용 $13.453 · 기획: docs/plan/impl-spec_260907.md §3
+생성 2026-09-14 13:46 · 잡 28건(최신 기록, 그중 OK 27) · 실행 41회(corrections.jsonl) · 이번 기록 비용 $8.482 · 누적 실행 비용 $15.734 · 기획: docs/plan/impl-spec_260907.md §3
 
 같은 캡처를 지도 없이(blind) 다시 판단하고(회상 원자가 있으면 2패스), 실측 pano 좌표·aided 분석과 대조해 "X 는 사실 X2 였다"는 정정을 만들어 kind=discriminator 원자로 적재한다. 사람 승인은 없다 — 회상돼 쓰인 원자는 confirming/misled 로 채점되어 hits/misses 가 오르내리고, 오답만 뒷받침한 원자는 retracted(회상 제외)된다.
 
@@ -8,17 +8,17 @@
 
 | 지표 | 값 |
 |---|---|
-| 국가 적중률(blind 최종) | 15/15 (100%) |
-| 지역 적중률 | 15/15 (100%) |
-| 도시 적중률 | 14/15 (93%) |
-| 좌표 오차 km 중앙값 | 1.17 (n=15) |
-| 오차 분포 | <1 6 · <10 6 · <100 2 · >=100 1 · na 0 |
-| 2패스 사용(회상 원자 있음) | 15/15 |
+| 국가 적중률(blind 최종) | 27/27 (100%) |
+| 지역 적중률 | 24/27 (89%) |
+| 도시 적중률 | 20/27 (74%) |
+| 좌표 오차 km 중앙값 | 2.80 (n=27) |
+| 오차 분포 | <1 9 · <10 6 · <100 9 · >=100 3 · na 0 |
+| 2패스 사용(회상 원자 있음) | 26/27 |
 | 2패스로 판단이 바뀐 건수(revised) | 0 |
-| 판별자 원자 — 이번 기록에서 신규 / 병합 | 66 / 7 |
-| 저장소의 kind=discriminator 원자(누적) | 70 |
+| 판별자 원자 — 이번 기록에서 신규 / 병합 | 111 / 15 |
+| 저장소의 kind=discriminator 원자(누적) | 119 |
 | 철회된 원자 — 이번 기록 / 저장소 현재 status=retracted | 0 / 0 |
-| 총비용(최신 기록 합) | $12.907 |
+| 총비용(최신 기록 합) | $8.482 |
 
 ## 잡별
 
@@ -39,15 +39,19 @@
 | 09-07 15:32 | `report_cz_zelec-u-tabora_49.318_14.6477_260906_223536_ko-en-fr.html` | CZ · Želeč (Želeč u Tábora) | CZ · Želeč (near Tábor) | hit | hit | hit | 5.27 | 10/5 | 4 (4+0) | $0.582 | OK |
 | 09-07 15:35 | `report_kz_beyneu_46.3143_54.4042_260906_223930_ko-en-fr.html` | KZ · Beyneu | KZ · Beyneu | hit | hit | hit | 101.74 | 10/5 | 5 (5+0) | $0.563 | OK |
 | 09-07 16:24 | `report_is_hvammstangi_65.399_-20.9452_260907_162408_en.html` | IS · Hvammstangi | IS · Hvammstangi | hit | hit | hit | 0.42 | 10/9 | 5 (1+4) | $0.571 | OK |
-| 09-10 12:50 | `report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html` | NG · Ogoja | NG · Ogoja | hit | hit | hit | 0.89 | — | 5 (0+0) | $0.431 | PARTIAL |
-| 09-10 13:11 | `report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html` | CO · Cumaral | CO · Cumaral | hit | hit | hit | 0.24 | 1/1 | 5 (0+0) | $0.493 | PARTIAL |
 | 09-10 13:14 | `report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html` | NG · Ogoja | — · — | — | — | — | — | — | 0 (0+0) | $0.000 | API_ERROR |
-| 09-10 23:55 | `report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html` | CO · Cumaral | CO · Acacías / Granada area piedmont town, Meta | hit | miss | miss | 86.38 | 7/6 | 4 (0+0) | $0.586 | PARTIAL |
-| 09-11 00:08 | `report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html` | CL · Quebrada de los Choros / Chacho Martínez (Huasco valley area) | CL · Vallenar / Alto del Carmen area, Huasco Valley | hit | hit | hit | 85.92 | 10/4 | 4 (0+0) | $0.552 | PARTIAL |
-| 09-11 00:11 | `report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html` | TR · Etrenli / Danışment (Milas district) | TR · Milas | hit | hit | hit | 18.44 | 10/6 | 4 (0+0) | $0.587 | PARTIAL |
-| 09-11 00:14 | `report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html` | TH · Ban Champa Thong, Nong Lat subdistrict, Warichaphum district | TH · Wanon Niwat / Ban Cham Pa Thong, Nong Lat subdistrict, Waritchaphum district | hit | hit | hit | 13.37 | 10/8 | 4 (0+0) | $0.576 | PARTIAL |
-| 09-11 00:16 | `report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html` | MX · La Tapona, Mexquitic de Carmona | MX · rural village near Villa de Arista / Moctezuma area, Altiplano Potosino | hit | hit | miss | 56.62 | 10/4 | 4 (0+0) | $0.599 | PARTIAL |
-| 09-11 00:19 | `report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html` | MX · Colonia El Palomar / Yóstiro (near Irapuato) | MX · Rural highway between Pénjamo and Cuerámaro area, Bajío lowlands | hit | hit | miss | 22.87 | 10/0 | 4 (0+0) | $0.600 | PARTIAL |
+| 09-14 13:46 | `report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html` | MX · Colonia El Palomar / Yóstiro (near Irapuato) | MX · Rural highway between Pénjamo and Cuerámaro area, Bajío lowlands | hit | hit | miss | 22.87 | 10/0 | 4 (4+0) | $0.000 | OK |
+| 09-14 13:46 | `report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html` | NG · Ogoja | NG · Ogoja | hit | hit | hit | 0.89 | — | 5 (4+1) | $0.000 | OK |
+| 09-14 13:46 | `report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html` | CO · Cumaral | CO · Cumaral | hit | hit | hit | 0.24 | 1/1 | 5 (4+1) | $0.000 | OK |
+| 09-14 13:46 | `report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html` | CO · Cumaral | CO · Acacías / Granada area piedmont town, Meta | hit | miss | miss | 86.38 | 7/6 | 4 (2+2) | $0.000 | OK |
+| 09-14 13:46 | `report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html` | CL · Quebrada de los Choros / Chacho Martínez (Huasco valley area) | CL · Vallenar / Alto del Carmen area, Huasco Valley | hit | hit | hit | 85.92 | 10/4 | 4 (3+1) | $0.000 | OK |
+| 09-14 13:46 | `report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html` | TR · Etrenli / Danışment (Milas district) | TR · Milas | hit | hit | hit | 18.44 | 10/6 | 4 (4+0) | $0.000 | OK |
+| 09-14 13:46 | `report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html` | TH · Ban Champa Thong, Nong Lat subdistrict, Warichaphum district | TH · Wanon Niwat / Ban Cham Pa Thong, Nong Lat subdistrict, Waritchaphum district | hit | hit | hit | 13.37 | 10/8 | 4 (3+1) | $0.000 | OK |
+| 09-14 13:46 | `report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html` | MX · La Tapona, Mexquitic de Carmona | MX · rural village near Villa de Arista / Moctezuma area, Altiplano Potosino | hit | hit | miss | 56.62 | 10/4 | 4 (3+1) | $0.000 | OK |
+| 09-14 13:46 | `report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html` | NZ · Mangatoro / Weber area, near Dannevirke | NZ · Manawatū-Whanganui / Tararua hill country (eastern North Island papa country) | hit | hit | miss | 28.12 | 10/5 | 4 (4+0) | $0.000 | OK |
+| 09-14 13:46 | `report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html` | IT · Casalsaglio / Casalvecchio, near Rivanazzano Terme–Voghera | IT · foothill plain south of Parma/Reggio Emilia (e.g. Traversetolo–Montecchio belt) | hit | miss | miss | 118.04 | 10/5 | 4 (4+0) | $0.000 | OK |
+| 09-14 13:46 | `report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html` | JP · Wajima (Monzenmachi Susukino, Noto Peninsula) | JP · rural hill village (likely Kanto/Tokai hinterland) | hit | miss | miss | 359.38 | 10/3 | 6 (6+0) | $0.000 | OK |
+| 09-14 13:46 | `report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html` | ES · Dos Hermanas | ES · Dos Hermanas (Seville metropolitan area) | hit | hit | hit | 0.74 | 10/2 | 5 (4+1) | $0.000 | OK |
 
 ## 이번 기록의 판별자 원자
 
@@ -139,48 +143,71 @@
   - `atm_895143231e7c` (병합) [economy/civic-building/region] IS>IS **Read the Heilbrigðisstofnun acronym: HVE on a north-facing bay means Húnaþing vestra**
   - `atm_e857853e0979` (병합) [nature/vegetation/country] NO>IS **Planted spruce blocks on bare heath vs Norway's continuous forest**
   - `atm_74079b0c8ba5` [architecture/religious-building/country] FO>IS **Icelandic village core: white spire, rainbow crosswalk, blue-canopy fuel station**
-- **job_7974038fd53d** (NG) — Full hit: Nigeria / Cross River North / Ogoja pinned within 0.9 km. The decisive chain was the Nigerian Pidgin billboard slogan plus the named senatorial campaign board, which fixes the northern Cross River senatorial district; the alternatives Ghana, Cameroon and the Igbo heartland were correctly e
-  - [language/dialect/country] CM>NG **Nigerian Pidgin billboard copy vs Krio or Cameroonian Pidgin**
-  - [culture/politics-civic/region] GH>NG **Senatorial-district campaign boards localise Nigerian panos to one district**
-  - [language/toponymy/region] NG>NG **Non-Igbo personal names in an English-only Nigerian south-east streetscape**
-  - [economy/infrastructure-built/region] NG>NG **Solar countdown traffic signals mark Nigerian LGA headquarters towns**
-  - [economy/business-chain/country] GH>NG **Independent Nigerian fuel marketers vs Ghanaian chain branding**
-- **job_5fed61e7bed8** (CO) — HIT: Colombia / Meta / Cumaral confirmed to within 0.24 km. The decisive chain was the Spanish "SAS" legal suffix plus peso-magnitude pricing ($21.999 with dot thousands separator), the green "Calle 10" blade of the Colombian Calle/Carrera grid, and the pharmacy banner's own branch label reading "Cu
-  - [economy/listed-company/country] VE>CO **SAS suffix marks Colombia, not Venezuela or Ecuador**
-  - [language/road-signage/country] EC>CO **Green Calle/Carrera blades vs other Latin street signage**
-  - [geography/urban-form/region] CO>CO **Llanos piedmont town fabric vs Amazonian frontier town**
-  - [economy/finance/country] EC>CO **Peso magnitude with dot separators rules out dollarized Ecuador**
-  - [culture/demography/region] CO>CO **Indigenous brand names hint at macro-region inside Colombia**
-- **job_84ae6f5d2adb** (CO) — Colombia and the Meta/Llanos piedmont were both correct; the only real error was the metro step — the analyst explicitly ruled OUT Cumaral ("grid too extensive for such small municipalities") and chose Acacías/Granada, giving an 86 km miss. The grid-extent heuristic (Carrera 21 + Calle 10/19 implies
-  - [geography/urban-form/region] CO>CO **High carrera numbers do not imply a big town in Llanos colonization grids**
-  - [nature/vegetation-cue/region] CO>CO **Closed shade canopy + hills right behind town = northern Meta piedmont, not Casanare plains**
-  - [language/road-signage/country] VE>CO **Colombian green street blade with separate arrow plate vs Venezuelan plaques**
-  - [architecture/religious-building/region] CO>CO **Piedmont colonization church vs Andean colonial church**
-- **job_40a2fbc96793** (CL) — Chile / Norte Chico / interior Huasco-sector quebrada confirmed at 86 km error. The decisive visible cues were the overhead parronal table-grape trellis with shade netting on a narrow alluvial floor against utterly barren oxidised slopes, the derelict riveted steel truss railway viaduct on concrete 
-  - [economy/agriculture/region] AR>CL **Parronal overhead trellis + shade net = Chile Norte Chico, not Argentine Cuyo**
-  - [geography/infrastructure-built/region] CL>CL **Bare gravel quebrada road vs paved Elqui/Limarí trunk valley**
-  - [history/industry/region] PE>CL **Derelict steel truss viaduct over a farm valley = Atacama mining branch line**
-  - [culture/housing-typology/country] PE>CL **Absent adobe/estera housing and mototaxis rules out Peruvian coastal valley**
-- **job_6a8a9a2f02f9** (TR) — HIT: Turkey / Muğla Province / Milas district confirmed, with only 18 km error (truth is the Etrenli–Danışment stretch of the dual D525 northwest of Milas, while the guess placed it southeast of Milas). The decisive visible cue was the bus-shelter fascia reading 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' wi
-  - [language/road-signage/country] GR>TR **Turkish KGM warning triangle + rain sub-plate vs Greek sign style**
-  - [culture/street-furniture/region] TR>TR **'T.C. … BÜYÜKŞEHİR BELEDİYESİ' shelters pin the province in rural Turkey**
-  - [nature/vegetation/region] TR>TR **Aegean olive-maquis hinterland vs Taurus/Antalya front**
-  - [economy/infrastructure-built/region] TR>TR **Muğla dual-carriageway legs: inland Söke road vs Bodrum coastal corridor**
-- **job_29de0e559057** (TH) — HIT: Thailand / Sakon Nakhon / Ban Champa Thong (Nong Lat, Warichaphum) was read directly off the green Thesaban Tambon project board, whose Thai script and tambon–amphoe–changwat chain fixed both country and district; the 13 km offset only reflects the guessed position along the village approach ro
-  - [language/script/country] LA>TH **Thai loops with tone marks vs Lao simplified glyphs on rural project boards**
-  - [geography/soil-terrain-cue/region] TH>TH **Red laterite shoulders on flat plateau mark Isan, not Central Thailand**
-  - [architecture/housing-typology/region] MY>TH **Hardwood-over-masonry Isan houses vs stilted Malay kampung houses**
-  - [language/toponymy/region] TH>TH **Ban/Nong toponyms vs Khmer Prasat/Ta- toponyms inside Isan**
-- **job_2567d62419b9** (MX) — HIT at country and state level: Mexico / San Luis Potosí was correct, and the guess landed 57 km from La Tapona (Mexquitic de Carmona) rather than the estimated Villa de Arista/Moctezuma area. The decisive visible evidence was the Chihuahuan Altiplano flora guild (giant branching Yucca filifera, pla
-  - [nature/vegetation/region] MX>MX **Altiplano Potosino vs Zacatecas plateau: mesquite bosque and giant palma china**
-  - [architecture/roof-facade/country] US>MX **Rural Mexico vs US Southwest: castillo-framed brick and square concrete poles**
-  - [economy/agriculture/region] US>MX **Nopal hedge on rock-pile wall marks Mexican ejido parcels, not fenced US rangeland**
-  - [geography/settlement-pattern/region] MX>MX **Peri-urban ejido fringe can look as remote as a deep-rural rancho**
 - **job_08cebc7d3644** (MX) — HIT at country and region: Mexico / Guanajuato (Bajío) was correctly identified, and the guess landed only ~23 km from the true point near Irapuato; only the intra-Bajío city call (Pénjamo/Cuerámaro rather than Irapuato/Yóstiro) was off. The decisive visible cues were the two-lane rural highway with
-  - [geography/soil-terrain-cue/region] MX>MX **Bajío basalt clearance piles vs Altiplano pale calcareous soil**
-  - [geography/road-marking/country] GT>MX **Mexican rural two-lane: dashed centre line only, no edge lines**
-  - [geography/settlement-pattern/region] MX>MX **Bajío linear colonia sits close to big cities, not only deep countryside**
-  - [economy/utility-pole/country] US>MX **CFE rural wooden poles with small transformers vs US rural distribution**
+  - `atm_f3fb02fa3be5` [geography/soil-terrain-cue/region] MX>MX **Bajío basalt clearance piles vs Altiplano pale calcareous soil**
+  - `atm_9aae63fb6cc3` [geography/road-marking/country] GT>MX **Mexican rural two-lane: dashed centre line only, no edge lines**
+  - `atm_82d74b56e40b` [geography/settlement-pattern/region] MX>MX **Bajío linear colonia sits close to big cities, not only deep countryside**
+  - `atm_e5dc061fdb33` [economy/utility-pole/country] US>MX **CFE rural wooden poles with small transformers vs US rural distribution**
+- **job_7974038fd53d** (NG) — Full hit: Nigeria / Cross River North / Ogoja pinned within 0.9 km. The decisive chain was the Nigerian Pidgin billboard slogan plus the named senatorial campaign board, which fixes the northern Cross River senatorial district; the alternatives Ghana, Cameroon and the Igbo heartland were correctly e
+  - `atm_73e57a387697` [language/dialect/country] CM>NG **Nigerian Pidgin billboard copy vs Krio or Cameroonian Pidgin**
+  - `atm_d97630c7288f` [culture/politics-civic/region] GH>NG **Senatorial-district campaign boards localise Nigerian panos to one district**
+  - `atm_c9e4132840cf` (병합) [language/toponymy/region] NG>NG **Non-Igbo personal names in an English-only Nigerian south-east streetscape**
+  - `atm_e15595eeb416` [economy/infrastructure-built/region] NG>NG **Solar countdown traffic signals mark Nigerian LGA headquarters towns**
+  - `atm_7e5c0b47c99a` [economy/business-chain/country] GH>NG **Independent Nigerian fuel marketers vs Ghanaian chain branding**
+- **job_5fed61e7bed8** (CO) — HIT: Colombia / Meta / Cumaral confirmed to within 0.24 km. The decisive chain was the Spanish "SAS" legal suffix plus peso-magnitude pricing ($21.999 with dot thousands separator), the green "Calle 10" blade of the Colombian Calle/Carrera grid, and the pharmacy banner's own branch label reading "Cu
+  - `atm_58cde6ebbc3d` [economy/listed-company/country] VE>CO **SAS suffix marks Colombia, not Venezuela or Ecuador**
+  - `atm_91b8f6217bd1` (병합) [language/road-signage/country] EC>CO **Green Calle/Carrera blades vs other Latin street signage**
+  - `atm_457ca0cf526a` [geography/urban-form/region] CO>CO **Llanos piedmont town fabric vs Amazonian frontier town**
+  - `atm_e74ee1efa100` [economy/finance/country] EC>CO **Peso magnitude with dot separators rules out dollarized Ecuador**
+  - `atm_1fe840b3212c` [culture/demography/region] CO>CO **Indigenous brand names hint at macro-region inside Colombia**
+- **job_84ae6f5d2adb** (CO) — Colombia and the Meta/Llanos piedmont were both correct; the only real error was the metro step — the analyst explicitly ruled OUT Cumaral ("grid too extensive for such small municipalities") and chose Acacías/Granada, giving an 86 km miss. The grid-extent heuristic (Carrera 21 + Calle 10/19 implies
+  - `atm_457ca0cf526a` (병합) [geography/urban-form/region] CO>CO **High carrera numbers do not imply a big town in Llanos colonization grids**
+  - `atm_0c63c014b962` [nature/vegetation-cue/region] CO>CO **Closed shade canopy + hills right behind town = northern Meta piedmont, not Casanare plains**
+  - `atm_91b8f6217bd1` (병합) [language/road-signage/country] VE>CO **Colombian green street blade with separate arrow plate vs Venezuelan plaques**
+  - `atm_a4c8d01b5267` [architecture/religious-building/region] CO>CO **Piedmont colonization church vs Andean colonial church**
+- **job_40a2fbc96793** (CL) — Chile / Norte Chico / interior Huasco-sector quebrada confirmed at 86 km error. The decisive visible cues were the overhead parronal table-grape trellis with shade netting on a narrow alluvial floor against utterly barren oxidised slopes, the derelict riveted steel truss railway viaduct on concrete 
+  - `atm_e591fce7975b` (병합) [economy/agriculture/region] AR>CL **Parronal overhead trellis + shade net = Chile Norte Chico, not Argentine Cuyo**
+  - `atm_fe1fabd7b881` [geography/infrastructure-built/region] CL>CL **Bare gravel quebrada road vs paved Elqui/Limarí trunk valley**
+  - `atm_ca536dbdc238` [history/industry/region] PE>CL **Derelict steel truss viaduct over a farm valley = Atacama mining branch line**
+  - `atm_173fb47af208` [culture/housing-typology/country] PE>CL **Absent adobe/estera housing and mototaxis rules out Peruvian coastal valley**
+- **job_6a8a9a2f02f9** (TR) — HIT: Turkey / Muğla Province / Milas district confirmed, with only 18 km error (truth is the Etrenli–Danışment stretch of the dual D525 northwest of Milas, while the guess placed it southeast of Milas). The decisive visible cue was the bus-shelter fascia reading 'T.C. MUĞLA BÜYÜKŞEHİR BELEDİYESİ' wi
+  - `atm_ad4651f749ac` [language/road-signage/country] GR>TR **Turkish KGM warning triangle + rain sub-plate vs Greek sign style**
+  - `atm_e0ddecfde4f8` [culture/street-furniture/region] TR>TR **'T.C. … BÜYÜKŞEHİR BELEDİYESİ' shelters pin the province in rural Turkey**
+  - `atm_1c6af51b0fc1` [nature/vegetation/region] TR>TR **Aegean olive-maquis hinterland vs Taurus/Antalya front**
+  - `atm_676b94e88700` [economy/infrastructure-built/region] TR>TR **Muğla dual-carriageway legs: inland Söke road vs Bodrum coastal corridor**
+- **job_29de0e559057** (TH) — HIT: Thailand / Sakon Nakhon / Ban Champa Thong (Nong Lat, Warichaphum) was read directly off the green Thesaban Tambon project board, whose Thai script and tambon–amphoe–changwat chain fixed both country and district; the 13 km offset only reflects the guessed position along the village approach ro
+  - `atm_e2c9a9aafaf4` (병합) [language/script/country] LA>TH **Thai loops with tone marks vs Lao simplified glyphs on rural project boards**
+  - `atm_735a7287ad2c` [geography/soil-terrain-cue/region] TH>TH **Red laterite shoulders on flat plateau mark Isan, not Central Thailand**
+  - `atm_a1b98b03e41a` [architecture/housing-typology/region] MY>TH **Hardwood-over-masonry Isan houses vs stilted Malay kampung houses**
+  - `atm_9a93da5618de` [language/toponymy/region] TH>TH **Ban/Nong toponyms vs Khmer Prasat/Ta- toponyms inside Isan**
+- **job_2567d62419b9** (MX) — HIT at country and state level: Mexico / San Luis Potosí was correct, and the guess landed 57 km from La Tapona (Mexquitic de Carmona) rather than the estimated Villa de Arista/Moctezuma area. The decisive visible evidence was the Chihuahuan Altiplano flora guild (giant branching Yucca filifera, pla
+  - `atm_e452dc6b1629` [nature/vegetation/region] MX>MX **Altiplano Potosino vs Zacatecas plateau: mesquite bosque and giant palma china**
+  - `atm_4b98d01184f6` [architecture/roof-facade/country] US>MX **Rural Mexico vs US Southwest: castillo-framed brick and square concrete poles**
+  - `atm_6073bba1ba34` [economy/agriculture/region] US>MX **Nopal hedge on rock-pile wall marks Mexican ejido parcels, not fenced US rangeland**
+  - `atm_82d74b56e40b` (병합) [geography/settlement-pattern/region] MX>MX **Peri-urban ejido fringe can look as remote as a deep-rural rancho**
+- **job_1c1d0cff604e** (NZ) — Near-exact hit: the analyst read NZ correctly from the NZTA one-lane-bridge sign pair (yellow diamond narrowing-bridge pictogram + blue priority plate with white/red arrows) and placed it in the eastern North Island papa hill country at -40.05/176.05, only 28 km from the true Tararua/Weber-Mangatoro
+  - `atm_c0028c87af29` [geography/road-signage/country] AU>NZ **One-lane bridge: NZ pictogram+blue arrow plate vs Australian worded sign**
+  - `atm_935d031e2a8f` [nature/soil-terrain-cue/region] NZ>NZ **Papa mudstone cut banks mark eastern North Island, not South Island greywacke**
+  - `atm_30644ea72f98` [nature/climate/region] NZ>NZ **Drought-browned pasture with green gullies = eastern rain shadow, not Taranaki/Waikato**
+  - `atm_b2e8cd2ce0f6` [nature/vegetation/country] AU>NZ **Toetoe plumes and broadleaf bush vs eucalypt woodland**
+- **job_75b28777ae09** (IT) — Italy was correctly identified from the striped kerbside bins, concrete ENEL poles and plain-brick courtyard farm, but the region was placed ~118 km too far east: the pano is in the Lombard Oltrepò Pavese near Voghera/Rivanazzano, not the Parma–Reggio foothill belt. The analyst explicitly excluded t
+  - `atm_ec115d67939d` [geography/agriculture/region] IT>IT **Oltrepò Pavese plain looks vine-free: vines sit behind the first hill line**
+  - `atm_b905eb4795d9` [geography/landform/region] IT>IT **Pede-Apennine step is pan-regional: don't convert hill-front proximity into a province**
+  - `atm_4ded08bf94f9` [architecture/housing-typology/region] IT>IT **Brick cascina with block shed is Lombard-to-Emilian, not diagnostic of Emilia**
+  - `atm_3c739719836a` [economy/agriculture/region] IT>IT **Hay tedder and forage plots mean dairy, not specifically Parmigiano-Reggiano**
+- **job_265023c0c00f** (JP) — Country (Japan) was correct, but the region was wrong: the analyst placed the scene in the Kanto/Boso Pacific-side satoyama when it is actually Noto Peninsula, Ishikawa (Hokuriku, Sea-of-Japan side). The decisive error was treating "no snow poles / no snowmelt sprinklers / healthy moso bamboo / stra
+  - `atm_eba3dc758411` [geography/road-marking/region] JP>JP **Missing snowmelt sprinklers do not rule out Hokuriku on minor lanes**
+  - `atm_18dfb917ecd9` [nature/vegetation/region] JP>JP **Moso bamboo thrives on the Sea-of-Japan coast up to Noto**
+  - `atm_76095061912d` [architecture/roof-facade/region] JP>JP **Dark tarred board cladding + metal roof vs Kanto's kawara farm shed**
+  - `atm_ebc7c2ef6ce2` [economy/settlement-pattern/region] JP>JP **Depopulating peninsula hamlet vs commuter-belt Kanto satoyama**
+  - `atm_9f4060f146e8` [geography/soil-terrain-cue/region] JP>JP **Kanto loam is dark/reddish, not pale brown**
+  - `atm_dca606fecd4d` [culture/street-furniture/country] KR>JP **Grated concrete U-ditch and orange-post convex mirror fix Japan, not the region**
+- **job_22e8bfa81b66** (ES) — HIT at city level (0.74 km error): Spain / Seville province / Dos Hermanas was correctly read from the azulejo corner street tile with a bare Spanish noun ('COSTURERA'), Sevillian cream-and-salmon adosados with barrel tiles and rejas, DGT-style thin-rimmed prohibition discs, and a completely flat st
+  - `atm_ad6ef340394d` (병합) [language/signage-language/region] PT>ES **Andalusian azulejo street plaque vs Portuguese enamel 'RUA' plate**
+  - `atm_288c6a410e97` [architecture/housing-typology/region] ES>ES **Sevillian salmon-render adosados vs Levante flat-roof suburbia**
+  - `atm_b0dafbf62e75` [geography/landform/region] ES>ES **Flat closed street-end horizon separates Seville plain from Granada/Malaga**
+  - `atm_7f58247de8e3` [architecture/urban-form/region] ES>ES **Metro-satellite signature: brick bloques with garage fronts next to adosado estates**
+  - `atm_e11e2807a7c5` [culture/road-marking/country] IT>ES **Spanish kerb-and-apron colour coding vs Italian street furniture**
 
 ## 유도 확인 (redo)
 
@@ -221,6 +248,22 @@
 | 09-11 00:14 | job_29de0e559057 | TH | TH | hit | 13.37 | 10/8 |  | 4 | 0/0 | $0.576 |
 | 09-11 00:16 | job_2567d62419b9 | MX | MX | hit | 56.62 | 10/4 |  | 4 | 0/0 | $0.599 |
 | 09-11 00:19 | job_08cebc7d3644 | MX | MX | hit | 22.87 | 10/0 |  | 4 | 0/0 | $0.600 |
+| 09-14 13:11 | job_1c1d0cff604e | NZ | NZ | hit | 28.12 | 10/5 |  | 4 | 0/0 | $0.543 |
+| 09-14 13:13 | job_75b28777ae09 | IT | IT | hit | 118.04 | 10/5 |  | 4 | 0/0 | $0.565 |
+| 09-14 13:16 | job_265023c0c00f | JP | JP | hit | 359.38 | 10/3 |  | 6 | 0/0 | $0.593 |
+| 09-14 13:19 | job_22e8bfa81b66 | ES | ES | hit | 0.74 | 10/2 |  | 5 | 0/0 | $0.580 |
+| 09-14 13:46 | job_08cebc7d3644 | MX | MX | hit | 22.87 | 10/0 |  | 4 | 3/0 | $0.000 |
+| 09-14 13:46 | job_7974038fd53d | NG | NG | hit | 0.89 | 0/0 |  | 5 | 0/0 | $0.000 |
+| 09-14 13:46 | job_5fed61e7bed8 | CO | CO | hit | 0.24 | 1/1 |  | 5 | 0/1 | $0.000 |
+| 09-14 13:46 | job_84ae6f5d2adb | CO | CO | hit | 86.38 | 7/6 |  | 4 | 3/1 | $0.000 |
+| 09-14 13:46 | job_40a2fbc96793 | CL | CL | hit | 85.92 | 10/4 |  | 4 | 4/0 | $0.000 |
+| 09-14 13:46 | job_6a8a9a2f02f9 | TR | TR | hit | 18.44 | 10/6 |  | 4 | 6/0 | $0.000 |
+| 09-14 13:46 | job_29de0e559057 | TH | TH | hit | 13.37 | 10/8 |  | 4 | 6/0 | $0.000 |
+| 09-14 13:46 | job_2567d62419b9 | MX | MX | hit | 56.62 | 10/4 |  | 4 | 4/0 | $0.000 |
+| 09-14 13:46 | job_1c1d0cff604e | NZ | NZ | hit | 28.12 | 10/5 |  | 4 | 5/0 | $0.000 |
+| 09-14 13:46 | job_75b28777ae09 | IT | IT | hit | 118.04 | 10/5 |  | 4 | 1/3 | $0.000 |
+| 09-14 13:46 | job_265023c0c00f | JP | JP | hit | 359.38 | 10/3 |  | 6 | 2/1 | $0.000 |
+| 09-14 13:46 | job_22e8bfa81b66 | ES | ES | hit | 0.74 | 10/2 |  | 5 | 2/0 | $0.000 |
 
 ## 파일
 

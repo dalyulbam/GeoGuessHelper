@@ -1,0 +1,977 @@
+{
+ "job_id": "job_265023c0c00f",
+ "report_file": "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html",
+ "label": "선택 장면 보고서 · Xup2LY96…3vLg",
+ "created": 1789361199.421125,
+ "lang": "en",
+ "images": [
+  "capture_7b88a19d1d5b.jpg",
+  "capture_09a1300a55b6.jpg",
+  "capture_a6c59411dbb7.jpg",
+  "capture_3aed2be2ca14.jpg",
+  "capture_10b684fbe07b.jpg",
+  "capture_ed2cdc0b70fb.jpg"
+ ],
+ "image_panos": {
+  "capture_7b88a19d1d5b.jpg": {
+   "pano_id": "Xup2LY96cnhJ5-ZsvN3vLg",
+   "lat": 37.34045333109036,
+   "lng": 136.78467373205194,
+   "heading": 316.0399756189382,
+   "pitch": 1.4442529479300248
+  },
+  "capture_09a1300a55b6.jpg": {
+   "pano_id": "Nxmw1Um68k7aL_Y94hR9OQ",
+   "lat": 37.34073503745608,
+   "lng": 136.78466829979405,
+   "heading": 242.8234984828781,
+   "pitch": 12.440726199020887
+  },
+  "capture_a6c59411dbb7.jpg": {
+   "pano_id": "s3yIxhIWO4gha-miZYRgHA",
+   "lat": 37.339821209637726,
+   "lng": 136.78496403220865,
+   "heading": 125.61106585489534,
+   "pitch": 7.186383856583049
+  },
+  "capture_3aed2be2ca14.jpg": {
+   "pano_id": "-Fx-7igV74Hwbm11T6ntGQ",
+   "lat": 37.3394590282004,
+   "lng": 136.78499646582677,
+   "heading": 243.25723953842635,
+   "pitch": -3.776595104504821
+  },
+  "capture_10b684fbe07b.jpg": {
+   "pano_id": "kxPJmwQnT2f-6MngG6hn6w",
+   "lat": 37.33881608360684,
+   "lng": 136.7856861267586,
+   "heading": 133.1504167354934,
+   "pitch": 3.576505776639422
+  },
+  "capture_ed2cdc0b70fb.jpg": {
+   "pano_id": "Go_cpCI2ejZeIeC2so_ZbQ",
+   "lat": 37.33848713297365,
+   "lng": 136.7859868502292,
+   "heading": 207.8778554497066,
+   "pitch": -6.543010114181698
+  }
+ },
+ "truth": {
+  "lat": 37.338152270690045,
+  "lng": 136.78593653493732,
+  "iso": "JP",
+  "country": "Japan",
+  "region": "Ishikawa Prefecture",
+  "city": "Wajima (Monzenmachi Susukino, Noto Peninsula)",
+  "source": "aided_prior",
+  "file_lat": 37.3405,
+  "file_lng": 136.7847,
+  "n_panos": 10
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Kamogawa / Kimitsu inland hills (Boso Peninsula)",
+     "confidence": 0.4,
+     "coordinate_estimate": {
+      "lat": 35.15,
+      "lng": 140.05,
+      "radius_km": 45
+     },
+     "country": "Japan",
+     "country_iso": "JP",
+     "region_or_state": "Chiba Prefecture"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Humid subtropical / warm-temperate, heavy summer growth; mixed sugi plantation and moso bamboo",
+     "driving_side": "left",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Dense moso bamboo grove (Phyllostachys edulis) growing right against a narrow single-lane paved farm road, with Cryptomeria japonica (sugi) plantation behind it",
+      "supports": [
+       "Japan",
+       "warm-temperate East Asia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_infrastructure",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Orange-post convex traffic mirror on a slim pole at a blind bend of a farm track — the standard Japanese rural curve mirror",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Weathered board-and-batten timber shed with corrugated-plastic sliding doors, plus low pipe-frame vinyl greenhouses and a concrete lidded roadside gutter with steel grate",
+      "supports": [
+       "Japan rural smallholding"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "street_furniture",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Yellow plastic crate and orange-white striped traffic cones typical of Japanese sites; overhead single-phase service drop on wooden/concrete pole",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "religion_culture",
+      "image_index": 3,
+      "level": "district",
+      "observation": "Concrete approach steps flanked by clipped shrubs leading up into a sugi grove, closed by a simple pipe gate — a small village shrine/graveyard approach on a hilltop",
+      "supports": [
+       "rural Japanese hamlet"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "forestry",
+      "image_index": 4,
+      "level": "macro_region",
+      "observation": "Tall, dense, unthinned sugi/hinoki plantation crowding both sides of a 3 m concrete-edged lane on rolling low hills — classic post-war afforestation of a warm, snow-free upland",
+      "supports": [
+       "western Honshu / Kanto-Boso / Kyushu hill country"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "terrain",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Low, rounded, densely forested hills of modest relief (no alpine ridges, no snow poles, no steep rock faces) with a wind turbine / lattice tower on a ridgeline",
+      "supports": [
+       "low coastal hill range rather than central mountain spine"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "agriculture",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Bamboo-pole rail fencing around a small orchard/vegetable terrace, grass-covered field margins, no paddy terraces visible at this elevation",
+      "supports": [
+       "upland smallholder mixed farming"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "climate_markers",
+      "image_index": null,
+      "level": "macro_region",
+      "observation": "No snow-country features at all: no roof snow-stops, no red-and-white snow depth poles, no roadside sprinkler nozzles, shallow-pitch roofs",
+      "supports": [
+       "Pacific-side, mild-winter region"
+      ],
+      "weight": "high"
+     }
+    ],
+    "cultural_economic_read": "A depopulating upland hamlet economy: subsistence-scale vegetable plots and vinyl greenhouses, aging timber outbuildings, bamboo-pole fencing made from on-site material, and vast unthinned cedar plantations that are no longer commercially harvested. Roads are single-lane municipal farm tracks with concrete gutters and curve mirrors but no guardrails or markings — public investment is minimal and maintenance is basic. The presence of a tended shrine approach and mown grass shows a small resident community still maintaining communal space, typical of Japanese satoyama villages within a few hours of a metropolitan area.",
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 3,
+      "name": "Village shrine or cemetery approach in a cedar grove",
+      "type": "religious site"
+     },
+     {
+      "confidence": 0.35,
+      "image_index": 5,
+      "name": "Ridge-top wind turbine / lattice mast",
+      "type": "infrastructure"
+     }
+    ],
+    "languages_detected": [],
+    "narrowing": [
+     {
+      "candidates": [
+       "East Asia",
+       "Southeast Asia",
+       "Europe",
+       "North America"
+      ],
+      "conclusion": "Warm-temperate East Asia",
+      "confidence_after": 0.95,
+      "discriminator": "A European or North American rural lane would show no moso bamboo groves and no monoculture Cryptomeria; Southeast Asia would show broadleaf evergreen, banana, and no cedar plantations.",
+      "level": "continent",
+      "observation": "Moso bamboo thicket beside sugi (Japanese cedar) plantation, lush summer undergrowth, narrow unmarked paved lane.",
+      "ruled_out": [
+       "Europe: no bamboo groves or Cryptomeria plantation forestry",
+       "Southeast Asia: forest composition and temperate undergrowth wrong",
+       "North America: no analogous bamboo/cedar mosaic"
+      ],
+      "question": "Which continent and biome does this forest mosaic belong to?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Japan",
+       "South Korea",
+       "Taiwan",
+       "SE China"
+      ],
+      "conclusion": "Japan",
+      "confidence_after": 0.93,
+      "discriminator": "Korea would use grey/blue-painted mirror posts, different gutter covers, and pine (Pinus densiflora) rather than sugi monoculture; Taiwan/China would show concrete block or tile-faced sheds and Chinese-character signage on utility poles, plus right-hand traffic layout.",
+      "level": "country",
+      "observation": "Orange-post convex curve mirror, concrete U-gutter with steel grating flush to the lane edge, pipe-frame vinyl greenhouse, weathered timber shed with corrugated-plastic door panels, orange/white cones.",
+      "ruled_out": [
+       "South Korea: mirror hardware, gutter and shed typology differ; sugi monoculture is Japanese",
+       "Taiwan: subtropical broadleaf and betel/bamboo mix, masonry farm buildings",
+       "China: road furniture and building materials do not match"
+      ],
+      "question": "Japan or a neighbouring East Asian country?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Hokkaido",
+       "Tohoku/Hokuriku snow belt",
+       "Pacific-side warm Honshu",
+       "Shikoku/Kyushu"
+      ],
+      "conclusion": "Pacific-side warm-temperate Japan (Kanto south, Tokai, Shikoku or Kyushu)",
+      "confidence_after": 0.85,
+      "discriminator": "Snow-country Japan (Hokuriku, Tohoku, Hokkaido) would show red-and-white snow-depth markers on every curve, roof snow-stop bars, deep eaves, water-sprinkler nozzles down the lane centre, and no moso bamboo at this density; Hokkaido has no sugi plantations or bamboo at all.",
+      "level": "macro_region",
+      "observation": "Massive moso bamboo grove thriving, zero snow-management infrastructure anywhere, shallow-pitch shed roof, evergreen broadleaf shrubs (camellia-type) in the undergrowth.",
+      "ruled_out": [
+       "Hokkaido: no moso bamboo, larch not sugi",
+       "Tohoku/Hokuriku: absence of snow poles and sprinklers is decisive"
+      ],
+      "question": "Snow-belt Japan or the mild Pacific side?",
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Kanto hills (Boso/Chichibu)",
+       "Tokai (Shizuoka/Mie)",
+       "Kii Peninsula",
+       "Shikoku interior",
+       "Kyushu interior"
+      ],
+      "conclusion": "Low rolling hill country of a coastal peninsula, most consistent with the Boso Peninsula or similar low Kanto/Tokai hills",
+      "confidence_after": 0.5,
+      "discriminator": "Kii, Shikoku and Kyushu interiors would show high relief — steep V-shaped valleys, long concrete retaining walls and rock-fall netting, terraced tea or mikan groves, and distant sharp ridgelines; here the skyline is a low, rounded, uniformly forested ridge under 300-400 m with gentle gradients and open grassy field margins. Shizuoka would typically add tea terraces.",
+      "level": "admin_region",
+      "observation": "Gentle rounded forested hills, shallow valleys, small flat grassy clearings, a wind turbine on a low ridge, and a plateau-like lane with no cut-slope armouring.",
+      "ruled_out": [
+       "Kii Peninsula / Shikoku interior: relief far too gentle here, no rockfall netting or steep concrete revetments",
+       "Shizuoka: no tea terracing despite ideal slope aspect"
+      ],
+      "question": "High mountain interior or low peninsular hill country?",
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Boso Peninsula inland (Kimitsu/Kamogawa/Otaki)",
+       "Ibaraki-Tochigi hill fringe",
+       "Miura/Tanzawa foothills"
+      ],
+      "conclusion": "Inland Boso Peninsula satoyama, around the Kimitsu-Kamogawa-Otaki upland",
+      "confidence_after": 0.4,
+      "discriminator": "Ibaraki/Tochigi hill fringe would show pine-oak mix, red-brown Kanto loam cuttings with less bamboo dominance and more flat paddy basins; Miura/Tanzawa would be steeper and more suburbanised with guardrails and denser housing. Boso uniquely combines very dense moso bamboo, unthinned sugi plantations, mudstone/sandy cut banks, wind turbines on its low ridges and heavily depopulated single-lane hilltop hamlets.",
+      "level": "metro_area",
+      "observation": "Extremely dense moso bamboo adjacent to an abandoned-looking cedar stand, sandy-brown soft cut banks, hilltop shrine grove, and a ridge wind turbine — all within a few kilometres of each other.",
+      "ruled_out": [
+       "Miura/Tanzawa: too remote and undeveloped for those foothills",
+       "Ibaraki/Tochigi: bamboo dominance and soft sedimentary cut banks less typical"
+      ],
+      "question": "Which low-hill district of the Kanto/Tokai fringe?",
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "boso-peninsula",
+    "relied_on_atoms": [],
+    "revised_from": null,
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Japan",
+      "country_iso": "JP"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Japan",
+      "country_iso": "JP"
+     },
+     {
+      "confidence": 0.08,
+      "country": "South Korea",
+      "country_iso": "KR"
+     }
+    ]
+   },
+   "cost_usd": 0.2229,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4080,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Japan",
+    "country_iso": "JP",
+    "country_correct": true,
+    "region": "Chiba Prefecture",
+    "city": "Kamogawa / Kimitsu inland hills (Boso Peninsula)",
+    "confidence": 0.4,
+    "overall_confidence": 0.55,
+    "error_km": 380.59,
+    "reached_level": "metro_area",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 9,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "agriculture",
+     "architecture",
+     "climate_markers",
+     "forestry",
+     "religion_culture",
+     "road_infrastructure",
+     "street_furniture",
+     "terrain",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "rural hill village (likely Kanto/Tokai hinterland)",
+     "confidence": 0.62,
+     "coordinate_estimate": {
+      "lat": 35.35,
+      "lng": 139.95,
+      "radius_km": 120
+     },
+     "country": "Japan",
+     "country_iso": "JP",
+     "region_or_state": "Chiba / Ibaraki hilly upland (Boso-Kanto satoyama belt)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Humid subtropical (Cfa), warm-summer monsoon; dense evergreen conifer plantation mixed with moso bamboo and broadleaf",
+     "driving_side": "left",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Dense Phyllostachys edulis (moso) bamboo grove growing directly against sugi/hinoki plantation edge — the classic Japanese satoyama mosaic of managed bamboo + conifer.",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "forestry",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Ruler-straight, uniformly spaced Cryptomeria japonica (sugi) plantation with lower trunks pruned clean and no undergrowth management — the postwar afforestation pattern found nationwide in Japan.",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_furniture",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Convex orange-post traffic mirror on a slim red/orange pole at a blind bend of a one-lane farm lane — a ubiquitous Japanese rural fixture.",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_furniture",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Concrete U-ditch with steel grate lid running along the lane edge in front of the shed, plus an orange-and-white striped traffic cone.",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Weathered board-clad timber storage shed with corrugated metal lean-to, corrugated polycarbonate sliding doors and adjoining vinyl greenhouse — standard Japanese small-holder farm outbuilding kit.",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Stepped concrete approach path with mortared stone retaining wall and a simple pipe gate leading up into a cedar stand — typical approach to a small village shrine or family grave plot.",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_markings",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Narrow single-lane paved forest road with only a white outside edge line and no centre line; asphalt patched in longitudinal strips — Japanese municipal/forestry road standard.",
+      "supports": [
+       "Japan"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "agriculture",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Split bamboo post-and-rail fencing enclosing a mown orchard terrace of chestnut/persimmon-type trees on gentle hill slopes.",
+      "supports": [
+       "low-altitude Kanto satoyama"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "topography",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Rolling low hills, no high mountain skyline, broad gentle valley floor; a slender lattice mast/wind turbine visible on the far ridge.",
+      "supports": [
+       "Kanto/Boso upland rather than Chubu alpine"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "climate_indicator",
+      "image_index": null,
+      "level": "macro_region",
+      "observation": "No snow poles, no snow-shedding steep metal roofs, no roadside snow-melt sprinkler heads; lush evergreen understorey and bamboo thriving at road level.",
+      "supports": [
+       "Pacific-side, low-snow Japan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "sun_angle",
+      "image_index": 1,
+      "level": "continent",
+      "observation": "High summer sun with dense green canopy, mid-latitude northern-hemisphere growing season.",
+      "supports": [
+       "northern hemisphere summer"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A depopulating satoyama hamlet: small-scale mixed farming (vinyl greenhouse, kitchen-garden leeks, chestnut/persimmon orchard) tucked between commercial sugi/hinoki plantations and unmanaged bamboo that is visibly invading field edges — the classic symptom of successor shortage and the 'disappearing municipality' dynamic in rural Japan. Roads are paved and drained to municipal standard, so public infrastructure spending is high relative to the tiny resident population; buildings are cheap timber/corrugated utility structures rather than new construction, implying an ageing, low-investment household economy. Forestry here is legacy postwar planting with low current returns, and the hilltop mast/turbine hints at renewable-energy siting on cheap upland — a common contemporary rural income substitute.",
+    "landmarks": [
+     {
+      "confidence": 0.45,
+      "image_index": 3,
+      "name": "Small village shrine or family grave approach (stone-walled stepped path into cedar grove)",
+      "type": "religious/funerary site"
+     },
+     {
+      "confidence": 0.3,
+      "image_index": 5,
+      "name": "Ridge-top lattice mast / wind turbine",
+      "type": "infrastructure"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.2,
+      "evidence": "No legible text anywhere in the six frames; inference is from material culture only (U-ditch, traffic mirror, bamboo fence, sugi plantation), not from script.",
+      "language": "Japanese (inferred, not read)",
+      "script": "none visible"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "East Asia",
+       "Southeast Asia",
+       "Europe",
+       "North America"
+      ],
+      "conclusion": "Humid temperate East Asia",
+      "confidence_after": 0.93,
+      "discriminator": "Southeast Asia would show banana, betel palm, laterite red soil and open concrete drains; Europe/North America have no moso bamboo groves interleaved with plantation conifer and would show wire stock fencing, not split-bamboo rails.",
+      "level": "continent",
+      "observation": "Moso bamboo grove, Cryptomeria plantation, split-bamboo fencing, lush Cfa understorey, left-hand narrow lanes.",
+      "question": "Which continent/biome does this vegetation-plus-infrastructure mix belong to?",
+      "ruled_out": [
+       "Southeast Asia — no palms/banana/laterite",
+       "Europe — no bamboo groves or sugi monoculture",
+       "North America — no bamboo, different fence and drain vocabulary"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Japan",
+       "South Korea",
+       "Taiwan",
+       "eastern China"
+      ],
+      "conclusion": "Japan",
+      "confidence_after": 0.92,
+      "discriminator": "Korea would show coloured metal 'slate' roofs, boiler flue pipes and open (unlidded) concrete drains; Taiwan unpainted RC boxes with rooftop stainless water tanks plus betel/banana; eastern China would show whitewashed brick-and-RC farmhouses and blue-sheet roofing. Here instead: grated concrete U-ditch flush to the lane, orange-post convex traffic mirror at the blind bend, board-clad timber shed with corrugated-poly sliding doors, vinyl greenhouse, and a striped cone — the exact Japanese rural furniture set.",
+      "level": "country",
+      "observation": "Image 2 shows a lidded/grated concrete U-ditch beside a timber shed; image 1 shows the orange-stem convex mirror; image 4 the pruned sugi plantation with white edge line only.",
+      "question": "Japan, Korea, Taiwan or coastal China?",
+      "ruled_out": [
+       "South Korea — no slate roofs, no flue pipes, drains are lidded U-ditch",
+       "Taiwan — no RC boxes/water tanks, no betel or banana",
+       "China — no brick-and-tile courtyard fabric, forestry is Japanese-style sugi monoculture"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Hokkaido",
+       "Tohoku/Hokuriku snow country",
+       "Pacific-side Honshu (Kanto/Tokai)",
+       "Kyushu"
+      ],
+      "conclusion": "Low-snow Pacific-side Japan (Kanto/Tokai or northern Kyushu)",
+      "confidence_after": 0.82,
+      "discriminator": "Hokkaido would show red-and-white 'poteito' snow poles and no moso bamboo at all; Hokuriku/Tohoku would show roadside snowmelt sprinkler nozzles, tall snow-depth markers, steep metal roofs and deep eaves, plus sugi with heavy basal sweep from snow creep. None of those appear — the sugi trunks are dead straight, the shed has a shallow shingle-pitch roof, and bamboo is thriving at road level.",
+      "level": "macro_region",
+      "observation": "No snow poles, no sprinkler heads in the road crown, straight-boled sugi, shallow roof pitch, healthy moso groves.",
+      "question": "Snow country or Pacific-side low-snow Japan?",
+      "ruled_out": [
+       "Hokkaido — no poteito snow poles, bamboo would not survive",
+       "Hokuriku/Tohoku — no snowmelt sprinklers or snow-creep trunk sweep"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Kanto hill fringe (Chiba/Ibaraki/Tochigi)",
+       "Tokai (Shizuoka/Aichi hills)",
+       "northern Kyushu"
+      ],
+      "conclusion": "Kanto satoyama hill fringe, most likely the Boso/Ibaraki upland",
+      "confidence_after": 0.6,
+      "discriminator": "Tokai hill country at this elevation would almost certainly show terraced tea rows (Shizuoka) and steeper dissected slopes with cut-and-cover concrete slope faces; northern Kyushu would show more red-brown weathered andesitic soil banks and often a different roadside guard-pipe painting convention. Here the relief is low and rounded, the exposed cut bank in image 2 is pale brown loam rather than red volcanic clay, the orchard is chestnut/persimmon rather than tea or citrus, and the valley floor is broad and grassy.",
+      "level": "admin_region",
+      "observation": "Rounded low hills with broad valley flats, pale loamy cut banks, chestnut/persimmon orchard behind split-bamboo fencing, no tea terraces, no citrus.",
+      "question": "Which Pacific-side upland — Kanto fringe, Tokai, or northern Kyushu?",
+      "ruled_out": [
+       "Tokai/Shizuoka — no tea terraces, relief too gentle",
+       "Northern Kyushu — soil colour and orchard species do not match"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Boso Peninsula interior (Chiba)",
+       "Ibaraki/Tochigi Yamizo foothills",
+       "Saitama-Gunma hill fringe"
+      ],
+      "conclusion": "Cannot be split with confidence; slight lean to the Boso/Ibaraki side because of dominant moso bamboo and very low ridge heights",
+      "confidence_after": 0.45,
+      "discriminator": "A definite cut would need a route marker, a utility pole nameplate, a bus stop or a phone area code on a sign — none are legible in any frame. Saitama-Gunma would tend to show higher, bluer ridge lines and more Chichibu-style limestone/steep slope works; nothing that diagnostic is visible.",
+      "level": "metro_area",
+      "observation": "No signage, no utility pole plates, no route markers, no vehicles with plates visible anywhere in the six frames.",
+      "question": "Which specific Kanto upland district?",
+      "ruled_out": [],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.62,
+    "place_slug": "boso-peninsula",
+    "relied_on_atoms": [
+     "atm_e0e0e7bcfbe4",
+     "atm_726f0d1570b0",
+     "atm_e75b1bf2f7fa"
+    ],
+    "revised_from": null,
+    "alternatives": [
+     {
+      "confidence": 0.15,
+      "country": "Japan",
+      "country_iso": "JP"
+     },
+     {
+      "confidence": 0.12,
+      "country": "South Korea",
+      "country_iso": "KR"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Taiwan",
+      "country_iso": "TW"
+     }
+    ]
+   },
+   "cost_usd": 0.1345,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2509,
+    "output": 4499,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Japan",
+    "country_iso": "JP",
+    "country_correct": true,
+    "region": "Chiba / Ibaraki hilly upland (Boso-Kanto satoyama belt)",
+    "city": "rural hill village (likely Kanto/Tokai hinterland)",
+    "confidence": 0.62,
+    "overall_confidence": 0.62,
+    "error_km": 359.38,
+    "reached_level": "metro_area",
+    "n_steps": 5,
+    "n_steps_with_cut": 4,
+    "n_cues": 11,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "agriculture",
+     "architecture",
+     "climate_indicator",
+     "forestry",
+     "infrastructure",
+     "road_furniture",
+     "road_markings",
+     "sun_angle",
+     "topography",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_e0e0e7bcfbe4",
+    "atm_ad557b503715",
+    "atm_e75b1bf2f7fa",
+    "atm_8f4166ec8daf",
+    "atm_726f0d1570b0",
+    "atm_c5683d7f6a32",
+    "atm_a919b2d25025",
+    "atm_2893ef2e3a1c",
+    "atm_52fa8fc7482a",
+    "atm_1ebe4a61b6ca"
+   ],
+   "relied_on": [
+    "atm_e0e0e7bcfbe4",
+    "atm_726f0d1570b0",
+    "atm_e75b1bf2f7fa"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "JP",
+   "country": "Japan",
+   "region": "Chiba / Ibaraki hilly upland (Boso-Kanto satoyama belt)",
+   "city": "rural hill village (likely Kanto/Tokai hinterland)",
+   "lat": 35.35,
+   "lng": 139.95,
+   "error_km": 359.38,
+   "reached_level": "metro_area",
+   "confidence": 0.62,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "miss",
+  "city": "miss",
+  "error_km": 359.38,
+  "bucket": ">=100"
+ },
+ "correction": {
+  "cost_usd": 0.23584875,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5081,
+   "output": 3769,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Country (Japan) was correct, but the region was wrong: the analyst placed the scene in the Kanto/Boso Pacific-side satoyama when it is actually Noto Peninsula, Ishikawa (Hokuriku, Sea-of-Japan side). The decisive error was treating \"no snow poles / no snowmelt sprinklers / healthy moso bamboo / straight sugi\" as proof of a low-snow Pacific side; on the Noto Peninsula snow is moderate and coastal, so single-lane farm lanes carry no sprinkler nozzles and moso bamboo groves flourish right beside sugi plantations. Nothing in the frames (no signage, no plates, no pole plates) positively fixes Hokuriku, so the honest reading was \"rural Japan, region undetermined\" rather than a confident Kanto lean.",
+  "misleading_cues": [
+   {
+    "observation": "Absence of snow poles, snowmelt sprinkler nozzles in the road crown and steep snow-shedding roofs was read as proof of Pacific-side low-snow Japan.",
+    "why_misleading": "Snowmelt sprinklers are an urban/main-road device in Hokuriku; narrow single-lane hamlet and forestry roads on the Noto Peninsula are simply ploughed and show none of this hardware, so their absence does not exclude the Sea-of-Japan side.",
+    "image_index": 4
+   },
+   {
+    "observation": "Thriving moso bamboo grove at road level taken as evidence against snowy Japan.",
+    "why_misleading": "Moso bamboo grows abundantly along the whole Sea-of-Japan coast up to Noto and beyond; it only fails in Hokkaido and high-altitude interiors, not in coastal Hokuriku.",
+    "image_index": 0
+   },
+   {
+    "observation": "Rolling low hills with broad grassy valley floors and no high skyline read as the Boso/Ibaraki upland.",
+    "why_misleading": "Low, rounded, heavily forested hills with narrow valley flats are equally the signature of the Noto Peninsula and other Sea-of-Japan coastal uplands; relief alone cannot separate them.",
+    "image_index": 5
+   },
+   {
+    "observation": "Pale loamy cut banks contrasted with 'red volcanic clay' to argue against Kyushu and for Kanto.",
+    "why_misleading": "Kanto's diagnostic soil is actually the dark Kanto loam over reddish tephra; a pale brown weathered sedimentary bank as here fits many non-Kanto regions, so this reasoning ran backwards."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Very dark, weathered near-black board cladding on the timber outbuilding with a shallow-pitch metal-sheet roof and rusty corrugated lean-to.",
+    "why_decisive": "Sea-of-Japan-side (Hokuriku/Noto) farm outbuildings typically use tar/soot-darkened vertical or lap boarding with metal roofing rather than the pale grey kawara-tiled, lighter-boarded Kanto farm shed.",
+    "category": "roof-facade",
+    "image_index": 2
+   },
+   {
+    "observation": "Vinyl (plastic-film) greenhouses squeezed onto a tiny hillside plot next to a kitchen garden of alliums, with an ageing timber shed and no new construction.",
+    "why_decisive": "Micro-scale, ageing smallholder infrastructure in a hamlet with no visible new housing fits a depopulating peripheral peninsula rather than the commuter-belt Kanto hill fringe.",
+    "category": "agriculture",
+    "image_index": 2
+   },
+   {
+    "observation": "Steel-pipe gate and mortared stone retaining wall with concrete steps climbing into a dense sugi stand behind a hamlet.",
+    "why_decisive": "A shrine/graveyard approach cut straight into hillside cedar directly behind a few houses is the classic layout of small isolated Japanese hamlets throughout Hokuriku's peninsular interior.",
+    "category": "religious-building",
+    "image_index": 3
+   },
+   {
+    "observation": "Split-bamboo post-and-rail fencing enclosing a mown orchard terrace with persimmon/chestnut-type trees.",
+    "why_decisive": "Confirms rural Japan (not Korea/Taiwan) but is nationwide, not Kanto-specific — it should have been used only at country level.",
+    "category": "agriculture",
+    "image_index": 5
+   },
+   {
+    "observation": "Slim lattice mast / turbine-like structure on a distant low ridge above a forested valley.",
+    "why_decisive": "Small ridge-top wind installations are common on the exposed Sea-of-Japan coastal uplands, and are consistent with a windy peninsula rather than inland Kanto.",
+    "category": "energy",
+    "image_index": 5
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Missing snowmelt sprinklers do not rule out Hokuriku on minor lanes",
+    "body": "In Hokuriku (Ishikawa/Toyama/Niigata) the road-crown snowmelt sprinkler line (shosetsu paipu) is installed almost exclusively on urban streets and prefectural through-routes; on one-lane hamlet and forestry roads you see instead a plain white edge line, no nozzles and no snow poles. In Pacific-side Kanto you would see the same bare lane, so this absence is non-diagnostic and must not be used to push a guess to the Pacific side.",
+    "layer": "geography",
+    "category": "road-marking",
+    "scope": "region",
+    "tags": [
+     "snow",
+     "hokuriku",
+     "road-furniture"
+    ],
+    "entities": [
+     "Ishikawa (Noto)",
+     "Chiba/Ibaraki (Kanto)"
+    ],
+    "looks_like": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Kanto (Boso/Ibaraki upland)"
+    },
+    "actually": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Ishikawa, Noto Peninsula"
+    },
+    "confidence": 0.72
+   },
+   {
+    "title": "Moso bamboo thrives on the Sea-of-Japan coast up to Noto",
+    "body": "Healthy Phyllostachys edulis groves interleaved with sugi plantation occur all along the Hokuriku coastal belt, including the Noto Peninsula, because maritime winters keep temperatures mild despite the snow. Only in Hokkaido and high inland basins would you instead find sasa dwarf bamboo and no moso at all, so a moso grove narrows the guess to 'not Hokkaido', not to the Pacific side.",
+    "layer": "nature",
+    "category": "vegetation",
+    "scope": "region",
+    "tags": [
+     "bamboo",
+     "climate",
+     "sugi"
+    ],
+    "entities": [
+     "Noto Peninsula",
+     "Kanto"
+    ],
+    "looks_like": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Kanto"
+    },
+    "actually": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Hokuriku / Noto"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Dark tarred board cladding + metal roof vs Kanto's kawara farm shed",
+    "body": "On the Sea-of-Japan side, farm outbuildings are commonly clad in soot/tar-darkened lapped boards with shallow corrugated metal roofing and rusty lean-tos, an economical response to wet, windy, snowy winters. In Kanto satoyama hamlets you would more often see pale unpainted or mortar-rendered walls under grey kawara tile with heavier eaves; the dark board-and-tin combination should tilt the guess toward Hokuriku/Tohoku coasts.",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "region",
+    "tags": [
+     "farm-shed",
+     "cladding",
+     "hokuriku"
+    ],
+    "entities": [
+     "Hokuriku",
+     "Kanto"
+    ],
+    "looks_like": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Kanto"
+    },
+    "actually": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Ishikawa"
+    },
+    "confidence": 0.5,
+    "image_index": 2
+   },
+   {
+    "title": "Depopulating peninsula hamlet vs commuter-belt Kanto satoyama",
+    "body": "A Japanese hill hamlet with only ageing timber sheds, small vinyl greenhouses, no new prefab housing, no guardrail renewal and no bus shelter is far more typical of peripheral peninsulas (Noto, Kii, Shimokita) than of the Boso/Ibaraki fringe, where proximity to Tokyo produces newer housing, denser road signage and more traffic infrastructure. Absence of any modern rural furniture should therefore be read as remoteness, not as Kanto.",
+    "layer": "economy",
+    "category": "settlement-pattern",
+    "scope": "region",
+    "tags": [
+     "depopulation",
+     "satoyama",
+     "rural"
+    ],
+    "entities": [
+     "Noto Peninsula",
+     "Boso Peninsula"
+    ],
+    "looks_like": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Boso/Ibaraki"
+    },
+    "actually": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Noto Peninsula"
+    },
+    "confidence": 0.55
+   },
+   {
+    "title": "Kanto loam is dark/reddish, not pale brown",
+    "body": "Cut banks in the Kanto upland typically expose dark humic Kanto loam over orange-brown tephra, a distinctly coloured volcanic profile. Pale brown to grey-brown weathered sedimentary/mudstone banks like these are instead typical of the Sea-of-Japan-side Tertiary hill country including Noto, so pale loam argues against Kanto rather than for it.",
+    "layer": "geography",
+    "category": "soil-terrain-cue",
+    "scope": "region",
+    "tags": [
+     "soil",
+     "cut-bank",
+     "tephra"
+    ],
+    "entities": [
+     "Kanto",
+     "Hokuriku"
+    ],
+    "looks_like": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Kanto"
+    },
+    "actually": {
+     "country_iso": "JP",
+     "country": "Japan",
+     "region": "Ishikawa"
+    },
+    "confidence": 0.45
+   },
+   {
+    "title": "Grated concrete U-ditch and orange-post convex mirror fix Japan, not the region",
+    "body": "Steel-grated concrete U-ditches flush with a one-lane asphalt road, orange/red-stemmed convex mirrors and striped cones occur uniformly across all of Japan; in Korea you would instead see open concrete drains and coloured metal roofs, in Taiwan bare RC boxes with rooftop water tanks. Use this set to lock the country and then stop — it carries zero regional signal.",
+    "layer": "culture",
+    "category": "street-furniture",
+    "scope": "country",
+    "tags": [
+     "u-ditch",
+     "convex-mirror",
+     "country-lock"
+    ],
+    "entities": [
+     "Japan",
+     "South Korea"
+    ],
+    "looks_like": {
+     "country_iso": "KR",
+     "country": "South Korea"
+    },
+    "actually": {
+     "country_iso": "JP",
+     "country": "Japan"
+    },
+    "confidence": 0.85,
+    "image_index": 1
+   }
+  ],
+  "misled_atoms": [
+   "atm_726f0d1570b0"
+  ],
+  "confirming_atoms": [
+   "atm_e0e0e7bcfbe4",
+   "atm_e75b1bf2f7fa"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_eba3dc758411",
+   "atm_18dfb917ecd9",
+   "atm_76095061912d",
+   "atm_ebc7c2ef6ce2",
+   "atm_9f4060f146e8",
+   "atm_dca606fecd4d"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_eba3dc758411",
+   "atm_18dfb917ecd9",
+   "atm_76095061912d",
+   "atm_ebc7c2ef6ce2",
+   "atm_9f4060f146e8",
+   "atm_dca606fecd4d"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_e0e0e7bcfbe4",
+   "atm_e75b1bf2f7fa"
+  ],
+  "misses": [
+   "atm_726f0d1570b0"
+  ],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789359391.3633668
+}

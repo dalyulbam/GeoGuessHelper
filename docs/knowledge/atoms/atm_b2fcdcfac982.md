@@ -10,7 +10,7 @@
     "mexico"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_b2fcdcfac982",
   "kind": "fact",
   "lang": "en",
@@ -38,7 +38,7 @@
   ],
   "tier": null,
   "title": "Ejido strip-parcel field morphology in rainfed Mexican highland agriculture",
-  "updated": 1789052625.983086,
+  "updated": 1789361196.2951849,
   "uses": 1
 }
 ---

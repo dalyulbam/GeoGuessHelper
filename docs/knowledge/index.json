@@ -1645,11 +1645,15 @@
    "title": "Indigenous dual place-naming and reserve/reservation land systems worldwide",
    "category": null,
    "tags": [
+    "bicultural-naming",
     "dual-naming",
     "expansion",
     "indigenous-land",
+    "maori-language",
+    "new-zealand",
     "reservation-system",
     "settler-colonialism",
+    "toponymy",
     "x-worldwide"
    ],
    "entities": [
@@ -1669,10 +1673,12 @@
    "refs": [
     "atm_5ef83226f788"
    ],
-   "reports": [],
-   "uses": 1,
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 2,
    "created": 1787609434.2278705,
-   "updated": 1787609434.2283258,
+   "updated": 1789358211.9903224,
    "tier": null,
    "kind": "fact",
    "status": "active",
@@ -3194,12 +3200,12 @@
    ],
    "uses": 1,
    "created": 1789051865.2095664,
-   "updated": 1789051865.209855,
+   "updated": 1789361193.506958,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -3523,12 +3529,12 @@
    ],
    "uses": 1,
    "created": 1786718184.5893202,
-   "updated": 1788505962.7175388,
+   "updated": 1789361196.5282445,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
    "confusions": []
   },
@@ -10257,12 +10263,12 @@
    "reports": [],
    "uses": 1,
    "created": 1787609794.9582224,
-   "updated": 1787609794.9586267,
+   "updated": 1789361197.9781935,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -10613,13 +10619,13 @@
    ],
    "uses": 1,
    "created": 1788695588.800599,
-   "updated": 1788762271.8649874,
+   "updated": 1789361199.0502992,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
    "hits": 1,
-   "misses": 0,
+   "misses": 1,
    "confusions": []
   },
   "atm_27be18fbd5d7": {
@@ -12194,12 +12200,12 @@
    ],
    "uses": 1,
    "created": 1789052933.2597275,
-   "updated": 1789052933.259879,
+   "updated": 1789361164.536325,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -12531,12 +12537,12 @@
    ],
    "uses": 1,
    "created": 1789052156.0254257,
-   "updated": 1789052156.02568,
+   "updated": 1789361194.6875226,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -12617,12 +12623,12 @@
    "reports": [],
    "uses": 1,
    "created": 1787609279.76255,
-   "updated": 1788762601.3986857,
+   "updated": 1789361195.030018,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 1,
+   "hits": 2,
    "misses": 0,
    "confusions": []
   },
@@ -13760,12 +13766,12 @@
    ],
    "uses": 1,
    "created": 1789051322.606911,
-   "updated": 1789051322.6070948,
+   "updated": 1789361190.758781,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -17149,12 +17155,12 @@
    ],
    "uses": 1,
    "created": 1789052625.925184,
-   "updated": 1789052625.9253564,
+   "updated": 1789361196.3989832,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -18720,12 +18726,12 @@
    ],
    "uses": 1,
    "created": 1789051574.136119,
-   "updated": 1789051574.136264,
+   "updated": 1789361192.0088453,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -19184,12 +19190,12 @@
    ],
    "uses": 1,
    "created": 1789051865.1824737,
-   "updated": 1789051865.182718,
+   "updated": 1789361193.4024675,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -20156,13 +20162,13 @@
    ],
    "uses": 1,
    "created": 1788695588.7670743,
-   "updated": 1788762271.8786619,
+   "updated": 1789361199.1638353,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
    "hits": 1,
-   "misses": 0,
+   "misses": 1,
    "confusions": []
   },
   "atm_4bd93c84a1a2": {
@@ -23824,12 +23830,12 @@
    ],
    "uses": 2,
    "created": 1786673426.1109853,
-   "updated": 1789051865.0827725,
+   "updated": 1789361193.2003067,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -24703,12 +24709,12 @@
    ],
    "uses": 1,
    "created": 1789052933.2762394,
-   "updated": 1789052933.2763107,
+   "updated": 1789361164.324831,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -27216,12 +27222,12 @@
    ],
    "uses": 1,
    "created": 1789052156.067899,
-   "updated": 1789052156.068678,
+   "updated": 1789361195.1438243,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -29369,12 +29375,12 @@
    ],
    "uses": 1,
    "created": 1789051574.1070325,
-   "updated": 1789051574.107332,
+   "updated": 1789361192.129324,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -29756,13 +29762,13 @@
    "reports": [],
    "uses": 1,
    "created": 1787610338.136525,
-   "updated": 1788761927.5712838,
+   "updated": 1789361200.775598,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
    "hits": 1,
-   "misses": 0,
+   "misses": 1,
    "confusions": []
   },
   "atm_727a0dce3c67": {
@@ -36046,12 +36052,12 @@
    ],
    "uses": 1,
    "created": 1789052625.8997684,
-   "updated": 1789052625.8999205,
+   "updated": 1789361196.064072,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -36316,12 +36322,12 @@
    ],
    "uses": 1,
    "created": 1789051322.6406858,
-   "updated": 1789051322.6408448,
+   "updated": 1789361190.644188,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -37038,9 +37044,18 @@
    "title": "Colombian calle/carrera street grid naming convention",
    "category": "road-signage",
    "tags": [
+    "actually-co",
     "colombia",
+    "discriminator",
+    "grid",
+    "looks-like-ec",
+    "looks-like-ve",
+    "one-way-arrow",
+    "road-signage",
     "signage",
+    "street-blade",
     "street-grid",
+    "street-sign",
     "toponymy",
     "urban-planning"
    ],
@@ -37058,18 +37073,22 @@
    "sources": [],
    "refs": [],
    "reports": [
-    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html"
+    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html",
+    "report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 3,
    "created": 1789051322.5810404,
-   "updated": 1789051322.5813322,
+   "updated": 1789361190.3907816,
    "tier": null,
-   "kind": "fact",
+   "kind": "discriminator",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 3,
    "misses": 0,
-   "confusions": []
+   "confusions": [
+    "EC>CO",
+    "VE>CO"
+   ]
   },
   "atm_91bb4809c09e": {
    "id": "atm_91bb4809c09e",
@@ -37104,12 +37123,12 @@
    ],
    "uses": 1,
    "created": 1789051865.1577244,
-   "updated": 1789051865.1578794,
+   "updated": 1789361193.096104,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -38957,12 +38976,12 @@
    ],
    "uses": 1,
    "created": 1786673426.0797203,
-   "updated": 1788506009.6138082,
+   "updated": 1789361193.2950482,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -41583,12 +41602,12 @@
    ],
    "uses": 1,
    "created": 1789052155.9930089,
-   "updated": 1789052155.9932344,
+   "updated": 1789361194.9315014,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -42985,12 +43004,12 @@
    ],
    "uses": 1,
    "created": 1787964154.868895,
-   "updated": 1788506020.0378852,
+   "updated": 1789361201.766177,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -44520,10 +44539,17 @@
    "title": "Spanish 'Salida' vs Portuguese/French/Italian exit signage terms",
    "category": "signage-language",
    "tags": [
+    "actually-es",
+    "azulejo",
+    "discriminator",
+    "iberia",
     "linguistic-geography",
+    "looks-like-pt",
     "romance-languages",
     "signage",
+    "signage-language",
     "spanish-language",
+    "street-plaque",
     "wayfinding"
    ],
    "entities": [
@@ -44543,18 +44569,21 @@
    "sources": [],
    "refs": [],
    "reports": [
-    "report_es_madrid-ifema_38.5714_-7.9135_260904_162146_ko.html"
+    "report_es_madrid-ifema_38.5714_-7.9135_260904_162146_ko.html",
+    "report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1788506524.5958846,
-   "updated": 1788506524.5962515,
+   "updated": 1789361201.1435835,
    "tier": null,
-   "kind": "fact",
+   "kind": "discriminator",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
-   "confusions": []
+   "confusions": [
+    "PT>ES"
+   ]
   },
   "atm_ad6f64fbb564": {
    "id": "atm_ad6f64fbb564",
@@ -45646,12 +45675,12 @@
    ],
    "uses": 1,
    "created": 1789052625.9829311,
-   "updated": 1789052625.983086,
+   "updated": 1789361196.2951849,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -47460,12 +47489,12 @@
    ],
    "uses": 1,
    "created": 1789051574.1891632,
-   "updated": 1789051574.1893103,
+   "updated": 1789361191.8895445,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -48384,13 +48413,13 @@
    "reports": [],
    "uses": 1,
    "created": 1787609636.653315,
-   "updated": 1787609636.6536262,
+   "updated": 1789361189.4146085,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
    "hits": 0,
-   "misses": 0,
+   "misses": 1,
    "confusions": []
   },
   "atm_be43b29468d1": {
@@ -50561,12 +50590,12 @@
    ],
    "uses": 1,
    "created": 1789052155.9601474,
-   "updated": 1789052155.9603126,
+   "updated": 1789361194.82619,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -51005,13 +51034,13 @@
    ],
    "uses": 1,
    "created": 1789051322.6661222,
-   "updated": 1789051322.6662838,
+   "updated": 1789361190.8645537,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
    "hits": 0,
-   "misses": 0,
+   "misses": 1,
    "confusions": []
   },
   "atm_c9190de8a525": {
@@ -51257,9 +51286,14 @@
    "title": "Ethnic naming patterns in southern Nigerian toponyms signal sub-regional identity",
    "category": "toponymy",
    "tags": [
+    "actually-ng",
+    "cross-river",
+    "discriminator",
     "ethnicity",
     "igbo",
+    "looks-like-ng",
     "minority-languages",
+    "naming",
     "nigeria",
     "toponymy",
     "yoruba"
@@ -51281,16 +51315,17 @@
    "sources": [],
    "refs": [],
    "reports": [
-    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html"
+    "report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html",
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1789013490.8833787,
-   "updated": 1789013490.883548,
+   "updated": 1789361188.2281353,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -51615,12 +51650,12 @@
    ],
    "uses": 1,
    "created": 1789051865.1286657,
-   "updated": 1789051865.128855,
+   "updated": 1789361192.9121404,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -51983,13 +52018,13 @@
    ],
    "uses": 1,
    "created": 1788695588.7430377,
-   "updated": 1788762271.892691,
+   "updated": 1789361199.2839723,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
    "hits": 1,
-   "misses": 0,
+   "misses": 1,
    "confusions": []
   },
   "atm_cd600d8705f5": {
@@ -56512,12 +56547,12 @@
    ],
    "uses": 1,
    "created": 1788761927.5514216,
-   "updated": 1788761927.5515149,
+   "updated": 1789361200.3653538,
    "tier": "unaided",
    "kind": "discriminator",
    "status": "active",
    "origin": "correction",
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": [
     "KR>JP"
@@ -56994,10 +57029,16 @@
    "category": "script",
    "tags": [
     "abugida",
+    "actually-th",
+    "administration",
+    "discriminator",
     "khmer-script",
     "lao-script",
+    "looks-like-la",
     "mainland-southeast-asia",
+    "script",
     "script-comparison",
+    "signboard",
     "thai-script"
    ],
    "entities": [
@@ -57018,16 +57059,18 @@
    "reports": [
     "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1789052155.931217,
-   "updated": 1789052155.9314866,
+   "updated": 1789361194.4125295,
    "tier": null,
-   "kind": "fact",
+   "kind": "discriminator",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
-   "confusions": []
+   "confusions": [
+    "LA>TH"
+   ]
   },
   "atm_e36d83d3428b": {
    "id": "atm_e36d83d3428b",
@@ -57637,11 +57680,17 @@
    "title": "Parronal table-grape cultivation in Chilean desert valleys",
    "category": "agriculture",
    "tags": [
+    "actually-cl",
+    "agriculture",
     "desert-oasis",
+    "discriminator",
     "drip-irrigation",
     "export-agriculture",
+    "irrigation",
+    "looks-like-ar",
     "parronal",
-    "table-grapes"
+    "table-grapes",
+    "vineyard"
    ],
    "entities": [
     "chile",
@@ -57660,16 +57709,18 @@
    "reports": [
     "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1789051574.1630645,
-   "updated": 1789051574.1632102,
+   "updated": 1789361191.667702,
    "tier": null,
-   "kind": "fact",
+   "kind": "discriminator",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
-   "confusions": []
+   "confusions": [
+    "AR>CL"
+   ]
   },
   "atm_e59c7f2b8d16": {
    "id": "atm_e59c7f2b8d16",
@@ -58236,12 +58287,12 @@
    "reports": [],
    "uses": 1,
    "created": 1787609582.2561228,
-   "updated": 1788761927.630665,
+   "updated": 1789361200.6351898,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 1,
+   "hits": 2,
    "misses": 0,
    "confusions": []
   },
@@ -59366,12 +59417,12 @@
    ],
    "uses": 1,
    "created": 1788762271.777202,
-   "updated": 1788762271.7772963,
+   "updated": 1789361201.9929376,
    "tier": "unaided",
    "kind": "discriminator",
    "status": "active",
    "origin": "correction",
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": [
     "ES>IT"
@@ -64895,6 +64946,2678 @@
    "hits": 0,
    "misses": 0,
    "confusions": []
+  },
+  "atm_b67d081a61b7": {
+   "id": "atm_b67d081a61b7",
+   "layer": "nature",
+   "scope": "period",
+   "title": "Southern-hemisphere summer phenology as season indicator",
+   "category": "climate",
+   "tags": [
+    "hemisphere",
+    "pampas",
+    "phenology",
+    "poplar",
+    "seasonality"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2623649,
+   "lng": 176.2235731,
+   "heading": null,
+   "radius_km": 0,
+   "cell": "rbv6fn6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358211.8330355,
+   "updated": 1789358211.8332636,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_c7eaf2b97e59": {
+   "id": "atm_c7eaf2b97e59",
+   "layer": "geography",
+   "scope": "country",
+   "title": "New Zealand road-signage and traffic-sign typology",
+   "category": "road-signage",
+   "tags": [
+    "left-hand-traffic",
+    "new-zealand",
+    "nzta",
+    "one-lane-bridge",
+    "road-signage"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2623649,
+   "lng": 176.2235731,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "rbv6fn6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358211.8647363,
+   "updated": 1789361197.379894,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_305c0c3707b0": {
+   "id": "atm_305c0c3707b0",
+   "layer": "nature",
+   "scope": "country",
+   "title": "New Zealand endemic/naturalised vegetation markers: tree ferns and toetoe",
+   "category": "vegetation",
+   "tags": [
+    "farm-bush-mosaic",
+    "new-zealand-flora",
+    "pinus-radiata",
+    "toetoe",
+    "tree-fern"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2623649,
+   "lng": 176.2235731,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "rbv6fn6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358211.8934247,
+   "updated": 1789361197.5925918,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e0b610416d73": {
+   "id": "atm_e0b610416d73",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Papa mudstone hill country of eastern North Island, New Zealand",
+   "category": "landform",
+   "tags": [
+    "east-coast-nz",
+    "erosion",
+    "hawkes-bay",
+    "north-island",
+    "papa-mudstone",
+    "tararua"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2623649,
+   "lng": 176.2235731,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "rbv6fn6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358211.922547,
+   "updated": 1789361197.7354562,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_7202d5d69930": {
+   "id": "atm_7202d5d69930",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Erosion-control poplar/pine plantings on New Zealand pastoral hill country",
+   "category": "agriculture",
+   "tags": [
+    "erosion-control",
+    "hill-country",
+    "marginal-land",
+    "new-zealand-agriculture",
+    "pastoral-farming",
+    "poplar"
+   ],
+   "entities": [],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2623649,
+   "lng": 176.2235731,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "rbv6fn6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358211.9572084,
+   "updated": 1789361197.8599148,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_d3afa16fc410": {
+   "id": "atm_d3afa16fc410",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Po Plain vernacular: coppi barrel-tile roofs over lime-rendered brick",
+   "category": "roof-facade",
+   "tags": [
+    "cascina",
+    "coppi",
+    "italy",
+    "po-plain",
+    "roof-typology",
+    "vernacular-architecture"
+   ],
+   "entities": [
+    "lombardy",
+    "po-plain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.9271881,
+   "lng": 8.9682964,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "spyrs4d",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358519.0333755,
+   "updated": 1789358519.0336382,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_36953f364595": {
+   "id": "atm_36953f364595",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Italian kerbside waste bins: red/white reflective hazard striping",
+   "category": "street-furniture",
+   "tags": [
+    "discriminator",
+    "italy",
+    "reflective-striping",
+    "street-furniture",
+    "waste-bins"
+   ],
+   "entities": [
+    "italy"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.9271881,
+   "lng": 8.9682964,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "spyrs4d",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358519.0641034,
+   "updated": 1789361198.8162954,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_0a129b3d0032": {
+   "id": "atm_0a129b3d0032",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Italian provincial road (SP) numbering and blue shield convention",
+   "category": "road-signage",
+   "tags": [
+    "italy",
+    "province",
+    "road-numbering",
+    "sp-shield",
+    "strada-provinciale"
+   ],
+   "entities": [
+    "italy",
+    "province-of-pavia"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.9271881,
+   "lng": 8.9682964,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "spyrs4d",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358519.0937264,
+   "updated": 1789358519.0938954,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_a5c9084accfd": {
+   "id": "atm_a5c9084accfd",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Italian company legal suffixes S.p.A. and S.r.l. as country markers",
+   "category": "business-chain",
+   "tags": [
+    "company-suffix",
+    "italy",
+    "legal-form",
+    "spa",
+    "srl"
+   ],
+   "entities": [
+    "italy"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.9271881,
+   "lng": 8.9682964,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "spyrs4d",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358519.123574,
+   "updated": 1789358519.123743,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e5538c73518c": {
+   "id": "atm_e5538c73518c",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Po Plain–Apennine transition zone: flat alluvial floor meeting foothills",
+   "category": "landform",
+   "tags": [
+    "alluvial-plain",
+    "apennines",
+    "landscape-transition",
+    "oltrepo-pavese",
+    "po-plain"
+   ],
+   "entities": [
+    "apennine-mountains",
+    "po-plain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.9271881,
+   "lng": 8.9682964,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "spyrs4d",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358519.1527236,
+   "updated": 1789358519.1528804,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_f947eed4f050": {
+   "id": "atm_f947eed4f050",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Agricultural consolidation pattern: cascine absorbed or abandoned amid mechanized farming",
+   "category": "agriculture",
+   "tags": [
+    "agricultural-consolidation",
+    "cascina",
+    "land-use",
+    "po-plain",
+    "rural-economy"
+   ],
+   "entities": [
+    "po-plain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.9271881,
+   "lng": 8.9682964,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "spyrs4d",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358519.1841972,
+   "updated": 1789358519.184361,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_65d849f7eb83": {
+   "id": "atm_65d849f7eb83",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Shinshu Otani-ha (Jodo Shinshu) temple density in Hokuriku",
+   "category": "religion",
+   "tags": [
+    "hakusan-shrine",
+    "hokuriku",
+    "jodo-shinshu",
+    "religious-geography",
+    "temple-density"
+   ],
+   "entities": [
+    "hokuriku",
+    "jodo-shinshu",
+    "shinshu-otani-ha"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.3404533,
+   "lng": 136.7846737,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2te",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358742.1519287,
+   "updated": 1789358742.1521628,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_69c0077521d3": {
+   "id": "atm_69c0077521d3",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Noto Peninsula upland plateau vs Toyama/Kaga plains",
+   "category": "landform",
+   "tags": [
+    "hakusan",
+    "hokuriku",
+    "landform",
+    "noto-peninsula",
+    "toyama-plain"
+   ],
+   "entities": [
+    "ishikawa-prefecture",
+    "noto-peninsula",
+    "toyama-prefecture"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.3404533,
+   "lng": 136.7846737,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2te",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358742.2509441,
+   "updated": 1789358742.2511168,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_3f818b5a1b64": {
+   "id": "atm_3f818b5a1b64",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Genkai shuraku: Japan's 'marginal settlements' at risk of extinction",
+   "category": "demography",
+   "tags": [
+    "aging-society",
+    "depopulation",
+    "genkai-shuraku",
+    "marginal-settlement",
+    "rural-japan"
+   ],
+   "entities": [
+    "genkai-shuraku"
+   ],
+   "period_start": 1990,
+   "period_end": null,
+   "lat": 37.3404533,
+   "lng": 136.7846737,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2te",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358742.3593757,
+   "updated": 1789358742.3595984,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_1dc57346ad13": {
+   "id": "atm_1dc57346ad13",
+   "layer": "history",
+   "scope": "region",
+   "title": "2024 Noto Peninsula earthquake and Monzenmachi's temple-town heritage",
+   "category": "war-conflict",
+   "tags": [
+    "monzenmachi",
+    "noto-earthquake-2024",
+    "sojiji",
+    "temple-town",
+    "wajima"
+   ],
+   "entities": [
+    "monzenmachi",
+    "noto-peninsula",
+    "sojiji",
+    "wajima"
+   ],
+   "period_start": 2024,
+   "period_end": 2024,
+   "lat": 37.3404533,
+   "lng": 136.7846737,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2te",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789358742.4560688,
+   "updated": 1789358742.4562323,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_f3fb02fa3be5": {
+   "id": "atm_f3fb02fa3be5",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Bajío basalt clearance piles vs Altiplano pale calcareous soil",
+   "category": "soil-terrain-cue",
+   "tags": [
+    "actually-mx",
+    "bajio",
+    "discriminator",
+    "looks-like-mx",
+    "soil",
+    "soil-terrain-cue",
+    "volcanic"
+   ],
+   "entities": [
+    "altiplano-northern-mexico",
+    "guanajuato-baj-o",
+    "mexican-altiplano",
+    "mexico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.55716719551167,
+   "lng": -101.3804446503625,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9exuvn3",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_89c151f83ef4.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361163.7631514,
+   "updated": 1789361163.7634728,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_9aae63fb6cc3": {
+   "id": "atm_9aae63fb6cc3",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Mexican rural two-lane: dashed centre line only, no edge lines",
+   "category": "road-marking",
+   "tags": [
+    "actually-mx",
+    "discriminator",
+    "looks-like-gt",
+    "road-marking",
+    "two-lane"
+   ],
+   "entities": [
+    "guatemala",
+    "mexico"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.55716719551167,
+   "lng": -101.3804446503625,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "9exuvn3",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_3784ca2310cc.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361163.8888533,
+   "updated": 1789361163.8890913,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "GT>MX"
+   ]
+  },
+  "atm_82d74b56e40b": {
+   "id": "atm_82d74b56e40b",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Bajío linear colonia sits close to big cities, not only deep countryside",
+   "category": "settlement-pattern",
+   "tags": [
+    "actually-mx",
+    "bajio",
+    "colonia",
+    "discriminator",
+    "ejido",
+    "irapuato",
+    "looks-like-mx",
+    "paving",
+    "peri-urban",
+    "settlement-pattern"
+   ],
+   "entities": [
+    "irapuato-area",
+    "irapuato-central-guanajuato",
+    "mexico",
+    "p-njamo-cuer-maro-area",
+    "p-njamo-cuer-maro-western-guanajuato"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.55716719551167,
+   "lng": -101.3804446503625,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9exuvn3",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html",
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 2,
+   "created": 1789361164.0098112,
+   "updated": 1789361195.9099932,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e5dc061fdb33": {
+   "id": "atm_e5dc061fdb33",
+   "layer": "economy",
+   "scope": "country",
+   "title": "CFE rural wooden poles with small transformers vs US rural distribution",
+   "category": "utility-pole",
+   "tags": [
+    "actually-mx",
+    "cfe",
+    "discriminator",
+    "looks-like-us",
+    "poles",
+    "utility-pole"
+   ],
+   "entities": [
+    "mexico",
+    "southwest",
+    "united-states"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 20.55716719551167,
+   "lng": -101.3804446503625,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "9exuvn3",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_0577dafa0e9c.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361164.143829,
+   "updated": 1789361164.144045,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "US>MX"
+   ]
+  },
+  "atm_73e57a387697": {
+   "id": "atm_73e57a387697",
+   "layer": "language",
+   "scope": "country",
+   "title": "Nigerian Pidgin billboard copy vs Krio or Cameroonian Pidgin",
+   "category": "dialect",
+   "tags": [
+    "actually-ng",
+    "billboard",
+    "dialect",
+    "discriminator",
+    "looks-like-cm",
+    "pidgin",
+    "signage"
+   ],
+   "entities": [
+    "cameroon",
+    "cross-river-state",
+    "nigeria",
+    "sierra-leone"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.660212739654749,
+   "lng": 8.803068154316557,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "s1nmbk6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361188.0145884,
+   "updated": 1789361188.0191517,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "CM>NG"
+   ]
+  },
+  "atm_d97630c7288f": {
+   "id": "atm_d97630c7288f",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Senatorial-district campaign boards localise Nigerian panos to one district",
+   "category": "politics-civic",
+   "tags": [
+    "actually-ng",
+    "campaign-poster",
+    "discriminator",
+    "district",
+    "looks-like-gh",
+    "politics-civic",
+    "senator"
+   ],
+   "entities": [
+    "cross-river-state",
+    "ghana",
+    "nigeria"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.660212739654749,
+   "lng": 8.803068154316557,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "s1nmbk6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361188.1227224,
+   "updated": 1789361188.1229103,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "GH>NG"
+   ]
+  },
+  "atm_e15595eeb416": {
+   "id": "atm_e15595eeb416",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Solar countdown traffic signals mark Nigerian LGA headquarters towns",
+   "category": "infrastructure-built",
+   "tags": [
+    "actually-ng",
+    "discriminator",
+    "infrastructure-built",
+    "looks-like-ng",
+    "roundabout",
+    "solar",
+    "traffic-signal"
+   ],
+   "entities": [
+    "cross-river-state",
+    "nigeria",
+    "ogoja",
+    "rural-cross-river",
+    "rural-village"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.660212739654749,
+   "lng": 8.803068154316557,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "s1nmbk6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361188.3394012,
+   "updated": 1789361188.3396282,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_7e5c0b47c99a": {
+   "id": "atm_7e5c0b47c99a",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Independent Nigerian fuel marketers vs Ghanaian chain branding",
+   "category": "business-chain",
+   "tags": [
+    "actually-ng",
+    "branding",
+    "business-chain",
+    "discriminator",
+    "fuel-station",
+    "looks-like-gh"
+   ],
+   "entities": [
+    "ghana",
+    "nigeria"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 6.660212739654749,
+   "lng": 8.803068154316557,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "s1nmbk6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361188.4465477,
+   "updated": 1789361188.4467707,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "GH>NG"
+   ]
+  },
+  "atm_58cde6ebbc3d": {
+   "id": "atm_58cde6ebbc3d",
+   "layer": "economy",
+   "scope": "country",
+   "title": "SAS suffix marks Colombia, not Venezuela or Ecuador",
+   "category": "listed-company",
+   "tags": [
+    "actually-co",
+    "corporate-form",
+    "discriminator",
+    "listed-company",
+    "looks-like-ve",
+    "signage"
+   ],
+   "entities": [
+    "colombia",
+    "venezuela"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.271615878800194,
+   "lng": -73.48972847788971,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "d2g8r9w",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361188.842853,
+   "updated": 1789361188.843165,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "VE>CO"
+   ]
+  },
+  "atm_457ca0cf526a": {
+   "id": "atm_457ca0cf526a",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Llanos piedmont town fabric vs Amazonian frontier town",
+   "category": "urban-form",
+   "tags": [
+    "actually-co",
+    "colombia",
+    "discriminator",
+    "grid",
+    "llanos",
+    "looks-like-co",
+    "seasonality",
+    "town-size",
+    "urban-form"
+   ],
+   "entities": [
+    "caquet-putumayo",
+    "colombia",
+    "colombian-amazon",
+    "meta-department",
+    "meta-llanos"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.271615878800194,
+   "lng": -73.48972847788971,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "d2g8r9w",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html",
+    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html"
+   ],
+   "uses": 2,
+   "created": 1789361189.0410128,
+   "updated": 1789361189.8483257,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e74ee1efa100": {
+   "id": "atm_e74ee1efa100",
+   "layer": "economy",
+   "scope": "country",
+   "title": "Peso magnitude with dot separators rules out dollarized Ecuador",
+   "category": "finance",
+   "tags": [
+    "actually-co",
+    "currency",
+    "discriminator",
+    "finance",
+    "looks-like-ec",
+    "pricing"
+   ],
+   "entities": [
+    "colombia",
+    "ecuador"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.271615878800194,
+   "lng": -73.48972847788971,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "d2g8r9w",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361189.1468456,
+   "updated": 1789361189.147055,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "EC>CO"
+   ]
+  },
+  "atm_1fe840b3212c": {
+   "id": "atm_1fe840b3212c",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Indigenous brand names hint at macro-region inside Colombia",
+   "category": "demography",
+   "tags": [
+    "actually-co",
+    "branding",
+    "demography",
+    "discriminator",
+    "indigenous",
+    "looks-like-co"
+   ],
+   "entities": [
+    "andean-colombia",
+    "andean-interior",
+    "colombia",
+    "meta-department",
+    "orinoqu-a"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.271615878800194,
+   "lng": -73.48972847788971,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "d2g8r9w",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361189.2642496,
+   "updated": 1789361189.264447,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_0c63c014b962": {
+   "id": "atm_0c63c014b962",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Closed shade canopy + hills right behind town = northern Meta piedmont, not Casanare plains",
+   "category": "vegetation-cue",
+   "tags": [
+    "actually-co",
+    "canopy",
+    "discriminator",
+    "foothills",
+    "looks-like-co",
+    "piedmont",
+    "vegetation-cue"
+   ],
+   "entities": [
+    "casanare",
+    "colombia",
+    "meta"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.2716787415467,
+   "lng": -73.48841007037073,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "d2g8r9x",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361189.9669416,
+   "updated": 1789361189.967154,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_a4c8d01b5267": {
+   "id": "atm_a4c8d01b5267",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Piedmont colonization church vs Andean colonial church",
+   "category": "religious-building",
+   "tags": [
+    "actually-co",
+    "church",
+    "colonization",
+    "discriminator",
+    "looks-like-co",
+    "plaza",
+    "religious-building"
+   ],
+   "entities": [
+    "andean-interior",
+    "boyac",
+    "colombia",
+    "meta-piedmont"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 4.2716787415467,
+   "lng": -73.48841007037073,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "d2g8r9x",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361190.2000277,
+   "updated": 1789361190.2005594,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_fe1fabd7b881": {
+   "id": "atm_fe1fabd7b881",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Bare gravel quebrada road vs paved Elqui/Limarí trunk valley",
+   "category": "infrastructure-built",
+   "tags": [
+    "actually-cl",
+    "discriminator",
+    "gravel-road",
+    "infrastructure-built",
+    "looks-like-cl",
+    "norte-chico",
+    "road-standard"
+   ],
+   "entities": [
+    "atacama-huasco",
+    "atacama-region",
+    "chile",
+    "coquimbo-elqui",
+    "coquimbo-region"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -29.374783175378425,
+   "lng": -70.95571530890633,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "66v8ck7",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361191.2999332,
+   "updated": 1789361191.3001306,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_ca536dbdc238": {
+   "id": "atm_ca536dbdc238",
+   "layer": "history",
+   "scope": "region",
+   "title": "Derelict steel truss viaduct over a farm valley = Atacama mining branch line",
+   "category": "industry",
+   "tags": [
+    "actually-cl",
+    "discriminator",
+    "industry",
+    "looks-like-pe",
+    "mining-heritage",
+    "railway",
+    "viaduct"
+   ],
+   "entities": [
+    "atacama",
+    "chile",
+    "peru"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -29.374783175378425,
+   "lng": -70.95571530890633,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "66v8ck7",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361191.4125445,
+   "updated": 1789361191.4127257,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "PE>CL"
+   ]
+  },
+  "atm_173fb47af208": {
+   "id": "atm_173fb47af208",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Absent adobe/estera housing and mototaxis rules out Peruvian coastal valley",
+   "category": "housing-typology",
+   "tags": [
+    "actually-cl",
+    "adobe",
+    "discriminator",
+    "housing-typology",
+    "looks-like-pe",
+    "mototaxi",
+    "peru-vs-chile"
+   ],
+   "entities": [
+    "chile",
+    "peru"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -29.374783175378425,
+   "lng": -70.95571530890633,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "66v8ck7",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_quebrada-de-los-choros_-29.3752_-70.9551_260910_234553_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361191.5234444,
+   "updated": 1789361191.5236301,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "PE>CL"
+   ]
+  },
+  "atm_ad4651f749ac": {
+   "id": "atm_ad4651f749ac",
+   "layer": "language",
+   "scope": "country",
+   "title": "Turkish KGM warning triangle + rain sub-plate vs Greek sign style",
+   "category": "road-signage",
+   "tags": [
+    "actually-tr",
+    "discriminator",
+    "kgm",
+    "looks-like-gr",
+    "road-signage",
+    "supplementary-plate",
+    "warning-triangle"
+   ],
+   "entities": [
+    "dodecanese-aegean-coast",
+    "greece",
+    "mu-la-province",
+    "turkey"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.422462771602284,
+   "lng": 27.585887784500922,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "swesgsx",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361192.452353,
+   "updated": 1789361192.4526272,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "GR>TR"
+   ]
+  },
+  "atm_e0ddecfde4f8": {
+   "id": "atm_e0ddecfde4f8",
+   "layer": "culture",
+   "scope": "region",
+   "title": "'T.C. … BÜYÜKŞEHİR BELEDİYESİ' shelters pin the province in rural Turkey",
+   "category": "street-furniture",
+   "tags": [
+    "actually-tr",
+    "bus-shelter",
+    "buyuksehir",
+    "discriminator",
+    "looks-like-tr",
+    "municipal-branding",
+    "street-furniture"
+   ],
+   "entities": [
+    "ayd-n-province",
+    "mu-la-province",
+    "turkey"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.422462771602284,
+   "lng": 27.585887784500922,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "swesgsx",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361192.5732002,
+   "updated": 1789361192.5733924,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_1c6af51b0fc1": {
+   "id": "atm_1c6af51b0fc1",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Aegean olive-maquis hinterland vs Taurus/Antalya front",
+   "category": "vegetation",
+   "tags": [
+    "actually-tr",
+    "discriminator",
+    "eucalyptus",
+    "looks-like-tr",
+    "maquis",
+    "olive",
+    "vegetation"
+   ],
+   "entities": [
+    "aegean-region-mu-la",
+    "aegean-turkey",
+    "antalya",
+    "antalya-taurus",
+    "turkey"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.422462771602284,
+   "lng": 27.585887784500922,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "swesgsx",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361192.6775396,
+   "updated": 1789361192.6777422,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_676b94e88700": {
+   "id": "atm_676b94e88700",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Muğla dual-carriageway legs: inland Söke road vs Bodrum coastal corridor",
+   "category": "infrastructure-built",
+   "tags": [
+    "actually-tr",
+    "corridor",
+    "d525",
+    "discriminator",
+    "infrastructure-built",
+    "looks-like-tr",
+    "olive-district"
+   ],
+   "entities": [
+    "milas-bodrum-corridor",
+    "milas-bodrum-highway",
+    "milas-s-ke-corridor",
+    "milas-s-ke-d525-near-etrenli-dan-ment",
+    "turkey"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.422462771602284,
+   "lng": 27.585887784500922,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "swesgsx",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_tr_milas_37.4196_27.5948_260910_235044_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361192.7707326,
+   "updated": 1789361192.7709594,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_735a7287ad2c": {
+   "id": "atm_735a7287ad2c",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Red laterite shoulders on flat plateau mark Isan, not Central Thailand",
+   "category": "soil-terrain-cue",
+   "tags": [
+    "actually-th",
+    "discriminator",
+    "dry-season",
+    "isan",
+    "laterite",
+    "looks-like-th",
+    "soil-terrain-cue"
+   ],
+   "entities": [
+    "central-thailand",
+    "isan",
+    "isan-khorat-plateau",
+    "thailand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 17.309275121611837,
+   "lng": 103.57712181729663,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "w71dkzn",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361193.9698818,
+   "updated": 1789361193.9700572,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_a1b98b03e41a": {
+   "id": "atm_a1b98b03e41a",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Hardwood-over-masonry Isan houses vs stilted Malay kampung houses",
+   "category": "housing-typology",
+   "tags": [
+    "actually-th",
+    "discriminator",
+    "housing-typology",
+    "isan",
+    "kampung",
+    "looks-like-my",
+    "vernacular"
+   ],
+   "entities": [
+    "isan",
+    "isan-thailand",
+    "malaysia",
+    "peninsular-malaysia",
+    "thailand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 17.309275121611837,
+   "lng": 103.57712181729663,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "w71dkzn",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361194.0873785,
+   "updated": 1789361194.0875723,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "MY>TH"
+   ]
+  },
+  "atm_9a93da5618de": {
+   "id": "atm_9a93da5618de",
+   "layer": "language",
+   "scope": "region",
+   "title": "Ban/Nong toponyms vs Khmer Prasat/Ta- toponyms inside Isan",
+   "category": "toponymy",
+   "tags": [
+    "actually-th",
+    "discriminator",
+    "khmer-surin",
+    "lao-isan",
+    "looks-like-th",
+    "toponymy"
+   ],
+   "entities": [
+    "sakon-nakhon-lao-isan",
+    "surin-buriram",
+    "surin-khmer-isan",
+    "thailand",
+    "upper-isan"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 17.309275121611837,
+   "lng": 103.57712181729663,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "w71dkzn",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_th_ban-champa-thong_17.3071_103.5802_260910_235535_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361194.217348,
+   "updated": 1789361194.2175114,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e452dc6b1629": {
+   "id": "atm_e452dc6b1629",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Altiplano Potosino vs Zacatecas plateau: mesquite bosque and giant palma china",
+   "category": "vegetation",
+   "tags": [
+    "actually-mx",
+    "altiplano",
+    "discriminator",
+    "looks-like-mx",
+    "mesquite",
+    "vegetation",
+    "yucca-filifera"
+   ],
+   "entities": [
+    "mexico",
+    "san-luis-potos",
+    "zacatecas"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 22.22951386176575,
+   "lng": -101.22789149296368,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9gbn2wb",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361195.5166705,
+   "updated": 1789361195.5270796,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_4b98d01184f6": {
+   "id": "atm_4b98d01184f6",
+   "layer": "architecture",
+   "scope": "country",
+   "title": "Rural Mexico vs US Southwest: castillo-framed brick and square concrete poles",
+   "category": "roof-facade",
+   "tags": [
+    "actually-mx",
+    "castillo",
+    "concrete-pole",
+    "confined-masonry",
+    "discriminator",
+    "looks-like-us",
+    "roof-facade"
+   ],
+   "entities": [
+    "mexico",
+    "southwest",
+    "united-states"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 22.22951386176575,
+   "lng": -101.22789149296368,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "9gbn2wb",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361195.6542547,
+   "updated": 1789361195.6544592,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "US>MX"
+   ]
+  },
+  "atm_6073bba1ba34": {
+   "id": "atm_6073bba1ba34",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Nopal hedge on rock-pile wall marks Mexican ejido parcels, not fenced US rangeland",
+   "category": "agriculture",
+   "tags": [
+    "actually-mx",
+    "agriculture",
+    "discriminator",
+    "dry-stone",
+    "ejido",
+    "looks-like-us",
+    "nopal-hedge"
+   ],
+   "entities": [
+    "mexico",
+    "san-luis-potos",
+    "southwest",
+    "united-states"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 22.22951386176575,
+   "lng": -101.22789149296368,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "9gbn2wb",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_mx_la-tapona-mexquitic-de-carmona_22.2311_-101.2282_260911_000322_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361195.7669637,
+   "updated": 1789361195.7671864,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "US>MX"
+   ]
+  },
+  "atm_c0028c87af29": {
+   "id": "atm_c0028c87af29",
+   "layer": "geography",
+   "scope": "country",
+   "title": "One-lane bridge: NZ pictogram+blue arrow plate vs Australian worded sign",
+   "category": "road-signage",
+   "tags": [
+    "actually-nz",
+    "discriminator",
+    "looks-like-au",
+    "nzta",
+    "one-lane-bridge",
+    "priority-plate",
+    "road-signage"
+   ],
+   "entities": [
+    "australia",
+    "manawat-whanganui",
+    "new-zealand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2663081739023,
+   "lng": 176.22142079260462,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "rbv6fj8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361196.882464,
+   "updated": 1789361196.8827412,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "AU>NZ"
+   ]
+  },
+  "atm_935d031e2a8f": {
+   "id": "atm_935d031e2a8f",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Papa mudstone cut banks mark eastern North Island, not South Island greywacke",
+   "category": "soil-terrain-cue",
+   "tags": [
+    "actually-nz",
+    "discriminator",
+    "greywacke",
+    "looks-like-nz",
+    "mudstone",
+    "papa",
+    "soil-terrain-cue"
+   ],
+   "entities": [
+    "eastern-north-island",
+    "new-zealand",
+    "south-island"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2663081739023,
+   "lng": 176.22142079260462,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "rbv6fj8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361196.983275,
+   "updated": 1789361196.9834373,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_30644ea72f98": {
+   "id": "atm_30644ea72f98",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Drought-browned pasture with green gullies = eastern rain shadow, not Taranaki/Waikato",
+   "category": "climate",
+   "tags": [
+    "actually-nz",
+    "climate",
+    "discriminator",
+    "looks-like-nz",
+    "pasture",
+    "rain-shadow",
+    "tephra"
+   ],
+   "entities": [
+    "eastern-north-island",
+    "new-zealand",
+    "taranaki",
+    "tararua-hawke-s-bay-border"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2663081739023,
+   "lng": 176.22142079260462,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "rbv6fj8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361197.094791,
+   "updated": 1789361197.0949743,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_b2e8cd2ce0f6": {
+   "id": "atm_b2e8cd2ce0f6",
+   "layer": "nature",
+   "scope": "country",
+   "title": "Toetoe plumes and broadleaf bush vs eucalypt woodland",
+   "category": "vegetation",
+   "tags": [
+    "actually-nz",
+    "discriminator",
+    "eucalypt",
+    "looks-like-au",
+    "radiata",
+    "toetoe",
+    "vegetation"
+   ],
+   "entities": [
+    "australia",
+    "new-zealand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -40.2663081739023,
+   "lng": 176.22142079260462,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "rbv6fj8",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361197.2205343,
+   "updated": 1789361197.2206998,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "AU>NZ"
+   ]
+  },
+  "atm_ec115d67939d": {
+   "id": "atm_ec115d67939d",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Oltrepò Pavese plain looks vine-free: vines sit behind the first hill line",
+   "category": "agriculture",
+   "tags": [
+    "actually-it",
+    "agriculture",
+    "discriminator",
+    "looks-like-it",
+    "oltrepo",
+    "po-plain-margin",
+    "viticulture"
+   ],
+   "entities": [
+    "emilia-romagna-parma-reggio-foothills",
+    "italy",
+    "lombardy-oltrep-pavese",
+    "oltrep-pavese-lombardy",
+    "parma-reggio-emilia-foothill-belt"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.924525120256256,
+   "lng": 8.971334788308228,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "spyrs4k",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_92744b0ffc95.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361198.3420198,
+   "updated": 1789361198.3423471,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_b905eb4795d9": {
+   "id": "atm_b905eb4795d9",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Pede-Apennine step is pan-regional: don't convert hill-front proximity into a province",
+   "category": "landform",
+   "tags": [
+    "actually-it",
+    "apennine-front",
+    "discriminator",
+    "landform",
+    "looks-like-it",
+    "po-plain",
+    "scale-discipline"
+   ],
+   "entities": [
+    "emilia-romagna",
+    "italy",
+    "lombardy",
+    "lombardy-oltrep-pavese"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.924525120256256,
+   "lng": 8.971334788308228,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "spyrs4k",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_92744b0ffc95.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361198.4364438,
+   "updated": 1789361198.4365923,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_4ded08bf94f9": {
+   "id": "atm_4ded08bf94f9",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Brick cascina with block shed is Lombard-to-Emilian, not diagnostic of Emilia",
+   "category": "housing-typology",
+   "tags": [
+    "actually-it",
+    "brick",
+    "cascina",
+    "corte",
+    "discriminator",
+    "housing-typology",
+    "looks-like-it"
+   ],
+   "entities": [
+    "emilia-parma",
+    "emilia-romagna",
+    "italy",
+    "lombardy",
+    "lombardy-pavia",
+    "tuscany"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.924525120256256,
+   "lng": 8.971334788308228,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "spyrs4k",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_864212643132.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361198.5406833,
+   "updated": 1789361198.5408957,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_3c739719836a": {
+   "id": "atm_3c739719836a",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Hay tedder and forage plots mean dairy, not specifically Parmigiano-Reggiano",
+   "category": "agriculture",
+   "tags": [
+    "actually-it",
+    "agriculture",
+    "dairy",
+    "discriminator",
+    "forage",
+    "grana-padano",
+    "looks-like-it"
+   ],
+   "entities": [
+    "grana-padano-zone-lombardy",
+    "italy",
+    "lombardy-pavia",
+    "parma-reggio-emilia",
+    "parmigiano-reggiano-belt-emilia"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 44.924525120256256,
+   "lng": 8.971334788308228,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "spyrs4k",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_df5132b1524e.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361198.659587,
+   "updated": 1789361198.659786,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_eba3dc758411": {
+   "id": "atm_eba3dc758411",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Missing snowmelt sprinklers do not rule out Hokuriku on minor lanes",
+   "category": "road-marking",
+   "tags": [
+    "actually-jp",
+    "discriminator",
+    "hokuriku",
+    "looks-like-jp",
+    "road-furniture",
+    "road-marking",
+    "snow"
+   ],
+   "entities": [
+    "chiba-ibaraki-kanto",
+    "ishikawa-noto",
+    "ishikawa-noto-peninsula",
+    "japan",
+    "kanto-boso-ibaraki-upland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.338152270690045,
+   "lng": 136.78593653493732,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2th",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361199.642127,
+   "updated": 1789361199.6424348,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_18dfb917ecd9": {
+   "id": "atm_18dfb917ecd9",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Moso bamboo thrives on the Sea-of-Japan coast up to Noto",
+   "category": "vegetation",
+   "tags": [
+    "actually-jp",
+    "bamboo",
+    "climate",
+    "discriminator",
+    "looks-like-jp",
+    "sugi",
+    "vegetation"
+   ],
+   "entities": [
+    "hokuriku-noto",
+    "japan",
+    "kanto",
+    "noto-peninsula"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.338152270690045,
+   "lng": 136.78593653493732,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2th",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361199.7571316,
+   "updated": 1789361199.7573888,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_76095061912d": {
+   "id": "atm_76095061912d",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Dark tarred board cladding + metal roof vs Kanto's kawara farm shed",
+   "category": "roof-facade",
+   "tags": [
+    "actually-jp",
+    "cladding",
+    "discriminator",
+    "farm-shed",
+    "hokuriku",
+    "looks-like-jp",
+    "roof-facade"
+   ],
+   "entities": [
+    "hokuriku",
+    "ishikawa",
+    "japan",
+    "kanto"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.338152270690045,
+   "lng": 136.78593653493732,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2th",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_a6c59411dbb7.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361199.8599927,
+   "updated": 1789361199.8601623,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_ebc7c2ef6ce2": {
+   "id": "atm_ebc7c2ef6ce2",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Depopulating peninsula hamlet vs commuter-belt Kanto satoyama",
+   "category": "settlement-pattern",
+   "tags": [
+    "actually-jp",
+    "depopulation",
+    "discriminator",
+    "looks-like-jp",
+    "rural",
+    "satoyama",
+    "settlement-pattern"
+   ],
+   "entities": [
+    "boso-ibaraki",
+    "boso-peninsula",
+    "japan",
+    "noto-peninsula"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.338152270690045,
+   "lng": 136.78593653493732,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2th",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361199.9608686,
+   "updated": 1789361199.9611115,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_9f4060f146e8": {
+   "id": "atm_9f4060f146e8",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Kanto loam is dark/reddish, not pale brown",
+   "category": "soil-terrain-cue",
+   "tags": [
+    "actually-jp",
+    "cut-bank",
+    "discriminator",
+    "looks-like-jp",
+    "soil",
+    "soil-terrain-cue",
+    "tephra"
+   ],
+   "entities": [
+    "hokuriku",
+    "ishikawa",
+    "japan",
+    "kanto"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.338152270690045,
+   "lng": 136.78593653493732,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "xn9k2th",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361200.0734198,
+   "updated": 1789361200.0736206,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_dca606fecd4d": {
+   "id": "atm_dca606fecd4d",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Grated concrete U-ditch and orange-post convex mirror fix Japan, not the region",
+   "category": "street-furniture",
+   "tags": [
+    "actually-jp",
+    "convex-mirror",
+    "country-lock",
+    "discriminator",
+    "looks-like-kr",
+    "street-furniture",
+    "u-ditch"
+   ],
+   "entities": [
+    "japan",
+    "south-korea"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.338152270690045,
+   "lng": 136.78593653493732,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "xn9k2th",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_09a1300a55b6.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361200.1922026,
+   "updated": 1789361200.192371,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "KR>JP"
+   ]
+  },
+  "atm_288c6a410e97": {
+   "id": "atm_288c6a410e97",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Sevillian salmon-render adosados vs Levante flat-roof suburbia",
+   "category": "housing-typology",
+   "tags": [
+    "actually-es",
+    "adosados",
+    "barrel-tile",
+    "discriminator",
+    "housing-typology",
+    "looks-like-es",
+    "rejas"
+   ],
+   "entities": [
+    "andalusia",
+    "andalusia-seville",
+    "levante",
+    "spain",
+    "valencian-community"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.286309667436875,
+   "lng": -5.917794805105353,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "eyeu17f",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361201.245743,
+   "updated": 1789361201.2459414,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_b0dafbf62e75": {
+   "id": "atm_b0dafbf62e75",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Flat closed street-end horizon separates Seville plain from Granada/Malaga",
+   "category": "landform",
+   "tags": [
+    "actually-es",
+    "discriminator",
+    "guadalquivir",
+    "horizon",
+    "landform",
+    "looks-like-es",
+    "sierra"
+   ],
+   "entities": [
+    "granada",
+    "granada-malaga",
+    "lower-guadalquivir-seville",
+    "malaga",
+    "seville-province",
+    "spain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.286309667436875,
+   "lng": -5.917794805105353,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "eyeu17f",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361201.3438208,
+   "updated": 1789361201.3439972,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_7f58247de8e3": {
+   "id": "atm_7f58247de8e3",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Metro-satellite signature: brick bloques with garage fronts next to adosado estates",
+   "category": "urban-form",
+   "tags": [
+    "actually-es",
+    "discriminator",
+    "garage-front",
+    "looks-like-es",
+    "satellite-town",
+    "urban-form",
+    "urbanizacion"
+   ],
+   "entities": [
+    "dos-hermanas",
+    "seville-city-centre",
+    "seville-historic-centre-rural-pueblo",
+    "seville-metropolitan-belt",
+    "spain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.286309667436875,
+   "lng": -5.917794805105353,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "eyeu17f",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361201.4558406,
+   "updated": 1789361201.456001,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e11e2807a7c5": {
+   "id": "atm_e11e2807a7c5",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Spanish kerb-and-apron colour coding vs Italian street furniture",
+   "category": "road-marking",
+   "tags": [
+    "actually-es",
+    "crossing-apron",
+    "dgt",
+    "discriminator",
+    "kerb-paint",
+    "looks-like-it",
+    "road-marking"
+   ],
+   "entities": [
+    "italy",
+    "spain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 37.286309667436875,
+   "lng": -5.917794805105353,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "eyeu17f",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789361201.562506,
+   "updated": 1789361201.562683,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "IT>ES"
+   ]
   }
  },
  "cells": {
@@ -65113,7 +67836,16 @@
    "atm_1bb47ee4e339",
    "atm_4f92a18e4ed7",
    "atm_5685afe3cc0c",
-   "atm_9b6eeb87cb63"
+   "atm_9b6eeb87cb63",
+   "atm_65d849f7eb83",
+   "atm_69c0077521d3",
+   "atm_3f818b5a1b64",
+   "atm_1dc57346ad13",
+   "atm_eba3dc758411",
+   "atm_18dfb917ecd9",
+   "atm_76095061912d",
+   "atm_ebc7c2ef6ce2",
+   "atm_9f4060f146e8"
   ],
   "u25": [
    "atm_0b558ec13f6d"
@@ -65134,7 +67866,14 @@
    "atm_0e23428c07fd",
    "atm_490cab9597a7",
    "atm_91bb4809c09e",
-   "atm_cb0c83bea310"
+   "atm_cb0c83bea310",
+   "atm_e0ddecfde4f8",
+   "atm_1c6af51b0fc1",
+   "atm_676b94e88700",
+   "atm_cb0c83bea310",
+   "atm_91bb4809c09e",
+   "atm_490cab9597a7",
+   "atm_0e23428c07fd"
   ],
   "9sh": [
    "atm_0f259f84fb29",
@@ -65143,7 +67882,9 @@
   ],
   "9u": [
    "atm_0f5685ec7286",
-   "atm_a741bec60f9c"
+   "atm_a741bec60f9c",
+   "atm_0f5685ec7286",
+   "atm_0f5685ec7286"
   ],
   "u8": [
    "atm_0f643119e6e7",
@@ -65179,7 +67920,8 @@
    "atm_11de3f1b2c80",
    "atm_1d9a3444fe22",
    "atm_59493deb0040",
-   "atm_635d3f4d1fe8"
+   "atm_635d3f4d1fe8",
+   "atm_4b98d01184f6"
   ],
   "u6x": [
    "atm_126f0a24f257",
@@ -65226,7 +67968,9 @@
    "atm_7fee21f2b232",
    "atm_9a486159e361",
    "atm_af77a40342bd",
-   "atm_e972c3d2ffab"
+   "atm_e972c3d2ffab",
+   "atm_590816a2ad04",
+   "atm_9a486159e361"
   ],
   "w7g": [
    "atm_16179f1c9c92",
@@ -65278,7 +68022,12 @@
   "9ex": [
    "atm_1a4c17a4c72d",
    "atm_2fbd4c769a30",
-   "atm_5b9c968b7ed1"
+   "atm_5b9c968b7ed1",
+   "atm_f3fb02fa3be5",
+   "atm_82d74b56e40b",
+   "atm_5b9c968b7ed1",
+   "atm_2fbd4c769a30",
+   "atm_82d74b56e40b"
   ],
   "eyt": [
    "atm_1b291689479e",
@@ -65347,7 +68096,13 @@
    "atm_a8965343eeda",
    "atm_aba4cb4ab431",
    "atm_ea64ccafd76b",
-   "atm_fa8ff513c430"
+   "atm_fa8ff513c430",
+   "atm_36953f364595",
+   "atm_0a129b3d0032",
+   "atm_a5c9084accfd",
+   "atm_36953f364595",
+   "atm_a8965343eeda",
+   "atm_ea64ccafd76b"
   ],
   "esv": [
    "atm_2259a51ab69b",
@@ -65408,7 +68163,10 @@
    "atm_b263ea2c5db6",
    "atm_c67e18d2f564",
    "atm_cce9194ad055",
-   "atm_d06a11087118"
+   "atm_d06a11087118",
+   "atm_27a2ec66d515",
+   "atm_4bd89fdef0f9",
+   "atm_cce9194ad055"
   ],
   "9gq": [
    "atm_290e8dc4ccdf",
@@ -65464,7 +68222,14 @@
    "atm_309c39141fcb",
    "atm_68509cfdf0f6",
    "atm_a410bcb0d577",
-   "atm_c6a252ad0c50"
+   "atm_c6a252ad0c50",
+   "atm_735a7287ad2c",
+   "atm_a1b98b03e41a",
+   "atm_9a93da5618de",
+   "atm_309c39141fcb",
+   "atm_c6a252ad0c50",
+   "atm_a410bcb0d577",
+   "atm_68509cfdf0f6"
   ],
   "sv": [
    "atm_32e258afc8c1",
@@ -65486,6 +68251,14 @@
   "d2g": [
    "atm_3641a82e3cde",
    "atm_8eff91373f39",
+   "atm_c8c9936aabeb",
+   "atm_457ca0cf526a",
+   "atm_1fe840b3212c",
+   "atm_457ca0cf526a",
+   "atm_0c63c014b962",
+   "atm_a4c8d01b5267",
+   "atm_8eff91373f39",
+   "atm_3641a82e3cde",
    "atm_c8c9936aabeb"
   ],
   "6d": [
@@ -65546,7 +68319,12 @@
    "atm_7ce456065485",
    "atm_8dca31d7924e",
    "atm_b2fcdcfac982",
-   "atm_bcebe14f209f"
+   "atm_bcebe14f209f",
+   "atm_e452dc6b1629",
+   "atm_6073bba1ba34",
+   "atm_8dca31d7924e",
+   "atm_b2fcdcfac982",
+   "atm_424413bdfad8"
   ],
   "tt": [
    "atm_427e564cfa66"
@@ -65573,7 +68351,13 @@
   "66v": [
    "atm_47d9d151a778",
    "atm_bb66dca32eda",
-   "atm_e591fce7975b"
+   "atm_e591fce7975b",
+   "atm_e591fce7975b",
+   "atm_fe1fabd7b881",
+   "atm_ca536dbdc238",
+   "atm_e591fce7975b",
+   "atm_bb66dca32eda",
+   "atm_47d9d151a778"
   ],
   "g7": [
    "atm_485864d7d355",
@@ -65618,12 +68402,17 @@
   "s1n": [
    "atm_52d9e7fe3865",
    "atm_b0c0a8fcab45",
-   "atm_c9e4132840cf"
+   "atm_c9e4132840cf",
+   "atm_d97630c7288f",
+   "atm_c9e4132840cf",
+   "atm_e15595eeb416"
   ],
   "xn": [
    "atm_52fa8fc7482a",
    "atm_ad557b503715",
    "atm_c5683d7f6a32",
+   "atm_e0e0e7bcfbe4",
+   "atm_dca606fecd4d",
    "atm_e0e0e7bcfbe4"
   ],
   "69": [
@@ -65673,7 +68462,8 @@
    "atm_6f2f315da529",
    "atm_92e90898b5a0",
    "atm_9c7e3984b1de",
-   "atm_c3ac51f65d6e"
+   "atm_c3ac51f65d6e",
+   "atm_b67d081a61b7"
   ],
   "c2b": [
    "atm_6fe925c46af6",
@@ -65689,16 +68479,22 @@
    "atm_714f55d47cd5"
   ],
   "66": [
+   "atm_71667f856f45",
+   "atm_173fb47af208",
    "atm_71667f856f45"
   ],
   "w7": [
    "atm_724d7e7a7c99",
    "atm_a829b13225ed",
+   "atm_e2c9a9aafaf4",
+   "atm_e2c9a9aafaf4",
    "atm_e2c9a9aafaf4"
   ],
   "xp": [
    "atm_726f0d1570b0",
-   "atm_e75b1bf2f7fa"
+   "atm_e75b1bf2f7fa",
+   "atm_e75b1bf2f7fa",
+   "atm_726f0d1570b0"
   ],
   "gc": [
    "atm_7493c55d0bf4",
@@ -65772,6 +68568,11 @@
    "atm_90d3d84bcd02"
   ],
   "d2": [
+   "atm_91b8f6217bd1",
+   "atm_58cde6ebbc3d",
+   "atm_91b8f6217bd1",
+   "atm_e74ee1efa100",
+   "atm_91b8f6217bd1",
    "atm_91b8f6217bd1"
   ],
   "te": [
@@ -65825,7 +68626,9 @@
   ],
   "9e": [
    "atm_a7ecfad95f50",
-   "atm_bfa5269be192"
+   "atm_bfa5269be192",
+   "atm_9aae63fb6cc3",
+   "atm_e5dc061fdb33"
   ],
   "u0q": [
    "atm_a8902b79c383"
@@ -65839,7 +68642,9 @@
    "atm_be07aa622f34",
    "atm_c57fe98938af",
    "atm_d09f20285662",
-   "atm_dc6f04f6a1d0"
+   "atm_dc6f04f6a1d0",
+   "atm_ad6ef340394d",
+   "atm_e11e2807a7c5"
   ],
   "9g3": [
    "atm_aa1543dd152e"
@@ -65869,7 +68674,8 @@
    "atm_ea92c4c667d4"
   ],
   "sw": [
-   "atm_b9e670bd45e8"
+   "atm_b9e670bd45e8",
+   "atm_ad4651f749ac"
   ],
   "tx": [
    "atm_bc282d8bf5a5",
@@ -65908,6 +68714,40 @@
   ],
   "wzt": [
    "atm_fd11c8cbb7ac"
+  ],
+  "rb": [
+   "atm_c7eaf2b97e59",
+   "atm_305c0c3707b0",
+   "atm_c0028c87af29",
+   "atm_b2e8cd2ce0f6",
+   "atm_c7eaf2b97e59",
+   "atm_305c0c3707b0"
+  ],
+  "rbv": [
+   "atm_e0b610416d73",
+   "atm_7202d5d69930",
+   "atm_935d031e2a8f",
+   "atm_30644ea72f98",
+   "atm_e0b610416d73",
+   "atm_7202d5d69930"
+  ],
+  "spy": [
+   "atm_d3afa16fc410",
+   "atm_e5538c73518c",
+   "atm_f947eed4f050",
+   "atm_ec115d67939d",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9",
+   "atm_3c739719836a"
+  ],
+  "s1": [
+   "atm_73e57a387697",
+   "atm_7e5c0b47c99a"
+  ],
+  "eye": [
+   "atm_288c6a410e97",
+   "atm_b0dafbf62e75",
+   "atm_7f58247de8e3"
   ]
  },
  "entities": {
@@ -66468,7 +69308,11 @@
    "atm_c2c5ced5d1a1",
    "atm_cb0c83bea310",
    "atm_e81470498de1",
-   "atm_fc22ca49a31d"
+   "atm_fc22ca49a31d",
+   "atm_ad4651f749ac",
+   "atm_e0ddecfde4f8",
+   "atm_1c6af51b0fc1",
+   "atm_676b94e88700"
   ],
   "dubrovnik-riviera": [
    "atm_0625509c4e13",
@@ -66502,7 +69346,8 @@
    "atm_a60aa4ae835e",
    "atm_be5beb4f44d0",
    "atm_cd600d8705f5",
-   "atm_f19e4901ccab"
+   "atm_f19e4901ccab",
+   "atm_a1b98b03e41a"
   ],
   "selangor": [
    "atm_065d923adab8"
@@ -66521,10 +69366,16 @@
    "atm_2cdc40298a80",
    "atm_31da6d150e39",
    "atm_6f9fc96c5833",
-   "atm_9b58a70e7561"
+   "atm_9b58a70e7561",
+   "atm_c0028c87af29",
+   "atm_b2e8cd2ce0f6"
   ],
   "new-zealand": [
-   "atm_06bd6a770961"
+   "atm_06bd6a770961",
+   "atm_c0028c87af29",
+   "atm_935d031e2a8f",
+   "atm_30644ea72f98",
+   "atm_b2e8cd2ce0f6"
   ],
   "united-states": [
    "atm_06bd6a770961",
@@ -66537,7 +69388,10 @@
    "atm_9dd182ac73ec",
    "atm_a36ae7f0bdbe",
    "atm_bd2899174a72",
-   "atm_d943fb448339"
+   "atm_d943fb448339",
+   "atm_e5dc061fdb33",
+   "atm_4b98d01184f6",
+   "atm_6073bba1ba34"
   ],
   "shun-dynasty": [
    "atm_0711bdfb80e8",
@@ -66991,7 +69845,13 @@
    "atm_dcc3f946acb2",
    "atm_e0e0e7bcfbe4",
    "atm_e75b1bf2f7fa",
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_eba3dc758411",
+   "atm_18dfb917ecd9",
+   "atm_76095061912d",
+   "atm_ebc7c2ef6ce2",
+   "atm_9f4060f146e8",
+   "atm_dca606fecd4d"
   ],
   "united-kingdom": [
    "atm_0de705b1aa28",
@@ -67039,7 +69899,11 @@
    "atm_f1f2aae7e0ab",
    "atm_f248a010c782",
    "atm_fa8ff513c430",
-   "atm_fcd1da2c1009"
+   "atm_fcd1da2c1009",
+   "atm_288c6a410e97",
+   "atm_b0dafbf62e75",
+   "atm_7f58247de8e3",
+   "atm_e11e2807a7c5"
   ],
   "aegean-region": [
    "atm_0e23428c07fd",
@@ -67159,7 +70023,14 @@
    "atm_bd33b40b4b46",
    "atm_bfa44d28d5f9",
    "atm_bfa5269be192",
-   "atm_ef1de3b43459"
+   "atm_ef1de3b43459",
+   "atm_f3fb02fa3be5",
+   "atm_9aae63fb6cc3",
+   "atm_82d74b56e40b",
+   "atm_e5dc061fdb33",
+   "atm_e452dc6b1629",
+   "atm_4b98d01184f6",
+   "atm_6073bba1ba34"
   ],
   "sinaloa": [
    "atm_0f259f84fb29",
@@ -67434,7 +70305,8 @@
    "atm_b596b7eba650",
    "atm_bcc371cc942c",
    "atm_d83deb4b95ed",
-   "atm_ea35d8f70c99"
+   "atm_ea35d8f70c99",
+   "atm_9aae63fb6cc3"
   ],
   "izabal": [
    "atm_1270c7cffadd",
@@ -67522,7 +70394,10 @@
    "atm_9dd182ac73ec",
    "atm_c6a252ad0c50",
    "atm_dcc3f946acb2",
-   "atm_e2c9a9aafaf4"
+   "atm_e2c9a9aafaf4",
+   "atm_735a7287ad2c",
+   "atm_a1b98b03e41a",
+   "atm_9a93da5618de"
   ],
   "vietnam": [
    "atm_128968f951fe",
@@ -67939,7 +70814,8 @@
    "atm_1836cc39ec5e",
    "atm_3fc712b096be",
    "atm_b9e670bd45e8",
-   "atm_ff812a421048"
+   "atm_ff812a421048",
+   "atm_ad4651f749ac"
   ],
   "italy": [
    "atm_1836cc39ec5e",
@@ -67961,7 +70837,15 @@
    "atm_d77af7df6d03",
    "atm_dddae32137b0",
    "atm_ea64ccafd76b",
-   "atm_fcd1da2c1009"
+   "atm_fcd1da2c1009",
+   "atm_36953f364595",
+   "atm_0a129b3d0032",
+   "atm_a5c9084accfd",
+   "atm_ec115d67939d",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9",
+   "atm_3c739719836a",
+   "atm_e11e2807a7c5"
   ],
   "serbia": [
    "atm_1836cc39ec5e",
@@ -68208,7 +71092,8 @@
    "atm_a8fd0dd52605",
    "atm_b9a0f391e167",
    "atm_dc6f04f6a1d0",
-   "atm_ff7e0527ae32"
+   "atm_ff7e0527ae32",
+   "atm_b0dafbf62e75"
   ],
   "alawi-dynasty": [
    "atm_1c93c98df68c"
@@ -68324,7 +71209,8 @@
   ],
   "south-korea": [
    "atm_1ebe4a61b6ca",
-   "atm_e0e0e7bcfbe4"
+   "atm_e0e0e7bcfbe4",
+   "atm_dca606fecd4d"
   ],
   "ulsan": [
    "atm_1ebe4a61b6ca",
@@ -68696,7 +71582,8 @@
    "atm_cd600d8705f5"
   ],
   "peninsular-malaysia": [
-   "atm_25d589535f80"
+   "atm_25d589535f80",
+   "atm_a1b98b03e41a"
   ],
   "liu-song-dynasty": [
    "atm_25e4e15392f9",
@@ -68814,7 +71701,9 @@
    "atm_27a2ec66d515",
    "atm_2ade05f79dfe",
    "atm_4bd89fdef0f9",
-   "atm_a26ee42e2c47"
+   "atm_a26ee42e2c47",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9"
   ],
   "parma": [
    "atm_27a2ec66d515",
@@ -69367,7 +72256,13 @@
    "atm_8eff91373f39",
    "atm_91b8f6217bd1",
    "atm_be2b79054b54",
-   "atm_c8c9936aabeb"
+   "atm_c8c9936aabeb",
+   "atm_58cde6ebbc3d",
+   "atm_457ca0cf526a",
+   "atm_e74ee1efa100",
+   "atm_1fe840b3212c",
+   "atm_0c63c014b962",
+   "atm_a4c8d01b5267"
   ],
   "llanos": [
    "atm_3641a82e3cde"
@@ -69375,7 +72270,9 @@
   "meta-department": [
    "atm_3641a82e3cde",
    "atm_8eff91373f39",
-   "atm_c8c9936aabeb"
+   "atm_c8c9936aabeb",
+   "atm_457ca0cf526a",
+   "atm_1fe840b3212c"
   ],
   "gagil-dynasty": [
    "atm_36640a3ec7ef"
@@ -70230,7 +73127,8 @@
   ],
   "atacama-region": [
    "atm_47d9d151a778",
-   "atm_bb66dca32eda"
+   "atm_bb66dca32eda",
+   "atm_fe1fabd7b881"
   ],
   "elqui-valley": [
    "atm_47d9d151a778"
@@ -70745,13 +73643,20 @@
   ],
   "cross-river-state": [
    "atm_52d9e7fe3865",
-   "atm_c9e4132840cf"
+   "atm_c9e4132840cf",
+   "atm_73e57a387697",
+   "atm_d97630c7288f",
+   "atm_e15595eeb416"
   ],
   "nigeria": [
    "atm_52d9e7fe3865",
    "atm_643367ff9498",
    "atm_b0c0a8fcab45",
-   "atm_c9e4132840cf"
+   "atm_c9e4132840cf",
+   "atm_73e57a387697",
+   "atm_d97630c7288f",
+   "atm_e15595eeb416",
+   "atm_7e5c0b47c99a"
   ],
   "dpwh": [
    "atm_52db6220e238"
@@ -71157,13 +74062,17 @@
    "atm_d0b1999402af"
   ],
   "antalya": [
-   "atm_5c6dd5af93f3"
+   "atm_5c6dd5af93f3",
+   "atm_1c6af51b0fc1"
   ],
   "kras-plateau": [
    "atm_5c6dd5af93f3"
   ],
   "hokuriku": [
-   "atm_5c89fb5d7fd9"
+   "atm_5c89fb5d7fd9",
+   "atm_65d849f7eb83",
+   "atm_76095061912d",
+   "atm_9f4060f146e8"
   ],
   "cordoba": [
    "atm_5cd03c33de8d"
@@ -71376,7 +74285,9 @@
   "isan": [
    "atm_68509cfdf0f6",
    "atm_a410bcb0d577",
-   "atm_c6a252ad0c50"
+   "atm_c6a252ad0c50",
+   "atm_735a7287ad2c",
+   "atm_a1b98b03e41a"
   ],
   "tuppras": [
    "atm_687e4fb20c84"
@@ -71648,7 +74559,10 @@
    "atm_71667f856f45",
    "atm_bb66dca32eda",
    "atm_be2b79054b54",
-   "atm_e591fce7975b"
+   "atm_e591fce7975b",
+   "atm_fe1fabd7b881",
+   "atm_ca536dbdc238",
+   "atm_173fb47af208"
   ],
   "ministry-of-public-works-chile": [
    "atm_71667f856f45"
@@ -73699,10 +76613,13 @@
    "atm_fc90c4a62930"
   ],
   "cameroon": [
-   "atm_b0c0a8fcab45"
+   "atm_b0c0a8fcab45",
+   "atm_73e57a387697"
   ],
   "ghana": [
-   "atm_b0c0a8fcab45"
+   "atm_b0c0a8fcab45",
+   "atm_d97630c7288f",
+   "atm_7e5c0b47c99a"
   ],
   "wynwood": [
    "atm_b104178decc7"
@@ -74000,7 +76917,8 @@
    "atm_bcebe14f209f"
   ],
   "zacatecas": [
-   "atm_bcebe14f209f"
+   "atm_bcebe14f209f",
+   "atm_e452dc6b1629"
   ],
   "interstate-highway-system": [
    "atm_bd2899174a72"
@@ -74089,7 +77007,9 @@
   "peru": [
    "atm_be2b79054b54",
    "atm_bf39ad75c9fc",
-   "atm_e4bdaab98801"
+   "atm_e4bdaab98801",
+   "atm_ca536dbdc238",
+   "atm_173fb47af208"
   ],
   "porto-marghera": [
    "atm_be43b29468d1"
@@ -74325,7 +77245,8 @@
    "atm_c6796d5edf50"
   ],
   "emilia-parma": [
-   "atm_c67e18d2f564"
+   "atm_c67e18d2f564",
+   "atm_4ded08bf94f9"
   ],
   "emilia-romagna-parma": [
    "atm_c67e18d2f564"
@@ -74541,7 +77462,10 @@
   ],
   "po-plain": [
    "atm_cce9194ad055",
-   "atm_d06a11087118"
+   "atm_d06a11087118",
+   "atm_d3afa16fc410",
+   "atm_e5538c73518c",
+   "atm_f947eed4f050"
   ],
   "ancient-shu": [
    "atm_cdc5de4fdb0f"
@@ -76242,6 +79166,301 @@
   ],
   "costa-brava": [
    "atm_ff812a421048"
+  ],
+  "lombardy": [
+   "atm_d3afa16fc410",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9"
+  ],
+  "province-of-pavia": [
+   "atm_0a129b3d0032"
+  ],
+  "apennine-mountains": [
+   "atm_e5538c73518c"
+  ],
+  "jodo-shinshu": [
+   "atm_65d849f7eb83"
+  ],
+  "shinshu-otani-ha": [
+   "atm_65d849f7eb83"
+  ],
+  "ishikawa-prefecture": [
+   "atm_69c0077521d3"
+  ],
+  "noto-peninsula": [
+   "atm_69c0077521d3",
+   "atm_1dc57346ad13",
+   "atm_18dfb917ecd9",
+   "atm_ebc7c2ef6ce2"
+  ],
+  "toyama-prefecture": [
+   "atm_69c0077521d3"
+  ],
+  "genkai-shuraku": [
+   "atm_3f818b5a1b64"
+  ],
+  "monzenmachi": [
+   "atm_1dc57346ad13"
+  ],
+  "sojiji": [
+   "atm_1dc57346ad13"
+  ],
+  "wajima": [
+   "atm_1dc57346ad13"
+  ],
+  "altiplano-northern-mexico": [
+   "atm_f3fb02fa3be5"
+  ],
+  "guanajuato-baj-o": [
+   "atm_f3fb02fa3be5"
+  ],
+  "mexican-altiplano": [
+   "atm_f3fb02fa3be5"
+  ],
+  "irapuato-area": [
+   "atm_82d74b56e40b"
+  ],
+  "irapuato-central-guanajuato": [
+   "atm_82d74b56e40b"
+  ],
+  "p-njamo-cuer-maro-area": [
+   "atm_82d74b56e40b"
+  ],
+  "p-njamo-cuer-maro-western-guanajuato": [
+   "atm_82d74b56e40b"
+  ],
+  "southwest": [
+   "atm_e5dc061fdb33",
+   "atm_4b98d01184f6",
+   "atm_6073bba1ba34"
+  ],
+  "sierra-leone": [
+   "atm_73e57a387697"
+  ],
+  "ogoja": [
+   "atm_e15595eeb416"
+  ],
+  "rural-cross-river": [
+   "atm_e15595eeb416"
+  ],
+  "rural-village": [
+   "atm_e15595eeb416"
+  ],
+  "venezuela": [
+   "atm_58cde6ebbc3d"
+  ],
+  "caquet-putumayo": [
+   "atm_457ca0cf526a"
+  ],
+  "colombian-amazon": [
+   "atm_457ca0cf526a"
+  ],
+  "meta-llanos": [
+   "atm_457ca0cf526a"
+  ],
+  "ecuador": [
+   "atm_e74ee1efa100"
+  ],
+  "andean-colombia": [
+   "atm_1fe840b3212c"
+  ],
+  "andean-interior": [
+   "atm_1fe840b3212c",
+   "atm_a4c8d01b5267"
+  ],
+  "orinoqu-a": [
+   "atm_1fe840b3212c"
+  ],
+  "casanare": [
+   "atm_0c63c014b962"
+  ],
+  "meta": [
+   "atm_0c63c014b962"
+  ],
+  "boyac": [
+   "atm_a4c8d01b5267"
+  ],
+  "meta-piedmont": [
+   "atm_a4c8d01b5267"
+  ],
+  "atacama-huasco": [
+   "atm_fe1fabd7b881"
+  ],
+  "coquimbo-elqui": [
+   "atm_fe1fabd7b881"
+  ],
+  "coquimbo-region": [
+   "atm_fe1fabd7b881"
+  ],
+  "atacama": [
+   "atm_ca536dbdc238"
+  ],
+  "dodecanese-aegean-coast": [
+   "atm_ad4651f749ac"
+  ],
+  "mu-la-province": [
+   "atm_ad4651f749ac",
+   "atm_e0ddecfde4f8"
+  ],
+  "ayd-n-province": [
+   "atm_e0ddecfde4f8"
+  ],
+  "aegean-region-mu-la": [
+   "atm_1c6af51b0fc1"
+  ],
+  "aegean-turkey": [
+   "atm_1c6af51b0fc1"
+  ],
+  "antalya-taurus": [
+   "atm_1c6af51b0fc1"
+  ],
+  "milas-bodrum-corridor": [
+   "atm_676b94e88700"
+  ],
+  "milas-bodrum-highway": [
+   "atm_676b94e88700"
+  ],
+  "milas-s-ke-corridor": [
+   "atm_676b94e88700"
+  ],
+  "milas-s-ke-d525-near-etrenli-dan-ment": [
+   "atm_676b94e88700"
+  ],
+  "central-thailand": [
+   "atm_735a7287ad2c"
+  ],
+  "isan-khorat-plateau": [
+   "atm_735a7287ad2c"
+  ],
+  "isan-thailand": [
+   "atm_a1b98b03e41a"
+  ],
+  "sakon-nakhon-lao-isan": [
+   "atm_9a93da5618de"
+  ],
+  "surin-buriram": [
+   "atm_9a93da5618de"
+  ],
+  "surin-khmer-isan": [
+   "atm_9a93da5618de"
+  ],
+  "upper-isan": [
+   "atm_9a93da5618de"
+  ],
+  "san-luis-potos": [
+   "atm_e452dc6b1629",
+   "atm_6073bba1ba34"
+  ],
+  "manawat-whanganui": [
+   "atm_c0028c87af29"
+  ],
+  "eastern-north-island": [
+   "atm_935d031e2a8f",
+   "atm_30644ea72f98"
+  ],
+  "south-island": [
+   "atm_935d031e2a8f"
+  ],
+  "taranaki": [
+   "atm_30644ea72f98"
+  ],
+  "tararua-hawke-s-bay-border": [
+   "atm_30644ea72f98"
+  ],
+  "emilia-romagna-parma-reggio-foothills": [
+   "atm_ec115d67939d"
+  ],
+  "lombardy-oltrep-pavese": [
+   "atm_ec115d67939d",
+   "atm_b905eb4795d9"
+  ],
+  "oltrep-pavese-lombardy": [
+   "atm_ec115d67939d"
+  ],
+  "parma-reggio-emilia-foothill-belt": [
+   "atm_ec115d67939d"
+  ],
+  "lombardy-pavia": [
+   "atm_4ded08bf94f9",
+   "atm_3c739719836a"
+  ],
+  "tuscany": [
+   "atm_4ded08bf94f9"
+  ],
+  "grana-padano-zone-lombardy": [
+   "atm_3c739719836a"
+  ],
+  "parma-reggio-emilia": [
+   "atm_3c739719836a"
+  ],
+  "parmigiano-reggiano-belt-emilia": [
+   "atm_3c739719836a"
+  ],
+  "chiba-ibaraki-kanto": [
+   "atm_eba3dc758411"
+  ],
+  "ishikawa-noto": [
+   "atm_eba3dc758411"
+  ],
+  "ishikawa-noto-peninsula": [
+   "atm_eba3dc758411"
+  ],
+  "kanto-boso-ibaraki-upland": [
+   "atm_eba3dc758411"
+  ],
+  "hokuriku-noto": [
+   "atm_18dfb917ecd9"
+  ],
+  "kanto": [
+   "atm_18dfb917ecd9",
+   "atm_76095061912d",
+   "atm_9f4060f146e8"
+  ],
+  "ishikawa": [
+   "atm_76095061912d",
+   "atm_9f4060f146e8"
+  ],
+  "boso-ibaraki": [
+   "atm_ebc7c2ef6ce2"
+  ],
+  "boso-peninsula": [
+   "atm_ebc7c2ef6ce2"
+  ],
+  "andalusia": [
+   "atm_288c6a410e97"
+  ],
+  "andalusia-seville": [
+   "atm_288c6a410e97"
+  ],
+  "levante": [
+   "atm_288c6a410e97"
+  ],
+  "valencian-community": [
+   "atm_288c6a410e97"
+  ],
+  "granada-malaga": [
+   "atm_b0dafbf62e75"
+  ],
+  "lower-guadalquivir-seville": [
+   "atm_b0dafbf62e75"
+  ],
+  "malaga": [
+   "atm_b0dafbf62e75"
+  ],
+  "seville-province": [
+   "atm_b0dafbf62e75"
+  ],
+  "dos-hermanas": [
+   "atm_7f58247de8e3"
+  ],
+  "seville-city-centre": [
+   "atm_7f58247de8e3"
+  ],
+  "seville-historic-centre-rural-pueblo": [
+   "atm_7f58247de8e3"
+  ],
+  "seville-metropolitan-belt": [
+   "atm_7f58247de8e3"
   ]
  },
  "tags": {
@@ -77200,7 +80419,58 @@
    "atm_efacbff46c0c",
    "atm_f6ff80704d60",
    "atm_fb8200fcf326",
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_36953f364595",
+   "atm_f3fb02fa3be5",
+   "atm_9aae63fb6cc3",
+   "atm_82d74b56e40b",
+   "atm_e5dc061fdb33",
+   "atm_73e57a387697",
+   "atm_d97630c7288f",
+   "atm_c9e4132840cf",
+   "atm_e15595eeb416",
+   "atm_7e5c0b47c99a",
+   "atm_58cde6ebbc3d",
+   "atm_91b8f6217bd1",
+   "atm_457ca0cf526a",
+   "atm_e74ee1efa100",
+   "atm_1fe840b3212c",
+   "atm_0c63c014b962",
+   "atm_a4c8d01b5267",
+   "atm_e591fce7975b",
+   "atm_fe1fabd7b881",
+   "atm_ca536dbdc238",
+   "atm_173fb47af208",
+   "atm_ad4651f749ac",
+   "atm_e0ddecfde4f8",
+   "atm_1c6af51b0fc1",
+   "atm_676b94e88700",
+   "atm_e2c9a9aafaf4",
+   "atm_735a7287ad2c",
+   "atm_a1b98b03e41a",
+   "atm_9a93da5618de",
+   "atm_e452dc6b1629",
+   "atm_4b98d01184f6",
+   "atm_6073bba1ba34",
+   "atm_c0028c87af29",
+   "atm_935d031e2a8f",
+   "atm_30644ea72f98",
+   "atm_b2e8cd2ce0f6",
+   "atm_ec115d67939d",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9",
+   "atm_3c739719836a",
+   "atm_eba3dc758411",
+   "atm_18dfb917ecd9",
+   "atm_76095061912d",
+   "atm_ebc7c2ef6ce2",
+   "atm_9f4060f146e8",
+   "atm_dca606fecd4d",
+   "atm_ad6ef340394d",
+   "atm_288c6a410e97",
+   "atm_b0dafbf62e75",
+   "atm_7f58247de8e3",
+   "atm_e11e2807a7c5"
   ],
   "license-plate": [
    "atm_014560901a69"
@@ -78693,7 +81963,8 @@
    "atm_03f50dbbbf22",
    "atm_50a2614e4a4c",
    "atm_b263ea2c5db6",
-   "atm_fe41075e4a29"
+   "atm_fe41075e4a29",
+   "atm_ca536dbdc238"
   ],
   "looks-like-bo": [
    "atm_03f50dbbbf22",
@@ -78759,7 +82030,9 @@
    "atm_f32a9d025eca",
    "atm_f612dbf5084c",
    "atm_fa8ff513c430",
-   "atm_fe3149f63023"
+   "atm_fe3149f63023",
+   "atm_06bd6a770961",
+   "atm_9a93da5618de"
   ],
   "china": [
    "atm_044bad726c72",
@@ -79036,7 +82309,9 @@
    "atm_b333b74897e9",
    "atm_c370d530dba1",
    "atm_d0b59aaa3c23",
-   "atm_e5c689a80f57"
+   "atm_e5c689a80f57",
+   "atm_457ca0cf526a",
+   "atm_7f58247de8e3"
   ],
   "urban-fringe": [
    "atm_04c54e42050d",
@@ -79178,7 +82453,8 @@
    "atm_702faf957ae7"
   ],
   "eucalyptus": [
-   "atm_05d896f43565"
+   "atm_05d896f43565",
+   "atm_1c6af51b0fc1"
   ],
   "looks-like-za": [
    "atm_05d896f43565",
@@ -79198,7 +82474,11 @@
    "atm_702faf957ae7",
    "atm_9fb7c0e4a0ac",
    "atm_d0b59aaa3c23",
-   "atm_e857853e0979"
+   "atm_e857853e0979",
+   "atm_1c6af51b0fc1",
+   "atm_e452dc6b1629",
+   "atm_b2e8cd2ce0f6",
+   "atm_18dfb917ecd9"
   ],
   "budapest": [
    "atm_05dc60e6542c",
@@ -79213,7 +82493,8 @@
    "atm_05dc60e6542c"
   ],
   "finance": [
-   "atm_05dc60e6542c"
+   "atm_05dc60e6542c",
+   "atm_e74ee1efa100"
   ],
   "pharmaceuticals": [
    "atm_05dc60e6542c"
@@ -79311,7 +82592,8 @@
    "atm_273f3134faf4",
    "atm_490cab9597a7",
    "atm_68509cfdf0f6",
-   "atm_9d42b1e8cd15"
+   "atm_9d42b1e8cd15",
+   "atm_f947eed4f050"
   ],
   "seasonal-income": [
    "atm_0625509c4e13"
@@ -79385,7 +82667,8 @@
    "atm_06a55bd9fa2f",
    "atm_30508cea81f3",
    "atm_455a82778814",
-   "atm_521c45c28b29"
+   "atm_521c45c28b29",
+   "atm_30644ea72f98"
   ],
   "western-ghats": [
    "atm_06a55bd9fa2f"
@@ -79406,7 +82689,9 @@
    "atm_06cb9823865a",
    "atm_49209926afa8",
    "atm_895143231e7c",
-   "atm_a1ebb65130d5"
+   "atm_a1ebb65130d5",
+   "atm_7e5c0b47c99a",
+   "atm_1fe840b3212c"
   ],
   "croatia": [
    "atm_06cb9823865a",
@@ -79580,7 +82865,9 @@
    "atm_d63c438c5214",
    "atm_e270eb2291f6",
    "atm_e605fa30bf62",
-   "atm_e8b3ce9a64be"
+   "atm_e8b3ce9a64be",
+   "atm_73e57a387697",
+   "atm_58cde6ebbc3d"
   ],
   "tavern": [
    "atm_080c7ca4a29f"
@@ -79679,7 +82966,11 @@
    "atm_094699abd32a",
    "atm_1bb47ee4e339",
    "atm_4f92a18e4ed7",
-   "atm_5c89fb5d7fd9"
+   "atm_5c89fb5d7fd9",
+   "atm_65d849f7eb83",
+   "atm_69c0077521d3",
+   "atm_eba3dc758411",
+   "atm_76095061912d"
   ],
   "honshu": [
    "atm_094699abd32a",
@@ -79940,7 +83231,9 @@
    "atm_c653b1ff1ed2",
    "atm_cdb0d471f078",
    "atm_ea03891d3c0c",
-   "atm_f1f2aae7e0ab"
+   "atm_f1f2aae7e0ab",
+   "atm_3f818b5a1b64",
+   "atm_ebc7c2ef6ce2"
   ],
   "mediterranean": [
    "atm_0c3d90f15260",
@@ -80119,7 +83412,8 @@
    "atm_979160e118e7",
    "atm_ca05c73a7f07",
    "atm_d51008e27081",
-   "atm_da86790feea2"
+   "atm_da86790feea2",
+   "atm_0a129b3d0032"
   ],
   "industrial-policy": [
    "atm_0e03ac7cf71d"
@@ -80225,7 +83519,9 @@
    "atm_2fbd4c769a30",
    "atm_8dca31d7924e",
    "atm_aa1543dd152e",
-   "atm_b8ff25417de5"
+   "atm_b8ff25417de5",
+   "atm_f3fb02fa3be5",
+   "atm_82d74b56e40b"
   ],
   "mexico": [
    "atm_0f259f84fb29",
@@ -80408,7 +83704,8 @@
   ],
   "alluvial-plain": [
    "atm_108fc78d5679",
-   "atm_644914e23e54"
+   "atm_644914e23e54",
+   "atm_e5538c73518c"
   ],
   "gangetic-plain": [
    "atm_108fc78d5679",
@@ -80477,7 +83774,11 @@
    "atm_e29dd72ae7f9",
    "atm_e433d79a595f",
    "atm_e4e3e2300015",
-   "atm_e5601aaeca59"
+   "atm_e5601aaeca59",
+   "atm_c7eaf2b97e59",
+   "atm_91b8f6217bd1",
+   "atm_ad4651f749ac",
+   "atm_c0028c87af29"
   ],
   "homeland-war": [
    "atm_11081ef61216"
@@ -80632,7 +83933,8 @@
    "atm_72dbfd6dce2b",
    "atm_98d192cb04cf",
    "atm_b227ef35bd59",
-   "atm_ea64ccafd76b"
+   "atm_ea64ccafd76b",
+   "atm_ad6ef340394d"
   ],
   "caribbean-slope": [
    "atm_1270c7cffadd"
@@ -80701,7 +84003,8 @@
    "atm_af2a2617b586",
    "atm_b9e670bd45e8",
    "atm_e80514d5e6c7",
-   "atm_f7d40e3ac375"
+   "atm_f7d40e3ac375",
+   "atm_d3afa16fc410"
   ],
   "cooper-allen": [
    "atm_128ca252a80f"
@@ -80813,7 +84116,9 @@
    "atm_b390d2961a02",
    "atm_c3ac51f65d6e",
    "atm_ca62fa29fa29",
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_82d74b56e40b",
+   "atm_ebc7c2ef6ce2"
   ],
   "columbia-river-basalt": [
    "atm_131252aa7616"
@@ -80976,7 +84281,8 @@
    "atm_146756c50870",
    "atm_93d7e3a0d637",
    "atm_99ef85b51bdd",
-   "atm_d7b0c22c004f"
+   "atm_d7b0c22c004f",
+   "atm_1fe840b3212c"
   ],
   "taiwan": [
    "atm_146756c50870",
@@ -81036,7 +84342,11 @@
    "atm_533222e45251",
    "atm_5a1490e2317e",
    "atm_644914e23e54",
-   "atm_dbf7cd33fdfa"
+   "atm_dbf7cd33fdfa",
+   "atm_e591fce7975b",
+   "atm_6073bba1ba34",
+   "atm_ec115d67939d",
+   "atm_3c739719836a"
   ],
   "breadbasket": [
    "atm_14ed08f922f7",
@@ -81251,7 +84561,11 @@
    "atm_9906cb4e59de",
    "atm_d4bbaacf7f1a",
    "atm_dddae32137b0",
-   "atm_f911e7627ebc"
+   "atm_f911e7627ebc",
+   "atm_d3afa16fc410",
+   "atm_36953f364595",
+   "atm_0a129b3d0032",
+   "atm_a5c9084accfd"
   ],
   "renaissance": [
    "atm_17a4695a5c1d",
@@ -81442,7 +84756,11 @@
    "atm_a17b789438ca",
    "atm_a23775db5390",
    "atm_db06a93e906a",
-   "atm_fb8200fcf326"
+   "atm_fb8200fcf326",
+   "atm_173fb47af208",
+   "atm_a1b98b03e41a",
+   "atm_4ded08bf94f9",
+   "atm_288c6a410e97"
   ],
   "junior-zhuz": [
    "atm_191ca560edf9"
@@ -81766,7 +85084,8 @@
   ],
   "satellite-town": [
    "atm_1c5093f42f97",
-   "atm_c5e197941608"
+   "atm_c5e197941608",
+   "atm_7f58247de8e3"
   ],
   "credit": [
    "atm_1c691c117fc3"
@@ -81780,7 +85099,10 @@
    "atm_4d08129bc533",
    "atm_78bb90bc7d1c",
    "atm_a3435d33610c",
-   "atm_cbb4d80090b5"
+   "atm_cbb4d80090b5",
+   "atm_36953f364595",
+   "atm_e0ddecfde4f8",
+   "atm_dca606fecd4d"
   ],
   "watermark": [
    "atm_1c691c117fc3"
@@ -81898,7 +85220,8 @@
    "atm_4db6f48f473b",
    "atm_7e67c8b59e9a",
    "atm_91bb4809c09e",
-   "atm_abbf940e60d2"
+   "atm_abbf940e60d2",
+   "atm_1c6af51b0fc1"
   ],
   "terracing": [
    "atm_1e838f1226ff",
@@ -82256,7 +85579,8 @@
    "atm_3d749d8750f5",
    "atm_3e7ea3aee50a",
    "atm_724d7e7a7c99",
-   "atm_a58facd06de0"
+   "atm_a58facd06de0",
+   "atm_e2c9a9aafaf4"
   ],
   "czechia": [
    "atm_212df8165601",
@@ -82374,14 +85698,20 @@
    "atm_36aae0a58891",
    "atm_5c0a27638e98",
    "atm_b333b74897e9",
-   "atm_eccd4326ddf2"
+   "atm_eccd4326ddf2",
+   "atm_ad6ef340394d",
+   "atm_288c6a410e97",
+   "atm_b0dafbf62e75",
+   "atm_7f58247de8e3",
+   "atm_e11e2807a7c5"
   ],
   "canaries": [
    "atm_2259a51ab69b",
    "atm_5c0a27638e98"
   ],
   "erosion": [
-   "atm_2259a51ab69b"
+   "atm_2259a51ab69b",
+   "atm_e0b610416d73"
   ],
   "looks-like-es": [
    "atm_2259a51ab69b",
@@ -82389,15 +85719,23 @@
    "atm_5c0a27638e98",
    "atm_a26ee42e2c47",
    "atm_b333b74897e9",
-   "atm_ea64ccafd76b"
+   "atm_ea64ccafd76b",
+   "atm_288c6a410e97",
+   "atm_b0dafbf62e75",
+   "atm_7f58247de8e3"
   ],
   "soil-terrain-cue": [
    "atm_2259a51ab69b",
-   "atm_48f209c13e3a"
+   "atm_48f209c13e3a",
+   "atm_f3fb02fa3be5",
+   "atm_735a7287ad2c",
+   "atm_935d031e2a8f",
+   "atm_9f4060f146e8"
   ],
   "volcanic": [
    "atm_2259a51ab69b",
-   "atm_ee8caa0687d3"
+   "atm_ee8caa0687d3",
+   "atm_f3fb02fa3be5"
   ],
   "ladakh": [
    "atm_22768a5493bf"
@@ -82626,7 +85964,8 @@
   "iberia": [
    "atm_264cc8f1ab91",
    "atm_3351da56f73c",
-   "atm_5436844715ef"
+   "atm_5436844715ef",
+   "atm_ad6ef340394d"
   ],
   "portugal": [
    "atm_264cc8f1ab91",
@@ -82927,7 +86266,11 @@
    "atm_b263ea2c5db6",
    "atm_c67e18d2f564",
    "atm_d06a11087118",
-   "atm_ea64ccafd76b"
+   "atm_ea64ccafd76b",
+   "atm_ec115d67939d",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9",
+   "atm_3c739719836a"
   ],
   "emblem": [
    "atm_2ade05f79dfe"
@@ -83202,7 +86545,8 @@
    "atm_4f5a928f1c77"
   ],
   "vineyard": [
-   "atm_302a89d8dbd0"
+   "atm_302a89d8dbd0",
+   "atm_e591fce7975b"
   ],
   "fridtjof-nansen": [
    "atm_302c63ec2d88",
@@ -83219,7 +86563,9 @@
    "atm_30508cea81f3",
    "atm_4f92a18e4ed7",
    "atm_5449e17b7e07",
-   "atm_fb5a69de595c"
+   "atm_fb5a69de595c",
+   "atm_30644ea72f98",
+   "atm_18dfb917ecd9"
   ],
   "seto-inland-sea": [
    "atm_30508cea81f3"
@@ -83319,7 +86665,8 @@
    "atm_6de13da9aefc",
    "atm_98f1eccf8187",
    "atm_a4c36a4c80dc",
-   "atm_ba70b4476414"
+   "atm_ba70b4476414",
+   "atm_ec115d67939d"
   ],
   "elite-education": [
    "atm_32659ddd04fc"
@@ -83340,7 +86687,8 @@
    "atm_329f3ad24f9a"
   ],
   "cladding": [
-   "atm_32e258afc8c1"
+   "atm_32e258afc8c1",
+   "atm_76095061912d"
   ],
   "looks-like-eg": [
    "atm_32e258afc8c1"
@@ -83420,7 +86768,8 @@
    "atm_96d1691571d2",
    "atm_ab367614825a",
    "atm_b6439b6999a1",
-   "atm_e4bdaab98801"
+   "atm_e4bdaab98801",
+   "atm_7e5c0b47c99a"
   ],
   "hall-number": [
    "atm_33a4744b0f4c"
@@ -83446,7 +86795,10 @@
    "atm_b3a8761917a2",
    "atm_cce9194ad055",
    "atm_d06a11087118",
-   "atm_efacbff46c0c"
+   "atm_efacbff46c0c",
+   "atm_69c0077521d3",
+   "atm_b905eb4795d9",
+   "atm_b0dafbf62e75"
   ],
   "level-crossing": [
    "atm_349a166db7f2"
@@ -83559,7 +86911,8 @@
    "atm_3641a82e3cde"
   ],
   "llanos": [
-   "atm_3641a82e3cde"
+   "atm_3641a82e3cde",
+   "atm_457ca0cf526a"
   ],
   "orinoquia": [
    "atm_3641a82e3cde"
@@ -83639,14 +86992,16 @@
    "atm_eccd4326ddf2"
   ],
   "looks-like-pt": [
-   "atm_36aae0a58891"
+   "atm_36aae0a58891",
+   "atm_ad6ef340394d"
   ],
   "vegetation-cue": [
    "atm_36aae0a58891",
    "atm_875df0438462",
    "atm_91bb4809c09e",
    "atm_e857853e0979",
-   "atm_f6ff80704d60"
+   "atm_f6ff80704d60",
+   "atm_0c63c014b962"
   ],
   "colonial-education": [
    "atm_36aed5dbc192"
@@ -83750,7 +87105,8 @@
   ],
   "land-use": [
    "atm_38455d899c95",
-   "atm_bd6f3d0908f6"
+   "atm_bd6f3d0908f6",
+   "atm_f947eed4f050"
   ],
   "post-socialist": [
    "atm_38455d899c95",
@@ -83825,7 +87181,13 @@
    "atm_39acbbf97e17",
    "atm_50a2614e4a4c",
    "atm_e0e0e7bcfbe4",
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_eba3dc758411",
+   "atm_18dfb917ecd9",
+   "atm_76095061912d",
+   "atm_ebc7c2ef6ce2",
+   "atm_9f4060f146e8",
+   "atm_dca606fecd4d"
   ],
   "basin": [
    "atm_39acbbf97e17"
@@ -83840,7 +87202,12 @@
   "looks-like-jp": [
    "atm_39acbbf97e17",
    "atm_50a2614e4a4c",
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_eba3dc758411",
+   "atm_18dfb917ecd9",
+   "atm_76095061912d",
+   "atm_ebc7c2ef6ce2",
+   "atm_9f4060f146e8"
   ],
   "alpine-lakes": [
    "atm_39bb6b54a823"
@@ -83999,7 +87366,8 @@
   ],
   "urbanizacion": [
    "atm_3b756d7dfdab",
-   "atm_bf51659690c9"
+   "atm_bf51659690c9",
+   "atm_7f58247de8e3"
   ],
   "secessionist": [
    "atm_3b7bc1ad2739"
@@ -84244,7 +87612,8 @@
    "atm_fe41075e4a29"
   ],
   "dairy": [
-   "atm_3ecf707f944b"
+   "atm_3ecf707f944b",
+   "atm_3c739719836a"
   ],
   "food-processing": [
    "atm_3ecf707f944b"
@@ -84351,7 +87720,8 @@
    "atm_403102c39f78"
   ],
   "politics-civic": [
-   "atm_403102c39f78"
+   "atm_403102c39f78",
+   "atm_d97630c7288f"
   ],
   "rural-depopulation": [
    "atm_40345729907e",
@@ -84372,7 +87742,8 @@
    "atm_40442a8896ec"
   ],
   "pampas": [
-   "atm_40442a8896ec"
+   "atm_40442a8896ec",
+   "atm_b67d081a61b7"
   ],
   "independence-declaration": [
    "atm_405c3139fb6e"
@@ -84731,7 +88102,9 @@
    "atm_45446d19bcd9",
    "atm_4f9a4a052204",
    "atm_aa03a02047ac",
-   "atm_b2fcdcfac982"
+   "atm_b2fcdcfac982",
+   "atm_6073bba1ba34",
+   "atm_82d74b56e40b"
   ],
   "road-colonization": [
    "atm_45446d19bcd9",
@@ -84792,7 +88165,9 @@
    "atm_c84c3dee88ba"
   ],
   "seasonality": [
-   "atm_45ce011e8047"
+   "atm_45ce011e8047",
+   "atm_b67d081a61b7",
+   "atm_457ca0cf526a"
   ],
   "subarctic-vegetation": [
    "atm_45ce011e8047"
@@ -84914,7 +88289,8 @@
   "norte-chico": [
    "atm_47d9d151a778",
    "atm_71667f856f45",
-   "atm_bb66dca32eda"
+   "atm_bb66dca32eda",
+   "atm_fe1fabd7b881"
   ],
   "oasis-agriculture": [
    "atm_47d9d151a778"
@@ -85106,7 +88482,8 @@
   "cfe": [
    "atm_4a1dc25fe60d",
    "atm_635d3f4d1fe8",
-   "atm_a741bec60f9c"
+   "atm_a741bec60f9c",
+   "atm_e5dc061fdb33"
   ],
   "sct": [
    "atm_4a1dc25fe60d",
@@ -85257,7 +88634,8 @@
   "apennines": [
    "atm_4bd89fdef0f9",
    "atm_c67e18d2f564",
-   "atm_cce9194ad055"
+   "atm_cce9194ad055",
+   "atm_e5538c73518c"
   ],
   "cisa-pass": [
    "atm_4bd89fdef0f9",
@@ -85538,7 +88916,8 @@
    "atm_b390d2961a02"
   ],
   "railway": [
-   "atm_4e202ceb9bb6"
+   "atm_4e202ceb9bb6",
+   "atm_ca536dbdc238"
   ],
   "gemeindebau": [
    "atm_4e479dbead43"
@@ -85720,7 +89099,8 @@
    "atm_52d9e7fe3865"
   ],
   "laterite": [
-   "atm_52d9e7fe3865"
+   "atm_52d9e7fe3865",
+   "atm_735a7287ad2c"
   ],
   "middle-belt": [
    "atm_52d9e7fe3865"
@@ -85858,7 +89238,9 @@
    "atm_7509ab273022"
   ],
   "poplar": [
-   "atm_5449e17b7e07"
+   "atm_5449e17b7e07",
+   "atm_b67d081a61b7",
+   "atm_7202d5d69930"
   ],
   "siberia": [
    "atm_5449e17b7e07",
@@ -86254,7 +89636,8 @@
    "atm_727a0dce3c67"
   ],
   "colonia": [
-   "atm_5b9c968b7ed1"
+   "atm_5b9c968b7ed1",
+   "atm_82d74b56e40b"
   ],
   "roadside-sprawl": [
    "atm_5b9c968b7ed1"
@@ -86291,7 +89674,8 @@
    "atm_be07aa622f34"
   ],
   "roof-typology": [
-   "atm_5bd7286f04d1"
+   "atm_5bd7286f04d1",
+   "atm_d3afa16fc410"
   ],
   "space-frame": [
    "atm_5bd7286f04d1"
@@ -86301,7 +89685,9 @@
   ],
   "roof-facade": [
    "atm_5c0a27638e98",
-   "atm_c67e18d2f564"
+   "atm_c67e18d2f564",
+   "atm_4b98d01184f6",
+   "atm_76095061912d"
   ],
   "heritage-city": [
    "atm_5c44ba60abaa"
@@ -86377,7 +89763,8 @@
   "piedmont": [
    "atm_5d77688926e3",
    "atm_8c55d94bc98f",
-   "atm_8eff91373f39"
+   "atm_8eff91373f39",
+   "atm_0c63c014b962"
   ],
   "cottageviertel": [
    "atm_5d8136685090"
@@ -86627,7 +90014,9 @@
    "atm_632fccf1df46"
   ],
   "soil": [
-   "atm_632fccf1df46"
+   "atm_632fccf1df46",
+   "atm_f3fb02fa3be5",
+   "atm_9f4060f146e8"
   ],
   "highway-signage": [
    "atm_635d3f4d1fe8",
@@ -86672,7 +90061,8 @@
    "atm_c9e4132840cf"
   ],
   "roundabout": [
-   "atm_643367ff9498"
+   "atm_643367ff9498",
+   "atm_e15595eeb416"
   ],
   "urban-core": [
    "atm_643367ff9498"
@@ -86755,7 +90145,9 @@
   "isan": [
    "atm_68509cfdf0f6",
    "atm_a410bcb0d577",
-   "atm_c6a252ad0c50"
+   "atm_c6a252ad0c50",
+   "atm_735a7287ad2c",
+   "atm_a1b98b03e41a"
   ],
   "migration-income": [
    "atm_68509cfdf0f6"
@@ -86933,7 +90325,8 @@
   ],
   "colombia": [
    "atm_6babccae81e3",
-   "atm_91b8f6217bd1"
+   "atm_91b8f6217bd1",
+   "atm_457ca0cf526a"
   ],
   "ecuador": [
    "atm_6babccae81e3"
@@ -87068,7 +90461,8 @@
   "left-hand-traffic": [
    "atm_6f9fc96c5833",
    "atm_91c12861d2aa",
-   "atm_a919b2d25025"
+   "atm_a919b2d25025",
+   "atm_c7eaf2b97e59"
   ],
   "polonization": [
    "atm_6fc5a77d7760"
@@ -87196,7 +90590,8 @@
    "atm_724d7e7a7c99"
   ],
   "looks-like-la": [
-   "atm_724d7e7a7c99"
+   "atm_724d7e7a7c99",
+   "atm_e2c9a9aafaf4"
   ],
   "quoc-ngu": [
    "atm_724d7e7a7c99"
@@ -87263,13 +90658,15 @@
    "atm_73d871c5d58d"
   ],
   "church": [
-   "atm_74079b0c8ba5"
+   "atm_74079b0c8ba5",
+   "atm_a4c8d01b5267"
   ],
   "crosswalk": [
    "atm_74079b0c8ba5"
   ],
   "religious-building": [
-   "atm_74079b0c8ba5"
+   "atm_74079b0c8ba5",
+   "atm_a4c8d01b5267"
   ],
   "village-core": [
    "atm_74079b0c8ba5"
@@ -88124,13 +91521,15 @@
    "atm_a5428264ed09"
   ],
   "street-blade": [
-   "atm_88ae5884a999"
+   "atm_88ae5884a999",
+   "atm_91b8f6217bd1"
   ],
   "street-name": [
    "atm_88ae5884a999"
   ],
   "street-sign": [
-   "atm_88ae5884a999"
+   "atm_88ae5884a999",
+   "atm_91b8f6217bd1"
   ],
   "suffix": [
    "atm_88ae5884a999"
@@ -88666,7 +92065,8 @@
   ],
   "aging-society": [
    "atm_9590fe7cadd2",
-   "atm_9b6eeb87cb63"
+   "atm_9b6eeb87cb63",
+   "atm_3f818b5a1b64"
   ],
   "regional-decline": [
    "atm_9590fe7cadd2"
@@ -89046,7 +92446,8 @@
    "atm_9ef2324f8c3b"
   ],
   "kampung": [
-   "atm_9f241d0453c6"
+   "atm_9f241d0453c6",
+   "atm_a1b98b03e41a"
   ],
   "malay-architecture": [
    "atm_9f241d0453c6"
@@ -89063,10 +92464,12 @@
    "atm_9fb7c0e4a0ac"
   ],
   "municipal-branding": [
-   "atm_9fb7c0e4a0ac"
+   "atm_9fb7c0e4a0ac",
+   "atm_e0ddecfde4f8"
   ],
   "province": [
-   "atm_9fb7c0e4a0ac"
+   "atm_9fb7c0e4a0ac",
+   "atm_0a129b3d0032"
   ],
   "south-africa": [
    "atm_9fb7c0e4a0ac",
@@ -89154,7 +92557,9 @@
    "atm_a249e0ca28e4"
   ],
   "new-zealand": [
-   "atm_a249e0ca28e4"
+   "atm_a249e0ca28e4",
+   "atm_c7eaf2b97e59",
+   "atm_06bd6a770961"
   ],
   "patagonia": [
    "atm_a249e0ca28e4"
@@ -89247,10 +92652,12 @@
    "atm_a410bcb0d577"
   ],
   "khmer-surin": [
-   "atm_a410bcb0d577"
+   "atm_a410bcb0d577",
+   "atm_9a93da5618de"
   ],
   "lao-isan": [
-   "atm_a410bcb0d577"
+   "atm_a410bcb0d577",
+   "atm_9a93da5618de"
   ],
   "protectorate": [
    "atm_a428599cb5b8"
@@ -89296,7 +92703,8 @@
    "atm_cff59a9d0f8a"
   ],
   "district": [
-   "atm_a4c8bfdf483f"
+   "atm_a4c8bfdf483f",
+   "atm_d97630c7288f"
   ],
   "homonym": [
    "atm_a4c8bfdf483f"
@@ -89495,7 +92903,8 @@
    "atm_a8902b79c383"
   ],
   "dgt": [
-   "atm_a8965343eeda"
+   "atm_a8965343eeda",
+   "atm_e11e2807a7c5"
   ],
   "cosmonauts": [
    "atm_a89c6a101444"
@@ -89865,7 +93274,8 @@
    "atm_b227ef35bd59"
   ],
   "company-suffix": [
-   "atm_b227ef35bd59"
+   "atm_b227ef35bd59",
+   "atm_a5c9084accfd"
   ],
   "looks-like-se": [
    "atm_b227ef35bd59"
@@ -89876,7 +93286,12 @@
   "looks-like-it": [
    "atm_b263ea2c5db6",
    "atm_c67e18d2f564",
-   "atm_d06a11087118"
+   "atm_d06a11087118",
+   "atm_ec115d67939d",
+   "atm_b905eb4795d9",
+   "atm_4ded08bf94f9",
+   "atm_3c739719836a",
+   "atm_e11e2807a7c5"
   ],
   "agrarian-reform": [
    "atm_b2fcdcfac982"
@@ -90189,7 +93604,8 @@
    "atm_bb66dca32eda"
   ],
   "viaduct": [
-   "atm_bb66dca32eda"
+   "atm_bb66dca32eda",
+   "atm_ca536dbdc238"
   ],
   "institution": [
    "atm_bb7944532780"
@@ -90229,7 +93645,8 @@
   ],
   "altiplano": [
    "atm_bcebe14f209f",
-   "atm_e3b5fda161ae"
+   "atm_e3b5fda161ae",
+   "atm_e452dc6b1629"
   ],
   "nopal": [
    "atm_bcebe14f209f"
@@ -90238,7 +93655,8 @@
    "atm_bcebe14f209f"
   ],
   "yucca-filifera": [
-   "atm_bcebe14f209f"
+   "atm_bcebe14f209f",
+   "atm_e452dc6b1629"
   ],
   "interstate-highway-system": [
    "atm_bd2899174a72"
@@ -90347,7 +93765,10 @@
    "atm_bf283b566073"
   ],
   "road-marking": [
-   "atm_bf4d2b322bc6"
+   "atm_bf4d2b322bc6",
+   "atm_9aae63fb6cc3",
+   "atm_eba3dc758411",
+   "atm_e11e2807a7c5"
   ],
   "jandia": [
    "atm_bf51659690c9"
@@ -90625,7 +94046,8 @@
    "atm_c6796d5edf50"
   ],
   "vernacular": [
-   "atm_c67e18d2f564"
+   "atm_c67e18d2f564",
+   "atm_a1b98b03e41a"
   ],
   "khorat-plateau": [
    "atm_c6a252ad0c50"
@@ -90754,10 +94176,12 @@
    "atm_cb0c83bea310"
   ],
   "bus-shelter": [
-   "atm_cb0c83bea310"
+   "atm_cb0c83bea310",
+   "atm_e0ddecfde4f8"
   ],
   "buyuksehir": [
-   "atm_cb0c83bea310"
+   "atm_cb0c83bea310",
+   "atm_e0ddecfde4f8"
   ],
   "mugla": [
    "atm_cb0c83bea310"
@@ -90821,13 +94245,18 @@
   ],
   "foothills": [
    "atm_cce9194ad055",
-   "atm_d06a11087118"
+   "atm_d06a11087118",
+   "atm_0c63c014b962"
   ],
   "marl": [
    "atm_cce9194ad055"
   ],
   "po-plain": [
-   "atm_cce9194ad055"
+   "atm_cce9194ad055",
+   "atm_d3afa16fc410",
+   "atm_e5538c73518c",
+   "atm_f947eed4f050",
+   "atm_b905eb4795d9"
   ],
   "malaysia-east-coast": [
    "atm_cd600d8705f5"
@@ -90896,7 +94325,8 @@
    "atm_cf3914e80502"
   ],
   "looks-like-ar": [
-   "atm_cf43621783bd"
+   "atm_cf43621783bd",
+   "atm_e591fce7975b"
   ],
   "micro": [
    "atm_cf43621783bd"
@@ -91023,7 +94453,8 @@
    "atm_d1aae5dd7a36"
   ],
   "utility-pole": [
-   "atm_d1aae5dd7a36"
+   "atm_d1aae5dd7a36",
+   "atm_e5dc061fdb33"
   ],
   "wind": [
    "atm_d1aae5dd7a36"
@@ -91228,7 +94659,10 @@
    "atm_e0e0e7bcfbe4",
    "atm_e605fa30bf62",
    "atm_e8c4d3d9d65a",
-   "atm_eccd4326ddf2"
+   "atm_eccd4326ddf2",
+   "atm_e15595eeb416",
+   "atm_fe1fabd7b881",
+   "atm_676b94e88700"
   ],
   "waste": [
    "atm_db146264aff3"
@@ -91341,7 +94775,8 @@
    "atm_ddc288437fc0"
   ],
   "warning-triangle": [
-   "atm_de07ff165cf0"
+   "atm_de07ff165cf0",
+   "atm_ad4651f749ac"
   ],
   "yellow-field": [
    "atm_de07ff165cf0"
@@ -91414,10 +94849,12 @@
    "atm_e0e0e7bcfbe4"
   ],
   "looks-like-kr": [
-   "atm_e0e0e7bcfbe4"
+   "atm_e0e0e7bcfbe4",
+   "atm_dca606fecd4d"
   ],
   "u-ditch": [
-   "atm_e0e0e7bcfbe4"
+   "atm_e0e0e7bcfbe4",
+   "atm_dca606fecd4d"
   ],
   "abandoned-infrastructure": [
    "atm_e1447da93736"
@@ -91439,7 +94876,8 @@
    "atm_e1b6266b00e7"
   ],
   "irrigation": [
-   "atm_e1b6266b00e7"
+   "atm_e1b6266b00e7",
+   "atm_e591fce7975b"
   ],
   "islamic-agronomy": [
    "atm_e1b6266b00e7"
@@ -91533,7 +94971,9 @@
    "atm_e47cf0a88468"
   ],
   "looks-like-pe": [
-   "atm_e4bdaab98801"
+   "atm_e4bdaab98801",
+   "atm_ca536dbdc238",
+   "atm_173fb47af208"
   ],
   "telecom": [
    "atm_e4bdaab98801"
@@ -91894,7 +95334,8 @@
    "atm_ef1de3b43459"
   ],
   "fuel-station": [
-   "atm_ef1e5540144e"
+   "atm_ef1e5540144e",
+   "atm_7e5c0b47c99a"
   ],
   "central-asia-geography": [
    "atm_ef51d7d80c44"
@@ -92288,7 +95729,8 @@
    "atm_fbc7a5e5e104"
   ],
   "rural": [
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_ebc7c2ef6ce2"
   ],
   "coastal-geography": [
    "atm_fc22ca49a31d"
@@ -92436,6 +95878,516 @@
   ],
   "river-management": [
    "atm_ff9a965b152a"
+  ],
+  "hemisphere": [
+   "atm_b67d081a61b7"
+  ],
+  "phenology": [
+   "atm_b67d081a61b7"
+  ],
+  "nzta": [
+   "atm_c7eaf2b97e59",
+   "atm_c0028c87af29"
+  ],
+  "one-lane-bridge": [
+   "atm_c7eaf2b97e59",
+   "atm_c0028c87af29"
+  ],
+  "farm-bush-mosaic": [
+   "atm_305c0c3707b0"
+  ],
+  "new-zealand-flora": [
+   "atm_305c0c3707b0"
+  ],
+  "pinus-radiata": [
+   "atm_305c0c3707b0"
+  ],
+  "toetoe": [
+   "atm_305c0c3707b0",
+   "atm_b2e8cd2ce0f6"
+  ],
+  "tree-fern": [
+   "atm_305c0c3707b0"
+  ],
+  "east-coast-nz": [
+   "atm_e0b610416d73"
+  ],
+  "hawkes-bay": [
+   "atm_e0b610416d73"
+  ],
+  "north-island": [
+   "atm_e0b610416d73"
+  ],
+  "papa-mudstone": [
+   "atm_e0b610416d73"
+  ],
+  "tararua": [
+   "atm_e0b610416d73"
+  ],
+  "erosion-control": [
+   "atm_7202d5d69930"
+  ],
+  "hill-country": [
+   "atm_7202d5d69930"
+  ],
+  "marginal-land": [
+   "atm_7202d5d69930"
+  ],
+  "new-zealand-agriculture": [
+   "atm_7202d5d69930"
+  ],
+  "pastoral-farming": [
+   "atm_7202d5d69930"
+  ],
+  "bicultural-naming": [
+   "atm_06bd6a770961"
+  ],
+  "maori-language": [
+   "atm_06bd6a770961"
+  ],
+  "cascina": [
+   "atm_d3afa16fc410",
+   "atm_f947eed4f050",
+   "atm_4ded08bf94f9"
+  ],
+  "coppi": [
+   "atm_d3afa16fc410"
+  ],
+  "reflective-striping": [
+   "atm_36953f364595"
+  ],
+  "waste-bins": [
+   "atm_36953f364595"
+  ],
+  "sp-shield": [
+   "atm_0a129b3d0032"
+  ],
+  "strada-provinciale": [
+   "atm_0a129b3d0032"
+  ],
+  "legal-form": [
+   "atm_a5c9084accfd"
+  ],
+  "spa": [
+   "atm_a5c9084accfd"
+  ],
+  "srl": [
+   "atm_a5c9084accfd"
+  ],
+  "landscape-transition": [
+   "atm_e5538c73518c"
+  ],
+  "oltrepo-pavese": [
+   "atm_e5538c73518c"
+  ],
+  "agricultural-consolidation": [
+   "atm_f947eed4f050"
+  ],
+  "hakusan-shrine": [
+   "atm_65d849f7eb83"
+  ],
+  "jodo-shinshu": [
+   "atm_65d849f7eb83"
+  ],
+  "religious-geography": [
+   "atm_65d849f7eb83"
+  ],
+  "temple-density": [
+   "atm_65d849f7eb83"
+  ],
+  "hakusan": [
+   "atm_69c0077521d3"
+  ],
+  "noto-peninsula": [
+   "atm_69c0077521d3"
+  ],
+  "toyama-plain": [
+   "atm_69c0077521d3"
+  ],
+  "genkai-shuraku": [
+   "atm_3f818b5a1b64"
+  ],
+  "marginal-settlement": [
+   "atm_3f818b5a1b64"
+  ],
+  "rural-japan": [
+   "atm_3f818b5a1b64"
+  ],
+  "monzenmachi": [
+   "atm_1dc57346ad13"
+  ],
+  "noto-earthquake-2024": [
+   "atm_1dc57346ad13"
+  ],
+  "sojiji": [
+   "atm_1dc57346ad13"
+  ],
+  "temple-town": [
+   "atm_1dc57346ad13"
+  ],
+  "wajima": [
+   "atm_1dc57346ad13"
+  ],
+  "actually-mx": [
+   "atm_f3fb02fa3be5",
+   "atm_9aae63fb6cc3",
+   "atm_82d74b56e40b",
+   "atm_e5dc061fdb33",
+   "atm_e452dc6b1629",
+   "atm_4b98d01184f6",
+   "atm_6073bba1ba34"
+  ],
+  "looks-like-mx": [
+   "atm_f3fb02fa3be5",
+   "atm_82d74b56e40b",
+   "atm_e452dc6b1629"
+  ],
+  "looks-like-gt": [
+   "atm_9aae63fb6cc3"
+  ],
+  "two-lane": [
+   "atm_9aae63fb6cc3"
+  ],
+  "irapuato": [
+   "atm_82d74b56e40b"
+  ],
+  "looks-like-us": [
+   "atm_e5dc061fdb33",
+   "atm_4b98d01184f6",
+   "atm_6073bba1ba34"
+  ],
+  "poles": [
+   "atm_e5dc061fdb33"
+  ],
+  "actually-ng": [
+   "atm_73e57a387697",
+   "atm_d97630c7288f",
+   "atm_c9e4132840cf",
+   "atm_e15595eeb416",
+   "atm_7e5c0b47c99a"
+  ],
+  "billboard": [
+   "atm_73e57a387697"
+  ],
+  "dialect": [
+   "atm_73e57a387697"
+  ],
+  "looks-like-cm": [
+   "atm_73e57a387697"
+  ],
+  "pidgin": [
+   "atm_73e57a387697"
+  ],
+  "campaign-poster": [
+   "atm_d97630c7288f"
+  ],
+  "looks-like-gh": [
+   "atm_d97630c7288f",
+   "atm_7e5c0b47c99a"
+  ],
+  "senator": [
+   "atm_d97630c7288f"
+  ],
+  "cross-river": [
+   "atm_c9e4132840cf"
+  ],
+  "looks-like-ng": [
+   "atm_c9e4132840cf",
+   "atm_e15595eeb416"
+  ],
+  "naming": [
+   "atm_c9e4132840cf"
+  ],
+  "solar": [
+   "atm_e15595eeb416"
+  ],
+  "traffic-signal": [
+   "atm_e15595eeb416"
+  ],
+  "actually-co": [
+   "atm_58cde6ebbc3d",
+   "atm_91b8f6217bd1",
+   "atm_457ca0cf526a",
+   "atm_e74ee1efa100",
+   "atm_1fe840b3212c",
+   "atm_0c63c014b962",
+   "atm_a4c8d01b5267"
+  ],
+  "corporate-form": [
+   "atm_58cde6ebbc3d"
+  ],
+  "listed-company": [
+   "atm_58cde6ebbc3d"
+  ],
+  "looks-like-ve": [
+   "atm_58cde6ebbc3d",
+   "atm_91b8f6217bd1"
+  ],
+  "grid": [
+   "atm_91b8f6217bd1",
+   "atm_457ca0cf526a"
+  ],
+  "looks-like-ec": [
+   "atm_91b8f6217bd1",
+   "atm_e74ee1efa100"
+  ],
+  "looks-like-co": [
+   "atm_457ca0cf526a",
+   "atm_1fe840b3212c",
+   "atm_0c63c014b962",
+   "atm_a4c8d01b5267"
+  ],
+  "currency": [
+   "atm_e74ee1efa100"
+  ],
+  "pricing": [
+   "atm_e74ee1efa100"
+  ],
+  "demography": [
+   "atm_1fe840b3212c"
+  ],
+  "town-size": [
+   "atm_457ca0cf526a"
+  ],
+  "canopy": [
+   "atm_0c63c014b962"
+  ],
+  "one-way-arrow": [
+   "atm_91b8f6217bd1"
+  ],
+  "colonization": [
+   "atm_a4c8d01b5267"
+  ],
+  "plaza": [
+   "atm_a4c8d01b5267"
+  ],
+  "actually-cl": [
+   "atm_e591fce7975b",
+   "atm_fe1fabd7b881",
+   "atm_ca536dbdc238",
+   "atm_173fb47af208"
+  ],
+  "gravel-road": [
+   "atm_fe1fabd7b881"
+  ],
+  "looks-like-cl": [
+   "atm_fe1fabd7b881"
+  ],
+  "road-standard": [
+   "atm_fe1fabd7b881"
+  ],
+  "mining-heritage": [
+   "atm_ca536dbdc238"
+  ],
+  "adobe": [
+   "atm_173fb47af208"
+  ],
+  "mototaxi": [
+   "atm_173fb47af208"
+  ],
+  "peru-vs-chile": [
+   "atm_173fb47af208"
+  ],
+  "actually-tr": [
+   "atm_ad4651f749ac",
+   "atm_e0ddecfde4f8",
+   "atm_1c6af51b0fc1",
+   "atm_676b94e88700"
+  ],
+  "kgm": [
+   "atm_ad4651f749ac"
+  ],
+  "looks-like-gr": [
+   "atm_ad4651f749ac"
+  ],
+  "supplementary-plate": [
+   "atm_ad4651f749ac"
+  ],
+  "looks-like-tr": [
+   "atm_e0ddecfde4f8",
+   "atm_1c6af51b0fc1",
+   "atm_676b94e88700"
+  ],
+  "olive": [
+   "atm_1c6af51b0fc1"
+  ],
+  "corridor": [
+   "atm_676b94e88700"
+  ],
+  "d525": [
+   "atm_676b94e88700"
+  ],
+  "olive-district": [
+   "atm_676b94e88700"
+  ],
+  "actually-th": [
+   "atm_e2c9a9aafaf4",
+   "atm_735a7287ad2c",
+   "atm_a1b98b03e41a",
+   "atm_9a93da5618de"
+  ],
+  "administration": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "signboard": [
+   "atm_e2c9a9aafaf4"
+  ],
+  "dry-season": [
+   "atm_735a7287ad2c"
+  ],
+  "looks-like-th": [
+   "atm_735a7287ad2c",
+   "atm_9a93da5618de"
+  ],
+  "looks-like-my": [
+   "atm_a1b98b03e41a"
+  ],
+  "mesquite": [
+   "atm_e452dc6b1629"
+  ],
+  "castillo": [
+   "atm_4b98d01184f6"
+  ],
+  "concrete-pole": [
+   "atm_4b98d01184f6"
+  ],
+  "confined-masonry": [
+   "atm_4b98d01184f6"
+  ],
+  "dry-stone": [
+   "atm_6073bba1ba34"
+  ],
+  "nopal-hedge": [
+   "atm_6073bba1ba34"
+  ],
+  "paving": [
+   "atm_82d74b56e40b"
+  ],
+  "peri-urban": [
+   "atm_82d74b56e40b"
+  ],
+  "actually-nz": [
+   "atm_c0028c87af29",
+   "atm_935d031e2a8f",
+   "atm_30644ea72f98",
+   "atm_b2e8cd2ce0f6"
+  ],
+  "looks-like-au": [
+   "atm_c0028c87af29",
+   "atm_b2e8cd2ce0f6"
+  ],
+  "priority-plate": [
+   "atm_c0028c87af29"
+  ],
+  "greywacke": [
+   "atm_935d031e2a8f"
+  ],
+  "looks-like-nz": [
+   "atm_935d031e2a8f",
+   "atm_30644ea72f98"
+  ],
+  "mudstone": [
+   "atm_935d031e2a8f"
+  ],
+  "papa": [
+   "atm_935d031e2a8f"
+  ],
+  "pasture": [
+   "atm_30644ea72f98"
+  ],
+  "tephra": [
+   "atm_30644ea72f98",
+   "atm_9f4060f146e8"
+  ],
+  "eucalypt": [
+   "atm_b2e8cd2ce0f6"
+  ],
+  "radiata": [
+   "atm_b2e8cd2ce0f6"
+  ],
+  "oltrepo": [
+   "atm_ec115d67939d"
+  ],
+  "po-plain-margin": [
+   "atm_ec115d67939d"
+  ],
+  "apennine-front": [
+   "atm_b905eb4795d9"
+  ],
+  "scale-discipline": [
+   "atm_b905eb4795d9"
+  ],
+  "brick": [
+   "atm_4ded08bf94f9"
+  ],
+  "corte": [
+   "atm_4ded08bf94f9"
+  ],
+  "forage": [
+   "atm_3c739719836a"
+  ],
+  "grana-padano": [
+   "atm_3c739719836a"
+  ],
+  "road-furniture": [
+   "atm_eba3dc758411"
+  ],
+  "snow": [
+   "atm_eba3dc758411"
+  ],
+  "bamboo": [
+   "atm_18dfb917ecd9"
+  ],
+  "sugi": [
+   "atm_18dfb917ecd9"
+  ],
+  "farm-shed": [
+   "atm_76095061912d"
+  ],
+  "satoyama": [
+   "atm_ebc7c2ef6ce2"
+  ],
+  "cut-bank": [
+   "atm_9f4060f146e8"
+  ],
+  "convex-mirror": [
+   "atm_dca606fecd4d"
+  ],
+  "country-lock": [
+   "atm_dca606fecd4d"
+  ],
+  "azulejo": [
+   "atm_ad6ef340394d"
+  ],
+  "street-plaque": [
+   "atm_ad6ef340394d"
+  ],
+  "adosados": [
+   "atm_288c6a410e97"
+  ],
+  "barrel-tile": [
+   "atm_288c6a410e97"
+  ],
+  "rejas": [
+   "atm_288c6a410e97"
+  ],
+  "guadalquivir": [
+   "atm_b0dafbf62e75"
+  ],
+  "horizon": [
+   "atm_b0dafbf62e75"
+  ],
+  "sierra": [
+   "atm_b0dafbf62e75"
+  ],
+  "garage-front": [
+   "atm_7f58247de8e3"
+  ],
+  "crossing-apron": [
+   "atm_e11e2807a7c5"
+  ],
+  "kerb-paint": [
+   "atm_e11e2807a7c5"
   ]
  },
  "categories": {
@@ -92471,14 +96423,19 @@
    "atm_e80514d5e6c7",
    "atm_f16dfd0eeeac",
    "atm_fb1c88a99dbf",
-   "atm_fb8200fcf326"
+   "atm_fb8200fcf326",
+   "atm_173fb47af208",
+   "atm_a1b98b03e41a",
+   "atm_4ded08bf94f9",
+   "atm_288c6a410e97"
   ],
   "dialect": [
    "atm_01ff3b6b06b5",
    "atm_5dea4781e2c0",
    "atm_71255f910af9",
    "atm_a60f6d19f902",
-   "atm_fba72a044766"
+   "atm_fba72a044766",
+   "atm_73e57a387697"
   ],
   "industry": [
    "atm_0205c14dc6c2",
@@ -92512,7 +96469,8 @@
    "atm_ce9d24778d61",
    "atm_ea92c4c667d4",
    "atm_f644bdf4dd51",
-   "atm_fe41075e4a29"
+   "atm_fe41075e4a29",
+   "atm_ca536dbdc238"
   ],
   "roof-facade": [
    "atm_020ef391a7c6",
@@ -92526,7 +96484,10 @@
    "atm_a20a2bd85dc2",
    "atm_ab5319b5158c",
    "atm_c67e18d2f564",
-   "atm_cdd15c235ccf"
+   "atm_cdd15c235ccf",
+   "atm_d3afa16fc410",
+   "atm_4b98d01184f6",
+   "atm_76095061912d"
   ],
   "business-chain": [
    "atm_03076a585d98",
@@ -92546,7 +96507,9 @@
    "atm_d4219be3d4fb",
    "atm_d63c438c5214",
    "atm_e4bdaab98801",
-   "atm_ef1e5540144e"
+   "atm_ef1e5540144e",
+   "atm_a5c9084accfd",
+   "atm_7e5c0b47c99a"
   ],
   "toponymy": [
    "atm_0439d48bd32a",
@@ -92570,7 +96533,8 @@
    "atm_d5d073d080fc",
    "atm_e972c3d2ffab",
    "atm_f32a9d025eca",
-   "atm_fa8ff513c430"
+   "atm_fa8ff513c430",
+   "atm_9a93da5618de"
   ],
   "urban-form": [
    "atm_04c54e42050d",
@@ -92587,7 +96551,9 @@
    "atm_d0b59aaa3c23",
    "atm_d58b8f318cd5",
    "atm_e5c689a80f57",
-   "atm_f72378f74a6b"
+   "atm_f72378f74a6b",
+   "atm_457ca0cf526a",
+   "atm_7f58247de8e3"
   ],
   "script": [
    "atm_050d1beb807a",
@@ -92609,11 +96575,17 @@
    "atm_702faf957ae7",
    "atm_b9a5c0270203",
    "atm_bcebe14f209f",
-   "atm_ee8caa0687d3"
+   "atm_ee8caa0687d3",
+   "atm_305c0c3707b0",
+   "atm_1c6af51b0fc1",
+   "atm_e452dc6b1629",
+   "atm_b2e8cd2ce0f6",
+   "atm_18dfb917ecd9"
   ],
   "finance": [
    "atm_05dc60e6542c",
-   "atm_c23d23b3926b"
+   "atm_c23d23b3926b",
+   "atm_e74ee1efa100"
   ],
   "tourism-economy": [
    "atm_0625509c4e13",
@@ -92663,7 +96635,9 @@
    "atm_e5865b9a7960",
    "atm_ea096b05bb43",
    "atm_ea35d8f70c99",
-   "atm_f0b127710ce5"
+   "atm_f0b127710ce5",
+   "atm_3f818b5a1b64",
+   "atm_1fe840b3212c"
   ],
   "climate": [
    "atm_074b88f4a88e",
@@ -92672,7 +96646,9 @@
    "atm_4f92a18e4ed7",
    "atm_52d9e7fe3865",
    "atm_5449e17b7e07",
-   "atm_eea7bee4a533"
+   "atm_eea7bee4a533",
+   "atm_b67d081a61b7",
+   "atm_30644ea72f98"
   ],
   "cuisine": [
    "atm_080c7ca4a29f",
@@ -92701,7 +96677,12 @@
    "atm_ba70b4476414",
    "atm_bdc7c74090b5",
    "atm_dbf7cd33fdfa",
-   "atm_e591fce7975b"
+   "atm_e591fce7975b",
+   "atm_7202d5d69930",
+   "atm_f947eed4f050",
+   "atm_6073bba1ba34",
+   "atm_ec115d67939d",
+   "atm_3c739719836a"
   ],
   "logistics": [
    "atm_0b13748cb731",
@@ -92726,12 +96707,14 @@
    "atm_91bb4809c09e",
    "atm_abbf940e60d2",
    "atm_e857853e0979",
-   "atm_f6ff80704d60"
+   "atm_f6ff80704d60",
+   "atm_0c63c014b962"
   ],
   "utility-pole": [
    "atm_0f5685ec7286",
    "atm_59493deb0040",
-   "atm_d1aae5dd7a36"
+   "atm_d1aae5dd7a36",
+   "atm_e5dc061fdb33"
   ],
   "polity-rule": [
    "atm_0f643119e6e7",
@@ -92749,7 +96732,11 @@
    "atm_2fbd4c769a30",
    "atm_41abb4a57c7a",
    "atm_48f209c13e3a",
-   "atm_632fccf1df46"
+   "atm_632fccf1df46",
+   "atm_f3fb02fa3be5",
+   "atm_735a7287ad2c",
+   "atm_935d031e2a8f",
+   "atm_9f4060f146e8"
   ],
   "retail": [
    "atm_10a3dec0d708",
@@ -92760,7 +96747,8 @@
    "atm_5b2b5964e8b3",
    "atm_92e90898b5a0",
    "atm_99a388995ff6",
-   "atm_ecfdf6713ffe"
+   "atm_ecfdf6713ffe",
+   "atm_1dc57346ad13"
   ],
   "signage-language": [
    "atm_126f0a24f257",
@@ -92812,7 +96800,12 @@
    "atm_efacbff46c0c",
    "atm_f5d2c803c983",
    "atm_f93a956e3f2f",
-   "atm_fc22ca49a31d"
+   "atm_fc22ca49a31d",
+   "atm_e0b610416d73",
+   "atm_e5538c73518c",
+   "atm_69c0077521d3",
+   "atm_b905eb4795d9",
+   "atm_b0dafbf62e75"
   ],
   "memory-monument": [
    "atm_136ca6c5fec1",
@@ -92839,7 +96832,10 @@
    "atm_e1447da93736",
    "atm_e605fa30bf62",
    "atm_e8c4d3d9d65a",
-   "atm_eccd4326ddf2"
+   "atm_eccd4326ddf2",
+   "atm_e15595eeb416",
+   "atm_fe1fabd7b881",
+   "atm_676b94e88700"
   ],
   "protected-area": [
    "atm_1614bc8a7ec4",
@@ -92873,7 +96869,11 @@
    "atm_e270eb2291f6",
    "atm_e29dd72ae7f9",
    "atm_e4e3e2300015",
-   "atm_e5882c19fe5d"
+   "atm_e5882c19fe5d",
+   "atm_c7eaf2b97e59",
+   "atm_0a129b3d0032",
+   "atm_ad4651f749ac",
+   "atm_c0028c87af29"
   ],
   "real-estate": [
    "atm_16e78de06075",
@@ -92905,7 +96905,10 @@
    "atm_91c12861d2aa",
    "atm_a3435d33610c",
    "atm_ad6f64fbb564",
-   "atm_cbb4d80090b5"
+   "atm_cbb4d80090b5",
+   "atm_36953f364595",
+   "atm_e0ddecfde4f8",
+   "atm_dca606fecd4d"
   ],
   "sport": [
    "atm_1e9fe31e33da"
@@ -92914,7 +96917,8 @@
    "atm_1eddc1d27617",
    "atm_5fed154c3c3e",
    "atm_74079b0c8ba5",
-   "atm_e85177c2fa30"
+   "atm_e85177c2fa30",
+   "atm_a4c8d01b5267"
   ],
   "settlement-pattern": [
    "atm_1fe30f1788db",
@@ -92936,7 +96940,9 @@
    "atm_d17226bbf6bf",
    "atm_ef0a76735f18",
    "atm_ef51d7d80c44",
-   "atm_fbc7a5e5e104"
+   "atm_fbc7a5e5e104",
+   "atm_82d74b56e40b",
+   "atm_ebc7c2ef6ce2"
   ],
   "founding": [
    "atm_290e8dc4ccdf",
@@ -92960,14 +96966,16 @@
   "religion": [
    "atm_395187fe388d",
    "atm_4518bd105a25",
-   "atm_7ce456065485"
+   "atm_7ce456065485",
+   "atm_65d849f7eb83"
   ],
   "politics-civic": [
    "atm_403102c39f78",
    "atm_81203c6e0b37",
    "atm_a829b13225ed",
    "atm_bc76c93c3cae",
-   "atm_e642c5062954"
+   "atm_e642c5062954",
+   "atm_d97630c7288f"
   ],
   "vehicle-fleet": [
    "atm_465631657fbd",
@@ -92995,7 +97003,10 @@
   "road-marking": [
    "atm_635d3f4d1fe8",
    "atm_8af183b8f49b",
-   "atm_bf4d2b322bc6"
+   "atm_bf4d2b322bc6",
+   "atm_9aae63fb6cc3",
+   "atm_eba3dc758411",
+   "atm_e11e2807a7c5"
   ],
   "treaty-border": [
    "atm_8cfbd0212321"
@@ -93021,6 +97032,9 @@
   ],
   "succession": [
    "atm_ea4cec02c2f6"
+  ],
+  "listed-company": [
+   "atm_58cde6ebbc3d"
   ]
  },
  "reports": {
@@ -94673,6 +98687,70 @@
     "atm_702faf957ae7",
     "atm_9fb7c0e4a0ac",
     "atm_b408fc3d3b66"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html": {
+   "place": "Mangatoro / Weber area, near Dannevirke, Manawatū-Whanganui / Tararua District (eastern Hawke's Bay border), New Zealand",
+   "lat": -40.2623649,
+   "lng": 176.2235731,
+   "cell": "rbv6f",
+   "atoms": [
+    "atm_06bd6a770961",
+    "atm_305c0c3707b0",
+    "atm_7202d5d69930",
+    "atm_b67d081a61b7",
+    "atm_c7eaf2b97e59",
+    "atm_e0b610416d73"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_it_rivanazzano-terme_44.9272_8.9683_260914_130123_ko-en-fr.html": {
+   "place": "Casalsaglio / Casalvecchio, near Rivanazzano Terme–Voghera, Lombardy (Oltrepò Pavese, Province of Pavia), Italy",
+   "lat": 44.9271881,
+   "lng": 8.9682964,
+   "cell": "spyrs",
+   "atoms": [
+    "atm_0a129b3d0032",
+    "atm_36953f364595",
+    "atm_a5c9084accfd",
+    "atm_d3afa16fc410",
+    "atm_e5538c73518c",
+    "atm_f947eed4f050"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html": {
+   "place": "Wajima (Monzenmachi Susukino, Noto Peninsula), Ishikawa Prefecture, Japan",
+   "lat": 37.3404533,
+   "lng": 136.7846737,
+   "cell": "xn9k2",
+   "atoms": [
+    "atm_1dc57346ad13",
+    "atm_3f818b5a1b64",
+    "atm_65d849f7eb83",
+    "atm_69c0077521d3"
    ],
    "langs": [
     "ko",

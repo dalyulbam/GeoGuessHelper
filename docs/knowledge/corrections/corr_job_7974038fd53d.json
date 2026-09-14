@@ -2,7 +2,7 @@
  "job_id": "job_7974038fd53d",
  "report_file": "report_ng_ogoja_6.6599_8.8026_260910_124856_ko-en-fr.html",
  "label": "선택 장면 보고서 · xG0zAd3N…Uo9A",
- "created": 1789012220.7847638,
+ "created": 1789361187.8051438,
  "lang": "en",
  "images": [
   "capture_adc26dd1b9f4.jpg",
@@ -619,9 +619,22 @@
   "retract_candidates": []
  },
  "atoms": {
-  "created": [],
-  "merged": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "created": [
+   "atm_73e57a387697",
+   "atm_d97630c7288f",
+   "atm_e15595eeb416",
+   "atm_7e5c0b47c99a"
+  ],
+  "merged": [
+   "atm_c9e4132840cf"
+  ],
+  "ordered": [
+   "atm_73e57a387697",
+   "atm_d97630c7288f",
+   "atm_c9e4132840cf",
+   "atm_e15595eeb416",
+   "atm_7e5c0b47c99a"
+  ]
  },
  "evidence": {
   "hits": [],
@@ -630,7 +643,7 @@
   "restored": [],
   "skipped_idempotent": []
  },
- "cost_usd": 0.4313,
- "status": "PARTIAL",
- "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789012220.7847638
 }

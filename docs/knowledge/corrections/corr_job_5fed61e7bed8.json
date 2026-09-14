@@ -2,7 +2,7 @@
  "job_id": "job_5fed61e7bed8",
  "report_file": "report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html",
  "label": "선택 장면 보고서 · NyDqIycL…GANA",
- "created": 1789013491.02445,
+ "created": 1789361188.6610174,
  "lang": "en",
  "images": [
   "capture_9bb126c20b38.jpg",
@@ -922,18 +922,33 @@
   "retract_candidates": []
  },
  "atoms": {
-  "created": [],
-  "merged": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "created": [
+   "atm_58cde6ebbc3d",
+   "atm_457ca0cf526a",
+   "atm_e74ee1efa100",
+   "atm_1fe840b3212c"
+  ],
+  "merged": [
+   "atm_91b8f6217bd1"
+  ],
+  "ordered": [
+   "atm_58cde6ebbc3d",
+   "atm_91b8f6217bd1",
+   "atm_457ca0cf526a",
+   "atm_e74ee1efa100",
+   "atm_1fe840b3212c"
+  ]
  },
  "evidence": {
   "hits": [],
-  "misses": [],
+  "misses": [
+   "atm_be2b79054b54"
+  ],
   "retracted": [],
   "restored": [],
-  "error": "NameError: name 'knowledge' is not defined"
+  "skipped_idempotent": []
  },
- "cost_usd": 0.4932,
- "status": "PARTIAL",
- "message": "판단은 끝났으나 원자 적재 또는 증거 채점이 실패했다 — 재시도 대상(재개 경로)."
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789013491.02445
 }

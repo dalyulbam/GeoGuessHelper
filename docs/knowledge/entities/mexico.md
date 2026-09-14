@@ -1,6 +1,6 @@
 # 엔티티 · mexico
 
-원자 23개 · 이 엔티티를 다룬 보고서 5건
+원자 30개 · 이 엔티티를 다룬 보고서 5건
 
 ## 원자
 - [[atm_0f259f84fb29]] **Pacific vs. inland/Gulf Mexico terrain and vegetation contrasts** (architecture/region)
@@ -9,12 +9,16 @@
 - [[atm_3fc712b096be]] **Rebar-topped unfinished house family in developing economies** (architecture/global)
 - [[atm_45446d19bcd9]] **Kilometer-marker toponyms as 20th-century road-colonization settlements in Mexico** (history/region)
 - [[atm_4a1dc25fe60d]] **SCT and CFE as Mexico's infrastructure-building state institutions** (economy/country)
+- [[atm_4b98d01184f6]] **Rural Mexico vs US Southwest: castillo-framed brick and square concrete poles** (architecture/country)
 - [[atm_59493deb0040]] **High satellite-dish penetration as proxy for weak fixed telecom infrastructure in rural Mexico** (economy/country)
 - [[atm_5b9c968b7ed1]] **Linear roadside colonia vs compact village-grid core settlement pattern** (culture/region)
+- [[atm_6073bba1ba34]] **Nopal hedge on rock-pile wall marks Mexican ejido parcels, not fenced US rangeland** (economy/region)
 - [[atm_7ce456065485]] **Evangelical/Adventist inroads alongside Catholic parishes in rural central Mexico** (culture/region)
+- [[atm_82d74b56e40b]] **Bajío linear colonia sits close to big cities, not only deep countryside** (geography/region)
 - [[atm_94f4cc63f804]] **Volcanic dark-soil terrain as Mexico's geological counterpoint to Yucatán karst** (geography/region)
 - [[atm_9558ea5e89f8]] **Mexico's fiber and Red Compartida rollout displacing satellite reliance** (economy/country)
 - [[atm_962517d94a40]] **Formal utility grids and gated developments as contrast to informal infrastructure** (architecture/country)
+- [[atm_9aae63fb6cc3]] **Mexican rural two-lane: dashed centre line only, no edge lines** (geography/country)
 - [[atm_a54d90c20b3e]] **Mexican telephone area codes as sub-national geolocation markers** (geography/country)
 - [[atm_a741bec60f9c]] **Mexican federal institutional branding as nationality marker** (economy/country)
 - [[atm_a7cf23a3d7b1]] **Norteño mestizo urban cultural sphere (northern Mexico)** (culture/region)
@@ -25,7 +29,10 @@
 - [[atm_bd33b40b4b46]] **Mexican retail/hospitality chains as country-identification markers** (economy/region)
 - [[atm_bfa44d28d5f9]] **Saltillo-Ramos Arizpe-Arteaga automotive industrial belt** (economy/region)
 - [[atm_bfa5269be192]] **Telesecundaria/telebachillerato as Mexico-specific distance-education markers** (economy/country)
+- [[atm_e452dc6b1629]] **Altiplano Potosino vs Zacatecas plateau: mesquite bosque and giant palma china** (nature/region)
+- [[atm_e5dc061fdb33]] **CFE rural wooden poles with small transformers vs US rural distribution** (economy/country)
 - [[atm_ef1de3b43459]] **State-built social housing programs vs self-built informal housing** (architecture/country)
+- [[atm_f3fb02fa3be5]] **Bajío basalt clearance piles vs Altiplano pale calcareous soil** (geography/region)
 
 ## 보고서
 - `report_mx_irapuato_20.5606_-101.3794_260911_000832_ko-en-fr.html`

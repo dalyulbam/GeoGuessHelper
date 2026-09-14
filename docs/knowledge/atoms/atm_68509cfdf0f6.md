@@ -10,7 +10,7 @@
     "thailand"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_68509cfdf0f6",
   "kind": "fact",
   "lang": "en",
@@ -38,7 +38,7 @@
   ],
   "tier": null,
   "title": "Remittance-funded rural consumption pattern in Isan villages",
-  "updated": 1789052156.068678,
+  "updated": 1789361195.1438243,
   "uses": 1
 }
 ---

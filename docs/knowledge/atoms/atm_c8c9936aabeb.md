@@ -17,7 +17,7 @@
   "lat": 4.2715804,
   "layer": "economy",
   "lng": -73.4894931,
-  "misses": 0,
+  "misses": 1,
   "origin": null,
   "period_end": null,
   "period_start": null,
@@ -39,7 +39,7 @@
   ],
   "tier": null,
   "title": "Piedmont town economy tied to cattle, oil palm, rice, and weekend tourism",
-  "updated": 1789051322.6662838,
+  "updated": 1789361190.8645537,
   "uses": 1
 }
 ---

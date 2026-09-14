@@ -11,3 +11,10 @@
 
 ## 보고서
 - `report_co_cumaral_4.2716_-73.4895_260910_234145_ko-en-fr.html`
+- [[atm_58cde6ebbc3d]] **SAS suffix marks Colombia, not Venezuela or Ecuador** (economy/country)
+- [[atm_457ca0cf526a]] **Llanos piedmont town fabric vs Amazonian frontier town** (geography/region)
+- [[atm_e74ee1efa100]] **Peso magnitude with dot separators rules out dollarized Ecuador** (economy/country)
+- [[atm_1fe840b3212c]] **Indigenous brand names hint at macro-region inside Colombia** (culture/region)
+- `report_co_cumaral_4.2716_-73.4903_260910_130524_ko-en-fr.html`
+- [[atm_0c63c014b962]] **Closed shade canopy + hills right behind town = northern Meta piedmont, not Casanare plains** (nature/region)
+- [[atm_a4c8d01b5267]] **Piedmont colonization church vs Andean colonial church** (architecture/region)

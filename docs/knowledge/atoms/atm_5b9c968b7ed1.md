@@ -9,7 +9,7 @@
     "mexico"
   ],
   "heading": null,
-  "hits": 0,
+  "hits": 1,
   "id": "atm_5b9c968b7ed1",
   "kind": "fact",
   "lang": "en",
@@ -37,7 +37,7 @@
   ],
   "tier": null,
   "title": "Linear roadside colonia vs compact village-grid core settlement pattern",
-  "updated": 1789052933.2763107,
+  "updated": 1789361164.324831,
   "uses": 1
 }
 ---

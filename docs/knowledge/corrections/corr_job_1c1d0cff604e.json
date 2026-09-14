@@ -1,0 +1,874 @@
+{
+ "job_id": "job_1c1d0cff604e",
+ "report_file": "report_nz_mangatoro_-40.2624_176.2236_260914_125629_ko-en-fr.html",
+ "label": "선택 장면 보고서 · L8Z32Fvn…UXSA",
+ "created": 1789361196.6758642,
+ "lang": "en",
+ "images": [
+  "capture_54b903f6eaad.jpg",
+  "capture_10796d91b676.jpg",
+  "capture_eb3386e71962.jpg",
+  "capture_c3da6451aacd.jpg",
+  "capture_5e8a8e07fbfc.jpg",
+  "capture_399d2e5fd2b8.jpg"
+ ],
+ "image_panos": {
+  "capture_54b903f6eaad.jpg": {
+   "pano_id": "L8Z32FvnhCXijsgnCYUXSA",
+   "lat": -40.262364880544986,
+   "lng": 176.22357308919482,
+   "heading": 87.64421758689127,
+   "pitch": 4.882413229941747
+  },
+  "capture_10796d91b676.jpg": {
+   "pano_id": "-ZYqu3hCpUIgOm-Okkyanw",
+   "lat": -40.26342532394817,
+   "lng": 176.2229003016307,
+   "heading": 136.53398804055382,
+   "pitch": 9.419940235652504
+  },
+  "capture_eb3386e71962.jpg": {
+   "pano_id": "2yyDjp8mR4nHnRHC0ZGDKw",
+   "lat": -40.26528670787847,
+   "lng": 176.22185206274423,
+   "heading": 184.2346156855387,
+   "pitch": 14.023985815628663
+  },
+  "capture_c3da6451aacd.jpg": {
+   "pano_id": "Q5afrYcWvq4aqfq16whwVQ",
+   "lat": -40.26741053713535,
+   "lng": 176.22120608127625,
+   "heading": 203.17575554108842,
+   "pitch": -1.0420087925480743
+  },
+  "capture_5e8a8e07fbfc.jpg": {
+   "pano_id": "QabjVwP-VAJuOFLNZRcrbQ",
+   "lat": -40.26802878079249,
+   "lng": 176.22089816908817,
+   "heading": 190.79639752407496,
+   "pitch": 1.7050753669173133
+  },
+  "capture_399d2e5fd2b8.jpg": {
+   "pano_id": "J-yukEGR9k5LlIQaxdk1QA",
+   "lat": -40.26917602675561,
+   "lng": 176.22019595794882,
+   "heading": 210.48917590161335,
+   "pitch": -0.04646043976460135
+  }
+ },
+ "truth": {
+  "lat": -40.2663081739023,
+  "lng": 176.22142079260462,
+  "iso": "NZ",
+  "country": "New Zealand",
+  "region": "Manawatū-Whanganui / Tararua District (eastern Hawke's Bay border)",
+  "city": "Mangatoro / Weber area, near Dannevirke",
+  "source": "aided_prior",
+  "file_lat": -40.2624,
+  "file_lng": 176.2236,
+  "n_panos": 7
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Whanganui / Rangitikei hinterland (inland backroad)",
+     "confidence": 0.45,
+     "coordinate_estimate": {
+      "lat": -39.72,
+      "lng": 175.25,
+      "radius_km": 70
+     },
+     "country": "New Zealand",
+     "country_iso": "NZ",
+     "region_or_state": "Manawatu-Whanganui (North Island hill country)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Temperate oceanic; summer-dry pasture hill country with mixed exotic conifer and native broadleaf scrub",
+     "driving_side": "left",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Diamond warning sign with yellow-orange fluorescent background and black 'narrow bridge' pictogram, plus a blue rectangular priority plate with white up-arrow and red down-arrow — the exact New Zealand one-lane-bridge give-way/priority sign pair.",
+      "supports": [
+       "New Zealand"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_marking",
+      "image_index": 5,
+      "level": "country",
+      "observation": "'LANE' painted on a single-track sealed rural road (part of 'ONE LANE BRIDGE'), English-language markings, no centreline, chip-seal surface typical of NZ rural council roads.",
+      "supports": [
+       "New Zealand",
+       "left-hand traffic English-speaking"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "driving_side",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Parked car and road geometry consistent with left-hand traffic; W-beam guardrail with galvanised posts on the outer edge.",
+      "supports": [
+       "left-hand driving"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Toetoe/pampas plumes, tree ferns and dense native broadleaf scrub mixed with planted Pinus radiata shelterbelts — classic North Island NZ farm-margin mosaic.",
+      "supports": [
+       "North Island New Zealand"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 4,
+      "level": "admin_region",
+      "observation": "Lombardy poplars and crack willow lining a small silty stream in a steep gully — poplar/willow planting is the standard soil-conservation response to erosion in Whanganui/Rangitikei/Wairarapa hill country.",
+      "supports": [
+       "East/West North Island erosion-prone hill country"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "geology",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Pale grey-white soft mudstone/papa (Tertiary siltstone) cut bank, slumping and rilled rather than blocky rock — characteristic of the Whanganui Basin / East Coast soft-rock terrain, not volcanic or greywacke.",
+      "supports": [
+       "Whanganui Basin papa country"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "landscape",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Steep dry-brown grazed hill faces with reverting scrub, slip scars and sparse regenerating manuka/kanuka; sheep-fence wire lines along ridges.",
+      "supports": [
+       "marginal sheep-and-beef hill country"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Single-pole wooden cross-arm rural distribution line on the ridge, no street lighting, no kerbing — deep rural, low-density local network.",
+      "supports": [
+       "remote rural backroad"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "season",
+      "image_index": 0,
+      "level": "continent",
+      "observation": "Full-canopy deciduous poplars and cured golden grass with green gullies under high sun — Southern Hemisphere mid/late summer (Jan-Feb) capture.",
+      "supports": [
+       "southern hemisphere summer"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Old timber post-and-rail bridge guard fence, weathered grey, alongside modern steel W-beam elsewhere — legacy single-lane county bridges typical of small district council roads.",
+      "supports": [
+       "low-traffic council road"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "Low-density pastoral economy: extensive sheep and beef grazing on eroding soft-rock hill country, with exotic pine shelterbelts/woodlots and poplar-willow erosion control indicating land-management subsidy schemes. Infrastructure is minimal and aging — single-lane bridge, chip-seal one-lane road, timber guard rails, overhead single-phase distribution — a district council with a small rate base. Anglophone settler landscape (fenced paddocks, Pinus radiata, gorse/pampas weeds) with no visible settlement, shops or people; economically marginal back-country served mainly by farm traffic.",
+    "landmarks": [
+     {
+      "confidence": 0.6,
+      "image_index": 4,
+      "name": "Unnamed single-lane concrete/steel bridge over a small gully stream",
+      "type": "bridge"
+     },
+     {
+      "confidence": 0.5,
+      "image_index": 3,
+      "name": "NZ one-lane bridge give-way priority sign pair",
+      "type": "road furniture"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.8,
+      "evidence": "'LANE' painted on road surface (from ONE LANE BRIDGE marking)",
+      "language": "English",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Northern Hemisphere temperate",
+       "Southern Hemisphere temperate"
+      ],
+      "conclusion": "Southern Hemisphere temperate oceanic zone, summer capture",
+      "confidence_after": 0.7,
+      "discriminator": "A Northern Hemisphere temperate capture with this much cured grass would usually show maize/cereal stubble and hedgerow species; here the understory is tree fern, flax and toetoe/pampas plumes, which do not occur wild in Europe or North America.",
+      "level": "continent",
+      "observation": "Fully leafed poplars and willows with sun-cured golden grass, tree ferns and pampas-like plumes in the gullies.",
+      "ruled_out": [
+       "Northern Hemisphere: fern/flax/toetoe assemblage and mid-summer aspect in a Google 'February-style' capture do not fit"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "New Zealand",
+       "Australia (Tasmania/Victoria)",
+       "Chile",
+       "South Africa",
+       "Argentina"
+      ],
+      "conclusion": "New Zealand",
+      "confidence_after": 0.93,
+      "discriminator": "Australia would use a yellow diamond with a black 'bridge narrows' bar-and-arrow layout and a red/white GIVE WAY plate, not the blue rectangle with paired white-up/red-down arrows; Chile and Argentina use Vienna-convention red-bordered triangles and drive on the right; South Africa's one-lane bridge signage is different again and the roadside would show eucalypt/acacia rather than tree fern.",
+      "level": "country",
+      "observation": "Image 3: fluorescent yellow-orange diamond 'narrow bridge' sign above a blue rectangle with a white upward arrow and a red downward arrow — the New Zealand one-lane-bridge priority sign; image 5 shows 'LANE' painted on a single-track sealed road, i.e. ONE LANE BRIDGE, and traffic keeps left.",
+      "ruled_out": [
+       "Australia: different one-lane-bridge sign format and no tree-fern/flax roadside mix",
+       "Chile/Argentina: right-hand traffic, triangular warning signs",
+       "South Africa: signage style and vegetation mismatch"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "North Island NZ",
+       "South Island NZ"
+      ],
+      "conclusion": "North Island",
+      "confidence_after": 0.85,
+      "discriminator": "A South Island equivalent would show hard grey greywacke or schist cuttings, braided shingle rivers, matagouri/tussock and beech forest; instead we see soft pale mudstone that slumps and rills, a muddy incised stream, and kanuka/mahoe/tree-fern scrub with pampas — a North Island soft-rock signature.",
+      "level": "macro_region",
+      "observation": "Cut banks are pale grey-white soft siltstone/mudstone ('papa') that erodes into rills and slips; gullies carry a small silty brown stream; native scrub is kanuka/broadleaf with tree ferns, not beech or tussock.",
+      "ruled_out": [
+       "South Island: no greywacke/schist, no beech forest, no tussock or braided gravel river"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Northland/Auckland",
+       "Waikato/King Country",
+       "Taranaki ring plain",
+       "Whanganui-Rangitikei-Manawatu hill country",
+       "Hawke's Bay/Gisborne",
+       "Wairarapa"
+      ],
+      "conclusion": "Whanganui Basin soft-rock hill country (Whanganui / Rangitikei / inland Manawatu), with Hawke's Bay-Wairarapa as the live alternative",
+      "confidence_after": 0.5,
+      "discriminator": "Northland would show clay-red/orange cuttings and kauri-puriri scrub, not white papa; the Taranaki ring plain would be gently sloping volcanic andesitic soil with dark cuttings and dairy pasture rather than dry sheep hills; Waikato would be flatter peat/ash country. Hawke's Bay-Gisborne papa is redder and drier with more poplar-only plantings; here the mosaic of white papa, Pinus radiata woodlots, poplar-willow gully plantings and severely reverting sheep hills matches the Whanganui/Rangitikei back-country best.",
+      "level": "admin_region",
+      "observation": "White papa cuttings plus poplar/willow soil-conservation plantings in gullies, reverting steep sheep hills with slip scars, and Pinus radiata shelterbelts.",
+      "ruled_out": [
+       "Northland/Auckland: cuttings would be red-orange clay",
+       "Taranaki: volcanic ring-plain topography and dairy pasture absent",
+       "Waikato: too steep and dry for Waikato lowland"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Sealed main rural route",
+       "Minor council back-road"
+      ],
+      "conclusion": "Minor sealed council back-road with legacy one-lane bridge, far from any settlement",
+      "confidence_after": 0.75,
+      "discriminator": "A main rural route would carry a painted centreline, edge lines, wider seal and modern two-lane bridge with guardrail transitions; here there is a single-width chip-seal, no lines except the ONE LANE BRIDGE legend, weathered timber post-and-rail bridge fencing and single-phase overhead power.",
+      "level": "district",
+      "observation": "Road is one vehicle wide, chip-sealed, unlined, with old timber rail bridge fences and no lighting or houses visible over six frames.",
+      "ruled_out": [
+       "State highway / main route: absent centreline, narrow seal, one-lane bridge"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "whanganui",
+    "relied_on_atoms": [],
+    "alternatives": [
+     {
+      "confidence": 0.22,
+      "country": "New Zealand",
+      "country_iso": "NZ"
+     },
+     {
+      "confidence": 0.1,
+      "country": "Australia",
+      "country_iso": "AU"
+     }
+    ]
+   },
+   "cost_usd": 0.2195,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 3942,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "New Zealand",
+    "country_iso": "NZ",
+    "country_correct": true,
+    "region": "Manawatu-Whanganui (North Island hill country)",
+    "city": "Whanganui / Rangitikei hinterland (inland backroad)",
+    "confidence": 0.45,
+    "overall_confidence": 0.55,
+    "error_km": 102.66,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 10,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "driving_side",
+     "geology",
+     "infrastructure",
+     "landscape",
+     "road_marking",
+     "season",
+     "signage",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": null,
+     "confidence": 0.62,
+     "coordinate_estimate": {
+      "lat": -40.05,
+      "lng": 176.05,
+      "radius_km": 70
+     },
+     "country": "New Zealand",
+     "country_iso": "NZ",
+     "region_or_state": "Manawatū-Whanganui / Tararua hill country (eastern North Island papa country)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Warm-temperate oceanic; pastoral hill country with remnant broadleaf bush, summer-dry grass",
+     "driving_side": "left",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Yellow diamond warning sign showing the narrowing-bridge pictogram plus a blue rectangular priority plate with a white arrow (yours) and a red arrow (oncoming) — the classic NZTA one-lane-bridge sign pair.",
+      "supports": [
+       "New Zealand"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_infrastructure",
+      "image_index": 5,
+      "level": "country",
+      "observation": "Faded 'LANE' road marking (part of 'ONE LANE' / lane text) on a narrow sealed rural road, with weathered timber post-and-rail guard fence typical of NZ rural bridges.",
+      "supports": [
+       "New Zealand"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "traffic",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Parked car is on the left shoulder and road geometry / sign facing implies left-hand traffic.",
+      "supports": [
+       "left-hand-drive country"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Dense dark broadleaf bush with cabbage-tree/flax-like forms and large plumed toetoe/pampas heads along the cut, mixed with Pinus radiata shelterbelt — NZ warm-temperate bush mosaic rather than eucalypt woodland.",
+      "supports": [
+       "New Zealand",
+       "not Australia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 4,
+      "level": "admin_region",
+      "observation": "Lombardy poplars and willows planted along the stream gully — classic NZ erosion-control / streambank plantings on pastoral hill country.",
+      "supports": [
+       "eastern North Island pastoral hill country"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "geology",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Pale grey-white soft mudstone (papa) cut bank, deeply rilled and slumping, directly beside the seal.",
+      "supports": [
+       "papa mudstone country, eastern North Island"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "land_use",
+      "image_index": 0,
+      "level": "admin_region",
+      "observation": "Steep rounded hill face in dry straw-coloured grass with scattered self-seeded young trees, batten-and-wire fences on the skyline and a single-pole low-voltage line — extensive sheep/beef hill country, not dairy flats.",
+      "supports": [
+       "marginal hill-country pastoralism"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "climate",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Grass fully browned off while gullies stay green — summer drought on the rain-shadow east side, inconsistent with wetter western/Taranaki hill country.",
+      "supports": [
+       "eastern North Island"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Single-lane concrete bridge with galvanised W-beam rail over a small silt-laden stream in a steep incised gully.",
+      "supports": [
+       "remote back-country council road"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "Low-density settler-pastoral economy: extensive sheep-and-beef farming on steep, erodible papa hill country, with exotic pine shelterbelts and poplar/willow plantings used for slope and streambank stabilisation. Council-maintained single-lane sealed back road with minimal furniture (no centreline, timber rails, one-lane bridge) indicates very low traffic volumes and a small rate-base district. Reverting scrub and self-seeded regrowth on the hill face suggests marginal land partially retiring from grazing — a common trend in Tararua/Wairarapa/inland Hawke's Bay hinterland.",
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 3,
+      "name": "One-lane bridge over a small stream (unnamed)",
+      "type": "road bridge"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.6,
+      "evidence": "Road marking text 'LANE' (reversed in view) on the seal; no other text visible.",
+      "language": "English",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Australia",
+       "New Zealand",
+       "UK/Ireland",
+       "Chile/Argentina",
+       "South Africa"
+      ],
+      "conclusion": "Southern-hemisphere oceanic settler country with left-hand traffic",
+      "confidence_after": 0.85,
+      "discriminator": "A Northern Hemisphere summer capture would not combine browned-off grass with Pinus radiata plantation shelterbelts and toetoe/pampas plumes; Chile/Argentina would show right-hand traffic and Spanish signage.",
+      "level": "continent",
+      "observation": "Dry summer grass under high-sun cloud, radiata pine shelterbelts, English-only road marking, car on the left of a narrow lane.",
+      "ruled_out": [
+       "Chile/Argentina — right-hand traffic, Spanish signage absent",
+       "Northern Hemisphere temperate zones — summer-dry grass with southern exotic plantation mix"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Australia",
+       "New Zealand",
+       "UK/Ireland",
+       "South Africa"
+      ],
+      "conclusion": "New Zealand",
+      "confidence_after": 0.93,
+      "discriminator": "Australia would use a white/black 'ONE LANE BRIDGE' worded sign and eucalypt-dominated bush with stringybark/ironbark trunks; the UK uses red-triangle warning signs and hedgerow field boundaries; South Africa uses different chevron/priority plates and no toetoe. The blue arrow-priority plate paired with the NZTA narrow-bridge diamond is uniquely NZ.",
+      "level": "country",
+      "observation": "NZTA one-lane-bridge combination: yellow diamond narrowing-bridge pictogram above a blue rectangle with white 'your way' arrow and red opposing arrow; broadleaf bush with toetoe plumes, no eucalypts.",
+      "ruled_out": [
+       "Australia — different worded one-lane bridge signage, eucalypt bush absent",
+       "UK/Ireland — red-triangle warning geometry, no papa cut banks or pampas",
+       "South Africa — different sign set and vegetation"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "North Island",
+       "South Island"
+      ],
+      "conclusion": "North Island",
+      "confidence_after": 0.87,
+      "discriminator": "South Island back roads sit on hard greywacke/schist with grey angular rock cuts, braided shingle rivers and beech (Nothofagus) forest; here the cut bank is soft pale mudstone rilling into gullies, the stream is small and silty, and the bush is warm-temperate broadleaf with cabbage tree/flax forms — no beech, no braided gravel.",
+      "level": "macro_region",
+      "observation": "Soft pale-grey papa mudstone cut faces slumping beside the road; rounded, non-alpine hill relief with no mountain backdrop.",
+      "ruled_out": [
+       "South Island — greywacke/schist cuts, beech forest and braided rivers absent"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Taranaki/Waikato volcanic-ash country",
+       "Northland",
+       "Eastern North Island papa country (Gisborne, Hawke's Bay, Tararua, Wairarapa)"
+      ],
+      "conclusion": "Eastern North Island papa hill country",
+      "confidence_after": 0.78,
+      "discriminator": "Taranaki/Waikato road cuts expose brown andesitic ash and tephra layers and stay green through summer; Northland cuts are red-brown clay with nikau/kauri regrowth. Here the cuts are chalky pale grey mudstone and the hillside pasture is fully drought-browned — the rain-shadow papa signature.",
+      "level": "admin_region",
+      "observation": "Chalky white-grey mudstone banks, drought-browned pasture on rounded hills, poplar erosion plantings along the gully.",
+      "ruled_out": [
+       "Taranaki/Waikato — dark ash/tephra soils and persistently green pasture",
+       "Northland — red clay cuts, subtropical kauri/nikau element missing"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Gisborne/East Cape",
+       "Inland Hawke's Bay",
+       "Tararua/northern Wairarapa"
+      ],
+      "conclusion": "Southern end of the papa belt — Tararua / inland Manawatū-Whanganui or northern Wairarapa most likely; cannot fully separate from inland Hawke's Bay without a route marker or place name",
+      "confidence_after": 0.55,
+      "discriminator": "East Cape/Gisborne roads typically show heavier reverting manuka-kanuka scrub with far more slip scarring and larger clear-felled pine blocks; here the mosaic is tidier, with mature shelterbelt pines, willow-lined streams and cooler-temperate broadleaf bush, which reads as the cooler southern papa districts. Evidence for a sharper cut (route shield, signposted road name) is absent, so confidence is held low.",
+      "level": "district",
+      "observation": "Modest stream gully, mature cypress/pine shelterbelts, willow and Lombardy poplar lines, tidy fenced paddocks rather than raw large-scale slip terrain.",
+      "ruled_out": [
+       "Gisborne/East Cape — expected heavier manuka scrub reversion and massive slip scars"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.62,
+    "place_slug": "tararua-hill-country",
+    "relied_on_atoms": [
+     "atm_c7eaf2b97e59",
+     "atm_305c0c3707b0",
+     "atm_e0b610416d73",
+     "atm_7202d5d69930",
+     "atm_26670bdff72a"
+    ],
+    "revised_from": null,
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "New Zealand",
+      "country_iso": "NZ"
+     },
+     {
+      "confidence": 0.12,
+      "country": "New Zealand",
+      "country_iso": "NZ"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Australia",
+      "country_iso": "AU"
+     }
+    ]
+   },
+   "cost_usd": 0.1175,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2525,
+    "output": 3816,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "New Zealand",
+    "country_iso": "NZ",
+    "country_correct": true,
+    "region": "Manawatū-Whanganui / Tararua hill country (eastern North Island papa country)",
+    "city": null,
+    "confidence": 0.62,
+    "overall_confidence": 0.62,
+    "error_km": 28.12,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 9,
+    "n_landmarks": 1,
+    "cue_categories": [
+     "climate",
+     "geology",
+     "infrastructure",
+     "land_use",
+     "road_infrastructure",
+     "signage",
+     "traffic",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_305c0c3707b0",
+    "atm_c7eaf2b97e59",
+    "atm_06bd6a770961",
+    "atm_7202d5d69930",
+    "atm_e0b610416d73",
+    "atm_2cdc40298a80",
+    "atm_31da6d150e39",
+    "atm_26670bdff72a",
+    "atm_9b58a70e7561",
+    "atm_6f9fc96c5833"
+   ],
+   "relied_on": [
+    "atm_c7eaf2b97e59",
+    "atm_305c0c3707b0",
+    "atm_e0b610416d73",
+    "atm_7202d5d69930",
+    "atm_26670bdff72a"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "NZ",
+   "country": "New Zealand",
+   "region": "Manawatū-Whanganui / Tararua hill country (eastern North Island papa country)",
+   "city": null,
+   "lat": -40.05,
+   "lng": 176.05,
+   "error_km": 28.12,
+   "reached_level": "district",
+   "confidence": 0.62,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "miss",
+  "error_km": 28.12,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.20594875,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 4776,
+   "output": 2634,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Near-exact hit: the analyst read NZ correctly from the NZTA one-lane-bridge sign pair (yellow diamond narrowing-bridge pictogram + blue priority plate with white/red arrows) and placed it in the eastern North Island papa hill country at -40.05/176.05, only 28 km from the true Tararua/Weber-Mangatoro backroad. Papa mudstone cut banks, drought-browned pasture with green gullies, poplar/willow erosion plantings and radiata shelterbelts were all correctly used. Australia and the South Island were properly excluded (no eucalypts, no greywacke/beech/braided rivers); the remaining residual uncertainty between inland Hawke's Bay and Tararua could not be resolved because no route shield or road-name sign appears.",
+  "misleading_cues": [
+   {
+    "image_index": 3,
+    "observation": "Tidy shelterbelts and willow-lined stream read as 'cooler southern papa', pushing the estimate slightly west/north of the true Tararua-Hawke's Bay border backroad.",
+    "why_misleading": "Shelterbelt tidiness varies farm by farm and is not a reliable sub-district discriminator inside the papa belt."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "image_index": 3,
+    "observation": "Yellow diamond with black narrowing-bridge pictogram, mounted above a blue rectangular plate showing a white upward arrow and a smaller red downward arrow.",
+    "why_decisive": "This exact sign pair (warning diamond + blue priority plate) is the New Zealand one-lane-bridge convention.",
+    "category": "road-signage"
+   },
+   {
+    "image_index": 5,
+    "observation": "Faded white 'LANE' text painted on a single-track sealed road, with a weathered timber post-and-rail guard fence.",
+    "why_decisive": "'ONE LANE BRIDGE' pavement text plus timber rail approaches is standard NZ rural bridge treatment.",
+    "category": "road-marking"
+   },
+   {
+    "image_index": 1,
+    "observation": "Pale grey-white, deeply rilled soft mudstone cut bank slumping right against the seal, with radiata pine above.",
+    "why_decisive": "Papa (Tertiary mudstone) cut faces localise to the eastern North Island hill country rather than volcanic or greywacke terrain.",
+    "category": "soil-terrain-cue"
+   },
+   {
+    "image_index": 0,
+    "observation": "Straw-brown steep pasture hill with batten-and-wire fences on the skyline and a single-pole low-voltage line, gullies still green.",
+    "why_decisive": "Summer-dry extensive sheep/beef hill country indicates the rain-shadowed eastern side of the North Island.",
+    "category": "agriculture"
+   },
+   {
+    "image_index": 4,
+    "observation": "Lombardy poplars and willows lining the incised stream below a narrow concrete bridge with galvanised W-beam rail.",
+    "why_decisive": "Poplar/willow erosion plantings are the signature response to slumping papa country in the eastern North Island.",
+    "category": "vegetation-cue"
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "One-lane bridge: NZ pictogram+blue arrow plate vs Australian worded sign",
+    "body": "In New Zealand a single-lane bridge is announced by a yellow diamond showing a black narrowing-bridge pictogram, usually with a blue rectangular plate carrying a large white arrow (your priority) and a small red opposing arrow. In Australia you would instead see a black-on-white or black-on-yellow worded 'ONE LANE BRIDGE' panel and a separate GIVE WAY arrangement without the blue arrow plate. Seeing the blue arrow-priority plate essentially settles NZ.",
+    "layer": "geography",
+    "category": "road-signage",
+    "scope": "country",
+    "tags": [
+     "one-lane-bridge",
+     "nzta",
+     "priority-plate"
+    ],
+    "entities": [
+     "New Zealand",
+     "Australia"
+    ],
+    "looks_like": {
+     "country_iso": "AU",
+     "country": "Australia"
+    },
+    "actually": {
+     "country_iso": "NZ",
+     "country": "New Zealand",
+     "region": "Manawatū-Whanganui"
+    },
+    "confidence": 0.9
+   },
+   {
+    "title": "Papa mudstone cut banks mark eastern North Island, not South Island greywacke",
+    "body": "Eastern North Island backroads cut into soft, pale grey-white Tertiary papa mudstone that rills and slumps into rounded, tree-free hill faces. In the South Island you would instead see hard angular greywacke or schist cuts, braided shingle riverbeds and Nothofagus beech forest. A silty, single-channel stream in a steep incised gully with willows reinforces the North Island reading.",
+    "layer": "nature",
+    "category": "soil-terrain-cue",
+    "scope": "region",
+    "tags": [
+     "papa",
+     "mudstone",
+     "greywacke"
+    ],
+    "entities": [
+     "Eastern North Island",
+     "South Island"
+    ],
+    "looks_like": {
+     "country_iso": "NZ",
+     "country": "New Zealand",
+     "region": "South Island"
+    },
+    "actually": {
+     "country_iso": "NZ",
+     "country": "New Zealand",
+     "region": "Eastern North Island"
+    },
+    "confidence": 0.82
+   },
+   {
+    "title": "Drought-browned pasture with green gullies = eastern rain shadow, not Taranaki/Waikato",
+    "body": "On the rain-shadowed eastern North Island, midsummer hill pasture is fully straw-brown while only the gully bottoms stay green, and cut banks are chalky pale grey. In Taranaki or Waikato you would instead see pasture staying green through summer and road cuts exposing dark brown andesitic ash and tephra layers. Combine this with poplar erosion plantings to confirm the eastern papa belt.",
+    "layer": "nature",
+    "category": "climate",
+    "scope": "region",
+    "tags": [
+     "rain-shadow",
+     "pasture",
+     "tephra"
+    ],
+    "entities": [
+     "Eastern North Island",
+     "Taranaki"
+    ],
+    "looks_like": {
+     "country_iso": "NZ",
+     "country": "New Zealand",
+     "region": "Taranaki"
+    },
+    "actually": {
+     "country_iso": "NZ",
+     "country": "New Zealand",
+     "region": "Tararua / Hawke's Bay border"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Toetoe plumes and broadleaf bush vs eucalypt woodland",
+    "body": "New Zealand rural roadsides mix dense dark broadleaf bush, flax and cabbage-tree forms, tall toetoe/pampas plumes and exotic Pinus radiata shelterbelts. In comparable Australian hill country you would instead see open eucalypt woodland with stringybark or gum trunks, sparse understorey and no toetoe plumes. The absence of any eucalypt silhouette on a left-hand-drive-free, left-traffic road strongly favours NZ.",
+    "layer": "nature",
+    "category": "vegetation",
+    "scope": "country",
+    "tags": [
+     "toetoe",
+     "radiata",
+     "eucalypt"
+    ],
+    "entities": [
+     "New Zealand",
+     "Australia"
+    ],
+    "looks_like": {
+     "country_iso": "AU",
+     "country": "Australia"
+    },
+    "actually": {
+     "country_iso": "NZ",
+     "country": "New Zealand"
+    },
+    "confidence": 0.8
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_c7eaf2b97e59",
+   "atm_305c0c3707b0",
+   "atm_e0b610416d73",
+   "atm_7202d5d69930",
+   "atm_26670bdff72a"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_c0028c87af29",
+   "atm_935d031e2a8f",
+   "atm_30644ea72f98",
+   "atm_b2e8cd2ce0f6"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_c0028c87af29",
+   "atm_935d031e2a8f",
+   "atm_30644ea72f98",
+   "atm_b2e8cd2ce0f6"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_c7eaf2b97e59",
+   "atm_305c0c3707b0",
+   "atm_e0b610416d73",
+   "atm_7202d5d69930",
+   "atm_26670bdff72a"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.0,
+ "status": "OK",
+ "resumed_from": 1789359075.851026
+}
