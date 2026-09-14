@@ -55,7 +55,7 @@
   ],
   "retries": 0,
   "slug": "gulf-arab-ruling-dynasties",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260908_170604_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -63,7 +63,7 @@
 
 # 걸프 아랍 군주국의 통치 왕가 · Ruling Dynasties of the Gulf Arab Monarchies
 
-`mol_6e85f7974dbb` · 원자 4개 · cohesion 0.2173 · diameter 0.2665 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
+`mol_6e85f7974dbb` · 원자 4개 · cohesion 0.2173 · diameter 0.2665 · 스냅샷 `260908_170604_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
 
 > 아라비아 반도 동부(카타르, 바레인, UAE)의 각 토후국을 대대로 통치해 온 왕가들을 묶는 분자이다.
 

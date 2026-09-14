@@ -44,7 +44,7 @@
   ],
   "retries": 0,
   "slug": "historical-polities-of-rus-lands",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -52,7 +52,7 @@
 
 # 루스 지역(러시아·우크라이나)의 역사적 정치체 · Historical Polities of Rus' Lands (Russia and Ukraine)
 
-`mol_1afba81c7269` · 원자 4개 · cohesion 0.2146 · diameter 0.2595 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_1afba81c7269` · 원자 4개 · cohesion 0.2146 · diameter 0.2595 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 중세부터 현대까지 러시아와 우크라이나 영토에 존재했던 공국·칸국·소비에트 공화국 등 정치체들의 목록을 다루는 분자이다.
 

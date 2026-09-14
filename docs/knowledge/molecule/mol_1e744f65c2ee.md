@@ -48,7 +48,7 @@
   ],
   "retries": 0,
   "slug": "left-right-hand-traffic-divide",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -56,7 +56,7 @@
 
 # 좌측통행-우측통행 세계 분할 · Global Divide in Traffic-Side Convention (Left vs Right-Hand Driving)
 
-`mol_1e744f65c2ee` · 원자 4개 · cohesion 0.1872 · diameter 0.3124 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
+`mol_1e744f65c2ee` · 원자 4개 · cohesion 0.1872 · diameter 0.3124 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
 
 > 세계 각국이 좌측통행 또는 우측통행을 채택하게 된 역사적 기원과 그 분포를 다루는 분자이다.
 

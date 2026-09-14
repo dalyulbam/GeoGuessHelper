@@ -7,7 +7,7 @@
     "atm_a64438386449",
     "atm_db47f02242c9"
   ],
-  "cohesion": 0.1787,
+  "cohesion": 0.1794,
   "confidence": 0.88,
   "cost_usd": 0.1035,
   "created": 1788740941.5269604,
@@ -38,7 +38,8 @@
   "parse_rescued": false,
   "periphery": [
     "atm_ad0093de4697",
-    "atm_f84319433582"
+    "atm_f84319433582",
+    "atm_fd0c7f79f1c7"
   ],
   "related_concepts": [
     "Oder-Neisse line",
@@ -52,7 +53,7 @@
   ],
   "retries": 0,
   "slug": "recovered-territories-polonization",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -60,7 +61,7 @@
 
 # 폴란드 '수복영토'와 1945년 이후 독일계 주민 축출/폴란드화 · Poland's Recovered Territories: Post-1945 Ethnic Replacement over German Architectural Continuity
 
-`mol_ebdd5b1c96e7` · 원자 4개 · cohesion 0.1787 · diameter 0.255 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.88
+`mol_ebdd5b1c96e7` · 원자 4개 · cohesion 0.1794 · diameter 0.255 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.88
 
 > 2차대전 후 독일 동부 영토가 폴란드로 넘어가면서 주민은 완전히 교체되었지만 독일식 건축·경관은 그대로 남아 이어진 현상을 다루는 분자이다.
 
@@ -106,3 +107,4 @@
 ## 주변 원자(흡수된 이웃 클리크 — 멤버 아님)
 - [[atm_ad0093de4697]] German expellee heritage organizations and Heimatvertriebene memory culture
 - [[atm_f84319433582]] Allied leaders who set the Oder-Neisse line and population transfers
+- [[atm_fd0c7f79f1c7]] Interwar land reform and nationalization of Baltic-German estates

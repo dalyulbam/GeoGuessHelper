@@ -8,18 +8,18 @@
     "atm_c0ad2b5cf825",
     "atm_fc90c4a62930"
   ],
-  "cohesion": 0.218,
+  "cohesion": 0.2227,
   "confidence": 0.9,
   "cost_usd": 0.0963,
   "created": 1788740978.9549813,
-  "diameter": 0.3019,
+  "diameter": 0.3189,
   "foreign_citations": [],
   "id": "mol_c72a0d18b4d5",
   "layers": {
     "architecture": 4,
     "history": 1
   },
-  "merged_from": 3,
+  "merged_from": 4,
   "missing_atoms": [
     "Khrushchyovka 건축 유형 자체에 대한 상세 atom",
     "Microdistrict(mikroraion) 도시계획 개념 atom"
@@ -38,6 +38,7 @@
   },
   "parse_rescued": false,
   "periphery": [
+    "atm_1a59425e959b",
     "atm_1cf9913c8381",
     "atm_d146af6844dc"
   ],
@@ -53,7 +54,7 @@
   ],
   "retries": 0,
   "slug": "khrushchyovka-panel-housing",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -61,7 +62,7 @@
 
 # 흐루쇼프카와 소비에트 패널주택 프로그램 · Khrushchyovka and the Soviet Panel-Housing Program
 
-`mol_c72a0d18b4d5` · 원자 5개 · cohesion 0.218 · diameter 0.3019 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
+`mol_c72a0d18b4d5` · 원자 5개 · cohesion 0.2227 · diameter 0.3189 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.90
 
 > 1950년대 흐루쇼프의 대량주택 정책에서 비롯된 표준화 콘크리트 패널 주택 시스템과 그 동구권 확산을 다루는 분자이다.
 
@@ -107,5 +108,6 @@
 - [[atm_fc90c4a62930]] **Global family of socialist prefabricated housing estates** (architecture/global)
 
 ## 주변 원자(흡수된 이웃 클리크 — 멤버 아님)
+- [[atm_1a59425e959b]] Socialist-era prefab housing estate family
 - [[atm_1cf9913c8381]] Post-Soviet renovation and demolition programs replacing panelki
 - [[atm_d146af6844dc]] Soviet mikroraion urban-fringe pattern: panel high-rises abutting unpaved private-house lanes

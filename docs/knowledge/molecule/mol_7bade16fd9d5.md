@@ -17,7 +17,7 @@
   "layers": {
     "economy": 4
   },
-  "merged_from": 3,
+  "merged_from": 2,
   "missing_atoms": [
     "1989년 동유럽 혁명 및 1991년 소련 붕괴 자체를 다루는 원자",
     "동유럽 국가별 경제 사유화(privatization) 정책 원자"
@@ -36,9 +36,7 @@
   },
   "parse_rescued": false,
   "periphery": [
-    "atm_8d65adf62446",
-    "atm_93d28ea9d736",
-    "atm_f644bdf4dd51"
+    "atm_93d28ea9d736"
   ],
   "related_concepts": [
     "Decollectivization",
@@ -52,7 +50,7 @@
   ],
   "retries": 0,
   "slug": "post-socialist-deindustrialization",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -60,7 +58,7 @@
 
 # 탈사회주의 탈산업화와 지역 쇠퇴 · Post-Socialist Deindustrialization and Regional Decline
 
-`mol_7bade16fd9d5` · 원자 4개 · cohesion 0.2187 · diameter 0.2971 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.82
+`mol_7bade16fd9d5` · 원자 4개 · cohesion 0.2187 · diameter 0.2971 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.82
 
 > 1989~1991년 공산주의 체제 붕괴 이후 동유럽·구소련 전역에서 나타난 농촌·산업도시의 탈산업화와 인구 감소 현상을 다루는 분자이다.
 
@@ -104,6 +102,4 @@
 - [[atm_ad3db50d1df5]] **Post-Soviet industrial decline and diversification struggles in Siberian cities** (economy/city)
 
 ## 주변 원자(흡수된 이웃 클리크 — 멤버 아님)
-- [[atm_8d65adf62446]] Post-communist deindustrialization of Łódź
 - [[atm_93d28ea9d736]] Rust Belt shrinking cities from deindustrialization
-- [[atm_f644bdf4dd51]] Post-1989 deindustrialization of Upper Silesian coal/steel cities

@@ -7,7 +7,7 @@
     "atm_a730bfa14785",
     "atm_b9d0390869b7"
   ],
-  "cohesion": 0.2544,
+  "cohesion": 0.2708,
   "confidence": 0.5,
   "cost_usd": 0.0472,
   "created": 1788740812.8890345,
@@ -36,7 +36,7 @@
   "related_concepts": [],
   "retries": 0,
   "slug": "victorian-terraced-housing",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -44,7 +44,7 @@
 
 # 빅토리아 시대 테라스 하우스: 기원, 유형, 그리고 그 이후 · Victorian Terraced Housing: Origins, Typology and Afterlife
 
-`mol_c8be2e67c52f` · 원자 4개 · cohesion 0.2544 · diameter 0.3143 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.50
+`mol_c8be2e67c52f` · 원자 4개 · cohesion 0.2708 · diameter 0.3143 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.50
 
 > 19세기 영국 빅토리아 시대 테라스 하우스의 건축적 특징, 생산 방식, 그리고 20세기 이후의 철거·보존 역사를 아우르는 분자이다.
 

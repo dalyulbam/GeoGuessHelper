@@ -7,11 +7,11 @@
     "atm_91db08094e34",
     "atm_aa4716639ec8"
   ],
-  "cohesion": 0.2415,
+  "cohesion": 0.2392,
   "confidence": 0.78,
   "cost_usd": 0.0476,
   "created": 1788740793.853706,
-  "diameter": 0.3202,
+  "diameter": 0.3109,
   "foreign_citations": [],
   "id": "mol_e55f7dc507db",
   "layers": {
@@ -50,7 +50,7 @@
   ],
   "retries": 0,
   "slug": "southern-eastern-european-demographic-decline-belt",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -58,7 +58,7 @@
 
 # 남유럽·동유럽 인구 감소 벨트 · Southern and Eastern European Demographic Decline Belt
 
-`mol_e55f7dc507db` · 원자 4개 · cohesion 0.2415 · diameter 0.3202 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
+`mol_e55f7dc507db` · 원자 4개 · cohesion 0.2392 · diameter 0.3109 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
 
 > EU 가입 이후 청년 인력의 서유럽 유출과 저출산이 겹쳐 남유럽·동유럽 전역에서 나타나는 급속한 고령화·인구 감소 현상을 다루는 분자이다.
 

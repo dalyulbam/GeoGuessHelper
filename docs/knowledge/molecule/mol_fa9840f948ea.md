@@ -49,7 +49,7 @@
   ],
   "retries": 0,
   "slug": "former-states-19th-century-south-america",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -57,7 +57,7 @@
 
 # 19세기 남아메리카의 소멸 국가와 왕조 · Former states and dynasties of 19th-century South America
 
-`mol_fa9840f948ea` · 원자 4개 · cohesion 0.2379 · diameter 0.2829 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_fa9840f948ea` · 원자 4개 · cohesion 0.2379 · diameter 0.2829 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 스페인 식민제국 붕괴 이후 아르헨티나·베네수엘라·볼리비아·칠레 등에서 명멸한 단명 국가·공화국·왕조들을 모은 분자이다.
 

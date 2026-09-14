@@ -30,7 +30,7 @@
     "Late Qing-era ethnic chiefdoms (tusi) of Yunnan/Tibet borderlands"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -83,7 +83,7 @@
     "Late Qing-era ethnic chiefdoms (tusi) of Yunnan/Tibet borderlands"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -116,7 +116,7 @@
     "Chinese dynasties (Han to Qing)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -174,7 +174,7 @@
     "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [
     "atm_044bad726c72",
     "atm_e215e3f70c5d"
@@ -239,7 +239,7 @@
     "Qing dynasty and Later Jin"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -278,8 +278,8 @@
     "atm_f644bdf4dd51"
    ],
    "n": 5,
-   "cohesion": 0.1631,
-   "diameter": 0.2421,
+   "cohesion": 0.1683,
+   "diameter": 0.2513,
    "merged_from": 2,
    "periphery": [
     "atm_80da3b6542c6"
@@ -295,7 +295,7 @@
     "Post-1989 deindustrialization of Upper Silesian coal/steel cities"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -347,7 +347,7 @@
     "Chinese dynasties (Han to Qing)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -378,7 +378,7 @@
     "Xianbei and steppe polities (AD 93-490)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -416,7 +416,7 @@
     "atm_f4afa21fa970"
    ],
    "n": 4,
-   "cohesion": 0.1718,
+   "cohesion": 0.1739,
    "diameter": 0.262,
    "merged_from": 3,
    "periphery": [
@@ -434,7 +434,7 @@
     "Key architects and politicians of Red Vienna"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -484,7 +484,7 @@
     "Pre-Qin dynastic fiefs / ancient Chinese states (21st century–3rd century BC)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -514,7 +514,7 @@
     "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -545,7 +545,7 @@
     "Phagmodrupa dynasty of Tibet (1354-1618)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -601,7 +601,7 @@
     "Xia dynasty (2070-1600 BC)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -631,7 +631,7 @@
     "Kingdom of Tungning and Wu Zhou"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -659,7 +659,7 @@
     "Liang dynasty principalities and Gaochang rulers (China, Middle Ages)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -689,7 +689,7 @@
     "Ancient Chinese peripheral polities: Beidi, Dongyi, Xirong tribes"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -741,7 +741,7 @@
     "Pre-Qin dynastic fiefs / ancient Chinese states (21st century–3rd century BC)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -755,7 +755,7 @@
     "atm_db47f02242c9"
    ],
    "n": 4,
-   "cohesion": 0.1787,
+   "cohesion": 0.1794,
    "diameter": 0.255,
    "merged_from": 3,
    "periphery": [
@@ -774,7 +774,7 @@
     "Post-WWII forced population transfers and territorial reassignment in Central/Eastern Europe"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -836,7 +836,7 @@
     "Overtourism backlash and the appeal of unglamorous transit towns"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -890,7 +890,7 @@
     "Ottoman, Turkic and Central Asian khanates/empires"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -943,7 +943,7 @@
     "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -996,7 +996,7 @@
     "Left-hand traffic Commonwealth legacy pattern"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1051,7 +1051,7 @@
     "Napoleonic-era and revolutionary Italian states"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1106,7 +1106,7 @@
     "Pre-Columbian and Colonial American periods"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1162,7 +1162,7 @@
     "Caribbean former states (1706-1969)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1214,7 +1214,7 @@
     "Yunnan chiefdoms established under early Ming (1372-1382)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1248,7 +1248,7 @@
     "Nepal dynasties and kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1279,7 +1279,7 @@
     "Ottoman, Turkic and Central Asian khanates/empires"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1319,10 +1319,9 @@
    "n": 4,
    "cohesion": 0.2006,
    "diameter": 0.2497,
-   "merged_from": 4,
+   "merged_from": 3,
    "periphery": [
     "atm_14600699a3e7",
-    "atm_63a220d3ccc8",
     "atm_aa4716639ec8",
     "atm_f0b127710ce5"
    ],
@@ -1336,7 +1335,7 @@
     "Rural depopulation belts in Southern and Eastern Europe"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1392,7 +1391,7 @@
     "National and provincial highway-shield design as cartographic identifiers"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1447,7 +1446,7 @@
     "Oceania - modern short-lived states and Hawaii transitional governments (1871-1988)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1500,7 +1499,7 @@
     "Łódź post-industrial regeneration with uneven redevelopment",
     "Former textile/industrial cities undergoing service-sector regeneration"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
@@ -1539,8 +1538,8 @@
     "atm_e5882c19fe5d"
    ],
    "n": 5,
-   "cohesion": 0.2043,
-   "diameter": 0.2928,
+   "cohesion": 0.2001,
+   "diameter": 0.2878,
    "merged_from": 2,
    "periphery": [
     "atm_bd2899174a72"
@@ -1557,7 +1556,7 @@
     "BC provincial highway shield distinct from US state highway markers"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1572,11 +1571,13 @@
     "atm_bf39ad75c9fc"
    ],
    "n": 5,
-   "cohesion": 0.2044,
-   "diameter": 0.2985,
-   "merged_from": 3,
+   "cohesion": 0.2051,
+   "diameter": 0.2963,
+   "merged_from": 5,
    "periphery": [
     "atm_3b756d7dfdab",
+    "atm_af2a2617b586",
+    "atm_b9e670bd45e8",
     "atm_ef1de3b43459",
     "atm_f7d40e3ac375"
    ],
@@ -1592,7 +1593,7 @@
     "Informal incremental construction with exposed rebar across the developing world"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1648,7 +1649,7 @@
     "North Caucasus and Circassia former polities (13th c.-2000)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1700,7 +1701,7 @@
     "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1728,7 +1729,7 @@
     "Post-Mauryan north Indian dynasties (2nd century BC - AD 4th century)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1783,7 +1784,7 @@
     "Bolivia former polities (1100-1839)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1813,7 +1814,7 @@
     "Afghanistan dynasties, emirates and republics"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1866,7 +1867,7 @@
     "Rural depopulation belts in Southern and Eastern Europe"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -1883,10 +1884,8 @@
    "n": 5,
    "cohesion": 0.2111,
    "diameter": 0.3043,
-   "merged_from": 2,
-   "periphery": [
-    "atm_b0a49d400a66"
-   ],
+   "merged_from": 1,
+   "periphery": [],
    "layers": {
     "architecture": 4,
     "history": 1
@@ -1899,7 +1898,7 @@
     "Global family of socialist prefabricated housing estates"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -1956,7 +1955,7 @@
     "Western Africa 20th-century post-colonial short-lived states"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2007,7 +2006,7 @@
     "Dynasties of medieval Bosnia"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2059,7 +2058,7 @@
     "Dynasties/khanates of Azerbaijan"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2089,7 +2088,7 @@
     "Historical states and republics of Ukraine"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2141,7 +2140,7 @@
     "Dynasties/khanates of Azerbaijan"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2156,10 +2155,11 @@
     "atm_b4155eafc9ab"
    ],
    "n": 5,
-   "cohesion": 0.2152,
-   "diameter": 0.3128,
+   "cohesion": 0.2219,
+   "diameter": 0.2997,
    "merged_from": 3,
    "periphery": [
+    "atm_a60aa4ae835e",
     "atm_d114d8bf82fb",
     "atm_d3727eb4767a"
    ],
@@ -2174,7 +2174,7 @@
     "Fishing villages pivoting to tourism worldwide"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2230,7 +2230,7 @@
     "Mexican historical periods"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2261,7 +2261,7 @@
     "House of Thani (Qatar)",
     "United Arab Emirates ruling houses"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [
     "atm_71c857c45aee"
@@ -2325,7 +2325,7 @@
     "Global family of socialist-era prefab housing estates",
     "Global family of socialist prefabricated housing estates"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
@@ -2341,10 +2341,14 @@
     "atm_fc90c4a62930"
    ],
    "n": 5,
-   "cohesion": 0.218,
-   "diameter": 0.3019,
-   "merged_from": 1,
-   "periphery": [],
+   "cohesion": 0.2227,
+   "diameter": 0.3189,
+   "merged_from": 4,
+   "periphery": [
+    "atm_1a59425e959b",
+    "atm_1cf9913c8381",
+    "atm_d146af6844dc"
+   ],
    "layers": {
     "architecture": 4,
     "history": 1
@@ -2357,7 +2361,7 @@
     "Global family of socialist prefabricated housing estates"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2396,9 +2400,10 @@
    "n": 4,
    "cohesion": 0.2185,
    "diameter": 0.2686,
-   "merged_from": 2,
+   "merged_from": 3,
    "periphery": [
-    "atm_349aa75a4bdc"
+    "atm_349aa75a4bdc",
+    "atm_434147d14b23"
    ],
    "layers": {
     "history": 4
@@ -2410,7 +2415,7 @@
     "Danish dynasties"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2450,11 +2455,9 @@
    "n": 4,
    "cohesion": 0.2187,
    "diameter": 0.2971,
-   "merged_from": 3,
+   "merged_from": 2,
    "periphery": [
-    "atm_8d65adf62446",
-    "atm_93d28ea9d736",
-    "atm_f644bdf4dd51"
+    "atm_93d28ea9d736"
    ],
    "layers": {
     "economy": 4
@@ -2466,7 +2469,7 @@
     "Post-Soviet industrial decline and diversification struggles in Siberian cities"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2519,7 +2522,7 @@
     "Ancient Greek dynasties (Athens, Sparta, Macedonia, Epirus, Pontus)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2533,11 +2536,10 @@
     "atm_ca62fa29fa29"
    ],
    "n": 4,
-   "cohesion": 0.2193,
-   "diameter": 0.2971,
-   "merged_from": 3,
+   "cohesion": 0.2197,
+   "diameter": 0.2931,
+   "merged_from": 2,
    "periphery": [
-    "atm_020ef391a7c6",
     "atm_d75f452353d9"
    ],
    "layers": {
@@ -2550,7 +2552,7 @@
     "Ragusan (Dubrovnik Republic) littoral cultural sphere"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2604,7 +2606,7 @@
     "Dubrovnik Old Town depopulation from short-term rental conversion and cruise overcrowding",
     "Global historic-core hollowing-out from tourism/short-term rental conversion"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
@@ -2661,7 +2663,7 @@
     "Russian states from Tsardom to Soviet Union"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2675,8 +2677,8 @@
     "atm_7e67c8b59e9a"
    ],
    "n": 4,
-   "cohesion": 0.221,
-   "diameter": 0.2877,
+   "cohesion": 0.225,
+   "diameter": 0.3069,
    "merged_from": 2,
    "periphery": [
     "atm_129ae2473775"
@@ -2692,7 +2694,7 @@
     "Dinaric karst coastal profile: abrupt limestone wall behind narrow littoral strip"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [
     "atm_020ef391a7c6",
     "atm_0625509c4e13",
@@ -2779,7 +2781,7 @@
     "Bolivia former polities (1100-1839)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2809,7 +2811,7 @@
     "Historical states of Albania"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2850,12 +2852,11 @@
     "atm_8c11beb087d8"
    ],
    "n": 4,
-   "cohesion": 0.2218,
+   "cohesion": 0.224,
    "diameter": 0.2492,
-   "merged_from": 3,
+   "merged_from": 2,
    "periphery": [
-    "atm_1488e46f2dcc",
-    "atm_4c848bc30e60"
+    "atm_1488e46f2dcc"
    ],
    "layers": {
     "architecture": 1,
@@ -2868,7 +2869,7 @@
     "Coastal tourism boom versus karst hinterland depopulation in Dalmatia"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -2923,7 +2924,7 @@
     "Historical polities of the Russian North"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -2953,7 +2954,7 @@
     "Cambodian royal dynasties (1080–present)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3006,7 +3007,7 @@
     "Historical polities of the Russian Far East"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3039,7 +3040,7 @@
     "Municipal short-term rental caps as anti-depopulation policy response"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3120,7 +3121,7 @@
     "Panama, Trinidad and Tobago, and U.S. indigenous dynasties"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3148,7 +3149,7 @@
     "Nepal dynasties and kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3176,7 +3177,7 @@
     "Historical polities of the Ural Mountains"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3193,8 +3194,9 @@
    "n": 5,
    "cohesion": 0.2261,
    "diameter": 0.3043,
-   "merged_from": 2,
+   "merged_from": 3,
    "periphery": [
+    "atm_a3d751ae5532",
     "atm_ed9d09b8ce1a"
    ],
    "layers": {
@@ -3209,7 +3211,7 @@
     "Roman villae maritimae layered beneath Adriatic and Mediterranean coastal towns"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3260,7 +3262,7 @@
     "Post-1993 Slovak-Czech linguistic divergence after Czechoslovak split"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3311,7 +3313,7 @@
     "Serbia and Montenegro (dissolved 2006)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3339,7 +3341,7 @@
     "Historical states of Serbia and Yugoslavia"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3370,7 +3372,7 @@
     "Siberia steppe and Ob-Ugric polities"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3402,7 +3404,7 @@
     "Overtourism and diversification pushback in island economies"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3429,7 +3431,7 @@
     "Albanian coastal tourism boom and seasonal economy",
     "Croatian Adriatic tourism development figures"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
@@ -3483,7 +3485,7 @@
     "Mexico former states and empires (c.700 BC-2023)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3497,10 +3499,12 @@
     "atm_f0b127710ce5"
    ],
    "n": 4,
-   "cohesion": 0.2356,
-   "diameter": 0.2912,
-   "merged_from": 1,
-   "periphery": [],
+   "cohesion": 0.2332,
+   "diameter": 0.2851,
+   "merged_from": 2,
+   "periphery": [
+    "atm_63a220d3ccc8"
+   ],
    "layers": {
     "economy": 4
    },
@@ -3511,7 +3515,7 @@
     "Bulgarian rural depopulation pattern: satellite villages serving nearby cities"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3540,7 +3544,7 @@
     "Socialist-era planned housing estates on Dalmatian coastal hillsides",
     "Global family of socialist-era prefab housing estates"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
@@ -3569,7 +3573,7 @@
     "Bolivia former polities (1100-1839)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3607,8 +3611,8 @@
     "atm_e36d83d3428b"
    ],
    "n": 4,
-   "cohesion": 0.2398,
-   "diameter": 0.2855,
+   "cohesion": 0.2528,
+   "diameter": 0.3121,
    "merged_from": 1,
    "periphery": [],
    "layers": {
@@ -3622,7 +3626,7 @@
     "Former textile/industrial cities undergoing service-sector regeneration"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3674,7 +3678,7 @@
     "Post-socialist heritage and renewal reactions to panel estates",
     "Global family of socialist-era prefab housing estates"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
@@ -3727,7 +3731,7 @@
     "Cambodian royal dynasties (1080–present)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3757,7 +3761,7 @@
     "Venezuelan independence-era republics (1810-1831)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3771,12 +3775,10 @@
     "atm_aa4716639ec8"
    ],
    "n": 4,
-   "cohesion": 0.2415,
-   "diameter": 0.3202,
-   "merged_from": 2,
-   "periphery": [
-    "atm_2d7f42f52810"
-   ],
+   "cohesion": 0.2392,
+   "diameter": 0.3109,
+   "merged_from": 1,
+   "periphery": [],
    "layers": {
     "geography": 1,
     "history": 3
@@ -3788,7 +3790,7 @@
     "Aging and shrinking towns across Southern and Eastern Europe"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -3840,7 +3842,7 @@
     "Western Africa 20th-century post-colonial short-lived states"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3869,7 +3871,7 @@
     "Southern Africa historical kingdoms",
     "African Great Lakes kingdoms"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
@@ -3900,7 +3902,7 @@
     "Peruvian breakaway states (1821-1900)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3929,7 +3931,7 @@
     "Decline of traditional Malay fishing amid coastal tourism growth",
     "Global artisanal fishing communities near industrial/tourism hubs"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
@@ -3944,8 +3946,8 @@
     "atm_ea096b05bb43"
    ],
    "n": 4,
-   "cohesion": 0.2446,
-   "diameter": 0.3134,
+   "cohesion": 0.2452,
+   "diameter": 0.3196,
    "merged_from": 1,
    "periphery": [],
    "layers": {
@@ -3959,7 +3961,7 @@
     "Albanian youth emigration and aging population"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -3973,7 +3975,7 @@
     "atm_81203c6e0b37"
    ],
    "n": 4,
-   "cohesion": 0.2478,
+   "cohesion": 0.2428,
    "diameter": 0.3116,
    "merged_from": 1,
    "periphery": [],
@@ -3987,7 +3989,7 @@
     "Early-20th-century Philippine municipal consolidation under Executive Order 64 (1904)"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4095,7 +4097,7 @@
     "Pre-Columbian and Colonial American periods"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -4122,7 +4124,7 @@
     "Vienna Convention harmonization versus persistent national signage variants",
     "Non-standard national road-sign systems outside the Vienna Convention"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
@@ -4159,7 +4161,7 @@
     "atm_b9d0390869b7"
    ],
    "n": 4,
-   "cohesion": 0.2544,
+   "cohesion": 0.2708,
    "diameter": 0.3143,
    "merged_from": 1,
    "periphery": [],
@@ -4173,7 +4175,7 @@
     "Victorian-era speculative builders and housing reformers"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4207,12 +4209,10 @@
     "atm_bf39ad75c9fc"
    ],
    "n": 4,
-   "cohesion": 0.255,
-   "diameter": 0.3187,
-   "merged_from": 2,
-   "periphery": [
-    "atm_1d9a3444fe22"
-   ],
+   "cohesion": 0.2614,
+   "diameter": 0.3366,
+   "merged_from": 1,
+   "periphery": [],
    "layers": {
     "architecture": 4
    },
@@ -4223,7 +4223,7 @@
     "Informal incremental construction with exposed rebar across the developing world"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
@@ -4240,9 +4240,8 @@
    "n": 5,
    "cohesion": 0.2554,
    "diameter": 0.3187,
-   "merged_from": 3,
+   "merged_from": 2,
    "periphery": [
-    "atm_0b13748cb731",
     "atm_8dcbffe35680"
    ],
    "layers": {
@@ -4257,7 +4256,7 @@
     "Tourism-core / industrial-satellite metropolitan split"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4309,7 +4308,7 @@
     "Turkish toponymic lexicon markers (Camii, Bulvarı, Sokak, Caddesi)",
     "Bulgarian Cyrillic administrative and toponymic lexicon markers"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
@@ -4347,8 +4346,8 @@
     "atm_d17226bbf6bf"
    ],
    "n": 4,
-   "cohesion": 0.2564,
-   "diameter": 0.3098,
+   "cohesion": 0.2763,
+   "diameter": 0.3371,
    "merged_from": 1,
    "periphery": [],
    "layers": {
@@ -4363,7 +4362,7 @@
     "Gruž retains genuine year-round residential character unlike Old Town"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4419,7 +4418,7 @@
     "South Slavic diglossia markers: Serbian Cyrillic vs Croatian Latin",
     "Serbia's bilingual Latin-Cyrillic signage practice"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
@@ -4457,8 +4456,8 @@
     "atm_a54d90c20b3e"
    ],
    "n": 4,
-   "cohesion": 0.257,
-   "diameter": 0.3235,
+   "cohesion": 0.2642,
+   "diameter": 0.3391,
    "merged_from": 1,
    "periphery": [],
    "layers": {
@@ -4471,7 +4470,7 @@
     "Mexican telephone area codes as sub-national geolocation markers"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [
     "atm_769bef8463f0"
    ],
@@ -4528,7 +4527,7 @@
     "Yemen dynasties and states"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4579,7 +4578,7 @@
     "Dynasties of Bulgaria and the Odrysian Kingdom"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4615,12 +4614,10 @@
     "atm_f1e627fbac6a"
    ],
    "n": 4,
-   "cohesion": 0.2614,
-   "diameter": 0.2896,
-   "merged_from": 2,
-   "periphery": [
-    "atm_cba815c32e45"
-   ],
+   "cohesion": 0.2782,
+   "diameter": 0.3153,
+   "merged_from": 1,
+   "periphery": [],
    "layers": {
     "language": 4
    },
@@ -4631,7 +4628,7 @@
     "Marathi in Devanagari script in Maharashtra"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4657,7 +4654,7 @@
   },
   "mol_6595a8a559ae": {
    "id": "mol_6595a8a559ae",
-   "named": false,
+   "named": true,
    "atoms": [
     "atm_70f0ec5e8b9e",
     "atm_bd2899174a72",
@@ -4665,10 +4662,11 @@
     "atm_fa72e793a49c"
    ],
    "n": 4,
-   "cohesion": 0.264,
-   "diameter": 0.3066,
-   "merged_from": 2,
+   "cohesion": 0.271,
+   "diameter": 0.3326,
+   "merged_from": 3,
    "periphery": [
+    "atm_0de705b1aa28",
     "atm_635d3f4d1fe8"
    ],
    "layers": {
@@ -4682,9 +4680,31 @@
     "Shared supranational highway numbering systems"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
-   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Highway Route Numbering and Signage Systems (National vs Supranational)",
+   "name_ko": "고속도로 노선번호 및 표지판 체계 (국가별 vs 초국가적)",
+   "slug": "highway-route-numbering-signage-systems",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "Highway route numbering and signage as a general geolocation/geoguessing hub concept"
+   ],
+   "doc": "mol_6595a8a559ae.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0785,
+   "named_at": 1789362115.1766286,
+   "error": null,
+   "atom_link_how": {}
   },
   "mol_dc9e2ae38e5d": {
    "id": "mol_dc9e2ae38e5d",
@@ -4696,7 +4716,7 @@
     "atm_cd600d8705f5"
    ],
    "n": 4,
-   "cohesion": 0.2663,
+   "cohesion": 0.2649,
    "diameter": 0.3193,
    "merged_from": 1,
    "periphery": [],
@@ -4711,7 +4731,7 @@
     "Leatherback turtle nesting sites on Peninsular Malaysia's east coast"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
    "atom_links": [],
    "params": {
     "pct": 0.5,
@@ -4763,12 +4783,13 @@
     "Global hippie-trail beach towns"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_dfb63e6e441d": {
    "id": "mol_dfb63e6e441d",
-   "named": false,
+   "named": true,
    "atoms": [
     "atm_1c93c98df68c",
     "atm_c9ada06321c4",
@@ -4790,12 +4811,35 @@
     "Algeria and Tunisia (Central Maghreb) historical states"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Historical States and Dynasties of North Africa",
+   "name_ko": "북아프리카의 역사적 국가와 왕조",
+   "slug": "historical-states-of-north-africa",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "North Africa (Maghreb) as unified geographic/historical concept overview atom"
+   ],
+   "doc": "mol_dfb63e6e441d.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0805,
+   "named_at": 1789362078.8016734,
+   "error": null,
+   "atom_link_how": {}
   },
   "mol_ea5e3adcb879": {
    "id": "mol_ea5e3adcb879",
-   "named": false,
+   "named": true,
    "atoms": [
     "atm_0237c9c3ebba",
     "atm_bf8e8dbefc4f",
@@ -4817,8 +4861,33 @@
     "Southern Africa historical kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Pre-colonial African Kingdoms and Sultanates",
+   "name_ko": "아프리카 전근대 왕국 및 술탄국",
+   "slug": "precolonial-african-kingdoms",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "아프리카 왕국/제국 개관(대륙 전체를 아우르는 총론 원자)",
+    "서아프리카 사헬 제국(가나·말리·송가이) 전용 원자",
+    "북아프리카 왕조(마그레브, 이집트) 목록 원자"
+   ],
+   "doc": "mol_ea5e3adcb879.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0516,
+   "named_at": 1789362078.8053963,
+   "error": null,
+   "atom_link_how": {}
   },
   "mol_c5724533c422": {
    "id": "mol_c5724533c422",
@@ -4900,8 +4969,9 @@
     "Yemen dynasties and states"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_a4612ab7cc38": {
    "id": "mol_a4612ab7cc38",
@@ -4927,12 +4997,13 @@
     "Horn of Africa sultanates and kingdoms"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_588a3c6a3c1a": {
    "id": "mol_588a3c6a3c1a",
-   "named": false,
+   "named": true,
    "atoms": [
     "atm_419b94faedad",
     "atm_7195f0711f76",
@@ -4955,8 +5026,32 @@
     "Yugoslav-era coastal tourism planners"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Tourism-driven transformation of the Dalmatian coastal built environment",
+   "name_ko": "달마티아 해안의 관광 주도 건축 변형",
+   "slug": "dalmatian-coast-tourism-architecture",
+   "confidence": 0.5,
+   "missing_atoms": [
+    "달마티아/아드리아 해안 대중 관광의 역사적 개관(1970s tourism boom 배경)",
+    "Boris Magaš와 유고슬라비아 모더니즘 건축가 그룹"
+   ],
+   "doc": "mol_588a3c6a3c1a.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0792,
+   "named_at": 1789362115.1832287,
+   "error": null,
+   "atom_link_how": {}
   },
   "mol_7d30df291be9": {
    "id": "mol_7d30df291be9",
@@ -4983,7 +5078,7 @@
     "South Slavic diglossia markers: Serbian Cyrillic vs Croatian Latin",
     "Slovenian and Bosnian road signage overlap with Croatian conventions"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
@@ -5011,8 +5106,9 @@
     "Decline of piracy and shift to open coastal settlement"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_fbffae2b40cb": {
    "id": "mol_fbffae2b40cb",
@@ -5037,7 +5133,7 @@
     "Bulgarian Cyrillic administrative and toponymic lexicon markers",
     "Cyrillic-script administrative lexicon variation across Slavic states"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
@@ -5065,7 +5161,7 @@
     "Córdoba economy: automotive, services and tech",
     "Buenos Aires primacy versus Argentina's interior"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
@@ -5093,8 +5189,9 @@
     "Icelandic language and orthography"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_bbd73e771b62": {
    "id": "mol_bbd73e771b62",
@@ -5119,13 +5216,13 @@
     "Spanish suburban 'urbanización' garden-wall style",
     "Formal utility grids and gated developments as contrast to informal infrastructure"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
   "mol_40a472db629d": {
    "id": "mol_40a472db629d",
-   "named": false,
+   "named": true,
    "atoms": [
     "atm_349aa75a4bdc",
     "atm_434147d14b23",
@@ -5151,8 +5248,33 @@
     "Barbarian successor-state dynasties of early medieval Europe"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Medieval European Royal Dynasty Sequences",
+   "name_ko": "중세 유럽 왕조 계보",
+   "slug": "medieval-european-royal-dynasty-sequences",
+   "confidence": 0.75,
+   "missing_atoms": [
+    "List of Danish dynasties (currently periphery, not yet a member)",
+    "List of French royal dynasties",
+    "List of Holy Roman Emperors by dynasty"
+   ],
+   "doc": "mol_40a472db629d.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0771,
+   "named_at": 1789362041.3733737,
+   "error": null,
+   "atom_link_how": {}
   },
   "mol_0fa558e91b28": {
    "id": "mol_0fa558e91b28",
@@ -5178,7 +5300,7 @@
     "Croatian coastal and Zagreb population magnets offsetting hinterland decline",
     "Southern and Eastern European demographic decline belt"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
@@ -5207,13 +5329,13 @@
     "Nikita Khrushchev and the mass panel-housing program",
     "Soviet mikroraion urban-fringe pattern: panel high-rises abutting unpaved private-house lanes"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
   "mol_3964bc5f35d1": {
    "id": "mol_3964bc5f35d1",
-   "named": false,
+   "named": true,
    "atoms": [
     "atm_48f209c13e3a",
     "atm_925176336489",
@@ -5221,8 +5343,8 @@
     "atm_f4d0689cb5d2"
    ],
    "n": 4,
-   "cohesion": 0.2679,
-   "diameter": 0.3192,
+   "cohesion": 0.2805,
+   "diameter": 0.3231,
    "merged_from": 1,
    "periphery": [],
    "layers": {
@@ -5236,8 +5358,31 @@
     "Volcanic treeless landscapes of the North Atlantic and beyond"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Iceland's Volcanic vs Non-Volcanic Terrain Contrast",
+   "name_ko": "아이슬란드 화산-비화산 지형 대비",
+   "slug": "iceland-volcanic-nonvolcanic-terrain-contrast",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "아이슬란드 활화산대(active volcanic zone)의 지리적 범위와 정의에 대한 원자"
+   ],
+   "doc": "mol_3964bc5f35d1.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0741,
+   "named_at": 1789362147.7056909,
+   "error": null,
+   "atom_link_how": {}
   },
   "mol_f3654f4a68a4": {
    "id": "mol_f3654f4a68a4",
@@ -5268,7 +5413,7 @@
     "National and provincial highway-shield design as cartographic identifiers",
     "National highway systems resisting regional standardization"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
@@ -5295,7 +5440,7 @@
     "Ragusan (Dubrovnik Republic) littoral cultural sphere",
     "Ragusan patrician oligarchy and diplomacy"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
@@ -5323,8 +5468,9 @@
     "Roman villae maritimae layered beneath Adriatic and Mediterranean coastal towns"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_3e915c5da5fd": {
    "id": "mol_3e915c5da5fd",
@@ -5351,7 +5497,7 @@
     "German expellee heritage organizations and Heimatvertriebene memory culture",
     "Interwar land reform and nationalization of Baltic-German estates"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
   },
@@ -5365,7 +5511,7 @@
     "atm_ec228de3a806"
    ],
    "n": 4,
-   "cohesion": 0.2875,
+   "cohesion": 0.2889,
    "diameter": 0.3283,
    "merged_from": 1,
    "periphery": [],
@@ -5381,8 +5527,9 @@
     "Post-Soviet homogenization pressure on Latvia's regional distinctiveness"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_f7f07c987986": {
    "id": "mol_f7f07c987986",
@@ -5408,8 +5555,9 @@
     "Oman dynasties"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_92c2e73ad8ea": {
    "id": "mol_92c2e73ad8ea",
@@ -5421,8 +5569,8 @@
     "atm_af77a40342bd"
    ],
    "n": 4,
-   "cohesion": 0.2951,
-   "diameter": 0.333,
+   "cohesion": 0.2885,
+   "diameter": 0.3405,
    "merged_from": 1,
    "periphery": [],
    "layers": {
@@ -5436,8 +5584,9 @@
     "Ottoman Arabic-script toponymy replaced by Turkish Latin alphabet reform"
    ],
    "in_latest": true,
-   "snapshot": "260908_170604_p0.5_k10_s4.json",
-   "atom_links": []
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
   },
   "mol_81db3b1861ff": {
    "id": "mol_81db3b1861ff",
@@ -5463,9 +5612,1454 @@
     "Yugoslav-era slab-block resort hotels displacing villa aesthetics",
     "Yugoslav-era coastal tourism planners"
    ],
-   "in_latest": true,
+   "in_latest": false,
    "snapshot": "260908_170604_p0.5_k10_s4.json",
    "atom_links": []
+  },
+  "mol_39bc58c5fba5": {
+   "id": "mol_39bc58c5fba5",
+   "named": true,
+   "atoms": [
+    "atm_28b655033f4f",
+    "atm_6a1d98846470",
+    "atm_ba02a4b4bbc6",
+    "atm_be07aa622f34"
+   ],
+   "n": 4,
+   "cohesion": 0.1917,
+   "diameter": 0.2726,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 3,
+    "geography": 1
+   },
+   "titles": [
+    "IFEMA site infrastructure: accessibility, parking, and metro access",
+    "IFEMA Madrid exhibition grounds: scale and visitor volume",
+    "IFEMA fairground site has no permanent resident population",
+    "IFEMA Madrid as Spain's major international trade fair venue"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "IFEMA Madrid (Feria de Madrid) exhibition complex",
+   "name_ko": "IFEMA 마드리드 (Feria de Madrid) 전시복합단지",
+   "slug": "ifema-madrid",
+   "confidence": 0.9,
+   "missing_atoms": [],
+   "doc": "mol_39bc58c5fba5.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0457,
+   "named_at": 1789362000.2971911,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_7cf78afb5dee": {
+   "id": "mol_7cf78afb5dee",
+   "named": false,
+   "atoms": [
+    "atm_019c308b2979",
+    "atm_1a59425e959b",
+    "atm_b0a49d400a66",
+    "atm_ec52e7b7a8fa",
+    "atm_fc90c4a62930"
+   ],
+   "n": 5,
+   "cohesion": 0.2004,
+   "diameter": 0.2963,
+   "merged_from": 5,
+   "periphery": [
+    "atm_01edea247fa5",
+    "atm_45b4b6a01e83",
+    "atm_764d16790153",
+    "atm_c370d530dba1",
+    "atm_e70740d7190f"
+   ],
+   "layers": {
+    "architecture": 3,
+    "history": 2
+   },
+   "titles": [
+    "Socialist-era single-industry satellite housing estates (panelák sídliská) in Czechoslovakia",
+    "Socialist-era prefab housing estate family",
+    "Post-socialist critique and renovation of panel housing estates",
+    "Global family of socialist-era prefab housing estates",
+    "Global family of socialist prefabricated housing estates"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_4cb757aafe93": {
+   "id": "mol_4cb757aafe93",
+   "named": false,
+   "atoms": [
+    "atm_8180accfcd7c",
+    "atm_a437b6c478f6",
+    "atm_c15358d3e42a",
+    "atm_f644bdf4dd51"
+   ],
+   "n": 4,
+   "cohesion": 0.2185,
+   "diameter": 0.296,
+   "merged_from": 2,
+   "periphery": [
+    "atm_8d65adf62446",
+    "atm_ad3db50d1df5"
+   ],
+   "layers": {
+    "economy": 4
+   },
+   "titles": [
+    "Depopulation and decline in unregenerated post-industrial towns",
+    "Post-1989 deindustrialization and monotown decline",
+    "Post-industrial decline of Upper Silesian coal towns",
+    "Post-1989 deindustrialization of Upper Silesian coal/steel cities"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_18a73a25a7ee": {
+   "id": "mol_18a73a25a7ee",
+   "named": true,
+   "atoms": [
+    "atm_0c3d90f15260",
+    "atm_148f1d2175ee",
+    "atm_5331d9309824",
+    "atm_63a50c8c26e7"
+   ],
+   "n": 4,
+   "cohesion": 0.2203,
+   "diameter": 0.2742,
+   "merged_from": 2,
+   "periphery": [
+    "atm_2d7f42f52810"
+   ],
+   "layers": {
+    "economy": 1,
+    "history": 3
+   },
+   "titles": [
+    "Tourist-rental conversion driving depopulation in Mediterranean coastal villages",
+    "Venice historic center depopulation",
+    "Dubrovnik Old Town depopulation from short-term rental conversion and cruise overcrowding",
+    "Global historic-core hollowing-out from tourism/short-term rental conversion"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Overtourism-Driven Historic Center Depopulation",
+   "name_ko": "오버투어리즘으로 인한 역사지구 공동화",
+   "slug": "overtourism-historic-center-depopulation",
+   "confidence": 0.9,
+   "missing_atoms": [
+    "Barcelona Ciutat Vella depopulation case detail",
+    "Amsterdam/Bruges tourist cap policy detail",
+    "Lisbon Alfama gentrification and rental conversion"
+   ],
+   "doc": "mol_18a73a25a7ee.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0469,
+   "named_at": 1789362000.2982867,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_164f20578b38": {
+   "id": "mol_164f20578b38",
+   "named": false,
+   "atoms": [
+    "atm_534a1ac8ceb2",
+    "atm_8d65adf62446",
+    "atm_aa81c19581e4",
+    "atm_e36d83d3428b"
+   ],
+   "n": 4,
+   "cohesion": 0.224,
+   "diameter": 0.2837,
+   "merged_from": 2,
+   "periphery": [
+    "atm_85267ed54f12"
+   ],
+   "layers": {
+    "economy": 4
+   },
+   "titles": [
+    "Łódź's 19th-century textile industrialist dynasties",
+    "Post-communist deindustrialization of Łódź",
+    "Łódź post-industrial regeneration with uneven redevelopment",
+    "Former textile/industrial cities undergoing service-sector regeneration"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_ad2bb0fd65d1": {
+   "id": "mol_ad2bb0fd65d1",
+   "named": true,
+   "atoms": [
+    "atm_40cac0e4c7dd",
+    "atm_5e6aab25783a",
+    "atm_71c857c45aee",
+    "atm_73bdc8bd6a98",
+    "atm_ae6ab4de9a82"
+   ],
+   "n": 5,
+   "cohesion": 0.2344,
+   "diameter": 0.3387,
+   "merged_from": 3,
+   "periphery": [
+    "atm_051e28444450",
+    "atm_dd71a7564e2e"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Qatar ruling families",
+    "House of Khalifa (Bahrain)",
+    "House of Sabah (Kuwait)",
+    "House of Thani (Qatar)",
+    "United Arab Emirates ruling houses"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Gulf Arab Ruling Dynasties (Najd-origin Sheikhdoms)",
+   "name_ko": "걸프 아랍 왕가 (나즈드 기원 족장가문)",
+   "slug": "gulf-arab-ruling-dynasties",
+   "confidence": 0.78,
+   "missing_atoms": [
+    "Najd (지역, 사우디아라비아)",
+    "House of Al Saud (사우디아라비아 왕가)",
+    "Trucial States history"
+   ],
+   "doc": "mol_ad2bb0fd65d1.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.078,
+   "named_at": 1789362000.3035185,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_22b5e06b3780": {
+   "id": "mol_22b5e06b3780",
+   "named": true,
+   "atoms": [
+    "atm_88ae5884a999",
+    "atm_91b249335f9f",
+    "atm_92f75e584a5b",
+    "atm_e6f75e7898c3"
+   ],
+   "n": 4,
+   "cohesion": 0.2399,
+   "diameter": 0.3374,
+   "merged_from": 2,
+   "periphery": [
+    "atm_4b3b17e5270b"
+   ],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "Faroese vs Icelandic orthographic and toponymic distinction",
+    "Orthography vs terrain: splitting Iceland from the Faroes and other volcanic isles",
+    "North Germanic languages retaining archaic letters",
+    "Icelandic language and orthography"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Eth/Thorn Orthography as a Discriminator for Icelandic vs Faroese",
+   "name_ko": "에스(ð)/쏜(þ) 표기를 통한 아이슬란드어-페로어 판별",
+   "slug": "eth-thorn-icelandic-faroese-discriminator",
+   "confidence": 0.82,
+   "missing_atoms": [],
+   "doc": "mol_22b5e06b3780.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0773,
+   "named_at": 1789362000.3062623,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_d01e2576fb32": {
+   "id": "mol_d01e2576fb32",
+   "named": false,
+   "atoms": [
+    "atm_3ccca4df5f74",
+    "atm_74796dd40908",
+    "atm_d68ec73d8f8d",
+    "atm_e0433c9aef8a",
+    "atm_f9964f016ef2"
+   ],
+   "n": 5,
+   "cohesion": 0.2404,
+   "diameter": 0.3384,
+   "merged_from": 2,
+   "periphery": [
+    "atm_da8f02625c33"
+   ],
+   "layers": {
+    "history": 5
+   },
+   "titles": [
+    "Central Africa kingdoms and colonial states",
+    "Western Africa kingdoms and empires",
+    "Southern African pre-colonial and Boer states",
+    "Southern Africa historical kingdoms",
+    "African Great Lakes kingdoms"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_f18172abeadf": {
+   "id": "mol_f18172abeadf",
+   "named": true,
+   "atoms": [
+    "atm_0f259f84fb29",
+    "atm_8dca31d7924e",
+    "atm_aa1543dd152e",
+    "atm_f3fb02fa3be5"
+   ],
+   "n": 4,
+   "cohesion": 0.2507,
+   "diameter": 0.2958,
+   "merged_from": 4,
+   "periphery": [
+    "atm_2fbd4c769a30",
+    "atm_94f4cc63f804",
+    "atm_fe1fabd7b881"
+   ],
+   "layers": {
+    "architecture": 1,
+    "geography": 3
+   },
+   "titles": [
+    "Pacific vs. inland/Gulf Mexico terrain and vegetation contrasts",
+    "Sonoran vs Chihuahuan vs Bajío vs Trans-Mexican Volcanic Belt landscape discriminators",
+    "Humid volcanic-soil central Mexico contrasted with arid north",
+    "Bajío basalt clearance piles vs Altiplano pale calcareous soil"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Mexico Regional Terrain and Vegetation Discriminators",
+   "name_ko": "멕시코 지역별 지형·식생 판별 지표",
+   "slug": "mexico-regional-terrain-vegetation-discriminators",
+   "confidence": 0.72,
+   "missing_atoms": [],
+   "doc": "mol_f18172abeadf.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0826,
+   "named_at": 1789362041.3754828,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_0290541f049a": {
+   "id": "mol_0290541f049a",
+   "named": true,
+   "atoms": [
+    "atm_64a34928a5c3",
+    "atm_792a1b421feb",
+    "atm_d77af7df6d03",
+    "atm_d943fb448339"
+   ],
+   "n": 4,
+   "cohesion": 0.2539,
+   "diameter": 0.3418,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 4
+   },
+   "titles": [
+    "EU-wide harmonized road signage under the Vienna Convention",
+    "Designers of national road-signage systems",
+    "Vienna Convention harmonization versus persistent national signage variants",
+    "Non-standard national road-sign systems outside the Vienna Convention"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Vienna Convention on Road Signs and Signals",
+   "name_ko": "비엔나 도로표지협약",
+   "slug": "vienna-convention-road-signs",
+   "confidence": 0.82,
+   "missing_atoms": [],
+   "doc": "mol_0290541f049a.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0701,
+   "named_at": 1789362041.37761,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_95dfd8c7a312": {
+   "id": "mol_95dfd8c7a312",
+   "named": false,
+   "atoms": [
+    "atm_13f509999bc0",
+    "atm_2d7f42f52810",
+    "atm_5331d9309824",
+    "atm_63a50c8c26e7"
+   ],
+   "n": 4,
+   "cohesion": 0.2548,
+   "diameter": 0.3285,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 1,
+    "history": 3
+   },
+   "titles": [
+    "Croatia's rapid national demographic aging and youth outmigration",
+    "Dubrovnik municipality population decline trend",
+    "Dubrovnik Old Town depopulation from short-term rental conversion and cruise overcrowding",
+    "Global historic-core hollowing-out from tourism/short-term rental conversion"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_a64af2d6de31": {
+   "id": "mol_a64af2d6de31",
+   "named": true,
+   "atoms": [
+    "atm_072819aec72c",
+    "atm_54a887a29bb7",
+    "atm_6b8ad57c88d9",
+    "atm_8b6110d669e6"
+   ],
+   "n": 4,
+   "cohesion": 0.2562,
+   "diameter": 0.3445,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "Livonian Order and Polish-Lithuanian influence shaping Latvian regional divides",
+    "Baltic-German manorial network across Estonia, Latvia and beyond",
+    "Baltic-German cultural figures: Herder, Keyserling, and the Ritterschaften",
+    "Baltic-German manorial estates and the von Tiesenhausen/von Wolff families"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Baltic-German Noble Estate System",
+   "name_ko": "발트-독일 귀족 장원 체제",
+   "slug": "baltic-german-noble-estate-system",
+   "confidence": 0.85,
+   "missing_atoms": [
+    "Baltendeutsche 정체성과 20세기 초 발트 귀족 추방/국유화 과정에 대한 원자"
+   ],
+   "doc": "mol_a64af2d6de31.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.08,
+   "named_at": 1789362041.3797195,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_b180c50d7120": {
+   "id": "mol_b180c50d7120",
+   "named": true,
+   "atoms": [
+    "atm_2480ce1ef18a",
+    "atm_9a486159e361",
+    "atm_e972c3d2ffab",
+    "atm_f32a9d025eca"
+   ],
+   "n": 4,
+   "cohesion": 0.2585,
+   "diameter": 0.3304,
+   "merged_from": 3,
+   "periphery": [
+    "atm_931c0da62f9c",
+    "atm_d5d073d080fc",
+    "atm_e5601aaeca59"
+   ],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "National toponymic suffix systems as script/language identifiers",
+    "Turkish toponymic lexicon markers (Camii, Bulvarı, Sokak, Caddesi)",
+    "Bulgarian Cyrillic administrative and toponymic lexicon markers",
+    "Romanian orthography and toponymic generics as a country discriminator"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Toponymic Lexicon as Country/Script Identifier",
+   "name_ko": "지명 어휘를 통한 국가·문자 식별",
+   "slug": "toponymic-lexicon-country-identifier",
+   "confidence": 0.85,
+   "missing_atoms": [
+    "Greek toponymic lexicon markers (Odos, Leoforos, Plateia)",
+    "Serbian Cyrillic/Latin bilingual toponymic markers",
+    "Hungarian toponymic suffixes (utca, tér, út)"
+   ],
+   "doc": "mol_b180c50d7120.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0488,
+   "named_at": 1789362078.793919,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_f4f20bba4703": {
+   "id": "mol_f4f20bba4703",
+   "named": true,
+   "atoms": [
+    "atm_1f7c52fa2190",
+    "atm_2142c38119f1",
+    "atm_a58facd06de0",
+    "atm_e433d79a595f"
+   ],
+   "n": 4,
+   "cohesion": 0.2598,
+   "diameter": 0.3037,
+   "merged_from": 4,
+   "periphery": [
+    "atm_29b9d2dea9c4",
+    "atm_aaefed17cab0",
+    "atm_c6a6064d3dec"
+   ],
+   "layers": {
+    "geography": 1,
+    "language": 3
+   },
+   "titles": [
+    "Cyrillic glosses on Croatian-Herzegovinian borderland signage",
+    "Croatian Cyrillic-Latin script tension in border regions",
+    "South Slavic diglossia markers: Serbian Cyrillic vs Croatian Latin",
+    "Slovenian and Bosnian road signage overlap with Croatian conventions"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Script and Signage as Ex-Yugoslav Border Markers",
+   "name_ko": "스크립트와 도로표지판을 통한 구유고슬라비아 국경 식별",
+   "slug": "script-signage-ex-yugoslav-border-markers",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "Cyrillic bilingual signage disputes across other former Yugoslav minority regions (e.g. Kosovo, Montenegro)",
+    "General overview atom on the Serbo-Croatian pluricentric language and its script split"
+   ],
+   "doc": "mol_f4f20bba4703.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0502,
+   "named_at": 1789362078.7978559,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_efb4b17ae832": {
+   "id": "mol_efb4b17ae832",
+   "named": false,
+   "atoms": [
+    "atm_10f4a4478224",
+    "atm_3f3b472abc32",
+    "atm_9b58a70e7561",
+    "atm_bd2899174a72"
+   ],
+   "n": 4,
+   "cohesion": 0.2672,
+   "diameter": 0.3191,
+   "merged_from": 2,
+   "periphery": [
+    "atm_635d3f4d1fe8",
+    "atm_70f0ec5e8b9e"
+   ],
+   "layers": {
+    "culture": 1,
+    "economy": 1,
+    "geography": 2
+   },
+   "titles": [
+    "Standardization of North American highway signage",
+    "National highway-shield design as a road-network identity marker",
+    "National and provincial highway-shield design as cartographic identifiers",
+    "National highway systems resisting regional standardization"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_af3a63f77d1b": {
+   "id": "mol_af3a63f77d1b",
+   "named": false,
+   "atoms": [
+    "atm_1d9a3444fe22",
+    "atm_38c092e9501b",
+    "atm_af2a2617b586",
+    "atm_bf39ad75c9fc",
+    "atm_f7d40e3ac375"
+   ],
+   "n": 5,
+   "cohesion": 0.268,
+   "diameter": 0.3366,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 4,
+    "culture": 1
+   },
+   "titles": [
+    "Self-built progressive concrete-block housing in rural Mexico",
+    "Incremental self-built brick housing in lower-middle-income Andean peripheries",
+    "Albanian unfinished concrete-block housing",
+    "Informal incremental construction with exposed rebar across the developing world",
+    "Vernacular-to-concrete-block housing transitions in developing regions"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_f06751391067": {
+   "id": "mol_f06751391067",
+   "named": true,
+   "atoms": [
+    "atm_08a5788cfe1e",
+    "atm_40345729907e",
+    "atm_63a220d3ccc8",
+    "atm_91db08094e34"
+   ],
+   "n": 4,
+   "cohesion": 0.2707,
+   "diameter": 0.3149,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "economy": 2,
+    "history": 1
+   },
+   "titles": [
+    "Eastern European post-socialist emigration wave",
+    "Post-socialist rural depopulation and satellite-village pattern in Eastern Europe",
+    "Romania's post-1989 demographic decline and regional variance",
+    "Southern and Eastern European demographic decline belt"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Post-Socialist Eastern European Demographic Decline",
+   "name_ko": "동유럽 탈사회주의 인구 감소",
+   "slug": "post-socialist-eastern-european-demographic-decline",
+   "confidence": 0.82,
+   "missing_atoms": [
+    "1989-91 socialist regime collapse and economic transition (전환의 원인 사건 자체)",
+    "EU 2007 accession policy detail as standalone atom",
+    "Specific case atom for Italy's Mezzogiorno depopulation",
+    "Specific case atom for Portugal rural depopulation"
+   ],
+   "doc": "mol_f06751391067.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0498,
+   "named_at": 1789362115.1729457,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_3551c5972c05": {
+   "id": "mol_3551c5972c05",
+   "named": false,
+   "atoms": [
+    "atm_1d9a3444fe22",
+    "atm_962517d94a40",
+    "atm_bf39ad75c9fc",
+    "atm_ef1de3b43459"
+   ],
+   "n": 4,
+   "cohesion": 0.2729,
+   "diameter": 0.3368,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 4
+   },
+   "titles": [
+    "Self-built progressive concrete-block housing in rural Mexico",
+    "Formal utility grids and gated developments as contrast to informal infrastructure",
+    "Informal incremental construction with exposed rebar across the developing world",
+    "State-built social housing programs vs self-built informal housing"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_a6df355c031d": {
+   "id": "mol_a6df355c031d",
+   "named": false,
+   "atoms": [
+    "atm_019c308b2979",
+    "atm_45b4b6a01e83",
+    "atm_764d16790153",
+    "atm_d146af6844dc"
+   ],
+   "n": 4,
+   "cohesion": 0.2744,
+   "diameter": 0.3336,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "architecture": 3,
+    "history": 1
+   },
+   "titles": [
+    "Socialist-era single-industry satellite housing estates (panelák sídliská) in Czechoslovakia",
+    "Planners behind Soviet mass-housing standardization",
+    "Soviet urban form: panelka housing and trolleybus prospekts",
+    "Soviet mikroraion urban-fringe pattern: panel high-rises abutting unpaved private-house lanes"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_eba27f11bd89": {
+   "id": "mol_eba27f11bd89",
+   "named": false,
+   "atoms": [
+    "atm_2480ce1ef18a",
+    "atm_931c0da62f9c",
+    "atm_9d45a7bad7f9",
+    "atm_f32a9d025eca"
+   ],
+   "n": 4,
+   "cohesion": 0.2744,
+   "diameter": 0.3263,
+   "merged_from": 2,
+   "periphery": [
+    "atm_85656101e754"
+   ],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "National toponymic suffix systems as script/language identifiers",
+    "Toponym suffixes as linguistic-region markers worldwide",
+    "Hungarian language and toponymic suffixes",
+    "Romanian orthography and toponymic generics as a country discriminator"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_45c8a8950017": {
+   "id": "mol_45c8a8950017",
+   "named": true,
+   "atoms": [
+    "atm_979160e118e7",
+    "atm_bf4d2b322bc6",
+    "atm_ca05c73a7f07",
+    "atm_da86790feea2"
+   ],
+   "n": 4,
+   "cohesion": 0.2746,
+   "diameter": 0.3331,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "geography": 4
+   },
+   "titles": [
+    "Regional road-number range zoning as a navigation code",
+    "Iceland driving side and road-marking convention",
+    "Icelandic route numbering ranges by region",
+    "Snæfellsnes peninsula road numbering and geology (Western Iceland)"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Iceland's Regional Road-Numbering System",
+   "name_ko": "아이슬란드의 지역별 도로 번호 체계",
+   "slug": "iceland-regional-road-numbering",
+   "confidence": 0.72,
+   "missing_atoms": [],
+   "doc": "mol_45c8a8950017.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0693,
+   "named_at": 1789362115.179861,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_10301e9edea2": {
+   "id": "mol_10301e9edea2",
+   "named": true,
+   "atoms": [
+    "atm_13601d2b6254",
+    "atm_7e047d064bd0",
+    "atm_a60f6d19f902",
+    "atm_ac0bbb65ec93"
+   ],
+   "n": 4,
+   "cohesion": 0.2749,
+   "diameter": 0.345,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 4
+   },
+   "titles": [
+    "Carlos 'La Mona' Jiménez and cuarteto's popularization",
+    "Buenos Aires-centric cultural dominance versus provincial genres like cuarteto",
+    "Cuarteto music and cordobés identity",
+    "Latin American regional dance-music genres tied to city identity"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Cuarteto and Córdoba Identity",
+   "name_ko": "쿠아르테토와 코르도바 정체성",
+   "slug": "cuarteto-cordoba-identity",
+   "confidence": 0.85,
+   "missing_atoms": [
+    "쿠아르테토 장르 자체에 대한 독립적 개설(음악적 형식, 리듬 구조, 악기 편성)",
+    "쿠아르테토와 코르도바 정체성이라는 허브 개념을 직접 다루는 원자"
+   ],
+   "doc": "mol_10301e9edea2.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0484,
+   "named_at": 1789362147.6999671,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_72fc93e2105d": {
+   "id": "mol_72fc93e2105d",
+   "named": false,
+   "atoms": [
+    "atm_8dca31d7924e",
+    "atm_94f4cc63f804",
+    "atm_aa1543dd152e",
+    "atm_e53b24ec7dce"
+   ],
+   "n": 4,
+   "cohesion": 0.2749,
+   "diameter": 0.3429,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "geography": 4
+   },
+   "titles": [
+    "Sonoran vs Chihuahuan vs Bajío vs Trans-Mexican Volcanic Belt landscape discriminators",
+    "Volcanic dark-soil terrain as Mexico's geological counterpoint to Yucatán karst",
+    "Humid volcanic-soil central Mexico contrasted with arid north",
+    "Coahuila semi-arid highland basin setting"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_58166b121022": {
+   "id": "mol_58166b121022",
+   "named": false,
+   "atoms": [
+    "atm_1f7c52fa2190",
+    "atm_a58facd06de0",
+    "atm_c6a6064d3dec",
+    "atm_fe3149f63023"
+   ],
+   "n": 4,
+   "cohesion": 0.2751,
+   "diameter": 0.3078,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "Cyrillic glosses on Croatian-Herzegovinian borderland signage",
+    "South Slavic diglossia markers: Serbian Cyrillic vs Croatian Latin",
+    "Serbia's bilingual Latin-Cyrillic signage practice",
+    "Cyrillic-script administrative lexicon variation across Slavic states"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_b4f758333005": {
+   "id": "mol_b4f758333005",
+   "named": true,
+   "atoms": [
+    "atm_2f0478c72970",
+    "atm_545ea5598310",
+    "atm_71e9c5df38ee",
+    "atm_877f06d37696"
+   ],
+   "n": 4,
+   "cohesion": 0.2755,
+   "diameter": 0.3386,
+   "merged_from": 2,
+   "periphery": [
+    "atm_3aea28b9b1fd"
+   ],
+   "layers": {
+    "culture": 4
+   },
+   "titles": [
+    "Indigenous-influenced cultural zones of southern/central Mexico",
+    "Indigenous Maya architectural preservation and revival efforts",
+    "Indigenous-named villages resisting road-era renaming",
+    "Highland Maya cultural dominance in Guatemala's altiplano"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Maya Cultural Persistence in Southern Mesoamerica",
+   "name_ko": "중남부 메소아메리카의 마야 문화 존속",
+   "slug": "maya-cultural-persistence",
+   "confidence": 0.78,
+   "missing_atoms": [
+    "마야어군의 언어학적 분류 및 분포",
+    "과테말라 내전과 마야 원주민 공동체에 대한 영향",
+    "멕시코 원주민 자치 및 언어 정책(예: INALI)"
+   ],
+   "doc": "mol_b4f758333005.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0532,
+   "named_at": 1789362147.7028606,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_50f27df90b48": {
+   "id": "mol_50f27df90b48",
+   "named": false,
+   "atoms": [
+    "atm_1ae19d25aa2d",
+    "atm_1f7c52fa2190",
+    "atm_2142c38119f1",
+    "atm_c6a6064d3dec"
+   ],
+   "n": 4,
+   "cohesion": 0.2796,
+   "diameter": 0.327,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "language": 4
+   },
+   "titles": [
+    "Bilingual and dual-script signage in contested or historically mixed borderlands",
+    "Cyrillic glosses on Croatian-Herzegovinian borderland signage",
+    "Croatian Cyrillic-Latin script tension in border regions",
+    "Serbia's bilingual Latin-Cyrillic signage practice"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_f42da89a738a": {
+   "id": "mol_f42da89a738a",
+   "named": false,
+   "atoms": [
+    "atm_49b6b08fee5f",
+    "atm_8dea6efc26d9",
+    "atm_cbb1c8efe37a",
+    "atm_d114d8bf82fb"
+   ],
+   "n": 4,
+   "cohesion": 0.2802,
+   "diameter": 0.3437,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 2,
+    "economy": 2
+   },
+   "titles": [
+    "East coast Pahang/Terengganu fishing villages transitioning to backpacker tourism",
+    "Fishing-village-to-surf-tourism transitions worldwide",
+    "1970s Western backpacker/hippie trail origin of Southeast Asian beach villages",
+    "Global hippie-trail beach towns"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_514082686046": {
+   "id": "mol_514082686046",
+   "named": false,
+   "atoms": [
+    "atm_635d3f4d1fe8",
+    "atm_a7ecfad95f50",
+    "atm_bd2899174a72",
+    "atm_d83deb4b95ed"
+   ],
+   "n": 4,
+   "cohesion": 0.2853,
+   "diameter": 0.3215,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 2,
+    "geography": 2
+   },
+   "titles": [
+    "Mexican federal highway marking and signage scheme",
+    "Mexican state highway road-label prefixes encode the state",
+    "National highway systems resisting regional standardization",
+    "CA (Central American) highway route numbering and signage system"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "skip_reason": "deferred: shares ≥2 atoms with an already-named molecule"
+  },
+  "mol_1f290a3f982a": {
+   "id": "mol_1f290a3f982a",
+   "named": true,
+   "atoms": [
+    "atm_05dc60e6542c",
+    "atm_6c6e2e89aba8",
+    "atm_91b6f26a63b1",
+    "atm_dd7d5f9e2fdf"
+   ],
+   "n": 4,
+   "cohesion": 0.2901,
+   "diameter": 0.3428,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "economy": 3,
+    "geography": 1
+   },
+   "titles": [
+    "Budapest diversified service and pharma economy",
+    "Rural and provincial lag behind Budapest's economy",
+    "Budapest: Danube-straddling primate city of Hungary",
+    "Post-socialist capital cities as national economic outliers"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Budapest's Primate-City Economic Dominance",
+   "name_ko": "부다페스트의 수위도시 경제 집중",
+   "slug": "budapest-primate-city-economic-dominance",
+   "confidence": 0.82,
+   "missing_atoms": [
+    "Budapest as a primate city concept definition/atom explicitly linking population primacy to economic primacy across countries"
+   ],
+   "doc": "mol_1f290a3f982a.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0455,
+   "named_at": 1789362147.7080314,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_2bd3d753c073": {
+   "id": "mol_2bd3d753c073",
+   "named": true,
+   "atoms": [
+    "atm_4331cd4c61dd",
+    "atm_895143231e7c",
+    "atm_ba9c8744e74b",
+    "atm_c464359a13cf"
+   ],
+   "n": 4,
+   "cohesion": 0.2914,
+   "diameter": 0.345,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "economy": 2,
+    "geography": 1
+   },
+   "titles": [
+    "Iceland's regional health authority (Heilbrigðisstofnun) boundaries as a locating clue",
+    "Icelandic health-authority branding pins the municipality",
+    "Icelandic rural service village public infrastructure standard",
+    "Reykjavík Capital Region municipal structure"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Iceland's Municipal and Regional Administrative Geography",
+   "name_ko": "아이슬란드의 지방자치·행정 지리",
+   "slug": "iceland-municipal-administrative-geography",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "아이슬란드 지자체(sveitarfélag) 제도 개관",
+    "Heilbrigðisstofnun 지역보건청 전체 목록 및 관할 구역 지도"
+   ],
+   "doc": "mol_2bd3d753c073.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 0,
+   "cost_usd": 0.0483,
+   "named_at": 1789362186.3706126,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_6a291219fe23": {
+   "id": "mol_6a291219fe23",
+   "named": true,
+   "atoms": [
+    "atm_4320a76ed8fb",
+    "atm_6440cea04765",
+    "atm_ad0093de4697",
+    "atm_fd0c7f79f1c7"
+   ],
+   "n": 4,
+   "cohesion": 0.2921,
+   "diameter": 0.3126,
+   "merged_from": 2,
+   "periphery": [
+    "atm_15836e374094"
+   ],
+   "layers": {
+    "history": 4
+   },
+   "titles": [
+    "1945 expulsion and Polonization of former German eastern territories",
+    "Greater German Reich (Nazi Germany)",
+    "German expellee heritage organizations and Heimatvertriebene memory culture",
+    "Interwar land reform and nationalization of Baltic-German estates"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Displacement and Dissolution of Eastern European German Communities",
+   "name_ko": "동유럽 독일계 공동체의 추방과 해체",
+   "slug": "eastern-european-german-expulsion",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "1939 Nazi-Soviet resettlement agreements (Heim ins Reich program)",
+    "Sudeten German expulsion from Czechoslovakia"
+   ],
+   "doc": "mol_6a291219fe23.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0715,
+   "named_at": 1789362186.3732605,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_d3f653572b38": {
+   "id": "mol_d3f653572b38",
+   "named": true,
+   "atoms": [
+    "atm_16c50820ea0a",
+    "atm_635d3f4d1fe8",
+    "atm_9b58a70e7561",
+    "atm_bd2899174a72"
+   ],
+   "n": 4,
+   "cohesion": 0.2996,
+   "diameter": 0.3433,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 3,
+    "geography": 1
+   },
+   "titles": [
+    "US state highway shields with unique iconographic designs",
+    "Mexican federal highway marking and signage scheme",
+    "National and provincial highway-shield design as cartographic identifiers",
+    "National highway systems resisting regional standardization"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Highway Shield Iconography as Jurisdictional Identity",
+   "name_ko": "고속도로 표지판 아이콘그래피와 관할권 정체성",
+   "slug": "highway-shield-iconography",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "Highway shield design as a global cartographic/semiotic concept (hub atom not present)"
+   ],
+   "doc": "mol_d3f653572b38.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0777,
+   "named_at": 1789362186.3755808,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_7eb7ae364e22": {
+   "id": "mol_7eb7ae364e22",
+   "named": true,
+   "atoms": [
+    "atm_9a043a4cd035",
+    "atm_9a87a28cd0a5",
+    "atm_f16ce9b85697",
+    "atm_f5d2c803c983"
+   ],
+   "n": 4,
+   "cohesion": 0.3031,
+   "diameter": 0.3436,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "geography": 3
+   },
+   "titles": [
+    "Dispersed farmstead settlement patterns vs nucleated villages",
+    "Danubian lowland dispersed settlement contrast",
+    "Mountainous subsistence terrain contrast",
+    "Bohemian pond-and-plateau landscape vs Moravian vineyard lowlands"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Rural Settlement and Agrarian Landscape Contrasts in Europe",
+   "name_ko": "유럽의 농촌 정주 및 농업 경관 대비",
+   "slug": "rural-settlement-agrarian-landscape-contrasts-europe",
+   "confidence": 0.55,
+   "missing_atoms": [
+    "Rural settlement geography (general theoretical framework)",
+    "European land-inheritance and manorial history overview"
+   ],
+   "doc": "mol_7eb7ae364e22.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0778,
+   "named_at": 1789362186.3783305,
+   "error": null,
+   "atom_link_how": {}
+  },
+  "mol_4bc9218cbb64": {
+   "id": "mol_4bc9218cbb64",
+   "named": true,
+   "atoms": [
+    "atm_1f7c52fa2190",
+    "atm_29b9d2dea9c4",
+    "atm_931c0da62f9c",
+    "atm_e972c3d2ffab"
+   ],
+   "n": 4,
+   "cohesion": 0.3053,
+   "diameter": 0.3324,
+   "merged_from": 1,
+   "periphery": [],
+   "layers": {
+    "culture": 1,
+    "language": 3
+   },
+   "titles": [
+    "Cyrillic glosses on Croatian-Herzegovinian borderland signage",
+    "Croatian coastal road/place lexicon: Jadranska Magistrala, Plaža, Spilja",
+    "Toponym suffixes as linguistic-region markers worldwide",
+    "Bulgarian Cyrillic administrative and toponymic lexicon markers"
+   ],
+   "in_latest": true,
+   "snapshot": "260914_135904_p0.5_k10_s4.json",
+   "atom_links": [],
+   "params": {
+    "pct": 0.5,
+    "knn": 10,
+    "min_size": 4,
+    "merge": 0.5,
+    "merge_mode": "absorb",
+    "mutual": true
+   },
+   "name_en": "Toponymic and Signage Markers of Linguistic Regions in the Balkans",
+   "name_ko": "발칸 지역의 지명·표지판을 통한 언어권 식별",
+   "slug": "balkan-toponymic-linguistic-markers",
+   "confidence": 0.72,
+   "missing_atoms": [
+    "Toponymic and signage marker analysis as a general geolinguistic methodology"
+   ],
+   "doc": "mol_4bc9218cbb64.md",
+   "model": "claude-sonnet-5",
+   "web_searches": 0,
+   "retries": 1,
+   "cost_usd": 0.0733,
+   "named_at": 1789362216.4138975,
+   "error": null,
+   "atom_link_how": {}
   }
  },
  "atom_to_molecules": {
@@ -5558,6 +7152,10 @@
    "mol_7d69270b7b65",
    "mol_0f16b5b4fc04"
   ],
+  "atm_3785ba1997f0": [
+   "mol_1b2ba7ee20d2",
+   "mol_893e488552a3"
+  ],
   "atm_7a086646074f": [
    "mol_e288ddd2351f"
   ],
@@ -5565,17 +7163,15 @@
    "mol_e288ddd2351f"
   ],
   "atm_c15358d3e42a": [
-   "mol_e288ddd2351f"
+   "mol_e288ddd2351f",
+   "mol_4cb757aafe93"
   ],
   "atm_de27d76e98ed": [
    "mol_e288ddd2351f"
   ],
   "atm_f644bdf4dd51": [
-   "mol_e288ddd2351f"
-  ],
-  "atm_3785ba1997f0": [
-   "mol_1b2ba7ee20d2",
-   "mol_893e488552a3"
+   "mol_e288ddd2351f",
+   "mol_4cb757aafe93"
   ],
   "atm_1f83f03bfbf8": [
    "mol_5a5795efb7af"
@@ -5588,19 +7184,6 @@
   ],
   "atm_fa327848d418": [
    "mol_5a5795efb7af"
-  ],
-  "atm_01edea247fa5": [
-   "mol_612e78651f92",
-   "mol_095cb2bc5fd8"
-  ],
-  "atm_37da4e8f433a": [
-   "mol_612e78651f92"
-  ],
-  "atm_4e479dbead43": [
-   "mol_612e78651f92"
-  ],
-  "atm_f4afa21fa970": [
-   "mol_612e78651f92"
   ],
   "atm_044bad726c72": [
    "mol_630206bc62a3"
@@ -5632,6 +7215,19 @@
    "mol_f813d0bfec27",
    "mol_176c331def48"
   ],
+  "atm_01edea247fa5": [
+   "mol_612e78651f92",
+   "mol_095cb2bc5fd8"
+  ],
+  "atm_37da4e8f433a": [
+   "mol_612e78651f92"
+  ],
+  "atm_4e479dbead43": [
+   "mol_612e78651f92"
+  ],
+  "atm_f4afa21fa970": [
+   "mol_612e78651f92"
+  ],
   "atm_b3bb750f2919": [
    "mol_7d69270b7b65",
    "mol_0f16b5b4fc04"
@@ -5647,20 +7243,6 @@
   ],
   "atm_f3750a4dc101": [
    "mol_30592d6cca44"
-  ],
-  "atm_4320a76ed8fb": [
-   "mol_ebdd5b1c96e7",
-   "mol_3e915c5da5fd"
-  ],
-  "atm_6fc5a77d7760": [
-   "mol_ebdd5b1c96e7"
-  ],
-  "atm_a64438386449": [
-   "mol_ebdd5b1c96e7",
-   "mol_3e915c5da5fd"
-  ],
-  "atm_db47f02242c9": [
-   "mol_ebdd5b1c96e7"
   ],
   "atm_02178356679f": [
    "mol_a2c90586f812",
@@ -5684,6 +7266,19 @@
   "atm_4fbc680d4671": [
    "mol_a2c90586f812",
    "mol_18152eec3f06"
+  ],
+  "atm_4320a76ed8fb": [
+   "mol_ebdd5b1c96e7",
+   "mol_6a291219fe23"
+  ],
+  "atm_6fc5a77d7760": [
+   "mol_ebdd5b1c96e7"
+  ],
+  "atm_a64438386449": [
+   "mol_ebdd5b1c96e7"
+  ],
+  "atm_db47f02242c9": [
+   "mol_ebdd5b1c96e7"
   ],
   "atm_0501f243d9a6": [
    "mol_11b9aa01246a",
@@ -5736,6 +7331,18 @@
   ],
   "atm_f911e7627ebc": [
    "mol_6933dde42c75"
+  ],
+  "atm_28b655033f4f": [
+   "mol_39bc58c5fba5"
+  ],
+  "atm_6a1d98846470": [
+   "mol_39bc58c5fba5"
+  ],
+  "atm_ba02a4b4bbc6": [
+   "mol_39bc58c5fba5"
+  ],
+  "atm_be07aa622f34": [
+   "mol_39bc58c5fba5"
   ],
   "atm_504b2c302a94": [
    "mol_50b962cae946",
@@ -5819,6 +7426,47 @@
    "mol_b3a289b6b338",
    "mol_8afa5898df1c"
   ],
+  "atm_16c50820ea0a": [
+   "mol_843a41574b75",
+   "mol_d3f653572b38"
+  ],
+  "atm_3f3b472abc32": [
+   "mol_843a41574b75",
+   "mol_0df5563a8f32",
+   "mol_efb4b17ae832"
+  ],
+  "atm_8d9e4ea3562c": [
+   "mol_843a41574b75"
+  ],
+  "atm_9b58a70e7561": [
+   "mol_843a41574b75",
+   "mol_0df5563a8f32",
+   "mol_efb4b17ae832",
+   "mol_d3f653572b38"
+  ],
+  "atm_e5882c19fe5d": [
+   "mol_843a41574b75"
+  ],
+  "atm_019c308b2979": [
+   "mol_7cf78afb5dee",
+   "mol_a6df355c031d"
+  ],
+  "atm_1a59425e959b": [
+   "mol_7cf78afb5dee",
+   "mol_095cb2bc5fd8"
+  ],
+  "atm_b0a49d400a66": [
+   "mol_7cf78afb5dee"
+  ],
+  "atm_ec52e7b7a8fa": [
+   "mol_7cf78afb5dee",
+   "mol_095cb2bc5fd8"
+  ],
+  "atm_fc90c4a62930": [
+   "mol_7cf78afb5dee",
+   "mol_095cb2bc5fd8",
+   "mol_c72a0d18b4d5"
+  ],
   "atm_36410c44e299": [
    "mol_0272434ea2db",
    "mol_bf8bd5948366"
@@ -5826,7 +7474,8 @@
   "atm_40345729907e": [
    "mol_0272434ea2db",
    "mol_5e724e9a6295",
-   "mol_bf8bd5948366"
+   "mol_bf8bd5948366",
+   "mol_f06751391067"
   ],
   "atm_585940dbb92e": [
    "mol_0272434ea2db",
@@ -5839,18 +7488,8 @@
   "atm_0de705b1aa28": [
    "mol_0df5563a8f32"
   ],
-  "atm_3f3b472abc32": [
-   "mol_0df5563a8f32",
-   "mol_843a41574b75"
-  ],
   "atm_811342082c50": [
-   "mol_0df5563a8f32",
-   "mol_748428370e37"
-  ],
-  "atm_9b58a70e7561": [
-   "mol_0df5563a8f32",
-   "mol_843a41574b75",
-   "mol_f3654f4a68a4"
+   "mol_0df5563a8f32"
   ],
   "atm_357b02fb5a04": [
    "mol_5ffa5b07b553"
@@ -5866,47 +7505,6 @@
   ],
   "atm_aad0b444279e": [
    "mol_5ffa5b07b553"
-  ],
-  "atm_8180accfcd7c": [
-   "mol_eeeb7ff8434d",
-   "mol_7bade16fd9d5"
-  ],
-  "atm_8d65adf62446": [
-   "mol_eeeb7ff8434d"
-  ],
-  "atm_aa81c19581e4": [
-   "mol_eeeb7ff8434d"
-  ],
-  "atm_e36d83d3428b": [
-   "mol_eeeb7ff8434d",
-   "mol_846e895e2267"
-  ],
-  "atm_16c50820ea0a": [
-   "mol_843a41574b75"
-  ],
-  "atm_8d9e4ea3562c": [
-   "mol_843a41574b75"
-  ],
-  "atm_e5882c19fe5d": [
-   "mol_843a41574b75"
-  ],
-  "atm_1d9a3444fe22": [
-   "mol_7139c35f8c7b",
-   "mol_bbd73e771b62"
-  ],
-  "atm_38c092e9501b": [
-   "mol_7139c35f8c7b"
-  ],
-  "atm_3fc712b096be": [
-   "mol_7139c35f8c7b",
-   "mol_50b1b91d6012"
-  ],
-  "atm_4629ce3c8114": [
-   "mol_7139c35f8c7b"
-  ],
-  "atm_bf39ad75c9fc": [
-   "mol_7139c35f8c7b",
-   "mol_50b1b91d6012"
   ],
   "atm_032ed9d098a5": [
    "mol_0ceb668401fa",
@@ -5938,6 +7536,28 @@
   ],
   "atm_e7bd3821bb4a": [
    "mol_0ceb668401fa"
+  ],
+  "atm_1d9a3444fe22": [
+   "mol_7139c35f8c7b",
+   "mol_af3a63f77d1b",
+   "mol_3551c5972c05"
+  ],
+  "atm_38c092e9501b": [
+   "mol_7139c35f8c7b",
+   "mol_af3a63f77d1b"
+  ],
+  "atm_3fc712b096be": [
+   "mol_7139c35f8c7b",
+   "mol_50b1b91d6012"
+  ],
+  "atm_4629ce3c8114": [
+   "mol_7139c35f8c7b"
+  ],
+  "atm_bf39ad75c9fc": [
+   "mol_7139c35f8c7b",
+   "mol_50b1b91d6012",
+   "mol_af3a63f77d1b",
+   "mol_3551c5972c05"
   ],
   "atm_add39bea674c": [
    "mol_062ffd19e7c7"
@@ -5981,30 +7601,14 @@
    "mol_5e724e9a6295",
    "mol_e55f7dc507db",
    "mol_faa546d6f876",
-   "mol_0fa558e91b28"
+   "mol_f06751391067"
   ],
   "atm_aa4716639ec8": [
    "mol_5e724e9a6295",
    "mol_e55f7dc507db"
   ],
-  "atm_1a59425e959b": [
-   "mol_095cb2bc5fd8",
-   "mol_030fc195d30a",
-   "mol_5cf9b0cb1e69"
-  ],
   "atm_786e9b689833": [
    "mol_095cb2bc5fd8"
-  ],
-  "atm_ec52e7b7a8fa": [
-   "mol_095cb2bc5fd8",
-   "mol_030fc195d30a",
-   "mol_5cf9b0cb1e69",
-   "mol_930692a8b5f8"
-  ],
-  "atm_fc90c4a62930": [
-   "mol_095cb2bc5fd8",
-   "mol_030fc195d30a",
-   "mol_c72a0d18b4d5"
   ],
   "atm_0237c9c3ebba": [
    "mol_e455f7cea5f2",
@@ -6012,8 +7616,8 @@
   ],
   "atm_3ccca4df5f74": [
    "mol_e455f7cea5f2",
-   "mol_c57787b4cfc1",
-   "mol_9f3d7af465c4"
+   "mol_d01e2576fb32",
+   "mol_c57787b4cfc1"
   ],
   "atm_457873fe5f2f": [
    "mol_e455f7cea5f2",
@@ -6021,11 +7625,12 @@
   ],
   "atm_74796dd40908": [
    "mol_e455f7cea5f2",
-   "mol_c57787b4cfc1",
-   "mol_9f3d7af465c4"
+   "mol_d01e2576fb32",
+   "mol_c57787b4cfc1"
   ],
   "atm_d68ec73d8f8d": [
-   "mol_e455f7cea5f2"
+   "mol_e455f7cea5f2",
+   "mol_d01e2576fb32"
   ],
   "atm_fac0ba79eb97": [
    "mol_e455f7cea5f2",
@@ -6061,59 +7666,16 @@
    "mol_1afba81c7269",
    "mol_28672e4c2d6f"
   ],
-  "atm_0cdcb5f44842": [
-   "mol_a323643db557",
-   "mol_b53aa987e2cd",
-   "mol_a3408ab6f77e"
-  ],
-  "atm_49b6b08fee5f": [
-   "mol_a323643db557",
-   "mol_b53aa987e2cd"
-  ],
-  "atm_8dea6efc26d9": [
-   "mol_a323643db557",
-   "mol_b53aa987e2cd",
-   "mol_a3408ab6f77e"
-  ],
-  "atm_9d42b1e8cd15": [
-   "mol_a323643db557"
-  ],
-  "atm_b4155eafc9ab": [
-   "mol_a323643db557"
-  ],
   "atm_9a78e996a5e2": [
    "mol_a4b86e555acf"
   ],
-  "atm_40cac0e4c7dd": [
-   "mol_6e85f7974dbb"
+  "atm_8180accfcd7c": [
+   "mol_4cb757aafe93",
+   "mol_7bade16fd9d5"
   ],
-  "atm_5e6aab25783a": [
-   "mol_6e85f7974dbb"
-  ],
-  "atm_73bdc8bd6a98": [
-   "mol_6e85f7974dbb",
-   "mol_f7f07c987986"
-  ],
-  "atm_ae6ab4de9a82": [
-   "mol_6e85f7974dbb",
-   "mol_f7f07c987986"
-  ],
-  "atm_45b4b6a01e83": [
-   "mol_030fc195d30a",
-   "mol_c72a0d18b4d5",
-   "mol_fc8126b1ca3f"
-  ],
-  "atm_764d16790153": [
-   "mol_030fc195d30a",
-   "mol_c72a0d18b4d5",
-   "mol_fc8126b1ca3f"
-  ],
-  "atm_8721acb94173": [
-   "mol_c72a0d18b4d5",
-   "mol_fc8126b1ca3f"
-  ],
-  "atm_c0ad2b5cf825": [
-   "mol_c72a0d18b4d5"
+  "atm_a437b6c478f6": [
+   "mol_4cb757aafe93",
+   "mol_7bade16fd9d5"
   ],
   "atm_8d14407a6b37": [
    "mol_52dd7a097716"
@@ -6128,9 +7690,6 @@
   "atm_c7bad8b7d1b5": [
    "mol_52dd7a097716"
   ],
-  "atm_a437b6c478f6": [
-   "mol_7bade16fd9d5"
-  ],
   "atm_ad3db50d1df5": [
    "mol_7bade16fd9d5"
   ],
@@ -6144,45 +7703,32 @@
    "mol_ab2fcb425f61"
   ],
   "atm_399453199a88": [
-   "mol_ab2fcb425f61",
-   "mol_872247d8b1e1"
+   "mol_ab2fcb425f61"
   ],
   "atm_431d5baec140": [
    "mol_ab2fcb425f61"
   ],
   "atm_ca62fa29fa29": [
-   "mol_ab2fcb425f61",
-   "mol_872247d8b1e1"
+   "mol_ab2fcb425f61"
+  ],
+  "atm_0c3d90f15260": [
+   "mol_18a73a25a7ee"
   ],
   "atm_148f1d2175ee": [
-   "mol_6de791431f16"
-  ],
-  "atm_2d7f42f52810": [
-   "mol_6de791431f16",
-   "mol_0fa558e91b28"
+   "mol_18a73a25a7ee"
   ],
   "atm_5331d9309824": [
-   "mol_6de791431f16"
+   "mol_18a73a25a7ee",
+   "mol_95dfd8c7a312"
   ],
   "atm_63a50c8c26e7": [
-   "mol_6de791431f16"
+   "mol_18a73a25a7ee",
+   "mol_95dfd8c7a312"
   ],
   "atm_88ce3ad43618": [
    "mol_e7186bf1357c",
    "mol_eec89018a650",
    "mol_28672e4c2d6f"
-  ],
-  "atm_1f02156385ca": [
-   "mol_3e7f3f6a9430"
-  ],
-  "atm_4db6f48f473b": [
-   "mol_3e7f3f6a9430"
-  ],
-  "atm_5c6dd5af93f3": [
-   "mol_3e7f3f6a9430"
-  ],
-  "atm_7e67c8b59e9a": [
-   "mol_3e7f3f6a9430"
   ],
   "atm_170bcbc0e9ef": [
    "mol_4aaa2014a440"
@@ -6203,18 +7749,24 @@
   "atm_ecdef88d27ab": [
    "mol_fd7603e86b22"
   ],
-  "atm_0625509c4e13": [
-   "mol_f56c48d85c79"
+  "atm_0cdcb5f44842": [
+   "mol_a323643db557",
+   "mol_a3408ab6f77e"
   ],
-  "atm_329f3ad24f9a": [
-   "mol_f56c48d85c79"
+  "atm_49b6b08fee5f": [
+   "mol_a323643db557",
+   "mol_f42da89a738a"
   ],
-  "atm_419b94faedad": [
-   "mol_f56c48d85c79",
-   "mol_588a3c6a3c1a"
+  "atm_8dea6efc26d9": [
+   "mol_a323643db557",
+   "mol_a3408ab6f77e",
+   "mol_f42da89a738a"
   ],
-  "atm_8c11beb087d8": [
-   "mol_f56c48d85c79"
+  "atm_9d42b1e8cd15": [
+   "mol_a323643db557"
+  ],
+  "atm_b4155eafc9ab": [
+   "mol_a323643db557"
   ],
   "atm_8028c7121d75": [
    "mol_eec89018a650"
@@ -6231,6 +7783,20 @@
    "mol_d70b4e414561",
    "mol_b1bcff8a493f"
   ],
+  "atm_45b4b6a01e83": [
+   "mol_c72a0d18b4d5",
+   "mol_a6df355c031d"
+  ],
+  "atm_764d16790153": [
+   "mol_c72a0d18b4d5",
+   "mol_a6df355c031d"
+  ],
+  "atm_8721acb94173": [
+   "mol_c72a0d18b4d5"
+  ],
+  "atm_c0ad2b5cf825": [
+   "mol_c72a0d18b4d5"
+  ],
   "atm_22a2a817503c": [
    "mol_c35f92a54575"
   ],
@@ -6240,6 +7806,33 @@
   "atm_9064de413210": [
    "mol_c35f92a54575"
   ],
+  "atm_534a1ac8ceb2": [
+   "mol_164f20578b38",
+   "mol_846e895e2267"
+  ],
+  "atm_8d65adf62446": [
+   "mol_164f20578b38"
+  ],
+  "atm_aa81c19581e4": [
+   "mol_164f20578b38"
+  ],
+  "atm_e36d83d3428b": [
+   "mol_164f20578b38",
+   "mol_846e895e2267"
+  ],
+  "atm_0625509c4e13": [
+   "mol_f56c48d85c79"
+  ],
+  "atm_329f3ad24f9a": [
+   "mol_f56c48d85c79"
+  ],
+  "atm_419b94faedad": [
+   "mol_f56c48d85c79",
+   "mol_588a3c6a3c1a"
+  ],
+  "atm_8c11beb087d8": [
+   "mol_f56c48d85c79"
+  ],
   "atm_617800b70e54": [
    "mol_6f27dab8a70c",
    "mol_fa9840f948ea"
@@ -6247,6 +7840,18 @@
   "atm_99ef85b51bdd": [
    "mol_6f27dab8a70c",
    "mol_d3d84fca5c9f"
+  ],
+  "atm_1f02156385ca": [
+   "mol_3e7f3f6a9430"
+  ],
+  "atm_4db6f48f473b": [
+   "mol_3e7f3f6a9430"
+  ],
+  "atm_5c6dd5af93f3": [
+   "mol_3e7f3f6a9430"
+  ],
+  "atm_7e67c8b59e9a": [
+   "mol_3e7f3f6a9430"
   ],
   "atm_f6d29ceff035": [
    "mol_62868e710eea"
@@ -6309,54 +7914,65 @@
   "atm_e3a6a253be44": [
    "mol_18152eec3f06"
   ],
-  "atm_52f830b17ac5": [
-   "mol_71f5859d1a05"
-  ],
-  "atm_5d981c49eb79": [
-   "mol_71f5859d1a05",
-   "mol_81db3b1861ff"
-  ],
-  "atm_67097f4cbca4": [
-   "mol_71f5859d1a05"
-  ],
-  "atm_f8b6f3e82ec4": [
-   "mol_71f5859d1a05"
-  ],
-  "atm_71e1ad60030a": [
-   "mol_51351223e538"
-  ],
   "atm_14600699a3e7": [
    "mol_bf8bd5948366"
   ],
   "atm_f0b127710ce5": [
    "mol_bf8bd5948366"
   ],
-  "atm_019c308b2979": [
-   "mol_5cf9b0cb1e69",
-   "mol_930692a8b5f8"
+  "atm_71e1ad60030a": [
+   "mol_51351223e538"
   ],
-  "atm_c370d530dba1": [
-   "mol_5cf9b0cb1e69"
+  "atm_40cac0e4c7dd": [
+   "mol_ad2bb0fd65d1"
+  ],
+  "atm_5e6aab25783a": [
+   "mol_ad2bb0fd65d1"
+  ],
+  "atm_71c857c45aee": [
+   "mol_ad2bb0fd65d1"
+  ],
+  "atm_73bdc8bd6a98": [
+   "mol_ad2bb0fd65d1",
+   "mol_f7f07c987986"
+  ],
+  "atm_ae6ab4de9a82": [
+   "mol_ad2bb0fd65d1",
+   "mol_f7f07c987986"
   ],
   "atm_c31c773544bb": [
    "mol_fa9840f948ea",
    "mol_8dc4088e58e9",
    "mol_2b7a575b0d99"
   ],
-  "atm_4a4fd31e7db5": [
-   "mol_846e895e2267"
+  "atm_13f509999bc0": [
+   "mol_e55f7dc507db",
+   "mol_faa546d6f876",
+   "mol_95dfd8c7a312"
   ],
-  "atm_534a1ac8ceb2": [
-   "mol_846e895e2267"
+  "atm_5d77688926e3": [
+   "mol_e55f7dc507db"
   ],
-  "atm_85267ed54f12": [
-   "mol_846e895e2267"
+  "atm_88ae5884a999": [
+   "mol_22b5e06b3780"
   ],
-  "atm_b0a49d400a66": [
-   "mol_930692a8b5f8"
+  "atm_91b249335f9f": [
+   "mol_22b5e06b3780"
   ],
-  "atm_e70740d7190f": [
-   "mol_930692a8b5f8"
+  "atm_92f75e584a5b": [
+   "mol_22b5e06b3780",
+   "mol_22682e64bc68"
+  ],
+  "atm_e6f75e7898c3": [
+   "mol_22b5e06b3780",
+   "mol_22682e64bc68"
+  ],
+  "atm_e0433c9aef8a": [
+   "mol_d01e2576fb32",
+   "mol_ea5e3adcb879"
+  ],
+  "atm_f9964f016ef2": [
+   "mol_d01e2576fb32"
   ],
   "atm_4546211f9594": [
    "mol_b1bcff8a493f"
@@ -6366,14 +7982,6 @@
   ],
   "atm_49a1e6e97bd2": [
    "mol_8dc4088e58e9"
-  ],
-  "atm_13f509999bc0": [
-   "mol_e55f7dc507db",
-   "mol_faa546d6f876",
-   "mol_0fa558e91b28"
-  ],
-  "atm_5d77688926e3": [
-   "mol_e55f7dc507db"
   ],
   "atm_349aa75a4bdc": [
    "mol_40a472db629d"
@@ -6390,31 +7998,6 @@
   "atm_0f9412a53ebb": [
    "mol_c57787b4cfc1"
   ],
-  "atm_da8f02625c33": [
-   "mol_9f3d7af465c4"
-  ],
-  "atm_e0433c9aef8a": [
-   "mol_9f3d7af465c4",
-   "mol_ea5e3adcb879"
-  ],
-  "atm_f9964f016ef2": [
-   "mol_9f3d7af465c4"
-  ],
-  "atm_f35c6b5a214b": [
-   "mol_2b7a575b0d99"
-  ],
-  "atm_a60aa4ae835e": [
-   "mol_b53aa987e2cd"
-  ],
-  "atm_d3727eb4767a": [
-   "mol_b53aa987e2cd"
-  ],
-  "atm_08a5788cfe1e": [
-   "mol_faa546d6f876"
-  ],
-  "atm_ea096b05bb43": [
-   "mol_faa546d6f876"
-  ],
   "atm_129d4a19ac88": [
    "mol_dc4655e3e5be"
   ],
@@ -6427,55 +8010,53 @@
   "atm_81203c6e0b37": [
    "mol_dc4655e3e5be"
   ],
-  "atm_57714df5d867": [
-   "mol_0fa558e91b28"
+  "atm_f35c6b5a214b": [
+   "mol_2b7a575b0d99"
+  ],
+  "atm_08a5788cfe1e": [
+   "mol_faa546d6f876",
+   "mol_f06751391067"
+  ],
+  "atm_ea096b05bb43": [
+   "mol_faa546d6f876"
+  ],
+  "atm_0f259f84fb29": [
+   "mol_f18172abeadf"
+  ],
+  "atm_8dca31d7924e": [
+   "mol_f18172abeadf",
+   "mol_72fc93e2105d"
+  ],
+  "atm_aa1543dd152e": [
+   "mol_f18172abeadf",
+   "mol_72fc93e2105d"
+  ],
+  "atm_f3fb02fa3be5": [
+   "mol_f18172abeadf"
   ],
   "atm_a36ae7f0bdbe": [
    "mol_d3d84fca5c9f"
   ],
-  "atm_1cf9913c8381": [
-   "mol_fc8126b1ca3f"
+  "atm_4a4fd31e7db5": [
+   "mol_846e895e2267"
   ],
-  "atm_d146af6844dc": [
-   "mol_fc8126b1ca3f"
+  "atm_85267ed54f12": [
+   "mol_846e895e2267"
   ],
   "atm_64a34928a5c3": [
-   "mol_748428370e37"
+   "mol_0290541f049a"
+  ],
+  "atm_792a1b421feb": [
+   "mol_0290541f049a"
   ],
   "atm_d77af7df6d03": [
-   "mol_748428370e37"
+   "mol_0290541f049a"
   ],
   "atm_d943fb448339": [
-   "mol_748428370e37"
+   "mol_0290541f049a"
   ],
-  "atm_c6796d5edf50": [
-   "mol_81db3b1861ff"
-  ],
-  "atm_f10c40951ca6": [
-   "mol_81db3b1861ff",
-   "mol_588a3c6a3c1a"
-  ],
-  "atm_feccf0569915": [
-   "mol_81db3b1861ff",
-   "mol_588a3c6a3c1a"
-  ],
-  "atm_1281f5fa3d76": [
-   "mol_c8be2e67c52f"
-  ],
-  "atm_3d0e81322e1d": [
-   "mol_c8be2e67c52f"
-  ],
-  "atm_a730bfa14785": [
-   "mol_c8be2e67c52f"
-  ],
-  "atm_b9d0390869b7": [
-   "mol_c8be2e67c52f"
-  ],
-  "atm_af2a2617b586": [
-   "mol_50b1b91d6012"
-  ],
-  "atm_b9e670bd45e8": [
-   "mol_50b1b91d6012"
+  "atm_2d7f42f52810": [
+   "mol_95dfd8c7a312"
   ],
   "atm_3fb234b540b2": [
    "mol_60009110e8f9"
@@ -6492,60 +8073,19 @@
   "atm_c5e197941608": [
    "mol_60009110e8f9"
   ],
-  "atm_2480ce1ef18a": [
-   "mol_19751f14a230",
-   "mol_92c2e73ad8ea"
+  "atm_072819aec72c": [
+   "mol_a64af2d6de31",
+   "mol_2c7bfeda97f1"
   ],
-  "atm_931c0da62f9c": [
-   "mol_19751f14a230"
+  "atm_54a887a29bb7": [
+   "mol_a64af2d6de31",
+   "mol_2c7bfeda97f1"
   ],
-  "atm_9a486159e361": [
-   "mol_19751f14a230",
-   "mol_92c2e73ad8ea"
+  "atm_6b8ad57c88d9": [
+   "mol_a64af2d6de31"
   ],
-  "atm_e972c3d2ffab": [
-   "mol_19751f14a230",
-   "mol_fbffae2b40cb"
-  ],
-  "atm_24f93f86a20d": [
-   "mol_8950e24b3511"
-  ],
-  "atm_5550ff4942ef": [
-   "mol_8950e24b3511"
-  ],
-  "atm_57b210c8d833": [
-   "mol_8950e24b3511"
-  ],
-  "atm_d17226bbf6bf": [
-   "mol_8950e24b3511"
-  ],
-  "atm_1f7c52fa2190": [
-   "mol_67ba864cc038",
-   "mol_7d30df291be9",
-   "mol_fbffae2b40cb"
-  ],
-  "atm_2142c38119f1": [
-   "mol_67ba864cc038"
-  ],
-  "atm_a58facd06de0": [
-   "mol_67ba864cc038",
-   "mol_7d30df291be9"
-  ],
-  "atm_c6a6064d3dec": [
-   "mol_67ba864cc038",
-   "mol_fbffae2b40cb"
-  ],
-  "atm_35ff70ea7db7": [
-   "mol_d35565113e2a"
-  ],
-  "atm_4668689bcc6e": [
-   "mol_d35565113e2a"
-  ],
-  "atm_5ae0b4619855": [
-   "mol_d35565113e2a"
-  ],
-  "atm_a54d90c20b3e": [
-   "mol_d35565113e2a"
+  "atm_8b6110d669e6": [
+   "mol_a64af2d6de31"
   ],
   "atm_a428599cb5b8": [
    "mol_2ed0b1a9b942"
@@ -6564,37 +8104,64 @@
    "mol_2ed0b1a9b942",
    "mol_0c44e33cf586"
   ],
+  "atm_2480ce1ef18a": [
+   "mol_b180c50d7120",
+   "mol_eba27f11bd89",
+   "mol_92c2e73ad8ea"
+  ],
+  "atm_9a486159e361": [
+   "mol_b180c50d7120",
+   "mol_92c2e73ad8ea"
+  ],
+  "atm_e972c3d2ffab": [
+   "mol_b180c50d7120",
+   "mol_4bc9218cbb64"
+  ],
+  "atm_f32a9d025eca": [
+   "mol_b180c50d7120",
+   "mol_eba27f11bd89"
+  ],
   "atm_ab0d2c977afc": [
    "mol_2f4506fde9b8"
   ],
   "atm_d5bcbae8b5ca": [
    "mol_2f4506fde9b8"
   ],
-  "atm_2109c072bc2d": [
-   "mol_0fc6e9ae3b8e"
+  "atm_1f7c52fa2190": [
+   "mol_f4f20bba4703",
+   "mol_58166b121022",
+   "mol_50f27df90b48",
+   "mol_4bc9218cbb64"
   ],
-  "atm_427e564cfa66": [
-   "mol_0fc6e9ae3b8e"
+  "atm_2142c38119f1": [
+   "mol_f4f20bba4703",
+   "mol_50f27df90b48"
   ],
-  "atm_dfd645ef05c0": [
-   "mol_0fc6e9ae3b8e"
+  "atm_a58facd06de0": [
+   "mol_f4f20bba4703",
+   "mol_58166b121022"
   ],
-  "atm_f1e627fbac6a": [
-   "mol_0fc6e9ae3b8e"
+  "atm_e433d79a595f": [
+   "mol_f4f20bba4703"
   ],
-  "atm_70f0ec5e8b9e": [
-   "mol_6595a8a559ae",
-   "mol_f3654f4a68a4"
+  "atm_af2a2617b586": [
+   "mol_50b1b91d6012",
+   "mol_af3a63f77d1b"
   ],
-  "atm_bd2899174a72": [
-   "mol_6595a8a559ae",
-   "mol_f3654f4a68a4"
+  "atm_b9e670bd45e8": [
+   "mol_50b1b91d6012"
   ],
-  "atm_d83deb4b95ed": [
-   "mol_6595a8a559ae"
+  "atm_35ff70ea7db7": [
+   "mol_d35565113e2a"
   ],
-  "atm_fa72e793a49c": [
-   "mol_6595a8a559ae"
+  "atm_4668689bcc6e": [
+   "mol_d35565113e2a"
+  ],
+  "atm_5ae0b4619855": [
+   "mol_d35565113e2a"
+  ],
+  "atm_a54d90c20b3e": [
+   "mol_d35565113e2a"
   ],
   "atm_1cd2aa06b732": [
    "mol_dc9e2ae38e5d"
@@ -6612,19 +8179,20 @@
    "mol_a3408ab6f77e"
   ],
   "atm_d114d8bf82fb": [
-   "mol_a3408ab6f77e"
+   "mol_a3408ab6f77e",
+   "mol_f42da89a738a"
   ],
-  "atm_48f209c13e3a": [
-   "mol_3964bc5f35d1"
+  "atm_10f4a4478224": [
+   "mol_efb4b17ae832"
   ],
-  "atm_925176336489": [
-   "mol_3964bc5f35d1"
+  "atm_bd2899174a72": [
+   "mol_efb4b17ae832",
+   "mol_6595a8a559ae",
+   "mol_514082686046",
+   "mol_d3f653572b38"
   ],
-  "atm_ee8caa0687d3": [
-   "mol_3964bc5f35d1"
-  ],
-  "atm_f4d0689cb5d2": [
-   "mol_3964bc5f35d1"
+  "atm_f7d40e3ac375": [
+   "mol_af3a63f77d1b"
   ],
   "atm_1c93c98df68c": [
    "mol_dfb63e6e441d",
@@ -6640,6 +8208,31 @@
    "mol_ea5e3adcb879",
    "mol_a4612ab7cc38"
   ],
+  "atm_63a220d3ccc8": [
+   "mol_f06751391067"
+  ],
+  "atm_1281f5fa3d76": [
+   "mol_c8be2e67c52f"
+  ],
+  "atm_3d0e81322e1d": [
+   "mol_c8be2e67c52f"
+  ],
+  "atm_a730bfa14785": [
+   "mol_c8be2e67c52f"
+  ],
+  "atm_b9d0390869b7": [
+   "mol_c8be2e67c52f"
+  ],
+  "atm_70f0ec5e8b9e": [
+   "mol_6595a8a559ae"
+  ],
+  "atm_d83deb4b95ed": [
+   "mol_6595a8a559ae",
+   "mol_514082686046"
+  ],
+  "atm_fa72e793a49c": [
+   "mol_6595a8a559ae"
+  ],
   "atm_0a2c31470dc0": [
    "mol_0c44e33cf586"
   ],
@@ -6647,20 +8240,103 @@
    "mol_0c44e33cf586",
    "mol_f7f07c987986"
   ],
+  "atm_962517d94a40": [
+   "mol_3551c5972c05"
+  ],
+  "atm_ef1de3b43459": [
+   "mol_3551c5972c05"
+  ],
+  "atm_d146af6844dc": [
+   "mol_a6df355c031d"
+  ],
+  "atm_931c0da62f9c": [
+   "mol_eba27f11bd89",
+   "mol_4bc9218cbb64"
+  ],
+  "atm_9d45a7bad7f9": [
+   "mol_eba27f11bd89"
+  ],
+  "atm_979160e118e7": [
+   "mol_45c8a8950017"
+  ],
+  "atm_bf4d2b322bc6": [
+   "mol_45c8a8950017"
+  ],
+  "atm_ca05c73a7f07": [
+   "mol_45c8a8950017"
+  ],
+  "atm_da86790feea2": [
+   "mol_45c8a8950017"
+  ],
   "atm_7195f0711f76": [
    "mol_588a3c6a3c1a"
   ],
-  "atm_29b9d2dea9c4": [
-   "mol_7d30df291be9"
+  "atm_f10c40951ca6": [
+   "mol_588a3c6a3c1a"
   ],
-  "atm_e433d79a595f": [
-   "mol_7d30df291be9"
+  "atm_feccf0569915": [
+   "mol_588a3c6a3c1a"
   ],
-  "atm_10f4a4478224": [
-   "mol_f3654f4a68a4"
+  "atm_13601d2b6254": [
+   "mol_10301e9edea2"
   ],
-  "atm_635d3f4d1fe8": [
-   "mol_f3654f4a68a4"
+  "atm_7e047d064bd0": [
+   "mol_10301e9edea2"
+  ],
+  "atm_a60f6d19f902": [
+   "mol_10301e9edea2"
+  ],
+  "atm_ac0bbb65ec93": [
+   "mol_10301e9edea2"
+  ],
+  "atm_94f4cc63f804": [
+   "mol_72fc93e2105d"
+  ],
+  "atm_e53b24ec7dce": [
+   "mol_72fc93e2105d"
+  ],
+  "atm_c6a6064d3dec": [
+   "mol_58166b121022",
+   "mol_50f27df90b48"
+  ],
+  "atm_fe3149f63023": [
+   "mol_58166b121022"
+  ],
+  "atm_2f0478c72970": [
+   "mol_b4f758333005"
+  ],
+  "atm_545ea5598310": [
+   "mol_b4f758333005"
+  ],
+  "atm_71e9c5df38ee": [
+   "mol_b4f758333005"
+  ],
+  "atm_877f06d37696": [
+   "mol_b4f758333005"
+  ],
+  "atm_24f93f86a20d": [
+   "mol_8950e24b3511"
+  ],
+  "atm_5550ff4942ef": [
+   "mol_8950e24b3511"
+  ],
+  "atm_57b210c8d833": [
+   "mol_8950e24b3511"
+  ],
+  "atm_d17226bbf6bf": [
+   "mol_8950e24b3511"
+  ],
+  "atm_2109c072bc2d": [
+   "mol_0fc6e9ae3b8e"
+  ],
+  "atm_427e564cfa66": [
+   "mol_0fc6e9ae3b8e"
+  ],
+  "atm_dfd645ef05c0": [
+   "mol_0fc6e9ae3b8e"
+  ],
+  "atm_f1e627fbac6a": [
+   "mol_0fc6e9ae3b8e"
   ],
   "atm_b050477b82a7": [
    "mol_58072fa944e7"
@@ -6668,11 +8344,23 @@
   "atm_ed9d09b8ce1a": [
    "mol_58072fa944e7"
   ],
-  "atm_483358c79995": [
-   "mol_872247d8b1e1"
+  "atm_1ae19d25aa2d": [
+   "mol_50f27df90b48"
   ],
-  "atm_d75f452353d9": [
-   "mol_872247d8b1e1"
+  "atm_cbb1c8efe37a": [
+   "mol_f42da89a738a"
+  ],
+  "atm_48f209c13e3a": [
+   "mol_3964bc5f35d1"
+  ],
+  "atm_925176336489": [
+   "mol_3964bc5f35d1"
+  ],
+  "atm_ee8caa0687d3": [
+   "mol_3964bc5f35d1"
+  ],
+  "atm_f4d0689cb5d2": [
+   "mol_3964bc5f35d1"
   ],
   "atm_173d2666b831": [
    "mol_1d6ca4da95c6"
@@ -6680,37 +8368,20 @@
   "atm_b71ca9914bc6": [
    "mol_1d6ca4da95c6"
   ],
-  "atm_fe3149f63023": [
-   "mol_fbffae2b40cb"
+  "atm_635d3f4d1fe8": [
+   "mol_514082686046",
+   "mol_d3f653572b38"
   ],
-  "atm_672cd87996ab": [
-   "mol_c28365b8149c"
+  "atm_a7ecfad95f50": [
+   "mol_514082686046"
   ],
-  "atm_87059bc2df36": [
-   "mol_c28365b8149c"
+  "atm_4f6928e8ab4d": [
+   "mol_92c2e73ad8ea"
   ],
-  "atm_b4521f74ff37": [
-   "mol_c28365b8149c"
-  ],
-  "atm_fb9cdb121df3": [
-   "mol_c28365b8149c"
-  ],
-  "atm_6440cea04765": [
-   "mol_3e915c5da5fd"
-  ],
-  "atm_ad0093de4697": [
-   "mol_3e915c5da5fd"
-  ],
-  "atm_fd0c7f79f1c7": [
-   "mol_3e915c5da5fd"
-  ],
-  "atm_072819aec72c": [
-   "mol_2c7bfeda97f1"
+  "atm_af77a40342bd": [
+   "mol_92c2e73ad8ea"
   ],
   "atm_4c506c031137": [
-   "mol_2c7bfeda97f1"
-  ],
-  "atm_54a887a29bb7": [
    "mol_2c7bfeda97f1"
   ],
   "atm_ec228de3a806": [
@@ -6719,36 +8390,63 @@
   "atm_dc6f04f6a1d0": [
    "mol_f7f07c987986"
   ],
+  "atm_05dc60e6542c": [
+   "mol_1f290a3f982a"
+  ],
+  "atm_6c6e2e89aba8": [
+   "mol_1f290a3f982a"
+  ],
+  "atm_91b6f26a63b1": [
+   "mol_1f290a3f982a"
+  ],
+  "atm_dd7d5f9e2fdf": [
+   "mol_1f290a3f982a"
+  ],
   "atm_2b6553ea8e6b": [
    "mol_22682e64bc68"
   ],
   "atm_4b3b17e5270b": [
    "mol_22682e64bc68"
   ],
-  "atm_92f75e584a5b": [
-   "mol_22682e64bc68"
+  "atm_4331cd4c61dd": [
+   "mol_2bd3d753c073"
   ],
-  "atm_e6f75e7898c3": [
-   "mol_22682e64bc68"
+  "atm_895143231e7c": [
+   "mol_2bd3d753c073"
   ],
-  "atm_4f6928e8ab4d": [
-   "mol_92c2e73ad8ea"
+  "atm_ba9c8744e74b": [
+   "mol_2bd3d753c073"
   ],
-  "atm_af77a40342bd": [
-   "mol_92c2e73ad8ea"
+  "atm_c464359a13cf": [
+   "mol_2bd3d753c073"
   ],
-  "atm_0f5685ec7286": [
-   "mol_bbd73e771b62"
+  "atm_6440cea04765": [
+   "mol_6a291219fe23"
   ],
-  "atm_3b756d7dfdab": [
-   "mol_bbd73e771b62"
+  "atm_ad0093de4697": [
+   "mol_6a291219fe23"
   ],
-  "atm_962517d94a40": [
-   "mol_bbd73e771b62"
+  "atm_fd0c7f79f1c7": [
+   "mol_6a291219fe23"
+  ],
+  "atm_9a043a4cd035": [
+   "mol_7eb7ae364e22"
+  ],
+  "atm_9a87a28cd0a5": [
+   "mol_7eb7ae364e22"
+  ],
+  "atm_f16ce9b85697": [
+   "mol_7eb7ae364e22"
+  ],
+  "atm_f5d2c803c983": [
+   "mol_7eb7ae364e22"
+  ],
+  "atm_29b9d2dea9c4": [
+   "mol_4bc9218cbb64"
   ]
  },
- "spent_usd": 4.0034,
- "latest_snapshot": "snapshots/260908_170604_p0.5_k10_s4.json",
+ "spent_usd": 5.6387,
+ "latest_snapshot": "snapshots/260914_135904_p0.5_k10_s4.json",
  "params": {
   "pct": 0.5,
   "knn": 10,
@@ -6758,22 +8456,22 @@
   "mutual": true
  },
  "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
- "threshold": 0.3350451937317848,
- "n_atoms": 1373,
- "n_molecules": 128,
+ "threshold": 0.345714880824089,
+ "n_atoms": 1481,
+ "n_molecules": 140,
  "distance_percentiles": {
-  "1": 0.3871,
-  "2": 0.4383,
-  "5": 0.5125,
-  "10": 0.5742,
-  "25": 0.6682,
-  "50": 0.7565
+  "1": 0.397,
+  "2": 0.4481,
+  "5": 0.5218,
+  "10": 0.5834,
+  "25": 0.677,
+  "50": 0.7652
  },
- "updated": 1788854764.9310992,
+ "updated": 1789362243.1205473,
  "links": {
   "n": 19,
   "molecules_with_links": 4,
-  "at": 1788741789.0960946
+  "at": 1789362242.7370808
  },
  "truncated": false,
  "stale_embeddings": 0

@@ -19,7 +19,7 @@
     "architecture": 4,
     "history": 1
   },
-  "merged_from": 2,
+  "merged_from": 1,
   "missing_atoms": [
     "대규모 노동자 주택단지(mass working-class housing estate)라는 상위 개념 자체를 정의하는 원자"
   ],
@@ -36,9 +36,7 @@
     "pct": 0.5
   },
   "parse_rescued": false,
-  "periphery": [
-    "atm_b0a49d400a66"
-  ],
+  "periphery": [],
   "related_concepts": [
     "Garden city movement",
     "Social housing policy",
@@ -50,7 +48,7 @@
   ],
   "retries": 0,
   "slug": "20th-century-mass-worker-housing-estates",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -58,7 +56,7 @@
 
 # 20세기 대규모 노동자 주택단지 · 20th-Century Mass Working-Class Housing Estates
 
-`mol_095cb2bc5fd8` · 원자 5개 · cohesion 0.2111 · diameter 0.3043 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.62
+`mol_095cb2bc5fd8` · 원자 5개 · cohesion 0.2111 · diameter 0.3043 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.62
 
 > 전간기 유럽의 사회주택 운동과 사회주의권의 조립식 판넬 주택단지를 아우르는, 20세기 국가·지자체 주도 대규모 노동자 주거단지 현상이다.
 
@@ -99,6 +97,3 @@
 - [[atm_786e9b689833]] **Interwar industrial workers' housing estates across Europe** (architecture/global)
 - [[atm_ec52e7b7a8fa]] **Global family of socialist-era prefab housing estates** (history/global)
 - [[atm_fc90c4a62930]] **Global family of socialist prefabricated housing estates** (architecture/global)
-
-## 주변 원자(흡수된 이웃 클리크 — 멤버 아님)
-- [[atm_b0a49d400a66]] Post-socialist critique and renovation of panel housing estates

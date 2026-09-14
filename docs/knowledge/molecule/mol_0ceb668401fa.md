@@ -51,7 +51,7 @@
   ],
   "retries": 0,
   "slug": "historical-polities-of-russia-by-region",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -59,7 +59,7 @@
 
 # 러시아 지역별 역사적 국가·정치체 목록 · Historical Polities of Russia by Region (Wikipedia regional lists)
 
-`mol_0ceb668401fa` · 원자 6개 · cohesion 0.205 · diameter 0.2805 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
+`mol_0ceb668401fa` · 원자 6개 · cohesion 0.205 · diameter 0.2805 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.72
 
 > 현재 러시아 영토 내 여러 지역에 존재했던 역사적 국가·공국·한국·임시정부들을 지역별로 정리한 위키백과식 목록 분자이다.
 

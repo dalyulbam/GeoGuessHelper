@@ -7,17 +7,17 @@
     "atm_dfd645ef05c0",
     "atm_f1e627fbac6a"
   ],
-  "cohesion": 0.2614,
+  "cohesion": 0.2782,
   "confidence": 0.78,
   "cost_usd": 0.0889,
   "created": 1788741025.061269,
-  "diameter": 0.2896,
+  "diameter": 0.3153,
   "foreign_citations": [],
   "id": "mol_0fc6e9ae3b8e",
   "layers": {
     "language": 4
   },
-  "merged_from": 2,
+  "merged_from": 1,
   "missing_atoms": [],
   "model": "claude-sonnet-5",
   "n": 4,
@@ -32,9 +32,7 @@
     "pct": 0.5
   },
   "parse_rescued": false,
-  "periphery": [
-    "atm_cba815c32e45"
-  ],
+  "periphery": [],
   "related_concepts": [
     "Hindi Belt",
     "Indian language policy",
@@ -46,7 +44,7 @@
   ],
   "retries": 0,
   "slug": "devanagari-script-language-politics-india",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -54,7 +52,7 @@
 
 # 데바나가리 문자와 인도의 언어 정치 · Devanagari Script and Language Politics in India
 
-`mol_0fc6e9ae3b8e` · 원자 4개 · cohesion 0.2614 · diameter 0.2896 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
+`mol_0fc6e9ae3b8e` · 원자 4개 · cohesion 0.2782 · diameter 0.3153 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.78
 
 > 인도에서 데바나가리 문자가 힌디어·마라티어의 공식 표기 수단으로 채택되고 영어 및 지역어와 경쟁하며 도시 경관과 정책을 형성하는 현상.
 
@@ -94,6 +92,3 @@
 - [[atm_427e564cfa66]] **Devanagari standardization and Hindi language policy architects** (language/country)
 - [[atm_dfd645ef05c0]] **English-medium and Anglicized signage push against regional-language mandates** (language/region)
 - [[atm_f1e627fbac6a]] **Marathi in Devanagari script in Maharashtra** (language/region)
-
-## 주변 원자(흡수된 이웃 클리크 — 멤버 아님)
-- [[atm_cba815c32e45]] Indic scripts tied to state linguistic identity

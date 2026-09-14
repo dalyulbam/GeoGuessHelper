@@ -51,7 +51,7 @@
   ],
   "retries": 0,
   "slug": "post-industrial-regeneration-lodz",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260908_170604_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -59,7 +59,7 @@
 
 # 구 섬유산업 도시의 탈산업 재생 (우치와 유사 사례) · Post-industrial Regeneration of Former Textile Cities (Łódź and Peers)
 
-`mol_eeeb7ff8434d` · 원자 4개 · cohesion 0.2033 · diameter 0.2285 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.82
+`mol_eeeb7ff8434d` · 원자 4개 · cohesion 0.2033 · diameter 0.2285 · 스냅샷 `260908_170604_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.82
 
 > 폴란드 우치(Łódź)를 중심으로 구 섬유·제조업 도시들이 탈산업화 이후 서비스업·문화산업으로 전환하며 겪는 불균등한 재생 과정을 다루는 분자이다.
 

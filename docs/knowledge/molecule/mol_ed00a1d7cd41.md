@@ -53,7 +53,7 @@
   ],
   "retries": 0,
   "slug": "tusi-system-southwest-china",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -61,7 +61,7 @@
 
 # 중국 서남부 토사(土司) 제도 · Tusi System of Southwest China
 
-`mol_ed00a1d7cd41` · 원자 5개 · cohesion 0.1444 · diameter 0.1779 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.82
+`mol_ed00a1d7cd41` · 원자 5개 · cohesion 0.1444 · diameter 0.1779 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.82
 
 > 윈난·쓰촨·구이저우·티베트 접경지대에서 원·명·청 왕조가 소수민족 수장에게 세습 통치권을 인정한 토사(土司) 체제를 다루는 분자이다.
 

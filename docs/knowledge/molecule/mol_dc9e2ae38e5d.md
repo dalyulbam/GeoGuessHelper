@@ -7,7 +7,7 @@
     "atm_78de1e5521ab",
     "atm_cd600d8705f5"
   ],
-  "cohesion": 0.2663,
+  "cohesion": 0.2649,
   "confidence": 0.85,
   "cost_usd": 0.0452,
   "created": 1788740856.8813283,
@@ -49,7 +49,7 @@
   ],
   "retries": 0,
   "slug": "rantau-abang-sea-turtle-conservation",
-  "snapshot": "260907_091951_p0.5_k10_s4.json",
+  "snapshot": "260914_135904_p0.5_k10_s4.json",
   "status": "hypothesis",
   "web_searches": 0
 }
@@ -57,7 +57,7 @@
 
 # 란타우아방 바다거북 보전 · Rantau Abang Sea Turtle Conservation
 
-`mol_dc9e2ae38e5d` · 원자 4개 · cohesion 0.2663 · diameter 0.3193 · 스냅샷 `260907_091951_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
+`mol_dc9e2ae38e5d` · 원자 4개 · cohesion 0.2649 · diameter 0.3193 · 스냅샷 `260914_135904_p0.5_k10_s4.json` (pct=0.5, knn=10, min=4) · **등급: hypothesis** (기계 산출 — 사람 승인 전) · 신뢰도 0.85
 
 > 말레이시아 동해안 Rantau Abang을 중심으로 한 leatherback 바다거북 산란지의 붕괴와 보전 운동을 다루는 분자이다.
 
