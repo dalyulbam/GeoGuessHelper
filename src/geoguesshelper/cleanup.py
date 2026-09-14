@@ -363,8 +363,19 @@ def scan(
                 c.items.append(mk(p, c.key, f"최신 {keep_last}건 밖"))
 
     # 6) 큐 실행 로그 — append 전용이라 회전이 없다.
+    #
+    # **기본에서 뺐다(260914).** 예전에는 default=True 여서 인자 없는 청소 한 번이 이 파일을
+    # 통째로 지웠다. 그런데 이 로그는
+    #   · 되살릴 수 없다 — .gitignore:26 으로 추적 밖이고, 회전본도 없다.
+    #   · 다른 것이 기대고 있다 — baseline.load_jobs 가 정정 루프의 재료(image_panos)를
+    #     여기서 읽고(baseline.py:48), observe 도 여기를 본다. 지우면 그 잡들은 영영
+    #     정정 대상이 되지 못한다.
+    #   · 유일한 기록이다 — 무엇이 언제 실패했는지 알 길이 이것뿐이다.
+    # 실제로 소실된 흔적이 남아 있다: docs/plan/atom-dialogue_260906.html:350 은 36건,
+    # impl-spec_260907.md:49 는 42건이라 적고 있는데 지금 파일은 09-10 12:45 이후 26건뿐이다.
+    # 지울 값어치(≈1MB)보다 잃는 것이 크다. 지우려면 --only jobs-log 로 **명시**해야 한다.
     c = add("jobs-log", "작업 큐 로그",
-            "docs/jobs/*.jsonl — append 전용, 회전 없음", True)
+            "docs/jobs/*.jsonl — append 전용, 회전 없음. 되살릴 수 없어 기본에서 뺐다", False)
     if settings.jobs_dir.exists():
         for p in settings.jobs_dir.glob("*.jsonl"):
             ok, _ = usable(p)

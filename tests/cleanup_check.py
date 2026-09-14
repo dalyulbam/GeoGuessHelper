@@ -124,6 +124,15 @@ def main() -> int:
         ok &= check("보고서 부산물 2개 (.bak, .script.json)",
                     cats["report-aux"]["files"] == 2, f"실제 {cats['report-aux']['files']}")
 
+        print("\n①-2 되살릴 수 없는 것은 기본 청소에 들어가지 않는다")
+        # 작업 큐 로그가 default=True 였던 탓에 인자 없는 청소 한 번이 09-07 이전 이력을
+        # 통째로 날렸다(문서엔 42건, 남은 건 26건 · 260914). 추적 밖(.gitignore)이라
+        # 되살릴 수도 없고, baseline.load_jobs 가 정정 루프 재료를 여기서 읽는다.
+        # 기본에서 빠졌다는 사실 자체를 검사로 고정한다 — 주석은 되돌려지기 쉽다.
+        ok &= check("jobs-log 는 기본 선택이 아니다(명시해야 지워진다)",
+                    cats["jobs-log"]["default"] is False,
+                    f"실제 default={cats['jobs-log']['default']}")
+
         print("\n② 유예구간 — 방금 만든 파일은 후보가 아니다")
         recent = [i for c in rep["categories"] for i in c["sample"]
                   if "capture_eeee" in i["path"]]
