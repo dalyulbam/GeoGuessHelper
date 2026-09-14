@@ -1221,6 +1221,36 @@ def build_app(settings: Settings) -> FastAPI:
             raise HTTPException(status_code=409, detail="이미 끝난 작업입니다.")
         return JSONResponse({"ok": True, "job": (_QUEUE.get(job_id) or jobs.Job("", "", {})).public()})
 
+    @app.post("/api/jobs/{job_id}/retry")
+    async def api_job_retry(job_id: str, request: Request):
+        """실패한 작업을 **원래 payload 그대로** 다시 큐에 넣는다.
+
+        지금까지는 실패한 줄을 화면에서 되살릴 방법이 아예 없었다. 화면에는 "실패"와
+        사유만 남고, 다시 하려면 사용자가 그 장면을 처음부터 다시 잡아야 했다 — 잡은
+        payload 를 그대로 들고 있는데도.
+
+        client_key 는 새로 만든다. 원래 키를 그대로 쓰면 submit 의 중복 병합이 옛 작업을
+        돌려줄 수 있고(jobs.py:177), 그러면 '다시 시도' 가 아무 일도 안 한 것처럼 보인다.
+
+        정정(correct) 잡은 여기서 다시 돌려도 싸다 — correction.run_job 이 PARTIAL 을
+        알아보고 판단 단계를 재사용하므로 LLM 호출이 없다(correction.py:576).
+        """
+        assert _QUEUE is not None
+        job = _QUEUE.get(job_id)
+        if job is None:
+            raise HTTPException(status_code=404, detail="없는 작업입니다(이력에서 밀려났을 수 있습니다).")
+        if job.status not in (jobs.FAILED, jobs.CANCELED):
+            raise HTTPException(status_code=409, detail="실패하거나 취소된 작업만 다시 시도할 수 있습니다.")
+        payload = {k: v for k, v in (job.payload or {}).items()
+                   if k not in ("clientKey", "_credref")}   # 키 핸들은 이미 소모됐다
+        _gate(request)
+        try:
+            new = await _submit(job.kind, payload, job.label)
+        except RuntimeError as exc:
+            raise HTTPException(status_code=429, detail=str(exc)) from exc
+        return JSONResponse({"ok": True, "job": new.public(), "retriedFrom": job_id,
+                             "position": _QUEUE.position(new.id), "queue": _QUEUE.stats()})
+
     @app.get("/api/jobs/{job_id}/stream")
     async def api_job_stream(job_id: str, request: Request):
         assert _QUEUE is not None

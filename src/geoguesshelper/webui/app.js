@@ -1671,6 +1671,26 @@ async function cancelJob(id) {
   refreshJobs();
 }
 
+/* 실패한 줄을 화면에서 되살린다.
+ *
+ * 서버가 원래 payload 를 그대로 들고 있으므로 사용자가 장면을 다시 잡을 필요가 없다.
+ * 없던 기능이라, 지금까지 실패한 줄은 화면에서 영영 실패로만 남았다. */
+async function retryJob(id, btn) {
+  if (btn) { btn.disabled = true; btn.textContent = "등록 중…"; }
+  let r;
+  try {
+    r = await api(`/api/jobs/${id}/retry`, { method: "POST", timeoutMs: 20000 });
+  } catch (e) {
+    if (btn) { btn.disabled = false; btn.textContent = "다시 시도"; }
+    if (e.status === 402) { onQuotaBlocked(e); return; }
+    setStatus("다시 시도 실패: " + e.message, "err", 7000);
+    return;
+  }
+  trackJob(r.job, r.job.tabId);
+  setStatus(`다시 큐에 넣었습니다 — 앞에 ${r.position || 0}건`, "ok");
+  refreshJobs();
+}
+
 // ── 작업 큐 패널 ───────────────────────────────────────────────
 const STAGE_LABEL = {
   start: "시작", capture: "캡처", captured: "캡처 완료", analyze: "분석",
@@ -1680,6 +1700,13 @@ const STAGE_LABEL = {
   // blind 판단 → 실측 정정 → 판별자 원자. 사람 승인 없음(docs/plan/impl-spec_260907.md §0).
   correct: "정정 루프",
   canceling: "취소 중", done: "완료", failed: "실패", canceled: "취소됨",
+};
+
+// 작업 **종류**. 라벨과 다르다 — 라벨은 "정정 · 선택 장면 보고서 · 0bRx…" 처럼 대상을
+// 가리키는 사람 말이라, 정정 작업이 보고서 작업으로 읽힌다. 종류는 그걸 가른다.
+const KIND_LABEL = {
+  report: "보고서", "scene-report": "보고서", "atlas-report": "아틀라스",
+  correct: "정정",
 };
 
 function renderQueue() {
@@ -1709,9 +1736,16 @@ function renderQueue() {
       `<a class="qlink" href="${esc(rp.url)}" target="_blank" rel="noopener">${esc(rp.langName || rp.lang || "보고서")} ↗</a>`
     ).join(" ");
     const btn = (st === "QUEUED" || st === "RUNNING")
-      ? `<button class="qcancel" data-cancel="${esc(j.id)}">취소</button>` : "";
+      ? `<button class="qcancel" data-cancel="${esc(j.id)}">취소</button>`
+      : (st === "FAILED" || st === "CANCELED")
+        ? `<button class="qretry" data-retry="${esc(j.id)}">다시 시도</button>` : "";
+    // 종류를 반드시 같이 보여 준다. 라벨만 보이던 때는 kind="correct" 이고 라벨이
+    // "정정 · 선택 장면 보고서 · …" 인 줄이 보고서 생성 실패로 읽혔다 — 실제로는
+    // 그 보고서에 **대한** 정정 작업이다. 라벨은 사람이 붙이는 말이고 종류는 사실이다.
+    const kind = KIND_LABEL[j.kind] || j.kind || "";
     return `<div class="qrow ${cls}">
       <div class="qhead"><span class="qstatus">${st === "QUEUED" ? "대기" : st === "RUNNING" ? "진행" : st === "DONE" ? "완료" : st === "FAILED" ? "실패" : "취소"}</span>
+        ${kind ? `<span class="qkind" title="작업 종류 (${esc(j.kind)})">${esc(kind)}</span>` : ""}
         <span class="qlabel" title="${esc(j.label || "")}">${esc(j.label || j.kind)}</span>
         ${where ? `<span class="qtab">${where}</span>` : ""}${btn}</div>
       <div class="qmeta">${esc(stage)}${secs ? " · " + secs : ""}${j.error ? " · " + esc(String(j.error).slice(0, 80)) : ""}</div>
@@ -1721,6 +1755,8 @@ function renderQueue() {
 
   list.querySelectorAll("[data-cancel]").forEach((b) =>
     b.addEventListener("click", () => cancelJob(b.dataset.cancel)));
+  list.querySelectorAll("[data-retry]").forEach((b) =>
+    b.addEventListener("click", () => retryJob(b.dataset.retry, b)));
 
   const orph = $("#queue-orphans");
   if (orph) {
