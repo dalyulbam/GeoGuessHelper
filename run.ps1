@@ -2,7 +2,7 @@
 <#
     GeoGuessHelper launcher
 
-        ./run.ps1            # sync ALL deps (map+capture+analyze), start server, open browser
+        ./run.ps1            # sync ALL deps (map+capture+analyze+subscription), start, open browser
         ./run.ps1 -Minimal   # base only (link 'extract'); skips Playwright/Pillow/anthropic
         ./run.ps1 -NoSync     # skip uv sync, just run (keeps all extras)
         ./run.ps1 -StopStale  # kill leftover .venv processes that block uv sync, then run
@@ -13,6 +13,12 @@
     Playwright extra, and analysis needs anthropic. Because both `uv sync` and `uv run`
     default to the BASE dependency set, a plain sync/run would UNINSTALL those extras and
     silently break capture + analyze. So we sync AND run with `--extra all`.
+
+    `subscription` is a SEPARATE extra on purpose: it lets GEOHELPER_LLM_BACKEND=subscription
+    call Claude through this PC's own login instead of an API key. It is deliberately NOT part
+    of `all`, because `all` is what the Dockerfile installs into the deployed image -- where
+    that feature cannot work (no `claude` CLI, and multi-user mode blocks it in code).
+    Locally we do want it, so this launcher asks for both.
 
     NOTE: this script is intentionally ASCII-only so Windows PowerShell 5.1
     (which reads .ps1 as the system code page, not UTF-8) parses it correctly.
@@ -104,9 +110,11 @@ if (-not $NoSync) {
         Invoke-Step "uv sync (base only)" { uv sync }
     }
     else {
-        Invoke-Step "uv sync --extra all" { uv sync --extra all }
+        Invoke-Step "uv sync --extra all --extra subscription" {
+            uv sync --extra all --extra subscription
+        }
         Invoke-Step "installing playwright chromium (no-op if present)" {
-            uv run --extra all playwright install chromium
+            uv run --extra all --extra subscription playwright install chromium
         }
     }
 }
@@ -118,5 +126,5 @@ if ($Minimal) {
     uv run geoguesshelper-server
 }
 else {
-    uv run --extra all geoguesshelper-server
+    uv run --extra all --extra subscription geoguesshelper-server
 }
