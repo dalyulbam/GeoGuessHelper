@@ -1,6 +1,6 @@
 # 자동 정정 루프 — 정정 원장
 
-생성 2026-09-14 15:17 · 잡 28건(최신 기록, 그중 OK 28) · 실행 42회(corrections.jsonl) · 이번 기록 비용 $9.065 · 누적 실행 비용 $16.317 · 기획: docs/plan/impl-spec_260907.md §3
+생성 2026-09-16 00:57 · 잡 32건(최신 기록, 그중 OK 32) · 실행 46회(corrections.jsonl) · 이번 기록 비용 $11.472 · 누적 실행 비용 $18.724 · 기획: docs/plan/impl-spec_260907.md §3
 
 같은 캡처를 지도 없이(blind) 다시 판단하고(회상 원자가 있으면 2패스), 실측 pano 좌표·aided 분석과 대조해 "X 는 사실 X2 였다"는 정정을 만들어 kind=discriminator 원자로 적재한다. 사람 승인은 없다 — 회상돼 쓰인 원자는 confirming/misled 로 채점되어 hits/misses 가 오르내리고, 오답만 뒷받침한 원자는 retracted(회상 제외)된다.
 
@@ -8,17 +8,17 @@
 
 | 지표 | 값 |
 |---|---|
-| 국가 적중률(blind 최종) | 28/28 (100%) |
-| 지역 적중률 | 25/28 (89%) |
-| 도시 적중률 | 21/28 (75%) |
-| 좌표 오차 km 중앙값 | 2.80 (n=28) |
-| 오차 분포 | <1 10 · <10 6 · <100 9 · >=100 3 · na 0 |
-| 2패스 사용(회상 원자 있음) | 27/28 |
+| 국가 적중률(blind 최종) | 32/32 (100%) |
+| 지역 적중률 | 26/32 (81%) |
+| 도시 적중률 | 22/32 (69%) |
+| 좌표 오차 km 중앙값 | 13.29 (n=32) |
+| 오차 분포 | <1 10 · <10 6 · <100 11 · >=100 5 · na 0 |
+| 2패스 사용(회상 원자 있음) | 31/32 |
 | 2패스로 판단이 바뀐 건수(revised) | 0 |
-| 판별자 원자 — 이번 기록에서 신규 / 병합 | 112 / 20 |
-| 저장소의 kind=discriminator 원자(누적) | 120 |
+| 판별자 원자 — 이번 기록에서 신규 / 병합 | 127 / 23 |
+| 저장소의 kind=discriminator 원자(누적) | 136 |
 | 철회된 원자 — 이번 기록 / 저장소 현재 status=retracted | 0 / 0 |
-| 총비용(최신 기록 합) | $9.065 |
+| 총비용(최신 기록 합) | $11.472 |
 
 ## 잡별
 
@@ -52,6 +52,10 @@
 | 09-14 13:46 | `report_jp_monzenmachi-susukino_37.3405_136.7847_260914_130520_ko-en-fr.html` | JP · Wajima (Monzenmachi Susukino, Noto Peninsula) | JP · rural hill village (likely Kanto/Tokai hinterland) | hit | miss | miss | 359.38 | 10/3 | 6 (6+0) | $0.000 | OK |
 | 09-14 13:46 | `report_es_dos-hermanas_37.2874_-5.917_260914_131110_ko-en-fr.html` | ES · Dos Hermanas | ES · Dos Hermanas (Seville metropolitan area) | hit | hit | hit | 0.74 | 10/2 | 5 (4+1) | $0.000 | OK |
 | 09-14 15:14 | `report_ng_ogoja_6.6599_8.8026_260910_131111_ko-en-fr.html` | NG · Ogoja | NG · Ogoja | hit | hit | hit | 0.89 | 8/8 | 6 (1+5) | $0.583 | OK |
+| 09-16 00:21 | `report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html` | FR · Rethel | FR · Chartres area (Lucé / Mainvilliers type suburb) | hit | miss | miss | 243.03 | 10/2 | 4 (4+0) | $0.599 | OK |
+| 09-16 00:24 | `report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html` | CL · Añilco / Chihuaico (rural, near Villarrica) | CL · Chihuaico / Quetroco rural corridor southwest of Villarrica | hit | miss | hit | 16.09 | 10/5 | 5 (4+1) | $0.598 | OK |
+| 09-16 00:50 | `report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html` | AT · Ziegelwies (Wolfsegg am Hausruck / Ottnang area) | AT · rural hamlet near Freistadt / Mühlviertel area | hit | hit | miss | 70.36 | 10/2 | 4 (3+1) | $0.566 | OK |
+| 09-16 00:53 | `report_ru_poroshino_58.6062_49.7994_260916_005047_ko-en-fr.html` | RU · Poroshino / Talitsa (Vereshchagino district area) | RU · Small district town (likely Lyubim / Poshekhonye type raion center) | hit | miss | miss | 530.37 | 10/4 | 5 (4+1) | $0.644 | OK |
 
 ## 이번 기록의 판별자 원자
 
@@ -215,6 +219,28 @@
   - `atm_e15595eeb416` (병합) [economy/infrastructure-built/city] NG>NG **Solar countdown signals at one roundabout = Nigerian LGA headquarters**
   - `atm_c9e4132840cf` (병합) [language/toponymy/region] NG>NG **Minority-ethnic names on boards mark the Cross River–Benue belt, not Igbo core**
   - `atm_4f06d267683b` [geography/landform/region] NG>NG **Inland laterite motor-park town vs Niger Delta creek settlement**
+- **job_e08677f6da27** (FR) — Country France was correct, but the analyst placed it in the Eure-et-Loir/Perche belt around Chartres when the pano is actually Rethel in the Ardennes (Grand Est), 243 km NE. The miss came from over-reading a generic post-1970s pavillon lotissement — cream render, claustra walls, brown interlocking 
+  - `atm_5627f16f3656` [architecture/housing-typology/country] FR>FR **Pavillon lotissement kit is national, not regional — don't use it to narrow within France**
+  - `atm_cb506827dd99` [nature/hydrology/region] FR>FR **Willow-poplar carr at the estate edge means alluvial valley town, not plateau town**
+  - `atm_569d526de3f2` [economy/industry/region] FR>FR **Derelict brick/steel workshops inside the housing fabric point north-east, not to Beauce**
+  - `atm_82c5df9afaa6` [geography/road-marking/country] BE>FR **Yellow kerb line and STOP hardware fix France but say nothing about the region**
+- **job_b0e82f0744fd** (CL) — Chile / Araucanía / the Chihuaico–Quetroco corridor near Villarrica was confirmed: the green MOP sign with 'S-239-T' and 'S-875' letter-block codes plus Villarrica as the arrowed destination pinned both country and locality, and the 16 km error came only from placing the corridor south-west rather t
+  - `atm_51fe315e02a2` [geography/road-marking/country] AR>CL **White double centre line marks Chile; yellow marks Argentina on the Andean flank**
+  - `atm_530209fff20e` (병합) [geography/road-signage/country] AR>CL **MOP letter-number codes in white boxes vs Argentine green pentagon RP shields**
+  - `atm_5c9530efe534` [geography/road-signage/region] CL>CL **An arrowed town name fixes the axis, not the side — check junction pair, not terrain feel**
+  - `atm_e7200d85a9af` [culture/settlement-pattern/region] CL>CL **Araucanía Mapuche smallholder frontier vs Llanquihue colono belt**
+  - `atm_d67c3162a1df` [nature/vegetation-cue/country] NZ>CL **Foxglove verges and Nothofagus/radiata mix mark the Chilean rainy south, not NZ**
+- **job_d73fa5a85866** (AT) — Austria and Upper Austria were both correct; only the intra-province placement drifted ~70 km, because the analyst leaned on "Mühlviertel granite plateau" while the truth is the Hausruckviertel, the Alpine-foreland hill country south of the Danube. The decisive country-level cues (deep-coloured rend
+  - `atm_2b6dc49fc1c4` [geography/landform/region] AT>AT **Hausruck molasse hills vs Mühlviertel granite plateau in Upper Austria**
+  - `atm_db146264aff3` (병합) [culture/infrastructure-built/country] CZ>AT **Austrian per-household wheeled bins vs Czech igloo cluster**
+  - `atm_b810b26db38d` [architecture/housing-typology/country] DE>AT **Austrian Einfamilienhaus render palette vs German rural render**
+  - `atm_43d855f5ee3f` [culture/road-signage/country] CH>AT **Yellow blade waymarkers and unmarked Güterwege vs Swiss road furniture**
+- **job_7f80274db73c** (RU) — Country was correct (Russia), but the analyst placed the scene in the Yaroslavl–Kostroma–Vologda triangle when the truth lies ~530 km east, on the Kirov/Perm (Vyatka–Kama, Cis-Ural) taiga margin. The miss came from treating 19th-century bare-brick merchant houses with kokoshnik hoods, silicate-brick
+  - `atm_efd274cc5e3b` [architecture/roof-facade/country] RU>RU **Provincial bare-brick merchant houses are pan-Russian, not an Upper Volga fingerprint**
+  - `atm_662e72e8fe22` [economy/industry/region] RU>RU **Timber-yard retail strips flag Vyatka–Kama taiga raion towns over Upper Volga ones**
+  - `atm_f45fd2528590` [nature/vegetation-cue/region] RU>RU **Southern-taiga spruce-birch without oak is a belt, not a point**
+  - `atm_e5601aaeca59` (병합) [language/signage-language/region] RU>RU **Absent titular-republic markers do not mean 'move west'**
+  - `atm_7291fe70d227` [geography/landform/region] RU>RU **Flat terrain does not exclude the Cis-Urals**
 
 ## 유도 확인 (redo)
 
@@ -273,6 +299,10 @@
 | 09-14 13:46 | job_265023c0c00f | JP | JP | hit | 359.38 | 10/3 |  | 6 | 2/1 | $0.000 |
 | 09-14 13:46 | job_22e8bfa81b66 | ES | ES | hit | 0.74 | 10/2 |  | 5 | 2/0 | $0.000 |
 | 09-14 15:14 | job_737cae606637 | NG | NG | hit | 0.89 | 8/8 |  | 6 | 8/0 | $0.583 |
+| 09-16 00:21 | job_e08677f6da27 | FR | FR | hit | 243.03 | 10/2 |  | 4 | 2/1 | $0.599 |
+| 09-16 00:24 | job_b0e82f0744fd | CL | CL | hit | 16.09 | 10/5 |  | 5 | 4/1 | $0.598 |
+| 09-16 00:50 | job_d73fa5a85866 | AT | AT | hit | 70.36 | 10/2 |  | 4 | 2/0 | $0.566 |
+| 09-16 00:53 | job_7f80274db73c | RU | RU | hit | 530.37 | 10/4 |  | 5 | 3/1 | $0.644 |
 
 ## 파일
 

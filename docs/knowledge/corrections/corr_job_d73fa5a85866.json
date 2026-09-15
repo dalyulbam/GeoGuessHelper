@@ -1,0 +1,925 @@
+{
+ "job_id": "job_d73fa5a85866",
+ "report_file": "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html",
+ "label": "선택 장면 보고서 · _qCJihcp…j_yA",
+ "created": 1789487451.8950303,
+ "lang": "en",
+ "images": [
+  "capture_0767376329d7.jpg",
+  "capture_4a8d12912b1c.jpg",
+  "capture_5841d492c7de.jpg",
+  "capture_6911b4ad95a7.jpg",
+  "capture_b28ff67ad319.jpg",
+  "capture_db13a7c48b0d.jpg"
+ ],
+ "image_panos": {
+  "capture_0767376329d7.jpg": {
+   "pano_id": "_qCJihcpLrgZaIJxZCj_yA",
+   "lat": 48.01804316810108,
+   "lng": 13.670482934889344,
+   "heading": 48.11188182481372,
+   "pitch": -2.4066822710007756
+  },
+  "capture_4a8d12912b1c.jpg": {
+   "pano_id": "DLvBYCJYIlwwn_IXqFaiCg",
+   "lat": 48.01820632464771,
+   "lng": 13.670685741562385,
+   "heading": 176.98930310553501,
+   "pitch": 5.261428233918238
+  },
+  "capture_5841d492c7de.jpg": {
+   "pano_id": "lHVwdk2j9eULw7ZO5z696g",
+   "lat": 48.01859650472507,
+   "lng": 13.668380788610495,
+   "heading": 42.77829341467943,
+   "pitch": 2.496664196188675
+  },
+  "capture_6911b4ad95a7.jpg": {
+   "pano_id": "lHVwdk2j9eULw7ZO5z696g",
+   "lat": 48.01859650472507,
+   "lng": 13.668380788610495,
+   "heading": 293.3641196460069,
+   "pitch": 5.278740445468671
+  },
+  "capture_b28ff67ad319.jpg": {
+   "pano_id": "VmGF0iw40c3_YE8PVI0gVA",
+   "lat": 48.019884989052386,
+   "lng": 13.665766489953953,
+   "heading": 70.42745525889407,
+   "pitch": -0.1861812326339134
+  },
+  "capture_db13a7c48b0d.jpg": {
+   "pano_id": "kAcy2-igPZnZtahkT9Wa7g",
+   "lat": 48.016752055419815,
+   "lng": 13.66597492755729,
+   "heading": 91.81502817838962,
+   "pitch": -4.973791675065343
+  }
+ },
+ "truth": {
+  "lat": 48.0173318921645,
+  "lng": 13.667388398996893,
+  "iso": "AT",
+  "country": "Austria",
+  "region": "Upper Austria (Hausruckviertel)",
+  "city": "Ziegelwies (Wolfsegg am Hausruck / Ottnang area)",
+  "source": "aided_prior",
+  "file_lat": 48.018,
+  "file_lng": 13.6705,
+  "n_panos": 8
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "rural village near Freistadt / Mühlviertel",
+     "confidence": 0.55,
+     "coordinate_estimate": {
+      "lat": 48.36,
+      "lng": 14.42,
+      "radius_km": 45
+     },
+     "country": "Austria",
+     "country_iso": "AT",
+     "region_or_state": "Upper Austria (Mühlviertel / Hausruckviertel hill country)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Temperate Central European, mixed beech-spruce forest, autumn (late October) foliage",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Detached house with shallow-pitch gable, wide overhanging eaves, brown concrete/clay pantiles and roof windows, rendered facade in strong red with a contrasting plinth band — typical Austrian/Bavarian 1980s-2000s 'Einfamilienhaus'",
+      "supports": [
+       "Austria",
+       "Germany"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "waste_infrastructure",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Row of wheeled bins in grey/black bodies with red and brown lids plus a green ventilated biowaste bin — the mixed red-lid residual/paper scheme typical of Austrian municipal collection rather than German yellow-lid Gelbe Tonne",
+      "supports": [
+       "Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Large sequoia/thuja specimen conifer beside the farmstead, mixed beech-spruce forest edge turning orange-red — foothill forest at roughly 400-700 m",
+      "supports": [
+       "Austria",
+       "Germany"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "landform",
+      "image_index": 4,
+      "level": "macro_region",
+      "observation": "Gently rolling plateau with broad meadow fields and low wooded ridges, no high Alpine peaks on the horizon — pre-Alpine/granite plateau landscape, not the inner Alps",
+      "supports": [
+       "Upper Austria",
+       "Lower Austria"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "admin_region",
+      "observation": "Modern house clad in vertical larch boarding over a white rendered ground floor, red-orange tile roof with generous gable overhang — the standard contemporary Upper-Austrian/Mühlviertel new build style",
+      "supports": [
+       "Upper Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage",
+      "image_index": 5,
+      "level": "country",
+      "observation": "Small yellow rectangular directional signpost with green text at the roadside — Austrian hiking/cycling waymarker style (yellow plate), not German green cycle signage",
+      "supports": [
+       "Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_furniture",
+      "image_index": 5,
+      "level": "district",
+      "observation": "Narrow unlined village lane with granite-kerb edging, no centre line and no street lighting masts — low-density Gemeinde road in a scattered hamlet",
+      "supports": [
+       "rural hamlet"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "European compact hatchbacks and estates with white rectangular plates; vehicles parked on the right side of driveways, right-hand traffic",
+      "supports": [
+       "Austria",
+       "Germany"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "architecture",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Hillside street of hipped-roof bungalows with rendered white facades, red accent panels and wide flat tiled hip roofs — the post-1970 Austrian 'Walmdach' bungalow that dominates Mühlviertel settlement expansions",
+      "supports": [
+       "Upper Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "agriculture",
+      "image_index": 4,
+      "level": "macro_region",
+      "observation": "Large grass-ley meadows and grain stubble with scattered solitary fruit trees (Streuobst) — dairy/mixed farming of the northern Alpine foreland",
+      "supports": [
+       "Upper Austria",
+       "Lower Austria"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A prosperous, low-density Central European farming hamlet that has absorbed commuter housing: well-maintained owner-occupied single-family homes, several recent larch-clad or rendered new builds, multiple cars and a caravan per household, full separated-waste collection, manicured lawns and ornamental shrubs. Wealth is solid middle class; agriculture is grassland/dairy and cereals, but the tidy suburban-style plots suggest residents commute to a nearby town. German-speaking Catholic Alpine-foreland culture.",
+    "languages_detected": [
+     {
+      "confidence": 0.4,
+      "evidence": "No legible text visible; inference from architectural and signage conventions of the German-speaking Alpine foreland",
+      "language": "German",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Europe",
+       "North America",
+       "Oceania"
+      ],
+      "conclusion": "Temperate Central/Western Europe",
+      "confidence_after": 0.95,
+      "discriminator": "North American rural housing would show vinyl/clapboard siding, asphalt shingles, mailboxes on posts and overhead wooden utility distribution; here we see rendered masonry with concrete pantiles, monolithic thick walls and buried services",
+      "level": "continent",
+      "observation": "Rendered masonry houses with tiled pitched roofs, wheeled Euro-standard 240 L bins, compact European cars, narrow kerbed lane",
+      "ruled_out": [
+       "North America — no timber-frame siding or overhead service drops",
+       "Oceania — deciduous beech autumn colour in a northern-hemisphere sun angle"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Germany",
+       "Austria",
+       "Switzerland",
+       "Czechia",
+       "Slovenia"
+      ],
+      "conclusion": "Austria",
+      "confidence_after": 0.72,
+      "discriminator": "Switzerland would show larger eaves with exposed rafter tails, grey-render chalets and blue/white street signs plus far more expensive cars; Czechia would show older unrenovated farmsteads, concrete fences and smaller plots; Slovenia would show steeper roofs with wider eaves and more Kozolec hayracks; Germany would show a yellow Gelbe Tonne / yellow sack and different waymarking",
+      "level": "country",
+      "observation": "Bin livery (grey body, red and brown lids, green vented bio bin), yellow-plate hiking waymarker with green text, red-and-white two-tone rendered house with dark plinth band, wide-eaved shallow gables",
+      "ruled_out": [
+       "Switzerland — no Swiss commune signage or chalet detailing, housing density and finish are Austrian-standard",
+       "Czechia — building stock too uniformly renovated and 1990s+",
+       "Slovenia — roof pitch and gable treatment differ",
+       "Germany — waste scheme and waymarker colour do not match"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Alpine Austria (Tyrol/Salzburg/Carinthia)",
+       "Alpine foreland (Upper/Lower Austria)",
+       "Eastern lowland (Burgenland/Vienna basin)"
+      ],
+      "conclusion": "Northern Alpine foreland / granite plateau belt",
+      "confidence_after": 0.78,
+      "discriminator": "Tyrol or Salzburg would put rock walls or snow-capped ridges on the horizon and use timber balconies with painted Lüftlmalerei; Burgenland would be flat with vineyards, acacia rows and long single-street Straßendörfer",
+      "level": "macro_region",
+      "observation": "Horizon is a series of low forested ridges of even height above broad grass meadows; no rock faces, no Alpine balconied farmhouses, no vineyards",
+      "ruled_out": [
+       "Tyrol/Salzburg/Carinthia — no high relief or Alpine timber architecture",
+       "Burgenland/Vienna basin — terrain is rolling, not flat, and no viticulture"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "German-speaking Catholic Bavarian-Austrian sphere",
+       "Slavic borderland sphere"
+      ],
+      "conclusion": "Bavarian-Austrian (Bairisch dialect) rural sphere",
+      "confidence_after": 0.8,
+      "discriminator": "A Slavic-influenced border area would show bilingual or Slavic-looking place signage and older courtyard farmsteads; here the settlement form is scattered single farms (Einzelhöfe) with modern infill, classic Bavarian-Austrian",
+      "level": "cultural_sphere",
+      "observation": "Dispersed farmstead settlement pattern, Streuobst fruit trees, roadside shrines absent but house forms uniformly Bairisch",
+      "ruled_out": [
+       "Slavic borderland — no Slavic toponym styling or Pannonian house types"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Upper Austria (Mühlviertel/Hausruckviertel)",
+       "Lower Austria (Waldviertel/Mostviertel)",
+       "Styria"
+      ],
+      "conclusion": "Upper Austria, most likely the Mühlviertel granite upland or adjacent Hausruck hills",
+      "confidence_after": 0.5,
+      "discriminator": "Waldviertel would show more granite boulder outcrops in the fields, darker spruce monoculture and more weathered grey-render houses; Styria would show steeper hop/apple slopes, more timber Kellerstöckl and the wooded hills would be sharper and closer; the mix of red-tiled larch-clad new builds and wide hipped bungalows here with prosperous upkeep reads Upper Austrian",
+      "level": "admin_region",
+      "observation": "Smooth wide meadow plateau with rounded wooded hills, very high proportion of recent high-quality larch/render new builds, tidy engineered driveways in grass pavers",
+      "ruled_out": [
+       "Lower Austria/Waldviertel — no granite blockfields and building stock looks newer/wealthier",
+       "Styria — relief too gentle, no steep orchard/vineyard terracing"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "hamlet on a plateau edge near Freistadt/Urfahr-Umgebung",
+       "hamlet near Wels-Land/Grieskirchen"
+      ],
+      "conclusion": "Scattered hillside hamlet of perhaps 10-25 houses on a plateau shoulder, with the settlement stepping uphill to a spruce-covered ridge",
+      "confidence_after": 0.3,
+      "discriminator": "A Wels-Land/Grieskirchen hamlet would sit on flatter loess terrain with maize and larger courtyard farms; the forest ridge rising directly behind the houses and the grass-paver driveways argue for the hillier northern uplands, but no place-name or route marker is legible to settle it",
+      "level": "district",
+      "observation": "Village lane climbing between houses to a dense spruce ridge; no route shield, no village entry sign, no church tower visible",
+      "ruled_out": [
+       "dense valley village — no church, shop or bus stop visible, so this is a Rotte/hamlet, not a market town"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.5,
+    "place_slug": "muehlviertel",
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Germany",
+      "country_iso": "DE"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Czechia",
+      "country_iso": "CZ"
+     },
+     {
+      "confidence": 0.07,
+      "country": "Switzerland",
+      "country_iso": "CH"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.3,
+      "image_index": 0,
+      "name": "Large solitary sequoia/thuja specimen tree at a farmstead",
+      "type": "notable tree"
+     },
+     {
+      "confidence": 0.35,
+      "image_index": 5,
+      "name": "Yellow-plate Austrian hiking/cycling waymarker",
+      "type": "signage"
+     }
+    ],
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2237,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4109,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Austria",
+    "country_iso": "AT",
+    "country_correct": true,
+    "region": "Upper Austria (Mühlviertel / Hausruckviertel hill country)",
+    "city": "rural village near Freistadt / Mühlviertel",
+    "confidence": 0.55,
+    "overall_confidence": 0.5,
+    "error_km": 67.56,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 10,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "agriculture",
+     "architecture",
+     "landform",
+     "road_furniture",
+     "signage",
+     "vegetation",
+     "vehicles",
+     "waste_infrastructure"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "rural hamlet near Freistadt / Mühlviertel area",
+     "confidence": 0.5,
+     "coordinate_estimate": {
+      "lat": 48.42,
+      "lng": 14.4,
+      "radius_km": 45
+     },
+     "country": "Austria",
+     "country_iso": "AT",
+     "region_or_state": "Upper Austria (Mühlviertel / Hausruckviertel hill country)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Temperate oceanic/continental transition, mixed beech-spruce forest, autumn foliage, intensive grassland farming",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "waste_infrastructure",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Row of individual wheeled bins in front of a house: grey bins with printed labels, plus a green composter and black bins with red lids. Private per-household 240 L bin sets (no fibreglass igloo cluster behind a mesh fence) matches Austrian/German/Swiss household collection, not the Czech village igloo pattern.",
+      "supports": [
+       "Austria",
+       "Germany"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Large boxy two-storey single-family house with shallow-pitch tiled gable roof, deep eaves, integrated ground-floor garages under the living floor, strong solid colour render (deep red) with white window surrounds and a dark plinth band — the classic post-1980s Austrian 'Einfamilienhaus' typology.",
+      "supports": [
+       "Austria"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "admin_region",
+      "observation": "Newer house with vertical larch board cladding on the upper storey, white rendered base, orange-red pantile roof and a small covered entrance porch on timber posts — Mühlviertel/Alpine-foothills contemporary vernacular.",
+      "supports": [
+       "Upper Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Huge sequoia/thuja specimen conifer in a garden plus mixed beech forest in full October colour on the ridge; hay meadows still green and freshly cut.",
+      "supports": [
+       "Alpine foreland",
+       "temperate Central Europe"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "landform",
+      "image_index": 4,
+      "level": "macro_region",
+      "observation": "Gently rolling plateau of grass and stubble fields with forested low ridges, no high mountains anywhere on the horizon — foothill/plateau country rather than an Alpine valley.",
+      "supports": [
+       "Mühlviertel",
+       "Alpine foreland"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_furniture",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Small yellow directional signpost at the field edge (yellow blade sign typical of Austrian hiking/cycling waymarkers) and a round black-on-white regulatory sign on a pole by the drive.",
+      "supports": [
+       "Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "roads",
+      "image_index": 3,
+      "level": "district",
+      "observation": "Narrow single-lane asphalt hamlet lane with no markings, no kerbs, houses scattered on the slope, gravel/stone driveway aprons — typical Austrian Streusiedlung/rotte settlement.",
+      "supports": [
+       "rural Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 0,
+      "level": "country",
+      "observation": "European compact hatchbacks and estates (VW Polo/Golf, Audi A4 Avant, Mercedes SUV), all left-hand drive, white rectangular EU-format plates.",
+      "supports": [
+       "EU",
+       "right-hand traffic"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "building_detail",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Older cottage with steep gable, painted window shutters, decorative lozenge motifs on the gable and a low masonry garden wall with iron railing — 1960s-70s Austrian rural house rather than a Bavarian farmhouse with long balcony galleries.",
+      "supports": [
+       "Austria"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utilities",
+      "image_index": 2,
+      "level": "district",
+      "observation": "Overhead low-voltage line on simple wooden/concrete poles still serving individual houses, satellite dish on ridge — modest rural service level.",
+      "supports": [
+       "rural"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A prosperous, low-density rural hamlet in the German-speaking Alpine foreland: owner-occupied detached houses of recent construction, tidy mown lawns, ornamental conifers and paver driveways, two or three mid-range German cars per household, a motorhome parked beside a house, and a new timber-clad build plus an under-construction roof frame indicating ongoing investment. Agriculture is grassland/meadow based with small parcels — dairy/forestry mix rather than large collectivized cereal blocks — and household income clearly comes largely from commuting to a nearby district town. Waste is separated per household into paper/glass/residual bins with a domestic composter, an EU-style separated-collection regime.",
+    "landmarks": [
+     {
+      "confidence": 0.3,
+      "image_index": 0,
+      "name": "Large solitary sequoia/thuja specimen tree in yard",
+      "type": "vegetation feature"
+     },
+     {
+      "confidence": 0.25,
+      "image_index": 5,
+      "name": "Yellow hiking/cycling waymarker signpost",
+      "type": "road furniture"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.35,
+      "evidence": "No legible text; inferred from architecture, bin labelling style and signage shapes only",
+      "language": "German",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Europe",
+       "North America",
+       "Oceania",
+       "East Asia"
+      ],
+      "conclusion": "Central/Western Europe, temperate continental interior",
+      "confidence_after": 0.95,
+      "discriminator": "North American rural housing would show vinyl siding, mailboxes on posts at the road, wide gravel shoulders and no clay-tile roofs; Japan would show corrugated seam roofs and concrete block walls. Here every roof is clay/concrete pantile with deep eaves and every house is rendered masonry.",
+      "level": "continent",
+      "observation": "Rendered masonry houses with tiled gable roofs, mown meadow farmland, deciduous beech forest in autumn colour, LHD cars on the right, white EU-proportion plates.",
+      "ruled_out": [
+       "North America - no wood-frame siding or roadside mailboxes",
+       "East Asia - no metal roofing or narrow concrete lanes",
+       "Southern Europe - no flat roofs, no olive/vine, foliage is beech-spruce"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Germany",
+       "Austria",
+       "Switzerland",
+       "Czechia",
+       "Slovenia"
+      ],
+      "conclusion": "Austria (DACH sphere, Austrian variant)",
+      "confidence_after": 0.62,
+      "discriminator": "A Czech village would cluster fibreglass igloo containers with EKO-KOM stickers behind mesh fencing and show JZD-legacy courtyard farm complexes with large consolidated cereal blocks; instead we see per-household wheeled bins plus a domestic composter and small grass parcels. Switzerland would show far denser signage, dark-green/white road furniture and typically shuttered chalet forms with wide overhangs; Germany would more often show white/grey render with dark-red tiles and the rural roads would carry marked centrelines and yellow B-route plates. The deep-red saturated render with white reveals and dark base plinth, garages tucked under the living floor, and yellow blade waymarkers are the Austrian rural pattern.",
+      "level": "country",
+      "observation": "Household waste presented as individual labelled wheeled bins (grey paper/residual, black with red lid) plus a green composter; boxy two-storey houses with under-house garages and saturated colour render; yellow blade signpost; unmarked narrow hamlet lanes.",
+      "ruled_out": [
+       "Czechia - no igloo container cluster, no collectivized field blocks or courtyard estate (atm_db146264aff3, atm_38455d899c95)",
+       "Switzerland - no orange-red site barriers, no dense Swiss signage or chalet eaves",
+       "Slovenia - roof pitches and render palette differ; no Slovenian-style hayracks (kozolec)"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Alpine Austria (Tyrol/Salzburg/Carinthia)",
+       "Alpine foreland (Upper/Lower Austria)",
+       "Pannonian east (Burgenland/eastern Styria)"
+      ],
+      "conclusion": "Northern Alpine foreland / granite plateau country, not the Alps and not the Pannonian plain",
+      "confidence_after": 0.6,
+      "discriminator": "Tyrol or Salzburg would put rock walls or snow-capped ridges on the horizon and use broad-eaved timber balcony farmhouses; Burgenland would be flat, with vineyards, maize and stucco Streckhof long-houses and acacia rather than beech-spruce. Here the horizon is a low forested ridge line only a hundred metres above the fields, and the land is grassland with small woods.",
+      "level": "macro_region",
+      "observation": "Rolling plateau with beech/spruce-covered low ridges; grassland and stubble; not a single high peak or rock face visible in any of the six panoramas.",
+      "ruled_out": [
+       "Tyrol/Salzburg/Carinthia - no mountain backdrop, no timber-balcony farmhouses",
+       "Burgenland/Pannonia - terrain is undulating, not flat; no vineyards or maize"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Upper Austria (Mühlviertel/Hausruck)",
+       "Lower Austria (Waldviertel/Mostviertel)",
+       "western Styria"
+      ],
+      "conclusion": "Most likely Upper Austria's hill country (Mühlviertel side), with Lower Austria's Waldviertel/Mostviertel a close second",
+      "confidence_after": 0.45,
+      "discriminator": "A Mostviertel scene would be dominated by mature orchard meadows (Mostbirnbäume) in dense regular rows around each farmstead; the Waldviertel tends toward greyer granite plinths, more spruce monoculture and darker render. Here there are only a few scattered old fruit trees, lots of fresh larch cladding and strongly coloured render, and a mixed beech-dominant autumn forest - the Mühlviertel/Hausruck idiom. The cut is soft because no place-name, route marker or plate letter is legible.",
+      "level": "admin_region",
+      "observation": "Scattered single old fruit trees in meadows rather than dense Most orchard rows; freshly larch-clad new build; beech-heavy autumn colour on ridges; hamlet strung along one unmarked lane.",
+      "ruled_out": [
+       "Styria - no steep vineyard-clad Riedel slopes or Buschenschank/klapotetz cues"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "compact village core",
+       "dispersed hamlet (Rotte/Weiler)"
+      ],
+      "conclusion": "A dispersed hamlet of ~10-20 houses on a gentle slope, with no church, shop or through-traffic visible",
+      "confidence_after": 0.7,
+      "discriminator": "An Austrian Pfarrdorf would show an onion-domed church tower, a Gasthaus with a projecting sign and a blue-on-white place-name board at the entrance. None of these appear in six panoramas; instead the lane simply climbs between private plots and ends in forest.",
+      "level": "district",
+      "observation": "No church tower, no inn, no bus stop, no shop; only single-family houses, a motorhome, private drives, and farmland immediately behind every plot.",
+      "ruled_out": [
+       "Village centre - no ecclesiastical or commercial building anywhere in frame"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.5,
+    "place_slug": "muehlviertel",
+    "relied_on_atoms": [
+     "atm_db146264aff3",
+     "atm_38455d899c95"
+    ],
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Germany",
+      "country_iso": "DE"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Czechia",
+      "country_iso": "CZ"
+     },
+     {
+      "confidence": 0.08,
+      "country": "Switzerland",
+      "country_iso": "CH"
+     }
+    ]
+   },
+   "cost_usd": 0.1333,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2665,
+    "output": 4419,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Austria",
+    "country_iso": "AT",
+    "country_correct": true,
+    "region": "Upper Austria (Mühlviertel / Hausruckviertel hill country)",
+    "city": "rural hamlet near Freistadt / Mühlviertel area",
+    "confidence": 0.5,
+    "overall_confidence": 0.5,
+    "error_km": 70.36,
+    "reached_level": "district",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 10,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "building_detail",
+     "landform",
+     "road_furniture",
+     "roads",
+     "utilities",
+     "vegetation",
+     "vehicles",
+     "waste_infrastructure"
+    ]
+   },
+   "known_offered": [
+    "atm_4d08129bc533",
+    "atm_96d1691571d2",
+    "atm_db146264aff3",
+    "atm_e47ce946001b",
+    "atm_7f1b78158b4f",
+    "atm_38455d899c95",
+    "atm_4839faddffa9",
+    "atm_78bb90bc7d1c",
+    "atm_e4e3e2300015",
+    "atm_fba72a044766"
+   ],
+   "relied_on": [
+    "atm_db146264aff3",
+    "atm_38455d899c95"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "AT",
+   "country": "Austria",
+   "region": "Upper Austria (Mühlviertel / Hausruckviertel hill country)",
+   "city": "rural hamlet near Freistadt / Mühlviertel area",
+   "lat": 48.42,
+   "lng": 14.4,
+   "error_km": 70.36,
+   "reached_level": "district",
+   "confidence": 0.5,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "hit",
+  "city": "miss",
+  "error_km": 70.36,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.20908875,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5329,
+   "output": 2649,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Austria and Upper Austria were both correct; only the intra-province placement drifted ~70 km, because the analyst leaned on \"Mühlviertel granite plateau\" while the truth is the Hausruckviertel, the Alpine-foreland hill country south of the Danube. The decisive country-level cues (deep-coloured render with white reveals and under-house garages, per-household wheeled bins with German labels, yellow blade waymarker, unmarked hamlet lanes) were read correctly, and Czechia/Germany/Switzerland were properly excluded. The finer Mühlviertel-vs-Hausruck call was not resolvable from these images; the analyst's own admission of soft confidence was appropriate, but the faint distant high-ridge silhouette in image 1 and the strongly rolling, deeply incised grass-and-stubble relief point south of the Danube rather than to the flat granite plateau.",
+  "misleading_cues": [
+   {
+    "image_index": 2,
+    "observation": "Fresh larch board cladding on a new build read as a 'Mühlviertel contemporary vernacular' marker.",
+    "why_misleading": "Larch-clad upper storeys on rendered bases are generic across the whole Austrian Alpine foreland and carry no sub-provincial signal."
+   },
+   {
+    "image_index": 4,
+    "observation": "Absence of dense Mostbirnbaum orchard rows taken as evidence against the southern Upper Austrian hill country.",
+    "why_misleading": "Dense pear-orchard meadows are typical of the Mostviertel/eastern belt; their absence does not push a scene north of the Danube, and the Hausruck has scattered single fruit trees exactly as seen."
+   },
+   {
+    "image_index": 0,
+    "observation": "Beech-dominant autumn ridge colour interpreted as granite-plateau (Mühlviertel) forest.",
+    "why_misleading": "Mixed beech-spruce ridge forest is equally the norm on the Hausruck and Kobernaußerwald molasse hills; it is not diagnostic of the Bohemian Massif."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Strongly undulating terrain with short steep grass slopes, incised hollows and forested rounded crests, fields rising directly behind each plot",
+    "why_decisive": "Molasse/Hausruck foreland relief is more dissected and steeper-sided than the broad, flat-topped granite plateau of the Mühlviertel.",
+    "category": "landform",
+    "image_index": 3
+   },
+   {
+    "observation": "Very faint high ridge silhouette on the far horizon beyond the near forested crest",
+    "why_decisive": "South of the Danube the Alpine front can appear as a distant haze line; from the Mühlviertel plateau the view opens the other way, over the Danube basin.",
+    "category": "landform",
+    "image_index": 1
+   },
+   {
+    "observation": "Per-household grey and black-with-red-lid wheeled bins with printed German labels plus a domestic composter",
+    "why_decisive": "Confirms Austrian/German household collection rather than the Czech clustered igloo pattern.",
+    "category": "infrastructure-built",
+    "image_index": 0
+   },
+   {
+    "observation": "Boxy two-storey houses in saturated red render with white window reveals, dark plinth band and garages tucked under the living floor",
+    "why_decisive": "Post-1980 Austrian Einfamilienhaus typology, distinct from German or Swiss rural idioms.",
+    "category": "housing-typology",
+    "image_index": 0
+   },
+   {
+    "observation": "Small yellow blade signpost at a field edge on an unmarked, kerbless hamlet lane",
+    "why_decisive": "Yellow directional blades plus unmarked Güterweg lanes are the Austrian rural furniture signature.",
+    "category": "road-signage",
+    "image_index": 5
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Hausruck molasse hills vs Mühlviertel granite plateau in Upper Austria",
+    "body": "In the Hausruckviertel the land is a set of short, steep, deeply dissected grass ridges with rounded beech-spruce crests and views that can catch a hazy Alpine line to the south. In the Mühlviertel you would instead see broad flat-topped plateau surfaces, frequent exposed granite boulders and drystone-granite plinths, more spruce monoculture and no southern high-ridge horizon. Uniform smooth render with no granite stonework, as here, argues against the Bohemian Massif.",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "tags": [
+     "foreland",
+     "molasse",
+     "plateau",
+     "upper-austria"
+    ],
+    "entities": [
+     "Hausruckviertel",
+     "Mühlviertel"
+    ],
+    "image_index": 3,
+    "looks_like": {
+     "country_iso": "AT",
+     "country": "Austria",
+     "region": "Mühlviertel"
+    },
+    "actually": {
+     "country_iso": "AT",
+     "country": "Austria",
+     "region": "Upper Austria (Hausruckviertel)"
+    },
+    "confidence": 0.55
+   },
+   {
+    "title": "Austrian per-household wheeled bins vs Czech igloo cluster",
+    "body": "In Austrian hamlets each household lines up its own 120–240 L wheeled bins (grey residual/paper, black with a coloured lid) at the driveway apron, often beside a plastic garden composter. In a Czech village you would instead find a shared cluster of fibreglass dome igloos with Czech stream names and EKO-KOM stickers, usually behind mesh fencing at the lane junction.",
+    "layer": "culture",
+    "category": "infrastructure-built",
+    "scope": "country",
+    "tags": [
+     "waste",
+     "bins",
+     "rural"
+    ],
+    "entities": [
+     "Austria",
+     "Czechia"
+    ],
+    "image_index": 0,
+    "looks_like": {
+     "country_iso": "CZ",
+     "country": "Czechia",
+     "region": null
+    },
+    "actually": {
+     "country_iso": "AT",
+     "country": "Austria",
+     "region": null
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Austrian Einfamilienhaus render palette vs German rural render",
+    "body": "Austrian post-1980 rural houses commonly carry saturated single-colour render (deep red, ochre, yellow) with crisp white window reveals and a dark plinth band, with garages recessed under the living floor on a slope. In German villages you would more often see white or pale-grey render with dark-red tiles and free-standing or side-attached garages rather than the sunken under-house garage.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "country",
+    "tags": [
+     "render",
+     "garage",
+     "gable"
+    ],
+    "entities": [
+     "Austria",
+     "Germany"
+    ],
+    "image_index": 0,
+    "looks_like": {
+     "country_iso": "DE",
+     "country": "Germany",
+     "region": null
+    },
+    "actually": {
+     "country_iso": "AT",
+     "country": "Austria",
+     "region": null
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Yellow blade waymarkers and unmarked Güterwege vs Swiss road furniture",
+    "body": "Austrian rural lanes are unmarked, kerbless asphalt with small yellow directional blade signs at field edges and few other signs. In Switzerland you would instead see dense signage clusters, white-on-blue or yellow Wanderwege plates with distance-in-hours, granite kerbing and frequent white edge lines even on minor roads.",
+    "layer": "culture",
+    "category": "road-signage",
+    "scope": "country",
+    "tags": [
+     "waymarker",
+     "minor-road",
+     "signage"
+    ],
+    "entities": [
+     "Austria",
+     "Switzerland"
+    ],
+    "image_index": 5,
+    "looks_like": {
+     "country_iso": "CH",
+     "country": "Switzerland",
+     "region": null
+    },
+    "actually": {
+     "country_iso": "AT",
+     "country": "Austria",
+     "region": null
+    },
+    "confidence": 0.6
+   }
+  ],
+  "misled_atoms": [],
+  "confirming_atoms": [
+   "atm_db146264aff3",
+   "atm_38455d899c95"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_2b6dc49fc1c4",
+   "atm_b810b26db38d",
+   "atm_43d855f5ee3f"
+  ],
+  "merged": [
+   "atm_db146264aff3"
+  ],
+  "ordered": [
+   "atm_2b6dc49fc1c4",
+   "atm_db146264aff3",
+   "atm_b810b26db38d",
+   "atm_43d855f5ee3f"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_db146264aff3",
+   "atm_38455d899c95"
+  ],
+  "misses": [],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.5661,
+ "status": "OK"
+}

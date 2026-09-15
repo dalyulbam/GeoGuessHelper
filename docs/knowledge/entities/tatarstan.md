@@ -1,6 +1,6 @@
 # 엔티티 · tatarstan
 
-원자 4개 · 이 엔티티를 다룬 보고서 1건
+원자 4개 · 이 엔티티를 다룬 보고서 2건
 
 ## 원자
 - [[atm_3594786dc613]] **Yelabuga Special Economic Zone and heavy-freight corridor near Naberezhnye Chelny** (economy/region)
@@ -10,3 +10,4 @@
 
 ## 보고서
 - `report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html`
+- `report_ru_poroshino_58.6062_49.7994_260916_005047_ko-en-fr.html`

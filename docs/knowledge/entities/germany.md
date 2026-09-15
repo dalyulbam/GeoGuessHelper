@@ -1,6 +1,6 @@
 # 엔티티 · germany
 
-원자 27개 · 이 엔티티를 다룬 보고서 2건
+원자 28개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_0de705b1aa28]] **National highway numbering and driving-side as geolocation cues** (geography/global)
@@ -23,6 +23,7 @@
 - [[atm_9b58a70e7561]] **National and provincial highway-shield design as cartographic identifiers** (culture/global)
 - [[atm_aa4716639ec8]] **Aging and shrinking towns across Southern and Eastern Europe** (geography/global)
 - [[atm_ad0093de4697]] **German expellee heritage organizations and Heimatvertriebene memory culture** (history/country)
+- [[atm_b810b26db38d]] **Austrian Einfamilienhaus render palette vs German rural render** (architecture/country)
 - [[atm_c28be990f5bb]] **Guardrails and full winter-maintenance roads as the high-budget alternative** (economy/global)
 - [[atm_de07ff165cf0]] **Yellow-field warning triangles: Finland/Nordics vs white-field Central Europe** (geography/country)
 - [[atm_e47ce946001b]] **German pharmacy 'Apotheke' emblem as national marker** (architecture/country)
@@ -32,5 +33,6 @@
 - [[atm_fb73bf27bdb5]] **European corporate legal-form suffixes as country identifiers** (economy/global)
 
 ## 보고서
+- `report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html`
 - `report_de_munich_48.1691_11.5738_260906_215839_ko-en-fr.html`
 - `report_fi_turku_60.4575_22.2881_260906_205820_ko-en-fr.html`

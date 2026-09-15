@@ -1,6 +1,6 @@
 # 엔티티 · czechia
 
-원자 10개 · 이 엔티티를 다룬 보고서 2건
+원자 10개 · 이 엔티티를 다룬 보고서 3건
 
 ## 원자
 - [[atm_302a89d8dbd0]] **South Bohemian plateau vs Moravian vineyard lowland** (geography/region)
@@ -15,5 +15,6 @@
 - [[atm_f5d2c803c983]] **Bohemian pond-and-plateau landscape vs Moravian vineyard lowlands** (geography/region)
 
 ## 보고서
+- `report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html`
 - `report_cz_zelec-u-tabora_49.318_14.6477_260906_223536_ko-en-fr.html`
 - `report_sk_kysucke-nove-mesto_49.3023_18.7819_260817_040440_ko.html`

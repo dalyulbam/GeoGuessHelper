@@ -1,0 +1,1056 @@
+{
+ "job_id": "job_7f80274db73c",
+ "report_file": "report_ru_poroshino_58.6062_49.7994_260916_005047_ko-en-fr.html",
+ "label": "선택 장면 보고서 · 0qBaSGgx…G2OA",
+ "created": 1789487618.1786075,
+ "lang": "en",
+ "images": [
+  "capture_b2591dce4aa1.jpg",
+  "capture_91d352f07010.jpg",
+  "capture_427583642a31.jpg",
+  "capture_4a4b8e861b26.jpg",
+  "capture_06a0325c23d4.jpg",
+  "capture_5338ac2c4210.jpg"
+ ],
+ "image_panos": {
+  "capture_b2591dce4aa1.jpg": {
+   "pano_id": "0qBaSGgxRCZH6ysvKfG2OA",
+   "lat": 58.60623629064568,
+   "lng": 49.79944147179366,
+   "heading": 213.79934089075175,
+   "pitch": 3.2036395988773165
+  },
+  "capture_91d352f07010.jpg": {
+   "pano_id": "o6PDrctICN6YvFR6YD1MaA",
+   "lat": 58.605619630905025,
+   "lng": 49.79873332562286,
+   "heading": 208.00790820318943,
+   "pitch": -4.6618539587274626
+  },
+  "capture_427583642a31.jpg": {
+   "pano_id": "4uWcFTburr-0mdxd-nyvzA",
+   "lat": 58.60526135830608,
+   "lng": 49.798341045246296,
+   "heading": 283.14627925373367,
+   "pitch": 2.5935082487741994
+  },
+  "capture_4a4b8e861b26.jpg": {
+   "pano_id": "wFYKY4PI3_Hu-Z9Errgeiw",
+   "lat": 58.60577831513268,
+   "lng": 49.796344796310045,
+   "heading": 169.3791456490439,
+   "pitch": 10.115856029448864
+  },
+  "capture_06a0325c23d4.jpg": {
+   "pano_id": "oJnApXOT7PoR53BFd_P2eA",
+   "lat": 58.606784672799584,
+   "lng": 49.79937686783491,
+   "heading": 102.53922946164761,
+   "pitch": 2.8179765826419185
+  },
+  "capture_5338ac2c4210.jpg": {
+   "pano_id": "KicI0edTmjU0Q66mqjvH8A",
+   "lat": 58.60878584513777,
+   "lng": 49.802850595711696,
+   "heading": 99.97571046125134,
+   "pitch": 2.0641515529146517
+  }
+ },
+ "truth": {
+  "lat": 58.60703440343825,
+  "lng": 49.799179816423745,
+  "iso": "RU",
+  "country": "Russia",
+  "region": "Perm Krai (Cis-Ural taiga belt)",
+  "city": "Poroshino / Talitsa (Vereshchagino district area)",
+  "source": "aided_prior",
+  "file_lat": 58.6062,
+  "file_lng": 49.7994,
+  "n_panos": 8
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Small district town (raion center) in the Vologda / Kostroma / Kirov belt — possibly Nikolsk / Ustyuzhna-type town",
+     "confidence": 0.42,
+     "coordinate_estimate": {
+      "lat": 59.1,
+      "lng": 42.5,
+      "radius_km": 300
+     },
+     "country": "Russia",
+     "country_iso": "RU",
+     "region_or_state": "European North / Upper Volga forest belt (Vologda–Kostroma–Kirov oblast)"
+    },
+    "coarse_filters": {
+     "approx_climate_biome": "Humid continental / southern boreal (taiga–mixed forest), cool short summer",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "observation": "Triangular children-crossing warning sign with white field and thick red border, plus a rectangular supplementary plate reading '150м' in Cyrillic and a red-ring '40' speed limit — the Russian/CIS GOST sign family and metric plate style.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Russia",
+       "Belarus",
+       "Kazakhstan"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "signage",
+      "observation": "Yellow shop banner in Cyrillic advertising 'брус-доска-вагонка' (timber, boards, cladding) with a 6-digit local phone '46-00-80' — typical Russian small-town timber trade advert, also indicating a wood-processing local economy.",
+      "image_index": 5,
+      "level": "admin_region",
+      "supports": [
+       "Russia timber belt"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utility_infrastructure",
+      "observation": "Unpainted grey reinforced-concrete poles with short wooden crossarms and free-hanging low-voltage bundles; also older all-wooden double poles with ceramic insulators at the crossroads — Russian rural distribution standard, not Baltic galvanised lattice.",
+      "image_index": 1,
+      "level": "country",
+      "supports": [
+       "Russia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "observation": "Log izba houses with plank-sheathed walls, carved window surrounds painted turquoise/blue, and low-pitch asbestos-cement corrugated (shifer) roofs — classic Russian northern village vernacular.",
+      "image_index": 1,
+      "level": "macro_region",
+      "supports": [
+       "Russian European North"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "observation": "Two-storey pre-revolutionary merchant house in bare red brick with sawtooth cornice, brick 'kokoshnik' window hoods and a decorative roof gable-bell — 19th-century provincial Russian brick eclecticism found in former uyezd towns.",
+      "image_index": 2,
+      "level": "metro_area",
+      "supports": [
+       "historic district/uyezd town"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "observation": "Small two-storey silicate (white/sand-coloured) brick Soviet apartment block, four windows wide, with sheet-metal roof and external chimney — the standard 8–12 flat block of a raion centre, not a big-city panel series.",
+      "image_index": 3,
+      "level": "metro_area",
+      "supports": [
+       "small district town"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "street_furniture",
+      "observation": "Grey corrugated metal (profnastil) fences lining both sides of the asphalt street, and standard green EU-style 1100 L wheeled bins placed at a dirt turnout — post-2015 Russian waste reform equipment in a poor settlement.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Russia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "observation": "Birch, spruce and willow mix with tall summer weeds (goldenrod, nettle); no oak/beech, no steppe grass — boreal-to-mixed forest zone north of ca. 56°N.",
+      "image_index": 4,
+      "level": "macro_region",
+      "supports": [
+       "northern European Russia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road",
+      "observation": "Narrow single-carriageway asphalt with no shoulder line, dashed white centre line only, grass verges instead of kerbs, frost-cracked edges — low-budget regional road typical of far-from-Moscow oblasts.",
+      "image_index": 0,
+      "level": "admin_region",
+      "supports": [
+       "peripheral oblast"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "house_numbering",
+      "observation": "Blue enamel house-number plate '14' fixed to a wooden fence, plus small blue street-name plaques on the brick buildings — the standard Russian blue address plate.",
+      "image_index": 5,
+      "level": "country",
+      "supports": [
+       "Russia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "decay_pattern",
+      "observation": "Collapsed log house and half-demolished lime-washed brick outbuilding beside an unpaved lane, with a telecom mast on the horizon — depopulating small town rather than suburb of a metropolis.",
+      "image_index": 4,
+      "level": "district",
+      "supports": [
+       "shrinking raion centre"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "sun_and_sky",
+      "observation": "Low, broad cumulus with long shadows even at midday and consistently overcast frames; foliage full green in what looks like high summer — high-latitude summer lighting.",
+      "image_index": 4,
+      "level": "macro_region",
+      "supports": [
+       "latitude 58-60N"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A low-income provincial Russian district centre: pre-revolutionary brick merchant houses and log izbas mixed with small Soviet silicate-brick walk-ups, unpaved back lanes, profnastil fences, and a discount grocery chain storefront. The local economy reads as timber sawing/trade (board-and-cladding advert), public-sector jobs and subsistence gardening; visible abandonment and collapsed houses indicate depopulation and out-migration to regional capitals. Waste bins and a chain supermarket show recent modest state/retail investment layered onto decaying 19th-century and Soviet fabric.",
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 2,
+      "name": "19th-century brick merchant's house (likely a listed local heritage building)",
+      "type": "historic residential building"
+     },
+     {
+      "confidence": 0.35,
+      "image_index": 1,
+      "name": "Former uyezd-era white plastered brick civic/merchant building at crossroads",
+      "type": "historic building"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.97,
+      "evidence": "'150м' supplementary plate; Cyrillic timber advert 'брус-доска-вагонка'; Cyrillic street plaques",
+      "language": "Russian",
+      "script": "Cyrillic"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Europe",
+       "North America",
+       "East Asia",
+       "Central Asia"
+      ],
+      "conclusion": "Northern Eurasia, post-Soviet space",
+      "confidence_after": 0.96,
+      "discriminator": "North America would show wooden utility poles with drum transformers, yellow diamond warning signs and imperial distance plates; East Asia would show dense concrete poles with kanji/hangul plates. Here signs are triangular red-bordered GOST type with a metric '150м' plate in Cyrillic.",
+      "level": "continent",
+      "observation": "Cyrillic text on road plates and shop banners, GOST triangular warning sign, right-hand traffic.",
+      "question": "Which continent / signage family?",
+      "ruled_out": [
+       "North America — no diamond signs, no imperial units",
+       "East Asia — no CJK script",
+       "Western Europe — no EU-style blue/white signage or lane markings"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Russia",
+       "Belarus",
+       "Ukraine",
+       "Kazakhstan",
+       "Latvia/Estonia"
+      ],
+      "conclusion": "Russian Federation",
+      "confidence_after": 0.9,
+      "discriminator": "Belarus would show tidier verges, painted concrete poles and far less abandonment plus Belarusian-language plaques; Ukraine would show different children-sign artwork and more whitewashed clay-plastered houses; Kazakhstan would lack birch/spruce taiga and log izbas; Baltic states would use EU-format address plates, galvanised guardrails and Latin script. Here: Russian-only Cyrillic, blue enamel house numbers, asbestos-cement 'shifer' roofs, unpainted concrete poles, heavy visible decay.",
+      "level": "country",
+      "observation": "Russian-language advert, blue enamel number plate, log izbas with carved painted window frames, shifer roofing, profnastil fences.",
+      "question": "Which post-Soviet state?",
+      "ruled_out": [
+       "Belarus — maintenance standard and language plaques differ",
+       "Ukraine — vernacular and sign artwork differ",
+       "Kazakhstan — vegetation wrong (taiga birch/spruce)",
+       "Baltics — Latin script and EU signage absent"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "European North / Upper Volga",
+       "Central Black Earth",
+       "North Caucasus",
+       "Siberia",
+       "Far East"
+      ],
+      "conclusion": "Forest belt of northern European Russia / Cis-Urals, roughly 57–60°N",
+      "confidence_after": 0.72,
+      "discriminator": "Black Earth or Krasnodar would show sunflower/wheat fields, whitewashed masonry cottages, poplars and walnut, no spruce; North Caucasus would show mountains and flat roofs; Far East would show Chinese-market cars and different pole hardware. Here birch-spruce-willow taiga margin, tall goldenrod weeds, no fruit orchards, steep-enough gable log houses with deep eaves and chimney stacks for long heating season.",
+      "level": "macro_region",
+      "observation": "Boreal birch/spruce mix, no southern crops, log-built houses, long heating-season chimneys, cool overcast summer light.",
+      "question": "Southern black-earth Russia, the northern forest belt, or Asian Russia?",
+      "ruled_out": [
+       "Central Black Earth / Kuban — wrong vegetation and house type",
+       "North Caucasus — no relief, wrong architecture",
+       "Far East — vegetation and vehicle mix inconsistent"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Moscow oblast outer belt",
+       "Vologda/Kostroma/Kirov-type peripheral oblast",
+       "Karelia/Arkhangelsk"
+      ],
+      "conclusion": "Peripheral non-metropolitan oblast (Vologda–Kostroma–Kirov type), not the Moscow ring",
+      "confidence_after": 0.6,
+      "discriminator": "Moscow-oblast towns would show new capital-money dachas, kerbed and marked roads, bus-stop shelters with ads and far less structural abandonment; Karelia/Arkhangelsk would show granite outcrops or more purely timber towns with no 19th-century brick merchant rows and often gravel main streets. Here a pre-revolutionary brick merchant core plus collapsed log houses, unpaved lanes and minimal new construction indicate a poor, historic uyezd town far from a metropolis.",
+      "level": "admin_region",
+      "observation": "Historic brick merchant houses at a village-scale crossroads, decaying log stock, dirt side lanes, small silicate-brick walk-ups, single discount supermarket.",
+      "question": "Rich Moscow-adjacent periphery or a poor far-oblast raion centre?",
+      "ruled_out": [
+       "Moscow oblast — affluence markers and road standard absent",
+       "Karelia/Arkhangelsk — lacks their granite/timber-only character"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Raion administrative centre",
+       "Simple rural village",
+       "Suburb of a regional capital"
+      ],
+      "conclusion": "Small district (raion) administrative centre of a few thousand people: historic brick centre, a handful of Soviet flats, log periphery",
+      "confidence_after": 0.55,
+      "discriminator": "A plain village would have no two-storey brick merchant houses, no chain supermarket, no marked main street with pedestrians and taxis; a regional-capital suburb would show 5-9 storey panel blocks, trolleybus/bus infrastructure and kerbed sidewalks. Here the town has a marked through-street with a modern retail box and sidewalk pedestrians, but maximum building height is two storeys and back lanes are dirt.",
+      "level": "metro_area",
+      "observation": "Main street with painted centre line, pedestrians, modern retail building and parking, yet only 2-storey buildings and unpaved parallel lanes.",
+      "question": "Village, raion centre, or edge of a big city?",
+      "ruled_out": [
+       "Plain village — has chain retail and a historic brick core",
+       "Regional capital suburb — no mid-rise panel housing or urban transport"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Historic brick centre block",
+       "Soviet micro-block edge",
+       "Log-house outskirts"
+      ],
+      "conclusion": "Captures straddle the historic centre (images 1–2), the Soviet infill edge (image 3), and the decaying log outskirts (images 0, 4); exact town cannot be resolved without a legible street name",
+      "confidence_after": 0.42,
+      "discriminator": "A single-district sequence would show consistent building stock; instead frames shift from 19th-century brick crossroads to silicate-brick flats to collapsing izbas and a 40 km/h school zone at the settlement edge, i.e. a traverse across a small town. No readable toponym or route number is visible to fix the specific town.",
+      "level": "district",
+      "observation": "Blue street plaques are present but illegible; no route shield, no bus destination, no readable shop name beyond a phone number.",
+      "question": "Which part of the town, and can the town be named?",
+      "ruled_out": [],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "nikolsk-vologda-oblast",
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "Russia",
+      "country_iso": "RU"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Belarus",
+      "country_iso": "BY"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Ukraine",
+      "country_iso": "UA"
+     }
+    ],
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2409,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4799,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Russia",
+    "country_iso": "RU",
+    "country_correct": true,
+    "region": "European North / Upper Volga forest belt (Vologda–Kostroma–Kirov oblast)",
+    "city": "Small district town (raion center) in the Vologda / Kostroma / Kirov belt — possibly Nikolsk / Ustyuzhna-type town",
+    "confidence": 0.42,
+    "overall_confidence": 0.55,
+    "error_km": 423.14,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 5,
+    "n_cues": 12,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "decay_pattern",
+     "house_numbering",
+     "road",
+     "signage",
+     "street_furniture",
+     "sun_and_sky",
+     "utility_infrastructure",
+     "vegetation"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Small district town (likely Lyubim / Poshekhonye type raion center)",
+     "confidence": 0.44,
+     "coordinate_estimate": {
+      "lat": 58.36,
+      "lng": 40.68,
+      "radius_km": 170
+     },
+     "country": "Russia",
+     "country_iso": "RU",
+     "region_or_state": "Yaroslavl / Kostroma / Vologda oblast (central Upper Volga North)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.18,
+      "country": "Russia",
+      "country_iso": "RU"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Belarus",
+      "country_iso": "BY"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Ukraine",
+      "country_iso": "UA"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Humid continental / southern taiga-mixed forest (birch, spruce, willow), short warm cloudy summer",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "GOST-pattern signs: white-field red-bordered 'children' warning triangle, round red-ringed '40' limit, and a supplementary plate reading '150м' in Cyrillic — the Cyrillic 'м' abbreviation for metres is the post-Soviet zone standard.",
+      "supports": [
+       "Russia",
+       "Belarus",
+       "Ukraine"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 5,
+      "level": "country",
+      "observation": "Yellow shopfront banner in Cyrillic advertising timber products ('брус-доска-вагонка') with a local 6-digit phone number; wording and abbreviations are Russian, not Ukrainian or Belarusian orthography.",
+      "supports": [
+       "Russia"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Untidy reinforced-concrete utility poles with cross-braced wooden secondary poles and sagging bare low-voltage lines strung over the street — classic former-USSR distribution hardware.",
+      "supports": [
+       "Russia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 1,
+      "level": "macro_region",
+      "observation": "Drooping birch (Betula pendula) and spruce dominate, with tall willow/rowan scrub; no oak-hornbeam or steppe grass, and grass stays lush green in high summer.",
+      "supports": [
+       "Northern European Russia"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "macro_region",
+      "observation": "Log izbas with sawn board gables, painted window surrounds (blue/turquoise) and grey asbestos-cement corrugated roofing — the Upper Volga / northern Russian village vernacular rather than the plastered clay-walled khata of Ukraine or brick-veneer Belarusian houses.",
+      "supports": [
+       "Yaroslavl-Kostroma-Vologda belt"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "admin_region",
+      "observation": "Two-storey pre-revolutionary merchant house in bare red brick with 'kokoshnik' brick window hoods and a stepped attic gablet — typical 19th-century provincial 'kirpichny stil' found in small Upper Volga uyezd towns.",
+      "supports": [
+       "historic raion center, former uyezd town"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 1,
+      "level": "metro_area",
+      "observation": "Two masonry merchant buildings (one whitewashed, one red brick) facing each other at the fork of a former trading street, with wooden izbas immediately adjacent — the morphology of a very small district town, not a village and not a large oblast city.",
+      "supports": [
+       "raion administrative center of a few thousand people"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 3,
+      "level": "metro_area",
+      "observation": "Two-storey silicate (white sand-lime) brick apartment block with external metal chimney, surrounded by wooden sheds and garages on a dirt yard — late-Soviet minimal urbanization typical of a small raion center.",
+      "supports": [
+       "small district town"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "level": "district",
+      "observation": "Modern green 1100 L wheeled Euro bins placed on the street corner, plus fresh asphalt with proper edge line — indicates a serviced municipal center rather than an outlying village.",
+      "supports": [
+       "town center"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "landscape",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Ruined whitewashed brick outbuilding and collapsing log house on an unpaved back lane, telecom mast on the horizon; flat terrain with no relief.",
+      "supports": [
+       "depopulating provincial town, glacial plain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "fencing",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Long grey profiled-steel (profnastil) fences on both sides of the paved through-street, mixed with old vertical wooden picket fences — the standard Russian private-plot fencing upgrade of the 2010s.",
+      "supports": [
+       "Russia"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "climate",
+      "image_index": 5,
+      "level": "macro_region",
+      "observation": "Heavy overcast, people in jackets in full leaf-on summer; steep roof pitches and corrugated sheet roofing for snow load.",
+      "supports": [
+       "northern continental latitude ~57-59N"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A small, aging Russian provincial district center in the Upper Volga / Vologda forest belt: one asphalted through-street with 19th-century merchant brick houses and painted log izbas, modest late-Soviet silicate-brick walk-ups, a single modern discount grocery, and a timber-trade advert as the main economic signal. Private plots are being re-fenced in profiled steel while peripheral log buildings collapse — classic depopulating provincial Russia. Culturally uniform Great Russian Orthodox sphere with no titular-republic bilingualism.",
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "'150м' supplementary distance plate and Cyrillic timber-products banner with local phone number",
+      "language": "Russian",
+      "script": "Cyrillic"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 2,
+      "name": "Pre-revolutionary red-brick merchant house (kirpichny stil, kokoshnik window hoods)",
+      "type": "historic residential building"
+     },
+     {
+      "confidence": 0.4,
+      "image_index": 1,
+      "name": "Whitewashed two-storey merchant building at street fork",
+      "type": "historic civic/commercial building"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Europe",
+       "North America",
+       "Central Asia",
+       "East Asia"
+      ],
+      "conclusion": "Eastern Europe / former USSR, boreal-continental belt",
+      "confidence_after": 0.95,
+      "discriminator": "North America would show green mileposts, W-beam guardrail and wide gravel shoulders with mailbox clusters; East Asia would show narrow concrete-walled lanes and kanji/hangul signage. Here the sign vocabulary is GOST: white-field red-ring speed roundel, white-field warning triangle, Cyrillic metric supplementary plate.",
+      "level": "continent",
+      "observation": "Cyrillic signage, GOST sign shapes, concrete poles with bare LV lines, shoulderless 2-lane asphalt.",
+      "question": "Which continent / road-sign family?",
+      "ruled_out": [
+       "North America — no W-beam guardrail, no yellow diamond signs",
+       "East Asia — no CJK script",
+       "Western Europe — no white-on-blue Euro plates or reflective chevrons"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Russia",
+       "Belarus",
+       "Ukraine",
+       "Kazakhstan",
+       "Latvia/Estonia"
+      ],
+      "conclusion": "Russia",
+      "confidence_after": 0.88,
+      "discriminator": "Belarus would show tidier, uniformly repainted village frontages, more brick-veneer single-storey houses and Belarusian-language duplicates on street plates; Ukraine would use Ukrainian spellings and plastered white-clay khaty with steeper hipped roofs; Kazakhstan would show steppe treelessness and Kazakh-Russian bilingual plates; Baltics would use Latin script. Here everything is monolingual Russian with northern log-izba vernacular.",
+      "level": "country",
+      "observation": "Monolingual Russian Cyrillic commercial banner, no bilingual duplicates; log izbas with carved painted window trim; asbestos-cement corrugated roofing.",
+      "question": "Which post-Soviet state?",
+      "ruled_out": [
+       "Belarus — no Belarusian duplicate text, housing stock too ragged/derelict",
+       "Ukraine — no Ukrainian orthography, wrong house vernacular",
+       "Kazakhstan — forest-taiga vegetation, not steppe",
+       "Baltic states — Cyrillic-only signage"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "North-West (Pskov/Novgorod)",
+       "Central Upper Volga (Yaroslavl/Kostroma/Vologda/Ivanovo)",
+       "Volga-Ural titular republics",
+       "South Russia (Krasnodar/Rostov)",
+       "Siberia"
+      ],
+      "conclusion": "Central / northern European Russia — the Upper Volga–Vologda forest belt",
+      "confidence_after": 0.7,
+      "discriminator": "South Russia would show sunflower/wheat fields, poplar and acacia, whitewashed single-storey houses with flat-pitch roofs and no log construction; Siberia would show more dense log-cabin uniformity, wider unpaved streets and often taller blind board fences plus larch; a titular republic (Tatarstan, Mari El, Chuvashia) would show a republic flag or Latin-transliterated place names and often a mosque minaret. None of those appear.",
+      "level": "macro_region",
+      "observation": "Drooping birch and spruce, willow scrub, lush grass under heavy overcast in mid-summer; flat glacial plain; grey slate-sheet roofs on log houses.",
+      "question": "Which macro-region of Russia?",
+      "ruled_out": [
+       "South Russia — no steppe/sunflower, wrong vernacular",
+       "Volga-Ural republics — no bilingual or dual-script signage, no mosque",
+       "Siberia — no larch, no super-wide dirt main streets"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Great Russian Orthodox provincial sphere",
+       "Finno-Ugric titular sphere (Komi/Mari)",
+       "Tatar Muslim sphere"
+      ],
+      "conclusion": "Purely Great Russian Orthodox provincial sphere (historic Zalesye / merchant-town culture)",
+      "confidence_after": 0.72,
+      "discriminator": "A Komi or Mari town would place Cyrillic-but-non-Russian street plates and republic emblems on buildings; a Tatar town would show Latin duplicates and Tatneft branding. Instead we see 19th-century Orthodox-merchant brick architecture with kokoshnik ornament, the iconography of the pre-revolutionary Russian uyezd town.",
+      "level": "cultural_sphere",
+      "observation": "Pre-revolutionary bare-brick merchant houses with Russian revival kokoshnik hoods; carved painted izba window casings; no minaret, no non-Russian script.",
+      "question": "Which ethnolinguistic sphere within Russia?",
+      "ruled_out": [
+       "Finno-Ugric titular republics — no republic emblems/second language",
+       "Tatar Muslim sphere — no Latin duplicates, no mosque, no Tatneft"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Yaroslavl oblast",
+       "Kostroma oblast",
+       "Vologda oblast",
+       "Ivanovo oblast",
+       "Tver oblast"
+      ],
+      "conclusion": "Yaroslavl–Kostroma–Vologda triangle; leaning Yaroslavl/Kostroma",
+      "confidence_after": 0.45,
+      "discriminator": "Tver oblast towns typically sit on the Moscow–Petersburg corridor with more renovated frontages and denser modern retail; Ivanovo towns show large textile-mill brick complexes dominating the skyline. Here the built stock is small-scale merchant brick plus log housing with no mill complex, and the surviving 19th-century brick 'kirpichny stil' detailing with whitewashed neighbours matches the Yaroslavl/Kostroma uyezd-town type. Evidence is insufficient to split the three oblasts definitively — no route shield or oblast name visible.",
+      "level": "admin_region",
+      "observation": "Two-storey merchant brick ensemble at a street fork, silicate-brick two-storey walk-ups, timber-trade advertising, no industrial skyline.",
+      "question": "Which oblast of the Upper Volga north?",
+      "ruled_out": [
+       "Tver oblast — lacks the corridor-town retail density and renovation",
+       "Ivanovo oblast — no textile-mill industrial fabric"
+      ],
+      "weight": "low"
+     },
+     {
+      "candidates": [
+       "Oblast capital",
+       "Mid-size industrial town (30-100k)",
+       "Small raion center (3-15k)",
+       "Rural village"
+      ],
+      "conclusion": "Small raion (district) administrative center of a few thousand people",
+      "confidence_after": 0.6,
+      "discriminator": "An oblast capital or 50k+ town would show 5-9 storey panel blocks, trolleybus/streetlight masts along a boulevard, and painted crosswalks with traffic lights; a pure village would have no asphalt through-street, no municipal Euro bins, no chain grocery and no multi-storey housing. Here we get exactly the middle case: one asphalted main street with sidewalk, modern wheeled municipal bins, two-storey brick walk-ups, a single modern discount supermarket, and dirt back lanes with derelict log houses.",
+      "level": "metro_area",
+      "observation": "Asphalt main street with pedestrians and a chain-style grocery fascia (image 5), but unpaved lanes and collapsing log structures two blocks away (image 4).",
+      "question": "What settlement size class?",
+      "ruled_out": [
+       "Oblast capital — no high-rise or tram/trolleybus infrastructure",
+       "Rural village — has sidewalks, municipal waste bins, apartment blocks, supermarket"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Historic merchant core",
+       "Late-Soviet microdistrict",
+       "Peripheral private-sector outskirt"
+      ],
+      "conclusion": "Captures span the historic merchant core (images 1-2) and the private-plot periphery along the town's entry road (images 0, 3-5)",
+      "confidence_after": 0.55,
+      "discriminator": "A late-Soviet microdistrict would be defined by rows of 5-storey panel blocks with playgrounds and no wooden housing; here every frame mixes pre-revolutionary masonry or log housing with private plots, and image 0 shows the school-zone signs and 40 km/h limit typical of a town entry street rather than an interior microdistrict.",
+      "level": "district",
+      "observation": "School-children warning + 40 limit on an edge-of-town street lined by profnastil fences; merchant-house fork elsewhere; dirt back lane with ruins.",
+      "question": "Which part of the town?",
+      "ruled_out": [
+       "Late-Soviet microdistrict — no panel-block rows"
+      ],
+      "weight": "low"
+     }
+    ],
+    "overall_confidence": 0.45,
+    "place_slug": "lyubim",
+    "relied_on_atoms": [
+     "atm_7a93556dc671",
+     "atm_c2abec0b30bf",
+     "atm_a5822442b0ee",
+     "atm_fe3149f63023"
+    ],
+    "revised_from": null
+   },
+   "cost_usd": 0.1719,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2731,
+    "output": 5948,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Russia",
+    "country_iso": "RU",
+    "country_correct": true,
+    "region": "Yaroslavl / Kostroma / Vologda oblast (central Upper Volga North)",
+    "city": "Small district town (likely Lyubim / Poshekhonye type raion center)",
+    "confidence": 0.44,
+    "overall_confidence": 0.45,
+    "error_km": 530.37,
+    "reached_level": "district",
+    "n_steps": 7,
+    "n_steps_with_cut": 7,
+    "n_cues": 12,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "climate",
+     "fencing",
+     "infrastructure",
+     "landscape",
+     "language",
+     "signage",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_7f1b78158b4f",
+    "atm_7a93556dc671",
+    "atm_0f643119e6e7",
+    "atm_c2abec0b30bf",
+    "atm_cfac9d9821b9",
+    "atm_ef1e5540144e",
+    "atm_a5822442b0ee",
+    "atm_de07ff165cf0",
+    "atm_b227ef35bd59",
+    "atm_fe3149f63023"
+   ],
+   "relied_on": [
+    "atm_7a93556dc671",
+    "atm_c2abec0b30bf",
+    "atm_a5822442b0ee",
+    "atm_fe3149f63023"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "RU",
+   "country": "Russia",
+   "region": "Yaroslavl / Kostroma / Vologda oblast (central Upper Volga North)",
+   "city": "Small district town (likely Lyubim / Poshekhonye type raion center)",
+   "lat": 58.36,
+   "lng": 40.68,
+   "error_km": 530.37,
+   "reached_level": "district",
+   "confidence": 0.44,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "miss",
+  "city": "miss",
+  "error_km": 530.37,
+  "bucket": ">=100"
+ },
+ "correction": {
+  "cost_usd": 0.23107375000000002,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 6281,
+   "output": 3338,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Country was correct (Russia), but the analyst placed the scene in the Yaroslavl–Kostroma–Vologda triangle when the truth lies ~530 km east, on the Kirov/Perm (Vyatka–Kama, Cis-Ural) taiga margin. The miss came from treating 19th-century bare-brick merchant houses with kokoshnik hoods, silicate-brick two-storey walk-ups and log izbas with painted trim as diagnostic of the Upper Volga, when this whole kit repeats identically across the Vyatka–Kama belt; none of the visible cues actually separate the two. The images contain no route shield, oblast name or terrain cue that could have fixed the longitude, so the region error was largely unavoidable — the lesson is calibration (a much wider east-west radius), not a missed cue.",
+  "misleading_cues": [
+   {
+    "observation": "Bare red-brick two-storey merchant house with kokoshnik-style brick window hoods and stepped attic gablet (img 2)",
+    "why_misleading": "Read as a marker of the Yaroslavl/Kostroma uyezd-town type, but provincial 'kirpichny stil' merchant houses of exactly this pattern were built right across the Vyatka and Kama basins into the Cis-Urals."
+   },
+   {
+    "observation": "Log izbas with painted turquoise window surrounds and grey asbestos-cement corrugated roofing (imgs 1, 5)",
+    "why_misleading": "Treated as Upper Volga vernacular; this is the generic northern/Cis-Ural Russian village kit and carries no longitudinal information."
+   },
+   {
+    "observation": "Absence of any republic emblem, mosque or Latin-transliterated plate",
+    "why_misleading": "Correctly excluded titular republics, but was then over-read as pushing the location west toward the Volga core, whereas Slavic-majority raion centres in Kirov Oblast and Perm Krai look exactly the same."
+   },
+   {
+    "observation": "Flat glacial plain with no relief in every frame (imgs 0, 4)",
+    "why_misleading": "Used to argue against anything Ural-adjacent, but the western Cis-Ural / Vyatka lowland is equally flat and gives no relief signal."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Dark-green/red discount supermarket fascia on a wide asphalt strip with dense parked-car frontage and a yellow timber-trade banner (брус-доска-вагонка) next door",
+    "why_decisive": "A federal discounter plus a sawn-timber retail yard on the main road is the signature of a taiga-zone raion centre where softwood processing, not Volga trade or textiles, is the local economy.",
+    "category": "industry",
+    "image_index": 5
+   },
+   {
+    "observation": "Spruce-and-birch mix with willow scrub and lush high-summer grass under heavy overcast, no oak-hornbeam element at all",
+    "why_decisive": "Pure southern-taiga composition fits the Vyatka–Kama belt as well as the Upper Volga, so it should have widened the east-west radius rather than anchoring one oblast.",
+    "category": "vegetation",
+    "image_index": 1
+   },
+   {
+    "observation": "Monolingual Russian Cyrillic only, no dual-script or emblem on the 19th-century brick core",
+    "why_decisive": "Confirms a Slavic-majority district of Russia and excludes Tatarstan/Udmurtia/Mari El, which is consistent with Kirov Oblast and western Perm Krai.",
+    "category": "signage-language",
+    "image_index": 1
+   },
+   {
+    "observation": "GOST white-field 'children' triangle, red-ring 40 roundel and Cyrillic '150м' plate on braced concrete/wood poles",
+    "category": "road-signage",
+    "why_decisive": "Fixes the post-Soviet zone and, with Russian orthography elsewhere, the country — but is uniform nationwide and cannot narrow the oblast.",
+    "image_index": 0
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Provincial bare-brick merchant houses are pan-Russian, not an Upper Volga fingerprint",
+    "body": "Two-storey unrendered red-brick houses with kokoshnik brick window hoods and stepped attic gablets occur in nearly every pre-revolutionary uyezd centre from the Upper Volga east to the Kama and Cis-Urals. In Yaroslavl/Kostroma you would additionally expect a surviving arcaded gostiny dvor, stuccoed classical facades and a visible church ensemble on a planned regular square; in the Vyatka–Kama belt the brick stock is thinner, isolated, and sits directly among log izbas on an irregular street fork, as here. Treat this typology as a Russia-wide date marker, not a longitude marker.",
+    "layer": "architecture",
+    "category": "roof-facade",
+    "scope": "country",
+    "tags": [
+     "kirpichny-stil",
+     "merchant-town",
+     "brick"
+    ],
+    "entities": [
+     "Yaroslavl Oblast",
+     "Perm Krai",
+     "Kirov Oblast"
+    ],
+    "looks_like": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Yaroslavl/Kostroma Oblast"
+    },
+    "actually": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Perm Krai / Kirov Oblast"
+    },
+    "confidence": 0.7
+   },
+   {
+    "title": "Timber-yard retail strips flag Vyatka–Kama taiga raion towns over Upper Volga ones",
+    "body": "In Kirov Oblast and Perm Krai small-town main roads commonly carry banner ads for sawn softwood assortments (брус, доска, вагонка) next to a federal discounter, because local economies rest on logging and sawmilling. In Yaroslavl/Kostroma or Ivanovo towns you would more often see textile-mill brick complexes, dairy or machine-plant signage and fewer raw-timber trade yards. A timber-assortment banner should push your estimate east into the taiga belt.",
+    "layer": "economy",
+    "category": "industry",
+    "scope": "region",
+    "tags": [
+     "timber",
+     "sawmill",
+     "retail-strip"
+    ],
+    "entities": [
+     "Perm Krai",
+     "Kirov Oblast",
+     "Ivanovo Oblast"
+    ],
+    "looks_like": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Upper Volga (Ivanovo/Yaroslavl)"
+    },
+    "actually": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Cis-Ural / Vyatka-Kama taiga"
+    },
+    "confidence": 0.55
+   },
+   {
+    "title": "Southern-taiga spruce-birch without oak is a belt, not a point",
+    "body": "A canopy of Picea and drooping birch with willow scrub and no oak, hornbeam or maple element spans a 1500 km east-west band from Vologda to the Cis-Urals. In genuinely Upper Volga locations you would start to see admixed oak, lime and maple in hedgerows and old parks; their total absence argues for staying agnostic across the whole taiga band and quoting a radius of many hundreds of kilometres.",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "region",
+    "tags": [
+     "taiga",
+     "spruce",
+     "birch",
+     "radius-calibration"
+    ],
+    "entities": [
+     "Vologda Oblast",
+     "Perm Krai"
+    ],
+    "looks_like": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Vologda/Kostroma"
+    },
+    "actually": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Perm Krai"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Absent titular-republic markers do not mean 'move west'",
+    "body": "Perm Krai and Kirov Oblast are Slavic-majority Russian regions with no bilingual plates, no republic tricolour and no mosque, so their towns look indistinguishable from central Russian ones. In Tatarstan, Udmurtia or Mari El you would instead see Latin or second-Cyrillic duplicates on street plates, republic emblems on administrative buildings, and Tatneft branding. Therefore a purely monolingual Russian scene excludes the republics but leaves the whole Cis-Ural corridor fully open.",
+    "layer": "language",
+    "category": "signage-language",
+    "scope": "region",
+    "tags": [
+     "titular-republic",
+     "monolingual",
+     "cis-ural"
+    ],
+    "entities": [
+     "Tatarstan",
+     "Perm Krai",
+     "Kirov Oblast"
+    ],
+    "looks_like": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Central European Russia"
+    },
+    "actually": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Perm Krai"
+    },
+    "confidence": 0.65
+   },
+   {
+    "title": "Flat terrain does not exclude the Cis-Urals",
+    "body": "The western Perm Krai and Vyatka lowlands are flat glacial-alluvial plain; you see level horizons, boggy grass and no rock outcrop, exactly as on the Upper Volga plain. Only in the eastern Perm Krai / Ural foothills would you instead see ridged skylines, road cuttings in bedrock and steeper river terraces. Flatness therefore removes only the Ural axis itself, not the entire Cis-Ural belt.",
+    "layer": "geography",
+    "category": "landform",
+    "scope": "region",
+    "tags": [
+     "plain",
+     "cis-ural",
+     "terrain"
+    ],
+    "entities": [
+     "Perm Krai",
+     "Upper Volga"
+    ],
+    "looks_like": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Upper Volga plain"
+    },
+    "actually": {
+     "country_iso": "RU",
+     "country": "Russia",
+     "region": "Perm Krai lowland"
+    },
+    "confidence": 0.5
+   }
+  ],
+  "misled_atoms": [
+   "atm_a5822442b0ee"
+  ],
+  "confirming_atoms": [
+   "atm_7a93556dc671",
+   "atm_fe3149f63023",
+   "atm_c2abec0b30bf"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_efd274cc5e3b",
+   "atm_662e72e8fe22",
+   "atm_f45fd2528590",
+   "atm_7291fe70d227"
+  ],
+  "merged": [
+   "atm_e5601aaeca59"
+  ],
+  "ordered": [
+   "atm_efd274cc5e3b",
+   "atm_662e72e8fe22",
+   "atm_f45fd2528590",
+   "atm_e5601aaeca59",
+   "atm_7291fe70d227"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_7a93556dc671",
+   "atm_fe3149f63023",
+   "atm_c2abec0b30bf"
+  ],
+  "misses": [
+   "atm_a5822442b0ee"
+  ],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.6439,
+ "status": "OK"
+}

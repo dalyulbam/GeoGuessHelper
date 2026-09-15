@@ -14503,12 +14503,12 @@
    ],
    "uses": 1,
    "created": 1788701758.981286,
-   "updated": 1788762925.656716,
+   "updated": 1789487618.0869987,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 1,
+   "hits": 2,
    "misses": 0,
    "confusions": []
   },
@@ -22230,8 +22230,14 @@
    "title": "Argentine provincial route shield and rural infrastructure conventions",
    "category": "road-signage",
    "tags": [
+    "actually-cl",
     "argentina-roads",
+    "discriminator",
+    "looks-like-ar",
+    "mop",
     "policia-caminera",
+    "road-signage",
+    "route-shield",
     "route-shields",
     "rural-infrastructure",
     "town-gateway-arch"
@@ -22261,18 +22267,21 @@
    ],
    "refs": [],
    "reports": [
-    "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html"
+    "report_ar_victorica_-36.248_-65.4249_260829_084814_ko-en-fr.html",
+    "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1787960916.0150478,
-   "updated": 1788505995.663195,
+   "updated": 1789486018.5707123,
    "tier": null,
-   "kind": "fact",
+   "kind": "discriminator",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
-   "confusions": []
+   "confusions": [
+    "AR>CL"
+   ]
   },
   "atm_532ae8610bb9": {
    "id": "atm_532ae8610bb9",
@@ -29375,12 +29384,12 @@
    ],
    "uses": 1,
    "created": 1789051574.1070325,
-   "updated": 1789361192.129324,
+   "updated": 1789486018.4956095,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 1,
+   "hits": 2,
    "misses": 0,
    "confusions": []
   },
@@ -31860,12 +31869,12 @@
    ],
    "uses": 1,
    "created": 1788701997.7053242,
-   "updated": 1788763095.0502405,
+   "updated": 1789487822.941437,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 1,
+   "hits": 2,
    "misses": 0,
    "confusions": []
   },
@@ -42021,13 +42030,13 @@
    ],
    "uses": 1,
    "created": 1788000562.9527476,
-   "updated": 1788506019.766223,
+   "updated": 1789487823.0697682,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
    "hits": 0,
-   "misses": 0,
+   "misses": 1,
    "confusions": []
   },
   "atm_a58facd06de0": {
@@ -49489,12 +49498,12 @@
    "reports": [],
    "uses": 1,
    "created": 1787610046.6129298,
-   "updated": 1787610046.6131222,
+   "updated": 1789487823.039942,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -54889,12 +54898,16 @@
    "title": "Czech village waste bins vs Austrian German-labelled containers",
    "category": "infrastructure-built",
    "tags": [
+    "actually-at",
     "actually-cz",
     "ara",
+    "bins",
     "discriminator",
     "german",
     "infrastructure-built",
     "looks-like-at",
+    "looks-like-cz",
+    "rural",
     "waste"
    ],
    "entities": [
@@ -54909,22 +54922,26 @@
    "radius_km": 1200,
    "cell": "u2f2t6k",
    "lang": "en",
-   "sources": [],
+   "sources": [
+    "/captures/capture_0767376329d7.jpg"
+   ],
    "refs": [],
    "reports": [
-    "report_cz_zelec-u-tabora_49.318_14.6477_260906_223536_ko-en-fr.html"
+    "report_cz_zelec-u-tabora_49.318_14.6477_260906_223536_ko-en-fr.html",
+    "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1788762925.5513759,
-   "updated": 1788762925.551452,
+   "updated": 1789487618.036847,
    "tier": "unaided",
    "kind": "discriminator",
    "status": "active",
    "origin": "correction",
-   "hits": 0,
+   "hits": 2,
    "misses": 0,
    "confusions": [
-    "AT>CZ"
+    "AT>CZ",
+    "CZ>AT"
    ]
   },
   "atm_db47f02242c9": {
@@ -57388,8 +57405,11 @@
    "tags": [
     "austria",
     "autobahn",
+    "dach-region",
+    "landesstrasse",
     "linguistic-marker",
     "road-signage",
+    "route-numbering",
     "street-naming"
    ],
    "entities": [
@@ -57417,11 +57437,12 @@
    ],
    "refs": [],
    "reports": [
-    "report_at_vienna_48.2518_16.3927_260814_111850_ko.html"
+    "report_at_vienna_48.2518_16.3927_260814_111850_ko.html",
+    "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1786673950.6847732,
-   "updated": 1788506030.2701585,
+   "updated": 1789487091.3391058,
    "tier": null,
    "kind": "fact",
    "status": "active",
@@ -57539,9 +57560,16 @@
    "title": "Tatar-language toponym patterns within Tatarstan signage",
    "category": "signage-language",
    "tags": [
+    "actually-ru",
+    "cis-ural",
+    "discriminator",
     "dual-script-signage",
+    "looks-like-ru",
+    "monolingual",
     "road-signage",
+    "signage-language",
     "tatar-language",
+    "titular-republic",
     "toponymy",
     "transliteration"
    ],
@@ -57560,16 +57588,17 @@
    "sources": [],
    "refs": [],
    "reports": [
-    "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html"
+    "report_ru_naberezhnye-chelny_55.7391_51.7371_260829_084508_ko-en-fr.html",
+    "report_ru_poroshino_58.6062_49.7994_260916_005047_ko-en-fr.html"
    ],
-   "uses": 1,
+   "uses": 2,
    "created": 1788000563.1512938,
-   "updated": 1788506030.3327127,
+   "updated": 1789487822.842485,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -64482,12 +64511,12 @@
    "reports": [],
    "uses": 1,
    "created": 1787609743.6167192,
-   "updated": 1787609743.616923,
+   "updated": 1789487823.010845,
    "tier": null,
    "kind": "fact",
    "status": "active",
    "origin": null,
-   "hits": 0,
+   "hits": 1,
    "misses": 0,
    "confusions": []
   },
@@ -67673,6 +67702,1153 @@
    "hits": 0,
    "misses": 0,
    "confusions": []
+  },
+  "atm_be0ab53acd2f": {
+   "id": "atm_be0ab53acd2f",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Roof pitch as a north-south French vernacular discriminator",
+   "category": "roof-facade",
+   "tags": [
+    "france",
+    "grand-est",
+    "regional-discriminator",
+    "roof-pitch",
+    "vernacular-architecture"
+   ],
+   "entities": [
+    "champagne-ardenne",
+    "france",
+    "grand-est"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 49.5097017,
+   "lng": 4.3525354,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u0g1ehc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485441.900668,
+   "updated": 1789485441.9009671,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_030767d975b3": {
+   "id": "atm_030767d975b3",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Yellow kerbside no-parking line is a French road-marking convention",
+   "category": "road-marking",
+   "tags": [
+    "discriminator",
+    "france",
+    "kerb-line",
+    "road-marking",
+    "street-furniture"
+   ],
+   "entities": [
+    "france"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 49.5097017,
+   "lng": 4.3525354,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "u0g1ehc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485441.9321134,
+   "updated": 1789485845.1428246,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_533e2635a15a": {
+   "id": "atm_533e2635a15a",
+   "layer": "culture",
+   "scope": "country",
+   "title": "French pavillon suburban housing typology (1970s-80s)",
+   "category": "housing-typology",
+   "tags": [
+    "1970s-1980s",
+    "france",
+    "lotissement",
+    "pavillon",
+    "suburban-housing"
+   ],
+   "entities": [
+    "france"
+   ],
+   "period_start": 1970,
+   "period_end": 1989,
+   "lat": 49.5097017,
+   "lng": 4.3525354,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "u0g1ehc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485441.9609625,
+   "updated": 1789485845.2284968,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 1,
+   "confusions": []
+  },
+  "atm_98778235ee30": {
+   "id": "atm_98778235ee30",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Ardennes region small-scale manufacturing decline",
+   "category": "industry",
+   "tags": [
+    "agriculture",
+    "ardennes",
+    "commuter-belt",
+    "deindustrialization",
+    "small-town-economy"
+   ],
+   "entities": [
+    "ardennes",
+    "grand-est"
+   ],
+   "period_start": 1950,
+   "period_end": 2020,
+   "lat": 49.5097017,
+   "lng": 4.3525354,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u0g1ehc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485441.989564,
+   "updated": 1789485441.9897194,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_85078b1f8cf9": {
+   "id": "atm_85078b1f8cf9",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Aisne river floodplain and Canal des Ardennes corridor",
+   "category": "hydrology",
+   "tags": [
+    "aisne-river",
+    "canal-des-ardennes",
+    "floodplain",
+    "logistics-corridor",
+    "poplar"
+   ],
+   "entities": [
+    "aisne-river",
+    "ardennes",
+    "rethel"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 49.5097017,
+   "lng": 4.3525354,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u0g1ehc",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485442.0169106,
+   "updated": 1789485442.0170658,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_0b01719c9eb4": {
+   "id": "atm_0b01719c9eb4",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Chile's MOP letter-block road prefixes map to macro-regions",
+   "category": "road-signage",
+   "tags": [
+    "araucania",
+    "chile-roads",
+    "mop",
+    "road-numbering",
+    "route-code"
+   ],
+   "entities": [
+    "chile",
+    "ministerio-de-obras-publicas-chile"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -39.4653964,
+   "lng": -72.2604257,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "62ux7xt",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485667.584771,
+   "updated": 1789486018.4407737,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_1496460091f6": {
+   "id": "atm_1496460091f6",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Mapuche communal land-tenure landscape markers in the Araucanía frontier",
+   "category": "settlement-pattern",
+   "tags": [
+    "araucania",
+    "chile",
+    "frontier",
+    "indigenous-community",
+    "land-tenure",
+    "mapuche"
+   ],
+   "entities": [
+    "araucania-region",
+    "chile",
+    "mapuche"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -39.4653964,
+   "lng": -72.2604257,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "62ux7xt",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485667.6156826,
+   "updated": 1789486018.5246878,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 1,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_a76ff2e557d1": {
+   "id": "atm_a76ff2e557d1",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Lake District tourism spillover into rural Mapuche/campesino corridors",
+   "category": "tourism-economy",
+   "tags": [
+    "chile",
+    "lake-district",
+    "rural-economy",
+    "tourism-economy",
+    "villarrica"
+   ],
+   "entities": [
+    "chile",
+    "villarrica"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -39.4653964,
+   "lng": -72.2604257,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "62ux7xt",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485667.6466703,
+   "updated": 1789486018.6052566,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 1,
+   "confusions": []
+  },
+  "atm_5627f16f3656": {
+   "id": "atm_5627f16f3656",
+   "layer": "architecture",
+   "scope": "country",
+   "title": "Pavillon lotissement kit is national, not regional — don't use it to narrow within France",
+   "category": "housing-typology",
+   "tags": [
+    "actually-fr",
+    "claustra",
+    "discriminator",
+    "housing-typology",
+    "looks-like-fr",
+    "lotissement",
+    "pavillon",
+    "regional-signal"
+   ],
+   "entities": [
+    "ardennes",
+    "ardennes-grand-est",
+    "centre-val-de-loire-perche",
+    "eure-et-loir",
+    "france"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 49.5094718285656,
+   "lng": 4.3554055610425,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "u0g1ehg",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485845.0189903,
+   "updated": 1789485845.0192792,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_cb506827dd99": {
+   "id": "atm_cb506827dd99",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Willow-poplar carr at the estate edge means alluvial valley town, not plateau town",
+   "category": "hydrology",
+   "tags": [
+    "actually-fr",
+    "discriminator",
+    "floodplain",
+    "hydrology",
+    "landform",
+    "looks-like-fr",
+    "riparian",
+    "willow"
+   ],
+   "entities": [
+    "aisne-valley",
+    "ardennes-grand-est",
+    "beauce",
+    "centre-val-de-loire",
+    "france"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 49.5094718285656,
+   "lng": 4.3554055610425,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u0g1ehg",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485845.048016,
+   "updated": 1789485845.048183,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_569d526de3f2": {
+   "id": "atm_569d526de3f2",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Derelict brick/steel workshops inside the housing fabric point north-east, not to Beauce",
+   "category": "industry",
+   "tags": [
+    "actually-fr",
+    "brick",
+    "discriminator",
+    "industrial-ruin",
+    "industry",
+    "looks-like-fr",
+    "river-town"
+   ],
+   "entities": [
+    "ardennes-grand-est",
+    "centre-val-de-loire",
+    "champagne-ardenne",
+    "eure-et-loir",
+    "france"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 49.5094718285656,
+   "lng": 4.3554055610425,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u0g1ehg",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485845.0768502,
+   "updated": 1789485845.077005,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_82c5df9afaa6": {
+   "id": "atm_82c5df9afaa6",
+   "layer": "geography",
+   "scope": "country",
+   "title": "Yellow kerb line and STOP hardware fix France but say nothing about the region",
+   "category": "road-marking",
+   "tags": [
+    "actually-fr",
+    "discriminator",
+    "looks-like-be",
+    "road-marking",
+    "scale-discipline",
+    "stop-sign",
+    "yellow-kerb"
+   ],
+   "entities": [
+    "ardennes-grand-est",
+    "belgium",
+    "france"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 49.5094718285656,
+   "lng": 4.3554055610425,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "u0g1ehg",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789485845.1043837,
+   "updated": 1789485845.1045384,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "BE>FR"
+   ]
+  },
+  "atm_51fe315e02a2": {
+   "id": "atm_51fe315e02a2",
+   "layer": "geography",
+   "scope": "country",
+   "title": "White double centre line marks Chile; yellow marks Argentina on the Andean flank",
+   "category": "road-marking",
+   "tags": [
+    "actually-cl",
+    "centre-line",
+    "discriminator",
+    "looks-like-ar",
+    "paint-colour",
+    "road-marking"
+   ],
+   "entities": [
+    "argentina",
+    "chile",
+    "la-araucan-a",
+    "neuqu-n"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -39.45870811051696,
+   "lng": -72.2564614629082,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "62uxebb",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789486018.285645,
+   "updated": 1789486018.285862,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "AR>CL"
+   ]
+  },
+  "atm_5c9530efe534": {
+   "id": "atm_5c9530efe534",
+   "layer": "geography",
+   "scope": "region",
+   "title": "An arrowed town name fixes the axis, not the side — check junction pair, not terrain feel",
+   "category": "road-signage",
+   "tags": [
+    "actually-cl",
+    "direction-inference",
+    "discriminator",
+    "junction",
+    "looks-like-cl",
+    "road-signage"
+   ],
+   "entities": [
+    "a-ilco-chihuaico-axis",
+    "a-ilco-chihuaico-nw-of-villarrica",
+    "chile",
+    "corridor-sw-of-villarrica",
+    "villarrica-sw-corridor"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -39.45870811051696,
+   "lng": -72.2564614629082,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "62uxebb",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789486018.3446138,
+   "updated": 1789486018.3447719,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_e7200d85a9af": {
+   "id": "atm_e7200d85a9af",
+   "layer": "culture",
+   "scope": "region",
+   "title": "Araucanía Mapuche smallholder frontier vs Llanquihue colono belt",
+   "category": "settlement-pattern",
+   "tags": [
+    "actually-cl",
+    "colono",
+    "discriminator",
+    "looks-like-cl",
+    "mapuche",
+    "settlement-pattern",
+    "toponymy"
+   ],
+   "entities": [
+    "chile",
+    "la-araucan-a",
+    "los-lagos"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -39.45870811051696,
+   "lng": -72.2564614629082,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "62uxebb",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789486018.3740933,
+   "updated": 1789486018.374249,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_d67c3162a1df": {
+   "id": "atm_d67c3162a1df",
+   "layer": "nature",
+   "scope": "country",
+   "title": "Foxglove verges and Nothofagus/radiata mix mark the Chilean rainy south, not NZ",
+   "category": "vegetation-cue",
+   "tags": [
+    "actually-cl",
+    "discriminator",
+    "foxglove",
+    "looks-like-nz",
+    "radiata",
+    "southern-temperate",
+    "vegetation-cue"
+   ],
+   "entities": [
+    "chile",
+    "new-zealand"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": -39.45870811051696,
+   "lng": -72.2564614629082,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "62uxebb",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789486018.4025035,
+   "updated": 1789486018.4026513,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "NZ>CL"
+   ]
+  },
+  "atm_aa72795f36a9": {
+   "id": "atm_aa72795f36a9",
+   "layer": "architecture",
+   "scope": "region",
+   "title": "Alpine vs foreland roof pitch and eave depth as elevation/relief proxy",
+   "category": "roof-facade",
+   "tags": [
+    "alpine-architecture",
+    "roof-pitch",
+    "snow-load",
+    "upper-austria",
+    "vernacular-housing"
+   ],
+   "entities": [
+    "tirol",
+    "upper-austria"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 48.0180432,
+   "lng": 13.6704829,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u299pj6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487091.3692837,
+   "updated": 1789487091.3694313,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_1f233e16a5a5": {
+   "id": "atm_1f233e16a5a5",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Bohemian Massif granite plateau vs molasse foreland hill country",
+   "category": "landform",
+   "tags": [
+    "bohemian-massif",
+    "geology",
+    "granite",
+    "molasse",
+    "upper-austria"
+   ],
+   "entities": [
+    "bohemian-massif",
+    "hausruckviertel",
+    "muhlviertel"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 48.0180432,
+   "lng": 13.6704829,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u299pj6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487091.4013598,
+   "updated": 1789487091.40151,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_988e5e7c8742": {
+   "id": "atm_988e5e7c8742",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Hausruck coal basin transition to commuter economy",
+   "category": "industry",
+   "tags": [
+    "commuter-belt",
+    "hausruck",
+    "lignite",
+    "post-industrial",
+    "upper-austria"
+   ],
+   "entities": [
+    "hausruckviertel"
+   ],
+   "period_start": 1900,
+   "period_end": 2020,
+   "lat": 48.0180432,
+   "lng": 13.6704829,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u299pj6",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487091.4301333,
+   "updated": 1789487091.4302824,
+   "tier": null,
+   "kind": "fact",
+   "status": "active",
+   "origin": null,
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_2b6dc49fc1c4": {
+   "id": "atm_2b6dc49fc1c4",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Hausruck molasse hills vs Mühlviertel granite plateau in Upper Austria",
+   "category": "landform",
+   "tags": [
+    "actually-at",
+    "discriminator",
+    "foreland",
+    "landform",
+    "looks-like-at",
+    "molasse",
+    "plateau",
+    "upper-austria"
+   ],
+   "entities": [
+    "austria",
+    "hausruckviertel",
+    "m-hlviertel",
+    "upper-austria-hausruckviertel"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 48.0173318921645,
+   "lng": 13.667388398996893,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "u299pj2",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_6911b4ad95a7.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487617.8982975,
+   "updated": 1789487617.8985837,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_b810b26db38d": {
+   "id": "atm_b810b26db38d",
+   "layer": "architecture",
+   "scope": "country",
+   "title": "Austrian Einfamilienhaus render palette vs German rural render",
+   "category": "housing-typology",
+   "tags": [
+    "actually-at",
+    "discriminator",
+    "gable",
+    "garage",
+    "housing-typology",
+    "looks-like-de",
+    "render"
+   ],
+   "entities": [
+    "austria",
+    "germany"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 48.0173318921645,
+   "lng": 13.667388398996893,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "u299pj2",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_0767376329d7.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487617.9680421,
+   "updated": 1789487617.968248,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "DE>AT"
+   ]
+  },
+  "atm_43d855f5ee3f": {
+   "id": "atm_43d855f5ee3f",
+   "layer": "culture",
+   "scope": "country",
+   "title": "Yellow blade waymarkers and unmarked Güterwege vs Swiss road furniture",
+   "category": "road-signage",
+   "tags": [
+    "actually-at",
+    "discriminator",
+    "looks-like-ch",
+    "minor-road",
+    "road-signage",
+    "signage",
+    "waymarker"
+   ],
+   "entities": [
+    "austria",
+    "switzerland"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 48.0173318921645,
+   "lng": 13.667388398996893,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "u299pj2",
+   "lang": "en",
+   "sources": [
+    "/captures/capture_db13a7c48b0d.jpg"
+   ],
+   "refs": [],
+   "reports": [
+    "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487617.9988925,
+   "updated": 1789487617.9990406,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": [
+    "CH>AT"
+   ]
+  },
+  "atm_efd274cc5e3b": {
+   "id": "atm_efd274cc5e3b",
+   "layer": "architecture",
+   "scope": "country",
+   "title": "Provincial bare-brick merchant houses are pan-Russian, not an Upper Volga fingerprint",
+   "category": "roof-facade",
+   "tags": [
+    "actually-ru",
+    "brick",
+    "discriminator",
+    "kirpichny-stil",
+    "looks-like-ru",
+    "merchant-town",
+    "roof-facade"
+   ],
+   "entities": [
+    "kirov-oblast",
+    "perm-krai",
+    "perm-krai-kirov-oblast",
+    "russia",
+    "yaroslavl-kostroma-oblast",
+    "yaroslavl-oblast"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 58.60703440343825,
+   "lng": 49.799179816423745,
+   "heading": null,
+   "radius_km": 1200,
+   "cell": "v47mmjn",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_poroshino_58.6062_49.7994_260916_005047_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487822.7352984,
+   "updated": 1789487822.735807,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_662e72e8fe22": {
+   "id": "atm_662e72e8fe22",
+   "layer": "economy",
+   "scope": "region",
+   "title": "Timber-yard retail strips flag Vyatka–Kama taiga raion towns over Upper Volga ones",
+   "category": "industry",
+   "tags": [
+    "actually-ru",
+    "discriminator",
+    "industry",
+    "looks-like-ru",
+    "retail-strip",
+    "sawmill",
+    "timber"
+   ],
+   "entities": [
+    "cis-ural-vyatka-kama-taiga",
+    "ivanovo-oblast",
+    "kirov-oblast",
+    "perm-krai",
+    "russia",
+    "upper-volga-ivanovo-yaroslavl"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 58.60703440343825,
+   "lng": 49.799179816423745,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "v47mmjn",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_poroshino_58.6062_49.7994_260916_005047_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487822.7701602,
+   "updated": 1789487822.7703032,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_f45fd2528590": {
+   "id": "atm_f45fd2528590",
+   "layer": "nature",
+   "scope": "region",
+   "title": "Southern-taiga spruce-birch without oak is a belt, not a point",
+   "category": "vegetation-cue",
+   "tags": [
+    "actually-ru",
+    "birch",
+    "discriminator",
+    "looks-like-ru",
+    "radius-calibration",
+    "spruce",
+    "taiga",
+    "vegetation-cue"
+   ],
+   "entities": [
+    "perm-krai",
+    "russia",
+    "vologda-kostroma",
+    "vologda-oblast"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 58.60703440343825,
+   "lng": 49.799179816423745,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "v47mmjn",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_poroshino_58.6062_49.7994_260916_005047_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487822.8036394,
+   "updated": 1789487822.8037822,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
+  },
+  "atm_7291fe70d227": {
+   "id": "atm_7291fe70d227",
+   "layer": "geography",
+   "scope": "region",
+   "title": "Flat terrain does not exclude the Cis-Urals",
+   "category": "landform",
+   "tags": [
+    "actually-ru",
+    "cis-ural",
+    "discriminator",
+    "landform",
+    "looks-like-ru",
+    "plain",
+    "terrain"
+   ],
+   "entities": [
+    "perm-krai",
+    "perm-krai-lowland",
+    "russia",
+    "upper-volga",
+    "upper-volga-plain"
+   ],
+   "period_start": null,
+   "period_end": null,
+   "lat": 58.60703440343825,
+   "lng": 49.799179816423745,
+   "heading": null,
+   "radius_km": 200,
+   "cell": "v47mmjn",
+   "lang": "en",
+   "sources": [],
+   "refs": [],
+   "reports": [
+    "report_ru_poroshino_58.6062_49.7994_260916_005047_ko-en-fr.html"
+   ],
+   "uses": 1,
+   "created": 1789487822.877884,
+   "updated": 1789487822.8780937,
+   "tier": "unaided",
+   "kind": "discriminator",
+   "status": "active",
+   "origin": "correction",
+   "hits": 0,
+   "misses": 0,
+   "confusions": []
   }
  },
  "cells": {
@@ -67795,7 +68971,13 @@
    "atm_f4afa21fa970",
    "atm_f644bdf4dd51",
    "atm_fb908e0b6c54",
-   "atm_fba72a044766"
+   "atm_fba72a044766",
+   "atm_e4e3e2300015",
+   "atm_db146264aff3",
+   "atm_b810b26db38d",
+   "atm_43d855f5ee3f",
+   "atm_db146264aff3",
+   "atm_38455d899c95"
   ],
   "u24": [
    "atm_050d1beb807a",
@@ -68234,7 +69416,8 @@
    "atm_3d749d8750f5",
    "atm_7a93556dc671",
    "atm_cbb4d80090b5",
-   "atm_df67f805f8ad"
+   "atm_df67f805f8ad",
+   "atm_7a93556dc671"
   ],
   "w2": [
    "atm_299833074c58",
@@ -68298,6 +69481,7 @@
   "v1u": [
    "atm_3594786dc613",
    "atm_41abb4a57c7a",
+   "atm_e5601aaeca59",
    "atm_e5601aaeca59"
   ],
   "6d6": [
@@ -68363,7 +69547,14 @@
    "atm_9bcc84872634",
    "atm_bc76c93c3cae",
    "atm_c23d23b3926b",
-   "atm_dddae32137b0"
+   "atm_dddae32137b0",
+   "atm_030767d975b3",
+   "atm_533e2635a15a",
+   "atm_5627f16f3656",
+   "atm_82c5df9afaa6",
+   "atm_030767d975b3",
+   "atm_533e2635a15a",
+   "atm_533e2635a15a"
   ],
   "xn3": [
    "atm_4083b2bd8030",
@@ -68482,7 +69673,9 @@
   "69": [
    "atm_530209fff20e",
    "atm_62c66acd242d",
-   "atm_7e047d064bd0"
+   "atm_7e047d064bd0",
+   "atm_530209fff20e",
+   "atm_530209fff20e"
   ],
   "srsfe": [
    "atm_5331d9309824",
@@ -68546,6 +69739,7 @@
   "66": [
    "atm_71667f856f45",
    "atm_173fb47af208",
+   "atm_71667f856f45",
    "atm_71667f856f45"
   ],
   "w7": [
@@ -68679,7 +69873,8 @@
   ],
   "v1": [
    "atm_a5822442b0ee",
-   "atm_ef1e5540144e"
+   "atm_ef1e5540144e",
+   "atm_a5822442b0ee"
   ],
   "sry": [
    "atm_a5f1b76fba94"
@@ -68699,7 +69894,8 @@
    "atm_a8902b79c383"
   ],
   "v4": [
-   "atm_a89c6a101444"
+   "atm_a89c6a101444",
+   "atm_efd274cc5e3b"
   ],
   "ey": [
    "atm_a8fd0dd52605",
@@ -68747,6 +69943,7 @@
    "atm_ff43edba76d3"
   ],
   "u9": [
+   "atm_c2abec0b30bf",
    "atm_c2abec0b30bf"
   ],
   "ge2": [
@@ -68817,6 +70014,38 @@
    "atm_288c6a410e97",
    "atm_b0dafbf62e75",
    "atm_7f58247de8e3"
+  ],
+  "u0g": [
+   "atm_be0ab53acd2f",
+   "atm_98778235ee30",
+   "atm_85078b1f8cf9",
+   "atm_cb506827dd99",
+   "atm_569d526de3f2"
+  ],
+  "62": [
+   "atm_0b01719c9eb4",
+   "atm_51fe315e02a2",
+   "atm_d67c3162a1df",
+   "atm_0b01719c9eb4"
+  ],
+  "62u": [
+   "atm_1496460091f6",
+   "atm_a76ff2e557d1",
+   "atm_5c9530efe534",
+   "atm_e7200d85a9af",
+   "atm_1496460091f6",
+   "atm_a76ff2e557d1"
+  ],
+  "u29": [
+   "atm_aa72795f36a9",
+   "atm_1f233e16a5a5",
+   "atm_988e5e7c8742",
+   "atm_2b6dc49fc1c4"
+  ],
+  "v47": [
+   "atm_662e72e8fe22",
+   "atm_f45fd2528590",
+   "atm_7291fe70d227"
   ]
  },
  "entities": {
@@ -69444,7 +70673,8 @@
    "atm_c0028c87af29",
    "atm_935d031e2a8f",
    "atm_30644ea72f98",
-   "atm_b2e8cd2ce0f6"
+   "atm_b2e8cd2ce0f6",
+   "atm_d67c3162a1df"
   ],
   "united-states": [
    "atm_06bd6a770961",
@@ -69866,7 +71096,8 @@
    "atm_e59def631833",
    "atm_e70740d7190f",
    "atm_e8c4d3d9d65a",
-   "atm_fb73bf27bdb5"
+   "atm_fb73bf27bdb5",
+   "atm_b810b26db38d"
   ],
   "india": [
    "atm_0de705b1aa28",
@@ -71023,7 +72254,14 @@
    "atm_ecb833635a0b",
    "atm_f84831b3eb8b",
    "atm_fb73bf27bdb5",
-   "atm_fcd1da2c1009"
+   "atm_fcd1da2c1009",
+   "atm_be0ab53acd2f",
+   "atm_030767d975b3",
+   "atm_533e2635a15a",
+   "atm_5627f16f3656",
+   "atm_cb506827dd99",
+   "atm_569d526de3f2",
+   "atm_82c5df9afaa6"
   ],
   "katowice-metropolitan-area": [
    "atm_1a2577d61235",
@@ -71218,7 +72456,11 @@
    "atm_ef1e5540144e",
    "atm_fcd1da2c1009",
    "atm_fd11c8cbb7ac",
-   "atm_fe3149f63023"
+   "atm_fe3149f63023",
+   "atm_efd274cc5e3b",
+   "atm_662e72e8fe22",
+   "atm_f45fd2528590",
+   "atm_7291fe70d227"
   ],
   "lusatia": [
    "atm_1d3c15882ba5",
@@ -71751,7 +72993,10 @@
    "atm_db146264aff3",
    "atm_e47ce946001b",
    "atm_e4e3e2300015",
-   "atm_e8c4d3d9d65a"
+   "atm_e8c4d3d9d65a",
+   "atm_2b6dc49fc1c4",
+   "atm_b810b26db38d",
+   "atm_43d855f5ee3f"
   ],
   "switzerland": [
    "atm_278ce6fc5e3b",
@@ -71764,7 +73009,8 @@
    "atm_c23d23b3926b",
    "atm_c28be990f5bb",
    "atm_d77af7df6d03",
-   "atm_e47ce946001b"
+   "atm_e47ce946001b",
+   "atm_43d855f5ee3f"
   ],
   "emilia-romagna": [
    "atm_27a2ec66d515",
@@ -71849,7 +73095,8 @@
   "belgium": [
    "atm_29a23adab5e1",
    "atm_3d33c4440f5a",
-   "atm_9b104c5193fa"
+   "atm_9b104c5193fa",
+   "atm_82c5df9afaa6"
   ],
   "cyprus": [
    "atm_29a23adab5e1",
@@ -72318,7 +73565,8 @@
    "atm_530209fff20e",
    "atm_9af3c124876b",
    "atm_bb85705ffd68",
-   "atm_cf43621783bd"
+   "atm_cf43621783bd",
+   "atm_51fe315e02a2"
   ],
   "colombia": [
    "atm_3641a82e3cde",
@@ -74633,7 +75881,14 @@
    "atm_e591fce7975b",
    "atm_fe1fabd7b881",
    "atm_ca536dbdc238",
-   "atm_173fb47af208"
+   "atm_173fb47af208",
+   "atm_0b01719c9eb4",
+   "atm_1496460091f6",
+   "atm_a76ff2e557d1",
+   "atm_51fe315e02a2",
+   "atm_5c9530efe534",
+   "atm_e7200d85a9af",
+   "atm_d67c3162a1df"
   ],
   "ministry-of-public-works-chile": [
    "atm_71667f856f45"
@@ -79535,6 +80790,148 @@
   ],
   "niger-delta": [
    "atm_4f06d267683b"
+  ],
+  "champagne-ardenne": [
+   "atm_be0ab53acd2f",
+   "atm_569d526de3f2"
+  ],
+  "grand-est": [
+   "atm_be0ab53acd2f",
+   "atm_98778235ee30"
+  ],
+  "ardennes": [
+   "atm_98778235ee30",
+   "atm_85078b1f8cf9",
+   "atm_5627f16f3656"
+  ],
+  "aisne-river": [
+   "atm_85078b1f8cf9"
+  ],
+  "rethel": [
+   "atm_85078b1f8cf9"
+  ],
+  "ministerio-de-obras-publicas-chile": [
+   "atm_0b01719c9eb4"
+  ],
+  "araucania-region": [
+   "atm_1496460091f6"
+  ],
+  "mapuche": [
+   "atm_1496460091f6"
+  ],
+  "villarrica": [
+   "atm_a76ff2e557d1"
+  ],
+  "ardennes-grand-est": [
+   "atm_5627f16f3656",
+   "atm_cb506827dd99",
+   "atm_569d526de3f2",
+   "atm_82c5df9afaa6"
+  ],
+  "centre-val-de-loire-perche": [
+   "atm_5627f16f3656"
+  ],
+  "eure-et-loir": [
+   "atm_5627f16f3656",
+   "atm_569d526de3f2"
+  ],
+  "aisne-valley": [
+   "atm_cb506827dd99"
+  ],
+  "beauce": [
+   "atm_cb506827dd99"
+  ],
+  "centre-val-de-loire": [
+   "atm_cb506827dd99",
+   "atm_569d526de3f2"
+  ],
+  "la-araucan-a": [
+   "atm_51fe315e02a2",
+   "atm_e7200d85a9af"
+  ],
+  "neuqu-n": [
+   "atm_51fe315e02a2"
+  ],
+  "a-ilco-chihuaico-axis": [
+   "atm_5c9530efe534"
+  ],
+  "a-ilco-chihuaico-nw-of-villarrica": [
+   "atm_5c9530efe534"
+  ],
+  "corridor-sw-of-villarrica": [
+   "atm_5c9530efe534"
+  ],
+  "villarrica-sw-corridor": [
+   "atm_5c9530efe534"
+  ],
+  "los-lagos": [
+   "atm_e7200d85a9af"
+  ],
+  "tirol": [
+   "atm_aa72795f36a9"
+  ],
+  "upper-austria": [
+   "atm_aa72795f36a9"
+  ],
+  "bohemian-massif": [
+   "atm_1f233e16a5a5"
+  ],
+  "hausruckviertel": [
+   "atm_1f233e16a5a5",
+   "atm_988e5e7c8742",
+   "atm_2b6dc49fc1c4"
+  ],
+  "muhlviertel": [
+   "atm_1f233e16a5a5"
+  ],
+  "m-hlviertel": [
+   "atm_2b6dc49fc1c4"
+  ],
+  "upper-austria-hausruckviertel": [
+   "atm_2b6dc49fc1c4"
+  ],
+  "kirov-oblast": [
+   "atm_efd274cc5e3b",
+   "atm_662e72e8fe22"
+  ],
+  "perm-krai": [
+   "atm_efd274cc5e3b",
+   "atm_662e72e8fe22",
+   "atm_f45fd2528590",
+   "atm_7291fe70d227"
+  ],
+  "perm-krai-kirov-oblast": [
+   "atm_efd274cc5e3b"
+  ],
+  "yaroslavl-kostroma-oblast": [
+   "atm_efd274cc5e3b"
+  ],
+  "yaroslavl-oblast": [
+   "atm_efd274cc5e3b"
+  ],
+  "cis-ural-vyatka-kama-taiga": [
+   "atm_662e72e8fe22"
+  ],
+  "ivanovo-oblast": [
+   "atm_662e72e8fe22"
+  ],
+  "upper-volga-ivanovo-yaroslavl": [
+   "atm_662e72e8fe22"
+  ],
+  "vologda-kostroma": [
+   "atm_f45fd2528590"
+  ],
+  "vologda-oblast": [
+   "atm_f45fd2528590"
+  ],
+  "perm-krai-lowland": [
+   "atm_7291fe70d227"
+  ],
+  "upper-volga": [
+   "atm_7291fe70d227"
+  ],
+  "upper-volga-plain": [
+   "atm_7291fe70d227"
   ]
  },
  "tags": {
@@ -80545,7 +81942,25 @@
    "atm_b0dafbf62e75",
    "atm_7f58247de8e3",
    "atm_e11e2807a7c5",
-   "atm_4f06d267683b"
+   "atm_4f06d267683b",
+   "atm_030767d975b3",
+   "atm_5627f16f3656",
+   "atm_cb506827dd99",
+   "atm_569d526de3f2",
+   "atm_82c5df9afaa6",
+   "atm_51fe315e02a2",
+   "atm_530209fff20e",
+   "atm_5c9530efe534",
+   "atm_e7200d85a9af",
+   "atm_d67c3162a1df",
+   "atm_2b6dc49fc1c4",
+   "atm_b810b26db38d",
+   "atm_43d855f5ee3f",
+   "atm_efd274cc5e3b",
+   "atm_662e72e8fe22",
+   "atm_f45fd2528590",
+   "atm_e5601aaeca59",
+   "atm_7291fe70d227"
   ],
   "license-plate": [
    "atm_014560901a69"
@@ -82040,7 +83455,9 @@
    "atm_50a2614e4a4c",
    "atm_b263ea2c5db6",
    "atm_fe41075e4a29",
-   "atm_ca536dbdc238"
+   "atm_ca536dbdc238",
+   "atm_569d526de3f2",
+   "atm_662e72e8fe22"
   ],
   "looks-like-bo": [
    "atm_03f50dbbbf22",
@@ -82108,7 +83525,8 @@
    "atm_fa8ff513c430",
    "atm_fe3149f63023",
    "atm_06bd6a770961",
-   "atm_9a93da5618de"
+   "atm_9a93da5618de",
+   "atm_e7200d85a9af"
   ],
   "china": [
    "atm_044bad726c72",
@@ -82669,7 +84087,8 @@
    "atm_490cab9597a7",
    "atm_68509cfdf0f6",
    "atm_9d42b1e8cd15",
-   "atm_f947eed4f050"
+   "atm_f947eed4f050",
+   "atm_a76ff2e557d1"
   ],
   "seasonal-income": [
    "atm_0625509c4e13"
@@ -82693,7 +84112,8 @@
   "lignite": [
    "atm_06391f17f753",
    "atm_4782de81e402",
-   "atm_55c87390ef27"
+   "atm_55c87390ef27",
+   "atm_988e5e7c8742"
   ],
   "oleksandriia": [
    "atm_06391f17f753"
@@ -82850,7 +84270,8 @@
   ],
   "small-town-economy": [
    "atm_07287096cac3",
-   "atm_36410c44e299"
+   "atm_36410c44e299",
+   "atm_98778235ee30"
   ],
   "aridity-gradient": [
    "atm_074b88f4a88e"
@@ -82944,7 +84365,8 @@
    "atm_e8b3ce9a64be",
    "atm_73e57a387697",
    "atm_58cde6ebbc3d",
-   "atm_7e5c0b47c99a"
+   "atm_7e5c0b47c99a",
+   "atm_43d855f5ee3f"
   ],
   "tavern": [
    "atm_080c7ca4a29f"
@@ -83016,7 +84438,8 @@
   ],
   "land-tenure": [
    "atm_08ad7f81de9f",
-   "atm_b2fcdcfac982"
+   "atm_b2fcdcfac982",
+   "atm_1496460091f6"
   ],
   "colonial-infrastructure": [
    "atm_08ede209b5a3"
@@ -83163,7 +84586,8 @@
    "atm_c6796d5edf50",
    "atm_c8c9936aabeb",
    "atm_d57d50cbd46f",
-   "atm_fdfb75d2c5b0"
+   "atm_fdfb75d2c5b0",
+   "atm_a76ff2e557d1"
   ],
   "urban-function": [
    "atm_0b13748cb731",
@@ -83379,7 +84803,8 @@
   "post-industrial": [
    "atm_0c5f6ed3609b",
    "atm_98b71d3e6aa3",
-   "atm_aa81c19581e4"
+   "atm_aa81c19581e4",
+   "atm_988e5e7c8742"
   ],
   "ruhr": [
    "atm_0c5f6ed3609b",
@@ -83490,7 +84915,8 @@
    "atm_ca05c73a7f07",
    "atm_d51008e27081",
    "atm_da86790feea2",
-   "atm_0a129b3d0032"
+   "atm_0a129b3d0032",
+   "atm_0b01719c9eb4"
   ],
   "industrial-policy": [
    "atm_0e03ac7cf71d"
@@ -83629,7 +85055,8 @@
    "atm_ca05c73a7f07"
   ],
   "terrain": [
-   "atm_0f259f84fb29"
+   "atm_0f259f84fb29",
+   "atm_7291fe70d227"
   ],
   "yucatan": [
    "atm_0f259f84fb29",
@@ -83685,7 +85112,8 @@
    "atm_c15358d3e42a",
    "atm_de27d76e98ed",
    "atm_e36d83d3428b",
-   "atm_f644bdf4dd51"
+   "atm_f644bdf4dd51",
+   "atm_98778235ee30"
   ],
   "midlothian-coalfield": [
    "atm_0f6b34497068"
@@ -83855,7 +85283,10 @@
    "atm_c7eaf2b97e59",
    "atm_91b8f6217bd1",
    "atm_ad4651f749ac",
-   "atm_c0028c87af29"
+   "atm_c0028c87af29",
+   "atm_530209fff20e",
+   "atm_5c9530efe534",
+   "atm_43d855f5ee3f"
   ],
   "homeland-war": [
    "atm_11081ef61216"
@@ -84012,7 +85443,8 @@
    "atm_b227ef35bd59",
    "atm_ea64ccafd76b",
    "atm_ad6ef340394d",
-   "atm_73e57a387697"
+   "atm_73e57a387697",
+   "atm_e5601aaeca59"
   ],
   "caribbean-slope": [
    "atm_1270c7cffadd"
@@ -84082,7 +85514,8 @@
    "atm_b9e670bd45e8",
    "atm_e80514d5e6c7",
    "atm_f7d40e3ac375",
-   "atm_d3afa16fc410"
+   "atm_d3afa16fc410",
+   "atm_be0ab53acd2f"
   ],
   "cooper-allen": [
    "atm_128ca252a80f"
@@ -84196,7 +85629,8 @@
    "atm_ca62fa29fa29",
    "atm_fbc7a5e5e104",
    "atm_82d74b56e40b",
-   "atm_ebc7c2ef6ce2"
+   "atm_ebc7c2ef6ce2",
+   "atm_e7200d85a9af"
   ],
   "columbia-river-basalt": [
    "atm_131252aa7616"
@@ -84279,7 +85713,8 @@
    "atm_13d0caa27fe6"
   ],
   "geology": [
-   "atm_13d0caa27fe6"
+   "atm_13d0caa27fe6",
+   "atm_1f233e16a5a5"
   ],
   "wiki-period": [
    "atm_13d0caa27fe6",
@@ -84316,7 +85751,8 @@
   ],
   "hydrology": [
    "atm_142d60e0141b",
-   "atm_d06a11087118"
+   "atm_d06a11087118",
+   "atm_cb506827dd99"
   ],
   "vienna": [
    "atm_142d60e0141b",
@@ -84424,7 +85860,8 @@
    "atm_e591fce7975b",
    "atm_6073bba1ba34",
    "atm_ec115d67939d",
-   "atm_3c739719836a"
+   "atm_3c739719836a",
+   "atm_98778235ee30"
   ],
   "breadbasket": [
    "atm_14ed08f922f7",
@@ -84582,7 +86019,9 @@
   "commuter-belt": [
    "atm_16e78de06075",
    "atm_4839faddffa9",
-   "atm_a7cc8c04d19a"
+   "atm_a7cc8c04d19a",
+   "atm_98778235ee30",
+   "atm_988e5e7c8742"
   ],
   "housing-shortage": [
    "atm_16e78de06075"
@@ -84838,7 +86277,9 @@
    "atm_173fb47af208",
    "atm_a1b98b03e41a",
    "atm_4ded08bf94f9",
-   "atm_288c6a410e97"
+   "atm_288c6a410e97",
+   "atm_5627f16f3656",
+   "atm_b810b26db38d"
   ],
   "junior-zhuz": [
    "atm_191ca560edf9"
@@ -85180,7 +86621,8 @@
    "atm_cbb4d80090b5",
    "atm_36953f364595",
    "atm_e0ddecfde4f8",
-   "atm_dca606fecd4d"
+   "atm_dca606fecd4d",
+   "atm_030767d975b3"
   ],
   "watermark": [
    "atm_1c691c117fc3"
@@ -85474,7 +86916,8 @@
    "atm_20964856ecd8",
    "atm_a22c987c3ba5",
    "atm_a410bcb0d577",
-   "atm_fb1c88a99dbf"
+   "atm_fb1c88a99dbf",
+   "atm_aa72795f36a9"
   ],
   "wet-dash-render": [
    "atm_20964856ecd8"
@@ -86153,7 +87596,8 @@
   ],
   "dach-region": [
    "atm_278ce6fc5e3b",
-   "atm_e47ce946001b"
+   "atm_e47ce946001b",
+   "atm_e4e3e2300015"
   ],
   "german-language": [
    "atm_278ce6fc5e3b"
@@ -86255,7 +87699,8 @@
    "atm_df67f805f8ad"
   ],
   "route-shield": [
-   "atm_296c5163328d"
+   "atm_296c5163328d",
+   "atm_530209fff20e"
   ],
   "east-coast-economic-region": [
    "atm_299833074c58"
@@ -86561,13 +88006,15 @@
    "atm_2f0478c72970"
   ],
   "alpine-architecture": [
-   "atm_2f9b481afa28"
+   "atm_2f9b481afa28",
+   "atm_aa72795f36a9"
   ],
   "gassho-zukuri": [
    "atm_2f9b481afa28"
   ],
   "snow-load": [
-   "atm_2f9b481afa28"
+   "atm_2f9b481afa28",
+   "atm_aa72795f36a9"
   ],
   "basalt": [
    "atm_2fbd4c769a30"
@@ -86616,11 +88063,13 @@
   ],
   "looks-like-cz": [
    "atm_302a89d8dbd0",
-   "atm_a4c8bfdf483f"
+   "atm_a4c8bfdf483f",
+   "atm_db146264aff3"
   ],
   "plateau": [
    "atm_302a89d8dbd0",
-   "atm_4f5a928f1c77"
+   "atm_4f5a928f1c77",
+   "atm_2b6dc49fc1c4"
   ],
   "vineyard": [
    "atm_302a89d8dbd0",
@@ -86877,7 +88326,10 @@
    "atm_69c0077521d3",
    "atm_b905eb4795d9",
    "atm_b0dafbf62e75",
-   "atm_4f06d267683b"
+   "atm_4f06d267683b",
+   "atm_cb506827dd99",
+   "atm_2b6dc49fc1c4",
+   "atm_7291fe70d227"
   ],
   "level-crossing": [
    "atm_349a166db7f2"
@@ -86894,7 +88346,9 @@
   ],
   "chile": [
    "atm_357b02fb5a04",
-   "atm_617800b70e54"
+   "atm_617800b70e54",
+   "atm_1496460091f6",
+   "atm_a76ff2e557d1"
   ],
   "cocos-islands": [
    "atm_357b02fb5a04"
@@ -87080,7 +88534,9 @@
    "atm_91bb4809c09e",
    "atm_e857853e0979",
    "atm_f6ff80704d60",
-   "atm_0c63c014b962"
+   "atm_0c63c014b962",
+   "atm_d67c3162a1df",
+   "atm_f45fd2528590"
   ],
   "colonial-education": [
    "atm_36aed5dbc192"
@@ -87347,7 +88803,8 @@
   "looks-like-de": [
    "atm_3a306a118800",
    "atm_46082e3a6ba5",
-   "atm_de07ff165cf0"
+   "atm_de07ff165cf0",
+   "atm_b810b26db38d"
   ],
   "ottoman": [
    "atm_3a3c127345e5",
@@ -87400,7 +88857,8 @@
   "lake-district": [
    "atm_3af854f0ba2f",
    "atm_b71ca9914bc6",
-   "atm_bf283b566073"
+   "atm_bf283b566073",
+   "atm_a76ff2e557d1"
   ],
   "moraine": [
    "atm_3af854f0ba2f"
@@ -87608,10 +89066,16 @@
    "atm_3d749d8750f5"
   ],
   "looks-like-ru": [
-   "atm_3d749d8750f5"
+   "atm_3d749d8750f5",
+   "atm_efd274cc5e3b",
+   "atm_662e72e8fe22",
+   "atm_f45fd2528590",
+   "atm_e5601aaeca59",
+   "atm_7291fe70d227"
   ],
   "stop-sign": [
-   "atm_3d749d8750f5"
+   "atm_3d749d8750f5",
+   "atm_82c5df9afaa6"
   ],
   "croatia-eu-accession": [
    "atm_3e06660de0b7"
@@ -88324,7 +89788,10 @@
   "france": [
    "atm_469162f8669b",
    "atm_881a50c8b7f8",
-   "atm_ecb833635a0b"
+   "atm_ecb833635a0b",
+   "atm_be0ab53acd2f",
+   "atm_030767d975b3",
+   "atm_533e2635a15a"
   ],
   "french-polynesia": [
    "atm_469162f8669b"
@@ -88898,7 +90365,8 @@
    "atm_4d08129bc533",
    "atm_96d1691571d2",
    "atm_db146264aff3",
-   "atm_e8c4d3d9d65a"
+   "atm_e8c4d3d9d65a",
+   "atm_2b6dc49fc1c4"
   ],
   "roadworks": [
    "atm_4d08129bc533",
@@ -89311,7 +90779,8 @@
    "atm_f7aaf036dac5"
   ],
   "birch": [
-   "atm_5449e17b7e07"
+   "atm_5449e17b7e07",
+   "atm_f45fd2528590"
   ],
   "continental-climate": [
    "atm_5449e17b7e07",
@@ -89320,7 +90789,8 @@
   "poplar": [
    "atm_5449e17b7e07",
    "atm_b67d081a61b7",
-   "atm_7202d5d69930"
+   "atm_7202d5d69930",
+   "atm_85078b1f8cf9"
   ],
   "siberia": [
    "atm_5449e17b7e07",
@@ -89767,7 +91237,8 @@
    "atm_5c0a27638e98",
    "atm_c67e18d2f564",
    "atm_4b98d01184f6",
-   "atm_76095061912d"
+   "atm_76095061912d",
+   "atm_efd274cc5e3b"
   ],
   "heritage-city": [
    "atm_5c44ba60abaa"
@@ -90031,7 +91502,8 @@
    "atm_62b989fe9ba7",
    "atm_d83deb4b95ed",
    "atm_e270eb2291f6",
-   "atm_fa72e793a49c"
+   "atm_fa72e793a49c",
+   "atm_e4e3e2300015"
   ],
   "copan": [
    "atm_62c209ca3767"
@@ -90348,7 +91820,8 @@
    "atm_6aa637b1877d"
   ],
   "suburban-housing": [
-   "atm_6aa637b1877d"
+   "atm_6aa637b1877d",
+   "atm_533e2635a15a"
   ],
   "arid-settlement": [
    "atm_6ab89cff1634"
@@ -90627,13 +92100,17 @@
    "atm_714f55d47cd5"
   ],
   "chile-roads": [
-   "atm_71667f856f45"
+   "atm_71667f856f45",
+   "atm_0b01719c9eb4"
   ],
   "mop": [
-   "atm_71667f856f45"
+   "atm_71667f856f45",
+   "atm_0b01719c9eb4",
+   "atm_530209fff20e"
   ],
   "route-code": [
-   "atm_71667f856f45"
+   "atm_71667f856f45",
+   "atm_0b01719c9eb4"
   ],
   "alpine-ecology": [
    "atm_7183fc7dcba5"
@@ -92724,7 +94201,8 @@
   ],
   "frontier": [
    "atm_a3d751ae5532",
-   "atm_f33212788fd3"
+   "atm_f33212788fd3",
+   "atm_1496460091f6"
   ],
   "manga-history": [
    "atm_a3ecd2a93518"
@@ -92817,7 +94295,8 @@
    "atm_a5822442b0ee"
   ],
   "titular-republic": [
-   "atm_a5822442b0ee"
+   "atm_a5822442b0ee",
+   "atm_e5601aaeca59"
   ],
   "croatian-language": [
    "atm_a58facd06de0",
@@ -93849,7 +95328,10 @@
    "atm_bf4d2b322bc6",
    "atm_9aae63fb6cc3",
    "atm_eba3dc758411",
-   "atm_e11e2807a7c5"
+   "atm_e11e2807a7c5",
+   "atm_030767d975b3",
+   "atm_82c5df9afaa6",
+   "atm_51fe315e02a2"
   ],
   "jandia": [
    "atm_bf51659690c9"
@@ -94407,7 +95889,9 @@
   ],
   "looks-like-ar": [
    "atm_cf43621783bd",
-   "atm_e591fce7975b"
+   "atm_e591fce7975b",
+   "atm_51fe315e02a2",
+   "atm_530209fff20e"
   ],
   "micro": [
    "atm_cf43621783bd"
@@ -95196,7 +96680,8 @@
    "atm_e857853e0979"
   ],
   "spruce": [
-   "atm_e857853e0979"
+   "atm_e857853e0979",
+   "atm_f45fd2528590"
   ],
   "koxinga": [
    "atm_e869e9274104"
@@ -95812,7 +97297,8 @@
   ],
   "rural": [
    "atm_fbc7a5e5e104",
-   "atm_ebc7c2ef6ce2"
+   "atm_ebc7c2ef6ce2",
+   "atm_db146264aff3"
   ],
   "coastal-geography": [
    "atm_fc22ca49a31d"
@@ -95956,7 +97442,9 @@
    "atm_ff9a965b152a"
   ],
   "floodplain": [
-   "atm_ff9a965b152a"
+   "atm_ff9a965b152a",
+   "atm_85078b1f8cf9",
+   "atm_cb506827dd99"
   ],
   "river-management": [
    "atm_ff9a965b152a"
@@ -96250,13 +97738,20 @@
    "atm_e591fce7975b",
    "atm_fe1fabd7b881",
    "atm_ca536dbdc238",
-   "atm_173fb47af208"
+   "atm_173fb47af208",
+   "atm_51fe315e02a2",
+   "atm_530209fff20e",
+   "atm_5c9530efe534",
+   "atm_e7200d85a9af",
+   "atm_d67c3162a1df"
   ],
   "gravel-road": [
    "atm_fe1fabd7b881"
   ],
   "looks-like-cl": [
-   "atm_fe1fabd7b881"
+   "atm_fe1fabd7b881",
+   "atm_5c9530efe534",
+   "atm_e7200d85a9af"
   ],
   "road-standard": [
    "atm_fe1fabd7b881"
@@ -96369,7 +97864,8 @@
   ],
   "looks-like-nz": [
    "atm_935d031e2a8f",
-   "atm_30644ea72f98"
+   "atm_30644ea72f98",
+   "atm_d67c3162a1df"
   ],
   "mudstone": [
    "atm_935d031e2a8f"
@@ -96388,7 +97884,8 @@
    "atm_b2e8cd2ce0f6"
   ],
   "radiata": [
-   "atm_b2e8cd2ce0f6"
+   "atm_b2e8cd2ce0f6",
+   "atm_d67c3162a1df"
   ],
   "oltrepo": [
    "atm_ec115d67939d"
@@ -96400,10 +97897,13 @@
    "atm_b905eb4795d9"
   ],
   "scale-discipline": [
-   "atm_b905eb4795d9"
+   "atm_b905eb4795d9",
+   "atm_82c5df9afaa6"
   ],
   "brick": [
-   "atm_4ded08bf94f9"
+   "atm_4ded08bf94f9",
+   "atm_569d526de3f2",
+   "atm_efd274cc5e3b"
   ],
   "corte": [
    "atm_4ded08bf94f9"
@@ -96482,6 +97982,202 @@
   ],
   "onomastics": [
    "atm_c9e4132840cf"
+  ],
+  "grand-est": [
+   "atm_be0ab53acd2f"
+  ],
+  "regional-discriminator": [
+   "atm_be0ab53acd2f"
+  ],
+  "roof-pitch": [
+   "atm_be0ab53acd2f",
+   "atm_aa72795f36a9"
+  ],
+  "kerb-line": [
+   "atm_030767d975b3"
+  ],
+  "1970s-1980s": [
+   "atm_533e2635a15a"
+  ],
+  "lotissement": [
+   "atm_533e2635a15a",
+   "atm_5627f16f3656"
+  ],
+  "pavillon": [
+   "atm_533e2635a15a",
+   "atm_5627f16f3656"
+  ],
+  "ardennes": [
+   "atm_98778235ee30"
+  ],
+  "aisne-river": [
+   "atm_85078b1f8cf9"
+  ],
+  "canal-des-ardennes": [
+   "atm_85078b1f8cf9"
+  ],
+  "logistics-corridor": [
+   "atm_85078b1f8cf9"
+  ],
+  "araucania": [
+   "atm_0b01719c9eb4",
+   "atm_1496460091f6"
+  ],
+  "indigenous-community": [
+   "atm_1496460091f6"
+  ],
+  "mapuche": [
+   "atm_1496460091f6",
+   "atm_e7200d85a9af"
+  ],
+  "villarrica": [
+   "atm_a76ff2e557d1"
+  ],
+  "actually-fr": [
+   "atm_5627f16f3656",
+   "atm_cb506827dd99",
+   "atm_569d526de3f2",
+   "atm_82c5df9afaa6"
+  ],
+  "claustra": [
+   "atm_5627f16f3656"
+  ],
+  "looks-like-fr": [
+   "atm_5627f16f3656",
+   "atm_cb506827dd99",
+   "atm_569d526de3f2"
+  ],
+  "regional-signal": [
+   "atm_5627f16f3656"
+  ],
+  "riparian": [
+   "atm_cb506827dd99"
+  ],
+  "willow": [
+   "atm_cb506827dd99"
+  ],
+  "industrial-ruin": [
+   "atm_569d526de3f2"
+  ],
+  "river-town": [
+   "atm_569d526de3f2"
+  ],
+  "looks-like-be": [
+   "atm_82c5df9afaa6"
+  ],
+  "yellow-kerb": [
+   "atm_82c5df9afaa6"
+  ],
+  "centre-line": [
+   "atm_51fe315e02a2"
+  ],
+  "paint-colour": [
+   "atm_51fe315e02a2"
+  ],
+  "direction-inference": [
+   "atm_5c9530efe534"
+  ],
+  "junction": [
+   "atm_5c9530efe534"
+  ],
+  "colono": [
+   "atm_e7200d85a9af"
+  ],
+  "foxglove": [
+   "atm_d67c3162a1df"
+  ],
+  "southern-temperate": [
+   "atm_d67c3162a1df"
+  ],
+  "landesstrasse": [
+   "atm_e4e3e2300015"
+  ],
+  "upper-austria": [
+   "atm_aa72795f36a9",
+   "atm_1f233e16a5a5",
+   "atm_988e5e7c8742",
+   "atm_2b6dc49fc1c4"
+  ],
+  "bohemian-massif": [
+   "atm_1f233e16a5a5"
+  ],
+  "granite": [
+   "atm_1f233e16a5a5"
+  ],
+  "molasse": [
+   "atm_1f233e16a5a5",
+   "atm_2b6dc49fc1c4"
+  ],
+  "hausruck": [
+   "atm_988e5e7c8742"
+  ],
+  "actually-at": [
+   "atm_2b6dc49fc1c4",
+   "atm_db146264aff3",
+   "atm_b810b26db38d",
+   "atm_43d855f5ee3f"
+  ],
+  "foreland": [
+   "atm_2b6dc49fc1c4"
+  ],
+  "bins": [
+   "atm_db146264aff3"
+  ],
+  "gable": [
+   "atm_b810b26db38d"
+  ],
+  "garage": [
+   "atm_b810b26db38d"
+  ],
+  "render": [
+   "atm_b810b26db38d"
+  ],
+  "looks-like-ch": [
+   "atm_43d855f5ee3f"
+  ],
+  "minor-road": [
+   "atm_43d855f5ee3f"
+  ],
+  "waymarker": [
+   "atm_43d855f5ee3f"
+  ],
+  "actually-ru": [
+   "atm_efd274cc5e3b",
+   "atm_662e72e8fe22",
+   "atm_f45fd2528590",
+   "atm_e5601aaeca59",
+   "atm_7291fe70d227"
+  ],
+  "kirpichny-stil": [
+   "atm_efd274cc5e3b"
+  ],
+  "merchant-town": [
+   "atm_efd274cc5e3b"
+  ],
+  "retail-strip": [
+   "atm_662e72e8fe22"
+  ],
+  "sawmill": [
+   "atm_662e72e8fe22"
+  ],
+  "timber": [
+   "atm_662e72e8fe22"
+  ],
+  "radius-calibration": [
+   "atm_f45fd2528590"
+  ],
+  "taiga": [
+   "atm_f45fd2528590"
+  ],
+  "cis-ural": [
+   "atm_e5601aaeca59",
+   "atm_7291fe70d227"
+  ],
+  "monolingual": [
+   "atm_e5601aaeca59"
+  ],
+  "plain": [
+   "atm_7291fe70d227"
   ]
  },
  "categories": {
@@ -96521,7 +98217,10 @@
    "atm_173fb47af208",
    "atm_a1b98b03e41a",
    "atm_4ded08bf94f9",
-   "atm_288c6a410e97"
+   "atm_288c6a410e97",
+   "atm_533e2635a15a",
+   "atm_5627f16f3656",
+   "atm_b810b26db38d"
   ],
   "dialect": [
    "atm_01ff3b6b06b5",
@@ -96564,7 +98263,11 @@
    "atm_ea92c4c667d4",
    "atm_f644bdf4dd51",
    "atm_fe41075e4a29",
-   "atm_ca536dbdc238"
+   "atm_ca536dbdc238",
+   "atm_98778235ee30",
+   "atm_569d526de3f2",
+   "atm_988e5e7c8742",
+   "atm_662e72e8fe22"
   ],
   "roof-facade": [
    "atm_020ef391a7c6",
@@ -96581,7 +98284,10 @@
    "atm_cdd15c235ccf",
    "atm_d3afa16fc410",
    "atm_4b98d01184f6",
-   "atm_76095061912d"
+   "atm_76095061912d",
+   "atm_be0ab53acd2f",
+   "atm_aa72795f36a9",
+   "atm_efd274cc5e3b"
   ],
   "business-chain": [
    "atm_03076a585d98",
@@ -96709,7 +98415,8 @@
    "atm_c6796d5edf50",
    "atm_c8c9936aabeb",
    "atm_cbb1c8efe37a",
-   "atm_dfc05d10dfcf"
+   "atm_dfc05d10dfcf",
+   "atm_a76ff2e557d1"
   ],
   "mining": [
    "atm_06391f17f753",
@@ -96802,7 +98509,9 @@
    "atm_abbf940e60d2",
    "atm_e857853e0979",
    "atm_f6ff80704d60",
-   "atm_0c63c014b962"
+   "atm_0c63c014b962",
+   "atm_d67c3162a1df",
+   "atm_f45fd2528590"
   ],
   "utility-pole": [
    "atm_0f5685ec7286",
@@ -96900,7 +98609,10 @@
    "atm_69c0077521d3",
    "atm_b905eb4795d9",
    "atm_b0dafbf62e75",
-   "atm_4f06d267683b"
+   "atm_4f06d267683b",
+   "atm_1f233e16a5a5",
+   "atm_2b6dc49fc1c4",
+   "atm_7291fe70d227"
   ],
   "memory-monument": [
    "atm_136ca6c5fec1",
@@ -96911,7 +98623,9 @@
   "hydrology": [
    "atm_142d60e0141b",
    "atm_8037259cd69e",
-   "atm_9af3c124876b"
+   "atm_9af3c124876b",
+   "atm_85078b1f8cf9",
+   "atm_cb506827dd99"
   ],
   "infrastructure-built": [
    "atm_14bd04044110",
@@ -96968,7 +98682,10 @@
    "atm_c7eaf2b97e59",
    "atm_0a129b3d0032",
    "atm_ad4651f749ac",
-   "atm_c0028c87af29"
+   "atm_c0028c87af29",
+   "atm_0b01719c9eb4",
+   "atm_5c9530efe534",
+   "atm_43d855f5ee3f"
   ],
   "real-estate": [
    "atm_16e78de06075",
@@ -97037,7 +98754,9 @@
    "atm_ef51d7d80c44",
    "atm_fbc7a5e5e104",
    "atm_82d74b56e40b",
-   "atm_ebc7c2ef6ce2"
+   "atm_ebc7c2ef6ce2",
+   "atm_1496460091f6",
+   "atm_e7200d85a9af"
   ],
   "founding": [
    "atm_290e8dc4ccdf",
@@ -97101,7 +98820,10 @@
    "atm_bf4d2b322bc6",
    "atm_9aae63fb6cc3",
    "atm_eba3dc758411",
-   "atm_e11e2807a7c5"
+   "atm_e11e2807a7c5",
+   "atm_030767d975b3",
+   "atm_82c5df9afaa6",
+   "atm_51fe315e02a2"
   ],
   "treaty-border": [
    "atm_8cfbd0212321"
@@ -98846,6 +100568,66 @@
     "atm_3f818b5a1b64",
     "atm_65d849f7eb83",
     "atm_69c0077521d3"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html": {
+   "place": "Rethel, Ardennes, Grand Est, France",
+   "lat": 49.5097017,
+   "lng": 4.3525354,
+   "cell": "u0g1e",
+   "atoms": [
+    "atm_030767d975b3",
+    "atm_533e2635a15a",
+    "atm_85078b1f8cf9",
+    "atm_98778235ee30",
+    "atm_be0ab53acd2f"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html": {
+   "place": "Añilco / Chihuaico (rural, near Villarrica), La Araucanía Region (Villarrica commune, Cautín Province), at the Los Ríos boundary, Chile",
+   "lat": -39.4653964,
+   "lng": -72.2604257,
+   "cell": "62ux7",
+   "atoms": [
+    "atm_0b01719c9eb4",
+    "atm_1496460091f6",
+    "atm_a76ff2e557d1"
+   ],
+   "langs": [
+    "ko",
+    "en",
+    "fr"
+   ],
+   "passes": [
+    "p2"
+   ]
+  },
+  "report_at_ziegelwies_48.018_13.6705_260916_004432_ko-en-fr.html": {
+   "place": "Ziegelwies (Wolfsegg am Hausruck / Ottnang area), Upper Austria (Hausruckviertel), Austria",
+   "lat": 48.0180432,
+   "lng": 13.6704829,
+   "cell": "u299p",
+   "atoms": [
+    "atm_1f233e16a5a5",
+    "atm_988e5e7c8742",
+    "atm_aa72795f36a9",
+    "atm_e4e3e2300015"
    ],
    "langs": [
     "ko",

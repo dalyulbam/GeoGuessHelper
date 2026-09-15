@@ -1,0 +1,988 @@
+{
+ "job_id": "job_e08677f6da27",
+ "report_file": "report_fr_rethel_49.5097_4.3525_260916_001702_ko-en-fr.html",
+ "label": "선택 장면 보고서 · yz8AUK2Z…YbnQ",
+ "created": 1789485667.7749715,
+ "lang": "en",
+ "images": [
+  "capture_411001278f2e.jpg",
+  "capture_97fd3176a32c.jpg",
+  "capture_c435618a0ae5.jpg",
+  "capture_a5910c5a334f.jpg",
+  "capture_f38b0e28435e.jpg",
+  "capture_d6627884146d.jpg"
+ ],
+ "image_panos": {
+  "capture_411001278f2e.jpg": {
+   "pano_id": "yz8AUK2ZUuksFNi2ukYbnQ",
+   "lat": 49.50970166150616,
+   "lng": 4.352535358096968,
+   "heading": 23.685941812019994,
+   "pitch": -2.0319161968480586
+  },
+  "capture_97fd3176a32c.jpg": {
+   "pano_id": "y5LWxvldI8M4HCJTHMz2Zg",
+   "lat": 49.510128935646925,
+   "lng": 4.352869014811182,
+   "heading": 36.96033657816831,
+   "pitch": -1.7335741897155827
+  },
+  "capture_c435618a0ae5.jpg": {
+   "pano_id": "xC95nHqatB1GD2BuFo_uxQ",
+   "lat": 49.51083751023199,
+   "lng": 4.353605196656109,
+   "heading": 28.890745545377175,
+   "pitch": -3.04694094192827
+  },
+  "capture_a5910c5a334f.jpg": {
+   "pano_id": "gSy6ZSSkFNxh6jlUWkP_lQ",
+   "lat": 49.51009731841213,
+   "lng": 4.357268062707543,
+   "heading": 167.90909410909705,
+   "pitch": 3.0922394777346796
+  },
+  "capture_f38b0e28435e.jpg": {
+   "pano_id": "K1w7SaxLX6-5qgOMzbkO1w",
+   "lat": 49.50885246264015,
+   "lng": 4.3575106813142135,
+   "heading": 95.57114316286204,
+   "pitch": -5.0833697623903475
+  },
+  "capture_d6627884146d.jpg": {
+   "pano_id": "zSrCTzJGi9th85k7m9-Ylg",
+   "lat": 49.50721308295625,
+   "lng": 4.358645052668981,
+   "heading": 261.05389799860023,
+   "pitch": -4.765411767170434
+  }
+ },
+ "truth": {
+  "lat": 49.5094718285656,
+  "lng": 4.3554055610425,
+  "iso": "FR",
+  "country": "France",
+  "region": "Ardennes, Grand Est",
+  "city": "Rethel",
+  "source": "aided_prior",
+  "file_lat": 49.5097,
+  "file_lng": 4.3525,
+  "n_panos": 6
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Compiègne / Noyon area (small town on the Oise)",
+     "confidence": 0.4,
+     "coordinate_estimate": {
+      "lat": 49.42,
+      "lng": 2.83,
+      "radius_km": 60
+     },
+     "country": "France",
+     "country_iso": "FR",
+     "region_or_state": "Hauts-de-France (Oise / Aisne), northern France"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.25,
+      "country": "France",
+      "country_iso": "FR"
+     },
+     {
+      "confidence": 0.12,
+      "country": "Belgium",
+      "country_iso": "BE"
+     },
+     {
+      "confidence": 0.05,
+      "country": "Luxembourg",
+      "country_iso": "LU"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Temperate oceanic (Cfb), deciduous woodland, dense green hedging, summer foliage",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Octagonal red STOP sign with white border mounted on a slim brown-painted round post; French communes very commonly use dark-brown/RAL painted sign posts in residential estates.",
+      "supports": [
+       "France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_markings",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Continuous yellow kerbside line marking a no-parking edge, alongside white lane markings — the yellow kerb line is a French convention (stationnement interdit), not used in Belgium or Germany.",
+      "supports": [
+       "France"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Cream/beige rendered detached houses with brown roller shutters (volets roulants) and wooden louvred shutters, plus decorative white precast balustrade garden walls — classic French pavillon estate of the 1970s-80s.",
+      "supports": [
+       "France"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "street_furniture",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Standalone green metal letterbox on a post at the property gate, plus dark wheelie bins labelled with an intercommunal waste syndicate acronym (SICTOM/SICOMAR-type), typical of French rural communes.",
+      "supports": [
+       "France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage",
+      "image_index": 4,
+      "level": "admin_region",
+      "observation": "Wooden waymarker post with a red rectangular plate numbered '3' and a walking-route name — the standard French PDIPR / departmental hiking circuit marker rather than Belgian yellow-and-red walk knots.",
+      "supports": [
+       "France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 4,
+      "level": "district",
+      "observation": "Small gabled brick/render electricity substation cabin painted with a decorative mural of bulrushes and water — indicates a wetland/riverside setting (marais, Oise/Somme valley type landscape).",
+      "supports": [
+       "river valley, Picardy"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Dense stand of willow/poplar scrub directly behind the housing estate, with soggy rough grass — alluvial floodplain woodland typical of the Oise/Somme/Aisne valleys in northern France.",
+      "supports": [
+       "Hauts-de-France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "street_furniture",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Mushroom-shaped white residential lamp heads on short grey poles, a late-20th-century French lotissement lighting standard.",
+      "supports": [
+       "suburban estate"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "macro_region",
+      "observation": "Steep dark slate/artificial-slate roof on a 1970s house, plus a derelict red-brick industrial building with sawtooth/arched sheds behind — brick industrial vernacular of the northern French belt (Picardy/Nord).",
+      "supports": [
+       "Hauts-de-France"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_markings",
+      "image_index": 5,
+      "level": "metro_area",
+      "observation": "Green-painted checkerboard cycle crossing patch with pictograms at a junction — a French municipal cycle-priority treatment seen in medium-sized towns.",
+      "supports": [
+       "town with cycling policy"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 1,
+      "level": "country",
+      "observation": "European hatchback fleet (Ford Fiesta, Peugeot/Citroen) with long white rectangular EU plates; driving on the right.",
+      "supports": [
+       "Western Europe, France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "geomorphology",
+      "image_index": 3,
+      "level": "macro_region",
+      "observation": "Low wooded escarpment rising beside the road with flat valley-floor housing opposite — chalk plateau edge above a river terrace, characteristic of the Paris Basin north of Paris.",
+      "supports": [
+       "Paris Basin / Picardy"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A comfortable but modest lower-middle-class French pavillonnaire estate: 1970s-80s detached single-family houses on small plots with hedged or precast-balustrade front walls, two family cars, wheelie bins from an intercommunal waste syndicate, mushroom street lamps and a mural-painted electricity cabin — municipal money spent on small beautification and a marked walking circuit. The derelict brick factory behind the houses in one frame points to a small northern French town with a deindustrialised past now functioning largely as a residential commune, with a floodplain woodland belt (willow/poplar) as the edge of settlement.",
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 4,
+      "name": "Mural-painted electricity transformer cabin at a footpath trailhead (bulrush/marsh motif)",
+      "type": "utility structure / local art"
+     },
+     {
+      "confidence": 0.45,
+      "image_index": 5,
+      "name": "Abandoned brick industrial building with arched-roof sheds",
+      "type": "former factory"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.85,
+      "evidence": "'STOP' on an octagonal sign (French-language countries keep the English word STOP), French-style bin lettering and a red hiking waymarker with a French route name",
+      "language": "French",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Western Europe",
+       "North America",
+       "Oceania",
+       "East Asia"
+      ],
+      "confidence_after": 0.97,
+      "conclusion": "North-western continental Europe, oceanic climate",
+      "discriminator": "North American suburbs would show wide setbacks, no front garden walls, overhead wires and yellow centre lines; Oceania would drive on the left; East Asia would show utility poles and different script.",
+      "level": "continent",
+      "observation": "Right-hand traffic, narrow kerbed streets, no overhead wires, clipped privet/thuja hedges, render-and-tile detached houses, EU-format long white plates.",
+      "ruled_out": [
+       "North America — no yellow centre line, no overhead distribution wires, plot pattern too tight",
+       "Oceania — right-hand driving",
+       "East Asia — Latin script and European roofscape"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "France",
+       "Belgium",
+       "Netherlands",
+       "Germany",
+       "Luxembourg"
+      ],
+      "confidence_after": 0.9,
+      "conclusion": "France",
+      "discriminator": "Belgium would show brick-faced houses with a kerbside dashed white parking line and blue-white street nameplates; the Netherlands would show brick paving and cycle paths in red asphalt; Germany would show Anliegerstraße signage and no yellow kerb line. The continuous yellow kerb line plus brown-render/beige pavillons with roller shutters and louvred wooden shutters is the French combination.",
+      "level": "country",
+      "observation": "Continuous yellow kerbside no-parking line; cream-rendered pavillons with volets roulants; standalone green post-mounted letterboxes; STOP sign on brown post.",
+      "ruled_out": [
+       "Belgium — brick construction dominant, different parking-line convention",
+       "Netherlands — no red cycle asphalt, no brick street paving",
+       "Germany — no yellow kerb line, different house typology",
+       "Luxembourg — plates/road furniture differ, houses generally larger and more alpine-roofed"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Northern France (Hauts-de-France/Normandy)",
+       "Île-de-France",
+       "Brittany",
+       "Loire/Centre",
+       "Southern France"
+      ],
+      "confidence_after": 0.8,
+      "conclusion": "Northern France, Paris Basin fringe — Hauts-de-France or eastern Normandy",
+      "discriminator": "Southern France would show Roman-tile roofs at low pitch, ochre render, plane trees and dry vegetation; Brittany would show granite masonry, slate everywhere and gorse hedges; the Loire would show tuffeau limestone. Here we have steep-pitched dark flat-tile/slate roofs, red brick industrial fabric, willow-poplar floodplain scrub and lush damp grass — the humid north.",
+      "level": "macro_region",
+      "observation": "Steep dark roofs with flat tiles and slate, red-brick derelict factory, willow/poplar wet woodland, uniformly green damp lawns in summer.",
+      "ruled_out": [
+       "Southern France — no canal tiles, no Mediterranean vegetation",
+       "Brittany — no granite or gorse, roofs not uniformly slate",
+       "Loire/Centre — no limestone tuffeau walls"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Nord / Pas-de-Calais mining belt",
+       "Oise / Aisne river valleys",
+       "Somme valley",
+       "Eure / Seine valley"
+      ],
+      "confidence_after": 0.55,
+      "conclusion": "An Oise/Aisne-type river-valley commune in the Oise department or immediately adjacent Picardy",
+      "discriminator": "The Nord mining belt would show corons — long uniform brick terraces — rather than detached rendered pavillons and would have coal-heap topography; the Seine valley in Eure would show chalk-cliff exposure and more half-timbering. Here the estate is a free-standing 1970s lotissement backing onto alluvial willow woodland with a wooded plateau edge, the signature of the Oise/Aisne valley towns (Compiègne, Noyon, Chauny, Thourotte).",
+      "level": "admin_region",
+      "observation": "Detached rendered pavillons rather than brick terraces; low wooded escarpment above a flat valley floor; marsh/bulrush mural on the transformer cabin; a marked local walking circuit starting at the edge of the estate.",
+      "ruled_out": [
+       "Nord/Pas-de-Calais coron belt — no brick terraced rows, no slag-heap relief",
+       "Eure/Seine valley — no half-timber or chalk cliff exposure"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Village commune",
+       "Small town periphery",
+       "Large city suburb"
+      ],
+      "confidence_after": 0.5,
+      "conclusion": "Periphery of a small-to-medium town: an estate of a few hundred houses with municipal cycle infrastructure and a former factory nearby",
+      "discriminator": "A pure village would lack painted green cycle crossings, mushroom streetlights on every plot frontage and an intercommunal waste-syndicate bin fleet; a large-city suburb would show apartment blocks, bus shelters with route maps and commercial frontages, none of which appear.",
+      "level": "metro_area",
+      "observation": "Green cycle-crossing paint and kerbed footways on a distributor road, but the estate street ends directly against open woodland with no bus stops or shops visible.",
+      "ruled_out": [
+       "Large city suburb — no apartment blocks, transit furniture or retail",
+       "Isolated hamlet — too much municipal street engineering"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "compiegne",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2274,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4260,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "France",
+    "country_iso": "FR",
+    "country_correct": true,
+    "region": "Hauts-de-France (Oise / Aisne), northern France",
+    "city": "Compiègne / Noyon area (small town on the Oise)",
+    "confidence": 0.4,
+    "overall_confidence": 0.55,
+    "error_km": 110.68,
+    "reached_level": "metro_area",
+    "n_steps": 5,
+    "n_steps_with_cut": 5,
+    "n_cues": 12,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "geomorphology",
+     "infrastructure",
+     "road_markings",
+     "signage",
+     "street_furniture",
+     "vegetation",
+     "vehicles"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Chartres area (Lucé / Mainvilliers type suburb)",
+     "confidence": 0.42,
+     "coordinate_estimate": {
+      "lat": 48.43,
+      "lng": 1.46,
+      "radius_km": 60
+     },
+     "country": "France",
+     "country_iso": "FR",
+     "region_or_state": "Centre-Val de Loire / Normandy border zone (Eure-et-Loir / Orne / Sarthe belt)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.2,
+      "country": "France",
+      "country_iso": "FR"
+     },
+     {
+      "confidence": 0.06,
+      "country": "Belgium",
+      "country_iso": "BE"
+     },
+     {
+      "confidence": 0.04,
+      "country": "Luxembourg",
+      "country_iso": "LU"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Temperate oceanic (Cfb), deciduous/willow-poplar riparian woodland, dense green summer foliage",
+     "driving_side": "right",
+     "hemisphere": "northern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Octagonal red STOP sign with white border mounted on a slim brown-painted round post, at a typical low French mounting height; French STOP signs are octagonal with this exact narrow white rim.",
+      "supports": [
+       "France",
+       "Western Europe"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "Beige/cream rendered detached 'pavillon' houses with brown roller-shutter boxes (volets roulants) and wooden shutters, plus pierced white concrete claustra boundary walls and white balustrade fencing — the classic 1970s-80s French lotissement kit.",
+      "supports": [
+       "France"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "infrastructure",
+      "image_index": 1,
+      "level": "country",
+      "observation": "Continuous yellow line painted along the kerb edge on the right-hand side, the French no-stopping convention; Belgium/Netherlands would use a broken white line or blue-zone signage instead.",
+      "supports": [
+       "France"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "street_furniture",
+      "image_index": 1,
+      "level": "admin_region",
+      "observation": "Mushroom/bell-shaped white residential lamp heads on short slender poles set within garden hedgerows — standard French municipal lotissement lighting of the same build era.",
+      "supports": [
+       "France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "waste_management",
+      "image_index": 1,
+      "level": "district",
+      "observation": "Wheeled bins with a label reading 'SICOMAR' — a French inter-communal waste syndicate acronym (SI... = Syndicat Intercommunal), confirming French communal administration rather than Belgian intercommunale naming (IVAGO/INTRADEL style).",
+      "supports": [
+       "France"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Red fingerpost waymarker reading '3 — Le Boulevard/Ploume...' in French, of the local walking-circuit (circuit de randonnée) type; no Dutch or German text anywhere.",
+      "supports": [
+       "France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utilities",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Small gabled brick/rendered utility cabin housing a distribution cabinet, artistically painted with bulrushes and bearing a small plate; French rural 'poste de transformation'/water-pumping hut typology with municipal mural art.",
+      "supports": [
+       "France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "mailbox",
+      "image_index": 2,
+      "level": "country",
+      "observation": "Dark green La Poste-compatible private letterbox on a post beside the hedge, plus a small white electricity cabinet at the plot edge — French domestic kerbside kit.",
+      "supports": [
+       "France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_marking",
+      "image_index": 5,
+      "level": "macro_region",
+      "observation": "Green-painted checkerboard cycle-crossing panel with white bicycle and chevron pictograms, a recent French urban cycling-scheme treatment found in mid-sized towns.",
+      "supports": [
+       "France"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Steep dark slate-like double-gable house next to a low white-rendered bungalow with pale limestone/brick trim, and a derelict early-20th-century industrial building with metal-framed windows — small-town industrial fringe of northern-central France.",
+      "supports": [
+       "Centre-Val de Loire",
+       "Normandy"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 2,
+      "level": "admin_region",
+      "observation": "Dense willow/poplar riparian thicket immediately behind the housing estate with rank tall grass, indicating a river or wet valley floor at the edge of the built-up area — typical of Loire/Eure/Sarthe basin towns.",
+      "supports": [
+       "Centre-Val de Loire",
+       "Normandy"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vehicles",
+      "image_index": 1,
+      "level": "country",
+      "observation": "French-market compacts (Citroen C-series hatchback, Ford Fiesta) with long white rectangular EU plates; no Belgian red-lettered plates visible.",
+      "supports": [
+       "France"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "geomorphology",
+      "image_index": 3,
+      "level": "admin_region",
+      "observation": "Gently rolling, almost flat terrain with low stone garden walls of rubble limestone and mature hedges; no hills, no granite, no Mediterranean tile — excludes southern and mountainous France.",
+      "supports": [
+       "Northern France"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "cultural_economic_read": "A comfortable, owner-occupied provincial French suburb: 1970s-80s detached pavillons on modest plots, meticulously clipped hedges and decorative pierced-concrete or balustrade boundary walls, one or two mid-range family cars per drive, kerbside wheeled bins from an inter-communal waste syndicate, and municipal amenities such as a painted utility hut and a numbered walking circuit. Nothing is gated or affluent, nothing is deprived — this is the classic middle-class lotissement belt of a small-to-mid-sized French town, with a decaying early-industrial shed on the town edge hinting at a former light-manufacturing economy now largely residential and commuter-based.",
+    "landmarks": [
+     {
+      "confidence": 0.5,
+      "image_index": 4,
+      "name": "Painted utility/pumping hut on a local walking circuit (waymarker no. 3)",
+      "type": "municipal infrastructure with mural"
+     },
+     {
+      "confidence": 0.3,
+      "image_index": 5,
+      "name": "Abandoned early-20th-century light-industrial workshop",
+      "type": "industrial heritage building"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.8,
+      "evidence": "Red fingerpost waymarker with French place-name text; 'SICOMAR' waste-syndicate label on bins; 'STOP' on octagonal sign (used verbatim in France)",
+      "language": "French",
+      "script": "Latin"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Western Europe",
+       "North America",
+       "Oceania",
+       "Southern Africa"
+      ],
+      "conclusion": "Temperate Western Europe",
+      "confidence_after": 0.95,
+      "discriminator": "North American suburbia would show wide setbacks, no boundary walls, wooden siding, overhead utility lines and yellow centre lines; Oceania would drive on the left. Here the roadway is narrow with kerb-to-kerb hedges, utilities are buried, and traffic keeps right.",
+      "level": "continent",
+      "observation": "Narrow curbed residential streets, buried utilities, clay-tile hipped roofs, clipped hedges to the pavement edge, right-hand traffic, EU-format long white plates.",
+      "ruled_out": [
+       "North America — no overhead wiring, no wood-frame houses, plate shape wrong",
+       "Oceania/UK — right-hand driving",
+       "Southern Africa — no walls/razor wire, temperate willow-poplar flora"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "France",
+       "Belgium",
+       "Netherlands",
+       "Germany",
+       "Luxembourg"
+      ],
+      "conclusion": "France",
+      "confidence_after": 0.93,
+      "discriminator": "Germany would show white-painted kerbs, Zone-30 signage and brick/clinker facades with steeper roofs; Belgium would show brick-faced houses, red-lettered plates and intercommunale bin branding (IVAGO/INTRADEL) plus terracotta-orange pantiles; Netherlands would show brick paviors, bike lanes in red asphalt and no yellow kerb line. Instead we get a continuous yellow kerb no-parking line, a 'SI-' inter-communal waste syndicate label, French fingerpost wording, and rendered beige pavillons with volet-roulant boxes and pierced-concrete claustra walls.",
+      "level": "country",
+      "observation": "Yellow continuous kerbside line (img 1), 'SICOMAR' bin label, French-language red walking waymarker, cream-rendered pavillons with roller-shutter casings and white claustra/balustrade boundary walls.",
+      "ruled_out": [
+       "Germany — no white kerb markings, no clinker brick, sign hardware wrong",
+       "Belgium — no brick facades, no Belgian plate or intercommunale branding",
+       "Netherlands — no brick paving or red cycle asphalt",
+       "Luxembourg — no bilingual FR/DE signage or Luxembourgish yellow plates"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Northern France",
+       "Mediterranean France",
+       "Atlantic/Aquitaine",
+       "Alpine/Jura France"
+      ],
+      "conclusion": "Northern half of France, oceanic climate belt",
+      "confidence_after": 0.85,
+      "discriminator": "Mediterranean France would show canal-tile roofs of low pitch, pale ochre render, cypress/pine/oleander and plane-tree alignments; Aquitaine would show pink-clay pantiles and wide eaves; Alpine France would show relief, deep eaves and snow bars. Here roofs are medium-pitch flat-interlocking or slate-look tiles, foliage is willow/poplar/ash with dark conifer accents, terrain is essentially flat, and lawns stay lush green in summer.",
+      "level": "macro_region",
+      "observation": "Medium-pitch tile and dark slate-like roofs, lush green hedges of privet/thuja, willow-poplar riparian thicket, flat-to-gently-rolling ground, rubble-limestone garden walls.",
+      "ruled_out": [
+       "Mediterranean France — no canal tiles, no drought-adapted flora",
+       "Aquitaine — no pink pantiles/wide eaves",
+       "Alps/Jura — no relief or snow-country detailing"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Hauts-de-France (Nord/Picardy)",
+       "Normandy",
+       "Centre-Val de Loire",
+       "Grand Est",
+       "Ile-de-France outer ring"
+      ],
+      "conclusion": "Centre-Val de Loire / western Normandy-Perche belt (Eure-et-Loir–Orne–Sarthe type town)",
+      "confidence_after": 0.5,
+      "discriminator": "Hauts-de-France would be dominated by red brick terraces and coron-style rows with flat red pantiles, not rendered pavillons with limestone rubble walls; Grand Est would show sandstone trim, Alsatian half-timber or Lorraine ochre plaster with steep tile roofs and 'D' departmental plates in a different visual mix; Normandy proper would show more half-timbering, flint/silex banding and slate-heavy roofs throughout. Here the mix is cream render + pale limestone rubble walls + brown flat-interlocking tiles with only one slate-clad house, which matches the Beauce/Perche/Loire limestone zone between Chartres and Le Mans.",
+      "level": "admin_region",
+      "observation": "Cream render with pale limestone rubble garden walls (img 3), brown flat-interlocking tiles, one dark slate double-gable house, wet willow-lined valley edge, low relief with open woodland fringe.",
+      "ruled_out": [
+       "Hauts-de-France — no red brick vernacular",
+       "Grand Est — no sandstone/half-timber vernacular",
+       "Ile-de-France core — too rural a wooded edge, no RER/Transilien or Paris-grade signage"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Large metro suburb",
+       "Small/mid-sized town periphery",
+       "Isolated village"
+      ],
+      "conclusion": "Periphery of a small-to-mid-sized town: a lotissement estate that ends directly against river woodland, with a signed pedestrian circuit and a through-road bearing new cycle markings",
+      "confidence_after": 0.55,
+      "discriminator": "A big-metro suburb would show bus-stop shelters with network branding, bigger multi-lane distributors and apartment blocks nearby; an isolated village would lack kerbs, street lighting on every plot, painted cycle crossings and an inter-communal bin service. Here we see full urban kerbing, estate lighting, a cycle-crossing treatment and a derelict industrial workshop — town-scale infrastructure without metropolitan density.",
+      "level": "metro_area",
+      "observation": "Cul-de-sac estate streets abutting untamed willow woodland (img 2), a main road with crosswalk and streetlights (img 3), a green cycle crossing on a town avenue with a derelict workshop opposite (img 5).",
+      "ruled_out": [
+       "Large metro suburb — no transit branding, no apartment blocks",
+       "Isolated village — kerbs, estate lighting and cycle scheme are too developed"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Estate interior",
+       "Estate edge along watercourse",
+       "Town-centre street"
+      ],
+      "conclusion": "Edge of a post-1975 detached-housing estate on a river/valley margin, one street back from a signed riverside walking path",
+      "confidence_after": 0.6,
+      "discriminator": "A town-centre street would have aligned facades on the pavement, shopfronts and parking bays; an estate interior would not show unmanaged wet woodland and a rural fingerpost. The combination of the final kerb-line, a grass verge, blue pictogram signs at a path entrance and a mural-painted utility hut on a gravel trail is specifically the estate/nature interface.",
+      "level": "district",
+      "observation": "Cul-de-sac head with blue signs and a path entry into dense willow scrub (img 2); gravel footpath past the painted hut with a numbered circuit marker (img 4).",
+      "ruled_out": [
+       "Town-centre street — no shopfronts or continuous frontage",
+       "Pure estate interior — presence of wild woodland and trail signage"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "overall_confidence": 0.55,
+    "place_slug": "chartres",
+    "relied_on_atoms": [
+     "atm_030767d975b3",
+     "atm_533e2635a15a"
+    ]
+   },
+   "cost_usd": 0.1539,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2538,
+    "output": 5270,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "France",
+    "country_iso": "FR",
+    "country_correct": true,
+    "region": "Centre-Val de Loire / Normandy border zone (Eure-et-Loir / Orne / Sarthe belt)",
+    "city": "Chartres area (Lucé / Mainvilliers type suburb)",
+    "confidence": 0.42,
+    "overall_confidence": 0.55,
+    "error_km": 243.03,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 13,
+    "n_landmarks": 2,
+    "cue_categories": [
+     "architecture",
+     "geomorphology",
+     "infrastructure",
+     "language",
+     "mailbox",
+     "road_marking",
+     "signage",
+     "street_furniture",
+     "utilities",
+     "vegetation",
+     "vehicles",
+     "waste_management"
+    ]
+   },
+   "known_offered": [
+    "atm_030767d975b3",
+    "atm_533e2635a15a",
+    "atm_ea64ccafd76b",
+    "atm_7f1b78158b4f",
+    "atm_36953f364595",
+    "atm_78bb90bc7d1c",
+    "atm_a8965343eeda",
+    "atm_dddae32137b0",
+    "atm_c23d23b3926b",
+    "atm_bc76c93c3cae"
+   ],
+   "relied_on": [
+    "atm_030767d975b3",
+    "atm_533e2635a15a"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "FR",
+   "country": "France",
+   "region": "Centre-Val de Loire / Normandy border zone (Eure-et-Loir / Orne / Sarthe belt)",
+   "city": "Chartres area (Lucé / Mainvilliers type suburb)",
+   "lat": 48.43,
+   "lng": 1.46,
+   "error_km": 243.03,
+   "reached_level": "district",
+   "confidence": 0.42,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "miss",
+  "city": "miss",
+  "error_km": 243.03,
+  "bucket": ">=100"
+ },
+ "correction": {
+  "cost_usd": 0.21740375,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5872,
+   "output": 2873,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "summary": "Country France was correct, but the analyst placed it in the Eure-et-Loir/Perche belt around Chartres when the pano is actually Rethel in the Ardennes (Grand Est), 243 km NE. The miss came from over-reading a generic post-1970s pavillon lotissement — cream render, claustra walls, brown interlocking tiles, clipped thuja hedges — as a regional (Beauce/Perche) signature, when this kit is nationally uniform and useless for region. The truly regional evidence in the images (willow/poplar floodplain thicket on flat alluvial ground behind the estate, no local stone vernacular at all, brick industrial shed ruin) equally fits the Aisne valley in Champagne-Ardenne, which the 1st pass (Oise/Aisne) had actually got closer to before the atoms pushed it west.",
+  "misleading_cues": [
+   {
+    "image_index": 0,
+    "observation": "Cream-rendered pavillons with volet-roulant boxes, pierced white concrete claustra and balustrade boundary walls",
+    "why_misleading": "Read as a Beauce/Perche limestone-zone vernacular; in reality this 1970s-80s developer kit is identical from Brittany to the Ardennes and carries no regional signal."
+   },
+   {
+    "image_index": 0,
+    "observation": "Pale 'limestone rubble' garden walls and brick-trimmed plinths",
+    "why_misleading": "Interpreted as Loire/Beauce limestone; the walls are rendered/reconstituted-stone cladding available nationwide, and Champagne-Ardenne is itself a chalk/limestone region anyway."
+   },
+   {
+    "image_index": 5,
+    "observation": "Green-painted checkerboard cycle crossing and a derelict early-20th-century workshop",
+    "why_misleading": "Taken as a Centre-Val de Loire small-town texture, but painted cycle crossings are a recent nationwide treatment and small brick-and-steel industrial ruins are far more characteristic of the northern/eastern French river towns."
+   },
+   {
+    "image_index": 2,
+    "observation": "Willow-poplar riparian thicket assigned to the 'Loire/Eure/Sarthe basin'",
+    "why_misleading": "Wet-valley willow carr is generic to every northern French alluvial floodplain (Aisne, Oise, Marne) and cannot discriminate west from east."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "image_index": 2,
+    "observation": "Estate street ends abruptly at a dense, unmanaged willow/poplar carr on dead-flat ground just metres beyond the last kerb",
+    "why_decisive": "Signals a housing estate built right against a broad alluvial floodplain — the Aisne-type valley towns of the north-east — rather than the dry rolling Beauce/Perche plateau where estates end in open arable fields.",
+    "category": "hydrology"
+   },
+   {
+    "image_index": 5,
+    "observation": "Crumbling brick-and-concrete early-20th-century works with metal-frame windows and a corrugated shed directly facing detached houses on a town avenue",
+    "why_decisive": "Small riverside industrial relics embedded in the residential fabric are typical of the Aisne/Oise/Champagne small towns rather than of the agricultural service towns of Eure-et-Loir.",
+    "category": "industry"
+   },
+   {
+    "image_index": 1,
+    "observation": "Dark brown flat-interlocking concrete/clay tiles on medium-pitch roofs with dormer windows, no slate roofscape, no half-timber, no exposed stone",
+    "why_decisive": "A neutral north-eastern French lowland roofscape; the absence of slate or half-timber argues against Normandy/Perche as the analyst's region claim.",
+    "category": "roof-facade"
+   },
+   {
+    "image_index": 0,
+    "observation": "Continuous yellow kerb line, octagonal STOP on a slim brown post, bell-shaped white lamp heads",
+    "why_decisive": "Confirms France at country level but is nationally uniform, so it correctly fixed the country and should have been excluded from any regional reasoning.",
+    "category": "road-marking"
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "Pavillon lotissement kit is national, not regional — don't use it to narrow within France",
+    "body": "Beige/cream render, volet-roulant boxes, pierced-concrete claustra walls and clipped thuja hedges appear identically in Ardennes estates and in Eure-et-Loir estates. In a genuinely regional vernacular you would instead see load-bearing local material in older houses — flint/silex banding and half-timber in Normandy, red brick terraces in Hauts-de-France, chalk-limestone blocks in Champagne — so only pre-1950 buildings carry regional signal.",
+    "layer": "architecture",
+    "category": "housing-typology",
+    "scope": "country",
+    "tags": [
+     "pavillon",
+     "lotissement",
+     "claustra",
+     "regional-signal"
+    ],
+    "entities": [
+     "Ardennes",
+     "Eure-et-Loir"
+    ],
+    "looks_like": {
+     "country_iso": "FR",
+     "country": "France",
+     "region": "Centre-Val de Loire / Perche"
+    },
+    "actually": {
+     "country_iso": "FR",
+     "country": "France",
+     "region": "Ardennes, Grand Est"
+    },
+    "confidence": 0.8
+   },
+   {
+    "title": "Willow-poplar carr at the estate edge means alluvial valley town, not plateau town",
+    "body": "Where a French estate street dead-ends into dense willow/poplar scrub with rank tall grass on dead-flat ground, you are on a broad river floodplain — the Aisne, Oise or Marne belt of the north-east. On the Beauce/Perche plateau near Chartres the estate edge instead abuts open cereal fields or hedged bocage pasture with no wet-woodland fringe.",
+    "layer": "nature",
+    "category": "hydrology",
+    "scope": "region",
+    "tags": [
+     "floodplain",
+     "willow",
+     "riparian",
+     "landform"
+    ],
+    "entities": [
+     "Aisne valley",
+     "Beauce"
+    ],
+    "looks_like": {
+     "country_iso": "FR",
+     "country": "France",
+     "region": "Centre-Val de Loire"
+    },
+    "actually": {
+     "country_iso": "FR",
+     "country": "France",
+     "region": "Ardennes, Grand Est"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Derelict brick/steel workshops inside the housing fabric point north-east, not to Beauce",
+    "body": "A ruined early-20th-century works with metal-framed windows sitting between pavillons on a town avenue indicates the small industrial river towns of Champagne-Ardenne, Picardy and the Aisne, which were textile/metal centres. In the Chartres/Perche belt you would more often see agricultural co-op silos, grain stores and no dense small-factory relics in residential streets.",
+    "layer": "economy",
+    "category": "industry",
+    "scope": "region",
+    "tags": [
+     "industrial-ruin",
+     "river-town",
+     "brick"
+    ],
+    "entities": [
+     "Champagne-Ardenne",
+     "Eure-et-Loir"
+    ],
+    "looks_like": {
+     "country_iso": "FR",
+     "country": "France",
+     "region": "Centre-Val de Loire"
+    },
+    "actually": {
+     "country_iso": "FR",
+     "country": "France",
+     "region": "Ardennes, Grand Est"
+    },
+    "confidence": 0.5
+   },
+   {
+    "title": "Yellow kerb line and STOP hardware fix France but say nothing about the region",
+    "body": "The continuous yellow kerbside no-stopping line, low-mounted octagonal STOP on a slim painted post and mushroom lamp heads are nationwide French standards. Treat them as country-level only; to move to region you need vernacular walling material, roof covering of pre-war stock, terrain and river regime instead.",
+    "layer": "geography",
+    "category": "road-marking",
+    "scope": "country",
+    "tags": [
+     "yellow-kerb",
+     "stop-sign",
+     "scale-discipline"
+    ],
+    "entities": [
+     "France"
+    ],
+    "looks_like": {
+     "country_iso": "BE",
+     "country": "Belgium"
+    },
+    "actually": {
+     "country_iso": "FR",
+     "country": "France",
+     "region": "Ardennes, Grand Est"
+    },
+    "confidence": 0.75
+   }
+  ],
+  "misled_atoms": [
+   "atm_533e2635a15a"
+  ],
+  "confirming_atoms": [
+   "atm_030767d975b3",
+   "atm_533e2635a15a"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_5627f16f3656",
+   "atm_cb506827dd99",
+   "atm_569d526de3f2",
+   "atm_82c5df9afaa6"
+  ],
+  "merged": [],
+  "ordered": [
+   "atm_5627f16f3656",
+   "atm_cb506827dd99",
+   "atm_569d526de3f2",
+   "atm_82c5df9afaa6"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_030767d975b3",
+   "atm_533e2635a15a"
+  ],
+  "misses": [
+   "atm_533e2635a15a"
+  ],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.5987,
+ "status": "OK"
+}

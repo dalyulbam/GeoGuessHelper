@@ -1,0 +1,1032 @@
+{
+ "job_id": "job_b0e82f0744fd",
+ "report_file": "report_cl_anilco-villarrica_-39.4654_-72.2604_260916_002050_ko-en-fr.html",
+ "label": "선택 장면 보고서 · b0_DbMu8…UrtQ",
+ "created": 1789485845.335496,
+ "lang": "en",
+ "images": [
+  "capture_16a39f96ed9f.jpg",
+  "capture_dde4c50aa753.jpg",
+  "capture_f9403d591b9f.jpg",
+  "capture_6f63e3303f70.jpg",
+  "capture_f3279df4a9c5.jpg",
+  "capture_487ace6be4da.jpg"
+ ],
+ "image_panos": {
+  "capture_16a39f96ed9f.jpg": {
+   "pano_id": "b0_DbMu8vXcc2R93xUUrtQ",
+   "lat": -39.46539637025855,
+   "lng": -72.26042571134053,
+   "heading": 60.63763578571706,
+   "pitch": -1.8034269426205753
+  },
+  "capture_dde4c50aa753.jpg": {
+   "pano_id": "b0_DbMu8vXcc2R93xUUrtQ",
+   "lat": -39.46539637025855,
+   "lng": -72.26042571134053,
+   "heading": 28.74865879894334,
+   "pitch": -6.568641883819922
+  },
+  "capture_f9403d591b9f.jpg": {
+   "pano_id": "fEvHiqo1wJRWpHzfmW9SXg",
+   "lat": -39.46495104591077,
+   "lng": -72.26004297587892,
+   "heading": 336.5058202016071,
+   "pitch": -3.2961096112468766
+  },
+  "capture_6f63e3303f70.jpg": {
+   "pano_id": "90Yng3sUwq1X2Ib9Lhzuwg",
+   "lat": -39.4629105309725,
+   "lng": -72.25909173685505,
+   "heading": 287.31521732308425,
+   "pitch": -2.1218163617185013
+  },
+  "capture_f3279df4a9c5.jpg": {
+   "pano_id": "K9O2yYFc3rO119SfUXeFxA",
+   "lat": -39.462140567924685,
+   "lng": -72.25868315846665,
+   "heading": 28.954075228801873,
+   "pitch": -0.1745362975329101
+  },
+  "capture_487ace6be4da.jpg": {
+   "pano_id": "7O58Z-QolpInizxnMm1MeA",
+   "lat": -39.445111368535514,
+   "lng": -72.24845540414718,
+   "heading": 88.43952805864528,
+   "pitch": -3.8616688587251957
+  }
+ },
+ "truth": {
+  "lat": -39.45870811051696,
+  "lng": -72.2564614629082,
+  "iso": "CL",
+  "country": "Chile",
+  "region": "La Araucanía Region (Villarrica commune, Cautín Province), at the Los Ríos boundary",
+  "city": "Añilco / Chihuaico (rural, near Villarrica)",
+  "source": "aided_prior",
+  "file_lat": -39.4654,
+  "file_lng": -72.2604,
+  "n_panos": 7
+ },
+ "blind": {
+  "phase1": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Chihuaico / Quetroco area, near Villarrica–Loncoche road",
+     "confidence": 0.71,
+     "country": "Chile",
+     "country_iso": "CL",
+     "region_or_state": "Araucanía Region (Cautín Province)",
+     "coordinate_estimate": {
+      "lat": -39.35,
+      "lng": -72.45,
+      "radius_km": 18
+     }
+    },
+    "alternatives": [
+     {
+      "country": "Chile",
+      "country_iso": "CL",
+      "confidence": 0.22
+     },
+     {
+      "country": "Argentina",
+      "country_iso": "AR",
+      "confidence": 0.05
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "temperate oceanic / Valdivian temperate rainforest, high rainfall, mild summers",
+     "driving_side": "right",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "observation": "Green directional sign with white text reading 'Villarrica S-239-T' and 'Chihuaico / Quetroco S-875'; route codes in the S-xxx format with a letter suffix.",
+      "image_index": 5,
+      "level": "admin_region",
+      "supports": [
+       "Chile",
+       "Araucanía Region"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_infrastructure",
+      "observation": "Chilean rural route numbering prefix 'S-' is the code block assigned to the Araucanía Region; secondary roads carry S-### and S-###-T suffixes.",
+      "image_index": 5,
+      "level": "admin_region",
+      "supports": [
+       "Araucanía (Region IX)"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "observation": "Spanish text only ('SURTIDO', 'Bebidas CCU 3 Lts $2990'), no Portuguese or indigenous-official bilingual signage.",
+      "image_index": 3,
+      "level": "country",
+      "supports": [
+       "Spanish-speaking South America"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "commerce",
+      "observation": "Pepsi banner plus 'Bebidas CCU' price board and 'Costa' (chocolate) banner — CCU and Costa are Chilean beverage/confectionery brands.",
+      "image_index": 3,
+      "level": "country",
+      "supports": [
+       "Chile"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "currency",
+      "observation": "Prices in thousands ($2.990 for 3 L soda) consistent with Chilean peso magnitudes rather than Argentine or Brazilian pricing formats of the same era.",
+      "image_index": 3,
+      "level": "country",
+      "supports": [
+       "Chile"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_markings",
+      "observation": "Double solid white centre line, white edge lines, no yellow centre line — Chilean/Argentine standard; Brazil would use yellow centre lines.",
+      "image_index": 4,
+      "level": "country",
+      "supports": [
+       "Chile",
+       "Argentina"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "signage",
+      "observation": "Circular speed limit sign '30' with red ring and thin white border on a wooden post — Chilean MOP style.",
+      "image_index": 0,
+      "level": "country",
+      "supports": [
+       "Chile"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "vernacular_architecture",
+      "observation": "Timber houses clad in vertical sawn boards and OSB, steep-ish corrugated zinc roofs, shingle-clad bus shelter — classic southern Chilean/Chilote wood construction for high-rainfall zones.",
+      "image_index": 2,
+      "level": "macro_region",
+      "supports": [
+       "Los Lagos / Los Ríos / Araucanía south"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "observation": "Dense broadleaf evergreen understory with Nothofagus/laurel-type foliage, tall conifer/pine plantations behind, foxgloves (Digitalis) and blackberry on verges — Valdivian rainforest belt with exotic forestry.",
+      "image_index": 0,
+      "level": "macro_region",
+      "supports": [
+       "south-central Chile 38–41°S"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "economy",
+      "observation": "Roadside stalls hung with coloured plastic flags advertising home produce (typical Chilean rural 'venta' flag signalling, e.g. honey, cheese, sopaipillas).",
+      "image_index": 1,
+      "level": "district",
+      "supports": [
+       "rural Araucanía/Los Ríos roadside vending culture"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utilities",
+      "observation": "Wooden single-pole distribution lines with small pole-top transformers and satellite TV dishes on modest homes — low-density rural electrification, no gas grid.",
+      "image_index": 2,
+      "level": "macro_region",
+      "supports": [
+       "rural southern Chile"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "season_sun",
+      "observation": "Lush green grass, full leaf, high sun with summer cumulus in some frames and a low-sun early-spring frame in another; shadows fall southward at midday in the wide frames.",
+      "image_index": 4,
+      "level": "continent",
+      "supports": [
+       "southern hemisphere, mid-latitude"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "terrain",
+      "observation": "Low rolling hills, wide flat pasture valley with distant forested cordillera foothills — pre-Andean depression landscape rather than steep coastal range.",
+      "image_index": 4,
+      "level": "metro_area",
+      "supports": [
+       "Cautín / Villarrica basin"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "narrowing": [
+     {
+      "level": "continent",
+      "question": "Which hemisphere and broad landmass?",
+      "candidates": [
+       "South America",
+       "Europe",
+       "New Zealand",
+       "North America"
+      ],
+      "observation": "Temperate rainforest vegetation with Nothofagus-type broadleaf evergreens, foxglove and blackberry weeds, corrugated-zinc timber houses, Spanish-language signage, midday shadows cast toward the south.",
+      "discriminator": "New Zealand would drive on the left with left-hand centre-line conventions and English signage; Europe would show EU-style signage and masonry housing; North America would use yellow centre lines and MUTCD sign shapes.",
+      "ruled_out": [
+       "New Zealand — right-hand traffic and Spanish text",
+       "Europe — no EU sign vocabulary, wooden vernacular with zinc roofs",
+       "North America — white double centre line, metric circular speed plate"
+      ],
+      "conclusion": "Southern-hemisphere temperate South America",
+      "confidence_after": 0.96,
+      "weight": "high"
+     },
+     {
+      "level": "country",
+      "question": "Chile, Argentina or southern Brazil?",
+      "candidates": [
+       "Chile",
+       "Argentina",
+       "Brazil",
+       "Uruguay"
+      ],
+      "observation": "Pepsi/'Bebidas CCU' price board and a 'Costa' banner on a roadside kiosk; green fingerboard with route codes in the 'S-239-T' / 'S-875' format; prices like $2.990.",
+      "discriminator": "Argentina labels rural routes 'RP xx'/'RN xx' with a blue-and-white provincial shield and sells Quilmes/Manaos rather than CCU; Brazil would be Portuguese with BR-/SC- shields and yellow centre lines; Uruguay lacks temperate rainforest and uses Ruta n° shields.",
+      "ruled_out": [
+       "Argentina — no RP/RN shield, CCU and Costa are Chilean brands",
+       "Brazil — Spanish text, white centre lines",
+       "Uruguay — vegetation and route coding mismatch"
+      ],
+      "conclusion": "Chile",
+      "confidence_after": 0.95,
+      "weight": "high"
+     },
+     {
+      "level": "macro_region",
+      "question": "Which latitudinal slice of Chile — central, Araucanía–Los Lagos, or Patagonia?",
+      "candidates": [
+       "Central Chile (Maule/Ñuble)",
+       "Araucanía–Los Ríos–Los Lagos",
+       "Aysén/Magallanes"
+      ],
+      "observation": "Continuous closed-canopy evergreen broadleaf forest with pine/eucalypt plantations, foxglove-lined verges, all-timber housing with zinc roofs, no irrigation canals or vineyards.",
+      "discriminator": "Central Chile would show dry golden summer hillsides, vineyards/orchards and adobe or stucco houses; Aysén/Magallanes would show wind-flagged trees, gravel highways, and no continuous asphalt village strips with commercial soft-drink kiosks.",
+      "ruled_out": [
+       "Central Chile — landscape is wet and forested, not Mediterranean",
+       "Aysén/Magallanes — dense broadleaf rainforest at low relief with paved secondary highway and plantation forestry is northern of there"
+      ],
+      "conclusion": "Wet south-central Chile, roughly 38–41°S",
+      "confidence_after": 0.88,
+      "weight": "high"
+     },
+     {
+      "level": "admin_region",
+      "question": "Araucanía, Los Ríos or Los Lagos?",
+      "candidates": [
+       "Araucanía (IX)",
+       "Los Ríos (XIV)",
+       "Los Lagos (X)"
+      ],
+      "observation": "Rural route codes on the green sign use the 'S-' letter prefix (S-239-T, S-875) and the sign points to Villarrica.",
+      "discriminator": "Los Ríos secondary roads carry 'T-' prefixes and Los Lagos carries 'V-' prefixes; seeing S- codes excludes both. A Los Lagos scene would also more often show Chilote shingle-tiled walls and ferry/coastal cues.",
+      "ruled_out": [
+       "Los Ríos — would be T-### codes",
+       "Los Lagos — would be V-### codes"
+      ],
+      "conclusion": "Araucanía Region, Cautín Province",
+      "confidence_after": 0.85,
+      "weight": "high"
+     },
+     {
+      "level": "metro_area",
+      "question": "Which corridor inside Cautín — Temuco basin, coastal Carahue, or the Villarrica lake approaches?",
+      "candidates": [
+       "Temuco–Lautaro axis",
+       "Carahue–Nueva Imperial coastal",
+       "Villarrica–Loncoche/Panguipulli piedmont"
+      ],
+      "observation": "A junction signed to Villarrica via S-239-T and to small hamlets Chihuaico and Quetroco via S-875, in a forested piedmont valley with distant low cordillera.",
+      "discriminator": "The Temuco axis would be signed to Temuco/Lautaro on Ruta 5 with far more traffic and urban ribbon; coastal Carahue would show Ruta S-40 signage, open pasture and no plantation-clad Andean foothills.",
+      "ruled_out": [
+       "Temuco–Lautaro — no Ruta 5 or Temuco references, road is a two-lane rural secondary",
+       "Carahue coastal — wrong route family and terrain"
+      ],
+      "conclusion": "Rural corridor on the northwest approach to Villarrica, between Loncoche/Lican Ray side valleys",
+      "confidence_after": 0.72,
+      "weight": "medium"
+     },
+     {
+      "level": "district",
+      "question": "Which hamlet along this corridor is the camera actually in?",
+      "candidates": [
+       "Chihuaico",
+       "Quetroco",
+       "an unnamed roadside caserío on S-239-T"
+      ],
+      "observation": "A single-street caserío: bus shelter with shingled roof, 30 km/h plate, produce-flag stalls, a small kiosk with Pepsi/CCU advertising, a green locality name-board visible far down the straight.",
+      "discriminator": "Chihuaico and Quetroco are both signed as being off the main road on the gravel S-875, so the paved-strip village with the speed plate is on the trunk road itself rather than in either named hamlet; the locality board is unreadable so the exact name cannot be fixed.",
+      "ruled_out": [
+       "Chihuaico — signed as a turn-off up a gravel side road",
+       "Quetroco — same side road"
+      ],
+      "conclusion": "A small paved-strip locality on the S-239-T between the Panamericana and Villarrica; exact name indeterminate",
+      "confidence_after": 0.55,
+      "weight": "medium"
+     }
+    ],
+    "languages_detected": [
+     {
+      "language": "Spanish",
+      "script": "Latin",
+      "confidence": 0.95,
+      "evidence": "'Bebidas CCU 3 Lts', 'SURTIDO', place names Villarrica, Chihuaico, Quetroco"
+     },
+     {
+      "language": "Mapudungun (toponyms only)",
+      "script": "Latin",
+      "confidence": 0.6,
+      "evidence": "Chihuaico, Quetroco, Villarrica-area hamlet names of Mapuche origin"
+     }
+    ],
+    "landmarks": [
+     {
+      "name": "Green fingerboard to Villarrica (S-239-T) and Chihuaico/Quetroco (S-875)",
+      "type": "road sign junction",
+      "image_index": 5,
+      "confidence": 0.9
+     },
+     {
+      "name": "Shingle-roofed rural bus shelter",
+      "type": "vernacular transport structure",
+      "image_index": 0,
+      "confidence": 0.7
+     },
+     {
+      "name": "Roadside kiosk with Pepsi/CCU advertising",
+      "type": "rural commerce",
+      "image_index": 3,
+      "confidence": 0.75
+     }
+    ],
+    "cultural_economic_read": "A low-income rural Mapuche-Chilean corridor in the Araucanía piedmont: subsistence-plus smallholdings, homes self-built from sawn timber and OSB with corrugated zinc roofs, satellite dishes as the main telecom link, and income supplemented by roadside vending signalled with coloured plastic flags and by wage labour in exotic pine/eucalypt plantations visible behind the native forest edge. Commerce is a single kiosk sustained by national beverage distribution (CCU/Pepsi), indicating full market integration but very thin local purchasing power. Toponyms (Chihuaico, Quetroco) and the settlement pattern reflect the Mapuche cultural sphere overlaid by post-colonisation Chilean road and forestry infrastructure, with tourism spillover from nearby Villarrica as the main growth vector.",
+    "overall_confidence": 0.72,
+    "place_slug": "villarrica",
+    "relied_on_atoms": []
+   },
+   "cost_usd": 0.2388,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 430,
+    "output": 4713,
+    "cacheWrite": 19006,
+    "cacheRead": 0
+   },
+   "metrics": {
+    "country": "Chile",
+    "country_iso": "CL",
+    "country_correct": true,
+    "region": "Araucanía Region (Cautín Province)",
+    "city": "Chihuaico / Quetroco area, near Villarrica–Loncoche road",
+    "confidence": 0.71,
+    "overall_confidence": 0.72,
+    "error_km": 20.56,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 13,
+    "n_landmarks": 3,
+    "cue_categories": [
+     "commerce",
+     "currency",
+     "economy",
+     "language",
+     "road_infrastructure",
+     "road_markings",
+     "season_sun",
+     "signage",
+     "terrain",
+     "utilities",
+     "vegetation",
+     "vernacular_architecture"
+    ]
+   }
+  },
+  "phase2": {
+   "status": "OK",
+   "analysis": {
+    "best_guess": {
+     "city": "Chihuaico / Quetroco rural corridor southwest of Villarrica",
+     "confidence": 0.72,
+     "coordinate_estimate": {
+      "lat": -39.35,
+      "lng": -72.38,
+      "radius_km": 18
+     },
+     "country": "Chile",
+     "country_iso": "CL",
+     "region_or_state": "Araucania Region (border zone toward Los Rios)"
+    },
+    "alternatives": [
+     {
+      "confidence": 0.13,
+      "country": "Chile",
+      "country_iso": "CL"
+     },
+     {
+      "confidence": 0.09,
+      "country": "Argentina",
+      "country_iso": "AR"
+     }
+    ],
+    "coarse_filters": {
+     "approx_climate_biome": "Temperate oceanic / Valdivian temperate rainforest margin, high rainfall, mixed native broadleaf evergreen plus exotic conifer plantation",
+     "driving_side": "right",
+     "hemisphere": "southern"
+    },
+    "cues": [
+     {
+      "category": "signage",
+      "image_index": 5,
+      "level": "admin_region",
+      "observation": "Green directional sign reads 'Villarrica S-239-T' and 'Chihuaico / Quetroco S-875' — MOP letter-coded secondary routes with S prefix.",
+      "supports": [
+       "Chile",
+       "Araucania macro-zone"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "language",
+      "image_index": 3,
+      "level": "country",
+      "observation": "Spanish-language roadside kiosk text: 'Bebidas CCU 3 Lts $2.990' — CCU is the Chilean beverage conglomerate and prices in thousands of pesos.",
+      "supports": [
+       "Chile"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "road_furniture",
+      "image_index": 0,
+      "level": "country",
+      "observation": "White circular speed-limit sign with thin red ring reading '30', mounted on a slim galvanised pole — Chilean MOP style.",
+      "supports": [
+       "Chile"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "road_markings",
+      "image_index": 4,
+      "level": "country",
+      "observation": "Double white centre line on a two-lane rural road, white edge lines, no yellow paint — characteristic of Chile (Argentina uses yellow centre lines).",
+      "supports": [
+       "Chile"
+      ],
+      "weight": "high"
+     },
+     {
+      "category": "vegetation",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Dense evergreen native understory mixed with tall Pinus radiata/eucalypt plantation blocks and deciduous nothofagus-type trees; foxgloves (Digitalis) naturalised on the verge.",
+      "supports": [
+       "southern Chile Lake District / Valdivian margin"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "architecture",
+      "image_index": 2,
+      "level": "macro_region",
+      "observation": "Timber-frame houses clad in rough sawn boards and OSB with steep corrugated zinc roofs, satellite dish, small shingled cabin in painted blue — southern Chilean rural timber vernacular, not adobe.",
+      "supports": [
+       "southern Chile"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "culture",
+      "image_index": 0,
+      "level": "district",
+      "observation": "Rows of plain coloured cloth flags (yellow, orange, blue, green) tied to fence posts along the roadside next to small roadside stalls/queltehue-style shelters — typical Chilean rural roadside vendor/ritual flagging in Mapuche-campesino corridors.",
+      "supports": [
+       "Araucania Mapuche frontier"
+      ],
+      "weight": "medium"
+     },
+     {
+      "category": "utility",
+      "image_index": 0,
+      "level": "macro_region",
+      "observation": "Slender round wooden poles with single crossarm and small pole-top transformer, low-voltage bundled drops — rural southern Chilean distribution hardware.",
+      "supports": [
+       "Chile rural south"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "landform",
+      "image_index": 4,
+      "level": "admin_region",
+      "observation": "Broad green pasture basin ringed by low forested hills and a distant higher ridge; no arid ground, no volcano cone visible in these frames.",
+      "supports": [
+       "Andean piedmont lake district plain"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "season",
+      "image_index": 2,
+      "level": "district",
+      "observation": "One frame shows bare deciduous branches and low sun (winter/early spring) while others show full summer foliage and flowering foxglove — multiple capture dates, mid-latitude seasonality consistent with ~39-40 degrees S.",
+      "supports": [
+       "southern hemisphere temperate"
+      ],
+      "weight": "low"
+     },
+     {
+      "category": "economy",
+      "image_index": 3,
+      "level": "district",
+      "observation": "Informal roadside minimarket with Pepsi flag and banners, greenhouse tunnel, small poultry yard — subsistence smallholding with petty retail, no supermarket or franchise.",
+      "supports": [
+       "rural campesino corridor with tourism spillover"
+      ],
+      "weight": "medium"
+     }
+    ],
+    "languages_detected": [
+     {
+      "confidence": 0.95,
+      "evidence": "'Bebidas CCU 3 Lts $2.990', 'Villarrica', 'Chihuaico', 'Quetroco'",
+      "language": "Spanish",
+      "script": "Latin"
+     },
+     {
+      "confidence": 0.6,
+      "evidence": "Toponyms 'Chihuaico', 'Quetroco' show Mapudungun morphology (-co = water)",
+      "language": "Mapudungun (toponyms)",
+      "script": "Latin"
+     }
+    ],
+    "landmarks": [
+     {
+      "confidence": 0.8,
+      "image_index": 5,
+      "name": "Junction of route S-239-T (to Villarrica) with route S-875 (Chihuaico/Quetroco)",
+      "type": "road junction / signed route"
+     }
+    ],
+    "narrowing": [
+     {
+      "candidates": [
+       "Europe (Alpine/Atlantic)",
+       "New Zealand",
+       "Pacific Northwest USA",
+       "southern South America"
+      ],
+      "conclusion": "Temperate southern South America",
+      "confidence_after": 0.9,
+      "discriminator": "New Zealand would show left-hand traffic, yellow centre lines and NZTA white-on-blue route shields; the Pacific Northwest would show yellow centre lines, US-standard black-on-white speed signs in mph and wide gravel shoulders; Europe would show metal-faced kerbing, EU-style red-ring signs with taller digits and no Spanish text.",
+      "level": "continent",
+      "observation": "Right-hand traffic, Spanish-language commercial signage, white double centre line, temperate rainforest vegetation with pine plantation and summer foliage under a high-sun sky.",
+      "question": "Which temperate maritime landmass is this?",
+      "ruled_out": [
+       "New Zealand — right-hand driving and Spanish text",
+       "USA Pacific NW — metric signage and Spanish",
+       "Europe — Latin American beverage brand CCU and peso pricing"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Chile",
+       "Argentina"
+      ],
+      "conclusion": "Chile",
+      "confidence_after": 0.95,
+      "discriminator": "In Argentine Patagonia/Neuquen you would instead see yellow centre lines, green pentagon provincial route shields (RP xx), Vialidad Nacional blue 'Ruta Nacional' shields, brick town portales and Mercosur plates; you would not see MOP letter-number codes in a white box, nor CCU peso pricing at 2.990.",
+      "level": "country",
+      "observation": "Green directional sign uses MOP letter-block route codes 'S-239-T' and 'S-875' in white rectangles; white double centre line; CCU beverage pricing in Chilean pesos.",
+      "question": "Chile or Argentina on the Andean temperate flank?",
+      "ruled_out": [
+       "Argentina — no green pentagon provincial shields, wrong line colour, Chilean-specific CCU and MOP codes"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "Norte Chico (C/D)",
+       "Central Chile (F-I)",
+       "Biobio (N-Q)",
+       "Araucania/N. Los Rios (S/T)",
+       "Los Lagos (V/W)"
+      ],
+      "conclusion": "MOP 'S' block: Araucania region (or its immediate Los Rios fringe)",
+      "confidence_after": 0.88,
+      "discriminator": "A Los Lagos location would carry V- or W- prefixed routes and appear in the Llanquihue dairy belt; Biobio would carry N/O/P/Q codes with drier pine-monoculture hills; Norte Chico C/D codes would sit in an arid irrigated valley with parronal trellises and bare slopes rather than this rain-forest understory.",
+      "level": "macro_region",
+      "observation": "Both signed routes carry the 'S' letter prefix, and the destination Villarrica is signed as reachable on S-239-T.",
+      "question": "Which MOP letter block, i.e. which macro-zone of Chile?",
+      "ruled_out": [
+       "Los Lagos — would be V/W codes",
+       "Biobio — would be N-Q codes",
+       "Norte Chico — arid landscape absent, wrong letter block"
+      ],
+      "weight": "high"
+     },
+     {
+      "candidates": [
+       "German-colono dairy belt (Llanquihue/Osorno)",
+       "Criollo large-fundo landscape",
+       "Mapuche-campesino frontier smallholdings"
+      ],
+      "conclusion": "Mapuche/campesino smallholder frontier sphere with Villarrica tourism spillover",
+      "confidence_after": 0.8,
+      "discriminator": "The colono belt would show Germanic surnames on gates, shingled fachwerk-influenced farmhouses, manicured fenced dairy paddocks and named 'Fundo' signposts; a criollo fundo landscape would show long consolidated estates with a single grand gateway and Spanish family names. Here instead: Mapudungun toponyms (Chihuaico, Quetroco, -co 'water'), dispersed micro-parcels, hand-built OSB/board sheds, multiple cloth flags on posts, and improvised roadside retail.",
+      "level": "cultural_sphere",
+      "observation": "Mapudungun place names on the route sign, dispersed tiny holdings with self-built timber structures, roadside flag rows and a Pepsi/CCU informal kiosk.",
+      "question": "Which rural cultural sphere of southern Chile — German colono, criollo fundo, or Mapuche frontier?",
+      "ruled_out": [
+       "Llanquihue colono belt — no Germanic architecture or surnames",
+       "Criollo fundo belt — no consolidated estate gateways"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "North of Villarrica toward Freire/Cunco",
+       "Southwest of Villarrica toward Lican Ray/Loncoche",
+       "East toward Pucon/Curarrehue"
+      ],
+      "conclusion": "Rural corridor west/southwest of Villarrica on the S-239-T, near the Chihuaico-Quetroco turnoff",
+      "confidence_after": 0.62,
+      "discriminator": "East of Villarrica toward Pucon and Curarrehue the frames would be dominated by the Villarrica volcano cone and tourist signage (cabanas, rafting, hostals in English); north toward Freire the terrain flattens into the open Central Valley grain plain with fewer native-forest walls. Here the road threads narrow forested hill shoulders with small pasture basins, Villarrica signed as a destination (so we are off it, not in it), and the branch road to Chihuaico/Quetroco is gravel.",
+      "level": "metro_area",
+      "observation": "Villarrica appears as an arrowed destination rather than as local street signage; the landscape is enclosed hilly forest-and-pasture with a gravel side road, and a small settlement entry sign is visible on the straight.",
+      "question": "Which side of Villarrica along the S-239-T?",
+      "ruled_out": [
+       "East toward Pucon — no volcano cone and no tourist-town signage density",
+       "North toward Freire — terrain too enclosed and hilly for the open valley plain"
+      ],
+      "weight": "medium"
+     },
+     {
+      "candidates": [
+       "Immediate Villarrica periphery",
+       "Mid-corridor hamlet 15-30 km out"
+      ],
+      "conclusion": "A small mid-corridor hamlet, not the town periphery; exact locality not resolvable from these frames",
+      "confidence_after": 0.55,
+      "discriminator": "On the immediate Villarrica periphery you would see kerbed sidewalks, street lighting on every pole, painted crosswalks and continuous built frontage; here a 30 km/h sign and a bus-stop shelter stand alone among unfenced pasture with no kerbs or lighting, which is how MOP marks an isolated village school/crossing zone.",
+      "level": "district",
+      "observation": "Isolated 30 km/h zone with a timber bus shelter, gravel accesses, no kerbs or streetlights, and a green locality entry plate on the approach.",
+      "question": "Which hamlet along the corridor?",
+      "ruled_out": [
+       "Villarrica urban periphery — no kerbing, lighting or continuous frontage"
+      ],
+      "weight": "low"
+     }
+    ],
+    "cultural_economic_read": "A low-income rural smallholder corridor in Chile's Araucania: self-built board-and-OSB houses with corrugated zinc roofs, satellite TV dishes, small greenhouse tunnels, poultry, and an informal minimarket monetised by Pepsi/CCU banner sponsorship with 3-litre soft drinks at CLP 2,990. Land is fragmented into micro-parcels with Mapudungun toponyms, indicating the Mapuche/campesino frontier rather than the German-colono dairy belt further south. Public investment is thin but present — paved and line-marked MOP secondary road, signed route codes, a timber bus shelter, a speed-controlled village zone — while the gravel branch road shows the second-tier network. Proximity to the Villarrica lake-tourism hub adds a thin overlay of passing traffic and roadside retail without visibly transforming the subsistence economy.",
+    "place_slug": "villarrica",
+    "relied_on_atoms": [
+     "atm_0b01719c9eb4",
+     "atm_71667f856f45",
+     "atm_1496460091f6",
+     "atm_a76ff2e557d1",
+     "atm_530209fff20e"
+    ],
+    "overall_confidence": 0.72
+   },
+   "cost_usd": 0.1421,
+   "model": "claude-opus-5",
+   "cache": {
+    "input": 2700,
+    "output": 4765,
+    "cacheWrite": 0,
+    "cacheRead": 19006
+   },
+   "metrics": {
+    "country": "Chile",
+    "country_iso": "CL",
+    "country_correct": true,
+    "region": "Araucania Region (border zone toward Los Rios)",
+    "city": "Chihuaico / Quetroco rural corridor southwest of Villarrica",
+    "confidence": 0.72,
+    "overall_confidence": 0.72,
+    "error_km": 16.09,
+    "reached_level": "district",
+    "n_steps": 6,
+    "n_steps_with_cut": 6,
+    "n_cues": 11,
+    "n_landmarks": 1,
+    "cue_categories": [
+     "architecture",
+     "culture",
+     "economy",
+     "landform",
+     "language",
+     "road_furniture",
+     "road_markings",
+     "season",
+     "signage",
+     "utility",
+     "vegetation"
+    ]
+   },
+   "known_offered": [
+    "atm_e591fce7975b",
+    "atm_71667f856f45",
+    "atm_530209fff20e",
+    "atm_a76ff2e557d1",
+    "atm_0b01719c9eb4",
+    "atm_173fb47af208",
+    "atm_1496460091f6",
+    "atm_bb85705ffd68",
+    "atm_cf43621783bd",
+    "atm_edd60e50c814"
+   ],
+   "relied_on": [
+    "atm_0b01719c9eb4",
+    "atm_71667f856f45",
+    "atm_1496460091f6",
+    "atm_a76ff2e557d1",
+    "atm_530209fff20e"
+   ],
+   "revised_from": null
+  },
+  "final": {
+   "country_iso": "CL",
+   "country": "Chile",
+   "region": "Araucania Region (border zone toward Los Rios)",
+   "city": "Chihuaico / Quetroco rural corridor southwest of Villarrica",
+   "lat": -39.35,
+   "lng": -72.38,
+   "error_km": 16.09,
+   "reached_level": "district",
+   "confidence": 0.72,
+   "from": "phase2"
+  }
+ },
+ "verdict": {
+  "country": "hit",
+  "region": "miss",
+  "city": "hit",
+  "error_km": 16.09,
+  "bucket": "<100"
+ },
+ "correction": {
+  "cost_usd": 0.21708875,
+  "model": "claude-opus-5",
+  "retries": 0,
+  "cache": {
+   "input": 5539,
+   "output": 2927,
+   "cacheWrite": 18595,
+   "cacheRead": 0
+  },
+  "parameter": "value",
+  "summary": "Chile / Araucanía / the Chihuaico–Quetroco corridor near Villarrica was confirmed: the green MOP sign with 'S-239-T' and 'S-875' letter-block codes plus Villarrica as the arrowed destination pinned both country and locality, and the 16 km error came only from placing the corridor south-west rather than north-west of Villarrica. Argentina was correctly excluded by the white double centre line, the MOP letter-number codes in white boxes (not green pentagon RP shields) and CCU/peso kiosk pricing. The only real gap was direction along the signed route, which the images cannot resolve — the analyst guessed the wrong side of the junction.",
+  "misleading_cues": [
+   {
+    "image_index": 4,
+    "observation": "Enclosed forested hill shoulders with small pasture basins and no volcano cone in frame",
+    "why_misleading": "Read as evidence for a corridor south-west of Villarrica, but the same enclosed forest-and-pasture terrain occurs on the north-west (Añilco) side; absence of the volcano cone only reflects viewing angle and tree walls, not distance or bearing."
+   },
+   {
+    "image_index": 5,
+    "observation": "Villarrica signed with an arrow on S-239-T",
+    "why_misleading": "A destination arrow gives distance-free direction only; the analyst inferred a side of town from it, whereas the same sign appears on either approach."
+   }
+  ],
+  "decisive_cues": [
+   {
+    "observation": "Green directional sign with route codes 'S-239-T' and 'S-875' in white rectangles",
+    "why_decisive": "The MOP letter-block 'S' fixes Araucanía/northern Los Ríos, and this exact junction pair localises the Añilco/Chihuaico axis.",
+    "category": "road-signage",
+    "image_index": 5
+   },
+   {
+    "observation": "Double white centre line with white edge lines, no yellow paint anywhere",
+    "why_decisive": "Chile paints white centre lines; Argentina would use yellow, so this settles the country on the Andean temperate flank.",
+    "category": "road-marking",
+    "image_index": 4
+   },
+   {
+    "observation": "Kiosk banners reading 'Bebidas CCU 3 Lts $2.990' with Pepsi flags",
+    "why_decisive": "CCU bottling plus four-digit peso pricing is a Chilean retail signature.",
+    "category": "business-chain",
+    "image_index": 3
+   },
+   {
+    "observation": "Mapudungun toponyms Chihuaico and Quetroco on the junction sign",
+    "why_decisive": "The '-co' (water) suffix pattern is dense in the Araucanía Mapuche frontier, supporting the macro-region independent of the road code.",
+    "category": "toponymy",
+    "image_index": 5
+   },
+   {
+    "observation": "Self-built timber houses clad in rough boards and OSB with steep corrugated zinc roofs, plus a timber roadside bus shelter",
+    "why_decisive": "Southern Chilean rural timber vernacular of the rainy Araucanía/Los Ríos belt, not adobe or Argentine brick.",
+    "category": "housing-typology",
+    "image_index": 2
+   },
+   {
+    "observation": "Slender round wooden poles, single crossarm, small pole-top transformer and bundled low-voltage drops",
+    "why_decisive": "Standard rural southern Chilean distribution hardware rather than the heavier concrete/rusted-steel Argentine rural furniture.",
+    "category": "utility-pole",
+    "image_index": 0
+   }
+  ],
+  "discriminators": [
+   {
+    "title": "White double centre line marks Chile; yellow marks Argentina on the Andean flank",
+    "body": "On Chilean two-lane rural roads the centre line is white (often a double white) with white edge lines. In Argentine Patagonia/Neuquén the same road would instead carry a yellow centre line, so the paint colour alone separates the two temperate Andean sides.",
+    "layer": "geography",
+    "category": "road-marking",
+    "scope": "country",
+    "tags": [
+     "centre-line",
+     "paint-colour"
+    ],
+    "entities": [
+     "Chile",
+     "Argentina"
+    ],
+    "looks_like": {
+     "country_iso": "AR",
+     "country": "Argentina",
+     "region": "Neuquén"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "La Araucanía"
+    },
+    "confidence": 0.9
+   },
+   {
+    "title": "MOP letter-number codes in white boxes vs Argentine green pentagon RP shields",
+    "body": "Chilean secondary routes are signed as a region letter plus number inside a plain white rectangle on a green panel (S-239-T, S-875). In Argentina you would instead see green pentagon provincial shields (RP xx) or blue Ruta Nacional shields, and often a brick entrance portal at the town edge.",
+    "layer": "geography",
+    "category": "road-signage",
+    "scope": "country",
+    "tags": [
+     "route-shield",
+     "MOP"
+    ],
+    "entities": [
+     "Chile",
+     "Argentina"
+    ],
+    "looks_like": {
+     "country_iso": "AR",
+     "country": "Argentina"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile"
+    },
+    "confidence": 0.92
+   },
+   {
+    "title": "An arrowed town name fixes the axis, not the side — check junction pair, not terrain feel",
+    "body": "When a rural Chilean junction sign names a town with an arrow plus two minor destinations, the reliable inference is the numbered corridor, not which side of the town you are on. In enclosed forested Araucanía terrain the north-west (Añilco) and south-west approaches to Villarrica look identical, so inferring a bearing from 'enclosed hills, no volcano visible' is unsafe; rely on the specific minor-destination pair instead.",
+    "layer": "geography",
+    "category": "road-signage",
+    "scope": "region",
+    "tags": [
+     "direction-inference",
+     "junction"
+    ],
+    "entities": [
+     "Villarrica SW corridor",
+     "Añilco–Chihuaico axis"
+    ],
+    "looks_like": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "corridor SW of Villarrica"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "Añilco–Chihuaico, NW of Villarrica"
+    },
+    "confidence": 0.6
+   },
+   {
+    "title": "Araucanía Mapuche smallholder frontier vs Llanquihue colono belt",
+    "body": "In the Araucanía 'S'-block frontier you see Mapudungun '-co' toponyms, dispersed micro-parcels, hand-built board/OSB sheds and informal Pepsi/CCU roadside kiosks. In the Los Lagos German-colono dairy belt you would instead find V/W route codes, shingled colono farmhouses, Germanic surnames on gate signs and fenced manicured dairy paddocks.",
+    "layer": "culture",
+    "category": "settlement-pattern",
+    "scope": "region",
+    "tags": [
+     "mapuche",
+     "colono",
+     "toponymy"
+    ],
+    "entities": [
+     "La Araucanía",
+     "Los Lagos"
+    ],
+    "looks_like": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "Los Lagos"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile",
+     "region": "La Araucanía"
+    },
+    "confidence": 0.75
+   },
+   {
+    "title": "Foxglove verges and Nothofagus/radiata mix mark the Chilean rainy south, not NZ",
+    "body": "Naturalised Digitalis on gravel verges beside evergreen native understory and Pinus radiata blocks occurs in both southern Chile and New Zealand. Chile is settled by right-hand traffic, white centre lines and Spanish signage; in New Zealand you would instead see left-hand traffic, yellow centre lines and white-on-blue route shields.",
+    "layer": "nature",
+    "category": "vegetation-cue",
+    "scope": "country",
+    "tags": [
+     "foxglove",
+     "radiata",
+     "southern-temperate"
+    ],
+    "entities": [
+     "Chile",
+     "New Zealand"
+    ],
+    "looks_like": {
+     "country_iso": "NZ",
+     "country": "New Zealand"
+    },
+    "actually": {
+     "country_iso": "CL",
+     "country": "Chile"
+    },
+    "confidence": 0.8
+   }
+  ],
+  "misled_atoms": [
+   "atm_a76ff2e557d1"
+  ],
+  "confirming_atoms": [
+   "atm_0b01719c9eb4",
+   "atm_71667f856f45",
+   "atm_1496460091f6",
+   "atm_530209fff20e"
+  ],
+  "retract_candidates": []
+ },
+ "atoms": {
+  "created": [
+   "atm_51fe315e02a2",
+   "atm_5c9530efe534",
+   "atm_e7200d85a9af",
+   "atm_d67c3162a1df"
+  ],
+  "merged": [
+   "atm_530209fff20e"
+  ],
+  "ordered": [
+   "atm_51fe315e02a2",
+   "atm_530209fff20e",
+   "atm_5c9530efe534",
+   "atm_e7200d85a9af",
+   "atm_d67c3162a1df"
+  ]
+ },
+ "evidence": {
+  "hits": [
+   "atm_0b01719c9eb4",
+   "atm_71667f856f45",
+   "atm_1496460091f6",
+   "atm_530209fff20e"
+  ],
+  "misses": [
+   "atm_a76ff2e557d1"
+  ],
+  "retracted": [],
+  "restored": [],
+  "skipped_idempotent": []
+ },
+ "cost_usd": 0.598,
+ "status": "OK"
+}
