@@ -364,3 +364,7 @@ ol.narrow::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;widt
   font: inherit; font-size: 11.5px; padding: 2px 8px; border-radius: 6px; cursor: pointer;
   border: 1px solid #f0c0ba; background: #fbe7e5; color: #a8231c;
 }
+
+/* 구독 모드 계기 — API 키 입력창 위에 붙는다. 잔량이 기준 아래로 내려가면 붉게. */
+.sub-sep { border: 0; border-top: 1px solid var(--line, #e2e8e5); margin: 10px 0 8px; }
+.sub-warn { color: #a8231c; font-weight: 600; }

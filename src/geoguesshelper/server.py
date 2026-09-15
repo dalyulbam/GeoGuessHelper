@@ -1103,15 +1103,54 @@ def build_app(settings: Settings) -> FastAPI:
         return await _QUEUE.submit(kind, payload, label=label,
                                    client_key=str(payload.get("clientKey") or ""))
 
+    def _subscription_gate() -> None:
+        """구독 쿼터 검사 — 잡을 **시작하기 전에** 본다.
+
+        보고서 한 건이 15~20 호출이고, 그 쿼터는 사용자가 코딩에 쓰는 5시간 창과 **같은 통**이다.
+        게다가 창이 차면 넘어갈 밸브가 없다(overageStatus=rejected). 중간에 멈춰 실패로 남는
+        것이 제일 나쁘므로, 남지 않았으면 시작조차 하지 않는다.
+        """
+        if not settings.uses_subscription:
+            return
+        from . import subscription
+
+        info = subscription.rate_limit(settings)
+        if not info.get("ok"):
+            return          # 계기 고장이 잡을 막으면 안 된다 — 호출이 실패하면 그때 말한다
+        for key, label in (("five_hour", "5시간"), ("seven_day", "7일")):
+            w = info.get(key) or {}
+            util = w.get("utilization")
+            if util is None or util < settings.subscription_quota_stop:
+                continue
+            when = _reset_label(w.get("resetsAt"))
+            raise HTTPException(
+                status_code=429,
+                detail=(f"Claude 구독의 {label} 사용량이 {util * 100:.0f}% 입니다"
+                        f"(중단 기준 {settings.subscription_quota_stop * 100:.0f}%). "
+                        f"{when} 이후에 다시 시도하거나, '내 키'에서 API 키 모드로 바꾸세요."),
+                headers={"X-Quota-Reason": "subscription"})
+
     def _gate(request: Request) -> None:
         """무료 한도 검사 — 보고서를 만드는 경로에서만. 402 는 '돈이 필요하다'는 뜻이고,
         화면은 reason 으로 가입 창을 띄울지 결제 창을 띄울지 고른다."""
+        _subscription_gate()
         if not settings.multi_user:
             return
         d = quota.decide(settings, request, getattr(request.state, "user", None))
         if not d.allowed:
             raise HTTPException(status_code=402, detail=d.message,
                                 headers={"X-Quota-Reason": d.reason})
+
+    @app.get("/api/subscription")
+    async def api_subscription():
+        """구독 백엔드 상태와 잔량 — 화면 오른쪽 위 계기가 쓴다."""
+        if not settings.uses_subscription:
+            return JSONResponse({"enabled": False, "forced": settings.llm_backend_forced})
+        from . import subscription
+
+        return JSONResponse({"enabled": True, "pool": settings.subscription_pool,
+                             "stopAt": settings.subscription_quota_stop,
+                             **subscription.rate_limit(settings)})
 
     @app.get("/api/quota")
     async def api_quota(request: Request):
@@ -1399,6 +1438,21 @@ def build_app(settings: Settings) -> FastAPI:
     return app
 
 
+def _reset_label(ts) -> str:
+    """쿼터 창이 언제 풀리는가 — 사람이 읽는 시각으로.
+
+    모듈 수준에 둔다. build_app() 의 게이트와 main() 의 배너가 **둘 다** 쓰는데,
+    한쪽 안에 중첩하면 다른 쪽에서는 이름이 없다. 그 NameError 는 쿼터가 실제로
+    찼을 때만 터진다 — 가장 늦게 발견되는 종류다.
+    """
+    import datetime as _dt
+
+    try:
+        return _dt.datetime.fromtimestamp(int(ts)).strftime("%H:%M")
+    except (TypeError, ValueError, OSError):
+        return "창이 리셋된 뒤"
+
+
 def _synthesize_sync(settings: Settings, selector: str, langs: list[str]) -> dict:
     """종합 보고서 — 저장된 원자만으로 재조립한다(새 웹 검색 없음)."""
     res = knowledge.synthesize(settings, selector=selector, lang="en")
@@ -1449,6 +1503,25 @@ def main() -> None:
     from .tls import decide_tls, keylog_removed, neutralize_keylog
     from .winquirks import neutralize_wmi, wmi_neutralized
 
+    def _llm_banner(s) -> str:
+        """어느 백엔드로 도는지 + 구독이면 남은 양. 켜 놓고 어디로 나가는지 모르면 안 된다."""
+        if not s.uses_subscription:
+            return "설정됨 (API 키)" if s.anthropic_api_key else "없음 (분석 비활성)"
+        from . import subscription
+
+        info = subscription.rate_limit(s)
+        if not info.get("ok"):
+            return f"구독 — 상태 확인 실패 ({info.get('error', '')[:60]})"
+        if not info.get("sawRateLimit"):
+            # 쿼터 이벤트가 안 왔다 = 구독이 아니라 다른 자격증명으로 붙었다는 뜻이다.
+            return "구독 요청했으나 쿼터 신호 없음 — `claude auth status` 를 확인하세요"
+        bits = []
+        for key, label in (("five_hour", "5시간"), ("seven_day", "7일")):
+            u = (info.get(key) or {}).get("utilization")
+            if u is not None:
+                bits.append(f"{label} 잔량 {max(0, 100 - u * 100):.0f}%")
+        return f"구독(이 PC 의 Claude) · 클라이언트 {s.subscription_pool}개 · " + " · ".join(bits)
+
     def _static_banner(s) -> str:
         """Static 경로의 **실제** 상태. '키 설정됨'만으로는 쓸 수 있다는 뜻이 아니다."""
         h = capture_mod.static_health(s)
@@ -1497,7 +1570,8 @@ def main() -> None:
         f"   브라우저 : {url}",
         f"   JS 지도 키   : {'설정됨' if settings.has_js_key else '없음 (지도/로드뷰 비활성, 추출은 동작)'}",
         f"   Static 캡처  : {_static_banner(settings)}",
-        f"   Claude 분석  : {'설정됨' if settings.has_anthropic else '없음 (분석 비활성)'}",
+        f"   Claude 분석  : {_llm_banner(settings)}",
+        *([f"   ! {settings.llm_backend_forced}"] if settings.llm_backend_forced else []),
         f"   TLS 검증     : {_TLS_BANNER.get(tls_mode, '켬')}"
         + (" · 시작 프로브는 실패(호스트별로 판정한다)" if _tls.probe_unverified() else ""),
         *([f"   SSLKEYLOGFILE: 제거함 ({keylog_removed()}) - 백신 TLS 감청 지시"] if keylog_removed() else []),

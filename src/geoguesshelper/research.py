@@ -26,6 +26,38 @@ def _strip_cites(v):
     return v
 
 
+# 모든 리서치 도구가 공유하는 출처 필드. API 경로에서는 web_search_tool_result 가 이미
+# '모델이 실제로 인용한 것' 만 남겨 주지만, 구독 경로에는 그 필터가 없다 — 검색기가
+# 돌려준 것이 전부 섞여 들어온다(실측 260916: 제라시를 물었는데 **아테네**의 하드리아누스
+# 개선문이 스트림 URL 20건 중 여럿). 그래서 모델에게 직접 신고하게 하고, 신고한 것을
+# 검색기가 실제로 돌려준 목록과 **교차 검증**한다. 둘 다 통과한 것만 보고서에 들어간다.
+_SOURCES_FIELD = {
+    "sources": {
+        "type": "array",
+        "description": ("Every page you actually opened and used for the facts above. "
+                        "Copy each URL EXACTLY as it appeared in the search results — "
+                        "do not shorten, guess, or reconstruct it. Omit anything you did "
+                        "not open. An empty array is correct if you made no search."),
+        "items": {
+            "type": "object",
+            "required": ["title", "url"],
+            "properties": {
+                "title": {"type": "string"},
+                "url": {"type": "string", "description": "Full URL, verbatim from the results."},
+            },
+        },
+    },
+}
+
+
+def _with_sources(schema: dict) -> dict:
+    """도구 스키마에 sources[] 를 더한다. required 에는 넣지 않는다 —
+    검색을 안 한 호출(병합 단계)까지 빈 배열을 강요할 이유가 없다."""
+    props = dict(schema.get("properties") or {})
+    props.update(_SOURCES_FIELD)
+    return {**schema, "properties": props}
+
+
 _PROFILE_TOOL = {
     "name": "location_profile",
     "description": "Return a researched profile of the identified place.",
@@ -72,6 +104,7 @@ _PROFILE_TOOL = {
         },
     },
 }
+_PROFILE_TOOL["input_schema"] = _with_sources(_PROFILE_TOOL["input_schema"])
 
 
 # ── 병렬 샤드 ────────────────────────────────────────────────────
@@ -128,8 +161,10 @@ def _shard_tool(shard: dict) -> dict:
              if k in shard["fields"]}
     return {
         "name": "partial_profile",
-        "description": f"Return only the researched fields: {', '.join(shard['fields'])}.",
-        "input_schema": {"type": "object", "required": list(shard["fields"]), "properties": props},
+        "description": f"Return only the researched fields: {', '.join(shard['fields'])}, "
+                       "plus the sources you actually opened.",
+        "input_schema": _with_sources(
+            {"type": "object", "required": list(shard["fields"]), "properties": props}),
     }
 
 
@@ -142,11 +177,49 @@ def _place_str(place: dict) -> str:
     return label or "the identified location"
 
 
-def _sources_from(resp) -> list[dict]:
-    """응답의 web_search_tool_result 블록에서 실제 검색 결과 URL/제목을 추출(중복 제거)."""
+def _searches_of(resp, usage=None) -> int:
+    """이 응답이 실제로 돈 검색 횟수.
+
+    API 경로  — usage.server_tool_use.web_search_requests (서버측 도구).
+    구독 경로 — 그 값은 **언제나 0** 이다(클라이언트측 WebSearch 라서). 대신 스트림에서
+                센 도구 호출 수를 쓴다. 출처 개수로 대용하면 "검색 12건" 같은 틀린 수가 된다.
+    """
+    n = getattr(resp, "web_searches", 0) or 0
+    if n:
+        return int(n)
+    u = usage if usage is not None else getattr(resp, "usage", None)
+    return getattr(getattr(u, "server_tool_use", None), "web_search_requests", 0) or 0
+
+
+def _claimed_sources(resp) -> list[dict]:
+    """모델이 도구 입력으로 스스로 신고한 출처."""
+    from . import llm
+
     out: list[dict] = []
-    seen: set[str] = set()
-    for b in resp.content:
+    for name in ("location_profile", "partial_profile"):
+        got = llm.tool_input(resp, name)
+        if isinstance(got, dict) and isinstance(got.get("sources"), list):
+            for s in got["sources"]:
+                if isinstance(s, dict) and s.get("url"):
+                    out.append({"title": str(s.get("title") or "").strip(),
+                                "url": str(s["url"]).strip()})
+            break
+    return out
+
+
+def _sources_from(resp) -> tuple[list[dict], int]:
+    """(검증을 통과한 출처, 버린 건수).
+
+    API 경로  — web_search_tool_result 블록이 권위 있는 목록이다. 그대로 쓴다.
+    구독 경로 — 모델 신고(_claimed_sources)를 검색기가 실제로 돌려준 URL 로 거른다.
+                신고했는데 검색 결과에 없는 URL 은 **모델이 지어낸 것**이므로 버린다.
+    """
+    from . import subscription
+
+    # ① 검색기가 실제로 돌려준 것
+    engine: list[dict] = []
+    engine_keys: set[str] = set()
+    for b in (getattr(resp, "content", None) or []):
         if getattr(b, "type", None) != "web_search_tool_result":
             continue
         content = getattr(b, "content", None)
@@ -154,11 +227,41 @@ def _sources_from(resp) -> list[dict]:
             continue
         for item in content:
             url = getattr(item, "url", None)
-            if not url or url in seen:
+            if not url:
                 continue
-            seen.add(url)
-            out.append({"title": getattr(item, "title", "") or url, "url": url})
-    return out
+            k = subscription.norm_url(url)
+            if k and k not in engine_keys:
+                engine_keys.add(k)
+                engine.append({"title": getattr(item, "title", "") or url, "url": url})
+    for url in (getattr(resp, "harvested_urls", None) or []):
+        k = subscription.norm_url(url)
+        if k:
+            engine_keys.add(k)
+
+    claimed = _claimed_sources(resp)
+    if not claimed:
+        # 신고가 없으면 예전 그대로 — API 경로는 이것만으로 충분하다.
+        return engine, 0
+
+    # ② 교차 검증. 검색을 실제로 돌린 흔적이 없으면 거를 기준 자체가 없으므로 통과시킨다
+    #    (거를 수 없는 것을 거른 척하면 안 된다).
+    out: list[dict] = []
+    seen: set[str] = set()
+    dropped = 0
+    for s in claimed:
+        k = subscription.norm_url(s["url"])
+        if not k:
+            dropped += 1
+            continue
+        if engine_keys and k not in engine_keys:
+            dropped += 1          # 검색 결과에 없던 URL — 지어낸 것이다
+            continue
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append({"title": s["title"] or s["url"], "url": s["url"]})
+    # 모델이 하나도 신고하지 않았거나 전부 탈락했으면 검색기 목록으로 물러선다.
+    return (out or engine), dropped
 
 
 def research_parallel(
@@ -233,6 +336,7 @@ def research_parallel(
     seen_src: set[str] = set()
     cost = 0.0
     searches = 0
+    rejected = 0          # 교차 검증에서 버린 출처(모델이 지어낸 URL)
     failed: list[str] = []
     for sh, r in zip(_SHARDS, results):
         if isinstance(r, llm.LLMCanceled):
@@ -241,13 +345,14 @@ def research_parallel(
             failed.append(sh["key"])
             continue
         cost += llm.spend(r)
-        u = getattr(r, "usage", None)
-        searches += getattr(getattr(u, "server_tool_use", None), "web_search_requests", 0) or 0
+        searches += _searches_of(r)
         part = llm.tool_input(r, "partial_profile") or {}
         for k in sh["fields"]:
             if part.get(k):
                 profile[k] = part[k]
-        for s in _sources_from(r):
+        got, bad = _sources_from(r)
+        rejected += bad
+        for s in got:
             if s["url"] not in seen_src:
                 seen_src.add(s["url"])
                 sources.append(s)
@@ -255,7 +360,8 @@ def research_parallel(
     if not profile:
         return {"status": "NO_PROFILE",
                 "message": f"리서치 샤드가 모두 실패했습니다({', '.join(failed)}).",
-                "sources": sources, "cost_usd": round(cost, 4)}
+                "sources": sources, "sources_rejected": rejected,
+                "cost_usd": round(cost, 4)}
 
     # 병합 — 검색 없이 이미 모은 사실만으로 개요와 장단점을 도출한다(추론 단계).
     if should_stop and should_stop():
@@ -307,6 +413,7 @@ def research_parallel(
         "place": loc,
         "reused_atom_ids": [],
         "searches": searches,
+        "sources_rejected": rejected,   # 교차 검증에서 버린 URL 수 — 0 이 아니면 눈에 보여야 한다
         "known_offered": len(known or []),
         "shards": {"ok": len(_SHARDS) - len(failed), "failed": failed},
     }
@@ -412,10 +519,10 @@ def research_location(
         return {"status": "API_ERROR", "message": f"리서치 호출 실패: {exc}"}
 
     profile = llm.tool_input(resp, "location_profile")
-    sources = _sources_from(resp)
+    sources, rejected = _sources_from(resp)
     usage = getattr(resp, "usage", None)
     cost = llm.spend(resp)
-    searches = getattr(getattr(usage, "server_tool_use", None), "web_search_requests", 0) or 0
+    searches = _searches_of(resp, usage)
 
     # 폴백: 모델이 검색만 하고 도구를 안 불렀으면, 검색 텍스트를 넘겨 강제 구조화.
     if profile is None:
@@ -441,11 +548,12 @@ def research_location(
 
     if profile is None:
         return {"status": "NO_PROFILE", "message": "리서치 결과 구조화 실패.", "sources": sources,
-                "cost_usd": round(cost, 4)}
+                "sources_rejected": rejected, "cost_usd": round(cost, 4)}
 
     profile = _strip_cites(profile)
     reused = [str(x) for x in (profile.pop("reused_atom_ids", None) or []) if x]
     profile.pop("new_findings", None)
+    profile.pop("sources", None)        # 출처는 검증된 목록으로만 나간다 — 프로파일 본문에 두지 않는다
 
     return {
         "status": "OK",
@@ -457,5 +565,6 @@ def research_location(
         "place": loc,
         "reused_atom_ids": reused,
         "searches": searches,
+        "sources_rejected": rejected,
         "known_offered": len(known or []),
     }

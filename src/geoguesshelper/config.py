@@ -25,6 +25,27 @@ class Settings:
     static_api_key: str = ""
     anthropic_api_key: str = ""
 
+    # ── LLM 백엔드 ────────────────────────────────────────────────
+    # "api"          — ANTHROPIC_API_KEY / 회원이 넣은 키로 부른다(기본).
+    # "subscription" — 이 PC 의 Claude 구독(OAuth)으로 부른다. **단독 소유자 모드 전용**이다.
+    #
+    # 왜 전용인가: 내 구독으로 남의 보고서를 만들어 주는 것은 계정 공유다. quota.py 의
+    # "무료 1건" 은 *운영자의 API 키가 돈을 낸다* 는 전제 위에 있고, 구독 모드에서는 그
+    # 전제가 "운영자의 개인 구독이 낸다" 로 바뀐다. 그래서 load_settings() 가 다중 사용자
+    # 모드를 감지하면 이 값을 **코드로** 되돌린다. 문서로 적어 두는 것으로는 부족하다.
+    llm_backend: str = "api"
+    # 구독 클라이언트 수. 하나는 한 번에 한 호출만 받는다(동시에 물리면 응답이 뒤바뀐다 —
+    # subscription.py 머리말 ①). 실측 헤드리스 1개당 ≈210MB.
+    subscription_pool: int = 2
+    # 누적 토큰이 이만큼 넘은 클라이언트는 버리고 새로 만든다. 문맥이 쌓이면 쿼터가 새고,
+    # 더 나쁘게는 **호출들이 서로를 보게 된다**(번역이 직전 리서치 답을 문맥으로 갖는다).
+    subscription_recycle_tokens: int = 8000
+    # 5시간 창 사용률이 이 값을 넘으면 잡을 시작 전에 막는다. 넘치면 넘어갈 밸브가 없다
+    # (overageStatus=rejected 실측) — 시작해 놓고 중간에 멈추는 것이 제일 나쁘다.
+    subscription_quota_stop: float = 0.85
+    # 구독을 요청했지만 되돌린 사유(다중 사용자). 비어 있으면 되돌린 적 없다.
+    llm_backend_forced: str = ""
+
     host: str = "127.0.0.1"
     port: int = 8799  # YCollector(8765)와 충돌 회피. 사용 중이면 자동으로 다음 빈 포트 선택.
 
@@ -234,7 +255,13 @@ class Settings:
 
     @property
     def has_anthropic(self) -> bool:
-        return bool(self.anthropic_api_key)
+        """Claude 를 부를 수 있는가. 구독 모드에서는 키가 없는 것이 정상이다 —
+        예전처럼 키 유무만 보면 분석·리서치가 통째로 꺼진다(server.py:231)."""
+        return bool(self.anthropic_api_key) or self.llm_backend == "subscription"
+
+    @property
+    def uses_subscription(self) -> bool:
+        return self.llm_backend == "subscription"
 
     def public_config(self) -> dict:
         """브라우저로 안전하게 내려보낼 설정. (JS 키는 리퍼러 제한 브라우저 키라 노출 OK)"""
@@ -332,6 +359,24 @@ def load_settings() -> Settings:
         s.knowledge_enabled = False
     if os.environ.get("GEOHELPER_CORRECTION_OFF", "").strip().lower() in ("1", "true", "yes", "on"):
         s.correction_enabled = False
+    # ── LLM 백엔드 ────────────────────────────────────────────────
+    if os.environ.get("GEOHELPER_LLM_BACKEND", "").strip().lower() in ("subscription", "sub"):
+        s.llm_backend = "subscription"
+    _env_int(s, "GEOHELPER_SUBSCRIPTION_POOL", "subscription_pool", lo=1, hi=6)
+    _env_int(s, "GEOHELPER_SUBSCRIPTION_RECYCLE", "subscription_recycle_tokens",
+             lo=2000, hi=200_000)
+    _env_float(s, "GEOHELPER_SUBSCRIPTION_QUOTA_STOP", "subscription_quota_stop",
+               lo=0.1, hi=1.0)
+    # 다중 사용자에서는 구독 모드가 존재할 수 없다 — 계정 공유가 되기 때문이다(위 주석).
+    # 조용히 되돌리지 않고 배너에 찍을 사유를 남긴다.
+    s.llm_backend_forced = ""
+    if s.llm_backend == "subscription" and s.multi_user:
+        s.llm_backend = "api"
+        s.llm_backend_forced = (
+            "다중 사용자 모드(DATABASE_URL)에서는 구독 백엔드를 쓸 수 없습니다 — "
+            "개인 구독으로 남의 요청을 처리하는 것은 계정 공유입니다. API 키 모드로 되돌렸습니다."
+        )
+
     for d in (s.captures_dir, s.reports_dir, s.atlas_dir, s.knowledge_dir, s.jobs_dir):
         d.mkdir(parents=True, exist_ok=True)
     return s

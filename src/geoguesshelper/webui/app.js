@@ -1503,7 +1503,7 @@ async function submitJob(kind, payload, originId, label) {
       body: JSON.stringify(payload),
     });
   } catch (e) {
-    if (e.status === 402) { onQuotaBlocked(e); return null; }
+    if (isQuotaBlock(e)) { onQuotaBlocked(e); return null; }
     setStatus((e.status === 429 ? "대기열이 가득 찼습니다: " : "작업 등록 실패: ") + e.message, "err", 7000);
     return null;
   }
@@ -1682,7 +1682,7 @@ async function retryJob(id, btn) {
     r = await api(`/api/jobs/${id}/retry`, { method: "POST", timeoutMs: 20000 });
   } catch (e) {
     if (btn) { btn.disabled = false; btn.textContent = "다시 시도"; }
-    if (e.status === 402) { onQuotaBlocked(e); return; }
+    if (isQuotaBlock(e)) { onQuotaBlocked(e); return; }
     setStatus("다시 시도 실패: " + e.message, "err", 7000);
     return;
   }
@@ -2135,6 +2135,10 @@ function wireAccount() {
     history.replaceState(null, "", location.pathname);
   }
   refreshAccount();
+  refreshSubscription();
+  // 키 창을 열 때마다 다시 본다 — 잔량은 쓰는 동안 계속 줄어든다.
+  const km = $("#key-menu");
+  if (km) km.addEventListener("toggle", () => { if (km.open) refreshSubscription(); });
 }
 
 if (document.readyState === "loading") {
@@ -2164,11 +2168,29 @@ function byoKey() {
  *   signup → 가입 창(👤),  pay → 같은 창의 등급 안내,  nokey → 키 입력 창(🔑)
  * 둘 중 어느 쪽이든 자기 키를 넣으면 한도가 사라지므로, 키 안내는 항상 덧붙인다.
  */
+/* 한도에 막힌 것인가, 다른 이유인가.
+ *
+ * 402 는 언제나 한도다. 429 는 **두 가지**다 — 대기열이 가득 찼거나(기존), 구독 쿼터가
+ * 찼거나(신규). 서버가 X-Quota-Reason 으로 구분해 주므로 그것으로 가른다. 안 가르면
+ * 구독 쿼터가 "대기열이 가득 찼습니다" 로 표시돼 사용자가 기다리면 된다고 오해한다.
+ */
+function isQuotaBlock(e) {
+  if (e.status === 402) return true;
+  const why = (e.body && e.body.reason) || (e.headers && e.headers.reason) || "";
+  return e.status === 429 && why === "subscription";
+}
+
 function onQuotaBlocked(e) {
   const why = (e.body && e.body.reason) || (e.headers && e.headers.reason) || "";
   const msg = e.message || "무료 사용분을 모두 사용했습니다.";
   setStatus(msg, "err", 12000);
   const acct = $("#acct-menu"), key = $("#key-menu");
+  if (why === "subscription") {
+    // 구독 쿼터가 찬 것 — 키를 넣는 것도 답이지만, 먼저 언제 풀리는지 보여 준다.
+    if (key) key.open = true;
+    refreshSubscription();
+    return;
+  }
   if (why === "nokey") {
     if (key) key.open = true;
   } else if (acct && !acct.hidden) {
@@ -2180,6 +2202,50 @@ function onQuotaBlocked(e) {
   if (st && !byoKey()) {
     st.textContent = "본인 API 키를 넣으면 한도 없이 쓸 수 있습니다.";
   }
+}
+
+/* 구독 백엔드 상태 — 잔량 계기.
+ *
+ * 왜 계기가 필요한가: 보고서 한 건이 LLM 호출 15~20건이고, 그 사용량은 사용자가 터미널에서
+ * 쓰는 Claude Code 와 **같은 5시간 창**에서 나간다. 게다가 창이 차면 넘어갈 밸브가 없다.
+ * 그래서 누르기 전에 얼마 남았는지 보이게 한다. 서버도 같은 값으로 잡을 막는다.
+ */
+async function refreshSubscription() {
+  const box = $("#sub-box"), st = $("#sub-state");
+  if (!box) return;
+  let q;
+  try {
+    q = await api("/api/subscription");
+  } catch (_) {
+    box.hidden = true;
+    return;
+  }
+  if (!q || !q.enabled) { box.hidden = true; return; }
+  box.hidden = false;
+  if (!q.ok) {
+    st.innerHTML = `<b>상태 확인 실패</b> — 터미널에서 <code>claude auth status</code> 를 확인하세요.`;
+    return;
+  }
+  if (!q.sawRateLimit) {
+    st.innerHTML = `<b>구독 신호 없음</b> — API 키가 우선 적용되고 있을 수 있습니다.`;
+    return;
+  }
+  const bits = [];
+  for (const [k, label] of [["five_hour", "5시간"], ["seven_day", "7일"]]) {
+    const w = q[k];
+    if (!w || w.utilization == null) continue;
+    const left = Math.max(0, 100 - w.utilization * 100);
+    const warn = q.stopAt != null && w.utilization >= q.stopAt;
+    bits.push(`<span class="${warn ? "sub-warn" : ""}">${label} 잔량 <b>${left.toFixed(0)}%</b>` +
+              (w.resetsAt ? ` <span class="muted">(${fmtReset(w.resetsAt)} 리셋)</span>` : "") + `</span>`);
+  }
+  st.innerHTML = `✅ <b>구독으로 동작 중</b> · ${bits.join(" · ") || "잔량 정보 없음"}`;
+}
+
+function fmtReset(ts) {
+  try {
+    return new Date(ts * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  } catch (_) { return "곧"; }
 }
 
 function byoProvider(k) {

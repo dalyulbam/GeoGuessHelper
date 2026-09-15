@@ -30,10 +30,20 @@ from .config import Settings
 
 @dataclass(frozen=True)
 class Creds:
-    """이 호출에 쓸 제공자와 키. provider 는 "anthropic" | "openai"."""
+    """이 호출에 쓸 제공자와 키. provider 는 "anthropic" | "openai" | "subscription"."""
     provider: str
     api_key: str
     label: str = ""          # 진단용(마스킹된 표시). 평문은 담지 않는다.
+
+    @property
+    def usable(self) -> bool:
+        """이 자격증명으로 실제로 부를 수 있는가.
+
+        구독은 **키가 없는 것이 요점**이다. 예전에는 판정이 `c.api_key` 하나였고,
+        그래서 구독 Creds 가 falsy 로 걸려 **서버의 API 키로 조용히 떨어졌다** —
+        사용자는 구독으로 도는 줄 알고 요금을 냈다. 판정을 여기 한 곳에 모은다.
+        """
+        return self.provider == "subscription" or bool(self.api_key)
 
 
 _creds: contextvars.ContextVar[Creds | None] = contextvars.ContextVar("ggh_creds", default=None)
@@ -59,8 +69,10 @@ def current_credentials_or_none() -> Creds | None:
 def current_credentials(settings: Settings) -> Creds:
     """지금 쓸 자격증명. 컨텍스트에 없으면 서버 설정(단독 소유자 모드)으로 물러선다."""
     c = _creds.get()
-    if c is not None and c.api_key:
+    if c is not None and c.usable:
         return c
+    if getattr(settings, "llm_backend", "api") == "subscription":
+        return Creds("subscription", "", "이 PC 의 Claude 구독")
     if settings.anthropic_api_key:
         return Creds("anthropic", settings.anthropic_api_key, "server")
     raise LLMUnavailable(
@@ -115,6 +127,23 @@ _PRICES = {
 
 def _price(model: str) -> tuple[float, float]:
     return _PRICES.get((model or "").lower(), (_IN_PER_MTOK, _OUT_PER_MTOK))
+
+
+class _UsageView:
+    """dict usage 를 속성으로 읽히게 하는 어댑터(중첩 dict 도 같은 방식으로 감싼다).
+
+    cost_of()·cache_stats()·research.py 가 전부 `getattr(usage, ...)` 로 읽기 때문에
+    호출부를 고치는 대신 모양을 맞춘다.
+    """
+
+    __slots__ = ("_d",)
+
+    def __init__(self, d: dict):
+        self._d = d
+
+    def __getattr__(self, name: str):
+        v = self._d.get(name)
+        return _UsageView(v) if isinstance(v, dict) else v
 
 
 class LLMUnavailable(RuntimeError):
@@ -209,6 +238,12 @@ def verify_key(settings: Settings, provider: str, api_key: str) -> tuple[bool, s
 
 def close_client() -> None:
     global _client, _client_key
+    try:
+        from . import subscription
+
+        subscription.close_all()
+    except Exception:  # noqa: BLE001 — 종료 정리 실패가 종료를 막으면 안 된다
+        pass
     with _client_lock:
         for c in list(_clients.values()):
             try:
@@ -227,6 +262,10 @@ def cost_of(usage, model: str | None = None) -> float:
     """
     if usage is None:
         return 0.0
+    # 구독(claude-agent-sdk)의 usage 는 **dict** 다. 아래 getattr 들이 전부 빗나가
+    # 조용히 0.0 을 돌려주고 ReportRow.cost_usd 원장이 0 으로 채워졌다. 먼저 정규화한다.
+    if isinstance(usage, dict):
+        usage = _UsageView(usage)
     # OpenAI usage 는 필드 이름이 다르다(prompt_tokens/completion_tokens).
     if getattr(usage, "prompt_tokens", None) is not None:
         pin, pout = _OPENAI_PRICE.get(model or "", _OPENAI_PRICE["gpt-4o"])
@@ -290,6 +329,11 @@ def call(
                             tool_choice=tool_choice, max_tokens=max_tokens, role=role,
                             model=model, deadline_s=deadline_s, should_stop=should_stop,
                             creds=creds)
+    if creds.provider == "subscription":
+        return _call_subscription(settings, system=system, messages=messages, tools=tools,
+                                  tool_choice=tool_choice, max_tokens=max_tokens, role=role,
+                                  model=model, effort=effort, deadline_s=deadline_s,
+                                  should_stop=should_stop)
     client = get_client(settings, creds)
     use_model = model or model_for(settings, role)
     kwargs: dict[str, Any] = {
@@ -343,6 +387,33 @@ def call(
                 if should_stop is not None and should_stop():
                     raise LLMCanceled("호출이 취소되었습니다.")
         return s.get_final_message()
+
+
+# ── 구독 경로 ────────────────────────────────────────────────────
+def _call_subscription(settings: Settings, *, system, messages, tools, tool_choice,
+                       max_tokens, role, model, effort, deadline_s, should_stop):
+    """이 PC 의 Claude 구독으로 부른다. 자세한 사정은 subscription.py 머리말 참조.
+
+    max_tokens 는 **넘길 자리가 없다**(ClaudeAgentOptions 에 없다). 상한이 사라지는 쪽이라
+    잘림 위험은 오히려 줄지만 폭주 제동도 같이 사라진다는 것을 알고 쓴다.
+    """
+    from . import subscription
+
+    use_model = model or model_for(settings, role)
+    try:
+        r = subscription.call(
+            settings, system=system, messages=messages, tools=tools,
+            tool_choice=tool_choice, max_tokens=max_tokens, effort=effort,
+            deadline_s=deadline_s, should_stop=should_stop, model=use_model,
+        )
+    except subscription.SubscriptionUnavailable as exc:
+        raise LLMUnavailable(str(exc)) from exc
+    except TimeoutError as exc:
+        raise LLMTimeout(f"{use_model} 구독 호출이 상한을 넘겼습니다: {exc}") from exc
+    # 취소는 결과가 is_error 로 돌아온다 — 그대로 두면 사용자가 누른 취소가 고장으로 보인다.
+    if r.canceled:
+        raise LLMCanceled("호출이 취소되었습니다.")
+    return r
 
 
 # ── OpenAI 경로 ──────────────────────────────────────────────────
@@ -439,8 +510,19 @@ def used_model(resp) -> str | None:
     return getattr(resp, "model", None)
 
 
+def _is_subscription(resp) -> bool:
+    return bool(getattr(resp, "is_subscription", False))
+
+
 def spend(resp) -> float:
-    """응답 → USD. 실제 사용 모델 단가를 자동 적용."""
+    """응답 → USD. 실제 사용 모델 단가를 자동 적용.
+
+    구독은 **청구되지 않는다** — 여기서 나오는 값은 "API 였다면 얼마"(정가 환산)다.
+    그리고 SDK 의 total_cost_usd 는 세션 누적값이라 subscription.py 가 이미 차분을 냈다.
+    합산하는 호출부(dialogue.py:443)가 있으므로 그 차분을 그대로 돌려줘야 한다.
+    """
+    if _is_subscription(resp):
+        return float(getattr(resp, "cost_usd", 0.0) or 0.0)
     return cost_of(getattr(resp, "usage", None), used_model(resp))
 
 
@@ -481,6 +563,12 @@ def tool_input(resp, name: str | None = None) -> dict | None:
     OpenAI 응답은 모양이 다르다(choices[0].message.tool_calls[].function.arguments 가
     **문자열 JSON**). 호출부를 고치지 않으려고 여기서 흡수한다.
     """
+    if _is_subscription(resp):
+        # 구조화 출력은 스키마 검증까지 끝난 dict 로 온다. 이름이 다르면 준 적 없는 것이다.
+        if name is not None and getattr(resp, "tool_name", "") != name:
+            return None
+        s = getattr(resp, "structured", None)
+        return s if isinstance(s, dict) else None
     if isinstance(resp, _OpenAIResponse):
         import json as _json
 
@@ -504,6 +592,8 @@ def tool_input(resp, name: str | None = None) -> dict | None:
 
 
 def text_of(resp) -> str:
+    if _is_subscription(resp):
+        return (getattr(resp, "text", "") or "").strip()
     if isinstance(resp, _OpenAIResponse):
         msg = resp._msg
         return (getattr(msg, "content", None) or "").strip()

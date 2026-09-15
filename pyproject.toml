@@ -18,8 +18,11 @@ dependencies = [
 capture = ["pillow>=10.0", "playwright>=1.44"]
 # Claude 비전 분석
 analyze = ["anthropic>=0.40"]
+# API 키 대신 이 PC 의 Claude 구독(OAuth)으로 호출 — 단독 소유자 모드 전용.
+#   로컬에 설치된 `claude` CLI 를 SDK 가 띄워 쓴다. 배포(Railway)에서는 쓸 수 없다.
+subscription = ["claude-agent-sdk>=0.2.150"]
 # 전부
-all = ["pillow>=10.0", "playwright>=1.44", "anthropic>=0.40"]
+all = ["pillow>=10.0", "playwright>=1.44", "anthropic>=0.40", "claude-agent-sdk>=0.2.150"]
 # 다중 사용자 서버 — 회원가입·구글 인증·개별 지식 저장소(DB)
 #   SQLAlchemy 하나로 로컬 SQLite 와 배포 Postgres 를 같은 코드로 쓴다(DATABASE_URL).
 #   openai 는 사용자가 ChatGPT 키를 넣었을 때만 실제로 쓰인다.

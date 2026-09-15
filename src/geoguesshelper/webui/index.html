@@ -27,6 +27,17 @@
   <details id="key-menu" class="lang-menu">
     <summary id="key-summary" title="분석·보고서에 쓸 API 키">🔑 <b id="key-label">API 키 없음</b> <span class="caret">▾</span></summary>
     <div class="lang-pop acct-pop">
+      <!-- 구독 모드 — 이 PC 의 Claude 구독으로 도는 상태. 서버가 켜져 있을 때만 보인다.
+           다중 사용자 모드에서는 서버가 아예 켜지 못하므로 여기도 나타나지 않는다. -->
+      <div id="sub-box" hidden>
+        <div class="lang-pop-h">이 PC 의 Claude 구독 <span class="muted">(API 키 대신)</span></div>
+        <div id="sub-state" class="lang-base-hint"></div>
+        <div class="lang-base-hint">
+          요금이 청구되지 않는 대신 <b>구독 사용량</b>을 씁니다 —
+          터미널에서 쓰는 Claude Code 와 같은 창입니다.
+        </div>
+        <hr class="sub-sep">
+      </div>
       <div class="lang-pop-h">API 키 <span class="muted">(Claude 또는 ChatGPT)</span></div>
       <input id="byo-key" type="password" autocomplete="off" spellcheck="false"
              placeholder="sk-ant-… 또는 sk-…">
